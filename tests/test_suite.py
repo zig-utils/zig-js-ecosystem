@@ -175,6 +175,9 @@ class ResultTests(unittest.TestCase):
         self.assertGreater(len(inventory["selected"]), 0)
         self.assertTrue(any(r["full_name"] == "stacksjs/stacks" for r in inventory["selected"]))
         self.assertTrue(any(r["full_name"] == "home-lang/home" for r in inventory["selected"]))
+        self.assertTrue(any(r["full_name"] == "pantry-pm/pantry" for r in inventory["selected"]))
+        self.assertTrue(any(r["full_name"] == "den-shell/den" for r in inventory["selected"]))
+        self.assertTrue(any(r["full_name"] == "craft-native/craft" for r in inventory["selected"]))
         self.assertFalse(any(r["full_name"].startswith("meemalabs/") for r in inventory["selected"]))
 
 

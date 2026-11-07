@@ -2,7 +2,7 @@
 
 Downstream compatibility CI for [zig-js](https://github.com/zig-utils/zig-js), covering Chris Breuer's active public repositories and public GitHub organizations. Every new `zig-js` push calls the pinned reusable workflow in this repository with the **exact pushed engine commit**.
 
-The initial [inventory.json](inventory.json), captured on November 7, 2026, selects **207 repositories**. It includes Stacks, Home, Pickier, Mail OS, the Zig libraries, personal projects, and active owned forks. `meemalabs` is explicitly excluded. Public organization discovery is paginated; private, archived, disabled, empty and inactive repositories have recorded exclusion reasons. The engine and this orchestration repository are excluded to avoid recursion.
+The initial [inventory.json](inventory.json), captured on November 7, 2026, selects **223 repositories**. It includes Stacks, Home, Pantry, Den, Craft, Pickier, Mail OS, personal projects, active owned forks, and the Zig libraries. `meemalabs` is explicitly excluded. Public organization discovery is paginated; additional organizations administered by Chris were verified with authenticated membership discovery and recorded in `config.json` to include their public repos even when membership is hidden on the profile. Private, archived, disabled, empty and inactive repositories have recorded exclusion reasons. The engine and this orchestration repository are excluded to avoid recursion.
 
 ## What runs
 
