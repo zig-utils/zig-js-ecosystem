@@ -114,6 +114,38 @@ def make_shims(directory):
         target.chmod(0o755)
 
 
+def dependency_roots(checkout, scopes):
+    """Install real workspaces once and independent nested apps separately."""
+    candidates = {scope["directory"] for scope in scopes}
+    if (checkout / "package.json").is_file():
+        candidates.add(".")
+    covered, roots = set(), []
+    for directory in sorted(candidates, key=lambda p: (len(Path(p).parts), p)):
+        if directory in covered:
+            continue
+        roots.append(directory)
+        pending = [directory]
+        while pending:
+            current = pending.pop()
+            if current in covered:
+                continue
+            covered.add(current)
+            manifest = json.loads((checkout / current / "package.json").read_text())
+            patterns = manifest.get("workspaces", [])
+            if isinstance(patterns, dict):
+                patterns = patterns.get("packages", [])
+            members = set()
+            for pattern in [p for p in patterns if not p.startswith("!")]:
+                for child in (checkout / current).glob(pattern):
+                    if (child / "package.json").is_file() and child.resolve().is_relative_to(checkout.resolve()):
+                        members.add(child.relative_to(checkout).as_posix())
+            for pattern in [p[1:] for p in patterns if p.startswith("!")]:
+                for child in (checkout / current).glob(pattern):
+                    members.discard(child.relative_to(checkout).as_posix())
+            pending.extend(sorted(members))
+    return roots
+
+
 def script_environment(base, location, checkout, shims=None):
     bins = []
     directory = location
@@ -131,7 +163,7 @@ def is_failure(result):
     return any(check["status"] not in ("passed", "not-applicable") for check in result["checks"])
 
 
-def run_repository(repo, args, config):
+def run_repository(repo, args, config, result=None):
     name = repo["full_name"]
     if not REPOSITORY.fullmatch(name) or not SHA.fullmatch(repo["sha"]):
         raise ValueError("Only inventoried owner/repo names and immutable commit SHAs are accepted")
@@ -140,12 +172,15 @@ def run_repository(repo, args, config):
     out.mkdir(parents=True, exist_ok=True)
     work = args.work / slug
     work.mkdir(parents=True, exist_ok=True)
-    result = {"repository": name, "sha": repo["sha"], "engine_sha": args.engine_sha,
-              "checks": [], "scopes": [], "omitted_manifests": []}
+    if result is None:
+        result = {"repository": name, "sha": repo["sha"], "engine_sha": args.engine_sha,
+                  "checks": [], "scopes": [], "omitted_manifests": []}
     provenance = args.home_tool.parent / "provenance.json"
     result["runtime_provenance"] = json.loads(provenance.read_text()) if provenance.is_file() else None
     deadline = time.monotonic() + config["repository_timeout_seconds"]
-    env = {**os.environ, "CI": "1", "GIT_TERMINAL_PROMPT": "0", "GIT_LFS_SKIP_SMUDGE": "1"}
+    bun_cache = work / "bun-cache"
+    env = {**os.environ, "CI": "1", "GIT_TERMINAL_PROMPT": "0", "GIT_LFS_SKIP_SMUDGE": "1",
+           "BUN_INSTALL_CACHE_DIR": str(bun_cache)}
     # Consumer scripts get no API credential, including on workflow_dispatch runs.
     for key in list(env):
         if key in {"GH_TOKEN", "GITHUB_TOKEN", "ACTIONS_RUNTIME_TOKEN", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"}:
@@ -188,10 +223,23 @@ def run_repository(repo, args, config):
     scopes, omitted = package_plan(candidate, files)
     result.update(scopes=scopes, omitted_manifests=omitted,
                   native_build_files=[p for p in files if Path(p).name == "build.zig"])
-    if name == config["home_repository"] and (candidate / "build.zig").is_file():
+    has_native_build = (candidate / "build.zig").is_file()
+    if name == config["home_repository"] and has_native_build:
         for step in ("home-tool", "home-tool-smoke"):
             check("Home integration: " + step, ["zig", "build", step, "-Dtool-js-engine=zig-js",
                   "-Dzig-js-root=" + str(args.engine_root)], candidate, lane="direct-consumer")
+
+    def native_checks():
+        if has_native_build and name != config["home_repository"]:
+            check("native Zig build", ["zig", "build"], candidate, lane="native-zig")
+            if check("discover native Zig test steps", ["zig", "build", "--help"], candidate, lane="native-zig"):
+                help_text = (out / result["checks"][-1]["log"]).read_text()
+                if re.search(r"^\s+test(?:-parallel)?\s", help_text, re.MULTILINE):
+                    step = "test-parallel" if re.search(r"^\s+test-parallel\s", help_text, re.MULTILINE) else "test"
+                    check("native Zig tests", ["zig", "build", step], candidate, lane="native-zig")
+                else:
+                    result["checks"].append({"label": "native Zig tests", "lane": "native-zig",
+                                              "status": "not-applicable", "reason": "No advertised test or test-parallel step"})
     shims = work / "shims"
     make_shims(shims)
     candidate_env = {**env, "PATH": str(shims) + os.pathsep + env["PATH"],
@@ -203,7 +251,8 @@ def run_repository(repo, args, config):
                      candidate, lane="engine"):
             return result
         # Frozen installs when a lockfile exists; no registry-driven lifecycle hooks.
-        install_roots = {"."} if (candidate / "package.json").is_file() else {s["directory"] for s in scopes}
+        install_roots = dependency_roots(candidate, scopes)
+        result["dependency_roots"] = install_roots
         for directory in sorted(install_roots):
             location = candidate / directory
             frozen = any((location / filename).exists() for filename in ("bun.lock", "bun.lockb", "package-lock.json", "yarn.lock", "pnpm-lock.yaml"))
@@ -224,7 +273,12 @@ def run_repository(repo, args, config):
                 check(f"{scope['directory']}: CLI {binary} --help",
                       [str(shims / "bun"), entry, "--help"], location, scope_env, requires_engine=True)
 
+        native_checks()
         if args.reference:
+            # Candidate artifacts are no longer needed. Avoid keeping two Home
+            # trees, build caches and dependency installations on a small runner.
+            shutil.rmtree(candidate)
+            shutil.rmtree(bun_cache, ignore_errors=True)
             reference = work / "reference"
             if clone(reference):
                 for directory in sorted(install_roots):
@@ -238,18 +292,9 @@ def run_repository(repo, args, config):
                     for label, command in scope["scripts"].items():
                         check(f"{scope['directory']}: {label}", ["/bin/sh", "-c", command],
                               location, scope_env, lane="reference")
-    if (candidate / "build.zig").is_file():
-        if name != config["home_repository"]:
-            check("native Zig build", ["zig", "build"], candidate, lane="native-zig")
-            if check("discover native Zig test steps", ["zig", "build", "--help"], candidate, lane="native-zig"):
-                help_text = (out / result["checks"][-1]["log"]).read_text()
-                if re.search(r"^\s+test(?:-parallel)?\s", help_text, re.MULTILINE):
-                    step = "test-parallel" if re.search(r"^\s+test-parallel\s", help_text, re.MULTILINE) else "test"
-                    check("native Zig tests", ["zig", "build", step], candidate, lane="native-zig")
-                else:
-                    result["checks"].append({"label": "native Zig tests", "lane": "native-zig",
-                                              "status": "not-applicable", "reason": "No advertised test or test-parallel step"})
-    if not scopes and not (candidate / "build.zig").is_file():
+    else:
+        native_checks()
+    if not scopes and not has_native_build:
         # Non-executable repos are retained in the coverage report, outside runtime passes.
         executable = any(Path(p).suffix in (".ts", ".js", ".tsx", ".jsx", ".mjs", ".cjs", ".zig")
                          and not EXCLUDED_PARTS.intersection(Path(p).parts) for p in files)
@@ -257,6 +302,24 @@ def run_repository(repo, args, config):
                                   "status": "unsupported" if executable else "not-applicable",
                                   "reason": "No recognized package or native Zig build entry point" if executable
                                   else "No tracked JavaScript/TypeScript/Zig executable consumer"})
+    return result
+
+
+def run_and_save(repo, args, config):
+    result = {"repository": repo["full_name"], "sha": repo["sha"], "engine_sha": args.engine_sha,
+              "checks": [], "scopes": [], "omitted_manifests": []}
+    try:
+        run_repository(repo, args, config, result)
+    except Exception as error:
+        # Preserve completed command evidence when a later command exhausts disk
+        # space or fails in orchestration. The exception remains a red check.
+        result["checks"].append({"label": "orchestrator", "status": "failed", "reason": repr(error)})
+    finally:
+        # Free this consumer's files BEFORE writing JSON, including on ENOSPC.
+        shutil.rmtree(args.work / repo["full_name"].replace("/", "--"), ignore_errors=True)
+    result["failed"] = is_failure(result)
+    args.output.mkdir(parents=True, exist_ok=True)
+    (args.output / (repo["full_name"].replace("/", "--") + ".json")).write_text(json.dumps(result, indent=2) + "\n")
     return result
 
 
@@ -281,17 +344,8 @@ def main():
         parser.error("Refusing to run zero repositories")
     failed = False
     for repo in repositories:
-        try:
-            result = run_repository(repo, args, config)
-        except Exception as error:
-            result = {"repository": repo["full_name"], "sha": repo["sha"], "engine_sha": args.engine_sha,
-                      "checks": [{"label": "orchestrator", "status": "failed", "reason": repr(error)}]}
-        result["failed"] = is_failure(result)
+        result = run_and_save(repo, args, config)
         failed |= result["failed"]
-        args.output.mkdir(parents=True, exist_ok=True)
-        (args.output / (repo["full_name"].replace("/", "--") + ".json")).write_text(json.dumps(result, indent=2) + "\n")
-        # A large checkout must not fill the disk before the next matrix member.
-        shutil.rmtree(args.work / repo["full_name"].replace("/", "--"), ignore_errors=True)
     sys.exit(1 if failed else 0)
 
 

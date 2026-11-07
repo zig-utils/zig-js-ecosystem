@@ -16,6 +16,8 @@ The initial [inventory.json](inventory.json), captured on November 7, 2026, sele
 
 Every push gets a run; there is no superseding-run cancellation. The matrix runs at most eight consumer jobs concurrently per push, with per-command and per-repository deadlines. A command timeout kills its process group. Inventory growth beyond GitHub's matrix limit is handled by batching consumers without dropping any.
 
+Dependency setup follows declared workspace membership; independent nested apps get their own installs. Candidate execution finishes before its checkout, build outputs and task-owned Bun cache are removed for the clean reference checkout. Command logs stay outside those trees. A late disk-space or orchestration error retains earlier check evidence and remains a failure; consumer files are released before the final JSON is written.
+
 Stacks (`stacksjs/stacks`) and Home (`home-lang/home`) get the first two independent consumer jobs. They cannot delay each other inside a batch. Remaining consumers retain complete coverage.
 
 ## Current runtime boundary

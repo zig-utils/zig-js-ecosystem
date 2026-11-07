@@ -6,6 +6,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from types import SimpleNamespace
 from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
@@ -86,6 +87,23 @@ class DiscoveryTests(unittest.TestCase):
 
 
 class PlanTests(unittest.TestCase):
+    def test_workspace_installs_cover_members_but_not_independent_nested_apps(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            manifests = {
+                "package.json": {"workspaces": ["packages/*", "!packages/standalone"]},
+                "packages/lib/package.json": {"workspaces": {"packages": ["children/*"]}},
+                "packages/lib/children/nested/package.json": {},
+                "packages/standalone/package.json": {},
+                "templates/app/package.json": {},
+            }
+            for path, content in manifests.items():
+                target = root / path
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text(json.dumps(content))
+            scopes = [{"directory": Path(path).parent.as_posix()} for path in manifests]
+            self.assertEqual(run.dependency_roots(root, scopes), [".", "packages/standalone", "templates/app"])
+
     def test_package_binary_path_cannot_shadow_candidate_runtime(self):
         root = Path('/fixture')
         env = run.script_environment({"PATH": "/system"}, root / "packages/lib", root, root / "shims")
@@ -162,6 +180,29 @@ class RuntimeRoutingTests(unittest.TestCase):
 
 
 class ResultTests(unittest.TestCase):
+    def test_disk_failure_preserves_prior_evidence_and_cleans_before_saving(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            args = SimpleNamespace(work=root / "work", output=root / "results", engine_sha=SHA)
+            checkout = args.work / "stacksjs--lib"
+            checkout.mkdir(parents=True)
+            repo = {"full_name": "stacksjs/lib", "sha": SHA}
+            def fail_late(repo, args, config, result):
+                result["scopes"].append({"directory": "."})
+                result["checks"].append({"label": "candidate build", "status": "failed"})
+                raise OSError(28, "No space left on device")
+            original_write = Path.write_text
+            def write_after_cleanup(path, *values, **options):
+                self.assertFalse(checkout.exists(), "JSON was written before releasing disk space")
+                return original_write(path, *values, **options)
+            with patch.object(run, "run_repository", side_effect=fail_late), patch.object(Path, "write_text", new=write_after_cleanup):
+                result = run.run_and_save(repo, args, {})
+            saved = json.loads((args.output / "stacksjs--lib.json").read_text())
+            self.assertTrue(result["failed"])
+            self.assertEqual(saved["scopes"], [{"directory": "."}])
+            self.assertEqual(saved["checks"][0]["label"], "candidate build")
+            self.assertIn("No space left", saved["checks"][1]["reason"])
+
     def inventory(self):
         return {"selected": [{"full_name": "stacksjs/lib", "sha": SHA}]}
 
@@ -227,16 +268,23 @@ class EndToEndTests(unittest.TestCase):
                             "commit", "-qm", "fixture"], cwd=source, check=True)
             sha = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=source, text=True).strip()
             fake_host = root / "fake-host"
-            fake_host.write_text(f"#!{sys.executable}\nprint('orchestration-only host fixture')\n")
+            fake_host.write_text(f"#!{sys.executable}\nfrom pathlib import Path\n"
+                                 "if Path.cwd().name == 'reference':\n"
+                                 "    assert not (Path.cwd().parent / 'candidate').exists(), 'candidate retained during reference'\n"
+                                 "print('orchestration-only host fixture')\n")
             fake_host.chmod(0o755)
+            reference_bin = root / "reference-bin"
+            reference_bin.mkdir()
+            (reference_bin / "bun").symlink_to(fake_host)
             env = {**os.environ, "GIT_CONFIG_COUNT": "1",
                    "GIT_CONFIG_KEY_0": f"url.file://{source}.insteadOf",
-                   "GIT_CONFIG_VALUE_0": "https://github.com/test/fixture.git"}
+                   "GIT_CONFIG_VALUE_0": "https://github.com/test/fixture.git",
+                   "PATH": str(reference_bin) + os.pathsep + os.environ["PATH"]}
             process = subprocess.run([sys.executable, str(run.ROOT / "scripts/run.py"),
                                       "--repositories", json.dumps([{"full_name": "test/fixture", "sha": sha}]),
                                       "--engine-sha", SHA, "--home-tool", str(fake_host),
                                       "--bun", str(fake_host), "--engine-root", str(root / "engine"),
-                                      "--work", str(root / "work"), "--output", str(root / "results")],
+                                      "--work", str(root / "work"), "--output", str(root / "results"), "--reference"],
                                      env=env, capture_output=True, text=True)
             self.assertEqual(process.returncode, 1, process.stdout + process.stderr)
             result = json.loads((root / "results/test--fixture.json").read_text())
@@ -245,6 +293,8 @@ class EndToEndTests(unittest.TestCase):
             self.assertEqual(build["status"], "passed", result)
             self.assertEqual(build["engine_invocations"], 1)
             self.assertEqual(tests["status"], "unsupported")
+            reference = next(c for c in result["checks"] if c["lane"] == "reference" and c["label"] == ".: build")
+            self.assertEqual(reference["status"], "passed", result)
             self.assertTrue(result["failed"])
             self.assertTrue((root / "results/test--fixture" / build["log"]).is_file())
 
