@@ -114,6 +114,19 @@ def make_shims(directory):
         target.chmod(0o755)
 
 
+def script_environment(base, location, checkout, shims=None):
+    bins = []
+    directory = location
+    while directory.is_relative_to(checkout):
+        bins.append(str(directory / "node_modules" / ".bin"))
+        if directory == checkout:
+            break
+        directory = directory.parent
+    # Runtime names must resolve to our router even when a dependency ships bun/node.
+    prefix = [str(shims)] if shims else []
+    return {**base, "PATH": os.pathsep.join([*prefix, *bins, base["PATH"]])}
+
+
 def is_failure(result):
     return any(check["status"] not in ("passed", "not-applicable") for check in result["checks"])
 
@@ -199,16 +212,17 @@ def run_repository(repo, args, config):
 
         for scope in scopes:
             location = candidate / scope["directory"]
+            scope_env = script_environment(candidate_env, location, candidate, shims)
             for label, command in scope["scripts"].items():
                 check(f"{scope['directory']}: {label}", ["/bin/sh", "-c", command], location,
-                      candidate_env, requires_engine=True)
+                      scope_env, requires_engine=True)
             for entry in scope["entries"]:
                 check(f"{scope['directory']}: module initialization {entry}",
-                      [str(shims / "bun"), entry], location, candidate_env, requires_engine=True)
+                      [str(shims / "bun"), entry], location, scope_env, requires_engine=True)
             # CLI entry loading with --help must exit, rather than leave a server running.
             for binary, entry in scope["bins"].items():
                 check(f"{scope['directory']}: CLI {binary} --help",
-                      [str(shims / "bun"), entry, "--help"], location, candidate_env, requires_engine=True)
+                      [str(shims / "bun"), entry, "--help"], location, scope_env, requires_engine=True)
 
         if args.reference:
             reference = work / "reference"
@@ -219,9 +233,11 @@ def run_repository(repo, args, config):
                     check(f"{directory}: reference dependencies", [str(args.bun), "install", "--ignore-scripts", *(["--frozen-lockfile"] if frozen else [])],
                           location, lane="reference-setup")
                 for scope in scopes:
+                    location = reference / scope["directory"]
+                    scope_env = script_environment(env, location, reference)
                     for label, command in scope["scripts"].items():
                         check(f"{scope['directory']}: {label}", ["/bin/sh", "-c", command],
-                              reference / scope["directory"], lane="reference")
+                              location, scope_env, lane="reference")
     if (candidate / "build.zig").is_file():
         if name != config["home_repository"]:
             check("native Zig build", ["zig", "build"], candidate, lane="native-zig")

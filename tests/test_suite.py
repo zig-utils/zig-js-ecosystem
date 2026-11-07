@@ -55,6 +55,15 @@ class DiscoveryTests(unittest.TestCase):
 
 
 class PlanTests(unittest.TestCase):
+    def test_package_binary_path_cannot_shadow_candidate_runtime(self):
+        root = Path('/fixture')
+        env = run.script_environment({"PATH": "/system"}, root / "packages/lib", root, root / "shims")
+        paths = env["PATH"].split(os.pathsep)
+        self.assertEqual(paths[0], "/fixture/shims")
+        self.assertIn("/fixture/packages/lib/node_modules/.bin", paths)
+        self.assertIn("/fixture/node_modules/.bin", paths)
+        self.assertNotIn("/node_modules/.bin", paths)
+
     def test_monorepo_private_packages_and_fixture_exclusions(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
