@@ -169,5 +169,42 @@ class ResultTests(unittest.TestCase):
         self.assertFalse(any(r["full_name"].startswith("meemalabs/") for r in inventory["selected"]))
 
 
+class EndToEndTests(unittest.TestCase):
+    def test_real_git_checkout_router_logs_and_missing_scheduler_report(self):
+        # The fake host verifies orchestration only; this is never engine evidence.
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            source = root / "source"
+            source.mkdir()
+            subprocess.run(["git", "init", "-q", source], check=True)
+            (source / "package.json").write_text(json.dumps({"scripts": {"build": "bun build.ts", "test": "bun test"}}))
+            (source / "build.ts").write_text("const answer: number = 42;")
+            subprocess.run(["git", "add", "."], cwd=source, check=True)
+            subprocess.run(["git", "-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid",
+                            "commit", "-qm", "fixture"], cwd=source, check=True)
+            sha = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=source, text=True).strip()
+            fake_host = root / "fake-host"
+            fake_host.write_text(f"#!{sys.executable}\nprint('orchestration-only host fixture')\n")
+            fake_host.chmod(0o755)
+            env = {**os.environ, "GIT_CONFIG_COUNT": "1",
+                   "GIT_CONFIG_KEY_0": f"url.file://{source}.insteadOf",
+                   "GIT_CONFIG_VALUE_0": "https://github.com/test/fixture.git"}
+            process = subprocess.run([sys.executable, str(run.ROOT / "scripts/run.py"),
+                                      "--repositories", json.dumps([{"full_name": "test/fixture", "sha": sha}]),
+                                      "--engine-sha", SHA, "--home-tool", str(fake_host),
+                                      "--bun", str(fake_host), "--engine-root", str(root / "engine"),
+                                      "--work", str(root / "work"), "--output", str(root / "results")],
+                                     env=env, capture_output=True, text=True)
+            self.assertEqual(process.returncode, 1, process.stdout + process.stderr)
+            result = json.loads((root / "results/test--fixture.json").read_text())
+            build = next(c for c in result["checks"] if c["label"] == ".: build")
+            tests = next(c for c in result["checks"] if c["label"] == ".: test")
+            self.assertEqual(build["status"], "passed", result)
+            self.assertEqual(build["engine_invocations"], 1)
+            self.assertEqual(tests["status"], "unsupported")
+            self.assertTrue(result["failed"])
+            self.assertTrue((root / "results/test--fixture" / build["log"]).is_file())
+
+
 if __name__ == "__main__":
     unittest.main()

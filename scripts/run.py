@@ -129,6 +129,8 @@ def run_repository(repo, args, config):
     work.mkdir(parents=True, exist_ok=True)
     result = {"repository": name, "sha": repo["sha"], "engine_sha": args.engine_sha,
               "checks": [], "scopes": [], "omitted_manifests": []}
+    provenance = args.home_tool.parent / "provenance.json"
+    result["runtime_provenance"] = json.loads(provenance.read_text()) if provenance.is_file() else None
     deadline = time.monotonic() + config["repository_timeout_seconds"]
     env = {**os.environ, "CI": "1", "GIT_TERMINAL_PROMPT": "0", "GIT_LFS_SKIP_SMUDGE": "1"}
     # Consumer scripts get no API credential, including on workflow_dispatch runs.
@@ -223,11 +225,14 @@ def run_repository(repo, args, config):
     if (candidate / "build.zig").is_file():
         if name != config["home_repository"]:
             check("native Zig build", ["zig", "build"], candidate, lane="native-zig")
-            help_result = subprocess.run(["zig", "build", "--help"], cwd=candidate, env=env,
-                                         capture_output=True, text=True, timeout=max(1, min(60, deadline-time.monotonic())))
-            if re.search(r"^\s+test(?:-parallel)?\s", help_result.stdout, re.MULTILINE):
-                step = "test-parallel" if re.search(r"^\s+test-parallel\s", help_result.stdout, re.MULTILINE) else "test"
-                check("native Zig tests", ["zig", "build", step], candidate, lane="native-zig")
+            if check("discover native Zig test steps", ["zig", "build", "--help"], candidate, lane="native-zig"):
+                help_text = (out / result["checks"][-1]["log"]).read_text()
+                if re.search(r"^\s+test(?:-parallel)?\s", help_text, re.MULTILINE):
+                    step = "test-parallel" if re.search(r"^\s+test-parallel\s", help_text, re.MULTILINE) else "test"
+                    check("native Zig tests", ["zig", "build", step], candidate, lane="native-zig")
+                else:
+                    result["checks"].append({"label": "native Zig tests", "lane": "native-zig",
+                                              "status": "not-applicable", "reason": "No advertised test or test-parallel step"})
     if not scopes and not (candidate / "build.zig").is_file():
         # Non-executable repos are retained in the coverage report, outside runtime passes.
         executable = any(Path(p).suffix in (".ts", ".js", ".tsx", ".jsx", ".mjs", ".cjs", ".zig")

@@ -114,7 +114,11 @@ jobs:
           packages: zig@${{ steps.config.outputs.zig_version }}
       - name: Build exact pushed engine archive
         working-directory: engine
-        run: zig build home-tool-bootstrap
+        env:
+          ZIG_VERSION: ${{ steps.config.outputs.zig_version }}
+        run: |
+          test "$(zig version)" = "$ZIG_VERSION"
+          zig build home-tool-bootstrap
       - name: Build Home against this engine
         working-directory: home
         run: zig build home-tool -Dtool-js-engine=zig-js -Dzig-js-root="$GITHUB_WORKSPACE/engine"
@@ -188,7 +192,9 @@ jobs:
       - name: Unpack and verify runtime provenance
         env:
           ENGINE_SHA: ${{ needs.discover.outputs.engine_sha }}
+          ZIG_VERSION: ${{ steps.config.outputs.zig_version }}
         run: |
+          test "$(zig version)" = "$ZIG_VERSION"
           mkdir runtime
           tar -xzf runtime-download/runtime.tar.gz -C runtime
           python3 - <<'PY'
