@@ -1,0 +1,250 @@
+name: Ecosystem
+
+on:
+  workflow_call:
+    inputs:
+      engine_sha:
+        description: Exact zig-utils/zig-js commit to test
+        required: true
+        type: string
+      suite_ref:
+        description: Immutable zig-js-ecosystem commit containing this workflow
+        required: true
+        type: string
+      reference:
+        description: Also run declared scripts on the reference Bun runtime
+        default: true
+        type: boolean
+  workflow_dispatch:
+    inputs:
+      engine_sha:
+        description: Exact zig-js SHA (empty resolves current main)
+        type: string
+      suite_ref:
+        description: Suite revision (empty uses this workflow revision)
+        type: string
+      reference:
+        description: Also run declared scripts on reference Bun
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  discover:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    outputs:
+      matrix: ${{ steps.inventory.outputs.matrix }}
+      engine_sha: ${{ steps.revisions.outputs.engine_sha }}
+      suite_ref: ${{ steps.revisions.outputs.suite_ref }}
+    steps:
+      - name: Resolve exact revisions
+        id: revisions
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ENGINE_SHA: ${{ inputs.engine_sha }}
+          SUITE_REF: ${{ inputs.suite_ref }}
+          WORKFLOW_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          if [ -z "$ENGINE_SHA" ]; then
+            ENGINE_SHA=$(gh api repos/zig-utils/zig-js/commits/main --jq .sha)
+          fi
+          if [ -z "$SUITE_REF" ]; then SUITE_REF="$WORKFLOW_SHA"; fi
+          [[ "$ENGINE_SHA" =~ ^[a-f0-9]{40}$ ]]
+          [[ "$SUITE_REF" =~ ^[a-f0-9]{40}$ ]]
+          echo "engine_sha=$ENGINE_SHA" >> "$GITHUB_OUTPUT"
+          echo "suite_ref=$SUITE_REF" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: zig-utils/zig-js-ecosystem
+          ref: ${{ steps.revisions.outputs.suite_ref }}
+          persist-credentials: false
+      - name: Validate orchestration
+        run: python3 -m unittest discover -s tests -v
+      - name: Discover and freeze active public consumers
+        id: inventory
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/discover.py --output results/inventory.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ecosystem-inventory
+          path: results/inventory.json
+          if-no-files-found: error
+          retention-days: 30
+
+  runtime:
+    needs: discover
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: zig-utils/zig-js-ecosystem
+          ref: ${{ needs.discover.outputs.suite_ref }}
+          path: suite
+          persist-credentials: false
+      - name: Read toolchain pins
+        id: config
+        run: |
+          python3 - <<'PY'
+          import json, os
+          c = json.load(open('suite/config.json'))
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              for key in ('zig_version', 'home_repository', 'home_ref'):
+                  f.write(f'{key}={c[key]}\n')
+          PY
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: zig-utils/zig-js
+          ref: ${{ needs.discover.outputs.engine_sha }}
+          path: engine
+          persist-credentials: false
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: ${{ steps.config.outputs.home_repository }}
+          ref: ${{ steps.config.outputs.home_ref }}
+          path: home
+          persist-credentials: false
+      - uses: pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9
+        with:
+          packages: zig@${{ steps.config.outputs.zig_version }}
+      - name: Build exact pushed engine archive
+        working-directory: engine
+        run: zig build home-tool-bootstrap
+      - name: Build Home against this engine
+        working-directory: home
+        run: zig build home-tool -Dtool-js-engine=zig-js -Dzig-js-root="$GITHUB_WORKSPACE/engine"
+      - name: Verify engine identity and Home host/module/TypeScript integration
+        working-directory: home
+        run: |
+          zig-out/bin/home-tool eval 'if (Home.engine !== "zig-js") throw new Error("Wrong engine"); console.log("ECOSYSTEM ENGINE zig-js");'
+          zig build home-tool-smoke -Dtool-js-engine=zig-js -Dzig-js-root="$GITHUB_WORKSPACE/engine"
+      - name: Package runtime and immutable provenance
+        env:
+          ENGINE_SHA: ${{ needs.discover.outputs.engine_sha }}
+          SUITE_REF: ${{ needs.discover.outputs.suite_ref }}
+        run: |
+          mkdir -p runtime/engine/zig-out/lib
+          cp home/zig-out/bin/home-tool runtime/home-tool
+          cp engine/zig-out/lib/libzig-js.a runtime/engine/zig-out/lib/
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, subprocess
+          config = json.load(open('suite/config.json'))
+          assert subprocess.check_output(['git', '-C', 'engine', 'rev-parse', 'HEAD'], text=True).strip() == os.environ['ENGINE_SHA']
+          data = {'engine_sha': os.environ['ENGINE_SHA'], 'suite_ref': os.environ['SUITE_REF'],
+                  'home_repository': config['home_repository'], 'home_ref': config['home_ref'],
+                  'zig_version': subprocess.check_output(['zig', 'version'], text=True).strip(),
+                  'sha256': {str(p.relative_to('runtime')): hashlib.sha256(p.read_bytes()).hexdigest()
+                             for p in pathlib.Path('runtime').rglob('*') if p.is_file()}}
+          pathlib.Path('runtime/provenance.json').write_text(json.dumps(data, indent=2) + '\n')
+          PY
+          tar -czf runtime.tar.gz -C runtime .
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ecosystem-runtime
+          path: runtime.tar.gz
+          if-no-files-found: error
+          retention-days: 7
+
+  consumers:
+    needs: [discover, runtime]
+    name: Consumers ${{ matrix.id }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix: ${{ fromJSON(needs.discover.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: zig-utils/zig-js-ecosystem
+          ref: ${{ needs.discover.outputs.suite_ref }}
+          persist-credentials: false
+      - name: Read toolchain pins
+        id: config
+        run: |
+          python3 - <<'PY'
+          import json, os
+          c = json.load(open('config.json'))
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              for key in ('zig_version', 'bun_version'):
+                  f.write(f'{key}={c[key]}\n')
+          PY
+      - uses: pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9
+        with:
+          packages: zig@${{ steps.config.outputs.zig_version }}
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6
+        with:
+          bun-version: ${{ steps.config.outputs.bun_version }}
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: ecosystem-runtime
+          path: runtime-download
+      - name: Unpack and verify runtime provenance
+        env:
+          ENGINE_SHA: ${{ needs.discover.outputs.engine_sha }}
+        run: |
+          mkdir runtime
+          tar -xzf runtime-download/runtime.tar.gz -C runtime
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib
+          p = json.load(open('runtime/provenance.json'))
+          assert p['engine_sha'] == os.environ['ENGINE_SHA']
+          for name, expected in p['sha256'].items():
+              assert hashlib.sha256((pathlib.Path('runtime') / name).read_bytes()).hexdigest() == expected, name
+          PY
+      - name: Check every selected package, library, CLI and app
+        env:
+          REPOSITORIES: ${{ toJSON(matrix.repositories) }}
+          ENGINE_SHA: ${{ needs.discover.outputs.engine_sha }}
+          REFERENCE: ${{ inputs.reference }}
+        run: |
+          args=()
+          if [ "$REFERENCE" = true ]; then args+=(--reference); fi
+          python3 scripts/run.py --repositories "$REPOSITORIES" --engine-sha "$ENGINE_SHA" \
+            --home-tool "$GITHUB_WORKSPACE/runtime/home-tool" \
+            --engine-root "$GITHUB_WORKSPACE/runtime/engine" "${args[@]}"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: ecosystem-results-${{ matrix.id }}
+          path: results/
+          if-no-files-found: error
+          retention-days: 30
+
+  report:
+    if: always()
+    needs: [discover, runtime, consumers]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: zig-utils/zig-js-ecosystem
+          ref: ${{ needs.discover.outputs.suite_ref || inputs.suite_ref || github.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          pattern: ecosystem-results-*
+          path: results/
+          merge-multiple: true
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: ecosystem-inventory
+          path: results/
+      - name: Require complete results and summarize failures
+        env:
+          ENGINE_SHA: ${{ needs.discover.outputs.engine_sha }}
+        run: python3 scripts/report.py --inventory results/inventory.json --results results --engine-sha "$ENGINE_SHA" --output results/report
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: ecosystem-report
+          path: results/
+          if-no-files-found: error
+          retention-days: 30
