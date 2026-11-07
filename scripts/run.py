@@ -163,10 +163,15 @@ def is_failure(result):
     return any(check["status"] not in ("passed", "not-applicable") for check in result["checks"])
 
 
+def validate_repository(repo):
+    if (not isinstance(repo.get("full_name"), str) or not REPOSITORY.fullmatch(repo["full_name"])
+            or not isinstance(repo.get("sha"), str) or not SHA.fullmatch(repo["sha"])):
+        raise ValueError("Only inventoried owner/repo names and immutable commit SHAs are accepted")
+
+
 def run_repository(repo, args, config, result=None):
     name = repo["full_name"]
-    if not REPOSITORY.fullmatch(name) or not SHA.fullmatch(repo["sha"]):
-        raise ValueError("Only inventoried owner/repo names and immutable commit SHAs are accepted")
+    validate_repository(repo)
     slug = name.replace("/", "--")
     out = args.output / slug
     out.mkdir(parents=True, exist_ok=True)
@@ -306,6 +311,7 @@ def run_repository(repo, args, config, result=None):
 
 
 def run_and_save(repo, args, config):
+    validate_repository(repo)
     result = {"repository": repo["full_name"], "sha": repo["sha"], "engine_sha": args.engine_sha,
               "checks": [], "scopes": [], "omitted_manifests": []}
     try:

@@ -180,6 +180,14 @@ class RuntimeRoutingTests(unittest.TestCase):
 
 
 class ResultTests(unittest.TestCase):
+    def test_invalid_repository_never_enters_cleanup(self):
+        with tempfile.TemporaryDirectory() as temp:
+            args = SimpleNamespace(work=Path(temp) / "work", output=Path(temp) / "results", engine_sha=SHA)
+            with patch.object(run.shutil, "rmtree") as cleanup:
+                with self.assertRaises(ValueError):
+                    run.run_and_save({"full_name": "..", "sha": SHA}, args, {})
+                cleanup.assert_not_called()
+
     def test_disk_failure_preserves_prior_evidence_and_cleans_before_saving(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
