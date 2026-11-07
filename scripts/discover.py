@@ -74,15 +74,38 @@ def exclusion(repo, config, cutoff):
     return None
 
 
-def matrix_for(repositories):
+def matrix_for(repositories, priorities=()):
     if not repositories:
         raise ValueError("Zero selected repositories; refusing an empty green run")
-    # GitHub permits 256 matrix legs. Batch only when the inventory grows past 200.
-    size = max(1, (len(repositories) + 199) // 200)
-    return {"include": [
-        {"id": str(i // size), "repositories": repositories[i:i + size]}
-        for i in range(0, len(repositories), size)
-    ]}
+    by_name = {repo["full_name"]: repo for repo in repositories}
+    if len(by_name) != len(repositories):
+        raise ValueError("Duplicate selected repositories")
+    priority = [by_name[name] for name in dict.fromkeys(priorities) if name in by_name]
+    if len(priority) > 100:
+        raise ValueError("At most 100 priority repositories are supported")
+    priority_names = {repo["full_name"] for repo in priority}
+    remaining = [repo for repo in repositories if repo["full_name"] not in priority_names]
+    # Critical consumers get independent first legs, so a slow Stacks build cannot
+    # delay Home. Batch the remainder below GitHub's 256-leg matrix limit.
+    slots = 200 - len(priority)
+    size = max(1, (len(remaining) + slots - 1) // slots)
+    groups = [[repo] for repo in priority] + [remaining[i:i + size] for i in range(0, len(remaining), size)]
+    return {"include": [{"id": str(i), "label": ", ".join(repo["full_name"] for repo in group),
+                         "repositories": group} for i, group in enumerate(groups)]}
+
+
+def focus_inventory(inventory, names):
+    if not names:
+        return inventory
+    selected = {repo["full_name"]: repo for repo in inventory["selected"]}
+    unknown = set(names) - selected.keys()
+    if unknown:
+        raise ValueError("Focused repositories are not in the active public inventory: " + ", ".join(sorted(unknown)))
+    return {**inventory, "focus": list(dict.fromkeys(names)), "full_selected_count": len(selected),
+            "selected": [repo for repo in inventory["selected"] if repo["full_name"] in names],
+            "excluded": [*inventory["excluded"], *[
+                {**repo, "reason": "outside this manual focused reproduction"}
+                for repo in inventory["selected"] if repo["full_name"] not in names]]}
 
 
 def discover(config, today):
@@ -132,10 +155,16 @@ def main():
     parser.add_argument("--output", type=Path, default=ROOT / "inventory.json")
     parser.add_argument("--date", type=dt.date.fromisoformat, default=dt.datetime.now(dt.timezone.utc).date())
     parser.add_argument("--from-inventory", type=Path)
+    parser.add_argument("--only", default="", help="Comma-separated repositories for a manual focused reproduction")
     args = parser.parse_args()
+    config = json.loads((ROOT / "config.json").read_text())
     inventory = (json.loads(args.from_inventory.read_text()) if args.from_inventory
-                 else discover(json.loads((ROOT / "config.json").read_text()), args.date))
-    matrix = matrix_for(inventory["selected"])
+                 else discover(config, args.date))
+    names = [name.strip() for name in args.only.split(",") if name.strip()]
+    if names and os.environ.get("GITHUB_EVENT_NAME") == "push":
+        raise ValueError("Push-triggered runs must cover the complete inventory")
+    inventory = focus_inventory(inventory, names)
+    matrix = matrix_for(inventory["selected"], config.get("priority_repositories", []))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(inventory, indent=2) + "\n")
     if output := os.environ.get("GITHUB_OUTPUT"):

@@ -15,6 +15,10 @@ on:
         description: Also run declared scripts on the reference Bun runtime
         default: true
         type: boolean
+      repositories:
+        description: Manual reproduction subset; push-triggered runs always cover all repos
+        default: ''
+        type: string
   workflow_dispatch:
     inputs:
       engine_sha:
@@ -27,6 +31,9 @@ on:
         description: Also run declared scripts on reference Bun
         default: true
         type: boolean
+      repositories:
+        description: Optional comma-separated public repos for a focused reproduction
+        type: string
 
 permissions:
   contents: read
@@ -68,7 +75,8 @@ jobs:
         id: inventory
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python3 scripts/discover.py --output results/inventory.json
+          FOCUS_REPOSITORIES: ${{ inputs.repositories }}
+        run: python3 scripts/discover.py --output results/inventory.json --only "$FOCUS_REPOSITORIES"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: ecosystem-inventory
@@ -156,7 +164,7 @@ jobs:
 
   consumers:
     needs: [discover, runtime]
-    name: Consumers ${{ matrix.id }}
+    name: Consumers ${{ matrix.label }}
     runs-on: ubuntu-24.04
     timeout-minutes: 55
     strategy:

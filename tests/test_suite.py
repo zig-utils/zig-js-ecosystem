@@ -53,6 +53,37 @@ class DiscoveryTests(unittest.TestCase):
             self.assertEqual(len(discover.pages("users/account/orgs")), 101)
             self.assertEqual(mock.call_count, 2)
 
+    def test_priority_consumers_have_first_independent_jobs_without_lost_coverage(self):
+        repos = [{"full_name": f"org/repo{i}", "sha": SHA} for i in range(500)]
+        priority = ["org/repo48", "org/repo307"]
+        legs = discover.matrix_for(repos, priority)["include"]
+        self.assertEqual([leg["repositories"][0]["full_name"] for leg in legs[:2]], priority)
+        self.assertTrue(all(len(leg["repositories"]) == 1 for leg in legs[:2]))
+        flattened = [repo["full_name"] for leg in legs for repo in leg["repositories"]]
+        self.assertEqual(len(flattened), len(set(flattened)))
+        self.assertEqual(set(flattened), {repo["full_name"] for repo in repos})
+        self.assertLessEqual(len(legs), 200)
+
+    def test_manual_subset_is_explicit_and_rejects_unknown_consumers(self):
+        inventory = {"selected": [{"full_name": "stacksjs/stacks"}, {"full_name": "home-lang/home"}], "excluded": []}
+        focused = discover.focus_inventory(inventory, ["home-lang/home"])
+        self.assertEqual(focused["full_selected_count"], 2)
+        self.assertEqual(focused["selected"], [{"full_name": "home-lang/home"}])
+        self.assertEqual(focused["excluded"][0]["reason"], "outside this manual focused reproduction")
+        with self.assertRaisesRegex(ValueError, "not in the active"):
+            discover.focus_inventory(inventory, ["unknown/repo"])
+
+    def test_push_trigger_cannot_filter_coverage(self):
+        with tempfile.TemporaryDirectory() as temp:
+            output = Path(temp) / "inventory.json"
+            process = subprocess.run([sys.executable, str(discover.ROOT / "scripts/discover.py"),
+                                      "--from-inventory", str(discover.ROOT / "inventory.json"),
+                                      "--only", "home-lang/home", "--output", str(output)],
+                                     env={**os.environ, "GITHUB_EVENT_NAME": "push"}, capture_output=True, text=True)
+            self.assertNotEqual(process.returncode, 0)
+            self.assertIn("complete inventory", process.stderr)
+            self.assertFalse(output.exists())
+
 
 class PlanTests(unittest.TestCase):
     def test_package_binary_path_cannot_shadow_candidate_runtime(self):

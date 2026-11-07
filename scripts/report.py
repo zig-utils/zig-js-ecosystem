@@ -44,6 +44,10 @@ def markdown(report, inventory):
              "Not-applicable repositories do not count as runtime passes.", "",
              f"Activity cutoff: {inventory['activity_cutoff']}. Excluded owners: " + ", ".join(inventory["excluded_owners"]) + ".", "",
              "| Repository | Consumer SHA | Failed checks | zig-js invocations |", "| --- | --- | ---: | ---: |"]
+    if inventory.get("focus"):
+        lines[0] = "# zig-js ecosystem focused reproduction"
+        lines.insert(4, "Manual subset: " + ", ".join(inventory["focus"]) +
+                     f". The complete inventory contains {inventory['full_selected_count']} repositories.\n")
     for result in report["results"]:
         failed = sum(c["status"] not in ("passed", "not-applicable") for c in result["checks"])
         invoked = sum(c.get("engine_invocations", 0) for c in result["checks"])

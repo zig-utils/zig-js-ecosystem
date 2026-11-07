@@ -16,6 +16,8 @@ The initial [inventory.json](inventory.json), captured on November 7, 2026, sele
 
 Every push gets a run; there is no superseding-run cancellation. The matrix runs at most eight consumer jobs concurrently per push, with per-command and per-repository deadlines. A command timeout kills its process group. Inventory growth beyond GitHub's matrix limit is handled by batching consumers without dropping any.
 
+Stacks (`stacksjs/stacks`) and Home (`home-lang/home`) get the first two independent consumer jobs. They cannot delay each other inside a batch. Remaining consumers retain complete coverage.
+
 ## Current runtime boundary
 
 This repository creates a compatibility gate; it does **not** assert that all selected projects currently work on zig-js. Home's repository-tool runtime has a limited host API. It is not the complete Bun/Node application runtime and has no upstream Bun/Node test scheduler. `bun test`, `node --test`, `Bun.build`, missing built-ins, browser-only APIs and other absent host features are reported as unsupported or failed. They are not replaced with fake implementations or successful Bun-only runs. Upstream test suites needing those features remain unexecuted and make the gate red until real adapters exist.
@@ -34,6 +36,8 @@ gh workflow run ecosystem.yml --repo zig-utils/zig-js-ecosystem \
 ```
 
 An empty engine input resolves `zig-js/main` once, before building. Manual runs can disable the reference lane; automatic pushes enable it. No secrets are passed into consumer scripts. Third-party Actions and the automatic caller pin immutable commits. Source and toolchain pins live in [config.json](config.json); the workflow's eight-job cap is explicit in YAML.
+
+For focused triage, add `-f repositories=stacksjs/stacks,home-lang/home` to a manual dispatch. The inventory and report explicitly identify the subset and retain the omitted-repository reasons. Push-triggered runs reject filtering and always cover the complete inventory.
 
 Local orchestration checks use Python's standard library:
 
