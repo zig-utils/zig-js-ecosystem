@@ -230,7 +230,7 @@ def run_repository(repo, args, config, result=None):
                   native_build_files=[p for p in files if Path(p).name == "build.zig"])
     has_native_build = (candidate / "build.zig").is_file()
     if name == config["home_repository"] and has_native_build:
-        for step in ("home-tool", "home-tool-smoke", "home-tool-rejections-smoke"):
+        for step in ("home-tool", "home-tool-smoke", "home-tool-rejections-smoke", "home-tool-async-context-smoke"):
             check("Home integration: " + step, ["zig", "build", step, "-Dtool-js-engine=zig-js",
                   "-Dzig-js-root=" + str(args.engine_root)], candidate, lane="direct-consumer")
 

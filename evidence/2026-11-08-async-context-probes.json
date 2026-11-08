@@ -1,0 +1,211 @@
+{
+  "scope": "Actual engine-backed run/getStore/enterWith/exit operations. Node/Bun references, saved before failures and selected zig-js host. No full Node hooks or whole-consumer compatibility claim.",
+  "binary_sha256": {
+    "node": "600484350350ab7852b577ddf97e7888f498334bef3ca74e73ea3b507a5b6fac",
+    "bun": "6b947fc4b25d640c482e40f253cbb2df692a555ce29c247844b766d8fea16dca",
+    "before": "9044f2c1d79b06d04b7b8052925da916d9456d2f2bdb6a00999fefa62853cc9a",
+    "home-zig-js": "7fd17f79445a60df34db5ce6e4d7b5c220da2e16018251661210cb980ede6eff"
+  },
+  "results": [
+    {
+      "fixture": "contract",
+      "runtime": "node",
+      "source": "import hooks, { AsyncLocalStorage } from 'node:async_hooks';\nimport alias from 'async_hooks';\nimport process from 'node:process';\nfunction check(value, message) { if (!value) throw new Error(message); }\ncheck(hooks === alias && hooks.AsyncLocalStorage === AsyncLocalStorage, 'module identity');\nconst a = new AsyncLocalStorage(); const b = new AsyncLocalStorage();\ncheck(a.getStore() === undefined && b.getStore() === undefined, 'initial scope');\nconst marker = { id: 7 }; const reason = new Error('identity');\ncheck(a.run(marker, (x, y) => { check(a.getStore() === marker, 'store identity'); return x + y; }, 8, 9) === 17, 'arguments/result');\ncheck(a.getStore() === undefined, 'sync restore');\na.run('outer', () => {\n  try { a.run('inner', () => { check(a.getStore() === 'inner', 'nested'); throw reason; }); } catch (error) { check(error === reason, 'throw identity'); }\n  check(a.getStore() === 'outer', 'abrupt restore');\n  b.run('other', () => {\n    check(a.exit(() => { check(a.getStore() === undefined && b.getStore() === 'other', 'exit isolation'); return 19; }) === 19, 'exit return');\n    check(a.getStore() === 'outer' && b.getStore() === 'other', 'exit restore');\n  });\n  a.enterWith('entered'); check(a.getStore() === 'entered', 'enterWith');\n});\ncheck(a.getStore() === undefined && b.getStore() === undefined, 'independent restore');\nlet release; const barrier = new Promise(resolve => { release = resolve; });\nconst first = a.run('first', async () => { await barrier; check(a.getStore() === 'first', 'first await'); await Promise.resolve(); return a.getStore(); });\nconst second = a.run('second', async () => { release(); await Promise.resolve(); check(a.getStore() === 'second', 'second await'); return a.getStore(); });\ncheck(a.getStore() === undefined, 'async caller restore');\ncheck(JSON.stringify(await Promise.all([first, second])) === '[\"first\",\"second\"]', 'overlapping contexts');\nconst callbacks = await a.run('callbacks', () => Promise.all([\n  new Promise(resolve => queueMicrotask(() => resolve(a.getStore()))),\n  new Promise(resolve => process.nextTick(() => resolve(a.getStore()))),\n  Promise.resolve().then(() => a.getStore()),\n]));\ncheck(JSON.stringify(callbacks) === '[\"callbacks\",\"callbacks\",\"callbacks\"]', 'actual callback capture');\nconst exited = await a.run('outside-exit', () => b.run('kept', () => a.exit(() => Promise.resolve().then(() => [a.getStore(), b.getStore()]))));\ncheck(exited[0] === undefined && exited[1] === 'kept', 'async exit isolation');\nlet settle; const thenableSeen = [];\nconst source = a.run('create', () => new Promise(resolve => { settle = resolve; }));\nconst tail = a.run('register', () => source.then(() => thenableSeen.push(a.getStore())));\na.run('resolve', () => settle({ then(done) { thenableSeen.push(a.getStore()); done(1); } }));\nawait tail; check(JSON.stringify(thenableSeen) === '[\"resolve\",\"register\"]', 'thenable and reaction capture');\nconst custom = Promise.resolve(1); let speciesSeen;\nObject.defineProperty(custom, 'constructor', { value: { [Symbol.species]: function(executor) { return a.run('species', () => new Promise(executor)); } } });\nawait a.run('register-species', () => custom.then(() => { speciesSeen = a.getStore(); }));\ncheck(speciesSeen === 'register-species', 'species capture');\nconst changes = await a.run('original', () => Promise.all([\n  Promise.resolve().then(() => { a.enterWith('changed'); return Promise.resolve().then(() => a.getStore()); }),\n  Promise.resolve().then(() => a.getStore()),\n]));\ncheck(JSON.stringify(changes) === '[\"changed\",\"original\"]', 'job-local enterWith');\nfor (const value of [undefined, null, false, 0]) check(a.run(value, () => a.getStore()) === value, 'primitive store');\ntry { AsyncLocalStorage.prototype.getStore.call({}); throw new Error('forged receiver'); } catch (error) { check(error instanceof TypeError, 'receiver brand'); }\ncheck(a.getStore() === undefined && b.getStore() === undefined, 'final restore');\nconsole.log('OK actual async context across await, callbacks, siblings, exit and species');\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async_context.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual async context across await, callbacks, siblings, exit and species\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "contract",
+      "runtime": "bun",
+      "source": "import hooks, { AsyncLocalStorage } from 'node:async_hooks';\nimport alias from 'async_hooks';\nimport process from 'node:process';\nfunction check(value, message) { if (!value) throw new Error(message); }\ncheck(hooks === alias && hooks.AsyncLocalStorage === AsyncLocalStorage, 'module identity');\nconst a = new AsyncLocalStorage(); const b = new AsyncLocalStorage();\ncheck(a.getStore() === undefined && b.getStore() === undefined, 'initial scope');\nconst marker = { id: 7 }; const reason = new Error('identity');\ncheck(a.run(marker, (x, y) => { check(a.getStore() === marker, 'store identity'); return x + y; }, 8, 9) === 17, 'arguments/result');\ncheck(a.getStore() === undefined, 'sync restore');\na.run('outer', () => {\n  try { a.run('inner', () => { check(a.getStore() === 'inner', 'nested'); throw reason; }); } catch (error) { check(error === reason, 'throw identity'); }\n  check(a.getStore() === 'outer', 'abrupt restore');\n  b.run('other', () => {\n    check(a.exit(() => { check(a.getStore() === undefined && b.getStore() === 'other', 'exit isolation'); return 19; }) === 19, 'exit return');\n    check(a.getStore() === 'outer' && b.getStore() === 'other', 'exit restore');\n  });\n  a.enterWith('entered'); check(a.getStore() === 'entered', 'enterWith');\n});\ncheck(a.getStore() === undefined && b.getStore() === undefined, 'independent restore');\nlet release; const barrier = new Promise(resolve => { release = resolve; });\nconst first = a.run('first', async () => { await barrier; check(a.getStore() === 'first', 'first await'); await Promise.resolve(); return a.getStore(); });\nconst second = a.run('second', async () => { release(); await Promise.resolve(); check(a.getStore() === 'second', 'second await'); return a.getStore(); });\ncheck(a.getStore() === undefined, 'async caller restore');\ncheck(JSON.stringify(await Promise.all([first, second])) === '[\"first\",\"second\"]', 'overlapping contexts');\nconst callbacks = await a.run('callbacks', () => Promise.all([\n  new Promise(resolve => queueMicrotask(() => resolve(a.getStore()))),\n  new Promise(resolve => process.nextTick(() => resolve(a.getStore()))),\n  Promise.resolve().then(() => a.getStore()),\n]));\ncheck(JSON.stringify(callbacks) === '[\"callbacks\",\"callbacks\",\"callbacks\"]', 'actual callback capture');\nconst exited = await a.run('outside-exit', () => b.run('kept', () => a.exit(() => Promise.resolve().then(() => [a.getStore(), b.getStore()]))));\ncheck(exited[0] === undefined && exited[1] === 'kept', 'async exit isolation');\nlet settle; const thenableSeen = [];\nconst source = a.run('create', () => new Promise(resolve => { settle = resolve; }));\nconst tail = a.run('register', () => source.then(() => thenableSeen.push(a.getStore())));\na.run('resolve', () => settle({ then(done) { thenableSeen.push(a.getStore()); done(1); } }));\nawait tail; check(JSON.stringify(thenableSeen) === '[\"resolve\",\"register\"]', 'thenable and reaction capture');\nconst custom = Promise.resolve(1); let speciesSeen;\nObject.defineProperty(custom, 'constructor', { value: { [Symbol.species]: function(executor) { return a.run('species', () => new Promise(executor)); } } });\nawait a.run('register-species', () => custom.then(() => { speciesSeen = a.getStore(); }));\ncheck(speciesSeen === 'register-species', 'species capture');\nconst changes = await a.run('original', () => Promise.all([\n  Promise.resolve().then(() => { a.enterWith('changed'); return Promise.resolve().then(() => a.getStore()); }),\n  Promise.resolve().then(() => a.getStore()),\n]));\ncheck(JSON.stringify(changes) === '[\"changed\",\"original\"]', 'job-local enterWith');\nfor (const value of [undefined, null, false, 0]) check(a.run(value, () => a.getStore()) === value, 'primitive store');\ntry { AsyncLocalStorage.prototype.getStore.call({}); throw new Error('forged receiver'); } catch (error) { check(error instanceof TypeError, 'receiver brand'); }\ncheck(a.getStore() === undefined && b.getStore() === undefined, 'final restore');\nconsole.log('OK actual async context across await, callbacks, siblings, exit and species');\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async_context.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual async context across await, callbacks, siblings, exit and species\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "contract",
+      "runtime": "before",
+      "source": "import hooks, { AsyncLocalStorage } from 'node:async_hooks';\nimport alias from 'async_hooks';\nimport process from 'node:process';\nfunction check(value, message) { if (!value) throw new Error(message); }\ncheck(hooks === alias && hooks.AsyncLocalStorage === AsyncLocalStorage, 'module identity');\nconst a = new AsyncLocalStorage(); const b = new AsyncLocalStorage();\ncheck(a.getStore() === undefined && b.getStore() === undefined, 'initial scope');\nconst marker = { id: 7 }; const reason = new Error('identity');\ncheck(a.run(marker, (x, y) => { check(a.getStore() === marker, 'store identity'); return x + y; }, 8, 9) === 17, 'arguments/result');\ncheck(a.getStore() === undefined, 'sync restore');\na.run('outer', () => {\n  try { a.run('inner', () => { check(a.getStore() === 'inner', 'nested'); throw reason; }); } catch (error) { check(error === reason, 'throw identity'); }\n  check(a.getStore() === 'outer', 'abrupt restore');\n  b.run('other', () => {\n    check(a.exit(() => { check(a.getStore() === undefined && b.getStore() === 'other', 'exit isolation'); return 19; }) === 19, 'exit return');\n    check(a.getStore() === 'outer' && b.getStore() === 'other', 'exit restore');\n  });\n  a.enterWith('entered'); check(a.getStore() === 'entered', 'enterWith');\n});\ncheck(a.getStore() === undefined && b.getStore() === undefined, 'independent restore');\nlet release; const barrier = new Promise(resolve => { release = resolve; });\nconst first = a.run('first', async () => { await barrier; check(a.getStore() === 'first', 'first await'); await Promise.resolve(); return a.getStore(); });\nconst second = a.run('second', async () => { release(); await Promise.resolve(); check(a.getStore() === 'second', 'second await'); return a.getStore(); });\ncheck(a.getStore() === undefined, 'async caller restore');\ncheck(JSON.stringify(await Promise.all([first, second])) === '[\"first\",\"second\"]', 'overlapping contexts');\nconst callbacks = await a.run('callbacks', () => Promise.all([\n  new Promise(resolve => queueMicrotask(() => resolve(a.getStore()))),\n  new Promise(resolve => process.nextTick(() => resolve(a.getStore()))),\n  Promise.resolve().then(() => a.getStore()),\n]));\ncheck(JSON.stringify(callbacks) === '[\"callbacks\",\"callbacks\",\"callbacks\"]', 'actual callback capture');\nconst exited = await a.run('outside-exit', () => b.run('kept', () => a.exit(() => Promise.resolve().then(() => [a.getStore(), b.getStore()]))));\ncheck(exited[0] === undefined && exited[1] === 'kept', 'async exit isolation');\nlet settle; const thenableSeen = [];\nconst source = a.run('create', () => new Promise(resolve => { settle = resolve; }));\nconst tail = a.run('register', () => source.then(() => thenableSeen.push(a.getStore())));\na.run('resolve', () => settle({ then(done) { thenableSeen.push(a.getStore()); done(1); } }));\nawait tail; check(JSON.stringify(thenableSeen) === '[\"resolve\",\"register\"]', 'thenable and reaction capture');\nconst custom = Promise.resolve(1); let speciesSeen;\nObject.defineProperty(custom, 'constructor', { value: { [Symbol.species]: function(executor) { return a.run('species', () => new Promise(executor)); } } });\nawait a.run('register-species', () => custom.then(() => { speciesSeen = a.getStore(); }));\ncheck(speciesSeen === 'register-species', 'species capture');\nconst changes = await a.run('original', () => Promise.all([\n  Promise.resolve().then(() => { a.enterWith('changed'); return Promise.resolve().then(() => a.getStore()); }),\n  Promise.resolve().then(() => a.getStore()),\n]));\ncheck(JSON.stringify(changes) === '[\"changed\",\"original\"]', 'job-local enterWith');\nfor (const value of [undefined, null, false, 0]) check(a.run(value, () => a.getStore()) === value, 'primitive store');\ntry { AsyncLocalStorage.prototype.getStore.call({}); throw new Error('forged receiver'); } catch (error) { check(error instanceof TypeError, 'receiver brand'); }\ncheck(a.getStore() === undefined && b.getStore() === undefined, 'final restore');\nconsole.log('OK actual async context across await, callbacks, siblings, exit and species');\n",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/home-tool-before-als",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async_context.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:async_hooks from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async_context.mjs\n"
+    },
+    {
+      "fixture": "contract",
+      "runtime": "home-zig-js",
+      "source": "import hooks, { AsyncLocalStorage } from 'node:async_hooks';\nimport alias from 'async_hooks';\nimport process from 'node:process';\nfunction check(value, message) { if (!value) throw new Error(message); }\ncheck(hooks === alias && hooks.AsyncLocalStorage === AsyncLocalStorage, 'module identity');\nconst a = new AsyncLocalStorage(); const b = new AsyncLocalStorage();\ncheck(a.getStore() === undefined && b.getStore() === undefined, 'initial scope');\nconst marker = { id: 7 }; const reason = new Error('identity');\ncheck(a.run(marker, (x, y) => { check(a.getStore() === marker, 'store identity'); return x + y; }, 8, 9) === 17, 'arguments/result');\ncheck(a.getStore() === undefined, 'sync restore');\na.run('outer', () => {\n  try { a.run('inner', () => { check(a.getStore() === 'inner', 'nested'); throw reason; }); } catch (error) { check(error === reason, 'throw identity'); }\n  check(a.getStore() === 'outer', 'abrupt restore');\n  b.run('other', () => {\n    check(a.exit(() => { check(a.getStore() === undefined && b.getStore() === 'other', 'exit isolation'); return 19; }) === 19, 'exit return');\n    check(a.getStore() === 'outer' && b.getStore() === 'other', 'exit restore');\n  });\n  a.enterWith('entered'); check(a.getStore() === 'entered', 'enterWith');\n});\ncheck(a.getStore() === undefined && b.getStore() === undefined, 'independent restore');\nlet release; const barrier = new Promise(resolve => { release = resolve; });\nconst first = a.run('first', async () => { await barrier; check(a.getStore() === 'first', 'first await'); await Promise.resolve(); return a.getStore(); });\nconst second = a.run('second', async () => { release(); await Promise.resolve(); check(a.getStore() === 'second', 'second await'); return a.getStore(); });\ncheck(a.getStore() === undefined, 'async caller restore');\ncheck(JSON.stringify(await Promise.all([first, second])) === '[\"first\",\"second\"]', 'overlapping contexts');\nconst callbacks = await a.run('callbacks', () => Promise.all([\n  new Promise(resolve => queueMicrotask(() => resolve(a.getStore()))),\n  new Promise(resolve => process.nextTick(() => resolve(a.getStore()))),\n  Promise.resolve().then(() => a.getStore()),\n]));\ncheck(JSON.stringify(callbacks) === '[\"callbacks\",\"callbacks\",\"callbacks\"]', 'actual callback capture');\nconst exited = await a.run('outside-exit', () => b.run('kept', () => a.exit(() => Promise.resolve().then(() => [a.getStore(), b.getStore()]))));\ncheck(exited[0] === undefined && exited[1] === 'kept', 'async exit isolation');\nlet settle; const thenableSeen = [];\nconst source = a.run('create', () => new Promise(resolve => { settle = resolve; }));\nconst tail = a.run('register', () => source.then(() => thenableSeen.push(a.getStore())));\na.run('resolve', () => settle({ then(done) { thenableSeen.push(a.getStore()); done(1); } }));\nawait tail; check(JSON.stringify(thenableSeen) === '[\"resolve\",\"register\"]', 'thenable and reaction capture');\nconst custom = Promise.resolve(1); let speciesSeen;\nObject.defineProperty(custom, 'constructor', { value: { [Symbol.species]: function(executor) { return a.run('species', () => new Promise(executor)); } } });\nawait a.run('register-species', () => custom.then(() => { speciesSeen = a.getStore(); }));\ncheck(speciesSeen === 'register-species', 'species capture');\nconst changes = await a.run('original', () => Promise.all([\n  Promise.resolve().then(() => { a.enterWith('changed'); return Promise.resolve().then(() => a.getStore()); }),\n  Promise.resolve().then(() => a.getStore()),\n]));\ncheck(JSON.stringify(changes) === '[\"changed\",\"original\"]', 'job-local enterWith');\nfor (const value of [undefined, null, false, 0]) check(a.run(value, () => a.getStore()) === value, 'primitive store');\ntry { AsyncLocalStorage.prototype.getStore.call({}); throw new Error('forged receiver'); } catch (error) { check(error instanceof TypeError, 'receiver brand'); }\ncheck(a.getStore() === undefined && b.getStore() === undefined, 'final restore');\nconsole.log('OK actual async context across await, callbacks, siblings, exit and species');\n",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async_context.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual async context across await, callbacks, siblings, exit and species\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "siblings",
+      "runtime": "node",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nconst storage = new AsyncLocalStorage();\nfunction check(expected) { if (storage.getStore() !== expected) throw new Error('wrong context: ' + storage.getStore() + ' expected ' + expected); }\nlet release; const barrier = new Promise(resolve => { release = resolve; });\nconst first = storage.run('first', async () => { check('first'); await barrier; check('first'); await Promise.resolve(); check('first'); return storage.getStore(); });\ncheck(undefined);\nconst second = storage.run('second', async () => { check('second'); release(); await Promise.resolve(); check('second'); return storage.getStore(); });\ncheck(undefined);\nconst result = await Promise.all([first, second]); check(undefined);\nconsole.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_siblings.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[\"first\",\"second\"]\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "siblings",
+      "runtime": "bun",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nconst storage = new AsyncLocalStorage();\nfunction check(expected) { if (storage.getStore() !== expected) throw new Error('wrong context: ' + storage.getStore() + ' expected ' + expected); }\nlet release; const barrier = new Promise(resolve => { release = resolve; });\nconst first = storage.run('first', async () => { check('first'); await barrier; check('first'); await Promise.resolve(); check('first'); return storage.getStore(); });\ncheck(undefined);\nconst second = storage.run('second', async () => { check('second'); release(); await Promise.resolve(); check('second'); return storage.getStore(); });\ncheck(undefined);\nconst result = await Promise.all([first, second]); check(undefined);\nconsole.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_siblings.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[\"first\",\"second\"]\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "siblings",
+      "runtime": "before",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nconst storage = new AsyncLocalStorage();\nfunction check(expected) { if (storage.getStore() !== expected) throw new Error('wrong context: ' + storage.getStore() + ' expected ' + expected); }\nlet release; const barrier = new Promise(resolve => { release = resolve; });\nconst first = storage.run('first', async () => { check('first'); await barrier; check('first'); await Promise.resolve(); check('first'); return storage.getStore(); });\ncheck(undefined);\nconst second = storage.run('second', async () => { check('second'); release(); await Promise.resolve(); check('second'); return storage.getStore(); });\ncheck(undefined);\nconst result = await Promise.all([first, second]); check(undefined);\nconsole.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/home-tool-before-als",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_siblings.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:async_hooks from /Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_siblings.mjs\n"
+    },
+    {
+      "fixture": "siblings",
+      "runtime": "home-zig-js",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nconst storage = new AsyncLocalStorage();\nfunction check(expected) { if (storage.getStore() !== expected) throw new Error('wrong context: ' + storage.getStore() + ' expected ' + expected); }\nlet release; const barrier = new Promise(resolve => { release = resolve; });\nconst first = storage.run('first', async () => { check('first'); await barrier; check('first'); await Promise.resolve(); check('first'); return storage.getStore(); });\ncheck(undefined);\nconst second = storage.run('second', async () => { check('second'); release(); await Promise.resolve(); check('second'); return storage.getStore(); });\ncheck(undefined);\nconst result = await Promise.all([first, second]); check(undefined);\nconsole.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_siblings.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[\"first\",\"second\"]\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "nested",
+      "runtime": "node",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nconst a = new AsyncLocalStorage(); const b = new AsyncLocalStorage(); const reason = new Error('identity');\nconst result = await a.run({ id: 7 }, async () => { const parent = a.getStore();\ntry { a.run({ id: 8 }, () => { if (a.getStore().id !== 8) throw new Error('nested'); throw reason; }); } catch (error) { if (error !== reason) throw error; }\nif (a.getStore() !== parent) throw new Error('not restored');\nreturn b.run(9, async () => { await Promise.resolve(); if (a.getStore() !== parent || b.getStore() !== 9) throw new Error('cross storage'); return [parent.id, b.getStore()]; }); });\nif (a.getStore() !== undefined || b.getStore() !== undefined) throw new Error('leak'); console.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_nested.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[7,9]\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "nested",
+      "runtime": "bun",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nconst a = new AsyncLocalStorage(); const b = new AsyncLocalStorage(); const reason = new Error('identity');\nconst result = await a.run({ id: 7 }, async () => { const parent = a.getStore();\ntry { a.run({ id: 8 }, () => { if (a.getStore().id !== 8) throw new Error('nested'); throw reason; }); } catch (error) { if (error !== reason) throw error; }\nif (a.getStore() !== parent) throw new Error('not restored');\nreturn b.run(9, async () => { await Promise.resolve(); if (a.getStore() !== parent || b.getStore() !== 9) throw new Error('cross storage'); return [parent.id, b.getStore()]; }); });\nif (a.getStore() !== undefined || b.getStore() !== undefined) throw new Error('leak'); console.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_nested.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[7,9]\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "nested",
+      "runtime": "before",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nconst a = new AsyncLocalStorage(); const b = new AsyncLocalStorage(); const reason = new Error('identity');\nconst result = await a.run({ id: 7 }, async () => { const parent = a.getStore();\ntry { a.run({ id: 8 }, () => { if (a.getStore().id !== 8) throw new Error('nested'); throw reason; }); } catch (error) { if (error !== reason) throw error; }\nif (a.getStore() !== parent) throw new Error('not restored');\nreturn b.run(9, async () => { await Promise.resolve(); if (a.getStore() !== parent || b.getStore() !== 9) throw new Error('cross storage'); return [parent.id, b.getStore()]; }); });\nif (a.getStore() !== undefined || b.getStore() !== undefined) throw new Error('leak'); console.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/home-tool-before-als",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_nested.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:async_hooks from /Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_nested.mjs\n"
+    },
+    {
+      "fixture": "nested",
+      "runtime": "home-zig-js",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nconst a = new AsyncLocalStorage(); const b = new AsyncLocalStorage(); const reason = new Error('identity');\nconst result = await a.run({ id: 7 }, async () => { const parent = a.getStore();\ntry { a.run({ id: 8 }, () => { if (a.getStore().id !== 8) throw new Error('nested'); throw reason; }); } catch (error) { if (error !== reason) throw error; }\nif (a.getStore() !== parent) throw new Error('not restored');\nreturn b.run(9, async () => { await Promise.resolve(); if (a.getStore() !== parent || b.getStore() !== 9) throw new Error('cross storage'); return [parent.id, b.getStore()]; }); });\nif (a.getStore() !== undefined || b.getStore() !== undefined) throw new Error('leak'); console.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_nested.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[7,9]\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "callbacks",
+      "runtime": "node",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nimport process from 'node:process';\nconst storage = new AsyncLocalStorage();\nconst result = await storage.run('registered', () => Promise.all([\nnew Promise(resolve => queueMicrotask(() => resolve(storage.getStore()))),\nnew Promise(resolve => process.nextTick(() => resolve(storage.getStore()))),\nPromise.resolve().then(() => storage.getStore())]));\nif (JSON.stringify(result) !== '[\"registered\",\"registered\",\"registered\"]' || storage.getStore() !== undefined) throw new Error('wrong callback capture'); console.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_callbacks.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[\"registered\",\"registered\",\"registered\"]\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "callbacks",
+      "runtime": "bun",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nimport process from 'node:process';\nconst storage = new AsyncLocalStorage();\nconst result = await storage.run('registered', () => Promise.all([\nnew Promise(resolve => queueMicrotask(() => resolve(storage.getStore()))),\nnew Promise(resolve => process.nextTick(() => resolve(storage.getStore()))),\nPromise.resolve().then(() => storage.getStore())]));\nif (JSON.stringify(result) !== '[\"registered\",\"registered\",\"registered\"]' || storage.getStore() !== undefined) throw new Error('wrong callback capture'); console.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_callbacks.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[\"registered\",\"registered\",\"registered\"]\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "callbacks",
+      "runtime": "before",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nimport process from 'node:process';\nconst storage = new AsyncLocalStorage();\nconst result = await storage.run('registered', () => Promise.all([\nnew Promise(resolve => queueMicrotask(() => resolve(storage.getStore()))),\nnew Promise(resolve => process.nextTick(() => resolve(storage.getStore()))),\nPromise.resolve().then(() => storage.getStore())]));\nif (JSON.stringify(result) !== '[\"registered\",\"registered\",\"registered\"]' || storage.getStore() !== undefined) throw new Error('wrong callback capture'); console.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/home-tool-before-als",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_callbacks.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:async_hooks from /Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_callbacks.mjs\n"
+    },
+    {
+      "fixture": "callbacks",
+      "runtime": "home-zig-js",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nimport process from 'node:process';\nconst storage = new AsyncLocalStorage();\nconst result = await storage.run('registered', () => Promise.all([\nnew Promise(resolve => queueMicrotask(() => resolve(storage.getStore()))),\nnew Promise(resolve => process.nextTick(() => resolve(storage.getStore()))),\nPromise.resolve().then(() => storage.getStore())]));\nif (JSON.stringify(result) !== '[\"registered\",\"registered\",\"registered\"]' || storage.getStore() !== undefined) throw new Error('wrong callback capture'); console.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_callbacks.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[\"registered\",\"registered\",\"registered\"]\n",
+      "stderr": ""
+    }
+  ]
+}

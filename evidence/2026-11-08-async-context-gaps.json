@@ -1,0 +1,301 @@
+{
+  "scope": "Actual advanced operations and retained failures. Native Bun may also lack hooks/options behavior; its results are preserved rather than assumed successful. Home does not claim disabled-resource lifecycle, binding/snapshot/AsyncResource, constructor options or unvalidated timer/rejection-event propagation.",
+  "results": [
+    {
+      "fixture": "disable.mjs",
+      "runtime": "node",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nconst a=new AsyncLocalStorage();let p;a.run('a',()=>{a.disable();p=Promise.resolve().then(()=>a.getStore());a.run('b',()=>{});});if(await p!==undefined)throw new Error('disabled capture');console.log('OK actual disable inheritance');",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/disable.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual disable inheritance\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "disable.mjs",
+      "runtime": "bun",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nconst a=new AsyncLocalStorage();let p;a.run('a',()=>{a.disable();p=Promise.resolve().then(()=>a.getStore());a.run('b',()=>{});});if(await p!==undefined)throw new Error('disabled capture');console.log('OK actual disable inheritance');",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/disable.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual disable inheritance\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "disable.mjs",
+      "runtime": "home-zig-js",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nconst a=new AsyncLocalStorage();let p;a.run('a',()=>{a.disable();p=Promise.resolve().then(()=>a.getStore());a.run('b',()=>{});});if(await p!==undefined)throw new Error('disabled capture');console.log('OK actual disable inheritance');",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/disable.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Home AsyncLocalStorage disable and async resource lifecycle hooks are not implemented\n"
+    },
+    {
+      "fixture": "bind.mjs",
+      "runtime": "node",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nconst a=new AsyncLocalStorage();const fn=a.run('bound',()=>AsyncLocalStorage.bind(()=>a.getStore()));if(fn()!=='bound')throw new Error('bind');console.log('OK actual bound scope');",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/bind.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual bound scope\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "bind.mjs",
+      "runtime": "bun",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nconst a=new AsyncLocalStorage();const fn=a.run('bound',()=>AsyncLocalStorage.bind(()=>a.getStore()));if(fn()!=='bound')throw new Error('bind');console.log('OK actual bound scope');",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/bind.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual bound scope\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "bind.mjs",
+      "runtime": "home-zig-js",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nconst a=new AsyncLocalStorage();const fn=a.run('bound',()=>AsyncLocalStorage.bind(()=>a.getStore()));if(fn()!=='bound')throw new Error('bind');console.log('OK actual bound scope');",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/bind.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: Cannot call a class constructor AsyncLocalStorage without |new|\n"
+    },
+    {
+      "fixture": "snapshot.mjs",
+      "runtime": "node",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nconst a=new AsyncLocalStorage();const run=a.run('snapshot',()=>AsyncLocalStorage.snapshot());if(run(()=>a.getStore())!=='snapshot')throw new Error('snapshot');console.log('OK actual snapshot');",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/snapshot.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual snapshot\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "snapshot.mjs",
+      "runtime": "bun",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nconst a=new AsyncLocalStorage();const run=a.run('snapshot',()=>AsyncLocalStorage.snapshot());if(run(()=>a.getStore())!=='snapshot')throw new Error('snapshot');console.log('OK actual snapshot');",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/snapshot.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual snapshot\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "snapshot.mjs",
+      "runtime": "home-zig-js",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nconst a=new AsyncLocalStorage();const run=a.run('snapshot',()=>AsyncLocalStorage.snapshot());if(run(()=>a.getStore())!=='snapshot')throw new Error('snapshot');console.log('OK actual snapshot');",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/snapshot.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: AsyncLocalStorage.snapshot is not a function. (In 'AsyncLocalStorage.snapshot()', 'AsyncLocalStorage.snapshot' is undefined)\n"
+    },
+    {
+      "fixture": "resource.mjs",
+      "runtime": "node",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nconst a=new AsyncLocalStorage();const resource=a.run('resource',()=>new hooks.AsyncResource('actual'));if(resource.runInAsyncScope(()=>a.getStore())!=='resource')throw new Error('resource');resource.emitDestroy();console.log('OK actual resource');",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/resource.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual resource\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "resource.mjs",
+      "runtime": "bun",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nconst a=new AsyncLocalStorage();const resource=a.run('resource',()=>new hooks.AsyncResource('actual'));if(resource.runInAsyncScope(()=>a.getStore())!=='resource')throw new Error('resource');resource.emitDestroy();console.log('OK actual resource');",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/resource.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual resource\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "resource.mjs",
+      "runtime": "home-zig-js",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nconst a=new AsyncLocalStorage();const resource=a.run('resource',()=>new hooks.AsyncResource('actual'));if(resource.runInAsyncScope(()=>a.getStore())!=='resource')throw new Error('resource');resource.emitDestroy();console.log('OK actual resource');",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/resource.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: undefined is not a constructor (evaluating 'new hooks.AsyncResource(\"actual\")')\n"
+    },
+    {
+      "fixture": "options.mjs",
+      "runtime": "node",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nconst a=new AsyncLocalStorage({defaultValue:'default'});if(a.getStore()!=='default')throw new Error('default value');console.log('OK actual default value');",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/options.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual default value\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "options.mjs",
+      "runtime": "bun",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nconst a=new AsyncLocalStorage({defaultValue:'default'});if(a.getStore()!=='default')throw new Error('default value');console.log('OK actual default value');",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/options.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual default value\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "options.mjs",
+      "runtime": "home-zig-js",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nconst a=new AsyncLocalStorage({defaultValue:'default'});if(a.getStore()!=='default')throw new Error('default value');console.log('OK actual default value');",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/options.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Home AsyncLocalStorage constructor options are not implemented\n"
+    },
+    {
+      "fixture": "hooks.mjs",
+      "runtime": "node",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nlet calls=0;const h=hooks.createHook({before(){calls++}});h.enable();const a=new AsyncLocalStorage();await a.run('hook',()=>Promise.resolve().then(()=>a.getStore()));h.disable();if(calls===0)throw new Error('hooks never executed');console.log('OK actual hook callbacks');",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/hooks.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual hook callbacks\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "hooks.mjs",
+      "runtime": "bun",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nlet calls=0;const h=hooks.createHook({before(){calls++}});h.enable();const a=new AsyncLocalStorage();await a.run('hook',()=>Promise.resolve().then(()=>a.getStore()));h.disable();if(calls===0)throw new Error('hooks never executed');console.log('OK actual hook callbacks');",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/hooks.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "1 | import hooks,{AsyncLocalStorage} from 'node:async_hooks';\n2 | let calls=0;const h=hooks.createHook({before(){calls++}});h.enable();const a=new AsyncLocalStorage();await a.run('hook',()=>Promise.resolve().then(()=>a.getStore()));h.disable();if(calls===0)throw new Error('hooks never executed');console.log('OK actual hook callbacks');\n                                                                                                                                                                                                             ^\nerror: hooks never executed\n      at /Users/chris/.cache/zig-js-ecosystem-research/async-context/hooks.mjs:2:202\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "fixture": "hooks.mjs",
+      "runtime": "home-zig-js",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nlet calls=0;const h=hooks.createHook({before(){calls++}});h.enable();const a=new AsyncLocalStorage();await a.run('hook',()=>Promise.resolve().then(()=>a.getStore()));h.disable();if(calls===0)throw new Error('hooks never executed');console.log('OK actual hook callbacks');",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/hooks.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: hooks.createHook is not a function. (In 'hooks.createHook({ before() {\n  calls++;\n} })', 'hooks.createHook' is undefined)\n"
+    },
+    {
+      "fixture": "timer.mjs",
+      "runtime": "node",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nconst a=new AsyncLocalStorage();const result=await a.run('timer',()=>new Promise(resolve=>setTimeout(()=>resolve(a.getStore()),5)));if(result!=='timer')throw new Error('timer capture');console.log('OK actual timer capture');",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/timer.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual timer capture\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "timer.mjs",
+      "runtime": "bun",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nconst a=new AsyncLocalStorage();const result=await a.run('timer',()=>new Promise(resolve=>setTimeout(()=>resolve(a.getStore()),5)));if(result!=='timer')throw new Error('timer capture');console.log('OK actual timer capture');",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/timer.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual timer capture\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "timer.mjs",
+      "runtime": "home-zig-js",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nconst a=new AsyncLocalStorage();const result=await a.run('timer',()=>new Promise(resolve=>setTimeout(()=>resolve(a.getStore()),5)));if(result!=='timer')throw new Error('timer capture');console.log('OK actual timer capture');",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/timer.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: timer capture\n"
+    },
+    {
+      "fixture": "rejection-event.mjs",
+      "runtime": "node",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nimport process from 'node:process';const a=new AsyncLocalStorage();let called=false;process.on('exit',()=>{if(!called)process.exitCode=1});process.on('unhandledRejection',()=>{called=true;if(a.getStore()!=='rejection'){process.exitCode=1;console.log('missing rejection event context')}else console.log('OK actual rejection context')});a.run('rejection',()=>Promise.reject(new Error('witness')));",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/rejection-event.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual rejection context\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "rejection-event.mjs",
+      "runtime": "bun",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nimport process from 'node:process';const a=new AsyncLocalStorage();let called=false;process.on('exit',()=>{if(!called)process.exitCode=1});process.on('unhandledRejection',()=>{called=true;if(a.getStore()!=='rejection'){process.exitCode=1;console.log('missing rejection event context')}else console.log('OK actual rejection context')});a.run('rejection',()=>Promise.reject(new Error('witness')));",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/rejection-event.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "missing rejection event context\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "rejection-event.mjs",
+      "runtime": "home-zig-js",
+      "source": "import hooks,{AsyncLocalStorage} from 'node:async_hooks';\nimport process from 'node:process';const a=new AsyncLocalStorage();let called=false;process.on('exit',()=>{if(!called)process.exitCode=1});process.on('unhandledRejection',()=>{called=true;if(a.getStore()!=='rejection'){process.exitCode=1;console.log('missing rejection event context')}else console.log('OK actual rejection context')});a.run('rejection',()=>Promise.reject(new Error('witness')));",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/rejection-event.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "missing rejection event context\n",
+      "stderr": ""
+    }
+  ]
+}

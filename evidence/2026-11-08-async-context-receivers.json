@@ -1,0 +1,39 @@
+{
+  "scope": "Actual Node/Bun reference difference; Home follows Node null callback receiver.",
+  "results": [
+    {
+      "runtime": "node",
+      "source": "import {AsyncLocalStorage} from 'node:async_hooks';const a=new AsyncLocalStorage();const cb=function(){'use strict';return this===null?'null':this===undefined?'undefined':'other'};console.log(JSON.stringify([a.run(1,cb),a.exit(cb)]));",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/receiver.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[\"null\",\"null\"]\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "source": "import {AsyncLocalStorage} from 'node:async_hooks';const a=new AsyncLocalStorage();const cb=function(){'use strict';return this===null?'null':this===undefined?'undefined':'other'};console.log(JSON.stringify([a.run(1,cb),a.exit(cb)]));",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/receiver.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[\"undefined\",\"undefined\"]\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "source": "import {AsyncLocalStorage} from 'node:async_hooks';const a=new AsyncLocalStorage();const cb=function(){'use strict';return this===null?'null':this===undefined?'undefined':'other'};console.log(JSON.stringify([a.run(1,cb),a.exit(cb)]));",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/receiver.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[\"null\",\"null\"]\n",
+      "stderr": ""
+    }
+  ]
+}
