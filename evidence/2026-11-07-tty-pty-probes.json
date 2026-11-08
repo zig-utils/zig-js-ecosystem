@@ -1,0 +1,58 @@
+{
+  "scope": "Actual PTY tool subprocesses. Node/Home classification agrees; terminal stream gaps remain nonzero on Home.",
+  "classification": [
+    {
+      "runtime": "node",
+      "chunk_id": "4973e5",
+      "wall_time_seconds": 0.04112175,
+      "exit_code": 0,
+      "original_token_count": 31,
+      "output": "{\"descriptors\":[true,true,true],\"invalid\":[false,false,false,false,false,false,false,false,false,false,false,false,false]}\r\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "chunk_id": "e3afef",
+      "wall_time_seconds": 0.23146075,
+      "exit_code": 0,
+      "original_token_count": 31,
+      "output": "{\"descriptors\":[true,true,true],\"invalid\":[false,false,false,false,false,false,false,false,false,false,false,false,false]}\r\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "chunk_id": "4527ed",
+      "wall_time_seconds": 1.1708e-05,
+      "exit_code": 0,
+      "original_token_count": 31,
+      "output": "{\"descriptors\":[true,true,true],\"invalid\":[false,false,false,false,false,false,false,false,false,false,false,false,false]}\r\n"
+    }
+  ],
+  "capabilities": [
+    {
+      "runtime": "node",
+      "pty": true,
+      "chunk_id": "45a6db",
+      "wall_time_seconds": 2.2084e-05,
+      "exit_code": 0,
+      "original_token_count": 35,
+      "output": "[{\"name\":\"WriteStream\",\"status\":\"returned\"},{\"name\":\"ReadStream\",\"status\":\"returned\"},{\"name\":\"process.stdout.isTTY\",\"status\":\"returned\"}]\r\n"
+    },
+    {
+      "runtime": "bun",
+      "pty": true,
+      "chunk_id": "7eab64",
+      "wall_time_seconds": 1.2e-05,
+      "exit_code": 0,
+      "original_token_count": 35,
+      "output": "[{\"name\":\"WriteStream\",\"status\":\"returned\"},{\"name\":\"ReadStream\",\"status\":\"returned\"},{\"name\":\"process.stdout.isTTY\",\"status\":\"returned\"}]\r\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "pty": true,
+      "chunk_id": "04eed0",
+      "wall_time_seconds": 1.2e-05,
+      "exit_code": 1,
+      "original_token_count": 102,
+      "output": "[{\"name\":\"WriteStream\",\"status\":\"threw\",\"error\":\"TypeError\",\"message\":\"undefined is not a constructor (evaluating 'new tty.WriteStream(1)')\"},{\"name\":\"ReadStream\",\"status\":\"threw\",\"error\":\"TypeError\",\"message\":\"undefined is not a constructor (evaluating 'new tty.ReadStream(0)')\"},{\"name\":\"process.stdout.isTTY\",\"status\":\"threw\",\"error\":\"Error\",\"message\":\"process stream does not report its actual PTY\"}]\r\n"
+    }
+  ]
+}

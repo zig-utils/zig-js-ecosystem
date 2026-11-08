@@ -1,0 +1,23 @@
+{
+  "scope": "Real unsupported operations: any thrown operation sets nonzero exit; no missing API is counted as a compatibility pass.",
+  "results": [
+    {
+      "runtime": "node",
+      "exit_code": 0,
+      "stdout": "[{\"name\":\"captureRejections\",\"status\":\"returned\"},{\"name\":\"once promise\",\"status\":\"returned\"},{\"name\":\"on async iterator\",\"status\":\"returned\"}]\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "exit_code": 0,
+      "stdout": "[{\"name\":\"captureRejections\",\"status\":\"returned\"},{\"name\":\"once promise\",\"status\":\"returned\"},{\"name\":\"on async iterator\",\"status\":\"returned\"}]\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "exit_code": 1,
+      "stdout": "[{\"name\":\"captureRejections\",\"status\":\"threw\",\"error\":\"Error\",\"code\":\"ERR_HOME_UNSUPPORTED\",\"message\":\"Home EventEmitter captureRejections is not implemented\"},{\"name\":\"once promise\",\"status\":\"threw\",\"error\":\"TypeError\",\"message\":\"events.once is not a function. (In 'events.once(target, \\\"value\\\")', 'events.once' is undefined)\"},{\"name\":\"on async iterator\",\"status\":\"threw\",\"error\":\"TypeError\",\"message\":\"events.on is not a function. (In 'events.on(target, \\\"value\\\")', 'events.on' is undefined)\"}]\n",
+      "stderr": ""
+    }
+  ]
+}

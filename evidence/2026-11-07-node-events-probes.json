@@ -1,0 +1,85 @@
+{
+  "scope": "Synchronous EventEmitter profile. Real Node/Bun/before/Home subprocess results; warning timing and stderr formatting are not claimed equivalent. Local Zig 0.17/archive checks remain supplementary to exact CI.",
+  "fixtures_sha256": {
+    "packages/runtime/test/tool_modules/node_events_entry.cjs": "07ff22f602f4183fad56ca1d0a412d10ae6198439f1ed8f69ee127230ee19a9e",
+    "packages/runtime/test/tool_modules/node_events_esm.mjs": "9d3e04bb031103a94bd5a426bf9f12c09def136a6633eb64b0cccb440da9e00d",
+    "packages/runtime/test/tool_modules/node_events.expected.json": "cc12c797d824278404df8a707fe105cc718d4c4e8a3224044bf795d4891a0955"
+  },
+  "binaries_sha256": {
+    "before": "a218aa6fa4a0082214039d3f58c9d9bc0ef4269d2d01388b4ceea094b21678fb",
+    "home-zig-js": "0ad9bf9b03da854150128b668fe9981f8c6e718fc6a45bb0593098ddfc1539b7",
+    "home-jsc": "52ac20dd403fc05bd18a6499481374e61f37e15c646ff2ba49956c80802452f8"
+  },
+  "results": [
+    {
+      "runtime": "node",
+      "case": "packages/runtime/test/tool_modules/node_events_entry.cjs",
+      "exit_code": 0,
+      "stdout": "{\"order\":[\"once:1\",\"first:1\",\"last:1\",\"first:2\",\"last:2\"],\"duplicates\":1,\"mutation\":[\"first\",\"removed still in snapshot\"],\"inserted\":[\"inserted\",\"original\"],\"metadata\":[[\"add\",true,0],[\"remove\",true,0]],\"removeOrder\":[\"two\",\"one\"],\"symbol\":42,\"monitor\":[true,true],\"registrationCalls\":[[\"on\",true],[\"prepend\",true]],\"warnings\":[[\"MaxListenersExceededWarning\",\"warn\",2]]}\n",
+      "stderr": "(node:72357) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 2 warn listeners added to [EventEmitter]. MaxListeners is 1. Use emitter.setMaxListeners() to increase limit\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+    },
+    {
+      "runtime": "node",
+      "case": "packages/runtime/test/tool_modules/node_events_esm.mjs",
+      "exit_code": 0,
+      "stdout": "OK home-tool ESM EventEmitter identity\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "packages/runtime/test/tool_modules/node_events_entry.cjs",
+      "exit_code": 0,
+      "stdout": "{\"order\":[\"once:1\",\"first:1\",\"last:1\",\"first:2\",\"last:2\"],\"duplicates\":1,\"mutation\":[\"first\",\"removed still in snapshot\"],\"inserted\":[\"inserted\",\"original\"],\"metadata\":[[\"add\",true,0],[\"remove\",true,0]],\"removeOrder\":[\"two\",\"one\"],\"symbol\":42,\"monitor\":[true,true],\"registrationCalls\":[[\"on\",true],[\"prepend\",true]],\"warnings\":[[\"MaxListenersExceededWarning\",\"warn\",2]]}\n",
+      "stderr": "(node:72364) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 2 warn listeners added to [EventEmitter]. MaxListeners is 1. Use emitter.setMaxListeners() to increase limit\n(Use `bun --trace-warnings ...` to show where the warning was created)\n"
+    },
+    {
+      "runtime": "bun",
+      "case": "packages/runtime/test/tool_modules/node_events_esm.mjs",
+      "exit_code": 0,
+      "stdout": "OK home-tool ESM EventEmitter identity\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "packages/runtime/test/tool_modules/node_events_entry.cjs",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:events from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_events_entry.cjs\n"
+    },
+    {
+      "runtime": "before",
+      "case": "packages/runtime/test/tool_modules/node_events_esm.mjs",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:events from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_events_esm.mjs\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "packages/runtime/test/tool_modules/node_events_entry.cjs",
+      "exit_code": 0,
+      "stdout": "{\"order\":[\"once:1\",\"first:1\",\"last:1\",\"first:2\",\"last:2\"],\"duplicates\":1,\"mutation\":[\"first\",\"removed still in snapshot\"],\"inserted\":[\"inserted\",\"original\"],\"metadata\":[[\"add\",true,0],[\"remove\",true,0]],\"removeOrder\":[\"two\",\"one\"],\"symbol\":42,\"monitor\":[true,true],\"registrationCalls\":[[\"on\",true],[\"prepend\",true]],\"warnings\":[[\"MaxListenersExceededWarning\",\"warn\",2]]}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "packages/runtime/test/tool_modules/node_events_esm.mjs",
+      "exit_code": 0,
+      "stdout": "OK home-tool ESM EventEmitter identity\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "packages/runtime/test/tool_modules/node_events_entry.cjs",
+      "exit_code": 0,
+      "stdout": "{\"order\":[\"once:1\",\"first:1\",\"last:1\",\"first:2\",\"last:2\"],\"duplicates\":1,\"mutation\":[\"first\",\"removed still in snapshot\"],\"inserted\":[\"inserted\",\"original\"],\"metadata\":[[\"add\",true,0],[\"remove\",true,0]],\"removeOrder\":[\"two\",\"one\"],\"symbol\":42,\"monitor\":[true,true],\"registrationCalls\":[[\"on\",true],[\"prepend\",true]],\"warnings\":[[\"MaxListenersExceededWarning\",\"warn\",2]]}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "packages/runtime/test/tool_modules/node_events_esm.mjs",
+      "exit_code": 0,
+      "stdout": "OK home-tool ESM EventEmitter identity\n",
+      "stderr": ""
+    }
+  ]
+}

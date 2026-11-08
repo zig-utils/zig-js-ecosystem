@@ -1,0 +1,37 @@
+{
+  "status": "failed",
+  "exit_code": 1,
+  "seconds": 3.152,
+  "log": "stacks.log",
+  "log_text": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\nhome-tool (zig-js): Error: cannot resolve module node:tty from /Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/node_modules/@stacksjs/clapp/dist/index.js\n\nECOSYSTEM RESULT: failed, exit 1\n",
+  "events": [
+    {
+      "kind": "zig-js",
+      "file": "/Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/node_modules/typescript/bin/tsc",
+      "arguments": [
+        "--noEmit",
+        "-p",
+        "storage/framework/tsconfig.framework.json",
+        "--pretty",
+        "false"
+      ]
+    },
+    {
+      "kind": "zig-js",
+      "file": "/Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/node_modules/typescript/bin/tsc",
+      "arguments": [
+        "--noEmit",
+        "-p",
+        "storage/framework/tsconfig.defaults.json",
+        "--pretty",
+        "false"
+      ]
+    },
+    {
+      "kind": "zig-js",
+      "file": "/Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/storage/framework/core/validation/build.ts",
+      "arguments": []
+    }
+  ],
+  "consumer_sha": "0e5a86525495166c65e292fd652c72486d3adb30"
+}

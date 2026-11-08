@@ -1,0 +1,41 @@
+{
+  "scope": "Actual piped descriptors and invalid Node fd inputs. Bun 1.4.4 throws for BigInt instead of returning false; preserve that difference. Local Zig 0.17/archive checks are supplementary; exact CI validation is still required.",
+  "results": [
+    {
+      "runtime": "node",
+      "exit_code": 0,
+      "stdout": "{\"descriptors\":[false,false,false],\"invalid\":[false,false,false,false,false,false,false,false,false,false,false,false,false]}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "1 | import tty, { isatty } from 'node:tty';\n2 | import { createRequire } from 'node:module';\n3 | const requireHere = createRequire(import.meta.url);\n4 | if (tty !== requireHere('tty') || tty !== requireHere('node:tty') || isatty !== tty.isatty) throw new Error('tty module identity');\n5 | const descriptors = [0, 1, 2].map(isatty);\n6 | const invalid = [-1, 1.5, NaN, Infinity, 2 ** 31, 2 ** 32, '1', true, null, undefined, 1n, {}, Symbol('fd')].map(isatty);\n              ^\nTypeError: Conversion from 'BigInt' to 'number' is not allowed.\n      at map (1:11)\n      at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_entry.mjs:6:110\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "runtime": "before",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:tty from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_entry.mjs\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "exit_code": 0,
+      "stdout": "{\"descriptors\":[false,false,false],\"invalid\":[false,false,false,false,false,false,false,false,false,false,false,false,false]}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "exit_code": 0,
+      "stdout": "{\"descriptors\":[false,false,false],\"invalid\":[false,false,false,false,false,false,false,false,false,false,false,false,false]}\n",
+      "stderr": ""
+    }
+  ],
+  "binary_sha256": {
+    "home-zig-js": "ef2efc23ab994d35f90bbd2ab0b1e764e678fcde23a2860b43cf6a199043dfa0",
+    "home-jsc": "a143c839cd3f64885e26fdecbee106e291cc88f2366eb5e7398064de3086b3b4",
+    "before": "0ad9bf9b03da854150128b668fe9981f8c6e718fc6a45bb0593098ddfc1539b7"
+  },
+  "fixture_sha256": "540057685ad02e565196a97d00ff570e091954db1d5c792f1f52778bd55df7a8"
+}
