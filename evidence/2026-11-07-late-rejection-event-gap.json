@@ -1,0 +1,30 @@
+{
+  "scope": "Actual remaining late rejectionHandled event gap, separately reported from fixed fatal statuses.",
+  "source": "let handled=false;process.on(\"rejectionHandled\",()=>{handled=true;console.log(\"late handled\")});process.on(\"unhandledRejection\",(_,promise)=>promise.catch(()=>{}));Promise.reject(new Error(\"late-handler event\"));process.on(\"exit\",()=>{if(!handled)process.exitCode=1})",
+  "results": [
+    {
+      "runtime": "node",
+      "exit_code": 0,
+      "stdout": "late handled\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "exit_code": 0,
+      "stdout": "late handled\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

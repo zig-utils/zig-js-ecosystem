@@ -1,0 +1,442 @@
+{
+  "scope": "Actual subprocesses; only the zig-js tool has the real engine checkpoint. JSC common-smoke success does not certify this capability; its explicit capability gate failed. No Promise replacement or Bun candidate fallback.",
+  "zig_version": "0.18.0-dev.146+35accc06e",
+  "engine_before": "fc8f8d78410ab93f85ac82d7e48dd3359cb1d0d3",
+  "engine_after": "96ba2f58731d5798ec7af368e4341af7cd5a34d8",
+  "home_before": "3b1cf5d79926d6748ece526f2994eea2555dc886",
+  "home_parent": "4960e8c99b22b9e8cceda2f69e1be2fdbdae1e48",
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "local_cpu_policy": "compiler default, not a portable CI artifact",
+  "results": [
+    {
+      "runtime": "node",
+      "case": "error",
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unhandled_rejection.cjs:2\nconst error = new Error('standalone rejection');\n              ^\n\nError: standalone rejection\n    at Object.<anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unhandled_rejection.cjs:2:15)\n    at Module._compile (node:internal/modules/cjs/loader:1956:14)\n    at Object..js (node:internal/modules/cjs/loader:2096:10)\n    at Module.load (node:internal/modules/cjs/loader:1678:32)\n    at Module._load (node:internal/modules/cjs/loader:1470:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:33:47\n\nNode.js v26.10.0\n"
+    },
+    {
+      "runtime": "node",
+      "case": "undefined",
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "node:internal/process/promises:322\n      new UnhandledPromiseRejection(reason);\n      ^\n\nUnhandledPromiseRejection: This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason \"undefined\".\n    at throwUnhandledRejectionsMode (node:internal/process/promises:322:7)\n    at processPromiseRejections (node:internal/process/promises:405:17)\n    at process.processTicksAndRejections (node:internal/process/task_queues:106:37) {\n  code: 'ERR_UNHANDLED_REJECTION'\n}\n\nNode.js v26.10.0\n"
+    },
+    {
+      "runtime": "node",
+      "case": "chain",
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unhandled_rejection.cjs:2\nconst error = new Error('standalone rejection');\n              ^\n\nError: standalone rejection\n    at Object.<anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unhandled_rejection.cjs:2:15)\n    at Module._compile (node:internal/modules/cjs/loader:1956:14)\n    at Object..js (node:internal/modules/cjs/loader:2096:10)\n    at Module.load (node:internal/modules/cjs/loader:1678:32)\n    at Module._load (node:internal/modules/cjs/loader:1470:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:33:47\n\nNode.js v26.10.0\n"
+    },
+    {
+      "runtime": "node",
+      "case": "async",
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unhandled_rejection.cjs:2\nconst error = new Error('standalone rejection');\n              ^\n\nError: standalone rejection\n    at Object.<anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unhandled_rejection.cjs:2:15)\n    at Module._compile (node:internal/modules/cjs/loader:1956:14)\n    at Object..js (node:internal/modules/cjs/loader:2096:10)\n    at Module.load (node:internal/modules/cjs/loader:1678:32)\n    at Module._load (node:internal/modules/cjs/loader:1470:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:33:47\n\nNode.js v26.10.0\n"
+    },
+    {
+      "runtime": "node",
+      "case": "handled",
+      "exit_code": 0,
+      "stdout": "handled\nexit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "node",
+      "case": "microtask-handled",
+      "exit_code": 0,
+      "stdout": "microtask handled\nexit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "node",
+      "case": "listener",
+      "exit_code": 0,
+      "stdout": "notification identity\nexit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "node",
+      "case": "uncaught",
+      "exit_code": 21,
+      "stdout": "monitor\nuncaught identity\nexit 21\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "node",
+      "case": "wrapped",
+      "exit_code": 22,
+      "stdout": "wrapped rejection\nexit 22\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "node",
+      "case": "listener-throw",
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unhandled_rejection.cjs:29\nif (mode === 'listener-throw') process.on('unhandledRejection', () => { throw new Error('listener failure'); });\n                                                                        ^\n\nError: listener failure\n    at process.<anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unhandled_rejection.cjs:29:79)\n    at process.emit (node:events:514:20)\n    at emitUnhandledRejection (node:internal/process/promises:182:13)\n    at throwUnhandledRejectionsMode (node:internal/process/promises:318:19)\n    at processPromiseRejections (node:internal/process/promises:405:17)\n    at process.processTicksAndRejections (node:internal/process/task_queues:106:37)\n\nNode.js v26.10.0\n"
+    },
+    {
+      "runtime": "node",
+      "case": "handler-throw",
+      "exit_code": 7,
+      "stdout": "",
+      "stderr": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unhandled_rejection.cjs:30\nif (mode === 'handler-throw') process.on('uncaughtException', () => { throw new Error('uncaught handler failure'); });\n                                                                      ^\n\nError: uncaught handler failure\n    at process.<anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unhandled_rejection.cjs:30:77)\n    at process.emit (node:events:514:20)\n    at process._fatalException (node:internal/process/execution:192:32)\n    at throwUnhandledRejectionsMode (node:internal/process/promises:324:5)\n    at processPromiseRejections (node:internal/process/promises:405:17)\n    at process.processTicksAndRejections (node:internal/process/task_queues:106:37)\n\nNode.js v26.10.0\n"
+    },
+    {
+      "runtime": "node",
+      "case": "second",
+      "exit_code": 1,
+      "stdout": "first notification\nexit 1\n",
+      "stderr": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unhandled_rejection.cjs:34\n    Promise.resolve().then(() => { throw new Error('second rejection'); });\n                                         ^\n\nError: second rejection\n    at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unhandled_rejection.cjs:34:42\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n\nNode.js v26.10.0\n"
+    },
+    {
+      "runtime": "bun",
+      "case": "error",
+      "exit_code": 1,
+      "stdout": "exit 0\n",
+      "stderr": "1 | const mode = process.argv[2];\n2 | const error = new Error('standalone rejection');\n                      ^\nerror: standalone rejection\n      at <anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unhandled_rejection.cjs:2:19)\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "runtime": "bun",
+      "case": "undefined",
+      "exit_code": 1,
+      "stdout": "exit 0\n",
+      "stderr": "error: undefined\nundefined\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "runtime": "bun",
+      "case": "chain",
+      "exit_code": 1,
+      "stdout": "exit 0\n",
+      "stderr": "1 | const mode = process.argv[2];\n2 | const error = new Error('standalone rejection');\n                      ^\nerror: standalone rejection\n      at <anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unhandled_rejection.cjs:2:19)\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "runtime": "bun",
+      "case": "async",
+      "exit_code": 1,
+      "stdout": "exit 0\n",
+      "stderr": "1 | const mode = process.argv[2];\n2 | const error = new Error('standalone rejection');\n                      ^\nerror: standalone rejection\n      at <anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unhandled_rejection.cjs:2:19)\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "runtime": "bun",
+      "case": "handled",
+      "exit_code": 0,
+      "stdout": "handled\nexit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "microtask-handled",
+      "exit_code": 0,
+      "stdout": "microtask handled\nexit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "listener",
+      "exit_code": 0,
+      "stdout": "notification identity\nexit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "uncaught",
+      "exit_code": 1,
+      "stdout": "exit 0\n",
+      "stderr": "1 | const mode = process.argv[2];\n2 | const error = new Error('standalone rejection');\n                      ^\nerror: standalone rejection\n      at <anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unhandled_rejection.cjs:2:19)\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "runtime": "bun",
+      "case": "wrapped",
+      "exit_code": 1,
+      "stdout": "exit 0\n",
+      "stderr": "error: undefined\nundefined\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "runtime": "bun",
+      "case": "listener-throw",
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "24 |     if (!(reason instanceof Error) || reason.code !== 'ERR_UNHANDLED_REJECTION' || origin !== 'unhandledRejection') throw new Error('primitive rejection was not wrapped');\n25 |     console.log('wrapped rejection');\n26 |     process.exitCode = 22;\n27 |   });\n28 | }\n29 | if (mode === 'listener-throw') process.on('unhandledRejection', () => { throw new Error('listener failure'); });\n                                                                                                               ^\nerror: listener failure\n      at <anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unhandled_rejection.cjs:29:107)\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "runtime": "bun",
+      "case": "handler-throw",
+      "exit_code": 1,
+      "stdout": "exit 0\n",
+      "stderr": "1 | const mode = process.argv[2];\n2 | const error = new Error('standalone rejection');\n                      ^\nerror: standalone rejection\n      at <anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unhandled_rejection.cjs:2:19)\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "runtime": "bun",
+      "case": "second",
+      "exit_code": 0,
+      "stdout": "first notification\nexit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "error",
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "undefined",
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "chain",
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "async",
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "handled",
+      "exit_code": 0,
+      "stdout": "handled\nexit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "microtask-handled",
+      "exit_code": 0,
+      "stdout": "microtask handled\nexit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "listener",
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "uncaught",
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "wrapped",
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "listener-throw",
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "handler-throw",
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "second",
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "error",
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "Uncaught unhandledRejection: Error: standalone rejection\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "undefined",
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "Uncaught unhandledRejection: UnhandledPromiseRejection: Unhandled promise rejection: undefined\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "chain",
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "Uncaught unhandledRejection: Error: standalone rejection\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "async",
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "Uncaught unhandledRejection: Error: standalone rejection\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "handled",
+      "exit_code": 0,
+      "stdout": "handled\nexit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "microtask-handled",
+      "exit_code": 0,
+      "stdout": "microtask handled\nexit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "listener",
+      "exit_code": 0,
+      "stdout": "notification identity\nexit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "uncaught",
+      "exit_code": 21,
+      "stdout": "monitor\nuncaught identity\nexit 21\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "wrapped",
+      "exit_code": 22,
+      "stdout": "wrapped rejection\nexit 22\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "listener-throw",
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "Uncaught uncaughtException: Error: listener failure\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "handler-throw",
+      "exit_code": 7,
+      "stdout": "",
+      "stderr": "Uncaught unhandledRejection: Error: uncaught handler failure\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "second",
+      "exit_code": 1,
+      "stdout": "first notification\nexit 1\n",
+      "stderr": "Uncaught unhandledRejection: Error: second rejection\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "error",
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "undefined",
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "chain",
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "async",
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "handled",
+      "exit_code": 0,
+      "stdout": "handled\nexit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "microtask-handled",
+      "exit_code": 0,
+      "stdout": "microtask handled\nexit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "listener",
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "uncaught",
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "wrapped",
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "listener-throw",
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "handler-throw",
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "second",
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    }
+  ],
+  "hashes": {
+    "node": "600484350350ab7852b577ddf97e7888f498334bef3ca74e73ea3b507a5b6fac",
+    "bun": "6b947fc4b25d640c482e40f253cbb2df692a555ce29c247844b766d8fea16dca",
+    "before": "3039a0b45d63d9984deaea69273d73789f347c5db99d83b9e85124907548d4fe",
+    "home-zig-js": "7abeda5bad376ddb9ae9a480844ff37c451da0695c24a0db83c2dd2c42972fe5",
+    "home-jsc": "346f99d15905cca78744cd526fe9bbe187ca58cdb6bcae222d9176e75aa1c5a7",
+    "fixture": "112da78c02723896d1bc501caa5c38e0bc9ff069d3e1c9ad42ef5e9d02b71d26",
+    "engine_before_archive": "ec6fa2a6fccbb08e064708743456fe3d052598854c5c704616aa12808678b23f",
+    "engine_after_archive": "3bac2e81092e9f64e24bdf71f740beab361c147fc24cbc39ccbcce96ab5f1f6e"
+  }
+}

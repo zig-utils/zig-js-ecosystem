@@ -268,6 +268,8 @@ class ResultTests(unittest.TestCase):
                 self.assertIn("-Dcpu=baseline", line)
         self.assertIn("--disassemble=memcpy", workflow)
         self.assertIn("assert p['build_cpu'] == 'baseline'", workflow)
+        self.assertIn("zig build home-tool-smoke home-tool-rejections-smoke", workflow)
+        self.assertIn('"home-tool-rejections-smoke"', (root / "scripts/run.py").read_text())
 
 
 class EndToEndTests(unittest.TestCase):
