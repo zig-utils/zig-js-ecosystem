@@ -102,7 +102,7 @@ jobs:
           import json, os
           c = json.load(open('suite/config.json'))
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
-              for key in ('zig_version', 'home_repository', 'home_ref'):
+              for key in ('zig_version', 'home_repository', 'home_ref', 'pantry_version'):
                   f.write(f'{key}={c[key]}\n')
           PY
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
@@ -119,6 +119,7 @@ jobs:
           persist-credentials: false
       - uses: pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9
         with:
+          version: ${{ steps.config.outputs.pantry_version }}
           packages: zig@${{ steps.config.outputs.zig_version }}
       - name: Build exact pushed engine archive
         working-directory: engine
@@ -194,11 +195,12 @@ jobs:
           import json, os
           c = json.load(open('config.json'))
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
-              for key in ('zig_version', 'bun_version'):
+              for key in ('zig_version', 'bun_version', 'pantry_version'):
                   f.write(f'{key}={c[key]}\n')
           PY
       - uses: pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9
         with:
+          version: ${{ steps.config.outputs.pantry_version }}
           packages: zig@${{ steps.config.outputs.zig_version }}
       - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6
         with:
