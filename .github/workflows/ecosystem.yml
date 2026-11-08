@@ -100,9 +100,13 @@ jobs:
         run: |
           python3 - <<'PY'
           import json, os
+          import sys
+          sys.path.insert(0, 'suite/scripts')
+          from provenance import runtime_optimize
           c = json.load(open('suite/config.json'))
+          runtime_optimize(c)
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
-              for key in ('zig_version', 'home_repository', 'home_ref', 'pantry_version'):
+              for key in ('zig_version', 'home_repository', 'home_ref', 'pantry_version', 'runtime_optimize'):
                   f.write(f'{key}={c[key]}\n')
           PY
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
@@ -127,16 +131,16 @@ jobs:
           ZIG_VERSION: ${{ steps.config.outputs.zig_version }}
         run: |
           test "$(zig version)" = "$ZIG_VERSION"
-          zig build home-tool-bootstrap -Dcpu=baseline
+          zig build home-tool-bootstrap -Dcpu=baseline -Doptimize="${{ steps.config.outputs.runtime_optimize }}"
       - name: Build Home against this engine
         working-directory: home
         # This executable is uploaded to other runners, whose CPUs can differ.
-        run: zig build home-tool -Dcpu=baseline -Dtool-js-engine=zig-js -Dzig-js-root="$GITHUB_WORKSPACE/engine"
+        run: zig build home-tool -Dcpu=baseline -Doptimize="${{ steps.config.outputs.runtime_optimize }}" -Dtool-js-engine=zig-js -Dzig-js-root="$GITHUB_WORKSPACE/engine"
       - name: Verify engine identity and Home host/module/TypeScript integration
         working-directory: home
         run: |
           zig-out/bin/home-tool eval 'if (Home.engine !== "zig-js") throw new Error("Wrong engine"); console.log("ECOSYSTEM ENGINE zig-js");'
-          zig build home-tool-smoke home-tool-rejections-smoke home-tool-async-context-smoke -Dcpu=baseline -Dtool-js-engine=zig-js -Dzig-js-root="$GITHUB_WORKSPACE/engine"
+          zig build home-tool-smoke home-tool-rejections-smoke home-tool-async-context-smoke -Dcpu=baseline -Doptimize="${{ steps.config.outputs.runtime_optimize }}" -Dtool-js-engine=zig-js -Dzig-js-root="$GITHUB_WORKSPACE/engine"
       - name: Package runtime and immutable provenance
         env:
           ENGINE_SHA: ${{ needs.discover.outputs.engine_sha }}
@@ -153,6 +157,7 @@ jobs:
                   'home_repository': config['home_repository'], 'home_ref': config['home_ref'],
                   'zig_version': subprocess.check_output(['zig', 'version'], text=True).strip(),
                   'build_cpu': 'baseline',
+                  'build_optimize': config['runtime_optimize'],
                   'sha256': {str(p.relative_to('runtime')): hashlib.sha256(p.read_bytes()).hexdigest()
                              for p in pathlib.Path('runtime').rglob('*') if p.is_file()}}
           pathlib.Path('runtime/provenance.json').write_text(json.dumps(data, indent=2) + '\n')
@@ -213,18 +218,12 @@ jobs:
         env:
           ENGINE_SHA: ${{ needs.discover.outputs.engine_sha }}
           ZIG_VERSION: ${{ steps.config.outputs.zig_version }}
+          SUITE_REF: ${{ needs.discover.outputs.suite_ref }}
         run: |
           test "$(zig version)" = "$ZIG_VERSION"
           mkdir runtime
           tar -xzf runtime-download/runtime.tar.gz -C runtime
-          python3 - <<'PY'
-          import hashlib, json, os, pathlib
-          p = json.load(open('runtime/provenance.json'))
-          assert p['engine_sha'] == os.environ['ENGINE_SHA']
-          assert p['build_cpu'] == 'baseline'
-          for name, expected in p['sha256'].items():
-              assert hashlib.sha256((pathlib.Path('runtime') / name).read_bytes()).hexdigest() == expected, name
-          PY
+          python3 scripts/provenance.py runtime "$ENGINE_SHA" "$SUITE_REF"
       - name: Verify shared runtime executes on this consumer CPU
         run: timeout --signal=KILL 30s runtime/home-tool eval 'if (Home.engine !== "zig-js") throw new Error("Wrong engine"); console.log("ECOSYSTEM CONSUMER ENGINE zig-js");'
       - name: Check every selected package, library, CLI and app

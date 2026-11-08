@@ -7,7 +7,7 @@ The initial [inventory.json](inventory.json), captured on November 7, 2026, sele
 ## What runs
 
 1. Rediscover the profile's public organizations and public repositories with a push in the last two years. Freeze every selected default branch to its commit SHA. New eligible repos are included automatically.
-2. Build the pushed zig-js public C archive and a pinned Home `home-tool` linked explicitly against it. Check `Home.engine === "zig-js"` and run Home's TypeScript, module-loader, filesystem and subprocess integration smokes. Hash the executable and archive and verify them on consumer runners.
+2. Build the pushed zig-js public C archive and a pinned Home `home-tool` linked explicitly against it, using the configured ReleaseSafe profile. Check `Home.engine === "zig-js"` and run Home's TypeScript, module-loader, filesystem and subprocess integration smokes in that profile. Hash the executable and archive and verify them on consumer runners.
 3. Inspect tracked package manifests, including private packages inside public monorepos and Stacks' `storage/framework` packages. Attempt declared `build`, `test`, `smoke` and `typecheck` scripts, source/export module initialization, and CLI `--help` checks. Discovered test files without a test script still create a test obligation. Fixtures and vendored manifests are listed separately and belong to their enclosing package.
 4. Route JavaScript commands (`bun`, `node`, `bunx`, `npx`, `npm`, `pnpm`, `yarn`) through Home + zig-js. Package binaries are resolved from installed dependencies. Bun is used separately to install dependencies with lifecycle scripts disabled. A command that exits zero without invoking the candidate engine cannot count as a zig-js pass.
 5. In a separate clean checkout, run the same declared scripts with the normal Bun runtime as reference evidence. Candidate failures are retained even if the reference passes. A reference difference alone does not establish an engine regression.
@@ -28,6 +28,14 @@ unsupported rather than being discarded. This does not add a test scheduler or
 native Bun runtime to the candidate lane.
 
 The shared engine archive and Home host are compiled for the architecture's baseline CPU. GitHub-hosted runners have different CPU features; a producer's native instruction set is unsuitable for an executable sent to another runner. Runtime provenance records this target, and publication checks the `memcpy` instructions involved in the earlier cross-runner AVX-512 crash.
+
+The shared JavaScript runtime uses `runtime_optimize` from the immutable suite
+configuration. ReleaseSafe retains Zig's runtime safety checks while exercising
+optimized consumer execution under the existing command and repository deadlines. The producer, host
+smokes and direct Home integration use that same profile. Consumer runners verify
+the engine, suite, Home and compiler revisions, CPU target, optimization profile
+and both required artifact hashes before executing packages. Unsupported profiles
+and mismatches fail verification.
 
 ## Current runtime boundary
 

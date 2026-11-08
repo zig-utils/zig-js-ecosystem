@@ -1,4 +1,5 @@
 import datetime as dt
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -14,6 +15,7 @@ import discover
 import report
 import run
 import runtime
+import provenance
 
 SHA = "a" * 40
 OTHER_SHA = "b" * 40
@@ -299,10 +301,58 @@ class ResultTests(unittest.TestCase):
             if "zig build home-tool" in line:
                 self.assertIn("-Dcpu=baseline", line)
         self.assertIn("--disassemble=memcpy", workflow)
-        self.assertIn("assert p['build_cpu'] == 'baseline'", workflow)
+        self.assertIn('scripts/provenance.py runtime "$ENGINE_SHA" "$SUITE_REF"', workflow)
         self.assertIn("zig build home-tool-smoke home-tool-rejections-smoke home-tool-async-context-smoke", workflow)
         self.assertIn('"home-tool-rejections-smoke"', (root / "scripts/run.py").read_text())
         self.assertIn('"home-tool-async-context-smoke"', (root / "scripts/run.py").read_text())
+
+
+class ProvenanceTests(unittest.TestCase):
+    def test_real_artifact_hashes_and_source_cpu_profile_mismatches(self):
+        # These file bytes test orchestration only, never engine compatibility.
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            archive = root / "engine/zig-out/lib/libzig-js.a"
+            archive.parent.mkdir(parents=True)
+            archive.write_bytes(b"archive fixture")
+            (root / "home-tool").write_bytes(b"host fixture")
+            config = {"home_repository": "home-lang/home", "home_ref": SHA,
+                      "zig_version": "0.18.0-dev.fixture", "runtime_optimize": "ReleaseSafe"}
+            data = {"engine_sha": SHA, "suite_ref": OTHER_SHA,
+                    "home_repository": config["home_repository"], "home_ref": SHA,
+                    "zig_version": config["zig_version"], "build_cpu": "baseline",
+                    "build_optimize": "ReleaseSafe", "sha256": {
+                        name: hashlib.sha256((root / name).read_bytes()).hexdigest()
+                        for name in ("home-tool", "engine/zig-out/lib/libzig-js.a")}}
+
+            def verify():
+                (root / "provenance.json").write_text(json.dumps(data))
+                provenance.verify_runtime(root, SHA, OTHER_SHA, config)
+
+            verify()
+            for key, wrong in (("engine_sha", OTHER_SHA), ("suite_ref", SHA),
+                               ("home_ref", OTHER_SHA), ("home_repository", "stacksjs/stacks"),
+                               ("zig_version", "wrong"), ("build_cpu", "native"),
+                               ("build_optimize", "Debug")):
+                original = data[key]
+                data[key] = wrong
+                with self.subTest(key=key), self.assertRaises(ValueError):
+                    verify()
+                data[key] = original
+            digest = data["sha256"].pop("home-tool")
+            with self.assertRaises(ValueError):
+                verify()
+            data["sha256"]["home-tool"] = digest
+            archive.write_bytes(b"corrupted archive")
+            with self.assertRaises(ValueError):
+                verify()
+
+    def test_unsafe_or_missing_build_profiles_fail_closed(self):
+        for value in (None, "ReleaseFast", "ReleaseSmall", "release-safe", ["ReleaseSafe"]):
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                provenance.runtime_optimize({"runtime_optimize": value})
+        self.assertEqual(provenance.runtime_optimize({"runtime_optimize": "Debug"}), "Debug")
+        self.assertEqual(provenance.runtime_optimize({"runtime_optimize": "ReleaseSafe"}), "ReleaseSafe")
 
 
 class EndToEndTests(unittest.TestCase):

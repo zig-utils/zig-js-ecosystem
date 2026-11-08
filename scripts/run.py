@@ -13,6 +13,7 @@ import sys
 import time
 
 from discover import REPOSITORY, ROOT, SHA
+from provenance import runtime_optimize
 
 SCRIPT_NAMES = ("build", "test", "smoke", "typecheck")
 EXCLUDED_PARTS = {"node_modules", ".git", "vendor", "vendored", "fixtures", "__fixtures__", "test-fixtures"}
@@ -232,6 +233,7 @@ def run_repository(repo, args, config, result=None):
     if name == config["home_repository"] and has_native_build:
         for step in ("home-tool", "home-tool-smoke", "home-tool-rejections-smoke", "home-tool-async-context-smoke"):
             check("Home integration: " + step, ["zig", "build", step, "-Dtool-js-engine=zig-js",
+                  "-Dcpu=baseline", "-Doptimize=" + runtime_optimize(config),
                   "-Dzig-js-root=" + str(args.engine_root)], candidate, lane="direct-consumer")
 
     def native_checks():
