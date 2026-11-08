@@ -1,0 +1,2340 @@
+{
+  "date": "2026-11-08",
+  "home_ref": "b8d1b7b4204c8f65e8b1c3f970561e50fe1ba660",
+  "engine_ref": "656b0ad71cc393c1dabab842a27ecbfc2d616ada",
+  "engine_archive_sha256": "da10eb5828f7a3bb3ae976d87d8ac722f81b6edd6ba46585b30e540d56aea258",
+  "compiler": "0.18.0-dev.146+35accc06e",
+  "before": [
+    {
+      "command": [
+        "node"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual package exports conditions, patterns and blocked targets\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "bun"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "error: Cannot find module '@home/exports/array' from '/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/entry.mjs'\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/package-exports/home-tool-before",
+        "run"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module @home/exports/feature/value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/entry.mjs\n"
+    }
+  ],
+  "operations": [
+    {
+      "command": [
+        "node",
+        "entry.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual package exports conditions, patterns and blocked targets\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "reject-require-only.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "node:internal/modules/esm/resolve:282\n  return new ERR_PACKAGE_PATH_NOT_EXPORTED(\n         ^\n\nError [ERR_PACKAGE_PATH_NOT_EXPORTED]: Package subpath './require-only' is not defined by \"exports\" in /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/node_modules/@home/exports/package.json imported from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs\n    at exportsNotFound (node:internal/modules/esm/resolve:282:10)\n    at packageExportsResolve (node:internal/modules/esm/resolve:573:13)\n    at packageResolve (node:internal/modules/esm/resolve:759:12)\n    at moduleResolve (node:internal/modules/esm/resolve:840:18)\n    at defaultResolve (node:internal/modules/esm/resolve:973:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)\n    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56)\n    at #resolve (node:internal/modules/esm/loader:690:17)\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:610:35) {\n  code: 'ERR_PACKAGE_PATH_NOT_EXPORTED'\n}\n\nNode.js v26.10.0\n"
+    },
+    {
+      "command": [
+        "node",
+        "reject-blocked.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "node:internal/modules/esm/resolve:282\n  return new ERR_PACKAGE_PATH_NOT_EXPORTED(\n         ^\n\nError [ERR_PACKAGE_PATH_NOT_EXPORTED]: Package subpath './blocked' is not defined by \"exports\" in /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/node_modules/@home/exports/package.json imported from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs\n    at exportsNotFound (node:internal/modules/esm/resolve:282:10)\n    at packageExportsResolve (node:internal/modules/esm/resolve:573:13)\n    at packageResolve (node:internal/modules/esm/resolve:759:12)\n    at moduleResolve (node:internal/modules/esm/resolve:840:18)\n    at defaultResolve (node:internal/modules/esm/resolve:973:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)\n    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56)\n    at #resolve (node:internal/modules/esm/loader:690:17)\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:610:35) {\n  code: 'ERR_PACKAGE_PATH_NOT_EXPORTED'\n}\n\nNode.js v26.10.0\n"
+    },
+    {
+      "command": [
+        "node",
+        "reject-missing-array.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "node:internal/modules/esm/resolve:241\n    throw new ERR_MODULE_NOT_FOUND(\n          ^\n\nError [ERR_MODULE_NOT_FOUND]: Cannot find module '/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/node_modules/@home/exports/missing.cjs' imported from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs\n    at finalizeResolution (node:internal/modules/esm/resolve:241:11)\n    at moduleResolve (node:internal/modules/esm/resolve:846:10)\n    at defaultResolve (node:internal/modules/esm/resolve:973:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)\n    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56)\n    at #resolve (node:internal/modules/esm/loader:690:17)\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:610:35)\n    at ModuleJob.syncLink (node:internal/modules/esm/module_job:277:33)\n    at ModuleJob.link (node:internal/modules/esm/module_job:389:17) {\n  code: 'ERR_MODULE_NOT_FOUND',\n  url: 'file:///Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/node_modules/@home/exports/missing.cjs'\n}\n\nNode.js v26.10.0\n"
+    },
+    {
+      "command": [
+        "node",
+        "reject-extensionless.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "node:internal/modules/esm/resolve:241\n    throw new ERR_MODULE_NOT_FOUND(\n          ^\n\nError [ERR_MODULE_NOT_FOUND]: Cannot find module '/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/node_modules/@home/exports/cache' imported from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs\n    at finalizeResolution (node:internal/modules/esm/resolve:241:11)\n    at moduleResolve (node:internal/modules/esm/resolve:846:10)\n    at defaultResolve (node:internal/modules/esm/resolve:973:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)\n    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56)\n    at #resolve (node:internal/modules/esm/loader:690:17)\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:610:35)\n    at ModuleJob.syncLink (node:internal/modules/esm/module_job:277:33)\n    at ModuleJob.link (node:internal/modules/esm/module_job:389:17) {\n  code: 'ERR_MODULE_NOT_FOUND',\n  url: 'file:///Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/node_modules/@home/exports/cache'\n}\n\nNode.js v26.10.0\n"
+    },
+    {
+      "command": [
+        "node",
+        "reject-directory.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "node:internal/modules/esm/resolve:229\n    throw new ERR_UNSUPPORTED_DIR_IMPORT(path, basePath, String(resolved));\n          ^\n\nError [ERR_UNSUPPORTED_DIR_IMPORT]: Directory import '/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/node_modules/@home/exports/features' is not supported resolving ES modules imported from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs\n    at finalizeResolution (node:internal/modules/esm/resolve:229:11)\n    at moduleResolve (node:internal/modules/esm/resolve:846:10)\n    at defaultResolve (node:internal/modules/esm/resolve:973:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)\n    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56)\n    at #resolve (node:internal/modules/esm/loader:690:17)\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:610:35)\n    at ModuleJob.syncLink (node:internal/modules/esm/module_job:277:33)\n    at ModuleJob.link (node:internal/modules/esm/module_job:389:17) {\n  code: 'ERR_UNSUPPORTED_DIR_IMPORT',\n  url: 'file:///Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/node_modules/@home/exports/features'\n}\n\nNode.js v26.10.0\n"
+    },
+    {
+      "command": [
+        "bun",
+        "entry.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "error: Cannot find module '@home/exports/array' from '/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/entry.mjs'\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "command": [
+        "bun",
+        "reject-require-only.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "error: Cannot find module '@home/exports/require-only' from '/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs'\n\n50 |     \"./invalid-value\": 42,\n                            ^\nnote: This value must be a string, an object, an array, or null\n   at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/node_modules/@home/exports/package.json:50:24\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "command": [
+        "bun",
+        "reject-blocked.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "error: Cannot find module '@home/exports/blocked' from '/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs'\n\n50 |     \"./invalid-value\": 42,\n                            ^\nnote: This value must be a string, an object, an array, or null\n   at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/node_modules/@home/exports/package.json:50:24\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "command": [
+        "bun",
+        "reject-missing-array.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "error: Cannot find module '@home/exports/missing-array' from '/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs'\n\n50 |     \"./invalid-value\": 42,\n                            ^\nnote: This value must be a string, an object, an array, or null\n   at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/node_modules/@home/exports/package.json:50:24\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "command": [
+        "bun",
+        "reject-extensionless.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "error: Cannot find module '@home/exports/extensionless' from '/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs'\n\n50 |     \"./invalid-value\": 42,\n                            ^\nnote: This value must be a string, an object, an array, or null\n   at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/node_modules/@home/exports/package.json:50:24\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "command": [
+        "bun",
+        "reject-directory.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "error: Cannot find module '@home/exports/directory' from '/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs'\n\n50 |     \"./invalid-value\": 42,\n                            ^\nnote: This value must be a string, an object, an array, or null\n   at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/node_modules/@home/exports/package.json:50:24\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/package-exports/home-tool-before",
+        "run",
+        "entry.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module @home/exports/feature/value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/entry.mjs\n"
+    },
+    {
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/package-exports/home-tool-before",
+        "run",
+        "reject-require-only.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module @home/exports/require-only from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs\n"
+    },
+    {
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/package-exports/home-tool-before",
+        "run",
+        "reject-blocked.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: blocked exports executed an existing file\n"
+    },
+    {
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/package-exports/home-tool-before",
+        "run",
+        "reject-missing-array.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module @home/exports/missing-array from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs\n"
+    },
+    {
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/package-exports/home-tool-before",
+        "run",
+        "reject-extensionless.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module @home/exports/extensionless from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs\n"
+    },
+    {
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/package-exports/home-tool-before",
+        "run",
+        "reject-directory.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module @home/exports/directory from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs\n"
+    },
+    {
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "entry.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual package exports conditions, patterns and blocked targets\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "reject-require-only.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Cannot resolve @home/exports/require-only from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs: PackagePathNotExported\n"
+    },
+    {
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "reject-blocked.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Cannot resolve @home/exports/blocked from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs: PackagePathNotExported\n"
+    },
+    {
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "reject-missing-array.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Cannot resolve @home/exports/missing-array from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs: ExportedFileNotFound\n"
+    },
+    {
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "reject-extensionless.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Cannot resolve @home/exports/extensionless from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs: ExportedFileNotFound\n"
+    },
+    {
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "reject-directory.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Cannot resolve @home/exports/directory from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs: ExportedFileNotFound\n"
+    },
+    {
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/entry.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual package exports conditions, patterns and blocked targets\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: Cannot resolve @home/exports/require-only from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs: PackagePathNotExported\n"
+    },
+    {
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: Cannot resolve @home/exports/blocked from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs: PackagePathNotExported\n"
+    },
+    {
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: Cannot resolve @home/exports/missing-array from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs: ExportedFileNotFound\n"
+    },
+    {
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: Cannot resolve @home/exports/extensionless from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs: ExportedFileNotFound\n"
+    },
+    {
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: Cannot resolve @home/exports/directory from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs: ExportedFileNotFound\n"
+    }
+  ],
+  "differential": {
+    "cases": [
+      {
+        "exports": {
+          "import": "./i.cjs",
+          "require": "./r.cjs",
+          "default": "./d.cjs",
+          "node": "./n.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-0"
+      },
+      {
+        "exports": {
+          "import": "./i.cjs",
+          "require": "./r.cjs",
+          "node": "./n.cjs",
+          "default": "./d.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-1"
+      },
+      {
+        "exports": {
+          "import": "./i.cjs",
+          "default": "./d.cjs",
+          "require": "./r.cjs",
+          "node": "./n.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-2"
+      },
+      {
+        "exports": {
+          "import": "./i.cjs",
+          "default": "./d.cjs",
+          "node": "./n.cjs",
+          "require": "./r.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-3"
+      },
+      {
+        "exports": {
+          "import": "./i.cjs",
+          "node": "./n.cjs",
+          "require": "./r.cjs",
+          "default": "./d.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-4"
+      },
+      {
+        "exports": {
+          "import": "./i.cjs",
+          "node": "./n.cjs",
+          "default": "./d.cjs",
+          "require": "./r.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-5"
+      },
+      {
+        "exports": {
+          "require": "./r.cjs",
+          "import": "./i.cjs",
+          "default": "./d.cjs",
+          "node": "./n.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-6"
+      },
+      {
+        "exports": {
+          "require": "./r.cjs",
+          "import": "./i.cjs",
+          "node": "./n.cjs",
+          "default": "./d.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-7"
+      },
+      {
+        "exports": {
+          "require": "./r.cjs",
+          "default": "./d.cjs",
+          "import": "./i.cjs",
+          "node": "./n.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-8"
+      },
+      {
+        "exports": {
+          "require": "./r.cjs",
+          "default": "./d.cjs",
+          "node": "./n.cjs",
+          "import": "./i.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-9"
+      },
+      {
+        "exports": {
+          "require": "./r.cjs",
+          "node": "./n.cjs",
+          "import": "./i.cjs",
+          "default": "./d.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-10"
+      },
+      {
+        "exports": {
+          "require": "./r.cjs",
+          "node": "./n.cjs",
+          "default": "./d.cjs",
+          "import": "./i.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-11"
+      },
+      {
+        "exports": {
+          "default": "./d.cjs",
+          "import": "./i.cjs",
+          "require": "./r.cjs",
+          "node": "./n.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-12"
+      },
+      {
+        "exports": {
+          "default": "./d.cjs",
+          "import": "./i.cjs",
+          "node": "./n.cjs",
+          "require": "./r.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-13"
+      },
+      {
+        "exports": {
+          "default": "./d.cjs",
+          "require": "./r.cjs",
+          "import": "./i.cjs",
+          "node": "./n.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-14"
+      },
+      {
+        "exports": {
+          "default": "./d.cjs",
+          "require": "./r.cjs",
+          "node": "./n.cjs",
+          "import": "./i.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-15"
+      },
+      {
+        "exports": {
+          "default": "./d.cjs",
+          "node": "./n.cjs",
+          "import": "./i.cjs",
+          "require": "./r.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-16"
+      },
+      {
+        "exports": {
+          "default": "./d.cjs",
+          "node": "./n.cjs",
+          "require": "./r.cjs",
+          "import": "./i.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-17"
+      },
+      {
+        "exports": {
+          "node": "./n.cjs",
+          "import": "./i.cjs",
+          "require": "./r.cjs",
+          "default": "./d.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-18"
+      },
+      {
+        "exports": {
+          "node": "./n.cjs",
+          "import": "./i.cjs",
+          "default": "./d.cjs",
+          "require": "./r.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-19"
+      },
+      {
+        "exports": {
+          "node": "./n.cjs",
+          "require": "./r.cjs",
+          "import": "./i.cjs",
+          "default": "./d.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-20"
+      },
+      {
+        "exports": {
+          "node": "./n.cjs",
+          "require": "./r.cjs",
+          "default": "./d.cjs",
+          "import": "./i.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-21"
+      },
+      {
+        "exports": {
+          "node": "./n.cjs",
+          "default": "./d.cjs",
+          "import": "./i.cjs",
+          "require": "./r.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-22"
+      },
+      {
+        "exports": {
+          "node": "./n.cjs",
+          "default": "./d.cjs",
+          "require": "./r.cjs",
+          "import": "./i.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-23"
+      },
+      {
+        "exports": {
+          "import": "./i.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-24"
+      },
+      {
+        "exports": {
+          "require": "./r.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-25"
+      },
+      {
+        "exports": {
+          "node": {
+            "unknown": "./n.cjs"
+          },
+          "default": "./d.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-26"
+      },
+      {
+        "exports": {
+          "node": null,
+          "default": "./d.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-27"
+      },
+      {
+        "exports": [
+          "../bad.cjs",
+          null,
+          {
+            "unknown": "./n.cjs"
+          },
+          "./d.cjs"
+        ],
+        "subpath": "",
+        "specifier": "case-28"
+      },
+      {
+        "exports": [
+          "./absent.cjs",
+          "./d.cjs"
+        ],
+        "subpath": "",
+        "specifier": "case-29"
+      },
+      {
+        "exports": [
+          "../bad.cjs",
+          null
+        ],
+        "subpath": "",
+        "specifier": "case-30"
+      },
+      {
+        "exports": [
+          null,
+          "../bad.cjs"
+        ],
+        "subpath": "",
+        "specifier": "case-31"
+      },
+      {
+        "exports": [],
+        "subpath": "",
+        "specifier": "case-32"
+      },
+      {
+        "exports": {
+          "0": "./n.cjs",
+          "default": "./d.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-33"
+      },
+      {
+        "exports": {
+          ".": "./d.cjs",
+          "import": "./i.cjs"
+        },
+        "subpath": "",
+        "specifier": "case-34"
+      },
+      {
+        "exports": 42,
+        "subpath": "",
+        "specifier": "case-35"
+      },
+      {
+        "exports": "./file%20name.cjs",
+        "subpath": "",
+        "specifier": "case-36"
+      },
+      {
+        "exports": {
+          "./*": "./d.cjs",
+          "./feature/*": {
+            "import": "./i.cjs",
+            "require": "./r.cjs"
+          },
+          "./feature/*.json": "./n.cjs",
+          "./feature/special/*": "./i.cjs",
+          "./exact": "./r.cjs",
+          "./blocked": null,
+          "./private/*": null
+        },
+        "subpath": "/a",
+        "specifier": "case-37/a"
+      },
+      {
+        "exports": {
+          "./*": "./d.cjs",
+          "./feature/*": {
+            "import": "./i.cjs",
+            "require": "./r.cjs"
+          },
+          "./feature/*.json": "./n.cjs",
+          "./feature/special/*": "./i.cjs",
+          "./exact": "./r.cjs",
+          "./blocked": null,
+          "./private/*": null
+        },
+        "subpath": "/a/b",
+        "specifier": "case-38/a/b"
+      },
+      {
+        "exports": {
+          "./*": "./d.cjs",
+          "./feature/*": {
+            "import": "./i.cjs",
+            "require": "./r.cjs"
+          },
+          "./feature/*.json": "./n.cjs",
+          "./feature/special/*": "./i.cjs",
+          "./exact": "./r.cjs",
+          "./blocked": null,
+          "./private/*": null
+        },
+        "subpath": "/feature/a",
+        "specifier": "case-39/feature/a"
+      },
+      {
+        "exports": {
+          "./*": "./d.cjs",
+          "./feature/*": {
+            "import": "./i.cjs",
+            "require": "./r.cjs"
+          },
+          "./feature/*.json": "./n.cjs",
+          "./feature/special/*": "./i.cjs",
+          "./exact": "./r.cjs",
+          "./blocked": null,
+          "./private/*": null
+        },
+        "subpath": "/feature/a.json",
+        "specifier": "case-40/feature/a.json"
+      },
+      {
+        "exports": {
+          "./*": "./d.cjs",
+          "./feature/*": {
+            "import": "./i.cjs",
+            "require": "./r.cjs"
+          },
+          "./feature/*.json": "./n.cjs",
+          "./feature/special/*": "./i.cjs",
+          "./exact": "./r.cjs",
+          "./blocked": null,
+          "./private/*": null
+        },
+        "subpath": "/feature/special/a",
+        "specifier": "case-41/feature/special/a"
+      },
+      {
+        "exports": {
+          "./*": "./d.cjs",
+          "./feature/*": {
+            "import": "./i.cjs",
+            "require": "./r.cjs"
+          },
+          "./feature/*.json": "./n.cjs",
+          "./feature/special/*": "./i.cjs",
+          "./exact": "./r.cjs",
+          "./blocked": null,
+          "./private/*": null
+        },
+        "subpath": "/exact",
+        "specifier": "case-42/exact"
+      },
+      {
+        "exports": {
+          "./*": "./d.cjs",
+          "./feature/*": {
+            "import": "./i.cjs",
+            "require": "./r.cjs"
+          },
+          "./feature/*.json": "./n.cjs",
+          "./feature/special/*": "./i.cjs",
+          "./exact": "./r.cjs",
+          "./blocked": null,
+          "./private/*": null
+        },
+        "subpath": "/blocked",
+        "specifier": "case-43/blocked"
+      },
+      {
+        "exports": {
+          "./*": "./d.cjs",
+          "./feature/*": {
+            "import": "./i.cjs",
+            "require": "./r.cjs"
+          },
+          "./feature/*.json": "./n.cjs",
+          "./feature/special/*": "./i.cjs",
+          "./exact": "./r.cjs",
+          "./blocked": null,
+          "./private/*": null
+        },
+        "subpath": "/private/a",
+        "specifier": "case-44/private/a"
+      },
+      {
+        "exports": {
+          "./*": "./d.cjs",
+          "./feature/*": {
+            "import": "./i.cjs",
+            "require": "./r.cjs"
+          },
+          "./feature/*.json": "./n.cjs",
+          "./feature/special/*": "./i.cjs",
+          "./exact": "./r.cjs",
+          "./blocked": null,
+          "./private/*": null
+        },
+        "subpath": "/x/../a",
+        "specifier": "case-45/x/../a"
+      },
+      {
+        "exports": {
+          "./*": "./d.cjs",
+          "./feature/*": {
+            "import": "./i.cjs",
+            "require": "./r.cjs"
+          },
+          "./feature/*.json": "./n.cjs",
+          "./feature/special/*": "./i.cjs",
+          "./exact": "./r.cjs",
+          "./blocked": null,
+          "./private/*": null
+        },
+        "subpath": "/%2e%2e/a",
+        "specifier": "case-46/%2e%2e/a"
+      },
+      {
+        "exports": {
+          "./*": "./d.cjs",
+          "./feature/*": {
+            "import": "./i.cjs",
+            "require": "./r.cjs"
+          },
+          "./feature/*.json": "./n.cjs",
+          "./feature/special/*": "./i.cjs",
+          "./exact": "./r.cjs",
+          "./blocked": null,
+          "./private/*": null
+        },
+        "subpath": "/a%2fb",
+        "specifier": "case-47/a%2fb"
+      },
+      {
+        "exports": {
+          "./*": "./d.cjs",
+          "./feature/*": {
+            "import": "./i.cjs",
+            "require": "./r.cjs"
+          },
+          "./feature/*.json": "./n.cjs",
+          "./feature/special/*": "./i.cjs",
+          "./exact": "./r.cjs",
+          "./blocked": null,
+          "./private/*": null
+        },
+        "subpath": "/node_modules/a",
+        "specifier": "case-48/node_modules/a"
+      }
+    ],
+    "runtimes": {
+      "node": {
+        "imports": [
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "node:internal/modules/esm/resolve:282\n  return new ERR_PACKAGE_PATH_NOT_EXPORTED(\n         ^\n\nError [ERR_PACKAGE_PATH_NOT_EXPORTED]: No \"exports\" main defined in /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/node_modules/case-25/package.json imported from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-25.mjs\n    at exportsNotFound (node:internal/modules/esm/resolve:282:10)\n    at packageExportsResolve (node:internal/modules/esm/resolve:573:13)\n    at packageResolve (node:internal/modules/esm/resolve:759:12)\n    at moduleResolve (node:internal/modules/esm/resolve:840:18)\n    at defaultResolve (node:internal/modules/esm/resolve:973:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)\n    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56)\n    at #resolve (node:internal/modules/esm/loader:690:17)\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:610:35) {\n  code: 'ERR_PACKAGE_PATH_NOT_EXPORTED'\n}\n\nNode.js v26.10.0\n"
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "node:internal/modules/esm/resolve:282\n  return new ERR_PACKAGE_PATH_NOT_EXPORTED(\n         ^\n\nError [ERR_PACKAGE_PATH_NOT_EXPORTED]: No \"exports\" main defined in /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/node_modules/case-27/package.json imported from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-27.mjs\n    at exportsNotFound (node:internal/modules/esm/resolve:282:10)\n    at packageExportsResolve (node:internal/modules/esm/resolve:573:13)\n    at packageResolve (node:internal/modules/esm/resolve:759:12)\n    at moduleResolve (node:internal/modules/esm/resolve:840:18)\n    at defaultResolve (node:internal/modules/esm/resolve:973:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)\n    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56)\n    at #resolve (node:internal/modules/esm/loader:690:17)\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:610:35) {\n  code: 'ERR_PACKAGE_PATH_NOT_EXPORTED'\n}\n\nNode.js v26.10.0\n"
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "node:internal/modules/esm/resolve:241\n    throw new ERR_MODULE_NOT_FOUND(\n          ^\n\nError [ERR_MODULE_NOT_FOUND]: Cannot find module '/Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/node_modules/case-29/absent.cjs' imported from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-29.mjs\n    at finalizeResolution (node:internal/modules/esm/resolve:241:11)\n    at moduleResolve (node:internal/modules/esm/resolve:846:10)\n    at defaultResolve (node:internal/modules/esm/resolve:973:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)\n    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56)\n    at #resolve (node:internal/modules/esm/loader:690:17)\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:610:35)\n    at ModuleJob.syncLink (node:internal/modules/esm/module_job:277:33)\n    at ModuleJob.link (node:internal/modules/esm/module_job:389:17) {\n  code: 'ERR_MODULE_NOT_FOUND',\n  url: 'file:///Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/node_modules/case-29/absent.cjs'\n}\n\nNode.js v26.10.0\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "node:internal/modules/esm/resolve:282\n  return new ERR_PACKAGE_PATH_NOT_EXPORTED(\n         ^\n\nError [ERR_PACKAGE_PATH_NOT_EXPORTED]: No \"exports\" main defined in /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/node_modules/case-30/package.json imported from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-30.mjs\n    at exportsNotFound (node:internal/modules/esm/resolve:282:10)\n    at packageExportsResolve (node:internal/modules/esm/resolve:573:13)\n    at packageResolve (node:internal/modules/esm/resolve:759:12)\n    at moduleResolve (node:internal/modules/esm/resolve:840:18)\n    at defaultResolve (node:internal/modules/esm/resolve:973:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)\n    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56)\n    at #resolve (node:internal/modules/esm/loader:690:17)\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:610:35) {\n  code: 'ERR_PACKAGE_PATH_NOT_EXPORTED'\n}\n\nNode.js v26.10.0\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "node:internal/modules/esm/resolve:320\n  return new ERR_INVALID_PACKAGE_TARGET(\n         ^\n\nError [ERR_INVALID_PACKAGE_TARGET]: Invalid \"exports\" main target \"../bad.cjs\" defined in the package config /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/node_modules/case-31/package.json imported from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-31.mjs; targets must start with \"./\"\n    at invalidPackageTarget (node:internal/modules/esm/resolve:320:10)\n    at resolvePackageTargetString (node:internal/modules/esm/resolve:373:11)\n    at resolvePackageTarget (node:internal/modules/esm/resolve:452:12)\n    at resolvePackageTarget (node:internal/modules/esm/resolve:465:25)\n    at packageExportsResolve (node:internal/modules/esm/resolve:567:27)\n    at packageResolve (node:internal/modules/esm/resolve:759:12)\n    at moduleResolve (node:internal/modules/esm/resolve:840:18)\n    at defaultResolve (node:internal/modules/esm/resolve:973:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38) {\n  code: 'ERR_INVALID_PACKAGE_TARGET'\n}\n\nNode.js v26.10.0\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "node:internal/modules/esm/resolve:282\n  return new ERR_PACKAGE_PATH_NOT_EXPORTED(\n         ^\n\nError [ERR_PACKAGE_PATH_NOT_EXPORTED]: No \"exports\" main defined in /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/node_modules/case-32/package.json imported from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-32.mjs\n    at exportsNotFound (node:internal/modules/esm/resolve:282:10)\n    at packageExportsResolve (node:internal/modules/esm/resolve:573:13)\n    at packageResolve (node:internal/modules/esm/resolve:759:12)\n    at moduleResolve (node:internal/modules/esm/resolve:840:18)\n    at defaultResolve (node:internal/modules/esm/resolve:973:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)\n    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56)\n    at #resolve (node:internal/modules/esm/loader:690:17)\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:610:35) {\n  code: 'ERR_PACKAGE_PATH_NOT_EXPORTED'\n}\n\nNode.js v26.10.0\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "node:internal/modules/esm/resolve:493\n        throw new ERR_INVALID_PACKAGE_CONFIG(\n              ^\n\nError [ERR_INVALID_PACKAGE_CONFIG]: Invalid package config /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/node_modules/case-33/package.json while importing file:///Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-33.mjs. \"exports\" cannot contain numeric property keys.\n    at resolvePackageTarget (node:internal/modules/esm/resolve:493:15)\n    at packageExportsResolve (node:internal/modules/esm/resolve:567:27)\n    at packageResolve (node:internal/modules/esm/resolve:759:12)\n    at moduleResolve (node:internal/modules/esm/resolve:840:18)\n    at defaultResolve (node:internal/modules/esm/resolve:973:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)\n    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56)\n    at #resolve (node:internal/modules/esm/loader:690:17)\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:610:35) {\n  code: 'ERR_INVALID_PACKAGE_CONFIG'\n}\n\nNode.js v26.10.0\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "node:internal/modules/esm/resolve:537\n      throw new ERR_INVALID_PACKAGE_CONFIG(\n            ^\n\nError [ERR_INVALID_PACKAGE_CONFIG]: Invalid package config /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/node_modules/case-34/package.json while importing file:///Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-34.mjs. \"exports\" cannot contain some keys starting with '.' and some not. The exports object must either be an object of package subpath keys or an object of main entry condition name keys only.\n    at isConditionalExportsMainSugar (node:internal/modules/esm/resolve:537:13)\n    at packageExportsResolve (node:internal/modules/esm/resolve:559:7)\n    at packageResolve (node:internal/modules/esm/resolve:759:12)\n    at moduleResolve (node:internal/modules/esm/resolve:840:18)\n    at defaultResolve (node:internal/modules/esm/resolve:973:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)\n    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56)\n    at #resolve (node:internal/modules/esm/loader:690:17)\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:610:35) {\n  code: 'ERR_INVALID_PACKAGE_CONFIG'\n}\n\nNode.js v26.10.0\n"
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"file name\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"r\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "node:internal/modules/esm/resolve:282\n  return new ERR_PACKAGE_PATH_NOT_EXPORTED(\n         ^\n\nError [ERR_PACKAGE_PATH_NOT_EXPORTED]: Package subpath './blocked' is not defined by \"exports\" in /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/node_modules/case-43/package.json imported from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-43.mjs\n    at exportsNotFound (node:internal/modules/esm/resolve:282:10)\n    at packageExportsResolve (node:internal/modules/esm/resolve:573:13)\n    at packageResolve (node:internal/modules/esm/resolve:759:12)\n    at moduleResolve (node:internal/modules/esm/resolve:840:18)\n    at defaultResolve (node:internal/modules/esm/resolve:973:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)\n    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56)\n    at #resolve (node:internal/modules/esm/loader:690:17)\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:610:35) {\n  code: 'ERR_PACKAGE_PATH_NOT_EXPORTED'\n}\n\nNode.js v26.10.0\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "node:internal/modules/esm/resolve:282\n  return new ERR_PACKAGE_PATH_NOT_EXPORTED(\n         ^\n\nError [ERR_PACKAGE_PATH_NOT_EXPORTED]: Package subpath './private/a' is not defined by \"exports\" in /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/node_modules/case-44/package.json imported from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-44.mjs\n    at exportsNotFound (node:internal/modules/esm/resolve:282:10)\n    at packageExportsResolve (node:internal/modules/esm/resolve:625:13)\n    at packageResolve (node:internal/modules/esm/resolve:759:12)\n    at moduleResolve (node:internal/modules/esm/resolve:840:18)\n    at defaultResolve (node:internal/modules/esm/resolve:973:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)\n    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56)\n    at #resolve (node:internal/modules/esm/loader:690:17)\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:610:35) {\n  code: 'ERR_PACKAGE_PATH_NOT_EXPORTED'\n}\n\nNode.js v26.10.0\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "node:internal/modules/esm/resolve:300\n  throw new ERR_INVALID_MODULE_SPECIFIER(request, reason,\n        ^\n\nTypeError [ERR_INVALID_MODULE_SPECIFIER]: Invalid module \"./x/../a\" request is not a valid match in pattern \"./*\" for the \"exports\" resolution of /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/node_modules/case-45/package.json imported from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-45.mjs\n    at throwInvalidSubpath (node:internal/modules/esm/resolve:300:9)\n    at resolvePackageTargetString (node:internal/modules/esm/resolve:412:7)\n    at resolvePackageTarget (node:internal/modules/esm/resolve:452:12)\n    at packageExportsResolve (node:internal/modules/esm/resolve:613:27)\n    at packageResolve (node:internal/modules/esm/resolve:759:12)\n    at moduleResolve (node:internal/modules/esm/resolve:840:18)\n    at defaultResolve (node:internal/modules/esm/resolve:973:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)\n    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56) {\n  code: 'ERR_INVALID_MODULE_SPECIFIER'\n}\n\nNode.js v26.10.0\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "node:internal/modules/esm/resolve:300\n  throw new ERR_INVALID_MODULE_SPECIFIER(request, reason,\n        ^\n\nTypeError [ERR_INVALID_MODULE_SPECIFIER]: Invalid module \"./%2e%2e/a\" request is not a valid match in pattern \"./*\" for the \"exports\" resolution of /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/node_modules/case-46/package.json imported from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-46.mjs\n    at throwInvalidSubpath (node:internal/modules/esm/resolve:300:9)\n    at resolvePackageTargetString (node:internal/modules/esm/resolve:412:7)\n    at resolvePackageTarget (node:internal/modules/esm/resolve:452:12)\n    at packageExportsResolve (node:internal/modules/esm/resolve:613:27)\n    at packageResolve (node:internal/modules/esm/resolve:759:12)\n    at moduleResolve (node:internal/modules/esm/resolve:840:18)\n    at defaultResolve (node:internal/modules/esm/resolve:973:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)\n    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56) {\n  code: 'ERR_INVALID_MODULE_SPECIFIER'\n}\n\nNode.js v26.10.0\n"
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "node:internal/modules/esm/resolve:300\n  throw new ERR_INVALID_MODULE_SPECIFIER(request, reason,\n        ^\n\nTypeError [ERR_INVALID_MODULE_SPECIFIER]: Invalid module \"./node_modules/a\" request is not a valid match in pattern \"./*\" for the \"exports\" resolution of /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/node_modules/case-48/package.json imported from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-48.mjs\n    at throwInvalidSubpath (node:internal/modules/esm/resolve:300:9)\n    at resolvePackageTargetString (node:internal/modules/esm/resolve:412:7)\n    at resolvePackageTarget (node:internal/modules/esm/resolve:452:12)\n    at packageExportsResolve (node:internal/modules/esm/resolve:613:27)\n    at packageResolve (node:internal/modules/esm/resolve:759:12)\n    at moduleResolve (node:internal/modules/esm/resolve:840:18)\n    at defaultResolve (node:internal/modules/esm/resolve:973:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)\n    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56) {\n  code: 'ERR_INVALID_MODULE_SPECIFIER'\n}\n\nNode.js v26.10.0\n"
+          }
+        ],
+        "require": {
+          "exit_code": 0,
+          "stdout": "[{\"path\":\"case-0/r.cjs\"},{\"path\":\"case-1/r.cjs\"},{\"path\":\"case-2/d.cjs\"},{\"path\":\"case-3/d.cjs\"},{\"path\":\"case-4/n.cjs\"},{\"path\":\"case-5/n.cjs\"},{\"path\":\"case-6/r.cjs\"},{\"path\":\"case-7/r.cjs\"},{\"path\":\"case-8/r.cjs\"},{\"path\":\"case-9/r.cjs\"},{\"path\":\"case-10/r.cjs\"},{\"path\":\"case-11/r.cjs\"},{\"path\":\"case-12/d.cjs\"},{\"path\":\"case-13/d.cjs\"},{\"path\":\"case-14/d.cjs\"},{\"path\":\"case-15/d.cjs\"},{\"path\":\"case-16/d.cjs\"},{\"path\":\"case-17/d.cjs\"},{\"path\":\"case-18/n.cjs\"},{\"path\":\"case-19/n.cjs\"},{\"path\":\"case-20/n.cjs\"},{\"path\":\"case-21/n.cjs\"},{\"path\":\"case-22/n.cjs\"},{\"path\":\"case-23/n.cjs\"},{\"code\":\"ERR_PACKAGE_PATH_NOT_EXPORTED\"},{\"path\":\"case-25/r.cjs\"},{\"path\":\"case-26/d.cjs\"},{\"code\":\"ERR_PACKAGE_PATH_NOT_EXPORTED\"},{\"path\":\"case-28/d.cjs\"},{\"code\":\"MODULE_NOT_FOUND\"},{\"code\":\"ERR_PACKAGE_PATH_NOT_EXPORTED\"},{\"code\":\"ERR_INVALID_PACKAGE_TARGET\"},{\"code\":\"ERR_PACKAGE_PATH_NOT_EXPORTED\"},{\"code\":\"ERR_INVALID_PACKAGE_CONFIG\"},{\"code\":\"ERR_INVALID_PACKAGE_CONFIG\"},{\"path\":\"case-35/d.cjs\"},{\"path\":\"case-36/file name.cjs\"},{\"path\":\"case-37/d.cjs\"},{\"path\":\"case-38/d.cjs\"},{\"path\":\"case-39/r.cjs\"},{\"path\":\"case-40/n.cjs\"},{\"path\":\"case-41/i.cjs\"},{\"path\":\"case-42/r.cjs\"},{\"code\":\"ERR_PACKAGE_PATH_NOT_EXPORTED\"},{\"code\":\"ERR_PACKAGE_PATH_NOT_EXPORTED\"},{\"code\":\"ERR_INVALID_MODULE_SPECIFIER\"},{\"code\":\"ERR_INVALID_MODULE_SPECIFIER\"},{\"path\":\"case-47/d.cjs\"},{\"code\":\"ERR_INVALID_MODULE_SPECIFIER\"}]\n",
+          "stderr": ""
+        }
+      },
+      "bun": {
+        "imports": [
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "error: Cannot find package 'case-25' from '/Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-25.mjs'\n\nBun v1.4.4 (macOS arm64)\n"
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "error: Cannot find package 'case-27' from '/Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-27.mjs'\n\nBun v1.4.4 (macOS arm64)\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "error: Cannot find package 'case-28' from '/Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-28.mjs'\n\nBun v1.4.4 (macOS arm64)\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "error: Cannot find package 'case-29' from '/Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-29.mjs'\n\nBun v1.4.4 (macOS arm64)\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "error: Cannot find package 'case-30' from '/Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-30.mjs'\n\nBun v1.4.4 (macOS arm64)\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "error: Cannot find package 'case-31' from '/Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-31.mjs'\n\nBun v1.4.4 (macOS arm64)\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "error: Cannot find package 'case-32' from '/Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-32.mjs'\n\nBun v1.4.4 (macOS arm64)\n"
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "error: Cannot find package 'case-34' from '/Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-34.mjs'\n\n1 | {\"name\": \"case-34\", \"exports\": {\".\": \"./d.cjs\", \"import\": \"./i.cjs\"}, \"main\": \"./d.cjs\"}\n                                                    ^\nnote: This object cannot contain keys that both start with \".\" and don't start with \".\"\n   at /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/node_modules/case-34/package.json:1:49\n\nBun v1.4.4 (macOS arm64)\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "error: Cannot find package 'case-35' from '/Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-35.mjs'\n\n1 | {\"name\": \"case-35\", \"exports\": 42, \"main\": \"./d.cjs\"}\n                                   ^\nnote: This value must be a string, an object, an array, or null\n   at /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/node_modules/case-35/package.json:1:32\n\nBun v1.4.4 (macOS arm64)\n"
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"file name\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"r\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "error: Cannot find module 'case-43/blocked' from '/Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-43.mjs'\n\nBun v1.4.4 (macOS arm64)\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "error: Cannot find module 'case-44/private/a' from '/Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-44.mjs'\n\nBun v1.4.4 (macOS arm64)\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "error: Cannot find module 'case-45/x/../a' from '/Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-45.mjs'\n\nBun v1.4.4 (macOS arm64)\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "error: Cannot find module 'case-46/%2e%2e/a' from '/Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-46.mjs'\n\nBun v1.4.4 (macOS arm64)\n"
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "error: Cannot find module 'case-48/node_modules/a' from '/Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-48.mjs'\n\nBun v1.4.4 (macOS arm64)\n"
+          }
+        ],
+        "require": {
+          "exit_code": 0,
+          "stdout": "[{\"path\":\"case-0/r.cjs\"},{\"path\":\"case-1/r.cjs\"},{\"path\":\"case-2/d.cjs\"},{\"path\":\"case-3/d.cjs\"},{\"path\":\"case-4/n.cjs\"},{\"path\":\"case-5/n.cjs\"},{\"path\":\"case-6/r.cjs\"},{\"path\":\"case-7/r.cjs\"},{\"path\":\"case-8/r.cjs\"},{\"path\":\"case-9/r.cjs\"},{\"path\":\"case-10/r.cjs\"},{\"path\":\"case-11/r.cjs\"},{\"path\":\"case-12/d.cjs\"},{\"path\":\"case-13/d.cjs\"},{\"path\":\"case-14/d.cjs\"},{\"path\":\"case-15/d.cjs\"},{\"path\":\"case-16/d.cjs\"},{\"path\":\"case-17/d.cjs\"},{\"path\":\"case-18/n.cjs\"},{\"path\":\"case-19/n.cjs\"},{\"path\":\"case-20/n.cjs\"},{\"path\":\"case-21/n.cjs\"},{\"path\":\"case-22/n.cjs\"},{\"path\":\"case-23/n.cjs\"},{\"code\":\"MODULE_NOT_FOUND\"},{\"path\":\"case-25/r.cjs\"},{\"path\":\"case-26/d.cjs\"},{\"code\":\"MODULE_NOT_FOUND\"},{\"code\":\"MODULE_NOT_FOUND\"},{\"code\":\"MODULE_NOT_FOUND\"},{\"code\":\"MODULE_NOT_FOUND\"},{\"code\":\"MODULE_NOT_FOUND\"},{\"code\":\"MODULE_NOT_FOUND\"},{\"path\":\"case-33/d.cjs\"},{\"code\":\"MODULE_NOT_FOUND\"},{\"code\":\"MODULE_NOT_FOUND\"},{\"path\":\"case-36/file name.cjs\"},{\"path\":\"case-37/d.cjs\"},{\"path\":\"case-38/d.cjs\"},{\"path\":\"case-39/r.cjs\"},{\"path\":\"case-40/n.cjs\"},{\"path\":\"case-41/i.cjs\"},{\"path\":\"case-42/r.cjs\"},{\"code\":\"MODULE_NOT_FOUND\"},{\"code\":\"MODULE_NOT_FOUND\"},{\"code\":\"MODULE_NOT_FOUND\"},{\"code\":\"MODULE_NOT_FOUND\"},{\"path\":\"case-47/d.cjs\"},{\"code\":\"MODULE_NOT_FOUND\"}]\n",
+          "stderr": ""
+        }
+      },
+      "zig-js": {
+        "imports": [
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (zig-js): Error: Cannot resolve case-25 from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-25.mjs: PackagePathNotExported\n"
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (zig-js): Error: Cannot resolve case-27 from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-27.mjs: PackagePathNotExported\n"
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (zig-js): Error: Cannot resolve case-29 from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-29.mjs: ExportedFileNotFound\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (zig-js): Error: Cannot resolve case-30 from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-30.mjs: PackagePathNotExported\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (zig-js): Error: Cannot resolve case-31 from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-31.mjs: InvalidPackageTarget\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (zig-js): Error: Cannot resolve case-32 from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-32.mjs: PackagePathNotExported\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (zig-js): Error: Cannot resolve case-33 from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-33.mjs: InvalidPackageConfig\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (zig-js): Error: Cannot resolve case-34 from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-34.mjs: InvalidPackageConfig\n"
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"file name\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"r\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (zig-js): Error: Cannot resolve case-43/blocked from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-43.mjs: PackagePathNotExported\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (zig-js): Error: Cannot resolve case-44/private/a from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-44.mjs: PackagePathNotExported\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (zig-js): Error: Cannot resolve case-45/x/../a from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-45.mjs: InvalidModuleSpecifier\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (zig-js): Error: Cannot resolve case-46/%2e%2e/a from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-46.mjs: InvalidModuleSpecifier\n"
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (zig-js): Error: Cannot resolve case-48/node_modules/a from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-48.mjs: InvalidModuleSpecifier\n"
+          }
+        ],
+        "require": {
+          "exit_code": 0,
+          "stdout": "[{\"path\":\"case-0/r.cjs\"},{\"path\":\"case-1/r.cjs\"},{\"path\":\"case-2/d.cjs\"},{\"path\":\"case-3/d.cjs\"},{\"path\":\"case-4/n.cjs\"},{\"path\":\"case-5/n.cjs\"},{\"path\":\"case-6/r.cjs\"},{\"path\":\"case-7/r.cjs\"},{\"path\":\"case-8/r.cjs\"},{\"path\":\"case-9/r.cjs\"},{\"path\":\"case-10/r.cjs\"},{\"path\":\"case-11/r.cjs\"},{\"path\":\"case-12/d.cjs\"},{\"path\":\"case-13/d.cjs\"},{\"path\":\"case-14/d.cjs\"},{\"path\":\"case-15/d.cjs\"},{\"path\":\"case-16/d.cjs\"},{\"path\":\"case-17/d.cjs\"},{\"path\":\"case-18/n.cjs\"},{\"path\":\"case-19/n.cjs\"},{\"path\":\"case-20/n.cjs\"},{\"path\":\"case-21/n.cjs\"},{\"path\":\"case-22/n.cjs\"},{\"path\":\"case-23/n.cjs\"},{\"code\":\"ERR_PACKAGE_PATH_NOT_EXPORTED\"},{\"path\":\"case-25/r.cjs\"},{\"path\":\"case-26/d.cjs\"},{\"code\":\"ERR_PACKAGE_PATH_NOT_EXPORTED\"},{\"path\":\"case-28/d.cjs\"},{\"code\":\"MODULE_NOT_FOUND\"},{\"code\":\"ERR_PACKAGE_PATH_NOT_EXPORTED\"},{\"code\":\"ERR_INVALID_PACKAGE_TARGET\"},{\"code\":\"ERR_PACKAGE_PATH_NOT_EXPORTED\"},{\"code\":\"ERR_INVALID_PACKAGE_CONFIG\"},{\"code\":\"ERR_INVALID_PACKAGE_CONFIG\"},{\"path\":\"case-35/d.cjs\"},{\"path\":\"case-36/file name.cjs\"},{\"path\":\"case-37/d.cjs\"},{\"path\":\"case-38/d.cjs\"},{\"path\":\"case-39/r.cjs\"},{\"path\":\"case-40/n.cjs\"},{\"path\":\"case-41/i.cjs\"},{\"path\":\"case-42/r.cjs\"},{\"code\":\"ERR_PACKAGE_PATH_NOT_EXPORTED\"},{\"code\":\"ERR_PACKAGE_PATH_NOT_EXPORTED\"},{\"code\":\"ERR_INVALID_MODULE_SPECIFIER\"},{\"code\":\"ERR_INVALID_MODULE_SPECIFIER\"},{\"path\":\"case-47/d.cjs\"},{\"code\":\"ERR_INVALID_MODULE_SPECIFIER\"}]\n",
+          "stderr": ""
+        }
+      },
+      "jsc": {
+        "imports": [
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (jsc): Error: Cannot resolve case-25 from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-25.mjs: PackagePathNotExported\n"
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (jsc): Error: Cannot resolve case-27 from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-27.mjs: PackagePathNotExported\n"
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (jsc): Error: Cannot resolve case-29 from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-29.mjs: ExportedFileNotFound\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (jsc): Error: Cannot resolve case-30 from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-30.mjs: PackagePathNotExported\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (jsc): Error: Cannot resolve case-31 from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-31.mjs: InvalidPackageTarget\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (jsc): Error: Cannot resolve case-32 from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-32.mjs: PackagePathNotExported\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (jsc): Error: Cannot resolve case-33 from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-33.mjs: InvalidPackageConfig\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (jsc): Error: Cannot resolve case-34 from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-34.mjs: InvalidPackageConfig\n"
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"file name\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"n\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"i\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"r\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (jsc): Error: Cannot resolve case-43/blocked from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-43.mjs: PackagePathNotExported\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (jsc): Error: Cannot resolve case-44/private/a from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-44.mjs: PackagePathNotExported\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (jsc): Error: Cannot resolve case-45/x/../a from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-45.mjs: InvalidModuleSpecifier\n"
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (jsc): Error: Cannot resolve case-46/%2e%2e/a from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-46.mjs: InvalidModuleSpecifier\n"
+          },
+          {
+            "exit_code": 0,
+            "stdout": "\"d\"\n",
+            "stderr": ""
+          },
+          {
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "home-tool (jsc): Error: Cannot resolve case-48/node_modules/a from /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-48.mjs: InvalidModuleSpecifier\n"
+          }
+        ],
+        "require": {
+          "exit_code": 0,
+          "stdout": "[{\"path\":\"case-0/r.cjs\"},{\"path\":\"case-1/r.cjs\"},{\"path\":\"case-2/d.cjs\"},{\"path\":\"case-3/d.cjs\"},{\"path\":\"case-4/n.cjs\"},{\"path\":\"case-5/n.cjs\"},{\"path\":\"case-6/r.cjs\"},{\"path\":\"case-7/r.cjs\"},{\"path\":\"case-8/r.cjs\"},{\"path\":\"case-9/r.cjs\"},{\"path\":\"case-10/r.cjs\"},{\"path\":\"case-11/r.cjs\"},{\"path\":\"case-12/d.cjs\"},{\"path\":\"case-13/d.cjs\"},{\"path\":\"case-14/d.cjs\"},{\"path\":\"case-15/d.cjs\"},{\"path\":\"case-16/d.cjs\"},{\"path\":\"case-17/d.cjs\"},{\"path\":\"case-18/n.cjs\"},{\"path\":\"case-19/n.cjs\"},{\"path\":\"case-20/n.cjs\"},{\"path\":\"case-21/n.cjs\"},{\"path\":\"case-22/n.cjs\"},{\"path\":\"case-23/n.cjs\"},{\"code\":\"ERR_PACKAGE_PATH_NOT_EXPORTED\"},{\"path\":\"case-25/r.cjs\"},{\"path\":\"case-26/d.cjs\"},{\"code\":\"ERR_PACKAGE_PATH_NOT_EXPORTED\"},{\"path\":\"case-28/d.cjs\"},{\"code\":\"MODULE_NOT_FOUND\"},{\"code\":\"ERR_PACKAGE_PATH_NOT_EXPORTED\"},{\"code\":\"ERR_INVALID_PACKAGE_TARGET\"},{\"code\":\"ERR_PACKAGE_PATH_NOT_EXPORTED\"},{\"code\":\"ERR_INVALID_PACKAGE_CONFIG\"},{\"code\":\"ERR_INVALID_PACKAGE_CONFIG\"},{\"path\":\"case-35/d.cjs\"},{\"path\":\"case-36/file name.cjs\"},{\"path\":\"case-37/d.cjs\"},{\"path\":\"case-38/d.cjs\"},{\"path\":\"case-39/r.cjs\"},{\"path\":\"case-40/n.cjs\"},{\"path\":\"case-41/i.cjs\"},{\"path\":\"case-42/r.cjs\"},{\"code\":\"ERR_PACKAGE_PATH_NOT_EXPORTED\"},{\"code\":\"ERR_PACKAGE_PATH_NOT_EXPORTED\"},{\"code\":\"ERR_INVALID_MODULE_SPECIFIER\"},{\"code\":\"ERR_INVALID_MODULE_SPECIFIER\"},{\"path\":\"case-47/d.cjs\"},{\"code\":\"ERR_INVALID_MODULE_SPECIFIER\"}]\n",
+          "stderr": ""
+        }
+      }
+    },
+    "summary": {
+      "bun": {
+        "require_mismatches": [
+          {
+            "index": 24,
+            "case": {
+              "exports": {
+                "import": "./i.cjs"
+              },
+              "subpath": "",
+              "specifier": "case-24"
+            },
+            "expected": {
+              "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+            },
+            "actual": {
+              "code": "MODULE_NOT_FOUND"
+            }
+          },
+          {
+            "index": 27,
+            "case": {
+              "exports": {
+                "node": null,
+                "default": "./d.cjs"
+              },
+              "subpath": "",
+              "specifier": "case-27"
+            },
+            "expected": {
+              "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+            },
+            "actual": {
+              "code": "MODULE_NOT_FOUND"
+            }
+          },
+          {
+            "index": 28,
+            "case": {
+              "exports": [
+                "../bad.cjs",
+                null,
+                {
+                  "unknown": "./n.cjs"
+                },
+                "./d.cjs"
+              ],
+              "subpath": "",
+              "specifier": "case-28"
+            },
+            "expected": {
+              "path": "case-28/d.cjs"
+            },
+            "actual": {
+              "code": "MODULE_NOT_FOUND"
+            }
+          },
+          {
+            "index": 30,
+            "case": {
+              "exports": [
+                "../bad.cjs",
+                null
+              ],
+              "subpath": "",
+              "specifier": "case-30"
+            },
+            "expected": {
+              "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+            },
+            "actual": {
+              "code": "MODULE_NOT_FOUND"
+            }
+          },
+          {
+            "index": 31,
+            "case": {
+              "exports": [
+                null,
+                "../bad.cjs"
+              ],
+              "subpath": "",
+              "specifier": "case-31"
+            },
+            "expected": {
+              "code": "ERR_INVALID_PACKAGE_TARGET"
+            },
+            "actual": {
+              "code": "MODULE_NOT_FOUND"
+            }
+          },
+          {
+            "index": 32,
+            "case": {
+              "exports": [],
+              "subpath": "",
+              "specifier": "case-32"
+            },
+            "expected": {
+              "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+            },
+            "actual": {
+              "code": "MODULE_NOT_FOUND"
+            }
+          },
+          {
+            "index": 33,
+            "case": {
+              "exports": {
+                "0": "./n.cjs",
+                "default": "./d.cjs"
+              },
+              "subpath": "",
+              "specifier": "case-33"
+            },
+            "expected": {
+              "code": "ERR_INVALID_PACKAGE_CONFIG"
+            },
+            "actual": {
+              "path": "case-33/d.cjs"
+            }
+          },
+          {
+            "index": 34,
+            "case": {
+              "exports": {
+                ".": "./d.cjs",
+                "import": "./i.cjs"
+              },
+              "subpath": "",
+              "specifier": "case-34"
+            },
+            "expected": {
+              "code": "ERR_INVALID_PACKAGE_CONFIG"
+            },
+            "actual": {
+              "code": "MODULE_NOT_FOUND"
+            }
+          },
+          {
+            "index": 35,
+            "case": {
+              "exports": 42,
+              "subpath": "",
+              "specifier": "case-35"
+            },
+            "expected": {
+              "path": "case-35/d.cjs"
+            },
+            "actual": {
+              "code": "MODULE_NOT_FOUND"
+            }
+          },
+          {
+            "index": 43,
+            "case": {
+              "exports": {
+                "./*": "./d.cjs",
+                "./feature/*": {
+                  "import": "./i.cjs",
+                  "require": "./r.cjs"
+                },
+                "./feature/*.json": "./n.cjs",
+                "./feature/special/*": "./i.cjs",
+                "./exact": "./r.cjs",
+                "./blocked": null,
+                "./private/*": null
+              },
+              "subpath": "/blocked",
+              "specifier": "case-43/blocked"
+            },
+            "expected": {
+              "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+            },
+            "actual": {
+              "code": "MODULE_NOT_FOUND"
+            }
+          },
+          {
+            "index": 44,
+            "case": {
+              "exports": {
+                "./*": "./d.cjs",
+                "./feature/*": {
+                  "import": "./i.cjs",
+                  "require": "./r.cjs"
+                },
+                "./feature/*.json": "./n.cjs",
+                "./feature/special/*": "./i.cjs",
+                "./exact": "./r.cjs",
+                "./blocked": null,
+                "./private/*": null
+              },
+              "subpath": "/private/a",
+              "specifier": "case-44/private/a"
+            },
+            "expected": {
+              "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+            },
+            "actual": {
+              "code": "MODULE_NOT_FOUND"
+            }
+          },
+          {
+            "index": 45,
+            "case": {
+              "exports": {
+                "./*": "./d.cjs",
+                "./feature/*": {
+                  "import": "./i.cjs",
+                  "require": "./r.cjs"
+                },
+                "./feature/*.json": "./n.cjs",
+                "./feature/special/*": "./i.cjs",
+                "./exact": "./r.cjs",
+                "./blocked": null,
+                "./private/*": null
+              },
+              "subpath": "/x/../a",
+              "specifier": "case-45/x/../a"
+            },
+            "expected": {
+              "code": "ERR_INVALID_MODULE_SPECIFIER"
+            },
+            "actual": {
+              "code": "MODULE_NOT_FOUND"
+            }
+          },
+          {
+            "index": 46,
+            "case": {
+              "exports": {
+                "./*": "./d.cjs",
+                "./feature/*": {
+                  "import": "./i.cjs",
+                  "require": "./r.cjs"
+                },
+                "./feature/*.json": "./n.cjs",
+                "./feature/special/*": "./i.cjs",
+                "./exact": "./r.cjs",
+                "./blocked": null,
+                "./private/*": null
+              },
+              "subpath": "/%2e%2e/a",
+              "specifier": "case-46/%2e%2e/a"
+            },
+            "expected": {
+              "code": "ERR_INVALID_MODULE_SPECIFIER"
+            },
+            "actual": {
+              "code": "MODULE_NOT_FOUND"
+            }
+          },
+          {
+            "index": 48,
+            "case": {
+              "exports": {
+                "./*": "./d.cjs",
+                "./feature/*": {
+                  "import": "./i.cjs",
+                  "require": "./r.cjs"
+                },
+                "./feature/*.json": "./n.cjs",
+                "./feature/special/*": "./i.cjs",
+                "./exact": "./r.cjs",
+                "./blocked": null,
+                "./private/*": null
+              },
+              "subpath": "/node_modules/a",
+              "specifier": "case-48/node_modules/a"
+            },
+            "expected": {
+              "code": "ERR_INVALID_MODULE_SPECIFIER"
+            },
+            "actual": {
+              "code": "MODULE_NOT_FOUND"
+            }
+          }
+        ],
+        "require_count": 49,
+        "import_mismatches": [
+          {
+            "index": 28,
+            "case": {
+              "exports": [
+                "../bad.cjs",
+                null,
+                {
+                  "unknown": "./n.cjs"
+                },
+                "./d.cjs"
+              ],
+              "subpath": "",
+              "specifier": "case-28"
+            },
+            "expected": {
+              "exit_code": 0,
+              "stdout": "\"d\"\n",
+              "stderr": ""
+            },
+            "actual": {
+              "exit_code": 1,
+              "stdout": "",
+              "stderr": "error: Cannot find package 'case-28' from '/Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-28.mjs'\n\nBun v1.4.4 (macOS arm64)\n"
+            }
+          },
+          {
+            "index": 33,
+            "case": {
+              "exports": {
+                "0": "./n.cjs",
+                "default": "./d.cjs"
+              },
+              "subpath": "",
+              "specifier": "case-33"
+            },
+            "expected": {
+              "exit_code": 1,
+              "stdout": "",
+              "stderr": "node:internal/modules/esm/resolve:493\n        throw new ERR_INVALID_PACKAGE_CONFIG(\n              ^\n\nError [ERR_INVALID_PACKAGE_CONFIG]: Invalid package config /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/node_modules/case-33/package.json while importing file:///Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-33.mjs. \"exports\" cannot contain numeric property keys.\n    at resolvePackageTarget (node:internal/modules/esm/resolve:493:15)\n    at packageExportsResolve (node:internal/modules/esm/resolve:567:27)\n    at packageResolve (node:internal/modules/esm/resolve:759:12)\n    at moduleResolve (node:internal/modules/esm/resolve:840:18)\n    at defaultResolve (node:internal/modules/esm/resolve:973:11)\n    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)\n    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)\n    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:766:56)\n    at #resolve (node:internal/modules/esm/loader:690:17)\n    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:610:35) {\n  code: 'ERR_INVALID_PACKAGE_CONFIG'\n}\n\nNode.js v26.10.0\n"
+            },
+            "actual": {
+              "exit_code": 0,
+              "stdout": "\"d\"\n",
+              "stderr": ""
+            }
+          },
+          {
+            "index": 35,
+            "case": {
+              "exports": 42,
+              "subpath": "",
+              "specifier": "case-35"
+            },
+            "expected": {
+              "exit_code": 0,
+              "stdout": "\"d\"\n",
+              "stderr": ""
+            },
+            "actual": {
+              "exit_code": 1,
+              "stdout": "",
+              "stderr": "error: Cannot find package 'case-35' from '/Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/import-35.mjs'\n\n1 | {\"name\": \"case-35\", \"exports\": 42, \"main\": \"./d.cjs\"}\n                                   ^\nnote: This value must be a string, an object, an array, or null\n   at /Users/chris/.cache/zig-js-ecosystem-research/package-exports/differential/node_modules/case-35/package.json:1:32\n\nBun v1.4.4 (macOS arm64)\n"
+            }
+          }
+        ]
+      },
+      "zig-js": {
+        "require_mismatches": [],
+        "require_count": 49,
+        "import_mismatches": []
+      },
+      "jsc": {
+        "require_mismatches": [],
+        "require_count": 49,
+        "import_mismatches": []
+      }
+    }
+  },
+  "whole_stacks": [
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 3.418,
+      "log": "before.log",
+      "label": "before",
+      "command": "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)",
+      "consumer_sha": "d557cee9630c209ed5fc58c8c5f633dba82c3488",
+      "log_text": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\nhome-tool (zig-js): Error: cannot resolve module @stacksjs/dtsx/cache from /Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/bun-plugin-dtsx/dist/index.js\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "events": "{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/typescript/bin/tsc\", \"arguments\": [\"--noEmit\", \"-p\", \"storage/framework/tsconfig.framework.json\", \"--pretty\", \"false\"]}\n{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/typescript/bin/tsc\", \"arguments\": [\"--noEmit\", \"-p\", \"storage/framework/tsconfig.defaults.json\", \"--pretty\", \"false\"]}\n{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/storage/framework/core/validation/build.ts\", \"arguments\": []}\n{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/typescript/bin/tsc\", \"arguments\": [\"--noEmit\", \"-p\", \"storage/framework/tsconfig.framework.json\", \"--pretty\", \"false\"]}\n{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/typescript/bin/tsc\", \"arguments\": [\"--noEmit\", \"-p\", \"storage/framework/tsconfig.defaults.json\", \"--pretty\", \"false\"]}\n{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/storage/framework/core/validation/build.ts\", \"arguments\": []}\n"
+    },
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 3.091,
+      "log": "after.log",
+      "label": "after",
+      "command": "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)",
+      "consumer_sha": "d557cee9630c209ed5fc58c8c5f633dba82c3488",
+      "log_text": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\n/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/@stacksjs/dtsx/dist/chunk-8d7k47vc.js:479: '}' expected. (TS1005)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/@stacksjs/dtsx/dist/chunk-8d7k47vc.js\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "events": "{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/typescript/bin/tsc\", \"arguments\": [\"--noEmit\", \"-p\", \"storage/framework/tsconfig.framework.json\", \"--pretty\", \"false\"]}\n{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/typescript/bin/tsc\", \"arguments\": [\"--noEmit\", \"-p\", \"storage/framework/tsconfig.defaults.json\", \"--pretty\", \"false\"]}\n{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/storage/framework/core/validation/build.ts\", \"arguments\": []}\n{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/typescript/bin/tsc\", \"arguments\": [\"--noEmit\", \"-p\", \"storage/framework/tsconfig.framework.json\", \"--pretty\", \"false\"]}\n{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/typescript/bin/tsc\", \"arguments\": [\"--noEmit\", \"-p\", \"storage/framework/tsconfig.defaults.json\", \"--pretty\", \"false\"]}\n{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/storage/framework/core/validation/build.ts\", \"arguments\": []}\n"
+    }
+  ],
+  "independent_module_gaps": [
+    {
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "lexical-require.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK lexical require\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "lexical-require.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): SyntaxError: Cannot declare a const variable twice: 'require'.\n"
+    },
+    {
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool",
+        "run",
+        "lexical-require.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): SyntaxError: Cannot declare a const variable twice: 'require'.\n"
+    },
+    {
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "reexport-entry.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK default CJS reexport\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "reexport-entry.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: default CJS reexport lost value\n"
+    },
+    {
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool",
+        "run",
+        "reexport-entry.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: default CJS reexport lost value\n"
+    }
+  ],
+  "checks": {
+    "resolver-unit": {
+      "exit_code": 0,
+      "log": "1/6 tool_package_exports.test.exports selection preserves import require conditions and pattern specificity...OK\n2/6 tool_package_exports.test.exports condition order nested misses and null blocking...OK\n3/6 tool_package_exports.test.exports array fallbacks select targets without probing file existence...OK\n4/6 tool_package_exports.test.exports rejects invalid config and prohibited target segments...OK\n5/6 tool_package_exports.test.exports replaces all raw stars and preserves escaped literal stars...OK\n6/6 tool_package_exports.test.exports fixed pattern target ignores unused encoded separator...OK\nAll 6 tests passed.\n"
+    },
+    "zig-js-common-rejections-async-context": {
+      "exit_code": 0,
+      "log": "home-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): SyntaxError: Unexpected identifier 'Promise'\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run cjs-await.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/missing-array from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run reject-missing-array.mjs\n\nOK home-tool exact package imports\nOK home-tool import.meta\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run next_tick_failure.cjs monitor\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: circular tsconfig extends chain: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run cycle/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/blocked from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs: PackagePathNotExported\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run reject-blocked.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: monitor failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run next_tick_failure.cjs monitor-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./bad.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run malformed/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): undefined\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run undefined.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./absent.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run missing/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: exit listener witness\nfailed command: ./.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool eval \"process.on('exit', function() { throw new Error('exit listener witness'); });\"\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/require-only from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs: PackagePathNotExported\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run reject-require-only.mjs\n\nOK home-tool runtime transpilation\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_stream_pending.mjs\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run node_stream_pending.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: invalid JSONC or runtime path options: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run invalid-options/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run next_tick_failure.cjs error\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run cycle-a.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run pending.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: handler failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run next_tick_failure.cjs handler-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run rejected.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run next_tick_failure.cjs override\n\nhome-tool-smoke\n+- run exe home-tool w\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js:6: Identifier expected. (TS1003)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run runtime_invalid_syntax.js\n\nOK home-tool module interop\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run declaration/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: undefined\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run next_tick_failure.cjs undefined\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/extensionless from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run reject-extensionless.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/directory from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run reject-directory.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run next_tick_failure.cjs exit-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run dependency-rejected.mjs\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run unhandled_rejection.cjs async\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: UnhandledPromiseRejection: Unhandled promise rejection: undefined\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run unhandled_rejection.cjs undefined\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: second rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/62955bcad8f361d2c70ad7ebdd841210/home-tool run unhandled_rejection.cjs second\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: listener failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run unhandled_rejection.cjs listener-throw\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run unhandled_rejection.cjs error\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: uncaught handler failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run unhandled_rejection.cjs handler-throw\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run unhandled_rejection.cjs chain\n\n"
+    },
+    "jsc-common": {
+      "exit_code": 0,
+      "log": "OK home-tool module interop\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): undefined\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/9d781b8059612f18a764e8372b4b9d73/home-tool run undefined.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run dependency-rejected.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run next_tick_failure.cjs error\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./absent.json\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run missing/entry.cjs\n\nOK home-tool exact package imports\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run declaration/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run next_tick_failure.cjs exit-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: invalid JSONC or runtime path options: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/tsconfig.json\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run invalid-options/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: handler failure\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run next_tick_failure.cjs handler-throw\n\nOK home-tool import.meta\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: circular tsconfig extends chain: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/tsconfig.json\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run cycle/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run rejected.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run next_tick_failure.cjs monitor\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: monitor failure\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run next_tick_failure.cjs monitor-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_stream_pending.mjs\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run node_stream_pending.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Cannot resolve @home/exports/directory from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run reject-directory.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: exit listener witness\nfailed command: /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool eval \"process.on('exit', function() { throw new Error('exit listener witness'); });\"\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run next_tick_failure.cjs override\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Cannot resolve @home/exports/missing-array from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run reject-missing-array.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Cannot resolve @home/exports/require-only from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs: PackagePathNotExported\nfailed command: cd packages/runtime/test/tool_modules/package_exports && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run reject-require-only.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./bad.json\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run malformed/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js:6: Identifier expected. (TS1003)\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run runtime_invalid_syntax.js\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run cycle-a.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Cannot resolve @home/exports/extensionless from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run reject-extensionless.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run pending.mjs\n\nOK home-tool runtime transpilation\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): SyntaxError: Unexpected identifier 'Promise'\nfailed command: cd packages/runtime/test/tool_modules/async && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run cjs-await.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Cannot resolve @home/exports/blocked from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs: PackagePathNotExported\nfailed command: cd packages/runtime/test/tool_modules/package_exports && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run reject-blocked.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: undefined\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/package-exports/jsc/bin/home-tool run next_tick_failure.cjs undefined\n\n"
+    }
+  },
+  "limitations": [
+    "Node condition profile activates node/import-or-require/default only; no bun, development, custom, node-addons or module-sync conditions.",
+    "Raw query/fragment/backslash export targets fail explicitly; full URL cache identity is not implemented.",
+    "Bun reference has 14 require resolution/code differences and three import outcome differences in the 49-case matrix; kept in raw data.",
+    "Default CJS re-export interoperability and lexical ESM require shadowing still fail both Home backends, with real Node passing controls.",
+    "Actual root Stacks compatibility remains failed at a real prefix-update object literal parser diagnostic. No tests or commands skipped."
+  ]
+}
