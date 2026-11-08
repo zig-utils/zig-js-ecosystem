@@ -154,7 +154,7 @@
       "stderr": ""
     },
     "cycle_tests": "29 native Bun reference tests / 35 assertions pass after integrating concurrent release changes.",
-    "cycle_limit": "Direct imports remove an unnecessary CLI self-barrel cycle. General Home ESM/CJS live-binding cycle compatibility remains unimplemented.",
+    "cycle_limit": "Direct imports remove the specific reproduced CLI self-barrel cycle; this change does not certify general Home ESM/CJS live-binding cycle compatibility.",
     "actual_before_scoped_bin_fix": {
       "consumer_sha": "7801cddde015aa4df8f7cb61d32c54433811338d",
       "build": {
@@ -203,8 +203,18 @@
   ],
   "ci_qualification": {
     "engine_sha": "4e209e67388e3e7644ef6f813b961ec29d5cfed4",
-    "suite_ref": "pending exact new commit",
-    "promotion": "Caller stays on qualified d723a0d until new Linux runtime and both actual consumer provenance/CPU gates qualify this source."
+    "suite_ref": "c59c283c4412a0de7d7a1d69e07e258a86afa163",
+    "promotion": "Caller is pinned to qualified d723a0d. Promote exact functional c59c283 only after its own validation/Linux runtime and both real consumer provenance/CPU execution gates qualify. This later evidence-only commit is not the target.",
+    "home_sha": "1d388c0878ceea745f62aa5db32af3b4db3469a1",
+    "validation_run": 42532837899,
+    "validation_status_at_dispatch": "queued",
+    "ecosystem_run": 42532861049,
+    "ecosystem_status_at_dispatch": "queued",
+    "repositories": [
+      "stacksjs/stacks",
+      "home-lang/home"
+    ],
+    "reference": true
   },
   "limits": [
     "Both actual Stacks candidate commands still exit 1; no whole-consumer pass.",
