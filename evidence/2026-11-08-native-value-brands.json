@@ -97,7 +97,7 @@
     "events": "{\"kind\": \"zig-js\", \"file\": \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-85df/storage/framework/core/buddy/src/cli.ts\", \"arguments\": [\"build\"], \"conditions\": [\"development\"]}\n",
     "log_text": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-08T21:54:31.523Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\nhome-tool (zig-js): Error: cannot resolve module bun:sqlite from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-85df/node_modules/bun-query-builder/dist/chunk-pe6h553s.js\n\nECOSYSTEM RESULT: failed, exit 1\n"
   },
-  "engine_abi_evidence": "https://github.com/zig-utils/zig-js/blob/93943bdfd02651f87015bb936be786f4a52e57eb/docs/.data/c-api-value-brands-2026-11-08.json",
+  "engine_abi_evidence": "https://github.com/zig-utils/zig-js/blob/afd9ecea1cde457b9f7374af02313117f7d88659/docs/.data/c-api-value-brands-2026-11-08.json",
   "verification_root": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08",
   "limits": [
     "Only isPromise/isProxy are implemented in util.types, not the full Node types surface. Both are genuine engine slot/tag inspections, not instanceof/tag/thenable/Proxy-wrapper heuristics.",
@@ -107,5 +107,20 @@
     "Native and filesystem test binaries cross-build for Linux (7/7 steps), but actual new Linux execution is still required for suite promotion.",
     "Engine full docs build fails identically with HEAD Markdown at an existing wasm-SIMD evidence-link routing error; raw failure and baseline are retained in engine evidence.",
     "Prior Home docs/upstream-bench setup timeouts and absent scheduler/tsc remain unresolved; no full-consumer or test262 pass is claimed."
-  ]
+  ],
+  "exact_next_ci": {
+    "suite_sha": "d723a0d5d42d316a8ed40ecaad3f415543b38d55",
+    "home_sha": "d9587d28b1b5834b84d425f7e838508878255372",
+    "engine_sha": "afd9ecea1cde457b9f7374af02313117f7d88659",
+    "validation_run_id": 42529696248,
+    "ecosystem_run_id": 42529758529,
+    "captured_status": "queued at dispatch",
+    "repositories": [
+      "stacksjs/stacks",
+      "home-lang/home"
+    ],
+    "reference": true,
+    "caller_suite_sha": "b2135fc1f9db813b29a989529514e770c32df622",
+    "qualification_note": "Use exact integrated main afd9ecea for new CI, not older E4 engine without the brand extensions. Local Home witness used API implementation 93943bdf; after concurrent main 40f1582b integration, repeated Debug/TSan C/C++ and ReleaseSafe aggregate C API/JSC differential pass. Actual new Linux/runtime/provenance/CPU qualification remains pending."
+  }
 }
