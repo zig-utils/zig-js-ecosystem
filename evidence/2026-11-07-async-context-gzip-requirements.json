@@ -1,0 +1,213 @@
+{
+  "scope": "Actual next-blocker witnesses, not implemented Home capabilities. Host runtimes must not claim async context from a global variable or gzip from an empty transform.",
+  "home_ref": "2853cd85a310a24a77fca76eb6c683d6aeaf1167",
+  "engine_api_ref": "96ba2f58731d5798ec7af368e4341af7cd5a34d8",
+  "binary_sha256": {
+    "node": "600484350350ab7852b577ddf97e7888f498334bef3ca74e73ea3b507a5b6fac",
+    "bun": "6b947fc4b25d640c482e40f253cbb2df692a555ce29c247844b766d8fea16dca",
+    "home-zig-js": "7b1e20038031e8f9ed2800700b3cffb83da3dac81e87a685ab0e8b82a2ba7ae3",
+    "home-jsc": "2018afa004618d8a0db2cb9af1b213609331c9c0283c4de6f385663e32a4599c"
+  },
+  "results": [
+    {
+      "fixture": "async_siblings.mjs",
+      "runtime": "node",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nconst storage = new AsyncLocalStorage();\nfunction check(expected) { if (storage.getStore() !== expected) throw new Error('wrong context: ' + storage.getStore() + ' expected ' + expected); }\nlet release; const barrier = new Promise(resolve => { release = resolve; });\nconst first = storage.run('first', async () => { check('first'); await barrier; check('first'); await Promise.resolve(); check('first'); return storage.getStore(); });\ncheck(undefined);\nconst second = storage.run('second', async () => { check('second'); release(); await Promise.resolve(); check('second'); return storage.getStore(); });\ncheck(undefined);\nconst result = await Promise.all([first, second]); check(undefined);\nconsole.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_siblings.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[\"first\",\"second\"]\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "async_siblings.mjs",
+      "runtime": "bun",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nconst storage = new AsyncLocalStorage();\nfunction check(expected) { if (storage.getStore() !== expected) throw new Error('wrong context: ' + storage.getStore() + ' expected ' + expected); }\nlet release; const barrier = new Promise(resolve => { release = resolve; });\nconst first = storage.run('first', async () => { check('first'); await barrier; check('first'); await Promise.resolve(); check('first'); return storage.getStore(); });\ncheck(undefined);\nconst second = storage.run('second', async () => { check('second'); release(); await Promise.resolve(); check('second'); return storage.getStore(); });\ncheck(undefined);\nconst result = await Promise.all([first, second]); check(undefined);\nconsole.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_siblings.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[\"first\",\"second\"]\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "async_siblings.mjs",
+      "runtime": "home-zig-js",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nconst storage = new AsyncLocalStorage();\nfunction check(expected) { if (storage.getStore() !== expected) throw new Error('wrong context: ' + storage.getStore() + ' expected ' + expected); }\nlet release; const barrier = new Promise(resolve => { release = resolve; });\nconst first = storage.run('first', async () => { check('first'); await barrier; check('first'); await Promise.resolve(); check('first'); return storage.getStore(); });\ncheck(undefined);\nconst second = storage.run('second', async () => { check('second'); release(); await Promise.resolve(); check('second'); return storage.getStore(); });\ncheck(undefined);\nconst result = await Promise.all([first, second]); check(undefined);\nconsole.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_siblings.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:async_hooks from /Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_siblings.mjs\n"
+    },
+    {
+      "fixture": "async_siblings.mjs",
+      "runtime": "home-jsc",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nconst storage = new AsyncLocalStorage();\nfunction check(expected) { if (storage.getStore() !== expected) throw new Error('wrong context: ' + storage.getStore() + ' expected ' + expected); }\nlet release; const barrier = new Promise(resolve => { release = resolve; });\nconst first = storage.run('first', async () => { check('first'); await barrier; check('first'); await Promise.resolve(); check('first'); return storage.getStore(); });\ncheck(undefined);\nconst second = storage.run('second', async () => { check('second'); release(); await Promise.resolve(); check('second'); return storage.getStore(); });\ncheck(undefined);\nconst result = await Promise.all([first, second]); check(undefined);\nconsole.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/.zig-cache/o/c6af9518806f74c8f602cd208d28fee9/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_siblings.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: cannot resolve module node:async_hooks from /Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_siblings.mjs\n"
+    },
+    {
+      "fixture": "async_nested.mjs",
+      "runtime": "node",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nconst a = new AsyncLocalStorage(); const b = new AsyncLocalStorage(); const reason = new Error('identity');\nconst result = await a.run({ id: 7 }, async () => { const parent = a.getStore();\ntry { a.run({ id: 8 }, () => { if (a.getStore().id !== 8) throw new Error('nested'); throw reason; }); } catch (error) { if (error !== reason) throw error; }\nif (a.getStore() !== parent) throw new Error('not restored');\nreturn b.run(9, async () => { await Promise.resolve(); if (a.getStore() !== parent || b.getStore() !== 9) throw new Error('cross storage'); return [parent.id, b.getStore()]; }); });\nif (a.getStore() !== undefined || b.getStore() !== undefined) throw new Error('leak'); console.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_nested.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[7,9]\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "async_nested.mjs",
+      "runtime": "bun",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nconst a = new AsyncLocalStorage(); const b = new AsyncLocalStorage(); const reason = new Error('identity');\nconst result = await a.run({ id: 7 }, async () => { const parent = a.getStore();\ntry { a.run({ id: 8 }, () => { if (a.getStore().id !== 8) throw new Error('nested'); throw reason; }); } catch (error) { if (error !== reason) throw error; }\nif (a.getStore() !== parent) throw new Error('not restored');\nreturn b.run(9, async () => { await Promise.resolve(); if (a.getStore() !== parent || b.getStore() !== 9) throw new Error('cross storage'); return [parent.id, b.getStore()]; }); });\nif (a.getStore() !== undefined || b.getStore() !== undefined) throw new Error('leak'); console.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_nested.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[7,9]\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "async_nested.mjs",
+      "runtime": "home-zig-js",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nconst a = new AsyncLocalStorage(); const b = new AsyncLocalStorage(); const reason = new Error('identity');\nconst result = await a.run({ id: 7 }, async () => { const parent = a.getStore();\ntry { a.run({ id: 8 }, () => { if (a.getStore().id !== 8) throw new Error('nested'); throw reason; }); } catch (error) { if (error !== reason) throw error; }\nif (a.getStore() !== parent) throw new Error('not restored');\nreturn b.run(9, async () => { await Promise.resolve(); if (a.getStore() !== parent || b.getStore() !== 9) throw new Error('cross storage'); return [parent.id, b.getStore()]; }); });\nif (a.getStore() !== undefined || b.getStore() !== undefined) throw new Error('leak'); console.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_nested.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:async_hooks from /Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_nested.mjs\n"
+    },
+    {
+      "fixture": "async_nested.mjs",
+      "runtime": "home-jsc",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nconst a = new AsyncLocalStorage(); const b = new AsyncLocalStorage(); const reason = new Error('identity');\nconst result = await a.run({ id: 7 }, async () => { const parent = a.getStore();\ntry { a.run({ id: 8 }, () => { if (a.getStore().id !== 8) throw new Error('nested'); throw reason; }); } catch (error) { if (error !== reason) throw error; }\nif (a.getStore() !== parent) throw new Error('not restored');\nreturn b.run(9, async () => { await Promise.resolve(); if (a.getStore() !== parent || b.getStore() !== 9) throw new Error('cross storage'); return [parent.id, b.getStore()]; }); });\nif (a.getStore() !== undefined || b.getStore() !== undefined) throw new Error('leak'); console.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/.zig-cache/o/c6af9518806f74c8f602cd208d28fee9/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_nested.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: cannot resolve module node:async_hooks from /Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_nested.mjs\n"
+    },
+    {
+      "fixture": "async_callbacks.mjs",
+      "runtime": "node",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nimport process from 'node:process';\nconst storage = new AsyncLocalStorage();\nconst result = await storage.run('registered', () => Promise.all([\nnew Promise(resolve => queueMicrotask(() => resolve(storage.getStore()))),\nnew Promise(resolve => process.nextTick(() => resolve(storage.getStore()))),\nPromise.resolve().then(() => storage.getStore())]));\nif (JSON.stringify(result) !== '[\"registered\",\"registered\",\"registered\"]' || storage.getStore() !== undefined) throw new Error('wrong callback capture'); console.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_callbacks.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[\"registered\",\"registered\",\"registered\"]\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "async_callbacks.mjs",
+      "runtime": "bun",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nimport process from 'node:process';\nconst storage = new AsyncLocalStorage();\nconst result = await storage.run('registered', () => Promise.all([\nnew Promise(resolve => queueMicrotask(() => resolve(storage.getStore()))),\nnew Promise(resolve => process.nextTick(() => resolve(storage.getStore()))),\nPromise.resolve().then(() => storage.getStore())]));\nif (JSON.stringify(result) !== '[\"registered\",\"registered\",\"registered\"]' || storage.getStore() !== undefined) throw new Error('wrong callback capture'); console.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_callbacks.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[\"registered\",\"registered\",\"registered\"]\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "async_callbacks.mjs",
+      "runtime": "home-zig-js",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nimport process from 'node:process';\nconst storage = new AsyncLocalStorage();\nconst result = await storage.run('registered', () => Promise.all([\nnew Promise(resolve => queueMicrotask(() => resolve(storage.getStore()))),\nnew Promise(resolve => process.nextTick(() => resolve(storage.getStore()))),\nPromise.resolve().then(() => storage.getStore())]));\nif (JSON.stringify(result) !== '[\"registered\",\"registered\",\"registered\"]' || storage.getStore() !== undefined) throw new Error('wrong callback capture'); console.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_callbacks.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:async_hooks from /Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_callbacks.mjs\n"
+    },
+    {
+      "fixture": "async_callbacks.mjs",
+      "runtime": "home-jsc",
+      "source": "import { AsyncLocalStorage } from 'node:async_hooks';\nimport process from 'node:process';\nconst storage = new AsyncLocalStorage();\nconst result = await storage.run('registered', () => Promise.all([\nnew Promise(resolve => queueMicrotask(() => resolve(storage.getStore()))),\nnew Promise(resolve => process.nextTick(() => resolve(storage.getStore()))),\nPromise.resolve().then(() => storage.getStore())]));\nif (JSON.stringify(result) !== '[\"registered\",\"registered\",\"registered\"]' || storage.getStore() !== undefined) throw new Error('wrong callback capture'); console.log(JSON.stringify(result));\n",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/.zig-cache/o/c6af9518806f74c8f602cd208d28fee9/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_callbacks.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: cannot resolve module node:async_hooks from /Users/chris/.cache/zig-js-ecosystem-research/async-gzip/async_callbacks.mjs\n"
+    },
+    {
+      "fixture": "gzip_data.mjs",
+      "runtime": "node",
+      "source": "import { createGzip, gunzipSync } from 'zlib';\nimport { Buffer } from 'node:buffer';\nconst input = Buffer.from('actual gzip data: ' + 'abc123'.repeat(1000));\nconst gzip = createGzip(); const chunks = [];\nconst output = await new Promise((resolve, reject) => { gzip.on('data', chunk => chunks.push(chunk)); gzip.on('end', () => resolve(Buffer.concat(chunks))); gzip.on('error', reject); gzip.write(input.subarray(0, 100)); gzip.end(input.subarray(100)); });\nif (output[0] !== 31 || output[1] !== 139 || output.length >= input.length || gunzipSync(output).toString() !== input.toString()) throw new Error('invalid gzip data'); console.log('OK real gzip round trip');\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/gzip_data.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK real gzip round trip\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "gzip_data.mjs",
+      "runtime": "bun",
+      "source": "import { createGzip, gunzipSync } from 'zlib';\nimport { Buffer } from 'node:buffer';\nconst input = Buffer.from('actual gzip data: ' + 'abc123'.repeat(1000));\nconst gzip = createGzip(); const chunks = [];\nconst output = await new Promise((resolve, reject) => { gzip.on('data', chunk => chunks.push(chunk)); gzip.on('end', () => resolve(Buffer.concat(chunks))); gzip.on('error', reject); gzip.write(input.subarray(0, 100)); gzip.end(input.subarray(100)); });\nif (output[0] !== 31 || output[1] !== 139 || output.length >= input.length || gunzipSync(output).toString() !== input.toString()) throw new Error('invalid gzip data'); console.log('OK real gzip round trip');\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/gzip_data.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK real gzip round trip\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "gzip_data.mjs",
+      "runtime": "home-zig-js",
+      "source": "import { createGzip, gunzipSync } from 'zlib';\nimport { Buffer } from 'node:buffer';\nconst input = Buffer.from('actual gzip data: ' + 'abc123'.repeat(1000));\nconst gzip = createGzip(); const chunks = [];\nconst output = await new Promise((resolve, reject) => { gzip.on('data', chunk => chunks.push(chunk)); gzip.on('end', () => resolve(Buffer.concat(chunks))); gzip.on('error', reject); gzip.write(input.subarray(0, 100)); gzip.end(input.subarray(100)); });\nif (output[0] !== 31 || output[1] !== 139 || output.length >= input.length || gunzipSync(output).toString() !== input.toString()) throw new Error('invalid gzip data'); console.log('OK real gzip round trip');\n",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/gzip_data.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module zlib from /Users/chris/.cache/zig-js-ecosystem-research/async-gzip/gzip_data.mjs\n"
+    },
+    {
+      "fixture": "gzip_data.mjs",
+      "runtime": "home-jsc",
+      "source": "import { createGzip, gunzipSync } from 'zlib';\nimport { Buffer } from 'node:buffer';\nconst input = Buffer.from('actual gzip data: ' + 'abc123'.repeat(1000));\nconst gzip = createGzip(); const chunks = [];\nconst output = await new Promise((resolve, reject) => { gzip.on('data', chunk => chunks.push(chunk)); gzip.on('end', () => resolve(Buffer.concat(chunks))); gzip.on('error', reject); gzip.write(input.subarray(0, 100)); gzip.end(input.subarray(100)); });\nif (output[0] !== 31 || output[1] !== 139 || output.length >= input.length || gunzipSync(output).toString() !== input.toString()) throw new Error('invalid gzip data'); console.log('OK real gzip round trip');\n",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/.zig-cache/o/c6af9518806f74c8f602cd208d28fee9/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-gzip/gzip_data.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: cannot resolve module zlib from /Users/chris/.cache/zig-js-ecosystem-research/async-gzip/gzip_data.mjs\n"
+    }
+  ]
+}
