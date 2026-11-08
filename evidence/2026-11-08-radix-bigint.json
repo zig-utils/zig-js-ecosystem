@@ -1,0 +1,181 @@
+{
+  "home_ref": "71f81009157d7c48d1cd35e133bbb8a4d2f128e3",
+  "engine_sha": "9285179ffe22db055c2c24e9cffd94b3da1a4502",
+  "before_home_ref": "49c05299a0704f84f1ad1afefd3029113bb6623f",
+  "scope": "Actual frontend and module execution evidence; full Stacks remains failed at storage/files.ts.",
+  "operations": [
+    {
+      "runtime": "node",
+      "source": "import { sum, median, covariance } from '/Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/storage/framework/core/arrays/src/math.ts';\nif (sum([1, 2, 3, 4]) !== 10 || median([4, 1, 3, 2]) !== 2.5 || covariance([1, 2, 3, 4], [1, 2, 3, 4]) !== 1.25) throw new Error('real math result');\nconsole.log('OK actual Stacks math module including radix BigInt covariance');\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/stacks-math-contract.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual Stacks math module including radix BigInt covariance\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "source": "import { sum, median, covariance } from '/Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/storage/framework/core/arrays/src/math.ts';\nif (sum([1, 2, 3, 4]) !== 10 || median([4, 1, 3, 2]) !== 2.5 || covariance([1, 2, 3, 4], [1, 2, 3, 4]) !== 1.25) throw new Error('real math result');\nconsole.log('OK actual Stacks math module including radix BigInt covariance');\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/stacks-math-contract.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual Stacks math module including radix BigInt covariance\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "source": "import { sum, median, covariance } from '/Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/storage/framework/core/arrays/src/math.ts';\nif (sum([1, 2, 3, 4]) !== 10 || median([4, 1, 3, 2]) !== 2.5 || covariance([1, 2, 3, 4], [1, 2, 3, 4]) !== 1.25) throw new Error('real math result');\nconsole.log('OK actual Stacks math module including radix BigInt covariance');\n",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/home-tool-before-radix",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/stacks-math-contract.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot emit module /Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/storage/framework/core/arrays/src/math.ts\n"
+    },
+    {
+      "runtime": "zig-js",
+      "source": "import { sum, median, covariance } from '/Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/storage/framework/core/arrays/src/math.ts';\nif (sum([1, 2, 3, 4]) !== 10 || median([4, 1, 3, 2]) !== 2.5 || covariance([1, 2, 3, 4], [1, 2, 3, 4]) !== 1.25) throw new Error('real math result');\nconsole.log('OK actual Stacks math module including radix BigInt covariance');\n",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/async-context/stacks-math-contract.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual Stacks math module including radix BigInt covariance\n",
+      "stderr": ""
+    }
+  ],
+  "whole_consumer": [
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 3.293,
+      "log": "stacks-radix-before.log",
+      "phase": "before",
+      "consumer_sha": "f51956ea0f7cca38536501c3f70adae226309131",
+      "log_text": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\nhome-tool (zig-js): Error: cannot emit module /Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/storage/framework/core/arrays/src/math.ts\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "events": [
+        {
+          "kind": "zig-js",
+          "file": "/Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/node_modules/typescript/bin/tsc",
+          "arguments": [
+            "--noEmit",
+            "-p",
+            "storage/framework/tsconfig.framework.json",
+            "--pretty",
+            "false"
+          ]
+        },
+        {
+          "kind": "zig-js",
+          "file": "/Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/node_modules/typescript/bin/tsc",
+          "arguments": [
+            "--noEmit",
+            "-p",
+            "storage/framework/tsconfig.defaults.json",
+            "--pretty",
+            "false"
+          ]
+        },
+        {
+          "kind": "zig-js",
+          "file": "/Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/storage/framework/core/validation/build.ts",
+          "arguments": []
+        }
+      ]
+    },
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 2.782,
+      "log": "stacks-radix-after.log",
+      "phase": "after",
+      "consumer_sha": "f51956ea0f7cca38536501c3f70adae226309131",
+      "log_text": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\n/Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/storage/framework/core/storage/src/files.ts:6907: Identifier expected. (TS1003)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/storage/framework/core/storage/src/files.ts\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "events": [
+        {
+          "kind": "zig-js",
+          "file": "/Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/node_modules/typescript/bin/tsc",
+          "arguments": [
+            "--noEmit",
+            "-p",
+            "storage/framework/tsconfig.framework.json",
+            "--pretty",
+            "false"
+          ]
+        },
+        {
+          "kind": "zig-js",
+          "file": "/Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/node_modules/typescript/bin/tsc",
+          "arguments": [
+            "--noEmit",
+            "-p",
+            "storage/framework/tsconfig.defaults.json",
+            "--pretty",
+            "false"
+          ]
+        },
+        {
+          "kind": "zig-js",
+          "file": "/Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/storage/framework/core/validation/build.ts",
+          "arguments": []
+        }
+      ]
+    }
+  ],
+  "minimal_before_operations": [
+    {
+      "source": "function f(): [bigint,bigint] {return [1n,2n]}",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "source": "const a=0x7ffn; console.log(a.toString());",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "error: ParseError\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/ts_driver/src/ts_driver.zig:2042:39: 0x102eec35b in emitPreparedSource (home-tool)\n        if (diagnostic.isSyntactic()) return error.ParseError;\n                                      ^\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/src/jsc/tool_main.zig:36:5: 0x102d9a36b in emitTypeScript (home-tool)\n    return ts_driver.emitPreparedSource(compilation, .{ .module_kind = .commonjs });\n    ^\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/src/jsc/tool_main.zig:127:25: 0x102d9d323 in main (home-tool)\n        const emitted = try emitTypeScript(allocator, input, false);\n                        ^\n"
+    },
+    {
+      "source": "const a=0xfffffffffffffn; console.log(a.toString());",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "error: ParseError\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/ts_driver/src/ts_driver.zig:2042:39: 0x10320035b in emitPreparedSource (home-tool)\n        if (diagnostic.isSyntactic()) return error.ParseError;\n                                      ^\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/src/jsc/tool_main.zig:36:5: 0x1030ae36b in emitTypeScript (home-tool)\n    return ts_driver.emitPreparedSource(compilation, .{ .module_kind = .commonjs });\n    ^\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/src/jsc/tool_main.zig:127:25: 0x1030b1323 in main (home-tool)\n        const emitted = try emitTypeScript(allocator, input, false);\n                        ^\n"
+    },
+    {
+      "source": "const bits=1n;const exponent=(bits >> 52n) & 0x7ffn;",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "error: ParseError\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/ts_driver/src/ts_driver.zig:2042:39: 0x10495435b in emitPreparedSource (home-tool)\n        if (diagnostic.isSyntactic()) return error.ParseError;\n                                      ^\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/src/jsc/tool_main.zig:36:5: 0x10480236b in emitTypeScript (home-tool)\n    return ts_driver.emitPreparedSource(compilation, .{ .module_kind = .commonjs });\n    ^\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/src/jsc/tool_main.zig:127:25: 0x104805323 in main (home-tool)\n        const emitted = try emitTypeScript(allocator, input, false);\n                        ^\n"
+    },
+    {
+      "source": "function f(bits:bigint){if(bits >> 63n) bits=-bits;}",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "validation": [
+    {
+      "name": "radix-scanner",
+      "exit_code": 0,
+      "output": "1/85 ts_lexer.test_0...OK\n2/85 scanner.test.Scanner: empty input \u2192 EOF only...OK\n3/85 scanner.test.Scanner: lex `let x = 42;`...OK\n4/85 scanner.test.Scanner: leading UTF-8 BOM is trivia...OK\n5/85 scanner.test.Scanner: Unicode whitespace terminates identifiers...OK\n6/85 scanner.test.Scanner: not sign is invalid punctuation...OK\n7/85 scanner.test.Scanner: replacement character marks binary file and stops tokenization...OK\n8/85 scanner.test.Scanner: shebang after UTF-8 BOM is first-line trivia...OK\n9/85 scanner.test.Scanner: keywords...OK\n10/85 scanner.test.Scanner: escaped keywords classify as keywords and preserve escape flag...OK\n11/85 scanner.test.Scanner: escaped digit is invalid as identifier start but valid as part...OK\n12/85 scanner.test.Scanner: numeric literals...OK\n13/85 scanner.test.Scanner: radix BigInt suffix is not an identifier diagnostic...OK\n14/85 scanner.test.Scanner: radix suffix keeps invalid trailing identifiers and digits diagnosed...OK\n15/85 scanner.test.Scanner: legacy octal property access keeps the member dot...OK\n16/85 scanner.test.Scanner: invalid bigint suffix on fractional and scientific numeric literals...OK\n17/85 scanner.test.Scanner: invalid first binary and octal digits stay one literal...OK\n18/85 scanner.test.Scanner: numeric separator \u2014 `const x = 1_000_000;`...OK\n19/85 scanner.test.Scanner: string literals \u2014 single and double...OK\n20/85 scanner.test.Scanner: string legacy octal and decimal escapes report TS-compatible messages...OK\n21/85 scanner.test.Scanner: template legacy octal and decimal escapes report when untagged...OK\n22/85 scanner.test.Scanner: unterminated template preserves preceding tokens...OK\n23/85 scanner.test.Scanner: tagged template diagnostics retain tag context across substitutions...OK\n24/85 scanner.test.Scanner: unterminated string at EOF is a hard error...OK\n25/85 scanner.test.Scanner: tokenize continues past unterminated string and records both...OK\n26/85 scanner.test.Scanner: invalid unicode escape in string reports diagnostic...OK\n27/85 scanner.test.Scanner: invalid unicode escapes in templates and regex are recoverable...OK\n28/85 scanner.test.Scanner: invalid unicode escapes in regex are recoverable...OK\n29/85 scanner.test.Scanner: braced unicode escapes in strings are accepted...OK\n30/85 scanner.test.Scanner: malformed `\\u{...\"` does not also emit unterminated string literal...OK\n31/85 scanner.test.Scanner: malformed `\\u{` newline emits exactly one unterminated escape...OK\n32/85 scanner.test.Scanner: empty `\\u{` followed by quote emits only Hexadecimal-digit-expected...OK\n33/85 scanner.test.Scanner: extended Unicode escape > 0x10FFFF emits TS1198 message...OK\n34/85 scanner.test.Scanner: well-formed `\\u{...}` followed by EOL still emits unterminated string literal...OK\n35/85 scanner.test.Scanner: tokenize synthesizes recovery string token for unterminated literal...OK\n36/85 scanner.test.Scanner: tokenize recovery handles two unterminated literals on separate lines...OK\n37/85 scanner.test.Scanner: unterminated block comment reports diagnostic...OK\n38/85 scanner.test.Scanner: merge conflict markers are trivia diagnostics at line start...OK\n39/85 scanner.test.Scanner: merge conflict marker shape requires line start and following character...OK\n40/85 scanner.test.Scanner: line and block comments are trivia...OK\n41/85 scanner.test.Scanner: operator family \u2014 equality + arrow...OK\n42/85 scanner.test.Scanner: assignment family...OK\n43/85 scanner.test.Scanner: optional chaining and nullish coalescing...OK\n44/85 scanner.test.Scanner: spread operator...OK\n45/85 scanner.test.Scanner: line tracking...OK\n46/85 scanner.test.Scanner: private identifier...OK\n47/85 scanner.test.Scanner: bare hash is invalid...OK\n48/85 scanner.test.Scanner: template \u2014 no substitution...OK\n49/85 scanner.test.Scanner: template \u2014 head only (no parser-driven re-scan in this test)...OK\n50/85 scanner.test.Scanner: shebang line is treated as a leading comment...OK\n51/85 scanner.test.Scanner: shebang without trailing newline (file with only shebang)...OK\n52/85 scanner.test.Scanner: shebang after the start reports TS18026 message...OK\n53/85 scanner.test.Scanner: punctuation \u2014 full ASCII set...OK\n54/85 scanner.test.Scanner: regex literal \u2014 `let r = /foo/g;`...OK\n55/85 scanner.test.Scanner: divide \u2014 `a / b` is arithmetic division...OK\n56/85 scanner.test.Scanner: regex inside parens \u2014 `(/foo/)`...OK\n57/85 scanner.test.Scanner: divide after call \u2014 `f() /b/g` is division (TS rule)...OK\n58/85 scanner.test.Scanner: regex after `return` \u2014 `return /foo/;`...OK\n59/85 scanner.test.Scanner: regex with escape + character class \u2014 `/a\\/b[a/]+/g`...OK\n60/85 scanner.test.Scanner: regex never spans a newline \u2014 fall back to divide...OK\n61/85 scanner.test.Scanner: regex at start-of-file \u2014 `/foo/`...OK\n62/85 scanner.test.Scanner: regex containing `=` body \u2014 `/= 5/` after `,`...OK\n63/85 scanner.test.Scanner: divide after `++` postfix \u2014 `i++ / j`...OK\n64/85 scanner.test.Scanner: regex after `=>` arrow body \u2014 `() => /x/.test`...OK\n65/85 scanner.test.Scanner: regex with backslash escapes \u2014 `fixSignatureCaching` pattern...OK\n66/85 scanner.test.Scanner: ECMAScript Unicode whitespace is trivia...OK\n67/85 scanner.test.Scanner: slashStartsRegex truth table \u2014 sample of operand vs allowed...OK\n68/85 token.test.Token: 16 bytes...OK\n69/85 token.test.TokenKind: keyword classification...OK\n70/85 token.test.TokenKind: contextual keywords are detected...OK\n71/85 token.test.TokenKind: primitive type keywords...OK\n72/85 token.test.TokenKind: modifier keywords...OK\n73/85 token.test.TokenKind: canStartExpression...OK\n74/85 token.test.Token: bytes() returns the source slice...OK\n75/85 token.test.Token: is() shorthand...OK\n76/85 token.test.TokenFlags: is u16 packed...OK\n77/85 keywords.test.keywords.lookup: every reserved keyword is recognized...OK\n78/85 keywords.test.keywords.lookup: TS-specific keywords...OK\n79/85 keywords.test.keywords.lookup: 2-letter keywords...OK\n80/85 keywords.test.keywords.lookup: non-keywords return null...OK\n81/85 keywords.test.keywords.lookup: every entry round-trips...OK\n82/85 keywords.test.keywords.lookup: substring of a keyword is not a keyword...OK\n83/85 keywords.test.keywords: total count matches expected...OK\n84/85 keywords.test.keywords: every word matches its length bucket...OK\n85/85 keywords.test.keywords: no duplicate words...OK\nAll 85 tests passed.\n"
+    },
+    {
+      "name": "radix-home-gates",
+      "exit_code": 0,
+      "output": "home-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run unhandled_rejection.cjs async\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: second rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run unhandled_rejection.cjs second\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run unhandled_rejection.cjs error\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run unhandled_rejection.cjs chain\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: UnhandledPromiseRejection: Unhandled promise rejection: undefined\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run unhandled_rejection.cjs undefined\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: listener failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run unhandled_rejection.cjs listener-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./absent.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run missing/entry.cjs\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: uncaught handler failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run unhandled_rejection.cjs handler-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run cycle-a.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run next_tick_failure.cjs error\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: undefined\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run next_tick_failure.cjs undefined\n\nOK home-tool module interop\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run declaration/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run next_tick_failure.cjs exit-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: circular tsconfig extends chain: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run cycle/entry.cjs\n\nOK home-tool import.meta\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: exit listener witness\nfailed command: ./.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool eval \"process.on('exit', function() { throw new Error('exit listener witness'); });\"\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run next_tick_failure.cjs override\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run next_tick_failure.cjs monitor\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./bad.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run malformed/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run rejected.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: monitor failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run next_tick_failure.cjs monitor-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run dependency-rejected.mjs\n\nOK home-tool exact package imports\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): undefined\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run undefined.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: invalid JSONC or runtime path options: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run invalid-options/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): SyntaxError: Unexpected identifier 'Promise'\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run cjs-await.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_stream_pending.mjs\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run node_stream_pending.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js:6: Identifier expected. (TS1003)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run runtime_invalid_syntax.js\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: handler failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run next_tick_failure.cjs handler-throw\n\nOK home-tool runtime transpilation\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/a4c9c1fa143b9ee256912a904c58e4d2/home-tool run pending.mjs\n\n"
+    },
+    {
+      "name": "radix-jsc-gate",
+      "exit_code": 0,
+      "output": "home-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./bad.json\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool run malformed/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): undefined\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool run undefined.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool run next_tick_failure.cjs override\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool run next_tick_failure.cjs monitor\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: undefined\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool run next_tick_failure.cjs undefined\n\nOK home-tool exact package imports\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./absent.json\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool run missing/entry.cjs\n\nOK home-tool import.meta\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool run rejected.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool run next_tick_failure.cjs error\n\nOK home-tool runtime transpilation\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool run cycle-a.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: circular tsconfig extends chain: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/tsconfig.json\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool run cycle/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js:6: Identifier expected. (TS1003)\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool run runtime_invalid_syntax.js\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: monitor failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool run next_tick_failure.cjs monitor-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool run pending.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: exit listener witness\nfailed command: ./.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool eval \"process.on('exit', function() { throw new Error('exit listener witness'); });\"\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool run dependency-rejected.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool run declaration/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: handler failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool run next_tick_failure.cjs handler-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: invalid JSONC or runtime path options: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/tsconfig.json\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool run invalid-options/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool run next_tick_failure.cjs exit-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_stream_pending.mjs\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool run node_stream_pending.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): SyntaxError: Unexpected identifier 'Promise'\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/27935738f6bc71f606bfd9a2d83d06dd/home-tool run cjs-await.cjs\n\nOK home-tool module interop\n"
+    }
+  ]
+}
