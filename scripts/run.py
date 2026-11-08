@@ -261,7 +261,7 @@ def run_repository(repo, args, config, result=None):
         for directory in sorted(install_roots):
             location = candidate / directory
             frozen = any((location / filename).exists() for filename in ("bun.lock", "bun.lockb", "package-lock.json", "yarn.lock", "pnpm-lock.yaml"))
-            check(f"{directory}: dependencies", [str(args.bun), "install", "--ignore-scripts", *(["--frozen-lockfile"] if frozen else [])],
+            check(f"{directory}: dependencies", [str(args.bun), str(ROOT / "scripts" / "dependencies.mjs"), str(candidate), *(["--frozen-lockfile"] if frozen else [])],
                   location, lane="setup")
 
         for scope in scopes:
@@ -289,7 +289,7 @@ def run_repository(repo, args, config, result=None):
                 for directory in sorted(install_roots):
                     location = reference / directory
                     frozen = any((location / filename).exists() for filename in ("bun.lock", "bun.lockb", "package-lock.json", "yarn.lock", "pnpm-lock.yaml"))
-                    check(f"{directory}: reference dependencies", [str(args.bun), "install", "--ignore-scripts", *(["--frozen-lockfile"] if frozen else [])],
+                    check(f"{directory}: reference dependencies", [str(args.bun), str(ROOT / "scripts" / "dependencies.mjs"), str(reference), *(["--frozen-lockfile"] if frozen else [])],
                           location, lane="reference-setup")
                 for scope in scopes:
                     location = reference / scope["directory"]

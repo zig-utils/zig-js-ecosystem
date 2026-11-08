@@ -13,5 +13,13 @@ jobs:
         with:
           persist-credentials: false
       - run: python3 -m unittest discover -s tests -v
+      - name: Read dependency-test toolchain pin
+        id: config
+        run: echo "bun_version=$(python3 -c 'import json; print(json.load(open("config.json"))["bun_version"])')" >> "$GITHUB_OUTPUT"
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6
+        with:
+          bun-version: ${{ steps.config.outputs.bun_version }}
+      - name: Verify real workspace dependency setup
+        run: bun test tests/dependencies.test.mjs
       - name: Check Python syntax
         run: python3 -m compileall -q scripts tests
