@@ -1,0 +1,599 @@
+{
+  "scope": "Native Bun dependency setup evidence only; not candidate compatibility",
+  "run": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42432156594",
+  "job": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42432156594/job/128585107534",
+  "repository": "stacksjs/stacks",
+  "sha": "f5e83bd46f48a5085cadef1d29facbf77ceb1f51",
+  "runtime_provenance": {
+    "engine_sha": "a7573081ab7ff96823b207c2948c7a97fe2b8c63",
+    "suite_ref": "ba2d350981181cc04ca0ed530f18f963a211a6fe",
+    "home_repository": "home-lang/home",
+    "home_ref": "1ffd5237378104bdfbdce1b7946e0d7742ece337",
+    "zig_version": "0.18.0-dev.146+35accc06e",
+    "build_cpu": "baseline",
+    "sha256": {
+      "home-tool": "7bd640082b71928a143b1c680bcd4c5df45c6db1aaeeb46acb4ff3e4e7455261",
+      "engine/zig-out/lib/libzig-js.a": "98f27abcc93f0aaef27b122cd5b81e6fccdaffdcaee3f1867f3073d80728ac89"
+    }
+  },
+  "scope_count": 99,
+  "dependency_roots": [
+    ".",
+    "bench/routing",
+    "storage/framework/api",
+    "storage/framework/cloud",
+    "storage/framework/docs",
+    "storage/framework/orm",
+    "storage/framework/server",
+    "storage/framework/defaults/ide/vscode",
+    "storage/framework/libs/components/stx",
+    "storage/framework/core/cloud/src/cloud/router-layer/nodejs"
+  ],
+  "setup": [
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 4.231,
+        "log": "0005.log",
+        "label": ".: dependencies",
+        "lane": "setup",
+        "command": [
+          "/home/runner/.bun/bin/bun",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate",
+          "--frozen-lockfile"
+        ],
+        "engine_invocations": 0
+      },
+      "audit": {
+        "dependency_setup": {
+          "reused": false,
+          "reason": "independent install or locked scope",
+          "dependencies": []
+        }
+      }
+    },
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 0.264,
+        "log": "0006.log",
+        "label": "bench/routing: dependencies",
+        "lane": "setup",
+        "command": [
+          "/home/runner/.bun/bin/bun",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate",
+          "--frozen-lockfile"
+        ],
+        "engine_invocations": 0
+      },
+      "audit": {
+        "dependency_setup": {
+          "reused": false,
+          "reason": "independent install or locked scope",
+          "dependencies": []
+        }
+      }
+    },
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 0.016,
+        "log": "0007.log",
+        "label": "storage/framework/api: dependencies",
+        "lane": "setup",
+        "command": [
+          "/home/runner/.bun/bin/bun",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate"
+        ],
+        "engine_invocations": 0
+      },
+      "audit": {
+        "dependency_setup": {
+          "reused": true,
+          "dependencies": [
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/logging",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/logging/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/logging",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/queue",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/queue/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/queue",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/router",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/router/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/router",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/storage",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/storage/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/storage",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/utils",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/utils/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/utils",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 0.164,
+        "log": "0008.log",
+        "label": "storage/framework/cloud: dependencies",
+        "lane": "setup",
+        "command": [
+          "/home/runner/.bun/bin/bun",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate"
+        ],
+        "engine_invocations": 0
+      },
+      "audit": {
+        "dependency_setup": {
+          "reused": true,
+          "dependencies": [
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/config",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/config/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/config",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/dns",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/dns/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/dns",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/logging",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/logging/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/logging",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/path",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/path/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/path",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/queue",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/queue/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/queue",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/router",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/router/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/router",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/storage",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/storage/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/storage",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/utils",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/utils/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/utils",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/validation",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/validation/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/validation",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "devDependencies",
+              "name": "@stacksjs/cli",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/cli/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/cli",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "devDependencies",
+              "name": "better-dx",
+              "range": "^0.2.37",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/better-dx/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/better-dx",
+              "installed_version": "0.2.38",
+              "satisfied": true
+            },
+            {
+              "group": "devDependencies",
+              "name": "@stacksjs/env",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/env/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/env",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 0.016,
+        "log": "0009.log",
+        "label": "storage/framework/core/cloud/src/cloud/router-layer/nodejs: dependencies",
+        "lane": "setup",
+        "command": [
+          "/home/runner/.bun/bin/bun",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate"
+        ],
+        "engine_invocations": 0
+      },
+      "audit": {
+        "dependency_setup": {
+          "reused": true,
+          "dependencies": [
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/router",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/router/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/router",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 1.267,
+        "log": "0010.log",
+        "label": "storage/framework/defaults/ide/vscode: dependencies",
+        "lane": "setup",
+        "command": [
+          "/home/runner/.bun/bin/bun",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate"
+        ],
+        "engine_invocations": 0
+      },
+      "audit": {
+        "dependency_setup": {
+          "reused": false,
+          "reason": "independent install or locked scope",
+          "dependencies": []
+        }
+      }
+    },
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 0.016,
+        "log": "0011.log",
+        "label": "storage/framework/docs: dependencies",
+        "lane": "setup",
+        "command": [
+          "/home/runner/.bun/bin/bun",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate"
+        ],
+        "engine_invocations": 0
+      },
+      "audit": {
+        "dependency_setup": {
+          "reused": true,
+          "dependencies": [
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/alias",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/alias/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/alias",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/cli",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/cli/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/cli",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/config",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/config/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/config",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/env",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/env/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/env",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/path",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/path/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/path",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/server",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/server/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/server",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/storage",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/storage/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/storage",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 0.016,
+        "log": "0012.log",
+        "label": "storage/framework/libs/components/stx: dependencies",
+        "lane": "setup",
+        "command": [
+          "/home/runner/.bun/bin/bun",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate"
+        ],
+        "engine_invocations": 0
+      },
+      "audit": {
+        "dependency_setup": {
+          "reused": true,
+          "dependencies": [
+            {
+              "group": "devDependencies",
+              "name": "stacks",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/stacks/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 0.016,
+        "log": "0013.log",
+        "label": "storage/framework/orm: dependencies",
+        "lane": "setup",
+        "command": [
+          "/home/runner/.bun/bin/bun",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate"
+        ],
+        "engine_invocations": 0
+      },
+      "audit": {
+        "dependency_setup": {
+          "reused": true,
+          "dependencies": [
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/bun-router",
+              "range": "^0.1.24",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/bun-router/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/bun-router",
+              "installed_version": "0.1.24",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/cache",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/cache/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/cache",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/database",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/database/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/database",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "dependencies",
+              "name": "@stacksjs/error-handling",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/error-handling/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/error-handling",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "devDependencies",
+              "name": "better-dx",
+              "range": "^0.2.24",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/better-dx/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/better-dx",
+              "installed_version": "0.2.38",
+              "satisfied": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "seconds": 0.016,
+        "log": "0014.log",
+        "label": "storage/framework/server: dependencies",
+        "lane": "setup",
+        "command": [
+          "/home/runner/.bun/bin/bun",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate"
+        ],
+        "engine_invocations": 0
+      },
+      "audit": {
+        "dependency_setup": {
+          "reused": true,
+          "dependencies": [
+            {
+              "group": "devDependencies",
+              "name": "better-dx",
+              "range": "^0.2.24",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/better-dx/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/better-dx",
+              "installed_version": "0.2.38",
+              "satisfied": true
+            },
+            {
+              "group": "devDependencies",
+              "name": "@stacksjs/logging",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/logging/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/logging",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "devDependencies",
+              "name": "@stacksjs/path",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/path/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/path",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "devDependencies",
+              "name": "@stacksjs/router",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/router/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/router",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "devDependencies",
+              "name": "@stacksjs/storage",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/storage/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/storage",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            },
+            {
+              "group": "devDependencies",
+              "name": "@stacksjs/utils",
+              "range": "workspace:*",
+              "provider": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/utils/package.json",
+              "source": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/utils",
+              "installed_version": "0.75.517",
+              "satisfied": true
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
