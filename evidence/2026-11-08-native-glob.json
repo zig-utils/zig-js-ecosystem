@@ -1,0 +1,610 @@
+{
+  "home_ref": "5af1e767301c27c4cb7930aadb50e1c1e66656df",
+  "previous_home_ref": "c1bbe2c6b1a5ed0a1b4814450fbe26b1ce4c191c",
+  "engine_sha": "656b0ad71cc393c1dabab842a27ecbfc2d616ada",
+  "engine_archive_sha256": "da10eb5828f7a3bb3ae976d87d8ac722f81b6edd6ba46585b30e540d56aea258",
+  "before": [
+    {
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"pattern\":\"**/*\",\"options\":{},\"paths\":[\"plain\",\"readme.md\",\"src/a.ts\",\"src/a.tsx\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"**/*.md\",\"options\":{},\"paths\":[\"readme.md\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"*.md\",\"options\":{},\"paths\":[\"readme.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"**/*.md\",\"options\":{\"dot\":true},\"paths\":[\".hidden.md\",\".secret/x.md\",\"readme.md\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"**/*\",\"options\":{\"onlyFiles\":false},\"paths\":[\"alias.md\",\"broken.md\",\"empty\",\"linked\",\"plain\",\"readme.md\",\"src\",\"src/a.ts\",\"src/a.tsx\",\"src/cycle\",\"src/nested\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"**/*\",\"options\":{\"followSymlinks\":true},\"paths\":[\"alias.md\",\"linked/a.ts\",\"linked/a.tsx\",\"linked/cycle/alias.md\",\"linked/cycle/plain\",\"linked/cycle/readme.md\",\"linked/cycle/src/a.ts\",\"linked/cycle/src/a.tsx\",\"linked/cycle/src/nested/c.md\",\"linked/cycle/\ud83d\ude00.md\",\"linked/nested/c.md\",\"plain\",\"readme.md\",\"src/a.ts\",\"src/a.tsx\",\"src/cycle/alias.md\",\"src/cycle/linked/a.ts\",\"src/cycle/linked/a.tsx\",\"src/cycle/linked/nested/c.md\",\"src/cycle/plain\",\"src/cycle/readme.md\",\"src/cycle/src/a.ts\",\"src/cycle/src/a.tsx\",\"src/cycle/src/nested/c.md\",\"src/cycle/\ud83d\ude00.md\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"**/*.md\",\"options\":{\"throwErrorOnBrokenSymlink\":true},\"paths\":[\"readme.md\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\".*\",\"options\":{},\"paths\":[\".hidden.md\"]},{\"pattern\":\".secret/*.md\",\"options\":{},\"paths\":[\".secret/x.md\"]},{\"pattern\":\"./*.md\",\"options\":{},\"paths\":[\"./readme.md\",\"./\ud83d\ude00.md\"]},{\"pattern\":\"**/*.{ts,tsx}\",\"options\":{},\"paths\":[\"src/a.ts\",\"src/a.tsx\"]},{\"pattern\":\"!**/*.md\",\"options\":{},\"paths\":[]},{\"pattern\":\"**/*.md\",\"options\":{\"absolute\":true},\"paths\":[\"/Users/chris/.cache/zig-js-ecosystem-research/native-glob/tree/readme.md\",\"/Users/chris/.cache/zig-js-ecosystem-research/native-glob/tree/src/nested/c.md\",\"/Users/chris/.cache/zig-js-ecosystem-research/native-glob/tree/\ud83d\ude00.md\"]}]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/native-glob/home-tool-before",
+        "run"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"pattern\":\"**/*\",\"options\":{},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\"**/*.md\",\"options\":{},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\"*.md\",\"options\":{},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\"**/*.md\",\"options\":{\"dot\":true},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\"**/*\",\"options\":{\"onlyFiles\":false},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\"**/*\",\"options\":{\"followSymlinks\":true},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\"**/*.md\",\"options\":{\"throwErrorOnBrokenSymlink\":true},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\".*\",\"options\":{},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\".secret/*.md\",\"options\":{},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\"./*.md\",\"options\":{},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\"**/*.{ts,tsx}\",\"options\":{},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\"!**/*.md\",\"options\":{},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\"**/*.md\",\"options\":{\"absolute\":true},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"}]\n",
+      "stderr": ""
+    }
+  ],
+  "operations": [
+    {
+      "runtime": "bun",
+      "command": [
+        "bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/glob_contract.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual filesystem glob sync async options and matching\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "command": [
+        "bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/native-glob/reference.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"pattern\":\"**/*\",\"options\":{},\"paths\":[\"plain\",\"readme.md\",\"src/a.ts\",\"src/a.tsx\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"**/*.md\",\"options\":{},\"paths\":[\"readme.md\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"*.md\",\"options\":{},\"paths\":[\"readme.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"**/*.md\",\"options\":{\"dot\":true},\"paths\":[\".hidden.md\",\".secret/x.md\",\"readme.md\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"**/*\",\"options\":{\"onlyFiles\":false},\"paths\":[\"alias.md\",\"broken.md\",\"empty\",\"linked\",\"plain\",\"readme.md\",\"src\",\"src/a.ts\",\"src/a.tsx\",\"src/cycle\",\"src/nested\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"**/*\",\"options\":{\"followSymlinks\":true},\"paths\":[\"alias.md\",\"linked/a.ts\",\"linked/a.tsx\",\"linked/cycle/alias.md\",\"linked/cycle/plain\",\"linked/cycle/readme.md\",\"linked/cycle/src/a.ts\",\"linked/cycle/src/a.tsx\",\"linked/cycle/src/nested/c.md\",\"linked/cycle/\ud83d\ude00.md\",\"linked/nested/c.md\",\"plain\",\"readme.md\",\"src/a.ts\",\"src/a.tsx\",\"src/cycle/alias.md\",\"src/cycle/linked/a.ts\",\"src/cycle/linked/a.tsx\",\"src/cycle/linked/nested/c.md\",\"src/cycle/plain\",\"src/cycle/readme.md\",\"src/cycle/src/a.ts\",\"src/cycle/src/a.tsx\",\"src/cycle/src/nested/c.md\",\"src/cycle/\ud83d\ude00.md\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"**/*.md\",\"options\":{\"throwErrorOnBrokenSymlink\":true},\"paths\":[\"readme.md\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\".*\",\"options\":{},\"paths\":[\".hidden.md\"]},{\"pattern\":\".secret/*.md\",\"options\":{},\"paths\":[\".secret/x.md\"]},{\"pattern\":\"./*.md\",\"options\":{},\"paths\":[\"./readme.md\",\"./\ud83d\ude00.md\"]},{\"pattern\":\"**/*.{ts,tsx}\",\"options\":{},\"paths\":[\"src/a.ts\",\"src/a.tsx\"]},{\"pattern\":\"!**/*.md\",\"options\":{},\"paths\":[]},{\"pattern\":\"**/*.md\",\"options\":{\"absolute\":true},\"paths\":[\"/Users/chris/.cache/zig-js-ecosystem-research/native-glob/tree/readme.md\",\"/Users/chris/.cache/zig-js-ecosystem-research/native-glob/tree/src/nested/c.md\",\"/Users/chris/.cache/zig-js-ecosystem-research/native-glob/tree/\ud83d\ude00.md\"]}]\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/native-glob/home-tool-before",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/glob_contract.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: undefined is not a constructor (evaluating 'new Glob(pattern)')\n"
+    },
+    {
+      "runtime": "before",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/native-glob/home-tool-before",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/native-glob/reference.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"pattern\":\"**/*\",\"options\":{},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\"**/*.md\",\"options\":{},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\"*.md\",\"options\":{},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\"**/*.md\",\"options\":{\"dot\":true},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\"**/*\",\"options\":{\"onlyFiles\":false},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\"**/*\",\"options\":{\"followSymlinks\":true},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\"**/*.md\",\"options\":{\"throwErrorOnBrokenSymlink\":true},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\".*\",\"options\":{},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\".secret/*.md\",\"options\":{},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\"./*.md\",\"options\":{},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\"**/*.{ts,tsx}\",\"options\":{},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\"!**/*.md\",\"options\":{},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"},{\"pattern\":\"**/*.md\",\"options\":{\"absolute\":true},\"error\":\"TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')\"}]\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "zig-js",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/glob_contract.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual filesystem glob sync async options and matching\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "zig-js",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/native-glob/reference.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"pattern\":\"**/*\",\"options\":{},\"paths\":[\"plain\",\"readme.md\",\"src/a.ts\",\"src/a.tsx\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"**/*.md\",\"options\":{},\"paths\":[\"readme.md\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"*.md\",\"options\":{},\"paths\":[\"readme.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"**/*.md\",\"options\":{\"dot\":true},\"paths\":[\".hidden.md\",\".secret/x.md\",\"readme.md\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"**/*\",\"options\":{\"onlyFiles\":false},\"paths\":[\"alias.md\",\"broken.md\",\"empty\",\"linked\",\"plain\",\"readme.md\",\"src\",\"src/a.ts\",\"src/a.tsx\",\"src/cycle\",\"src/nested\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"**/*\",\"options\":{\"followSymlinks\":true},\"error\":\"Error: Glob symlink traversal is not implemented\",\"code\":\"ERR_HOME_UNSUPPORTED_GLOB\"},{\"pattern\":\"**/*.md\",\"options\":{\"throwErrorOnBrokenSymlink\":true},\"paths\":[\"readme.md\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\".*\",\"options\":{},\"paths\":[\".hidden.md\"]},{\"pattern\":\".secret/*.md\",\"options\":{},\"paths\":[\".secret/x.md\"]},{\"pattern\":\"./*.md\",\"options\":{},\"paths\":[\"./readme.md\",\"./\ud83d\ude00.md\"]},{\"pattern\":\"**/*.{ts,tsx}\",\"options\":{},\"paths\":[\"src/a.ts\",\"src/a.tsx\"]},{\"pattern\":\"!**/*.md\",\"options\":{},\"error\":\"Error: Glob: ERR_HOME_UNSUPPORTED_GLOB\",\"code\":\"ERR_HOME_UNSUPPORTED_GLOB\"},{\"pattern\":\"**/*.md\",\"options\":{\"absolute\":true},\"paths\":[\"/Users/chris/.cache/zig-js-ecosystem-research/native-glob/tree/readme.md\",\"/Users/chris/.cache/zig-js-ecosystem-research/native-glob/tree/src/nested/c.md\",\"/Users/chris/.cache/zig-js-ecosystem-research/native-glob/tree/\ud83d\ude00.md\"]}]\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "jsc",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/native-glob/jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/glob_contract.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual filesystem glob sync async options and matching\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "jsc",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/native-glob/jsc/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/native-glob/reference.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"pattern\":\"**/*\",\"options\":{},\"paths\":[\"plain\",\"readme.md\",\"src/a.ts\",\"src/a.tsx\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"**/*.md\",\"options\":{},\"paths\":[\"readme.md\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"*.md\",\"options\":{},\"paths\":[\"readme.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"**/*.md\",\"options\":{\"dot\":true},\"paths\":[\".hidden.md\",\".secret/x.md\",\"readme.md\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"**/*\",\"options\":{\"onlyFiles\":false},\"paths\":[\"alias.md\",\"broken.md\",\"empty\",\"linked\",\"plain\",\"readme.md\",\"src\",\"src/a.ts\",\"src/a.tsx\",\"src/cycle\",\"src/nested\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\"**/*\",\"options\":{\"followSymlinks\":true},\"error\":\"Error: Glob symlink traversal is not implemented\",\"code\":\"ERR_HOME_UNSUPPORTED_GLOB\"},{\"pattern\":\"**/*.md\",\"options\":{\"throwErrorOnBrokenSymlink\":true},\"paths\":[\"readme.md\",\"src/nested/c.md\",\"\ud83d\ude00.md\"]},{\"pattern\":\".*\",\"options\":{},\"paths\":[\".hidden.md\"]},{\"pattern\":\".secret/*.md\",\"options\":{},\"paths\":[\".secret/x.md\"]},{\"pattern\":\"./*.md\",\"options\":{},\"paths\":[\"./readme.md\",\"./\ud83d\ude00.md\"]},{\"pattern\":\"**/*.{ts,tsx}\",\"options\":{},\"paths\":[\"src/a.ts\",\"src/a.tsx\"]},{\"pattern\":\"!**/*.md\",\"options\":{},\"error\":\"Error: Glob: ERR_HOME_UNSUPPORTED_GLOB\",\"code\":\"ERR_HOME_UNSUPPORTED_GLOB\"},{\"pattern\":\"**/*.md\",\"options\":{\"absolute\":true},\"paths\":[\"/Users/chris/.cache/zig-js-ecosystem-research/native-glob/tree/readme.md\",\"/Users/chris/.cache/zig-js-ecosystem-research/native-glob/tree/src/nested/c.md\",\"/Users/chris/.cache/zig-js-ecosystem-research/native-glob/tree/\ud83d\ude00.md\"]}]\n",
+      "stderr": ""
+    }
+  ],
+  "differential": {
+    "case_count": 13,
+    "differences": {
+      "before": [
+        {
+          "index": 0,
+          "expected": {
+            "pattern": "**/*",
+            "options": {},
+            "paths": [
+              "plain",
+              "readme.md",
+              "src/a.ts",
+              "src/a.tsx",
+              "src/nested/c.md",
+              "\ud83d\ude00.md"
+            ]
+          },
+          "actual": {
+            "pattern": "**/*",
+            "options": {},
+            "error": "TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')"
+          }
+        },
+        {
+          "index": 1,
+          "expected": {
+            "pattern": "**/*.md",
+            "options": {},
+            "paths": [
+              "readme.md",
+              "src/nested/c.md",
+              "\ud83d\ude00.md"
+            ]
+          },
+          "actual": {
+            "pattern": "**/*.md",
+            "options": {},
+            "error": "TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')"
+          }
+        },
+        {
+          "index": 2,
+          "expected": {
+            "pattern": "*.md",
+            "options": {},
+            "paths": [
+              "readme.md",
+              "\ud83d\ude00.md"
+            ]
+          },
+          "actual": {
+            "pattern": "*.md",
+            "options": {},
+            "error": "TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')"
+          }
+        },
+        {
+          "index": 3,
+          "expected": {
+            "pattern": "**/*.md",
+            "options": {
+              "dot": true
+            },
+            "paths": [
+              ".hidden.md",
+              ".secret/x.md",
+              "readme.md",
+              "src/nested/c.md",
+              "\ud83d\ude00.md"
+            ]
+          },
+          "actual": {
+            "pattern": "**/*.md",
+            "options": {
+              "dot": true
+            },
+            "error": "TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')"
+          }
+        },
+        {
+          "index": 4,
+          "expected": {
+            "pattern": "**/*",
+            "options": {
+              "onlyFiles": false
+            },
+            "paths": [
+              "alias.md",
+              "broken.md",
+              "empty",
+              "linked",
+              "plain",
+              "readme.md",
+              "src",
+              "src/a.ts",
+              "src/a.tsx",
+              "src/cycle",
+              "src/nested",
+              "src/nested/c.md",
+              "\ud83d\ude00.md"
+            ]
+          },
+          "actual": {
+            "pattern": "**/*",
+            "options": {
+              "onlyFiles": false
+            },
+            "error": "TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')"
+          }
+        },
+        {
+          "index": 5,
+          "expected": {
+            "pattern": "**/*",
+            "options": {
+              "followSymlinks": true
+            },
+            "paths": [
+              "alias.md",
+              "linked/a.ts",
+              "linked/a.tsx",
+              "linked/cycle/alias.md",
+              "linked/cycle/plain",
+              "linked/cycle/readme.md",
+              "linked/cycle/src/a.ts",
+              "linked/cycle/src/a.tsx",
+              "linked/cycle/src/nested/c.md",
+              "linked/cycle/\ud83d\ude00.md",
+              "linked/nested/c.md",
+              "plain",
+              "readme.md",
+              "src/a.ts",
+              "src/a.tsx",
+              "src/cycle/alias.md",
+              "src/cycle/linked/a.ts",
+              "src/cycle/linked/a.tsx",
+              "src/cycle/linked/nested/c.md",
+              "src/cycle/plain",
+              "src/cycle/readme.md",
+              "src/cycle/src/a.ts",
+              "src/cycle/src/a.tsx",
+              "src/cycle/src/nested/c.md",
+              "src/cycle/\ud83d\ude00.md",
+              "src/nested/c.md",
+              "\ud83d\ude00.md"
+            ]
+          },
+          "actual": {
+            "pattern": "**/*",
+            "options": {
+              "followSymlinks": true
+            },
+            "error": "TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')"
+          }
+        },
+        {
+          "index": 6,
+          "expected": {
+            "pattern": "**/*.md",
+            "options": {
+              "throwErrorOnBrokenSymlink": true
+            },
+            "paths": [
+              "readme.md",
+              "src/nested/c.md",
+              "\ud83d\ude00.md"
+            ]
+          },
+          "actual": {
+            "pattern": "**/*.md",
+            "options": {
+              "throwErrorOnBrokenSymlink": true
+            },
+            "error": "TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')"
+          }
+        },
+        {
+          "index": 7,
+          "expected": {
+            "pattern": ".*",
+            "options": {},
+            "paths": [
+              ".hidden.md"
+            ]
+          },
+          "actual": {
+            "pattern": ".*",
+            "options": {},
+            "error": "TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')"
+          }
+        },
+        {
+          "index": 8,
+          "expected": {
+            "pattern": ".secret/*.md",
+            "options": {},
+            "paths": [
+              ".secret/x.md"
+            ]
+          },
+          "actual": {
+            "pattern": ".secret/*.md",
+            "options": {},
+            "error": "TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')"
+          }
+        },
+        {
+          "index": 9,
+          "expected": {
+            "pattern": "./*.md",
+            "options": {},
+            "paths": [
+              "./readme.md",
+              "./\ud83d\ude00.md"
+            ]
+          },
+          "actual": {
+            "pattern": "./*.md",
+            "options": {},
+            "error": "TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')"
+          }
+        },
+        {
+          "index": 10,
+          "expected": {
+            "pattern": "**/*.{ts,tsx}",
+            "options": {},
+            "paths": [
+              "src/a.ts",
+              "src/a.tsx"
+            ]
+          },
+          "actual": {
+            "pattern": "**/*.{ts,tsx}",
+            "options": {},
+            "error": "TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')"
+          }
+        },
+        {
+          "index": 11,
+          "expected": {
+            "pattern": "!**/*.md",
+            "options": {},
+            "paths": []
+          },
+          "actual": {
+            "pattern": "!**/*.md",
+            "options": {},
+            "error": "TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')"
+          }
+        },
+        {
+          "index": 12,
+          "expected": {
+            "pattern": "**/*.md",
+            "options": {
+              "absolute": true
+            },
+            "paths": [
+              "/Users/chris/.cache/zig-js-ecosystem-research/native-glob/tree/readme.md",
+              "/Users/chris/.cache/zig-js-ecosystem-research/native-glob/tree/src/nested/c.md",
+              "/Users/chris/.cache/zig-js-ecosystem-research/native-glob/tree/\ud83d\ude00.md"
+            ]
+          },
+          "actual": {
+            "pattern": "**/*.md",
+            "options": {
+              "absolute": true
+            },
+            "error": "TypeError: undefined is not a constructor (evaluating 'new Glob(test.pattern)')"
+          }
+        }
+      ],
+      "zig-js": [
+        {
+          "index": 5,
+          "expected": {
+            "pattern": "**/*",
+            "options": {
+              "followSymlinks": true
+            },
+            "paths": [
+              "alias.md",
+              "linked/a.ts",
+              "linked/a.tsx",
+              "linked/cycle/alias.md",
+              "linked/cycle/plain",
+              "linked/cycle/readme.md",
+              "linked/cycle/src/a.ts",
+              "linked/cycle/src/a.tsx",
+              "linked/cycle/src/nested/c.md",
+              "linked/cycle/\ud83d\ude00.md",
+              "linked/nested/c.md",
+              "plain",
+              "readme.md",
+              "src/a.ts",
+              "src/a.tsx",
+              "src/cycle/alias.md",
+              "src/cycle/linked/a.ts",
+              "src/cycle/linked/a.tsx",
+              "src/cycle/linked/nested/c.md",
+              "src/cycle/plain",
+              "src/cycle/readme.md",
+              "src/cycle/src/a.ts",
+              "src/cycle/src/a.tsx",
+              "src/cycle/src/nested/c.md",
+              "src/cycle/\ud83d\ude00.md",
+              "src/nested/c.md",
+              "\ud83d\ude00.md"
+            ]
+          },
+          "actual": {
+            "pattern": "**/*",
+            "options": {
+              "followSymlinks": true
+            },
+            "error": "Error: Glob symlink traversal is not implemented",
+            "code": "ERR_HOME_UNSUPPORTED_GLOB"
+          }
+        },
+        {
+          "index": 11,
+          "expected": {
+            "pattern": "!**/*.md",
+            "options": {},
+            "paths": []
+          },
+          "actual": {
+            "pattern": "!**/*.md",
+            "options": {},
+            "error": "Error: Glob: ERR_HOME_UNSUPPORTED_GLOB",
+            "code": "ERR_HOME_UNSUPPORTED_GLOB"
+          }
+        }
+      ],
+      "jsc": [
+        {
+          "index": 5,
+          "expected": {
+            "pattern": "**/*",
+            "options": {
+              "followSymlinks": true
+            },
+            "paths": [
+              "alias.md",
+              "linked/a.ts",
+              "linked/a.tsx",
+              "linked/cycle/alias.md",
+              "linked/cycle/plain",
+              "linked/cycle/readme.md",
+              "linked/cycle/src/a.ts",
+              "linked/cycle/src/a.tsx",
+              "linked/cycle/src/nested/c.md",
+              "linked/cycle/\ud83d\ude00.md",
+              "linked/nested/c.md",
+              "plain",
+              "readme.md",
+              "src/a.ts",
+              "src/a.tsx",
+              "src/cycle/alias.md",
+              "src/cycle/linked/a.ts",
+              "src/cycle/linked/a.tsx",
+              "src/cycle/linked/nested/c.md",
+              "src/cycle/plain",
+              "src/cycle/readme.md",
+              "src/cycle/src/a.ts",
+              "src/cycle/src/a.tsx",
+              "src/cycle/src/nested/c.md",
+              "src/cycle/\ud83d\ude00.md",
+              "src/nested/c.md",
+              "\ud83d\ude00.md"
+            ]
+          },
+          "actual": {
+            "pattern": "**/*",
+            "options": {
+              "followSymlinks": true
+            },
+            "error": "Error: Glob symlink traversal is not implemented",
+            "code": "ERR_HOME_UNSUPPORTED_GLOB"
+          }
+        },
+        {
+          "index": 11,
+          "expected": {
+            "pattern": "!**/*.md",
+            "options": {},
+            "paths": []
+          },
+          "actual": {
+            "pattern": "!**/*.md",
+            "options": {},
+            "error": "Error: Glob: ERR_HOME_UNSUPPORTED_GLOB",
+            "code": "ERR_HOME_UNSUPPORTED_GLOB"
+          }
+        }
+      ]
+    }
+  },
+  "checks": {
+    "shared-matcher-13": {
+      "exit_code": 0,
+      "log": "1/13 matcher.test.matcher: literal paths...OK\n2/13 matcher.test.matcher: single-char wildcard '?'...OK\n3/13 matcher.test.matcher: star '*' stays within a path segment...OK\n4/13 matcher.test.matcher: globstar '**' spans path separators...OK\n5/13 matcher.test.matcher: character classes and ranges...OK\n6/13 matcher.test.matcher: negated character classes...OK\n7/13 matcher.test.matcher: brace alternation...OK\n8/13 matcher.test.matcher: brace alternation ignores commas inside character classes...OK\n9/13 matcher.test.matcher: leading negation...OK\n10/13 matcher.test.matcher: backslash escapes special characters...OK\n11/13 matcher.test.matcher: utf-8 paths...OK\n12/13 matcher.test.matcher: brace-branch budget bounds adversarial patterns...OK\n13/13 matcher.test.matcher: MatchResult variants for switch callers...OK\nAll 13 tests passed.\n"
+    },
+    "native-walker-mutation": {
+      "exit_code": 0,
+      "log": "1/1 tool_glob_walk.test.glob scans actual files and observes subsequent filesystem changes...OK\nAll 1 tests passed.\n"
+    },
+    "zig-js-common-rejections-async-context": {
+      "exit_code": 0,
+      "log": "OK home-tool runtime transpilation\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): SyntaxError: Unexpected identifier 'Promise'\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run cjs-await.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): undefined\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run undefined.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./absent.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run missing/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/directory from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run reject-directory.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run cycle-a.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js:6: Identifier expected. (TS1003)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run runtime_invalid_syntax.js\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run declaration/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run dependency-rejected.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/require-only from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs: PackagePathNotExported\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run reject-require-only.mjs\n\nOK home-tool exact package imports\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/missing-array from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run reject-missing-array.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/blocked from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs: PackagePathNotExported\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run reject-blocked.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run pending.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: handler failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run next_tick_failure.cjs handler-throw\n\nOK home-tool import.meta\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: circular tsconfig extends chain: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run cycle/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: undefined\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run next_tick_failure.cjs undefined\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./bad.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run malformed/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: monitor failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run next_tick_failure.cjs monitor-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run next_tick_failure.cjs override\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: exit listener witness\nfailed command: ./.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool eval \"process.on('exit', function() { throw new Error('exit listener witness'); });\"\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run next_tick_failure.cjs exit-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run next_tick_failure.cjs error\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run rejected.mjs\n\nOK home-tool module interop\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/extensionless from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run reject-extensionless.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: invalid JSONC or runtime path options: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/81707b62d37eed2f9bada7eef6fb4213/home-tool run invalid-options/entry.cjs\n\n"
+    },
+    "jsc-common": {
+      "exit_code": 0,
+      "log": "OK home-tool module interop\nOK home-tool import.meta\nOK home-tool runtime transpilation\nOK home-tool exact package imports\n"
+    }
+  },
+  "whole_consumers": [
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 6.909,
+      "log": "before-stacks.log",
+      "label": "before",
+      "consumer": "stacks",
+      "command": "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)",
+      "consumer_sha": "d557cee9630c209ed5fc58c8c5f633dba82c3488",
+      "log_text": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\n[2026-11-08T12:40:22.182Z] local.INFO: Building @stacksjs/validation...\nDebug: [writeToFile] Failed to create log directory: TypeError: undefined is not an object (evaluating 'r.F_OK')\nDebug: [writeToFile] Failed to create log directory: TypeError: undefined is not an object (evaluating 'r.F_OK')\nDebug: [writeToFile] Failed to create log directory: TypeError: undefined is not an object (evaluating 'r.F_OK')\nDebug: [writeToFile] Max retries reached. Final error: undefined is not an object (evaluating 'r.F_OK')\nDebug: [writeToFile] Error in operation: TypeError: undefined is not an object (evaluating 'r.F_OK')\nhome-tool (zig-js): TypeError: undefined is not a constructor (evaluating 'new Bun.Glob(\"**/*.ts\")')\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "events": "{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/typescript/bin/tsc\", \"arguments\": [\"--noEmit\", \"-p\", \"storage/framework/tsconfig.framework.json\", \"--pretty\", \"false\"]}\n{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/typescript/bin/tsc\", \"arguments\": [\"--noEmit\", \"-p\", \"storage/framework/tsconfig.defaults.json\", \"--pretty\", \"false\"]}\n{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/storage/framework/core/validation/build.ts\", \"arguments\": []}\n",
+      "html_files": 0
+    },
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 1.088,
+      "log": "before-home.log",
+      "label": "before",
+      "consumer": "home",
+      "command": "bunx bunpress build",
+      "consumer_sha": "6b3007cb334ab21c0cdb7385ebe9a3fdd82e458a",
+      "log_text": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\nUncaught unhandledRejection: TypeError: undefined is not a constructor (evaluating 'new m4(\"**/*.md\")')\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "events": "{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/home-docs-candidate/node_modules/.bun/@stacksjs+bunpress@0.2.17/node_modules/@stacksjs/bunpress/dist/bin/cli.js\", \"arguments\": [\"build\"]}\n",
+      "html_files": 0
+    },
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 6.824,
+      "log": "after-stacks.log",
+      "label": "after",
+      "consumer": "stacks",
+      "command": "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)",
+      "consumer_sha": "d557cee9630c209ed5fc58c8c5f633dba82c3488",
+      "log_text": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\n[2026-11-08T12:40:30.157Z] local.INFO: Building @stacksjs/validation...\nDebug: [writeToFile] Failed to create log directory: TypeError: undefined is not an object (evaluating 'r.F_OK')\nDebug: [writeToFile] Failed to create log directory: TypeError: undefined is not an object (evaluating 'r.F_OK')\nDebug: [writeToFile] Failed to create log directory: TypeError: undefined is not an object (evaluating 'r.F_OK')\nDebug: [writeToFile] Max retries reached. Final error: undefined is not an object (evaluating 'r.F_OK')\nDebug: [writeToFile] Error in operation: TypeError: undefined is not an object (evaluating 'r.F_OK')\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "events": "{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/typescript/bin/tsc\", \"arguments\": [\"--noEmit\", \"-p\", \"storage/framework/tsconfig.framework.json\", \"--pretty\", \"false\"]}\n{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/typescript/bin/tsc\", \"arguments\": [\"--noEmit\", \"-p\", \"storage/framework/tsconfig.defaults.json\", \"--pretty\", \"false\"]}\n{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/storage/framework/core/validation/build.ts\", \"arguments\": []}\n",
+      "html_files": 0
+    },
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 2.898,
+      "log": "after-home.log",
+      "label": "after",
+      "consumer": "home",
+      "command": "bunx bunpress build",
+      "consumer_sha": "6b3007cb334ab21c0cdb7385ebe9a3fdd82e458a",
+      "log_text": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\u001b[31m\u2717\u001b[0m Build failed\nError during build: Error: require() cannot evaluate an async module graph: /Users/chris/.cache/zig-js-ecosystem-research/home-docs-candidate/node_modules/.bun/@stacksjs+bunpress@0.2.17/node_modules/@stacksjs/bunpress/dist/chunk-he7yz8ak.js\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "events": "{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/home-docs-candidate/node_modules/.bun/@stacksjs+bunpress@0.2.17/node_modules/@stacksjs/bunpress/dist/bin/cli.js\", \"arguments\": [\"build\"]}\n",
+      "html_files": 0
+    }
+  ],
+  "limitations": [
+    "Actual native filesystem iteration and shared Home matcher; no fabricated path list or Bun candidate fallback.",
+    "The strict common fixture fails before with exit 1. The raw 13-case reporter catches per-case errors and can exit zero despite 13 constructor failures; do not count it as a before pass.",
+    "Eleven native Bun filesystem cases agree in both Home backends. The full 13-case matrix retains two explicitly unsupported requests: symlink traversal and negated scanning. These are not compatibility passes.",
+    "Scans use blocking native work and materialize bounded results when iteration starts. Strict option validation and unsupported pattern/encoding/limit refusals are documented.",
+    "Actual Stacks remains failed at missing Bun.build. Home docs remains failed at require of an async module graph; no HTML page was produced. File logging failures at constants.F_OK persist."
+  ],
+  "home_docs_dist_manifest": [
+    {
+      "path": "dist/.bunpress.tmp-25524",
+      "kind": "directory"
+    },
+    {
+      "path": "dist/.bunpress.tmp-51771",
+      "kind": "directory"
+    },
+    {
+      "path": "dist/.bunpress.tmp-61621",
+      "kind": "directory"
+    },
+    {
+      "path": "dist/.bunpress.tmp-73652",
+      "kind": "directory"
+    }
+  ]
+}
