@@ -1,0 +1,40 @@
+{
+  "status": "failed",
+  "exit_code": 1,
+  "seconds": 4.282,
+  "log": "stacks-typecheck-candidate.log",
+  "consumer_sha": "0e5a86525495166c65e292fd652c72486d3adb30",
+  "home_sha": "c6916c972b8e114b486ee114602a8718a73d21b8",
+  "scope": "local clean checkout using existing local engine archive, not exact CI compiler evidence",
+  "events": [
+    {
+      "kind": "zig-js",
+      "file": "/private/tmp/zig-js-ecosystem-research/stacks-native-cli/node_modules/typescript/bin/tsc",
+      "arguments": [
+        "--noEmit",
+        "-p",
+        "storage/framework/tsconfig.framework.json",
+        "--pretty",
+        "false"
+      ]
+    },
+    {
+      "kind": "zig-js",
+      "file": "/private/tmp/zig-js-ecosystem-research/stacks-native-cli/node_modules/typescript/bin/tsc",
+      "arguments": [
+        "--noEmit",
+        "-p",
+        "storage/framework/tsconfig.defaults.json",
+        "--pretty",
+        "false"
+      ]
+    },
+    {
+      "kind": "zig-js",
+      "file": "/private/tmp/zig-js-ecosystem-research/stacks-native-cli/storage/framework/core/validation/build.ts",
+      "arguments": []
+    }
+  ],
+  "command_log": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\nhome-tool (zig-js): SyntaxError: Unexpected identifier 'intro'. Expected ';' after variable declaration.\n\nECOSYSTEM RESULT: failed, exit 1\n",
+  "interpretation": "Whole script failed; its first two tsc commands completed successfully before the validation build hit unsupported top-level await. This is local evidence only."
+}
