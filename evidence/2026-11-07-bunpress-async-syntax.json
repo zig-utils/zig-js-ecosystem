@@ -1,0 +1,27 @@
+{
+  "package": "bunpress@0.2.17",
+  "scope": "Syntax checks only, no application execution; emitted body retains top-level await and the current host uses a synchronous wrapper",
+  "checks": [
+    {
+      "name": "original ESM",
+      "path": "/private/tmp/zig-js-ecosystem-research/bunpress-0.2.17/package/dist/chunk-kvkhq8vp.js",
+      "sha256": "589d4e75ea9f48ddac5bcd1d081763dd037dd0a753a38b0c8565ed8a484a0a96",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "name": "emitted CommonJS",
+      "path": "/tmp/zig-js-ecosystem-research/bunpress-emit/failed.cjs",
+      "sha256": "58ee053c1cb865165ecc0cbbd6eeb2d72ce2af5a23239ae0dd6903a76f05c3a9",
+      "exit_code": 1,
+      "stderr": "(node:24238) Warning: Failed to load the ES module: /private/tmp/zig-js-ecosystem-research/bunpress-emit/failed.cjs. Make sure to set \"type\": \"module\" in the nearest package.json file or use the .mjs extension.\n(Use `node --trace-warnings ...` to show where the warning was created)\n/private/tmp/zig-js-ecosystem-research/bunpress-emit/failed.cjs:1301\nawait d();\n^^^^^\n\nSyntaxError: await is only valid in async functions and the top level bodies of modules\n    at wrapSafe (node:internal/modules/cjs/loader:1888:18)\n    at checkSyntax (node:internal/main/check_syntax:88:3)\n\nNode.js v26.10.0\n"
+    },
+    {
+      "name": "same emitted body in async function",
+      "path": "/tmp/zig-js-ecosystem-research/bunpress-emit/async-wrapped.cjs",
+      "sha256": "34c7ee1227e9b1f616f094551c93f7c43609d845da1f6499bff3dc6b84f09485",
+      "exit_code": 0,
+      "stderr": ""
+    }
+  ]
+}

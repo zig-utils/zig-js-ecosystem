@@ -1,0 +1,36 @@
+{
+  "scope": "Executed remaining YAML capability gaps; any thrown operation makes this probe fail, not a compatibility pass",
+  "cases": [
+    {
+      "label": "cyclic alias",
+      "source": "a: &a [*a]\n",
+      "operation": "parse"
+    },
+    {
+      "label": "complex mapping key",
+      "source": "? [a, b]\n: value\n",
+      "operation": "parse"
+    },
+    {
+      "label": "deep nesting",
+      "source": "[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[0]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]",
+      "operation": "parse"
+    },
+    {
+      "label": "stringify",
+      "operation": "stringify"
+    }
+  ],
+  "results": {
+    "bun": {
+      "exit_code": 0,
+      "stdout": "[{\"label\":\"cyclic alias\",\"status\":\"returned\",\"type\":\"object\",\"cyclic\":true},{\"label\":\"complex mapping key\",\"status\":\"returned\",\"type\":\"object\"},{\"label\":\"deep nesting\",\"status\":\"returned\",\"type\":\"object\"},{\"label\":\"stringify\",\"status\":\"returned\",\"value\":\"{a: 1}\"}]\n",
+      "stderr": ""
+    },
+    "home-zig-js": {
+      "exit_code": 1,
+      "stdout": "[{\"label\":\"cyclic alias\",\"status\":\"threw\",\"name\":\"SyntaxError\",\"message\":\"unresolved_alias\"},{\"label\":\"complex mapping key\",\"status\":\"threw\",\"name\":\"Error\",\"code\":\"ERR_HOME_UNSUPPORTED\",\"message\":\"UnsupportedKey\"},{\"label\":\"deep nesting\",\"status\":\"threw\",\"name\":\"RangeError\",\"message\":\"stack_overflow\"},{\"label\":\"stringify\",\"status\":\"threw\",\"name\":\"TypeError\",\"message\":\"Bun.YAML.stringify is not a function. (In 'Bun.YAML.stringify({ a: 1 })', 'Bun.YAML.stringify' is undefined)\"}]\n",
+      "stderr": ""
+    }
+  }
+}
