@@ -1,0 +1,311 @@
+{
+  "scope": "Actual supported-reference operations refused by Home. No Blob/MIME/slice/stream/writer/options/mutable-cache/missing-mtime/oversize support is claimed. Native reference missing-file mtime is retained as observed, not copied as a fabricated timestamp. Mutable-cache setup changes a real file through a Python OS child, not a candidate JS fallback.",
+  "results": [
+    {
+      "fixture": "mime.mjs",
+      "runtime": "bun",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/mime.mjs"
+      ],
+      "source": "const f=Bun.file(\"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/bun_file/data.json\");if(!f.type.startsWith('application/json'))throw new Error('MIME');console.log(f.type);",
+      "exit_code": 0,
+      "stdout": "application/json;charset=utf-8\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "mime.mjs",
+      "runtime": "home-zig-js",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/mime.mjs"
+      ],
+      "source": "const f=Bun.file(\"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/bun_file/data.json\");if(!f.type.startsWith('application/json'))throw new Error('MIME');console.log(f.type);",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Home file supports stable regular-file reads; Blob/MIME, slices, streams, writers and mutable-file caching require separate implementations\n"
+    },
+    {
+      "fixture": "mime.mjs",
+      "runtime": "home-jsc",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/.zig-cache/o/43ec9f2dc2699bd6f990bac107718a4f/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/mime.mjs"
+      ],
+      "source": "const f=Bun.file(\"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/bun_file/data.json\");if(!f.type.startsWith('application/json'))throw new Error('MIME');console.log(f.type);",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: Home file supports stable regular-file reads; Blob/MIME, slices, streams, writers and mutable-file caching require separate implementations\n"
+    },
+    {
+      "fixture": "slice.mjs",
+      "runtime": "bun",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/slice.mjs"
+      ],
+      "source": "const data=new Uint8Array(await Bun.file(\"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/bun_file/bytes.bin\").slice(1,4).arrayBuffer());if(JSON.stringify([...data])!=='[1,2,3]')throw new Error('slice bytes');console.log('OK actual sliced bytes');",
+      "exit_code": 0,
+      "stdout": "OK actual sliced bytes\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "slice.mjs",
+      "runtime": "home-zig-js",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/slice.mjs"
+      ],
+      "source": "const data=new Uint8Array(await Bun.file(\"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/bun_file/bytes.bin\").slice(1,4).arrayBuffer());if(JSON.stringify([...data])!=='[1,2,3]')throw new Error('slice bytes');console.log('OK actual sliced bytes');",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Home file supports stable regular-file reads; Blob/MIME, slices, streams, writers and mutable-file caching require separate implementations\n"
+    },
+    {
+      "fixture": "slice.mjs",
+      "runtime": "home-jsc",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/.zig-cache/o/43ec9f2dc2699bd6f990bac107718a4f/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/slice.mjs"
+      ],
+      "source": "const data=new Uint8Array(await Bun.file(\"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/bun_file/bytes.bin\").slice(1,4).arrayBuffer());if(JSON.stringify([...data])!=='[1,2,3]')throw new Error('slice bytes');console.log('OK actual sliced bytes');",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: Home file supports stable regular-file reads; Blob/MIME, slices, streams, writers and mutable-file caching require separate implementations\n"
+    },
+    {
+      "fixture": "stream.mjs",
+      "runtime": "bun",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/stream.mjs"
+      ],
+      "source": "const r=Bun.file(\"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/bun_file/bytes.bin\").stream().getReader();const bytes=[];for(;;){const chunk=await r.read();if(chunk.done)break;bytes.push(...chunk.value)}if(bytes.length!==256||bytes[0]!==0||bytes[255]!==255)throw new Error('stream bytes');console.log('OK actual streamed bytes');",
+      "exit_code": 0,
+      "stdout": "OK actual streamed bytes\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "stream.mjs",
+      "runtime": "home-zig-js",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/stream.mjs"
+      ],
+      "source": "const r=Bun.file(\"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/bun_file/bytes.bin\").stream().getReader();const bytes=[];for(;;){const chunk=await r.read();if(chunk.done)break;bytes.push(...chunk.value)}if(bytes.length!==256||bytes[0]!==0||bytes[255]!==255)throw new Error('stream bytes');console.log('OK actual streamed bytes');",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Home file supports stable regular-file reads; Blob/MIME, slices, streams, writers and mutable-file caching require separate implementations\n"
+    },
+    {
+      "fixture": "stream.mjs",
+      "runtime": "home-jsc",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/.zig-cache/o/43ec9f2dc2699bd6f990bac107718a4f/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/stream.mjs"
+      ],
+      "source": "const r=Bun.file(\"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/bun_file/bytes.bin\").stream().getReader();const bytes=[];for(;;){const chunk=await r.read();if(chunk.done)break;bytes.push(...chunk.value)}if(bytes.length!==256||bytes[0]!==0||bytes[255]!==255)throw new Error('stream bytes');console.log('OK actual streamed bytes');",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: Home file supports stable regular-file reads; Blob/MIME, slices, streams, writers and mutable-file caching require separate implementations\n"
+    },
+    {
+      "fixture": "writer.mjs",
+      "runtime": "bun",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/writer.mjs"
+      ],
+      "source": "const path=\"/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/written.txt\";const w=Bun.file(path).writer();w.write('actual written bytes');await w.end();if(await Bun.file(path).text()!=='actual written bytes')throw new Error('write data');console.log('OK actual writer bytes');",
+      "exit_code": 0,
+      "stdout": "OK actual writer bytes\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "writer.mjs",
+      "runtime": "home-zig-js",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/writer.mjs"
+      ],
+      "source": "const path=\"/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/written.txt\";const w=Bun.file(path).writer();w.write('actual written bytes');await w.end();if(await Bun.file(path).text()!=='actual written bytes')throw new Error('write data');console.log('OK actual writer bytes');",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Home file supports stable regular-file reads; Blob/MIME, slices, streams, writers and mutable-file caching require separate implementations\n"
+    },
+    {
+      "fixture": "writer.mjs",
+      "runtime": "home-jsc",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/.zig-cache/o/43ec9f2dc2699bd6f990bac107718a4f/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/writer.mjs"
+      ],
+      "source": "const path=\"/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/written.txt\";const w=Bun.file(path).writer();w.write('actual written bytes');await w.end();if(await Bun.file(path).text()!=='actual written bytes')throw new Error('write data');console.log('OK actual writer bytes');",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: Home file supports stable regular-file reads; Blob/MIME, slices, streams, writers and mutable-file caching require separate implementations\n"
+    },
+    {
+      "fixture": "options.mjs",
+      "runtime": "bun",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/options.mjs"
+      ],
+      "source": "const f=Bun.file(\"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/bun_file/data.json\",{type:'application/custom'});if(f.type!=='application/custom')throw new Error('type option');console.log(f.type);",
+      "exit_code": 0,
+      "stdout": "application/custom\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "options.mjs",
+      "runtime": "home-zig-js",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/options.mjs"
+      ],
+      "source": "const f=Bun.file(\"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/bun_file/data.json\",{type:'application/custom'});if(f.type!=='application/custom')throw new Error('type option');console.log(f.type);",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Home file supports stable regular-file reads; Blob/MIME, slices, streams, writers and mutable-file caching require separate implementations\n"
+    },
+    {
+      "fixture": "options.mjs",
+      "runtime": "home-jsc",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/.zig-cache/o/43ec9f2dc2699bd6f990bac107718a4f/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/options.mjs"
+      ],
+      "source": "const f=Bun.file(\"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/bun_file/data.json\",{type:'application/custom'});if(f.type!=='application/custom')throw new Error('type option');console.log(f.type);",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: Home file supports stable regular-file reads; Blob/MIME, slices, streams, writers and mutable-file caching require separate implementations\n"
+    },
+    {
+      "fixture": "missing-mtime.mjs",
+      "runtime": "bun",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/missing-mtime.mjs"
+      ],
+      "source": "const value=Bun.file(\"/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/missing-time\").lastModified;if(typeof value!=='number')throw new Error('mtime');console.log(value);",
+      "exit_code": 0,
+      "stdout": "4503599627370495\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "missing-mtime.mjs",
+      "runtime": "home-zig-js",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/missing-mtime.mjs"
+      ],
+      "source": "const value=Bun.file(\"/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/missing-time\").lastModified;if(typeof value!=='number')throw new Error('mtime');console.log(value);",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Home file supports stable regular-file reads; Blob/MIME, slices, streams, writers and mutable-file caching require separate implementations\n"
+    },
+    {
+      "fixture": "missing-mtime.mjs",
+      "runtime": "home-jsc",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/.zig-cache/o/43ec9f2dc2699bd6f990bac107718a4f/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/missing-mtime.mjs"
+      ],
+      "source": "const value=Bun.file(\"/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/missing-time\").lastModified;if(typeof value!=='number')throw new Error('mtime');console.log(value);",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: Home file supports stable regular-file reads; Blob/MIME, slices, streams, writers and mutable-file caching require separate implementations\n"
+    },
+    {
+      "fixture": "over-limit.mjs",
+      "runtime": "bun",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/over-limit.mjs"
+      ],
+      "source": "const bytes=await Bun.file(\"/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/over-limit.bin\").arrayBuffer();if(bytes.byteLength!==8388609)throw new Error('truncated input');console.log('OK actual data above Home limit');",
+      "exit_code": 0,
+      "stdout": "OK actual data above Home limit\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "over-limit.mjs",
+      "runtime": "home-zig-js",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/over-limit.mjs"
+      ],
+      "source": "const bytes=await Bun.file(\"/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/over-limit.bin\").arrayBuffer();if(bytes.byteLength!==8388609)throw new Error('truncated input');console.log('OK actual data above Home limit');",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): RangeError: Home file reads are limited to 8 MiB\n"
+    },
+    {
+      "fixture": "over-limit.mjs",
+      "runtime": "home-jsc",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/.zig-cache/o/43ec9f2dc2699bd6f990bac107718a4f/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/over-limit.mjs"
+      ],
+      "source": "const bytes=await Bun.file(\"/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/over-limit.bin\").arrayBuffer();if(bytes.byteLength!==8388609)throw new Error('truncated input');console.log('OK actual data above Home limit');",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): RangeError: Home file reads are limited to 8 MiB\n"
+    },
+    {
+      "fixture": "mutable-cache.mjs",
+      "runtime": "bun",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/mutable-cache.mjs"
+      ],
+      "source": "import {execFileSync} from 'node:child_process';const path=\"/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/changing.txt\";const write=x=>execFileSync(\"/Users/chris/.local/share/pantry/global/bin/python3\",['-c','import pathlib,sys;pathlib.Path(sys.argv[1]).write_text(sys.argv[2])',path,x],{encoding:'utf8'});write('first');const f=Bun.file(path);const size=f.size;write('changed contents');const text=await f.text();if(size!==5||text!=='chang')throw new Error('native cache behavior');console.log(JSON.stringify({size,text}));",
+      "exit_code": 0,
+      "stdout": "{\"size\":5,\"text\":\"chang\"}\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "mutable-cache.mjs",
+      "runtime": "home-zig-js",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/mutable-cache.mjs"
+      ],
+      "source": "import {execFileSync} from 'node:child_process';const path=\"/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/changing.txt\";const write=x=>execFileSync(\"/Users/chris/.local/share/pantry/global/bin/python3\",['-c','import pathlib,sys;pathlib.Path(sys.argv[1]).write_text(sys.argv[2])',path,x],{encoding:'utf8'});write('first');const f=Bun.file(path);const size=f.size;write('changed contents');const text=await f.text();if(size!==5||text!=='chang')throw new Error('native cache behavior');console.log(JSON.stringify({size,text}));",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Home execFileSync currently requires inherited stdio; captured Buffer results are unsupported\n"
+    },
+    {
+      "fixture": "mutable-cache.mjs",
+      "runtime": "home-jsc",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/.zig-cache/o/43ec9f2dc2699bd6f990bac107718a4f/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/mutable-cache.mjs"
+      ],
+      "source": "import {execFileSync} from 'node:child_process';const path=\"/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/changing.txt\";const write=x=>execFileSync(\"/Users/chris/.local/share/pantry/global/bin/python3\",['-c','import pathlib,sys;pathlib.Path(sys.argv[1]).write_text(sys.argv[2])',path,x],{encoding:'utf8'});write('first');const f=Bun.file(path);const size=f.size;write('changed contents');const text=await f.text();if(size!==5||text!=='chang')throw new Error('native cache behavior');console.log(JSON.stringify({size,text}));",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: Home execFileSync currently requires inherited stdio; captured Buffer results are unsupported\n"
+    }
+  ],
+  "home_ref": "6ca0c047367b12f9e21465f13b1e9e776387f12f",
+  "local_engine_archive_api_ref": "96ba2f58731d5798ec7af368e4341af7cd5a34d8"
+}

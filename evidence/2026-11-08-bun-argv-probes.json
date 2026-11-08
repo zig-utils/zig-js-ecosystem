@@ -1,0 +1,68 @@
+{
+  "scope": "Actual process argv data, identity, mutation, initial array retention and writable/nonconfigurable descriptor. Native Bun reference; the before file host fails missing Bun.argv.",
+  "binary_sha256": {
+    "bun": "6b947fc4b25d640c482e40f253cbb2df692a555ce29c247844b766d8fea16dca",
+    "before": "8170c97ba91480fb886a4164c3ee2b83746faf037cdaef35edc153fe7f90cc9a",
+    "home-zig-js": "9044f2c1d79b06d04b7b8052925da916d9456d2f2bdb6a00999fefa62853cc9a",
+    "home-jsc": "ff360f2e66b44a756ee2937f1e98e74ca4d5281672229852b920d226ecae38da"
+  },
+  "results": [
+    {
+      "runtime": "bun",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/bun_argv.mjs",
+        "first",
+        "second space"
+      ],
+      "source": "if(!Array.isArray(Bun.argv))throw new Error('missing actual Bun argv');\nif(Bun.argv!==process.argv||Bun.argv[1]!==process.argv[1]||Bun.argv[2]!=='first'||Bun.argv[3]!=='second space')throw new Error('argv data');\nconst first=Bun.argv;first.push('shared');if(process.argv[process.argv.length-1]!=='shared')throw new Error('copied arguments');\nprocess.argv=['different'];if(Bun.argv!==first)throw new Error('argv must retain its initial shared array');\nconst d=Object.getOwnPropertyDescriptor(Bun,'argv');if(!d.writable||!d.enumerable||d.configurable)throw new Error('argv descriptor');\nBun.argv=['replacement'];if(Bun.argv[0]!=='replacement'||process.argv[0]!=='different')throw new Error('argv reassignment');\nconsole.log('OK actual Bun argv identity and arguments');\n",
+      "exit_code": 0,
+      "stdout": "OK actual Bun argv identity and arguments\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/home-tool-before-argv",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/bun_argv.mjs",
+        "first",
+        "second space"
+      ],
+      "source": "if(!Array.isArray(Bun.argv))throw new Error('missing actual Bun argv');\nif(Bun.argv!==process.argv||Bun.argv[1]!==process.argv[1]||Bun.argv[2]!=='first'||Bun.argv[3]!=='second space')throw new Error('argv data');\nconst first=Bun.argv;first.push('shared');if(process.argv[process.argv.length-1]!=='shared')throw new Error('copied arguments');\nprocess.argv=['different'];if(Bun.argv!==first)throw new Error('argv must retain its initial shared array');\nconst d=Object.getOwnPropertyDescriptor(Bun,'argv');if(!d.writable||!d.enumerable||d.configurable)throw new Error('argv descriptor');\nBun.argv=['replacement'];if(Bun.argv[0]!=='replacement'||process.argv[0]!=='different')throw new Error('argv reassignment');\nconsole.log('OK actual Bun argv identity and arguments');\n",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: missing actual Bun argv\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/bun_argv.mjs",
+        "first",
+        "second space"
+      ],
+      "source": "if(!Array.isArray(Bun.argv))throw new Error('missing actual Bun argv');\nif(Bun.argv!==process.argv||Bun.argv[1]!==process.argv[1]||Bun.argv[2]!=='first'||Bun.argv[3]!=='second space')throw new Error('argv data');\nconst first=Bun.argv;first.push('shared');if(process.argv[process.argv.length-1]!=='shared')throw new Error('copied arguments');\nprocess.argv=['different'];if(Bun.argv!==first)throw new Error('argv must retain its initial shared array');\nconst d=Object.getOwnPropertyDescriptor(Bun,'argv');if(!d.writable||!d.enumerable||d.configurable)throw new Error('argv descriptor');\nBun.argv=['replacement'];if(Bun.argv[0]!=='replacement'||process.argv[0]!=='different')throw new Error('argv reassignment');\nconsole.log('OK actual Bun argv identity and arguments');\n",
+      "exit_code": 0,
+      "stdout": "OK actual Bun argv identity and arguments\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/.zig-cache/o/deec20363107509f907cf24edd545b13/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/bun_argv.mjs",
+        "first",
+        "second space"
+      ],
+      "source": "if(!Array.isArray(Bun.argv))throw new Error('missing actual Bun argv');\nif(Bun.argv!==process.argv||Bun.argv[1]!==process.argv[1]||Bun.argv[2]!=='first'||Bun.argv[3]!=='second space')throw new Error('argv data');\nconst first=Bun.argv;first.push('shared');if(process.argv[process.argv.length-1]!=='shared')throw new Error('copied arguments');\nprocess.argv=['different'];if(Bun.argv!==first)throw new Error('argv must retain its initial shared array');\nconst d=Object.getOwnPropertyDescriptor(Bun,'argv');if(!d.writable||!d.enumerable||d.configurable)throw new Error('argv descriptor');\nBun.argv=['replacement'];if(Bun.argv[0]!=='replacement'||process.argv[0]!=='different')throw new Error('argv reassignment');\nconsole.log('OK actual Bun argv identity and arguments');\n",
+      "exit_code": 0,
+      "stdout": "OK actual Bun argv identity and arguments\n",
+      "stderr": ""
+    }
+  ],
+  "home_ref": "3bd328268913d462ee36032433e0af733c4fe586",
+  "local_engine_archive_api_ref": "96ba2f58731d5798ec7af368e4341af7cd5a34d8"
+}

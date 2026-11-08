@@ -1,0 +1,119 @@
+{
+  "scope": "Real filesystem-backed operations. Native Bun is the reference for Bun.file; no Node Bun.file capability is implied. Positive contracts pass on both Home engines, while the saved before host fails missing file. This does not certify Web Blob or mutable-file/stream/write behavior.",
+  "binary_sha256": {
+    "bun": "6b947fc4b25d640c482e40f253cbb2df692a555ce29c247844b766d8fea16dca",
+    "before": "c67dc3d1276ff466d596d3393b6855cfde84f657dbe886a572ae92bdf547cc6f",
+    "home-zig-js": "8170c97ba91480fb886a4164c3ee2b83746faf037cdaef35edc153fe7f90cc9a",
+    "home-jsc": "0a275438fca57ec0a7187954df4365161c0afd6d8259c325e90f3b04038133b2"
+  },
+  "results": [
+    {
+      "fixture": "contract",
+      "runtime": "bun",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/bun_file_contract.mjs"
+      ],
+      "source": "import { file } from 'bun';\nimport { Buffer } from 'node:buffer';\nimport fs from 'node:fs';\nfunction check(value, message) { if (!value) throw new Error(message); }\nconst root = import.meta.dir + '/bun_file/';\ncheck(file === Bun.file && require('bun').file === file, 'module identity');\nconst source = file(root + 'data.json');\ncheck(await source.exists(), 'existing real file');\ncheck(source.size === 31 && source.lastModified === Math.trunc((await fs.promises.stat(root + 'data.json')).mtimeMs), 'actual metadata');\nconst record = await source.json(); check(record.name === 'caf\u00e9' && record.number === 7, 'real JSON and BOM');\nsource.text = async function() { return 'not filesystem data'; };\ncheck((await source.json()).number === 7, 'json must read its own actual file');\nconst textFile = file(root + 'unicode and spaces%#.txt', {});\nconst text = await textFile.text(); check(text === 'text \u00e9\\u0000end\ufffd', 'UTF-8, BOM, NUL and replacement');\ncheck(Buffer.from(await textFile.arrayBuffer()).toString('hex') === 'efbbbf7465787420c3a900656e64ff', 'raw byte transport');\ntry { await textFile.json(); throw new Error('accepted invalid JSON'); } catch (error) { check(error instanceof SyntaxError, 'JSON failure'); }\nconst binary = file(root + 'bytes.bin'); const bytes = await binary.bytes(); const buffer = await binary.arrayBuffer();\ncheck(bytes instanceof Uint8Array && !Buffer.isBuffer(bytes) && bytes.length === 256, 'byte storage');\ncheck(buffer instanceof ArrayBuffer && buffer.byteLength === 256, 'array buffer storage');\nconst all = new Uint8Array(buffer); for (let index = 0; index < 256; index++) check(bytes[index] === index && all[index] === index, 'actual binary data');\nbytes[0] = 255; all[1] = 255;\ncheck((await binary.bytes())[0] === 0 && (await binary.bytes())[1] === 1, 'independent reads');\nconst empty = file(root + 'empty.txt'); check(await empty.exists() && empty.size === 0 && await empty.text() === '' && (await empty.bytes()).length === 0, 'real empty file');\nconst missing = file(root + 'missing.json'); check(!await missing.exists() && missing.size === 0, 'actual missing file');\nfor (const method of ['text', 'json', 'arrayBuffer', 'bytes']) {\n  const promise = missing[method](); check(promise instanceof Promise, 'read rejection must be a Promise');\n  try { await promise; throw new Error('fabricated missing-file data'); }\n  catch (error) { check(error.code === 'ENOENT' && error.path === root + 'missing.json' && error.syscall === 'open', 'missing-file error'); }\n}\nconst directory = file(root); check(!await directory.exists(), 'directory is not a file');\ntry { await directory.text(); throw new Error('fabricated directory data'); } catch (error) { check(error.code === 'EISDIR' && error.syscall === 'read', 'directory error'); }\ntry { await file(root + 'data.json').text.call({}); throw new Error('forged file receiver'); } catch (error) { check(error instanceof TypeError, 'file brand'); }\nconsole.log('OK real Bun file reads, bytes, metadata and failures');\n",
+      "exit_code": 0,
+      "stdout": "OK real Bun file reads, bytes, metadata and failures\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "contract",
+      "runtime": "before",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/home-tool-before",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/bun_file_contract.mjs"
+      ],
+      "source": "import { file } from 'bun';\nimport { Buffer } from 'node:buffer';\nimport fs from 'node:fs';\nfunction check(value, message) { if (!value) throw new Error(message); }\nconst root = import.meta.dir + '/bun_file/';\ncheck(file === Bun.file && require('bun').file === file, 'module identity');\nconst source = file(root + 'data.json');\ncheck(await source.exists(), 'existing real file');\ncheck(source.size === 31 && source.lastModified === Math.trunc((await fs.promises.stat(root + 'data.json')).mtimeMs), 'actual metadata');\nconst record = await source.json(); check(record.name === 'caf\u00e9' && record.number === 7, 'real JSON and BOM');\nsource.text = async function() { return 'not filesystem data'; };\ncheck((await source.json()).number === 7, 'json must read its own actual file');\nconst textFile = file(root + 'unicode and spaces%#.txt', {});\nconst text = await textFile.text(); check(text === 'text \u00e9\\u0000end\ufffd', 'UTF-8, BOM, NUL and replacement');\ncheck(Buffer.from(await textFile.arrayBuffer()).toString('hex') === 'efbbbf7465787420c3a900656e64ff', 'raw byte transport');\ntry { await textFile.json(); throw new Error('accepted invalid JSON'); } catch (error) { check(error instanceof SyntaxError, 'JSON failure'); }\nconst binary = file(root + 'bytes.bin'); const bytes = await binary.bytes(); const buffer = await binary.arrayBuffer();\ncheck(bytes instanceof Uint8Array && !Buffer.isBuffer(bytes) && bytes.length === 256, 'byte storage');\ncheck(buffer instanceof ArrayBuffer && buffer.byteLength === 256, 'array buffer storage');\nconst all = new Uint8Array(buffer); for (let index = 0; index < 256; index++) check(bytes[index] === index && all[index] === index, 'actual binary data');\nbytes[0] = 255; all[1] = 255;\ncheck((await binary.bytes())[0] === 0 && (await binary.bytes())[1] === 1, 'independent reads');\nconst empty = file(root + 'empty.txt'); check(await empty.exists() && empty.size === 0 && await empty.text() === '' && (await empty.bytes()).length === 0, 'real empty file');\nconst missing = file(root + 'missing.json'); check(!await missing.exists() && missing.size === 0, 'actual missing file');\nfor (const method of ['text', 'json', 'arrayBuffer', 'bytes']) {\n  const promise = missing[method](); check(promise instanceof Promise, 'read rejection must be a Promise');\n  try { await promise; throw new Error('fabricated missing-file data'); }\n  catch (error) { check(error.code === 'ENOENT' && error.path === root + 'missing.json' && error.syscall === 'open', 'missing-file error'); }\n}\nconst directory = file(root); check(!await directory.exists(), 'directory is not a file');\ntry { await directory.text(); throw new Error('fabricated directory data'); } catch (error) { check(error.code === 'EISDIR' && error.syscall === 'read', 'directory error'); }\ntry { await file(root + 'data.json').text.call({}); throw new Error('forged file receiver'); } catch (error) { check(error instanceof TypeError, 'file brand'); }\nconsole.log('OK real Bun file reads, bytes, metadata and failures');\n",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: file is not a function. (In 'file(root + \"data.json\")', 'file' is undefined)\n"
+    },
+    {
+      "fixture": "contract",
+      "runtime": "home-zig-js",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/bun_file_contract.mjs"
+      ],
+      "source": "import { file } from 'bun';\nimport { Buffer } from 'node:buffer';\nimport fs from 'node:fs';\nfunction check(value, message) { if (!value) throw new Error(message); }\nconst root = import.meta.dir + '/bun_file/';\ncheck(file === Bun.file && require('bun').file === file, 'module identity');\nconst source = file(root + 'data.json');\ncheck(await source.exists(), 'existing real file');\ncheck(source.size === 31 && source.lastModified === Math.trunc((await fs.promises.stat(root + 'data.json')).mtimeMs), 'actual metadata');\nconst record = await source.json(); check(record.name === 'caf\u00e9' && record.number === 7, 'real JSON and BOM');\nsource.text = async function() { return 'not filesystem data'; };\ncheck((await source.json()).number === 7, 'json must read its own actual file');\nconst textFile = file(root + 'unicode and spaces%#.txt', {});\nconst text = await textFile.text(); check(text === 'text \u00e9\\u0000end\ufffd', 'UTF-8, BOM, NUL and replacement');\ncheck(Buffer.from(await textFile.arrayBuffer()).toString('hex') === 'efbbbf7465787420c3a900656e64ff', 'raw byte transport');\ntry { await textFile.json(); throw new Error('accepted invalid JSON'); } catch (error) { check(error instanceof SyntaxError, 'JSON failure'); }\nconst binary = file(root + 'bytes.bin'); const bytes = await binary.bytes(); const buffer = await binary.arrayBuffer();\ncheck(bytes instanceof Uint8Array && !Buffer.isBuffer(bytes) && bytes.length === 256, 'byte storage');\ncheck(buffer instanceof ArrayBuffer && buffer.byteLength === 256, 'array buffer storage');\nconst all = new Uint8Array(buffer); for (let index = 0; index < 256; index++) check(bytes[index] === index && all[index] === index, 'actual binary data');\nbytes[0] = 255; all[1] = 255;\ncheck((await binary.bytes())[0] === 0 && (await binary.bytes())[1] === 1, 'independent reads');\nconst empty = file(root + 'empty.txt'); check(await empty.exists() && empty.size === 0 && await empty.text() === '' && (await empty.bytes()).length === 0, 'real empty file');\nconst missing = file(root + 'missing.json'); check(!await missing.exists() && missing.size === 0, 'actual missing file');\nfor (const method of ['text', 'json', 'arrayBuffer', 'bytes']) {\n  const promise = missing[method](); check(promise instanceof Promise, 'read rejection must be a Promise');\n  try { await promise; throw new Error('fabricated missing-file data'); }\n  catch (error) { check(error.code === 'ENOENT' && error.path === root + 'missing.json' && error.syscall === 'open', 'missing-file error'); }\n}\nconst directory = file(root); check(!await directory.exists(), 'directory is not a file');\ntry { await directory.text(); throw new Error('fabricated directory data'); } catch (error) { check(error.code === 'EISDIR' && error.syscall === 'read', 'directory error'); }\ntry { await file(root + 'data.json').text.call({}); throw new Error('forged file receiver'); } catch (error) { check(error instanceof TypeError, 'file brand'); }\nconsole.log('OK real Bun file reads, bytes, metadata and failures');\n",
+      "exit_code": 0,
+      "stdout": "OK real Bun file reads, bytes, metadata and failures\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "contract",
+      "runtime": "home-jsc",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/.zig-cache/o/43ec9f2dc2699bd6f990bac107718a4f/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/bun_file_contract.mjs"
+      ],
+      "source": "import { file } from 'bun';\nimport { Buffer } from 'node:buffer';\nimport fs from 'node:fs';\nfunction check(value, message) { if (!value) throw new Error(message); }\nconst root = import.meta.dir + '/bun_file/';\ncheck(file === Bun.file && require('bun').file === file, 'module identity');\nconst source = file(root + 'data.json');\ncheck(await source.exists(), 'existing real file');\ncheck(source.size === 31 && source.lastModified === Math.trunc((await fs.promises.stat(root + 'data.json')).mtimeMs), 'actual metadata');\nconst record = await source.json(); check(record.name === 'caf\u00e9' && record.number === 7, 'real JSON and BOM');\nsource.text = async function() { return 'not filesystem data'; };\ncheck((await source.json()).number === 7, 'json must read its own actual file');\nconst textFile = file(root + 'unicode and spaces%#.txt', {});\nconst text = await textFile.text(); check(text === 'text \u00e9\\u0000end\ufffd', 'UTF-8, BOM, NUL and replacement');\ncheck(Buffer.from(await textFile.arrayBuffer()).toString('hex') === 'efbbbf7465787420c3a900656e64ff', 'raw byte transport');\ntry { await textFile.json(); throw new Error('accepted invalid JSON'); } catch (error) { check(error instanceof SyntaxError, 'JSON failure'); }\nconst binary = file(root + 'bytes.bin'); const bytes = await binary.bytes(); const buffer = await binary.arrayBuffer();\ncheck(bytes instanceof Uint8Array && !Buffer.isBuffer(bytes) && bytes.length === 256, 'byte storage');\ncheck(buffer instanceof ArrayBuffer && buffer.byteLength === 256, 'array buffer storage');\nconst all = new Uint8Array(buffer); for (let index = 0; index < 256; index++) check(bytes[index] === index && all[index] === index, 'actual binary data');\nbytes[0] = 255; all[1] = 255;\ncheck((await binary.bytes())[0] === 0 && (await binary.bytes())[1] === 1, 'independent reads');\nconst empty = file(root + 'empty.txt'); check(await empty.exists() && empty.size === 0 && await empty.text() === '' && (await empty.bytes()).length === 0, 'real empty file');\nconst missing = file(root + 'missing.json'); check(!await missing.exists() && missing.size === 0, 'actual missing file');\nfor (const method of ['text', 'json', 'arrayBuffer', 'bytes']) {\n  const promise = missing[method](); check(promise instanceof Promise, 'read rejection must be a Promise');\n  try { await promise; throw new Error('fabricated missing-file data'); }\n  catch (error) { check(error.code === 'ENOENT' && error.path === root + 'missing.json' && error.syscall === 'open', 'missing-file error'); }\n}\nconst directory = file(root); check(!await directory.exists(), 'directory is not a file');\ntry { await directory.text(); throw new Error('fabricated directory data'); } catch (error) { check(error.code === 'EISDIR' && error.syscall === 'read', 'directory error'); }\ntry { await file(root + 'data.json').text.call({}); throw new Error('forged file receiver'); } catch (error) { check(error instanceof TypeError, 'file brand'); }\nconsole.log('OK real Bun file reads, bytes, metadata and failures');\n",
+      "exit_code": 0,
+      "stdout": "OK real Bun file reads, bytes, metadata and failures\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "read-witness",
+      "runtime": "bun",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/read-witness.mjs",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host"
+      ],
+      "source": "import { file } from 'bun';\nimport { Buffer } from 'node:buffer';\nconst root=process.argv[2];const f=file(root+'/text.txt');\nif(!await f.exists())throw new Error('missing existing file');\nconsole.log(JSON.stringify({text:await f.text(),hex:Buffer.from(await f.arrayBuffer()).toString('hex'),size:f.size}));\n",
+      "exit_code": 0,
+      "stdout": "{\"text\":\"text \u00e9\\u0000end\ufffd\",\"hex\":\"efbbbf7465787420c3a900656e64ff\",\"size\":15}\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "read-witness",
+      "runtime": "before",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/home-tool-before",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/read-witness.mjs",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host"
+      ],
+      "source": "import { file } from 'bun';\nimport { Buffer } from 'node:buffer';\nconst root=process.argv[2];const f=file(root+'/text.txt');\nif(!await f.exists())throw new Error('missing existing file');\nconsole.log(JSON.stringify({text:await f.text(),hex:Buffer.from(await f.arrayBuffer()).toString('hex'),size:f.size}));\n",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: file is not a function. (In 'file(root + \"/text.txt\")', 'file' is undefined)\n"
+    },
+    {
+      "fixture": "read-witness",
+      "runtime": "home-zig-js",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/read-witness.mjs",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host"
+      ],
+      "source": "import { file } from 'bun';\nimport { Buffer } from 'node:buffer';\nconst root=process.argv[2];const f=file(root+'/text.txt');\nif(!await f.exists())throw new Error('missing existing file');\nconsole.log(JSON.stringify({text:await f.text(),hex:Buffer.from(await f.arrayBuffer()).toString('hex'),size:f.size}));\n",
+      "exit_code": 0,
+      "stdout": "{\"text\":\"text \u00e9\\u0000end\ufffd\",\"hex\":\"efbbbf7465787420c3a900656e64ff\",\"size\":15}\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "read-witness",
+      "runtime": "home-jsc",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/.zig-cache/o/43ec9f2dc2699bd6f990bac107718a4f/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host/read-witness.mjs",
+        "/Users/chris/.cache/zig-js-ecosystem-research/bun-file-host"
+      ],
+      "source": "import { file } from 'bun';\nimport { Buffer } from 'node:buffer';\nconst root=process.argv[2];const f=file(root+'/text.txt');\nif(!await f.exists())throw new Error('missing existing file');\nconsole.log(JSON.stringify({text:await f.text(),hex:Buffer.from(await f.arrayBuffer()).toString('hex'),size:f.size}));\n",
+      "exit_code": 0,
+      "stdout": "{\"text\":\"text \u00e9\\u0000end\ufffd\",\"hex\":\"efbbbf7465787420c3a900656e64ff\",\"size\":15}\n",
+      "stderr": ""
+    }
+  ],
+  "home_ref": "6ca0c047367b12f9e21465f13b1e9e776387f12f",
+  "local_engine_archive_api_ref": "96ba2f58731d5798ec7af368e4341af7cd5a34d8"
+}
