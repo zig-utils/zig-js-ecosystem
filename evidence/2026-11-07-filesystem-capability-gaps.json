@@ -1,0 +1,23 @@
+{
+  "scope": "Executed remaining capability gaps. Any thrown operation makes the probe exit nonzero.",
+  "results": [
+    {
+      "runtime": "node",
+      "exit_code": 0,
+      "stdout": "[{\"name\":\"binary readFile\",\"status\":\"returned\",\"type\":\"object\"},{\"name\":\"bigint stat\",\"status\":\"returned\",\"type\":\"object\"},{\"name\":\"readdir\",\"status\":\"returned\",\"type\":\"object\"}]\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "exit_code": 0,
+      "stdout": "[{\"name\":\"binary readFile\",\"status\":\"returned\",\"type\":\"object\"},{\"name\":\"bigint stat\",\"status\":\"returned\",\"type\":\"object\"},{\"name\":\"readdir\",\"status\":\"returned\",\"type\":\"object\"}]\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "exit_code": 1,
+      "stdout": "[{\"name\":\"binary readFile\",\"status\":\"threw\",\"error\":\"Error\",\"code\":\"ERR_HOME_UNSUPPORTED\",\"message\":\"Home node:fs readFileSync currently requires utf8 encoding; Buffer and other encodings are unsupported\"},{\"name\":\"bigint stat\",\"status\":\"threw\",\"error\":\"Error\",\"code\":\"ERR_HOME_UNSUPPORTED\",\"message\":\"Unsupported filesystem option: bigint\"},{\"name\":\"readdir\",\"status\":\"threw\",\"error\":\"TypeError\",\"message\":\"fs.readdir is not a function. (In 'fs.readdir(\\\"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules\\\")', 'fs.readdir' is undefined)\"}]\n",
+      "stderr": ""
+    }
+  ]
+}

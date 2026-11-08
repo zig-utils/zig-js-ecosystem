@@ -1,0 +1,26 @@
+[
+  {
+    "runtime": "node",
+    "exit_code": 0,
+    "stdout": "OK home-tool POSIX home directory\n",
+    "stderr": ""
+  },
+  {
+    "runtime": "bun",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": " 8 |   delete process.env.HOME;\n 9 |   const nativeHome = homedir();\n10 |   if (typeof nativeHome !== 'string' || !nativeHome.startsWith('/')) throw new Error('native account home');\n11 |   for (const value of ['/tmp/home-tool-home override', '']) {\n12 |     process.env.HOME = value;\n13 |     if (homedir() !== value) throw new Error('HOME override');\n                                            ^\nerror: HOME override\n      at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_os_entry.mjs:13:40\n\nBun v1.4.4 (macOS arm64)\n"
+  },
+  {
+    "runtime": "before",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "home-tool (zig-js): Error: cannot resolve module node:os from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_os_entry.mjs\n"
+  },
+  {
+    "runtime": "home-zig-js",
+    "exit_code": 0,
+    "stdout": "OK home-tool POSIX home directory\n",
+    "stderr": ""
+  }
+]

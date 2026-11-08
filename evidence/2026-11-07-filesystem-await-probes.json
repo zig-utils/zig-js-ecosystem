@@ -1,0 +1,44 @@
+[
+  {
+    "case": "packages/runtime/test/tool_modules/node_fs_promises_entry.mjs",
+    "runtime": "node",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "file:///Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_fs_promises_entry.mjs:27\n  if (!directory.isDirectory() || directory.isFile() || directory.isSymbolicLink() || !Number.isFinite(directory.mtimeMs) || directory.mtime.getTime() !== Math.trunc(directory.mtimeMs)) throw new Error('directory metadata');\n                                                                                                                                                                                                ^\n\nError: directory metadata\n    at file:///Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_fs_promises_entry.mjs:27:193\n\nNode.js v26.10.0\n"
+  },
+  {
+    "case": "packages/runtime/test/tool_modules/node_fs_promises_entry.mjs",
+    "runtime": "before",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "home-tool (zig-js): Error: cannot resolve module node:fs/promises from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_fs_promises_entry.mjs\n"
+  },
+  {
+    "case": "packages/runtime/test/tool_modules/node_fs_promises_entry.mjs",
+    "runtime": "home-zig-js",
+    "exit_code": 0,
+    "stdout": "OK home-tool native filesystem promises\n",
+    "stderr": ""
+  },
+  {
+    "case": "packages/runtime/test/tool_modules/async/await-precedence.mjs",
+    "runtime": "node",
+    "exit_code": 0,
+    "stdout": "OK home-tool await result precedence\n",
+    "stderr": ""
+  },
+  {
+    "case": "packages/runtime/test/tool_modules/async/await-precedence.mjs",
+    "runtime": "before",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "home-tool (zig-js): SyntaxError: Unexpected token '**'. Ambiguous unary expression in the left hand side of the exponentiation expression; parentheses must be used to disambiguate the expression.\n"
+  },
+  {
+    "case": "packages/runtime/test/tool_modules/async/await-precedence.mjs",
+    "runtime": "home-zig-js",
+    "exit_code": 0,
+    "stdout": "OK home-tool await result precedence\n",
+    "stderr": ""
+  }
+]

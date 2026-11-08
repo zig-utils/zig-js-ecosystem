@@ -1,0 +1,285 @@
+{
+  "scope": "Local Zig 0.17.0-dev.1857, existing zig-js archive of unestablished source revision; exact CI verification still required. Async cycles intentionally remain unsupported; Node succeeds there. Pending entries fail nonzero, with different Node/Home exit codes.",
+  "cases": [
+    {
+      "case": "order.mjs",
+      "runtime": "node",
+      "exit_code": 0,
+      "stdout": "OK home-tool async module evaluation\n",
+      "stderr": ""
+    },
+    {
+      "case": "order.mjs",
+      "runtime": "before",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): SyntaxError: Unexpected identifier 'nested'\n"
+    },
+    {
+      "case": "order.mjs",
+      "runtime": "home-zig-js",
+      "exit_code": 0,
+      "stdout": "OK home-tool async module evaluation\n",
+      "stderr": ""
+    },
+    {
+      "case": "order.mjs",
+      "runtime": "home-jsc",
+      "exit_code": 0,
+      "stdout": "OK home-tool async module evaluation\n",
+      "stderr": ""
+    },
+    {
+      "case": "siblings.mjs",
+      "runtime": "node",
+      "exit_code": 0,
+      "stdout": "OK home-tool independent async siblings\n",
+      "stderr": ""
+    },
+    {
+      "case": "siblings.mjs",
+      "runtime": "before",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): SyntaxError: Unexpected identifier 'state'\n"
+    },
+    {
+      "case": "siblings.mjs",
+      "runtime": "home-zig-js",
+      "exit_code": 0,
+      "stdout": "OK home-tool independent async siblings\n",
+      "stderr": ""
+    },
+    {
+      "case": "siblings.mjs",
+      "runtime": "home-jsc",
+      "exit_code": 0,
+      "stdout": "OK home-tool independent async siblings\n",
+      "stderr": ""
+    },
+    {
+      "case": "for-await.mjs",
+      "runtime": "node",
+      "exit_code": 0,
+      "stdout": "OK home-tool top-level for await\n",
+      "stderr": ""
+    },
+    {
+      "case": "for-await.mjs",
+      "runtime": "before",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): SyntaxError: Unexpected identifier 'await'\n"
+    },
+    {
+      "case": "for-await.mjs",
+      "runtime": "home-zig-js",
+      "exit_code": 0,
+      "stdout": "OK home-tool top-level for await\n",
+      "stderr": ""
+    },
+    {
+      "case": "for-await.mjs",
+      "runtime": "home-jsc",
+      "exit_code": 0,
+      "stdout": "OK home-tool top-level for await\n",
+      "stderr": ""
+    },
+    {
+      "case": "rejected.mjs",
+      "runtime": "node",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "file:///Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/rejected.mjs:2\nthrow new Error('async rejection witness');\n      ^\n\nError: async rejection witness\n    at file:///Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/rejected.mjs:2:7\n\nNode.js v26.10.0\n"
+    },
+    {
+      "case": "rejected.mjs",
+      "runtime": "before",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): SyntaxError: Unexpected identifier 'Promise'\n"
+    },
+    {
+      "case": "rejected.mjs",
+      "runtime": "home-zig-js",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: async rejection witness\n"
+    },
+    {
+      "case": "rejected.mjs",
+      "runtime": "home-jsc",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: async rejection witness\n"
+    },
+    {
+      "case": "undefined.mjs",
+      "runtime": "node",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "\nnode:internal/modules/run_main:111\n    triggerUncaughtException(\n    ^\nundefined\n(Use `node --trace-uncaught ...` to show where the exception was thrown)\n\nNode.js v26.10.0\n"
+    },
+    {
+      "case": "undefined.mjs",
+      "runtime": "before",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): SyntaxError: Unexpected identifier 'Promise'\n"
+    },
+    {
+      "case": "undefined.mjs",
+      "runtime": "home-zig-js",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): undefined\n"
+    },
+    {
+      "case": "undefined.mjs",
+      "runtime": "home-jsc",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): undefined\n"
+    },
+    {
+      "case": "pending.mjs",
+      "runtime": "node",
+      "exit_code": 13,
+      "stdout": "",
+      "stderr": "Warning: Detected unsettled top-level await at file:///Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs:1\nawait new Promise(function() {});\n^\n\n\n\n"
+    },
+    {
+      "case": "pending.mjs",
+      "runtime": "before",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): SyntaxError: Unexpected keyword 'new'\n"
+    },
+    {
+      "case": "pending.mjs",
+      "runtime": "home-zig-js",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Module evaluation is still pending: packages/runtime/test/tool_modules/async/pending.mjs\n"
+    },
+    {
+      "case": "pending.mjs",
+      "runtime": "home-jsc",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: Module evaluation is still pending: packages/runtime/test/tool_modules/async/pending.mjs\n"
+    },
+    {
+      "case": "dependency-rejected.mjs",
+      "runtime": "node",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "file:///Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/rejected.mjs:2\nthrow new Error('async rejection witness');\n      ^\n\nError: async rejection witness\n    at file:///Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/rejected.mjs:2:7\n\nNode.js v26.10.0\n"
+    },
+    {
+      "case": "dependency-rejected.mjs",
+      "runtime": "before",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): SyntaxError: Unexpected identifier 'Promise'\n"
+    },
+    {
+      "case": "dependency-rejected.mjs",
+      "runtime": "home-zig-js",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: async rejection witness\n"
+    },
+    {
+      "case": "dependency-rejected.mjs",
+      "runtime": "home-jsc",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: async rejection witness\n"
+    },
+    {
+      "case": "sync-require.cjs",
+      "runtime": "node",
+      "exit_code": 0,
+      "stdout": "OK home-tool rejects synchronous async graph\n",
+      "stderr": ""
+    },
+    {
+      "case": "sync-require.cjs",
+      "runtime": "before",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): SyntaxError: Unexpected identifier 'Promise'\n"
+    },
+    {
+      "case": "sync-require.cjs",
+      "runtime": "home-zig-js",
+      "exit_code": 0,
+      "stdout": "OK home-tool rejects synchronous async graph\n",
+      "stderr": ""
+    },
+    {
+      "case": "sync-require.cjs",
+      "runtime": "home-jsc",
+      "exit_code": 0,
+      "stdout": "OK home-tool rejects synchronous async graph\n",
+      "stderr": ""
+    },
+    {
+      "case": "cycle-a.mjs",
+      "runtime": "node",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "case": "cycle-a.mjs",
+      "runtime": "before",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): SyntaxError: Unexpected identifier 'Promise'\n"
+    },
+    {
+      "case": "cycle-a.mjs",
+      "runtime": "home-zig-js",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\n"
+    },
+    {
+      "case": "cycle-a.mjs",
+      "runtime": "home-jsc",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\n"
+    },
+    {
+      "case": "cjs-await.cjs",
+      "runtime": "node",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "(node:42455) Warning: Failed to load the ES module: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cjs-await.cjs. Make sure to set \"type\": \"module\" in the nearest package.json file or use the .mjs extension.\n(Use `node --trace-warnings ...` to show where the warning was created)\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cjs-await.cjs:1\nawait Promise.resolve();\n^^^^^\n\nSyntaxError: await is only valid in async functions and the top level bodies of modules\n    at wrapSafe (node:internal/modules/cjs/loader:1888:18)\n    at Module._compile (node:internal/modules/cjs/loader:1930:20)\n    at Object..js (node:internal/modules/cjs/loader:2096:10)\n    at Module.load (node:internal/modules/cjs/loader:1678:32)\n    at Module._load (node:internal/modules/cjs/loader:1470:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:33:47\n\nNode.js v26.10.0\n"
+    },
+    {
+      "case": "cjs-await.cjs",
+      "runtime": "before",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): SyntaxError: Unexpected identifier 'Promise'\n"
+    },
+    {
+      "case": "cjs-await.cjs",
+      "runtime": "home-zig-js",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): SyntaxError: Unexpected identifier 'Promise'\n"
+    },
+    {
+      "case": "cjs-await.cjs",
+      "runtime": "home-jsc",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): SyntaxError: Unexpected identifier 'Promise'\n"
+    }
+  ]
+}
