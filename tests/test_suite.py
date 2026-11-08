@@ -146,6 +146,23 @@ class PlanTests(unittest.TestCase):
 
 
 class RuntimeRoutingTests(unittest.TestCase):
+    def test_scoped_package_bin_uses_installed_manifest_and_keeps_exit_status(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            package = root / "node_modules" / "@fixture" / "tools"
+            (package / "dist").mkdir(parents=True)
+            entry = package / "dist" / "different-name.mjs"
+            entry.write_text("throw new Error('routing-only fixture')")
+            (package / "package.json").write_text(json.dumps({"name": "@fixture/tools", "bin": {"actual-command": "./dist/different-name.mjs"}}))
+            fake_home = root / "fake-home"
+            fake_home.write_text(f"#!{sys.executable}\nimport sys,json\nprint(json.dumps(sys.argv[1:]))\nsys.exit(19)\n")
+            fake_home.chmod(0o755)
+            run.make_shims(root / "shims")
+            env = {**os.environ, "HOME_TOOL": str(fake_home)}
+            result = subprocess.run([str(root / "shims" / "bunx"), "--bun", "@fixture/tools", "build", "--flag"], cwd=root, env=env, capture_output=True, text=True)
+            self.assertEqual(result.returncode, 19, result.stderr)
+            self.assertEqual(json.loads(result.stdout), ["run", str(entry.resolve()), "build", "--flag"])
+
     def test_conditions_reach_home_without_consuming_entry_arguments(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

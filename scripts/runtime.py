@@ -6,6 +6,7 @@ Dependency installation uses a separately captured Bun path before these shims.
 """
 import json
 import os
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -43,6 +44,25 @@ def find_binary(name, cwd):
         path = directory / "node_modules" / ".bin" / name
         if path.is_file():
             return path.resolve()
+        # bunx/npx accept package names, which need not equal the executable
+        # name (e.g. @stacksjs/stx ships the stx bin). Use only an actually
+        # installed manifest and entry; never download or fall back to Bun.
+        if re.fullmatch(r"(?:@[A-Za-z0-9_.~-]+/)?[A-Za-z0-9_.~-]+", name) and name not in (".", ".."):
+            package = directory / "node_modules" / name
+            try:
+                data = json.loads((package / "package.json").read_text())
+            except (OSError, ValueError):
+                continue
+            if not isinstance(data, dict) or data.get("name") != name:
+                continue
+            bins = data.get("bin")
+            target = bins if isinstance(bins, str) else None
+            if isinstance(bins, dict):
+                target = bins.get(name.rsplit("/", 1)[-1])
+                if target is None and len(bins) == 1:
+                    target = next(iter(bins.values()))
+            if isinstance(target, str) and (package / target).is_file():
+                return (package / target).resolve()
     return None
 
 
