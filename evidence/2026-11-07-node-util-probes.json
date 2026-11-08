@@ -1,0 +1,109 @@
+{
+  "scope": "Actual Node/Bun/before/engine subprocesses; only stripVTControlCharacters is provided. 32 input strings plus 8 invalid types, repeated calls and ESM identity.",
+  "zig_version": "0.18.0-dev.146+35accc06e",
+  "home_parent": "447e22391599526cd41033722fb9fcb7fe85cbf1",
+  "engine_api_revision": "96ba2f58731d5798ec7af368e4341af7cd5a34d8",
+  "results": [
+    {
+      "runtime": "node",
+      "case": "node_util_entry.cjs",
+      "exit_code": 0,
+      "stdout": "{\"outputs\":[\"\",\"plain\",\"h\u00e9llo \ud83c\udf88 \u6f22\u5b57\",\"a\\u0000b\",\"\\t\\n\\r\",\"\\\\u001b[31m\",\"red\",\"RGB\",\"colon\",\"text\",\"8bit\",\"body\",\"body\",\"body\",\"label\",\"tail\",\"aveestore\",\"ascii\",\"hideshow\",\"text\",\"key\",\"up\",\"unterminated\\u001b[\",\"nterminated\",\"mnumber\",\"range\",\"multicolor\",\"\\u001b\",\"\u009b\",\"\\u001b\\\\terminator\",\"device\\u001b\\\\\",\"prefixmiddlesuffix\"],\"errors\":[[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"]]}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "node",
+      "case": "node_util_esm.mjs",
+      "exit_code": 0,
+      "stdout": "OK home-tool ESM VT controls\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "node_util_entry.cjs",
+      "exit_code": 0,
+      "stdout": "{\"outputs\":[\"\",\"plain\",\"h\u00e9llo \ud83c\udf88 \u6f22\u5b57\",\"a\\u0000b\",\"\\t\\n\\r\",\"\\\\u001b[31m\",\"red\",\"RGB\",\":2:1:2:3mcolon\",\"text\",\"8bit\",\"body\",\"body\",\"body\",\"label\",\"\u00e9\\n\u6f22\u5b57 \ud83c\udf88\\u001b\\\\tail\",\"aveestore\",\"ascii\",\"hideshow\",\"text\",\"key\",\"up\",\"unterminated\\u001b[\",\"nterminated\",\"mnumber\",\"range\",\"multicolor\",\"\\u001b\",\"\u009b\",\"\\u001b\\\\terminator\",\"\",\"prefixmiddlesuffix\"],\"errors\":[[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"]]}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "node_util_esm.mjs",
+      "exit_code": 0,
+      "stdout": "OK home-tool ESM VT controls\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "node_util_entry.cjs",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:util from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_util_entry.cjs\n"
+    },
+    {
+      "runtime": "before",
+      "case": "node_util_esm.mjs",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:util from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_util_esm.mjs\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "node_util_entry.cjs",
+      "exit_code": 0,
+      "stdout": "{\"outputs\":[\"\",\"plain\",\"h\u00e9llo \ud83c\udf88 \u6f22\u5b57\",\"a\\u0000b\",\"\\t\\n\\r\",\"\\\\u001b[31m\",\"red\",\"RGB\",\"colon\",\"text\",\"8bit\",\"body\",\"body\",\"body\",\"label\",\"tail\",\"aveestore\",\"ascii\",\"hideshow\",\"text\",\"key\",\"up\",\"unterminated\\u001b[\",\"nterminated\",\"mnumber\",\"range\",\"multicolor\",\"\\u001b\",\"\u009b\",\"\\u001b\\\\terminator\",\"device\\u001b\\\\\",\"prefixmiddlesuffix\"],\"errors\":[[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"]]}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "node_util_esm.mjs",
+      "exit_code": 0,
+      "stdout": "OK home-tool ESM VT controls\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "node_util_entry.cjs",
+      "exit_code": 0,
+      "stdout": "{\"outputs\":[\"\",\"plain\",\"h\u00e9llo \ud83c\udf88 \u6f22\u5b57\",\"a\\u0000b\",\"\\t\\n\\r\",\"\\\\u001b[31m\",\"red\",\"RGB\",\"colon\",\"text\",\"8bit\",\"body\",\"body\",\"body\",\"label\",\"tail\",\"aveestore\",\"ascii\",\"hideshow\",\"text\",\"key\",\"up\",\"unterminated\\u001b[\",\"nterminated\",\"mnumber\",\"range\",\"multicolor\",\"\\u001b\",\"\u009b\",\"\\u001b\\\\terminator\",\"device\\u001b\\\\\",\"prefixmiddlesuffix\"],\"errors\":[[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"]]}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "node_util_esm.mjs",
+      "exit_code": 0,
+      "stdout": "OK home-tool ESM VT controls\n",
+      "stderr": ""
+    }
+  ],
+  "hashes": {
+    "node": "600484350350ab7852b577ddf97e7888f498334bef3ca74e73ea3b507a5b6fac",
+    "bun": "6b947fc4b25d640c482e40f253cbb2df692a555ce29c247844b766d8fea16dca",
+    "before": "7abeda5bad376ddb9ae9a480844ff37c451da0695c24a0db83c2dd2c42972fe5",
+    "home-zig-js": "3657c833923fef254e7ead876811b740ffb82fc46b27adee99e948352a78f93b",
+    "home-jsc": "a217a8fde6c7c61a875d62f29177187e3140030ba247b66cd5fd408679824dd4",
+    "node_util_entry.cjs": "076d8f3241ada588e72a3e16364b29fc532347af30af08bb50be01c33e64b9c2",
+    "node_util_esm.mjs": "f81a98e8da8a5eb0ffe5727006a806f523ce688ff474fa60deef56c7ec22797f",
+    "node_util.expected.json": "bd58db1adbf32f5c01a73e12ca689de25a25fbd130eadabe9d92c930081fc9c2",
+    "node_util_strings.json": "c12c6a4a208c3bb54f06c4f9302879a56e60f23c3641d0b8ef0da452a9a2daa0"
+  },
+  "reference_differences": [
+    {
+      "index": 8,
+      "input": "\u001b[38:2:1:2:3mcolon",
+      "node": "colon",
+      "bun": ":2:1:2:3mcolon"
+    },
+    {
+      "index": 15,
+      "input": "\u001b]0;h\u00e9\n\u6f22\u5b57 \ud83c\udf88\u001b\\tail",
+      "node": "tail",
+      "bun": "\u00e9\n\u6f22\u5b57 \ud83c\udf88\u001b\\tail"
+    },
+    {
+      "index": 30,
+      "input": "\u001bPdevice\u001b\\",
+      "node": "device\u001b\\",
+      "bun": ""
+    }
+  ]
+}

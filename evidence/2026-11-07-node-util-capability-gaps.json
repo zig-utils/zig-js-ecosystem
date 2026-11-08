@@ -1,0 +1,133 @@
+{
+  "scope": "Executed missing util capabilities; no placeholder inspect/format/promisify/type helpers.",
+  "results": [
+    {
+      "runtime": "node",
+      "case": "inspect",
+      "source": "console.log(require(\"node:util\").inspect({value:42}))",
+      "exit_code": 0,
+      "stdout": "{ value: 42 }\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "inspect",
+      "source": "console.log(require(\"node:util\").inspect({value:42}))",
+      "exit_code": 0,
+      "stdout": "{ value: 42 }\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "inspect",
+      "source": "console.log(require(\"node:util\").inspect({value:42}))",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: require(\"node:util\").inspect is not a function. (In 'require(\"node:util\").inspect({ value: 42 })', 'require(\"node:util\").inspect' is undefined)\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "inspect",
+      "source": "console.log(require(\"node:util\").inspect({value:42}))",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): TypeError: require(\"node:util\").inspect is not a function. (In 'require(\"node:util\").inspect({ value: 42 })', 'require(\"node:util\").inspect' is undefined)\n"
+    },
+    {
+      "runtime": "node",
+      "case": "format",
+      "source": "console.log(require(\"node:util\").format(\"answer %d\",42))",
+      "exit_code": 0,
+      "stdout": "answer 42\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "format",
+      "source": "console.log(require(\"node:util\").format(\"answer %d\",42))",
+      "exit_code": 0,
+      "stdout": "answer 42\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "format",
+      "source": "console.log(require(\"node:util\").format(\"answer %d\",42))",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: require(\"node:util\").format is not a function. (In 'require(\"node:util\").format(\"answer %d\", 42)', 'require(\"node:util\").format' is undefined)\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "format",
+      "source": "console.log(require(\"node:util\").format(\"answer %d\",42))",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): TypeError: require(\"node:util\").format is not a function. (In 'require(\"node:util\").format(\"answer %d\", 42)', 'require(\"node:util\").format' is undefined)\n"
+    },
+    {
+      "runtime": "node",
+      "case": "promisify",
+      "source": "require(\"node:util\").promisify((x,cb)=>cb(null,x))(12).then(console.log)",
+      "exit_code": 0,
+      "stdout": "12\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "promisify",
+      "source": "require(\"node:util\").promisify((x,cb)=>cb(null,x))(12).then(console.log)",
+      "exit_code": 0,
+      "stdout": "12\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "promisify",
+      "source": "require(\"node:util\").promisify((x,cb)=>cb(null,x))(12).then(console.log)",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: require(\"node:util\").promisify is not a function. (In 'require(\"node:util\").promisify((x, cb) => cb(null, x))', 'require(\"node:util\").promisify' is undefined)\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "promisify",
+      "source": "require(\"node:util\").promisify((x,cb)=>cb(null,x))(12).then(console.log)",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): TypeError: require(\"node:util\").promisify is not a function. (In 'require(\"node:util\").promisify((x, cb) => cb(null, x))', 'require(\"node:util\").promisify' is undefined)\n"
+    },
+    {
+      "runtime": "node",
+      "case": "types",
+      "source": "console.log(require(\"node:util\").types.isPromise(Promise.resolve()))",
+      "exit_code": 0,
+      "stdout": "true\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "types",
+      "source": "console.log(require(\"node:util\").types.isPromise(Promise.resolve()))",
+      "exit_code": 0,
+      "stdout": "true\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "types",
+      "source": "console.log(require(\"node:util\").types.isPromise(Promise.resolve()))",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: undefined is not an object (evaluating 'require(\"node:util\").types.isPromise')\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "types",
+      "source": "console.log(require(\"node:util\").types.isPromise(Promise.resolve()))",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): TypeError: undefined is not an object (evaluating 'require(\"node:util\").types.isPromise')\n"
+    }
+  ]
+}
