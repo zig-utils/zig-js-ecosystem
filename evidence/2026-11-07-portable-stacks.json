@@ -1,0 +1,158 @@
+{
+  "kind": "selected per-consumer evidence, not a complete report",
+  "run": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42431014472",
+  "job": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42431014472/job/128581280991",
+  "repository": "stacksjs/stacks",
+  "sha": "95e5f0e3309d1a631fa0fd798e256c981fe4eca4",
+  "runtime_provenance": {
+    "engine_sha": "a7573081ab7ff96823b207c2948c7a97fe2b8c63",
+    "suite_ref": "270cc7d24a9b8c443f23e33f60ad1e5bff84e878",
+    "home_repository": "home-lang/home",
+    "home_ref": "1ffd5237378104bdfbdce1b7946e0d7742ece337",
+    "zig_version": "0.18.0-dev.146+35accc06e",
+    "build_cpu": "baseline",
+    "sha256": {
+      "home-tool": "babe57acac74909fd4b11a4e2627581f264683a6381bf50191af4199c4112013",
+      "engine/zig-out/lib/libzig-js.a": "c08a05bfabce157c4c77c178a4eda39f9b16e308fd5a4136758b4d0f519ec1d0"
+    }
+  },
+  "scope_count": 99,
+  "check_status_counts": {
+    "passed": 140,
+    "failed": 326,
+    "unsupported": 356,
+    "timed-out": 1,
+    "not-run": 104
+  },
+  "checks": [
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.064,
+      "log": "0004.log",
+      "label": "verify Home.engine",
+      "lane": "engine",
+      "command": [
+        "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/runtime/home-tool",
+        "eval",
+        "if (Home.engine !== \"zig-js\") throw new Error(\"wrong engine\"); console.log(\"ECOSYSTEM ENGINE zig-js\");"
+      ],
+      "engine_invocations": 0
+    },
+    {
+      "status": "unsupported",
+      "exit_code": 78,
+      "seconds": 0.032,
+      "log": "0016.log",
+      "label": ".: build",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "./buddy build"
+      ],
+      "engine_invocations": 0,
+      "reason": "Unsupported runtime flag: bun --conditions"
+    },
+    {
+      "status": "unsupported",
+      "exit_code": 78,
+      "seconds": 0.032,
+      "log": "0017.log",
+      "label": ".: test",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "./buddy test"
+      ],
+      "engine_invocations": 0,
+      "reason": "Unsupported runtime flag: bun --conditions"
+    },
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 0.114,
+      "log": "0018.log",
+      "label": ".: typecheck",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)"
+      ],
+      "engine_invocations": 1
+    },
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 0.315,
+      "log": "0019.log",
+      "label": "storage/framework/api: build",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun build.ts"
+      ],
+      "engine_invocations": 1
+    },
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 65.699,
+      "log": "0654.log",
+      "label": ".: build",
+      "lane": "reference",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "./buddy build"
+      ],
+      "engine_invocations": 0
+    },
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 54.374,
+      "log": "0655.log",
+      "label": ".: test",
+      "lane": "reference",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "./buddy test"
+      ],
+      "engine_invocations": 0
+    },
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 26.226,
+      "log": "0656.log",
+      "label": ".: typecheck",
+      "lane": "reference",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)"
+      ],
+      "engine_invocations": 0
+    },
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.315,
+      "log": "0657.log",
+      "label": "storage/framework/api: build",
+      "lane": "reference",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun build.ts"
+      ],
+      "engine_invocations": 0
+    }
+  ],
+  "engine_probe_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/runtime/home-tool\", \"eval\", \"if (Home.engine !== \\\"zig-js\\\") throw new Error(\\\"wrong engine\\\"); console.log(\\\"ECOSYSTEM ENGINE zig-js\\\");\"]\nECOSYSTEM ENGINE zig-js\n\nECOSYSTEM RESULT: passed, exit 0\n"
+}

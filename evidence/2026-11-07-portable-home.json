@@ -1,0 +1,123 @@
+{
+  "kind": "selected per-consumer evidence, not a complete report",
+  "run": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42431014472",
+  "job": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42431014472/job/128581281020",
+  "repository": "home-lang/home",
+  "sha": "1ffd5237378104bdfbdce1b7946e0d7742ece337",
+  "runtime_provenance": {
+    "engine_sha": "a7573081ab7ff96823b207c2948c7a97fe2b8c63",
+    "suite_ref": "270cc7d24a9b8c443f23e33f60ad1e5bff84e878",
+    "home_repository": "home-lang/home",
+    "home_ref": "1ffd5237378104bdfbdce1b7946e0d7742ece337",
+    "zig_version": "0.18.0-dev.146+35accc06e",
+    "build_cpu": "baseline",
+    "sha256": {
+      "home-tool": "babe57acac74909fd4b11a4e2627581f264683a6381bf50191af4199c4112013",
+      "engine/zig-out/lib/libzig-js.a": "c08a05bfabce157c4c77c178a4eda39f9b16e308fd5a4136758b4d0f519ec1d0"
+    }
+  },
+  "scope_count": 46,
+  "check_status_counts": {
+    "passed": 109,
+    "failed": 82,
+    "timed-out": 2,
+    "unsupported": 39
+  },
+  "integration_and_engine_checks": [
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.004,
+      "log": "0001.log",
+      "label": "git init",
+      "lane": "setup",
+      "command": [
+        "git",
+        "init",
+        "--quiet"
+      ],
+      "engine_invocations": 0
+    },
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 20.06,
+      "log": "0002.log",
+      "label": "fetch exact consumer SHA",
+      "lane": "setup",
+      "command": [
+        "git",
+        "-c",
+        "credential.helper=",
+        "fetch",
+        "--depth=1",
+        "https://github.com/home-lang/home.git",
+        "1ffd5237378104bdfbdce1b7946e0d7742ece337"
+      ],
+      "engine_invocations": 0
+    },
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 7.183,
+      "log": "0003.log",
+      "label": "checkout",
+      "lane": "setup",
+      "command": [
+        "git",
+        "checkout",
+        "--quiet",
+        "--detach",
+        "FETCH_HEAD"
+      ],
+      "engine_invocations": 0
+    },
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 101.454,
+      "log": "0004.log",
+      "label": "Home integration: home-tool",
+      "lane": "direct-consumer",
+      "command": [
+        "zig",
+        "build",
+        "home-tool",
+        "-Dtool-js-engine=zig-js",
+        "-Dzig-js-root=/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/runtime/engine"
+      ],
+      "engine_invocations": 0
+    },
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.565,
+      "log": "0005.log",
+      "label": "Home integration: home-tool-smoke",
+      "lane": "direct-consumer",
+      "command": [
+        "zig",
+        "build",
+        "home-tool-smoke",
+        "-Dtool-js-engine=zig-js",
+        "-Dzig-js-root=/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/runtime/engine"
+      ],
+      "engine_invocations": 0
+    },
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.114,
+      "log": "0006.log",
+      "label": "verify Home.engine",
+      "lane": "engine",
+      "command": [
+        "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/runtime/home-tool",
+        "eval",
+        "if (Home.engine !== \"zig-js\") throw new Error(\"wrong engine\"); console.log(\"ECOSYSTEM ENGINE zig-js\");"
+      ],
+      "engine_invocations": 0
+    }
+  ],
+  "engine_probe_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/runtime/home-tool\", \"eval\", \"if (Home.engine !== \\\"zig-js\\\") throw new Error(\\\"wrong engine\\\"); console.log(\\\"ECOSYSTEM ENGINE zig-js\\\");\"]\nECOSYSTEM ENGINE zig-js\n\nECOSYSTEM RESULT: passed, exit 0\n"
+}
