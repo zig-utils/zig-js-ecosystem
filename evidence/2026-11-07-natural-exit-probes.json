@@ -1,0 +1,222 @@
+{
+  "home_revision": "1195b45fe74a189ec781d8edb761b7f017c0e7fa",
+  "validation_scope": "local Home CLI; existing local zig-js archive revision is not established; exact suite compiler verification is pending",
+  "versions": {
+    "node": "v26.10.0",
+    "bun": "1.4.4"
+  },
+  "zig_version": "0.17.0-dev.1857+3c46da14d",
+  "local_archive_sha256": "fc77a2088037484c421e44b60e53f4e385d837ac05b34c8e56d5286e98f34983",
+  "probes": [
+    {
+      "label": "exitCode 23",
+      "source": "process.exitCode = 23;",
+      "executions": [
+        {
+          "program": "node",
+          "exit_code": 23,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "program": "bun",
+          "exit_code": 23,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "program": "/tmp/zig-js-ecosystem-research/meta/home-tool-before-exit-code",
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "program": "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+          "exit_code": 23,
+          "stdout": "",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "label": "string exitCode",
+      "source": "process.exitCode = \"23\";",
+      "executions": [
+        {
+          "program": "node",
+          "exit_code": 23,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "program": "bun",
+          "exit_code": 23,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "program": "/tmp/zig-js-ecosystem-research/meta/home-tool-before-exit-code",
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "program": "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+          "exit_code": 23,
+          "stdout": "",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "label": "exit listener changes code",
+      "source": "process.exitCode = 5; process.on(\"exit\", function(code) { if (code !== 5) throw new Error(\"bad exit code\"); process.exitCode = 7; });",
+      "executions": [
+        {
+          "program": "node",
+          "exit_code": 7,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "program": "bun",
+          "exit_code": 7,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "program": "/tmp/zig-js-ecosystem-research/meta/home-tool-before-exit-code",
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "program": "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+          "exit_code": 7,
+          "stdout": "",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "label": "exit listener throws",
+      "source": "process.on(\"exit\", function() { throw new Error(\"exit listener witness\"); });",
+      "executions": [
+        {
+          "program": "node",
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "[eval]:1\nprocess.on(\"exit\", function() { throw new Error(\"exit listener witness\"); });\n                                ^\n\nError: exit listener witness\n    at process.<anonymous> ([eval]:1:39)\n    at process.emit (node:events:514:20)\n\nNode.js v26.10.0\n"
+        },
+        {
+          "program": "bun",
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "1 | process.on(\"exit\", function() { throw new Error(\"exit listener witness\"); });\n                                                                           ^\nerror: exit listener witness\n      at <anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/[eval]:1:72)\n"
+        },
+        {
+          "program": "/tmp/zig-js-ecosystem-research/meta/home-tool-before-exit-code",
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "program": "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "home-tool (zig-js): Error: exit listener witness\n"
+        }
+      ]
+    },
+    {
+      "label": "explicit exit",
+      "source": "process.exit(11);",
+      "executions": [
+        {
+          "program": "node",
+          "exit_code": 11,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "program": "bun",
+          "exit_code": 11,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "program": "/tmp/zig-js-ecosystem-research/meta/home-tool-before-exit-code",
+          "exit_code": 11,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "program": "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+          "exit_code": 11,
+          "stdout": "",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "label": "Promise exitCode",
+      "source": "Promise.resolve().then(function(){ process.exitCode=19; });",
+      "executions": [
+        {
+          "program": "node",
+          "exit_code": 19,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "program": "bun",
+          "exit_code": 19,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "program": "/tmp/zig-js-ecosystem-research/meta/home-tool-before-exit-code",
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "program": "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+          "exit_code": 19,
+          "stdout": "",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "label": "nextTick exitCode",
+      "source": "process.nextTick(function(){ process.exitCode=17; });",
+      "executions": [
+        {
+          "program": "node",
+          "exit_code": 17,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "program": "bun",
+          "exit_code": 17,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "program": "/tmp/zig-js-ecosystem-research/meta/home-tool-before-exit-code",
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "program": "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+          "exit_code": 17,
+          "stdout": "",
+          "stderr": ""
+        }
+      ]
+    }
+  ]
+}
