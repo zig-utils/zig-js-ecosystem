@@ -1,0 +1,543 @@
+{
+  "home_ref": "ed8d3107690e0454efd3105d7407ef1606ae4a4b",
+  "engine_sha": "9285179ffe22db055c2c24e9cffd94b3da1a4502",
+  "before_home_ref": "9901f9d7ea64019af11eb68b7eb254be73e69ddc",
+  "scope": "Native OS monotonic clock capability, not a throughput benchmark or a complete Performance API claim. All consumers still fail.",
+  "requirements": [
+    {
+      "runtime": "node",
+      "source": "const now=performance.now;\nlet detached,forged;try{detached=now();}catch(e){detached=e.name;}try{forged=now.call({});}catch(e){forged=e.name;}\nconsole.log(JSON.stringify({detached:typeof detached,forged:typeof forged,forgedValue:typeof forged==='string'?forged:undefined,toJSON:performance.toJSON(),keys:Object.keys(performance),origin:Object.getOwnPropertyDescriptor(Object.getPrototypeOf(performance),'timeOrigin'),name:performance.constructor.name,tag:Object.prototype.toString.call(performance),globalDescriptor:Object.getOwnPropertyDescriptor(globalThis,'performance')}));\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "-e",
+        "const now=performance.now;\nlet detached,forged;try{detached=now();}catch(e){detached=e.name;}try{forged=now.call({});}catch(e){forged=e.name;}\nconsole.log(JSON.stringify({detached:typeof detached,forged:typeof forged,forgedValue:typeof forged==='string'?forged:undefined,toJSON:performance.toJSON(),keys:Object.keys(performance),origin:Object.getOwnPropertyDescriptor(Object.getPrototypeOf(performance),'timeOrigin'),name:performance.constructor.name,tag:Object.prototype.toString.call(performance),globalDescriptor:Object.getOwnPropertyDescriptor(globalThis,'performance')}));\n"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"detached\":\"string\",\"forged\":\"string\",\"forgedValue\":\"TypeError\",\"toJSON\":{\"nodeTiming\":{\"name\":\"node\",\"entryType\":\"node\",\"startTime\":0,\"duration\":13.292625,\"nodeStart\":2.005458999425173,\"v8Start\":2.8493339978158474,\"bootstrapComplete\":11.889458999037743,\"environment\":8.430083997547626,\"loopStart\":-1,\"loopExit\":-1,\"idleTime\":0},\"timeOrigin\":1794133095027.984,\"eventLoopUtilization\":{\"idle\":0,\"active\":0,\"utilization\":0}},\"keys\":[],\"origin\":{\"enumerable\":true,\"configurable\":true},\"name\":\"Performance\",\"tag\":\"[object Performance]\",\"globalDescriptor\":{\"enumerable\":true,\"configurable\":true}}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "source": "const now=performance.now;\nlet detached,forged;try{detached=now();}catch(e){detached=e.name;}try{forged=now.call({});}catch(e){forged=e.name;}\nconsole.log(JSON.stringify({detached:typeof detached,forged:typeof forged,forgedValue:typeof forged==='string'?forged:undefined,toJSON:performance.toJSON(),keys:Object.keys(performance),origin:Object.getOwnPropertyDescriptor(Object.getPrototypeOf(performance),'timeOrigin'),name:performance.constructor.name,tag:Object.prototype.toString.call(performance),globalDescriptor:Object.getOwnPropertyDescriptor(globalThis,'performance')}));\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "-e",
+        "const now=performance.now;\nlet detached,forged;try{detached=now();}catch(e){detached=e.name;}try{forged=now.call({});}catch(e){forged=e.name;}\nconsole.log(JSON.stringify({detached:typeof detached,forged:typeof forged,forgedValue:typeof forged==='string'?forged:undefined,toJSON:performance.toJSON(),keys:Object.keys(performance),origin:Object.getOwnPropertyDescriptor(Object.getPrototypeOf(performance),'timeOrigin'),name:performance.constructor.name,tag:Object.prototype.toString.call(performance),globalDescriptor:Object.getOwnPropertyDescriptor(globalThis,'performance')}));\n"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"detached\":\"number\",\"forged\":\"number\",\"toJSON\":{\"timeOrigin\":1794133095054.434,\"timing\":{\"navigationStart\":0,\"unloadEventStart\":0,\"unloadEventEnd\":0,\"redirectStart\":0,\"redirectEnd\":0,\"fetchStart\":0,\"domainLookupStart\":0,\"domainLookupEnd\":0,\"connectStart\":0,\"connectEnd\":0,\"secureConnectionStart\":0,\"requestStart\":0,\"responseStart\":0,\"responseEnd\":0,\"domLoading\":0,\"domInteractive\":0,\"domContentLoadedEventStart\":0,\"domContentLoadedEventEnd\":0,\"domComplete\":0,\"loadEventStart\":0,\"loadEventEnd\":0}},\"keys\":[\"now\"],\"origin\":{\"enumerable\":true,\"configurable\":true},\"name\":\"Performance\",\"tag\":\"[object Performance]\",\"globalDescriptor\":{\"value\":{\"timeOrigin\":1794133095054.434,\"timing\":{\"navigationStart\":0,\"unloadEventStart\":0,\"unloadEventEnd\":0,\"redirectStart\":0,\"redirectEnd\":0,\"fetchStart\":0,\"domainLookupStart\":0,\"domainLookupEnd\":0,\"connectStart\":0,\"connectEnd\":0,\"secureConnectionStart\":0,\"requestStart\":0,\"responseStart\":0,\"responseEnd\":0,\"domLoading\":0,\"domInteractive\":0,\"domContentLoadedEventStart\":0,\"domContentLoadedEventEnd\":0,\"domComplete\":0,\"loadEventStart\":0,\"loadEventEnd\":0}},\"writable\":true,\"enumerable\":true,\"configurable\":true}}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "source": "const now=performance.now;\nlet detached,forged;try{detached=now();}catch(e){detached=e.name;}try{forged=now.call({});}catch(e){forged=e.name;}\nconsole.log(JSON.stringify({detached:typeof detached,forged:typeof forged,forgedValue:typeof forged==='string'?forged:undefined,toJSON:performance.toJSON(),keys:Object.keys(performance),origin:Object.getOwnPropertyDescriptor(Object.getPrototypeOf(performance),'timeOrigin'),name:performance.constructor.name,tag:Object.prototype.toString.call(performance),globalDescriptor:Object.getOwnPropertyDescriptor(globalThis,'performance')}));\n",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "eval",
+        "const now=performance.now;\nlet detached,forged;try{detached=now();}catch(e){detached=e.name;}try{forged=now.call({});}catch(e){forged=e.name;}\nconsole.log(JSON.stringify({detached:typeof detached,forged:typeof forged,forgedValue:typeof forged==='string'?forged:undefined,toJSON:performance.toJSON(),keys:Object.keys(performance),origin:Object.getOwnPropertyDescriptor(Object.getPrototypeOf(performance),'timeOrigin'),name:performance.constructor.name,tag:Object.prototype.toString.call(performance),globalDescriptor:Object.getOwnPropertyDescriptor(globalThis,'performance')}));\n"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): ReferenceError: Can't find variable: performance\n"
+    }
+  ],
+  "operations": [
+    {
+      "fixture": "contract",
+      "runtime": "node",
+      "source": "import hooks, { performance as clock, Performance } from 'node:perf_hooks';\nimport alias from 'perf_hooks';\nfunction check(value, message) { if (!value) throw new Error(message); }\ncheck(hooks === alias && clock === globalThis.performance, 'actual module identity');\ncheck(Performance === globalThis.Performance && clock instanceof Performance, 'actual constructor identity');\ncheck(Object.prototype.toString.call(clock) === '[object Performance]', 'clock tag');\ntry { new Performance(); throw new Error('constructed'); } catch (error) { check(error instanceof TypeError, 'constructor refusal'); }\nconst origin = clock.timeOrigin;\ncheck(Number.isFinite(origin) && Math.abs(Date.now() - origin) < 60000, 'real wall origin');\nconst first = clock.now();\ncheck(Number.isFinite(first) && first >= 0, 'real relative sample');\nconst nativeStart = process.hrtime.bigint();\nlet previous = first;\nlet reads = 0;\nwhile (Number(process.hrtime.bigint() - nativeStart) < 10000000) {\n  const current = clock.now();\n  check(current >= previous, 'monotonic samples');\n  previous = current;\n  reads++;\n}\nconst elapsedNative = Number(process.hrtime.bigint() - nativeStart) / 1e6;\nconst elapsed = clock.now() - first;\ncheck(reads > 0 && elapsed >= 1 && Math.abs(elapsedNative - elapsed) < 100, 'actual elapsed interval');\nconst realDateNow = Date.now;\nconst realHrtime = process.hrtime;\nconst beforeMutation = clock.now();\ntry {\n  Date.now = () => -123456;\n  process.hrtime = () => [0, 0];\n  check(clock.now() >= beforeMutation && clock.timeOrigin === origin, 'independent native clock');\n}\nfinally {\n  Date.now = realDateNow;\n  process.hrtime = realHrtime;\n}\ncheck(clock.toJSON().timeOrigin === origin && JSON.parse(JSON.stringify(clock)).timeOrigin === origin, 'origin serialization');\nconsole.log('OK actual native monotonic Performance clock');\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/contract.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual native monotonic Performance clock\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "contract",
+      "runtime": "bun",
+      "source": "import hooks, { performance as clock, Performance } from 'node:perf_hooks';\nimport alias from 'perf_hooks';\nfunction check(value, message) { if (!value) throw new Error(message); }\ncheck(hooks === alias && clock === globalThis.performance, 'actual module identity');\ncheck(Performance === globalThis.Performance && clock instanceof Performance, 'actual constructor identity');\ncheck(Object.prototype.toString.call(clock) === '[object Performance]', 'clock tag');\ntry { new Performance(); throw new Error('constructed'); } catch (error) { check(error instanceof TypeError, 'constructor refusal'); }\nconst origin = clock.timeOrigin;\ncheck(Number.isFinite(origin) && Math.abs(Date.now() - origin) < 60000, 'real wall origin');\nconst first = clock.now();\ncheck(Number.isFinite(first) && first >= 0, 'real relative sample');\nconst nativeStart = process.hrtime.bigint();\nlet previous = first;\nlet reads = 0;\nwhile (Number(process.hrtime.bigint() - nativeStart) < 10000000) {\n  const current = clock.now();\n  check(current >= previous, 'monotonic samples');\n  previous = current;\n  reads++;\n}\nconst elapsedNative = Number(process.hrtime.bigint() - nativeStart) / 1e6;\nconst elapsed = clock.now() - first;\ncheck(reads > 0 && elapsed >= 1 && Math.abs(elapsedNative - elapsed) < 100, 'actual elapsed interval');\nconst realDateNow = Date.now;\nconst realHrtime = process.hrtime;\nconst beforeMutation = clock.now();\ntry {\n  Date.now = () => -123456;\n  process.hrtime = () => [0, 0];\n  check(clock.now() >= beforeMutation && clock.timeOrigin === origin, 'independent native clock');\n}\nfinally {\n  Date.now = realDateNow;\n  process.hrtime = realHrtime;\n}\ncheck(clock.toJSON().timeOrigin === origin && JSON.parse(JSON.stringify(clock)).timeOrigin === origin, 'origin serialization');\nconsole.log('OK actual native monotonic Performance clock');\n",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/contract.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual native monotonic Performance clock\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "contract",
+      "runtime": "before",
+      "source": "import hooks, { performance as clock, Performance } from 'node:perf_hooks';\nimport alias from 'perf_hooks';\nfunction check(value, message) { if (!value) throw new Error(message); }\ncheck(hooks === alias && clock === globalThis.performance, 'actual module identity');\ncheck(Performance === globalThis.Performance && clock instanceof Performance, 'actual constructor identity');\ncheck(Object.prototype.toString.call(clock) === '[object Performance]', 'clock tag');\ntry { new Performance(); throw new Error('constructed'); } catch (error) { check(error instanceof TypeError, 'constructor refusal'); }\nconst origin = clock.timeOrigin;\ncheck(Number.isFinite(origin) && Math.abs(Date.now() - origin) < 60000, 'real wall origin');\nconst first = clock.now();\ncheck(Number.isFinite(first) && first >= 0, 'real relative sample');\nconst nativeStart = process.hrtime.bigint();\nlet previous = first;\nlet reads = 0;\nwhile (Number(process.hrtime.bigint() - nativeStart) < 10000000) {\n  const current = clock.now();\n  check(current >= previous, 'monotonic samples');\n  previous = current;\n  reads++;\n}\nconst elapsedNative = Number(process.hrtime.bigint() - nativeStart) / 1e6;\nconst elapsed = clock.now() - first;\ncheck(reads > 0 && elapsed >= 1 && Math.abs(elapsedNative - elapsed) < 100, 'actual elapsed interval');\nconst realDateNow = Date.now;\nconst realHrtime = process.hrtime;\nconst beforeMutation = clock.now();\ntry {\n  Date.now = () => -123456;\n  process.hrtime = () => [0, 0];\n  check(clock.now() >= beforeMutation && clock.timeOrigin === origin, 'independent native clock');\n}\nfinally {\n  Date.now = realDateNow;\n  process.hrtime = realHrtime;\n}\ncheck(clock.toJSON().timeOrigin === origin && JSON.parse(JSON.stringify(clock)).timeOrigin === origin, 'origin serialization');\nconsole.log('OK actual native monotonic Performance clock');\n",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/home-tool-before",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/contract.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:perf_hooks from /Users/chris/.cache/zig-js-ecosystem-research/performance/contract.mjs\n"
+    },
+    {
+      "fixture": "contract",
+      "runtime": "zig-js",
+      "source": "import hooks, { performance as clock, Performance } from 'node:perf_hooks';\nimport alias from 'perf_hooks';\nfunction check(value, message) { if (!value) throw new Error(message); }\ncheck(hooks === alias && clock === globalThis.performance, 'actual module identity');\ncheck(Performance === globalThis.Performance && clock instanceof Performance, 'actual constructor identity');\ncheck(Object.prototype.toString.call(clock) === '[object Performance]', 'clock tag');\ntry { new Performance(); throw new Error('constructed'); } catch (error) { check(error instanceof TypeError, 'constructor refusal'); }\nconst origin = clock.timeOrigin;\ncheck(Number.isFinite(origin) && Math.abs(Date.now() - origin) < 60000, 'real wall origin');\nconst first = clock.now();\ncheck(Number.isFinite(first) && first >= 0, 'real relative sample');\nconst nativeStart = process.hrtime.bigint();\nlet previous = first;\nlet reads = 0;\nwhile (Number(process.hrtime.bigint() - nativeStart) < 10000000) {\n  const current = clock.now();\n  check(current >= previous, 'monotonic samples');\n  previous = current;\n  reads++;\n}\nconst elapsedNative = Number(process.hrtime.bigint() - nativeStart) / 1e6;\nconst elapsed = clock.now() - first;\ncheck(reads > 0 && elapsed >= 1 && Math.abs(elapsedNative - elapsed) < 100, 'actual elapsed interval');\nconst realDateNow = Date.now;\nconst realHrtime = process.hrtime;\nconst beforeMutation = clock.now();\ntry {\n  Date.now = () => -123456;\n  process.hrtime = () => [0, 0];\n  check(clock.now() >= beforeMutation && clock.timeOrigin === origin, 'independent native clock');\n}\nfinally {\n  Date.now = realDateNow;\n  process.hrtime = realHrtime;\n}\ncheck(clock.toJSON().timeOrigin === origin && JSON.parse(JSON.stringify(clock)).timeOrigin === origin, 'origin serialization');\nconsole.log('OK actual native monotonic Performance clock');\n",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/contract.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual native monotonic Performance clock\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "contract",
+      "runtime": "jsc",
+      "source": "import hooks, { performance as clock, Performance } from 'node:perf_hooks';\nimport alias from 'perf_hooks';\nfunction check(value, message) { if (!value) throw new Error(message); }\ncheck(hooks === alias && clock === globalThis.performance, 'actual module identity');\ncheck(Performance === globalThis.Performance && clock instanceof Performance, 'actual constructor identity');\ncheck(Object.prototype.toString.call(clock) === '[object Performance]', 'clock tag');\ntry { new Performance(); throw new Error('constructed'); } catch (error) { check(error instanceof TypeError, 'constructor refusal'); }\nconst origin = clock.timeOrigin;\ncheck(Number.isFinite(origin) && Math.abs(Date.now() - origin) < 60000, 'real wall origin');\nconst first = clock.now();\ncheck(Number.isFinite(first) && first >= 0, 'real relative sample');\nconst nativeStart = process.hrtime.bigint();\nlet previous = first;\nlet reads = 0;\nwhile (Number(process.hrtime.bigint() - nativeStart) < 10000000) {\n  const current = clock.now();\n  check(current >= previous, 'monotonic samples');\n  previous = current;\n  reads++;\n}\nconst elapsedNative = Number(process.hrtime.bigint() - nativeStart) / 1e6;\nconst elapsed = clock.now() - first;\ncheck(reads > 0 && elapsed >= 1 && Math.abs(elapsedNative - elapsed) < 100, 'actual elapsed interval');\nconst realDateNow = Date.now;\nconst realHrtime = process.hrtime;\nconst beforeMutation = clock.now();\ntry {\n  Date.now = () => -123456;\n  process.hrtime = () => [0, 0];\n  check(clock.now() >= beforeMutation && clock.timeOrigin === origin, 'independent native clock');\n}\nfinally {\n  Date.now = realDateNow;\n  process.hrtime = realHrtime;\n}\ncheck(clock.toJSON().timeOrigin === origin && JSON.parse(JSON.stringify(clock)).timeOrigin === origin, 'origin serialization');\nconsole.log('OK actual native monotonic Performance clock');\n",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/jsc/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/contract.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual native monotonic Performance clock\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "native-samples",
+      "runtime": "node",
+      "source": "const origin=performance.timeOrigin;const start=performance.now();const epoch=Date.now();const native=process.hrtime.bigint();let previous=start,reads=0;while(Number(process.hrtime.bigint()-native)<15000000){const n=performance.now();if(n<previous)throw Error('clock moved backwards');previous=n;reads++;}const elapsed=performance.now()-start;const real=Number(process.hrtime.bigint()-native)/1e6;if(!reads||elapsed<1||Math.abs(elapsed-real)>100||Math.abs(origin+start-epoch)>60000)throw Error('real elapsed/origin mismatch');console.log(JSON.stringify({reads,elapsed,real,timeOrigin:origin,start,epoch}));",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/native-samples.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"reads\":277583,\"elapsed\":15.025500000000001,\"real\":15.028166,\"timeOrigin\":1794133312100.528,\"start\":12.60125,\"epoch\":1794133312113}\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "native-samples",
+      "runtime": "bun",
+      "source": "const origin=performance.timeOrigin;const start=performance.now();const epoch=Date.now();const native=process.hrtime.bigint();let previous=start,reads=0;while(Number(process.hrtime.bigint()-native)<15000000){const n=performance.now();if(n<previous)throw Error('clock moved backwards');previous=n;reads++;}const elapsed=performance.now()-start;const real=Number(process.hrtime.bigint()-native)/1e6;if(!reads||elapsed<1||Math.abs(elapsed-real)>100||Math.abs(origin+start-epoch)>60000)throw Error('real elapsed/origin mismatch');console.log(JSON.stringify({reads,elapsed,real,timeOrigin:origin,start,epoch}));",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/native-samples.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"reads\":215548,\"elapsed\":15.259125000000001,\"real\":15.255625,\"timeOrigin\":1794133312140.904,\"start\":2.60175,\"epoch\":1794133312143}\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "native-samples",
+      "runtime": "before",
+      "source": "const origin=performance.timeOrigin;const start=performance.now();const epoch=Date.now();const native=process.hrtime.bigint();let previous=start,reads=0;while(Number(process.hrtime.bigint()-native)<15000000){const n=performance.now();if(n<previous)throw Error('clock moved backwards');previous=n;reads++;}const elapsed=performance.now()-start;const real=Number(process.hrtime.bigint()-native)/1e6;if(!reads||elapsed<1||Math.abs(elapsed-real)>100||Math.abs(origin+start-epoch)>60000)throw Error('real elapsed/origin mismatch');console.log(JSON.stringify({reads,elapsed,real,timeOrigin:origin,start,epoch}));",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/home-tool-before",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/native-samples.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): ReferenceError: Can't find variable: performance\n"
+    },
+    {
+      "fixture": "native-samples",
+      "runtime": "zig-js",
+      "source": "const origin=performance.timeOrigin;const start=performance.now();const epoch=Date.now();const native=process.hrtime.bigint();let previous=start,reads=0;while(Number(process.hrtime.bigint()-native)<15000000){const n=performance.now();if(n<previous)throw Error('clock moved backwards');previous=n;reads++;}const elapsed=performance.now()-start;const real=Number(process.hrtime.bigint()-native)/1e6;if(!reads||elapsed<1||Math.abs(elapsed-real)>100||Math.abs(origin+start-epoch)>60000)throw Error('real elapsed/origin mismatch');console.log(JSON.stringify({reads,elapsed,real,timeOrigin:origin,start,epoch}));",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/native-samples.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"reads\":1011,\"elapsed\":15.0489999987185,\"real\":15.025,\"timeOrigin\":1794133312269,\"start\":15.824000000953674,\"epoch\":1794133312285}\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "native-samples",
+      "runtime": "jsc",
+      "source": "const origin=performance.timeOrigin;const start=performance.now();const epoch=Date.now();const native=process.hrtime.bigint();let previous=start,reads=0;while(Number(process.hrtime.bigint()-native)<15000000){const n=performance.now();if(n<previous)throw Error('clock moved backwards');previous=n;reads++;}const elapsed=performance.now()-start;const real=Number(process.hrtime.bigint()-native)/1e6;if(!reads||elapsed<1||Math.abs(elapsed-real)>100||Math.abs(origin+start-epoch)>60000)throw Error('real elapsed/origin mismatch');console.log(JSON.stringify({reads,elapsed,real,timeOrigin:origin,start,epoch}));",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/jsc/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/native-samples.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"reads\":46436,\"elapsed\":15.010000001639128,\"real\":15.005,\"timeOrigin\":1794133312315,\"start\":1.986999999731779,\"epoch\":1794133312317}\n",
+      "stderr": ""
+    }
+  ],
+  "receivers": [
+    {
+      "fixture": "receiver",
+      "runtime": "node",
+      "source": "const method=performance.now;const rows=[];for(const receiver of [undefined,{}]){try{rows.push({kind:'value',type:typeof Reflect.apply(method,receiver,[])});}catch(e){rows.push({kind:'error',name:e.name,code:e.code});}}console.log(JSON.stringify(rows));",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/receiver.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"kind\":\"error\",\"name\":\"TypeError\",\"code\":\"ERR_INVALID_THIS\"},{\"kind\":\"error\",\"name\":\"TypeError\",\"code\":\"ERR_INVALID_THIS\"}]\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "receiver",
+      "runtime": "bun",
+      "source": "const method=performance.now;const rows=[];for(const receiver of [undefined,{}]){try{rows.push({kind:'value',type:typeof Reflect.apply(method,receiver,[])});}catch(e){rows.push({kind:'error',name:e.name,code:e.code});}}console.log(JSON.stringify(rows));",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/receiver.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"kind\":\"value\",\"type\":\"number\"},{\"kind\":\"value\",\"type\":\"number\"}]\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "receiver",
+      "runtime": "before",
+      "source": "const method=performance.now;const rows=[];for(const receiver of [undefined,{}]){try{rows.push({kind:'value',type:typeof Reflect.apply(method,receiver,[])});}catch(e){rows.push({kind:'error',name:e.name,code:e.code});}}console.log(JSON.stringify(rows));",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/home-tool-before",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/receiver.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): ReferenceError: Can't find variable: performance\n"
+    },
+    {
+      "fixture": "receiver",
+      "runtime": "zig-js",
+      "source": "const method=performance.now;const rows=[];for(const receiver of [undefined,{}]){try{rows.push({kind:'value',type:typeof Reflect.apply(method,receiver,[])});}catch(e){rows.push({kind:'error',name:e.name,code:e.code});}}console.log(JSON.stringify(rows));",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/receiver.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"kind\":\"error\",\"name\":\"TypeError\",\"code\":\"ERR_INVALID_THIS\"},{\"kind\":\"error\",\"name\":\"TypeError\",\"code\":\"ERR_INVALID_THIS\"}]\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "receiver",
+      "runtime": "jsc",
+      "source": "const method=performance.now;const rows=[];for(const receiver of [undefined,{}]){try{rows.push({kind:'value',type:typeof Reflect.apply(method,receiver,[])});}catch(e){rows.push({kind:'error',name:e.name,code:e.code});}}console.log(JSON.stringify(rows));",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/jsc/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/receiver.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "[{\"kind\":\"error\",\"name\":\"TypeError\",\"code\":\"ERR_INVALID_THIS\"},{\"kind\":\"error\",\"name\":\"TypeError\",\"code\":\"ERR_INVALID_THIS\"}]\n",
+      "stderr": ""
+    }
+  ],
+  "capability_gaps": [
+    {
+      "fixture": "marks",
+      "runtime": "node",
+      "source": "performance.clearMarks();performance.mark('actual-start');performance.measure('actual-span','actual-start');const entries=performance.getEntriesByName('actual-span');if(entries.length!==1||entries[0].duration<0)throw Error('actual measurement missing');console.log('OK actual mark/measure entries');",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/marks.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual mark/measure entries\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "marks",
+      "runtime": "bun",
+      "source": "performance.clearMarks();performance.mark('actual-start');performance.measure('actual-span','actual-start');const entries=performance.getEntriesByName('actual-span');if(entries.length!==1||entries[0].duration<0)throw Error('actual measurement missing');console.log('OK actual mark/measure entries');",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/marks.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual mark/measure entries\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "marks",
+      "runtime": "before",
+      "source": "performance.clearMarks();performance.mark('actual-start');performance.measure('actual-span','actual-start');const entries=performance.getEntriesByName('actual-span');if(entries.length!==1||entries[0].duration<0)throw Error('actual measurement missing');console.log('OK actual mark/measure entries');",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/home-tool-before",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/marks.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): ReferenceError: Can't find variable: performance\n"
+    },
+    {
+      "fixture": "marks",
+      "runtime": "zig-js",
+      "source": "performance.clearMarks();performance.mark('actual-start');performance.measure('actual-span','actual-start');const entries=performance.getEntriesByName('actual-span');if(entries.length!==1||entries[0].duration<0)throw Error('actual measurement missing');console.log('OK actual mark/measure entries');",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/marks.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: performance.clearMarks is not a function. (In 'performance.clearMarks()', 'performance.clearMarks' is undefined)\n"
+    },
+    {
+      "fixture": "marks",
+      "runtime": "jsc",
+      "source": "performance.clearMarks();performance.mark('actual-start');performance.measure('actual-span','actual-start');const entries=performance.getEntriesByName('actual-span');if(entries.length!==1||entries[0].duration<0)throw Error('actual measurement missing');console.log('OK actual mark/measure entries');",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/jsc/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/marks.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): TypeError: performance.clearMarks is not a function. (In 'performance.clearMarks()', 'performance.clearMarks' is undefined)\n"
+    },
+    {
+      "fixture": "event-loop",
+      "runtime": "node",
+      "source": "const p=performance.eventLoopUtilization();if(!p||p.active<0||p.idle<0||p.utilization<0)throw Error('telemetry');console.log(JSON.stringify(p));",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/event-loop.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"idle\":0,\"active\":0,\"utilization\":0}\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "event-loop",
+      "runtime": "bun",
+      "source": "const p=performance.eventLoopUtilization();if(!p||p.active<0||p.idle<0||p.utilization<0)throw Error('telemetry');console.log(JSON.stringify(p));",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/event-loop.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "1 | const p=performance.eventLoopUtilization();if(!p||p.active<0||p.idle<0||p.utilization<0)throw Error('telemetry');console.log(JSON.stringify(p));\n                        ^\nTypeError: performance.eventLoopUtilization is not a function. (In 'performance.eventLoopUtilization()', 'performance.eventLoopUtilization' is undefined)\n      at /Users/chris/.cache/zig-js-ecosystem-research/performance/event-loop.mjs:1:21\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "fixture": "event-loop",
+      "runtime": "before",
+      "source": "const p=performance.eventLoopUtilization();if(!p||p.active<0||p.idle<0||p.utilization<0)throw Error('telemetry');console.log(JSON.stringify(p));",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/home-tool-before",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/event-loop.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): ReferenceError: Can't find variable: performance\n"
+    },
+    {
+      "fixture": "event-loop",
+      "runtime": "zig-js",
+      "source": "const p=performance.eventLoopUtilization();if(!p||p.active<0||p.idle<0||p.utilization<0)throw Error('telemetry');console.log(JSON.stringify(p));",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/event-loop.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: performance.eventLoopUtilization is not a function. (In 'performance.eventLoopUtilization()', 'performance.eventLoopUtilization' is undefined)\n"
+    },
+    {
+      "fixture": "event-loop",
+      "runtime": "jsc",
+      "source": "const p=performance.eventLoopUtilization();if(!p||p.active<0||p.idle<0||p.utilization<0)throw Error('telemetry');console.log(JSON.stringify(p));",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/jsc/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/event-loop.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): TypeError: performance.eventLoopUtilization is not a function. (In 'performance.eventLoopUtilization()', 'performance.eventLoopUtilization' is undefined)\n"
+    },
+    {
+      "fixture": "function-timing",
+      "runtime": "node",
+      "source": "const fn=performance.timerify(x=>x+1);if(fn(41)!==42)throw Error('actual timed function');console.log('OK actual timed function');",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/function-timing.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual timed function\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "function-timing",
+      "runtime": "bun",
+      "source": "const fn=performance.timerify(x=>x+1);if(fn(41)!==42)throw Error('actual timed function');console.log('OK actual timed function');",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/function-timing.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "1 | const fn=performance.timerify(x=>x+1);if(fn(41)!==42)throw Error('actual timed function');console.log('OK actual timed function');\n                         ^\nTypeError: performance.timerify is not a function. (In 'performance.timerify((x) => x + 1)', 'performance.timerify' is undefined)\n      at /Users/chris/.cache/zig-js-ecosystem-research/performance/function-timing.mjs:1:22\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "fixture": "function-timing",
+      "runtime": "before",
+      "source": "const fn=performance.timerify(x=>x+1);if(fn(41)!==42)throw Error('actual timed function');console.log('OK actual timed function');",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/home-tool-before",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/function-timing.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): ReferenceError: Can't find variable: performance\n"
+    },
+    {
+      "fixture": "function-timing",
+      "runtime": "zig-js",
+      "source": "const fn=performance.timerify(x=>x+1);if(fn(41)!==42)throw Error('actual timed function');console.log('OK actual timed function');",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/function-timing.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: performance.timerify is not a function. (In 'performance.timerify((x) => x + 1)', 'performance.timerify' is undefined)\n"
+    },
+    {
+      "fixture": "function-timing",
+      "runtime": "jsc",
+      "source": "const fn=performance.timerify(x=>x+1);if(fn(41)!==42)throw Error('actual timed function');console.log('OK actual timed function');",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/jsc/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/function-timing.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): TypeError: performance.timerify is not a function. (In 'performance.timerify((x) => x + 1)', 'performance.timerify' is undefined)\n"
+    },
+    {
+      "fixture": "observer",
+      "runtime": "node",
+      "source": "import {PerformanceObserver} from 'node:perf_hooks';const done=new Promise(resolve=>{const o=new PerformanceObserver(list=>{const values=list.getEntries();if(!values.some(x=>x.name==='actual-observation'))throw Error('actual observation missing');o.disconnect();resolve();});o.observe({entryTypes:['mark']});performance.mark('actual-observation');});await done;console.log('OK actual observer callback');",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/observer.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual observer callback\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "observer",
+      "runtime": "bun",
+      "source": "import {PerformanceObserver} from 'node:perf_hooks';const done=new Promise(resolve=>{const o=new PerformanceObserver(list=>{const values=list.getEntries();if(!values.some(x=>x.name==='actual-observation'))throw Error('actual observation missing');o.disconnect();resolve();});o.observe({entryTypes:['mark']});performance.mark('actual-observation');});await done;console.log('OK actual observer callback');",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/observer.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "OK actual observer callback\n",
+      "stderr": ""
+    },
+    {
+      "fixture": "observer",
+      "runtime": "before",
+      "source": "import {PerformanceObserver} from 'node:perf_hooks';const done=new Promise(resolve=>{const o=new PerformanceObserver(list=>{const values=list.getEntries();if(!values.some(x=>x.name==='actual-observation'))throw Error('actual observation missing');o.disconnect();resolve();});o.observe({entryTypes:['mark']});performance.mark('actual-observation');});await done;console.log('OK actual observer callback');",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/home-tool-before",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/observer.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:perf_hooks from /Users/chris/.cache/zig-js-ecosystem-research/performance/observer.mjs\n"
+    },
+    {
+      "fixture": "observer",
+      "runtime": "zig-js",
+      "source": "import {PerformanceObserver} from 'node:perf_hooks';const done=new Promise(resolve=>{const o=new PerformanceObserver(list=>{const values=list.getEntries();if(!values.some(x=>x.name==='actual-observation'))throw Error('actual observation missing');o.disconnect();resolve();});o.observe({entryTypes:['mark']});performance.mark('actual-observation');});await done;console.log('OK actual observer callback');",
+      "command": [
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/zig-out/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/observer.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: undefined is not a constructor (evaluating 'new PerformanceObserver((list) => {\n    const values = list.getEntries();\n    if (!values.some((x) => x.name === \"actual-observation\"))\n      throw Error(\"actual observation missing\");\n    o.disconnect();\n    resolve();\n  })')\n"
+    },
+    {
+      "fixture": "observer",
+      "runtime": "jsc",
+      "source": "import {PerformanceObserver} from 'node:perf_hooks';const done=new Promise(resolve=>{const o=new PerformanceObserver(list=>{const values=list.getEntries();if(!values.some(x=>x.name==='actual-observation'))throw Error('actual observation missing');o.disconnect();resolve();});o.observe({entryTypes:['mark']});performance.mark('actual-observation');});await done;console.log('OK actual observer callback');",
+      "command": [
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/jsc/bin/home-tool",
+        "run",
+        "/Users/chris/.cache/zig-js-ecosystem-research/performance/observer.mjs"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): TypeError: undefined is not a constructor (evaluating 'new PerformanceObserver((list) => {\n    const values = list.getEntries();\n    if (!values.some((x) => x.name === \"actual-observation\"))\n      throw Error(\"actual observation missing\");\n    o.disconnect();\n    resolve();\n  })')\n"
+    }
+  ],
+  "whole_home": [
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 1.683,
+      "log": "before.log",
+      "phase": "before",
+      "consumer_sha": "6b3007cb334ab21c0cdb7385ebe9a3fdd82e458a",
+      "log_text": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\nUncaught unhandledRejection: ReferenceError: Can't find variable: performance\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "events": [
+        {
+          "kind": "zig-js",
+          "file": "/Users/chris/.cache/zig-js-ecosystem-research/home-docs-candidate/node_modules/.bun/@stacksjs+bunpress@0.2.17/node_modules/@stacksjs/bunpress/dist/bin/cli.js",
+          "arguments": [
+            "build"
+          ]
+        }
+      ],
+      "output_inventory": []
+    },
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 0.977,
+      "log": "after.log",
+      "phase": "after",
+      "consumer_sha": "6b3007cb334ab21c0cdb7385ebe9a3fdd82e458a",
+      "log_text": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\nUncaught unhandledRejection: TypeError: undefined is not a constructor (evaluating 'new m4(\"**/*.md\")')\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "events": [
+        {
+          "kind": "zig-js",
+          "file": "/Users/chris/.cache/zig-js-ecosystem-research/home-docs-candidate/node_modules/.bun/@stacksjs+bunpress@0.2.17/node_modules/@stacksjs/bunpress/dist/bin/cli.js",
+          "arguments": [
+            "build"
+          ]
+        }
+      ],
+      "output_inventory": []
+    }
+  ],
+  "validation": [
+    {
+      "name": "zig-js-gates",
+      "exit_code": 0,
+      "output": "home-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run dependency-rejected.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./bad.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run malformed/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: circular tsconfig extends chain: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run cycle/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run cycle-a.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: handler failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run next_tick_failure.cjs handler-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: exit listener witness\nfailed command: ./.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool eval \"process.on('exit', function() { throw new Error('exit listener witness'); });\"\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run declaration/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run rejected.mjs\n\nOK home-tool module interop\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run next_tick_failure.cjs exit-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_stream_pending.mjs\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run node_stream_pending.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run next_tick_failure.cjs monitor\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): undefined\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run undefined.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run next_tick_failure.cjs error\n\nOK home-tool runtime transpilation\nOK home-tool import.meta\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: undefined\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run next_tick_failure.cjs undefined\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run next_tick_failure.cjs override\n\nOK home-tool exact package imports\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./absent.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run missing/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run pending.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: monitor failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run next_tick_failure.cjs monitor-throw\n\nhome-tool-smoke\n+- run exe home-tool w\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js:6: Identifier expected. (TS1003)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run runtime_invalid_syntax.js\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: invalid JSONC or runtime path options: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run invalid-options/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): SyntaxError: Unexpected identifier 'Promise'\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run cjs-await.cjs\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/50fe447c64ed4b31b80aedf92926a256/home-tool run unhandled_rejection.cjs chain\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: listener failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run unhandled_rejection.cjs listener-throw\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run unhandled_rejection.cjs error\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: uncaught handler failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run unhandled_rejection.cjs handler-throw\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run unhandled_rejection.cjs async\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: UnhandledPromiseRejection: Unhandled promise rejection: undefined\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run unhandled_rejection.cjs undefined\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: second rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run unhandled_rejection.cjs second\n\n"
+    },
+    {
+      "name": "jsc-gates",
+      "exit_code": 0,
+      "output": "home-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: undefined\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool run next_tick_failure.cjs undefined\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool run cycle-a.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: invalid JSONC or runtime path options: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/tsconfig.json\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool run invalid-options/entry.cjs\n\nOK home-tool runtime transpilation\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool run declaration/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): undefined\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool run undefined.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_stream_pending.mjs\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool run node_stream_pending.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: monitor failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool run next_tick_failure.cjs monitor-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: handler failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool run next_tick_failure.cjs handler-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./bad.json\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool run malformed/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./absent.json\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool run missing/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: exit listener witness\nfailed command: ./.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool eval \"process.on('exit', function() { throw new Error('exit listener witness'); });\"\n\nhome-tool-smoke\n+- run exe home-tool w\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js:6: Identifier expected. (TS1003)\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool run runtime_invalid_syntax.js\n\nOK home-tool import.meta\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: circular tsconfig extends chain: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/tsconfig.json\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool run cycle/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool run next_tick_failure.cjs override\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool run next_tick_failure.cjs exit-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool run rejected.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool run dependency-rejected.mjs\n\nOK home-tool module interop\nOK home-tool exact package imports\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool run next_tick_failure.cjs error\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): SyntaxError: Unexpected identifier 'Promise'\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool run cjs-await.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool run pending.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/35a4433be6329d78286b622d9d1c16d0/home-tool run next_tick_failure.cjs monitor\n\n"
+    }
+  ]
+}
