@@ -1,0 +1,102 @@
+{
+  "scope": "Executed requirements for the current shared stream blocker. Node/Bun references are separate; Home remains missing the real host and its stream operations are not executed. No placeholder classes, fake callbacks or Bun candidate fallback.",
+  "home_before": "a1e85f37a8e0bf47314f4372f27d68c00b31bf7e",
+  "results": [
+    {
+      "runtime": "node",
+      "case": "flow",
+      "source": "import { Readable, Transform, Writable } from 'node:stream';\nimport { pipeline } from 'node:stream/promises';\nconst chunks = [];\nconst input = Readable.from([Buffer.from('a'), Buffer.from('b')]);\nconst upper = new Transform({ transform(chunk, encoding, callback) { callback(null, Buffer.from(chunk.toString().toUpperCase())); } });\nconst output = new Writable({ write(chunk, encoding, callback) { chunks.push(chunk.toString()); process.nextTick(callback); } });\nawait pipeline(input, upper, output);\nif (chunks.join('') !== 'AB' || !output.writableFinished || !input.readableEnded) throw new Error('actual flow/completion missing');\nconsole.log(JSON.stringify({ data: chunks.join(''), finished: output.writableFinished, ended: input.readableEnded }));\n",
+      "exit_code": 0,
+      "stdout": "{\"data\":\"AB\",\"finished\":true,\"ended\":true}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "flow",
+      "source": "import { Readable, Transform, Writable } from 'node:stream';\nimport { pipeline } from 'node:stream/promises';\nconst chunks = [];\nconst input = Readable.from([Buffer.from('a'), Buffer.from('b')]);\nconst upper = new Transform({ transform(chunk, encoding, callback) { callback(null, Buffer.from(chunk.toString().toUpperCase())); } });\nconst output = new Writable({ write(chunk, encoding, callback) { chunks.push(chunk.toString()); process.nextTick(callback); } });\nawait pipeline(input, upper, output);\nif (chunks.join('') !== 'AB' || !output.writableFinished || !input.readableEnded) throw new Error('actual flow/completion missing');\nconsole.log(JSON.stringify({ data: chunks.join(''), finished: output.writableFinished, ended: input.readableEnded }));\n",
+      "exit_code": 0,
+      "stdout": "{\"data\":\"AB\",\"finished\":true,\"ended\":true}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "flow",
+      "source": "import { Readable, Transform, Writable } from 'node:stream';\nimport { pipeline } from 'node:stream/promises';\nconst chunks = [];\nconst input = Readable.from([Buffer.from('a'), Buffer.from('b')]);\nconst upper = new Transform({ transform(chunk, encoding, callback) { callback(null, Buffer.from(chunk.toString().toUpperCase())); } });\nconst output = new Writable({ write(chunk, encoding, callback) { chunks.push(chunk.toString()); process.nextTick(callback); } });\nawait pipeline(input, upper, output);\nif (chunks.join('') !== 'AB' || !output.writableFinished || !input.readableEnded) throw new Error('actual flow/completion missing');\nconsole.log(JSON.stringify({ data: chunks.join(''), finished: output.writableFinished, ended: input.readableEnded }));\n",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:stream from /Users/chris/.cache/zig-js-ecosystem-research/streams/flow.mjs\n"
+    },
+    {
+      "runtime": "node",
+      "case": "backpressure",
+      "source": "import { Writable } from 'node:stream';\nimport { finished } from 'node:stream/promises';\nconst trace = [];\nconst sink = new Writable({ highWaterMark: 1, write(chunk, encoding, callback) { const text = chunk.toString(); trace.push('write:' + text); process.nextTick(() => { trace.push('ack:' + text); callback(); }); } });\nconst drained = new Promise(resolve => sink.once('drain', () => { trace.push('drain'); resolve(); }));\nconst accepted = sink.write(Buffer.from('a'));\nif (accepted !== false) throw new Error('backpressure not reported');\nawait drained;\nconst completion = finished(sink);\nsink.end(Buffer.from('b'));\nawait completion;\nif (!sink.writableFinished || trace.join(',') !== 'write:a,ack:a,drain,write:b,ack:b') throw new Error('drain/completion ordering failed');\nconsole.log(JSON.stringify({ accepted, trace, finished: sink.writableFinished }));\n",
+      "exit_code": 0,
+      "stdout": "{\"accepted\":false,\"trace\":[\"write:a\",\"ack:a\",\"drain\",\"write:b\",\"ack:b\"],\"finished\":true}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "backpressure",
+      "source": "import { Writable } from 'node:stream';\nimport { finished } from 'node:stream/promises';\nconst trace = [];\nconst sink = new Writable({ highWaterMark: 1, write(chunk, encoding, callback) { const text = chunk.toString(); trace.push('write:' + text); process.nextTick(() => { trace.push('ack:' + text); callback(); }); } });\nconst drained = new Promise(resolve => sink.once('drain', () => { trace.push('drain'); resolve(); }));\nconst accepted = sink.write(Buffer.from('a'));\nif (accepted !== false) throw new Error('backpressure not reported');\nawait drained;\nconst completion = finished(sink);\nsink.end(Buffer.from('b'));\nawait completion;\nif (!sink.writableFinished || trace.join(',') !== 'write:a,ack:a,drain,write:b,ack:b') throw new Error('drain/completion ordering failed');\nconsole.log(JSON.stringify({ accepted, trace, finished: sink.writableFinished }));\n",
+      "exit_code": 0,
+      "stdout": "{\"accepted\":false,\"trace\":[\"write:a\",\"ack:a\",\"drain\",\"write:b\",\"ack:b\"],\"finished\":true}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "backpressure",
+      "source": "import { Writable } from 'node:stream';\nimport { finished } from 'node:stream/promises';\nconst trace = [];\nconst sink = new Writable({ highWaterMark: 1, write(chunk, encoding, callback) { const text = chunk.toString(); trace.push('write:' + text); process.nextTick(() => { trace.push('ack:' + text); callback(); }); } });\nconst drained = new Promise(resolve => sink.once('drain', () => { trace.push('drain'); resolve(); }));\nconst accepted = sink.write(Buffer.from('a'));\nif (accepted !== false) throw new Error('backpressure not reported');\nawait drained;\nconst completion = finished(sink);\nsink.end(Buffer.from('b'));\nawait completion;\nif (!sink.writableFinished || trace.join(',') !== 'write:a,ack:a,drain,write:b,ack:b') throw new Error('drain/completion ordering failed');\nconsole.log(JSON.stringify({ accepted, trace, finished: sink.writableFinished }));\n",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:stream from /Users/chris/.cache/zig-js-ecosystem-research/streams/backpressure.mjs\n"
+    },
+    {
+      "runtime": "node",
+      "case": "failure",
+      "source": "import { Readable, Writable } from 'node:stream';\nimport { pipeline } from 'node:stream/promises';\nconst failure = new Error('actual sink failure');\nconst input = Readable.from([Buffer.from('payload')]);\nconst output = new Writable({ write(chunk, encoding, callback) { callback(failure); } });\nlet observed;\ntry { await pipeline(input, output); } catch (error) { observed = error; }\nif (observed !== failure || !input.destroyed || !output.destroyed) throw new Error('pipeline error identity or cleanup failed');\nconsole.log('OK actual pipeline error identity and cleanup');\n",
+      "exit_code": 0,
+      "stdout": "OK actual pipeline error identity and cleanup\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "failure",
+      "source": "import { Readable, Writable } from 'node:stream';\nimport { pipeline } from 'node:stream/promises';\nconst failure = new Error('actual sink failure');\nconst input = Readable.from([Buffer.from('payload')]);\nconst output = new Writable({ write(chunk, encoding, callback) { callback(failure); } });\nlet observed;\ntry { await pipeline(input, output); } catch (error) { observed = error; }\nif (observed !== failure || !input.destroyed || !output.destroyed) throw new Error('pipeline error identity or cleanup failed');\nconsole.log('OK actual pipeline error identity and cleanup');\n",
+      "exit_code": 0,
+      "stdout": "OK actual pipeline error identity and cleanup\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "failure",
+      "source": "import { Readable, Writable } from 'node:stream';\nimport { pipeline } from 'node:stream/promises';\nconst failure = new Error('actual sink failure');\nconst input = Readable.from([Buffer.from('payload')]);\nconst output = new Writable({ write(chunk, encoding, callback) { callback(failure); } });\nlet observed;\ntry { await pipeline(input, output); } catch (error) { observed = error; }\nif (observed !== failure || !input.destroyed || !output.destroyed) throw new Error('pipeline error identity or cleanup failed');\nconsole.log('OK actual pipeline error identity and cleanup');\n",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:stream from /Users/chris/.cache/zig-js-ecosystem-research/streams/failure.mjs\n"
+    },
+    {
+      "runtime": "node",
+      "case": "file-copy",
+      "source": "import { createReadStream, createWriteStream, mkdtempSync, writeFileSync, readFileSync, rmSync } from 'node:fs';\nimport { pipeline } from 'node:stream/promises';\nimport { join } from 'node:path';\nconst directory = mkdtempSync(join(process.argv[2], 'io-'));\ntry {\n  const input = join(directory, 'input');\n  const output = join(directory, 'output');\n  writeFileSync(input, Buffer.from([255, 0, 65, 13, 10]));\n  await pipeline(createReadStream(input), createWriteStream(output));\n  const hex = readFileSync(output).toString('hex');\n  if (hex !== 'ff00410d0a') throw new Error('native binary file copy failed');\n  console.log(hex);\n} finally { rmSync(directory, { recursive: true, force: true }); }\n",
+      "exit_code": 0,
+      "stdout": "ff00410d0a\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "file-copy",
+      "source": "import { createReadStream, createWriteStream, mkdtempSync, writeFileSync, readFileSync, rmSync } from 'node:fs';\nimport { pipeline } from 'node:stream/promises';\nimport { join } from 'node:path';\nconst directory = mkdtempSync(join(process.argv[2], 'io-'));\ntry {\n  const input = join(directory, 'input');\n  const output = join(directory, 'output');\n  writeFileSync(input, Buffer.from([255, 0, 65, 13, 10]));\n  await pipeline(createReadStream(input), createWriteStream(output));\n  const hex = readFileSync(output).toString('hex');\n  if (hex !== 'ff00410d0a') throw new Error('native binary file copy failed');\n  console.log(hex);\n} finally { rmSync(directory, { recursive: true, force: true }); }\n",
+      "exit_code": 0,
+      "stdout": "ff00410d0a\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "file-copy",
+      "source": "import { createReadStream, createWriteStream, mkdtempSync, writeFileSync, readFileSync, rmSync } from 'node:fs';\nimport { pipeline } from 'node:stream/promises';\nimport { join } from 'node:path';\nconst directory = mkdtempSync(join(process.argv[2], 'io-'));\ntry {\n  const input = join(directory, 'input');\n  const output = join(directory, 'output');\n  writeFileSync(input, Buffer.from([255, 0, 65, 13, 10]));\n  await pipeline(createReadStream(input), createWriteStream(output));\n  const hex = readFileSync(output).toString('hex');\n  if (hex !== 'ff00410d0a') throw new Error('native binary file copy failed');\n  console.log(hex);\n} finally { rmSync(directory, { recursive: true, force: true }); }\n",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:stream/promises from /Users/chris/.cache/zig-js-ecosystem-research/streams/file-copy.mjs\n"
+    }
+  ]
+}
