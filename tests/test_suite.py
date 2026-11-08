@@ -260,6 +260,15 @@ class ResultTests(unittest.TestCase):
         self.assertTrue(any(r["full_name"] == "craft-native/craft" for r in inventory["selected"]))
         self.assertFalse(any(r["full_name"].startswith("meemalabs/") for r in inventory["selected"]))
 
+    def test_shared_runtime_builds_and_smokes_use_baseline_cpu(self):
+        root = Path(__file__).resolve().parents[1]
+        workflow = (root / ".github/workflows/ecosystem.yml").read_text()
+        for line in workflow.splitlines():
+            if "zig build home-tool" in line:
+                self.assertIn("-Dcpu=baseline", line)
+        self.assertIn("--disassemble=memcpy", workflow)
+        self.assertIn("assert p['build_cpu'] == 'baseline'", workflow)
+
 
 class EndToEndTests(unittest.TestCase):
     def test_real_git_checkout_router_logs_and_missing_scheduler_report(self):

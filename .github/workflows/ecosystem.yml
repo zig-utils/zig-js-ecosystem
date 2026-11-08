@@ -126,15 +126,16 @@ jobs:
           ZIG_VERSION: ${{ steps.config.outputs.zig_version }}
         run: |
           test "$(zig version)" = "$ZIG_VERSION"
-          zig build home-tool-bootstrap
+          zig build home-tool-bootstrap -Dcpu=baseline
       - name: Build Home against this engine
         working-directory: home
-        run: zig build home-tool -Dtool-js-engine=zig-js -Dzig-js-root="$GITHUB_WORKSPACE/engine"
+        # This executable is uploaded to other runners, whose CPUs can differ.
+        run: zig build home-tool -Dcpu=baseline -Dtool-js-engine=zig-js -Dzig-js-root="$GITHUB_WORKSPACE/engine"
       - name: Verify engine identity and Home host/module/TypeScript integration
         working-directory: home
         run: |
           zig-out/bin/home-tool eval 'if (Home.engine !== "zig-js") throw new Error("Wrong engine"); console.log("ECOSYSTEM ENGINE zig-js");'
-          zig build home-tool-smoke -Dtool-js-engine=zig-js -Dzig-js-root="$GITHUB_WORKSPACE/engine"
+          zig build home-tool-smoke -Dcpu=baseline -Dtool-js-engine=zig-js -Dzig-js-root="$GITHUB_WORKSPACE/engine"
       - name: Package runtime and immutable provenance
         env:
           ENGINE_SHA: ${{ needs.discover.outputs.engine_sha }}
@@ -150,10 +151,19 @@ jobs:
           data = {'engine_sha': os.environ['ENGINE_SHA'], 'suite_ref': os.environ['SUITE_REF'],
                   'home_repository': config['home_repository'], 'home_ref': config['home_ref'],
                   'zig_version': subprocess.check_output(['zig', 'version'], text=True).strip(),
+                  'build_cpu': 'baseline',
                   'sha256': {str(p.relative_to('runtime')): hashlib.sha256(p.read_bytes()).hexdigest()
                              for p in pathlib.Path('runtime').rglob('*') if p.is_file()}}
           pathlib.Path('runtime/provenance.json').write_text(json.dumps(data, indent=2) + '\n')
           PY
+          # The prior cross-runner SIGILL was a ZMM vmovups in memcpy. Check
+          # this exact shared-artifact regression before publishing the archive.
+          objdump -d --disassemble=memcpy runtime/home-tool > "$RUNNER_TEMP/runtime-memcpy.txt"
+          if grep -Eq '\bzmm[0-9]+' "$RUNNER_TEMP/runtime-memcpy.txt"; then
+            cat "$RUNNER_TEMP/runtime-memcpy.txt"
+            echo 'Shared runtime memcpy unexpectedly requires AVX-512' >&2
+            exit 1
+          fi
           tar -czf runtime.tar.gz -C runtime .
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
@@ -209,6 +219,7 @@ jobs:
           import hashlib, json, os, pathlib
           p = json.load(open('runtime/provenance.json'))
           assert p['engine_sha'] == os.environ['ENGINE_SHA']
+          assert p['build_cpu'] == 'baseline'
           for name, expected in p['sha256'].items():
               assert hashlib.sha256((pathlib.Path('runtime') / name).read_bytes()).hexdigest() == expected, name
           PY

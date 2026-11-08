@@ -20,6 +20,8 @@ Dependency setup follows declared workspace membership; independent nested apps 
 
 Stacks (`stacksjs/stacks`) and Home (`home-lang/home`) get the first two independent consumer jobs. They cannot delay each other inside a batch. Remaining consumers retain complete coverage.
 
+The shared engine archive and Home host are compiled for the architecture's baseline CPU. GitHub-hosted runners have different CPU features; a producer's native instruction set is unsuitable for an executable sent to another runner. Runtime provenance records this target, and publication checks the `memcpy` instructions involved in the earlier cross-runner AVX-512 crash.
+
 ## Current runtime boundary
 
 This repository creates a compatibility gate; it does **not** assert that all selected projects currently work on zig-js. Home's repository-tool runtime has a limited host API. It is not the complete Bun/Node application runtime and has no upstream Bun/Node test scheduler. `bun test`, `node --test`, `Bun.build`, missing built-ins, browser-only APIs and other absent host features are reported as unsupported or failed. They are not replaced with fake implementations or successful Bun-only runs. Upstream test suites needing those features remain unexecuted and make the gate red until real adapters exist.
