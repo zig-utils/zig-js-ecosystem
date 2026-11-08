@@ -1,0 +1,261 @@
+{
+  "scope": "Actual executed remaining stream gaps. Native file I/O is not executed by Home; memory-flow passes are not file-copy evidence. No fallback.",
+  "results": [
+    {
+      "runtime": "node",
+      "case": "file-copy",
+      "source": "import { createReadStream, createWriteStream, mkdtempSync, writeFileSync, readFileSync, rmSync } from 'node:fs';\nimport { pipeline } from 'node:stream/promises';\nimport { join } from 'node:path';\nconst directory = mkdtempSync(join(process.argv[2], 'io-'));\ntry {\n  const input = join(directory, 'input');\n  const output = join(directory, 'output');\n  writeFileSync(input, Buffer.from([255, 0, 65, 13, 10]));\n  await pipeline(createReadStream(input), createWriteStream(output));\n  const hex = readFileSync(output).toString('hex');\n  if (hex !== 'ff00410d0a') throw new Error('native binary file copy failed');\n  console.log(hex);\n} finally { rmSync(directory, { recursive: true, force: true }); }\n",
+      "exit_code": 0,
+      "stdout": "ff00410d0a\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "file-copy",
+      "source": "import { createReadStream, createWriteStream, mkdtempSync, writeFileSync, readFileSync, rmSync } from 'node:fs';\nimport { pipeline } from 'node:stream/promises';\nimport { join } from 'node:path';\nconst directory = mkdtempSync(join(process.argv[2], 'io-'));\ntry {\n  const input = join(directory, 'input');\n  const output = join(directory, 'output');\n  writeFileSync(input, Buffer.from([255, 0, 65, 13, 10]));\n  await pipeline(createReadStream(input), createWriteStream(output));\n  const hex = readFileSync(output).toString('hex');\n  if (hex !== 'ff00410d0a') throw new Error('native binary file copy failed');\n  console.log(hex);\n} finally { rmSync(directory, { recursive: true, force: true }); }\n",
+      "exit_code": 0,
+      "stdout": "ff00410d0a\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "file-copy",
+      "source": "import { createReadStream, createWriteStream, mkdtempSync, writeFileSync, readFileSync, rmSync } from 'node:fs';\nimport { pipeline } from 'node:stream/promises';\nimport { join } from 'node:path';\nconst directory = mkdtempSync(join(process.argv[2], 'io-'));\ntry {\n  const input = join(directory, 'input');\n  const output = join(directory, 'output');\n  writeFileSync(input, Buffer.from([255, 0, 65, 13, 10]));\n  await pipeline(createReadStream(input), createWriteStream(output));\n  const hex = readFileSync(output).toString('hex');\n  if (hex !== 'ff00410d0a') throw new Error('native binary file copy failed');\n  console.log(hex);\n} finally { rmSync(directory, { recursive: true, force: true }); }\n",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: mkdtempSync is not a function. (In 'mkdtempSync(join(process.argv[2], \"io-\"))', 'mkdtempSync' is undefined)\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "file-copy",
+      "source": "import { createReadStream, createWriteStream, mkdtempSync, writeFileSync, readFileSync, rmSync } from 'node:fs';\nimport { pipeline } from 'node:stream/promises';\nimport { join } from 'node:path';\nconst directory = mkdtempSync(join(process.argv[2], 'io-'));\ntry {\n  const input = join(directory, 'input');\n  const output = join(directory, 'output');\n  writeFileSync(input, Buffer.from([255, 0, 65, 13, 10]));\n  await pipeline(createReadStream(input), createWriteStream(output));\n  const hex = readFileSync(output).toString('hex');\n  if (hex !== 'ff00410d0a') throw new Error('native binary file copy failed');\n  console.log(hex);\n} finally { rmSync(directory, { recursive: true, force: true }); }\n",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): TypeError: mkdtempSync is not a function. (In 'mkdtempSync(join(process.argv[2], \"io-\"))', 'mkdtempSync' is undefined)\n"
+    },
+    {
+      "runtime": "node",
+      "case": "callback-finished",
+      "source": "import { Writable, finished } from 'node:stream'; const sink = new Writable({write(c,e,cb){cb()}}); finished(sink,error=>{if(error)throw error;console.log('done')}); sink.end('x');",
+      "exit_code": 0,
+      "stdout": "done\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "callback-finished",
+      "source": "import { Writable, finished } from 'node:stream'; const sink = new Writable({write(c,e,cb){cb()}}); finished(sink,error=>{if(error)throw error;console.log('done')}); sink.end('x');",
+      "exit_code": 0,
+      "stdout": "done\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "callback-finished",
+      "source": "import { Writable, finished } from 'node:stream'; const sink = new Writable({write(c,e,cb){cb()}}); finished(sink,error=>{if(error)throw error;console.log('done')}); sink.end('x');",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: finished is not a function. (In 'finished(sink, (error) => {\n  if (error)\n    throw error;\n  console.log(\"done\");\n})', 'finished' is undefined)\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "callback-finished",
+      "source": "import { Writable, finished } from 'node:stream'; const sink = new Writable({write(c,e,cb){cb()}}); finished(sink,error=>{if(error)throw error;console.log('done')}); sink.end('x');",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): TypeError: finished is not a function. (In 'finished(sink, (error) => {\n  if (error)\n    throw error;\n  console.log(\"done\");\n})', 'finished' is undefined)\n"
+    },
+    {
+      "runtime": "node",
+      "case": "outbound-iterator",
+      "source": "import { Readable } from 'node:stream'; const data=[]; for await (const value of Readable.from([1,2])) data.push(value); console.log(data.join(','));",
+      "exit_code": 0,
+      "stdout": "1,2\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "outbound-iterator",
+      "source": "import { Readable } from 'node:stream'; const data=[]; for await (const value of Readable.from([1,2])) data.push(value); console.log(data.join(','));",
+      "exit_code": 0,
+      "stdout": "1,2\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "outbound-iterator",
+      "source": "import { Readable } from 'node:stream'; const data=[]; for await (const value of Readable.from([1,2])) data.push(value); console.log(data.join(','));",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: {} is not iterable\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "outbound-iterator",
+      "source": "import { Readable } from 'node:stream'; const data=[]; for await (const value of Readable.from([1,2])) data.push(value); console.log(data.join(','));",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): TypeError: iterable should have an iterator symbol\n"
+    },
+    {
+      "runtime": "node",
+      "case": "decoder",
+      "source": "import { Readable } from 'node:stream'; const source=new Readable({read(){}});source.setEncoding('utf8');source.on('data',value=>console.log(value));source.push(Buffer.from([195]));source.push(Buffer.from([169]));source.push(null);",
+      "exit_code": 0,
+      "stdout": "\u00e9\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "decoder",
+      "source": "import { Readable } from 'node:stream'; const source=new Readable({read(){}});source.setEncoding('utf8');source.on('data',value=>console.log(value));source.push(Buffer.from([195]));source.push(Buffer.from([169]));source.push(null);",
+      "exit_code": 0,
+      "stdout": "\u00e9\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "decoder",
+      "source": "import { Readable } from 'node:stream'; const source=new Readable({read(){}});source.setEncoding('utf8');source.on('data',value=>console.log(value));source.push(Buffer.from([195]));source.push(Buffer.from([169]));source.push(null);",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: source.setEncoding is not a function. (In 'source.setEncoding(\"utf8\")', 'source.setEncoding' is undefined)\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "decoder",
+      "source": "import { Readable } from 'node:stream'; const source=new Readable({read(){}});source.setEncoding('utf8');source.on('data',value=>console.log(value));source.push(Buffer.from([195]));source.push(Buffer.from([169]));source.push(null);",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): TypeError: source.setEncoding is not a function. (In 'source.setEncoding(\"utf8\")', 'source.setEncoding' is undefined)\n"
+    },
+    {
+      "runtime": "node",
+      "case": "cork",
+      "source": "import { Writable } from 'node:stream';import { finished } from 'node:stream/promises';const data=[];const sink=new Writable({write(c,e,cb){data.push(c.toString());cb()}});sink.cork();sink.write('x');if(data.length)throw new Error('cork ignored');sink.uncork();sink.end();await finished(sink);console.log(data.join(''));",
+      "exit_code": 0,
+      "stdout": "x\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "cork",
+      "source": "import { Writable } from 'node:stream';import { finished } from 'node:stream/promises';const data=[];const sink=new Writable({write(c,e,cb){data.push(c.toString());cb()}});sink.cork();sink.write('x');if(data.length)throw new Error('cork ignored');sink.uncork();sink.end();await finished(sink);console.log(data.join(''));",
+      "exit_code": 0,
+      "stdout": "x\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "cork",
+      "source": "import { Writable } from 'node:stream';import { finished } from 'node:stream/promises';const data=[];const sink=new Writable({write(c,e,cb){data.push(c.toString());cb()}});sink.cork();sink.write('x');if(data.length)throw new Error('cork ignored');sink.uncork();sink.end();await finished(sink);console.log(data.join(''));",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: sink.cork is not a function. (In 'sink.cork()', 'sink.cork' is undefined)\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "cork",
+      "source": "import { Writable } from 'node:stream';import { finished } from 'node:stream/promises';const data=[];const sink=new Writable({write(c,e,cb){data.push(c.toString());cb()}});sink.cork();sink.write('x');if(data.length)throw new Error('cork ignored');sink.uncork();sink.end();await finished(sink);console.log(data.join(''));",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): TypeError: sink.cork is not a function. (In 'sink.cork()', 'sink.cork' is undefined)\n"
+    },
+    {
+      "runtime": "node",
+      "case": "construct",
+      "source": "import { Writable } from 'node:stream';import { finished } from 'node:stream/promises';const data=[];const sink=new Writable({construct(cb){process.nextTick(cb)},write(c,e,cb){data.push(c.toString());cb()}});sink.end('x');await finished(sink);console.log(data.join(''));",
+      "exit_code": 0,
+      "stdout": "x\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "construct",
+      "source": "import { Writable } from 'node:stream';import { finished } from 'node:stream/promises';const data=[];const sink=new Writable({construct(cb){process.nextTick(cb)},write(c,e,cb){data.push(c.toString());cb()}});sink.end('x');await finished(sink);console.log(data.join(''));",
+      "exit_code": 0,
+      "stdout": "x\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "construct",
+      "source": "import { Writable } from 'node:stream';import { finished } from 'node:stream/promises';const data=[];const sink=new Writable({construct(cb){process.nextTick(cb)},write(c,e,cb){data.push(c.toString());cb()}});sink.end('x');await finished(sink);console.log(data.join(''));",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Unsupported Home stream option: construct\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "construct",
+      "source": "import { Writable } from 'node:stream';import { finished } from 'node:stream/promises';const data=[];const sink=new Writable({construct(cb){process.nextTick(cb)},write(c,e,cb){data.push(c.toString());cb()}});sink.end('x');await finished(sink);console.log(data.join(''));",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: Unsupported Home stream option: construct\n"
+    },
+    {
+      "runtime": "node",
+      "case": "dataview",
+      "source": "import { Writable } from 'node:stream';import { finished } from 'node:stream/promises';let result;const sink=new Writable({write(c,e,cb){result=c.toString('hex');cb()}});sink.end(new DataView(new ArrayBuffer(2)));await finished(sink);console.log(result);",
+      "exit_code": 0,
+      "stdout": "0000\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "dataview",
+      "source": "import { Writable } from 'node:stream';import { finished } from 'node:stream/promises';let result;const sink=new Writable({write(c,e,cb){result=c.toString('hex');cb()}});sink.end(new DataView(new ArrayBuffer(2)));await finished(sink);console.log(result);",
+      "exit_code": 0,
+      "stdout": "0000\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "dataview",
+      "source": "import { Writable } from 'node:stream';import { finished } from 'node:stream/promises';let result;const sink=new Writable({write(c,e,cb){result=c.toString('hex');cb()}});sink.end(new DataView(new ArrayBuffer(2)));await finished(sink);console.log(result);",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Home binary stream chunks currently require Uint8Array/Buffer views\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "dataview",
+      "source": "import { Writable } from 'node:stream';import { finished } from 'node:stream/promises';let result;const sink=new Writable({write(c,e,cb){result=c.toString('hex');cb()}});sink.end(new DataView(new ArrayBuffer(2)));await finished(sink);console.log(result);",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: Home binary stream chunks currently require Uint8Array/Buffer views\n"
+    },
+    {
+      "runtime": "node",
+      "case": "stdio",
+      "source": "import { Readable } from 'node:stream';Readable.from([Buffer.from('actual stdout bytes')]).pipe(process.stdout);",
+      "exit_code": 0,
+      "stdout": "actual stdout bytes",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "stdio",
+      "source": "import { Readable } from 'node:stream';Readable.from([Buffer.from('actual stdout bytes')]).pipe(process.stdout);",
+      "exit_code": 0,
+      "stdout": "actual stdout bytes",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "stdio",
+      "source": "import { Readable } from 'node:stream';Readable.from([Buffer.from('actual stdout bytes')]).pipe(process.stdout);",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Home pipe requires an owned Writable; native stdio/file adapters are not installed\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "stdio",
+      "source": "import { Readable } from 'node:stream';Readable.from([Buffer.from('actual stdout bytes')]).pipe(process.stdout);",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: Home pipe requires an owned Writable; native stdio/file adapters are not installed\n"
+    }
+  ]
+}
