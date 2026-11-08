@@ -1,0 +1,167 @@
+{
+  "run": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42496068197",
+  "suite_ref": "0e235b948e1da6d34ce6b6f5134386e0f517e88e",
+  "repository": "stacksjs/stacks",
+  "sha": "eda928611d0576e52a185bc5a2bafdb3796b20ad",
+  "engine_sha": "e4c6455ab94b8553aa96dc787fc015165944cbf3",
+  "artifact_id": 13625207288,
+  "artifact_sha256": "050d128a53f24137d12535b9351b1c16f3a631c505baefd121734046ed9816fd",
+  "scope_count": 99,
+  "check_count": 927,
+  "status_counts": {
+    "setup:passed": 16,
+    "engine:passed": 1,
+    "candidate:unsupported": 354,
+    "candidate:failed": 218,
+    "candidate:passed": 53,
+    "reference-setup:passed": 10,
+    "reference:passed": 1,
+    "reference:timed-out": 1,
+    "reference:not-run": 273
+  },
+  "runtime_provenance": {
+    "engine_sha": "e4c6455ab94b8553aa96dc787fc015165944cbf3",
+    "suite_ref": "0e235b948e1da6d34ce6b6f5134386e0f517e88e",
+    "home_repository": "home-lang/home",
+    "home_ref": "e19983e9e27e48cf556325f50360a4fa61e11f8c",
+    "zig_version": "0.18.0-dev.146+35accc06e",
+    "build_cpu": "baseline",
+    "sha256": {
+      "home-tool": "a81c89eb9e80e41718d69dc3b40034e091b144518325b39e8305a68814e10a8c",
+      "engine/zig-out/lib/libzig-js.a": "3af839f7f3719ef8584c612025f4c71112699f75f0f22696997d037fc839b663"
+    }
+  },
+  "checks": [
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 0.164,
+      "log": "0004.log",
+      "label": "verify Home.engine",
+      "lane": "engine",
+      "command": [
+        "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/runtime/home-tool",
+        "eval",
+        "if (Home.engine !== \"zig-js\") throw new Error(\"wrong engine\"); console.log(\"ECOSYSTEM ENGINE zig-js\");"
+      ],
+      "engine_invocations": 0,
+      "log_text": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/runtime/home-tool\", \"eval\", \"if (Home.engine !== \\\"zig-js\\\") throw new Error(\\\"wrong engine\\\"); console.log(\\\"ECOSYSTEM ENGINE zig-js\\\");\"]\nECOSYSTEM ENGINE zig-js\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 4.949,
+      "log": "0005.log",
+      "label": ".: dependencies",
+      "lane": "setup",
+      "command": [
+        "/home/runner/.bun/bin/bun",
+        "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+        "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate",
+        "--frozen-lockfile"
+      ],
+      "engine_invocations": 0,
+      "log_text": "$ [\"/home/runner/.bun/bin/bun\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\", \"--frozen-lockfile\"]\n[env] warning: skipped 42 encrypted value(s) in .env.development (DOTENV_PRIVATE_KEY_DEVELOPMENT not set; existing plaintext or defaults apply): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\n[env] loaded 0/1 variables from .env.development\n[env] warning: skipped 42 encrypted value(s) in .env.development (DOTENV_PRIVATE_KEY_DEVELOPMENT not set; existing plaintext or defaults apply): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\nwarn: registry token references unset variable $BUN_AUTH_TOKEN, ignoring credential\n{\n  \"dependency_setup\": {\n    \"reused\": false,\n    \"reason\": \"independent install or locked scope\",\n    \"dependencies\": []\n  }\n}\n[0.19ms] \".env.production\"\nwarn: registry token references unset variable $BUN_AUTH_TOKEN, ignoring credential\nbun install v1.4.4 (38afee6c8)\n\n+ @actions/expressions@0.3.61\n+ @stacksjs/components@0.2.807\n+ better-dx@0.2.38\n+ bun-plugin-stx@0.2.807\n+ @stacksjs/stx@0.2.807\n+ stacks@workspace:storage/framework/core\n\n309 packages installed [2.43s]\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 1.468,
+      "log": "0016.log",
+      "label": ".: build",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "./buddy build"
+      ],
+      "engine_invocations": 1,
+      "log_text": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\nhome-tool (zig-js): Error: cannot resolve module node:timers/promises from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/ts-pantry/dist/chunk-8sq7hrp2.js\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 1.468,
+      "log": "0017.log",
+      "label": ".: test",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "./buddy test"
+      ],
+      "engine_invocations": 1,
+      "log_text": "$ [\"/bin/sh\", \"-c\", \"./buddy test\"]\nhome-tool (zig-js): Error: cannot resolve module node:timers/promises from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/ts-pantry/dist/chunk-8sq7hrp2.js\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 17.872,
+      "log": "0018.log",
+      "label": ".: typecheck",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)"
+      ],
+      "engine_invocations": 3,
+      "log_text": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\n[2026-11-08T16:12:39.898Z] local.INFO: Building @stacksjs/validation...\nDebug: [writeToFile] Failed to create log directory: TypeError: undefined is not an object (evaluating 'r.F_OK')\nDebug: [writeToFile] Failed to create log directory: TypeError: undefined is not an object (evaluating 'r.F_OK')\nDebug: [writeToFile] Failed to create log directory: TypeError: undefined is not an object (evaluating 'r.F_OK')\nDebug: [writeToFile] Max retries reached. Final error: undefined is not an object (evaluating 'r.F_OK')\nDebug: [writeToFile] Error in operation: TypeError: undefined is not an object (evaluating 'r.F_OK')\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "seconds": 4.63,
+      "log": "0643.log",
+      "label": ".: reference dependencies",
+      "lane": "reference-setup",
+      "command": [
+        "/home/runner/.bun/bin/bun",
+        "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+        "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/reference",
+        "--frozen-lockfile"
+      ],
+      "engine_invocations": 0,
+      "log_text": "$ [\"/home/runner/.bun/bin/bun\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/reference\", \"--frozen-lockfile\"]\n[env] warning: skipped 42 encrypted value(s) in .env.development (DOTENV_PRIVATE_KEY_DEVELOPMENT not set; existing plaintext or defaults apply): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\n[env] loaded 0/1 variables from .env.development\n[env] warning: skipped 42 encrypted value(s) in .env.development (DOTENV_PRIVATE_KEY_DEVELOPMENT not set; existing plaintext or defaults apply): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\nwarn: registry token references unset variable $BUN_AUTH_TOKEN, ignoring credential\n{\n  \"dependency_setup\": {\n    \"reused\": false,\n    \"reason\": \"independent install or locked scope\",\n    \"dependencies\": []\n  }\n}\n[0.21ms] \".env.production\"\nwarn: registry token references unset variable $BUN_AUTH_TOKEN, ignoring credential\nbun install v1.4.4 (38afee6c8)\n\n+ @actions/expressions@0.3.61\n+ @stacksjs/components@0.2.807\n+ better-dx@0.2.38\n+ bun-plugin-stx@0.2.807\n+ @stacksjs/stx@0.2.807\n+ stacks@workspace:storage/framework/core\n\n309 packages installed [2.18s]\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "status": "timed-out",
+      "exit_code": 124,
+      "seconds": 18.102,
+      "log": "0654.log",
+      "label": ".: build",
+      "lane": "reference",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "./buddy build"
+      ],
+      "engine_invocations": 0,
+      "log_text": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[env] warning: skipped 42 encrypted value(s) in .env.development (DOTENV_PRIVATE_KEY_DEVELOPMENT not set; existing plaintext or defaults apply): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\n[env] loaded 0/1 variables from .env.development\n[env] warning: skipped 42 encrypted value(s) in .env.development (DOTENV_PRIVATE_KEY_DEVELOPMENT not set; existing plaintext or defaults apply): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\n[2026-11-08T16:31:54.779Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[env] warning: skipped 42 encrypted value(s) in .env.development (DOTENV_PRIVATE_KEY_DEVELOPMENT not set; existing plaintext or defaults apply): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\n[env] warning: skipped 42 encrypted value(s) in .env.development (DOTENV_PRIVATE_KEY_DEVELOPMENT not set; existing plaintext or defaults apply): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\n[env] warning: skipped 42 encrypted value(s) in .env.development (DOTENV_PRIVATE_KEY_DEVELOPMENT not set; existing plaintext or defaults apply): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\n[env] warning: skipped 42 encrypted value(s) in .env.development (DOTENV_PRIVATE_KEY_DEVELOPMENT not set; existing plaintext or defaults apply): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\n[stx] Plugin loaded: @stacksjs/components\n[stx] Plugin loaded: @stacksjs/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/background-call-to-action.jpg\n[stx-images] Skipping unreadable raster: images/diagram.png\n[stx-images] Skipping unreadable raster: images/background-features.jpg\n[stx-images] Skipping unreadable raster: images/background-faqs.jpg\n[stx-images] Skipping unreadable raster: images/screenshots/background-features.jpg\n\nECOSYSTEM RESULT: timed-out, exit 124\n"
+    },
+    {
+      "status": "not-run",
+      "reason": "repository time budget exhausted",
+      "label": ".: test",
+      "lane": "reference",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "./buddy test"
+      ],
+      "engine_invocations": 0
+    },
+    {
+      "status": "not-run",
+      "reason": "repository time budget exhausted",
+      "label": ".: typecheck",
+      "lane": "reference",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)"
+      ],
+      "engine_invocations": 0
+    }
+  ]
+}
