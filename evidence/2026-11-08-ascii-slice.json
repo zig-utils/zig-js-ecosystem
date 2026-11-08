@@ -1,0 +1,777 @@
+{
+  "before_engine_sha": "f8d2b03cc0f90d162842e459d3bf843c14ec8343",
+  "after_engine_sha": "c2170b6597b1b2104069bd0f74e4fc6d2af14f22",
+  "test262_sha": "4249661388e5d3f92a85186213da140a6481490f",
+  "scope": "ASCII slice/substring/substr fixed-width extraction. Semantics unchanged; bounded subtree validation only.",
+  "environment": {
+    "hardware": "Apple M3 Pro",
+    "os": "macOS 27.0.1 (26A434), arm64",
+    "zig": "0.18.0-dev.146+35accc06e",
+    "runner_optimization": "Debug",
+    "sample_policy": "One diagnostic subprocess per size/method/revision, top-level and function-body variants. Raw timings are diagnostic, not a performance publication, throughput claim, or benchmark matrix. No outlier removal."
+  },
+  "commands": [
+    "zig build test262-bin --prefix .../ascii-slice/before",
+    "zig build test262-bin test-frontend -Dtest-filter=string slices preserve UTF-16 --prefix .../ascii-slice/after",
+    "test262 --diag <subtree>",
+    "test262 --vm-witness-subtree <subtree>",
+    "test262 --eval <probe.js> [tree|vm]"
+  ],
+  "evidence": {
+    "conformance-before.json": {
+      "test/built-ins/String/prototype/slice": {
+        "exit_code": 0,
+        "stdout": "# test/built-ins/String/prototype/slice: 0 fail, 38 pass\n",
+        "stderr": "",
+        "file_count": 38
+      },
+      "test/built-ins/String/prototype/substring": {
+        "exit_code": 0,
+        "stdout": "# test/built-ins/String/prototype/substring: 0 fail, 46 pass\n",
+        "stderr": "",
+        "file_count": 46
+      },
+      "test/annexB/built-ins/String/prototype/substr": {
+        "exit_code": 0,
+        "stdout": "# test/annexB/built-ins/String/prototype/substr: 0 fail, 15 pass\n",
+        "stderr": "",
+        "file_count": 15
+      }
+    },
+    "conformance-after.json": {
+      "test/built-ins/String/prototype/slice": {
+        "exit_code": 0,
+        "stdout": "# test/built-ins/String/prototype/slice: 0 fail, 38 pass\n",
+        "stderr": "",
+        "file_count": 38
+      },
+      "test/built-ins/String/prototype/substring": {
+        "exit_code": 0,
+        "stdout": "# test/built-ins/String/prototype/substring: 0 fail, 46 pass\n",
+        "stderr": "",
+        "file_count": 46
+      },
+      "test/annexB/built-ins/String/prototype/substr": {
+        "exit_code": 0,
+        "stdout": "# test/annexB/built-ins/String/prototype/substr: 0 fail, 15 pass\n",
+        "stderr": "",
+        "file_count": 15
+      }
+    },
+    "semantic-witnesses.json": [
+      {
+        "revision": "before",
+        "file": "semantics.js",
+        "mode": "tree",
+        "exit_code": 0,
+        "stdout": "OK 1\n",
+        "stderr": ""
+      },
+      {
+        "revision": "before",
+        "file": "semantics.js",
+        "mode": "vm",
+        "exit_code": 0,
+        "stdout": "OK 1\n",
+        "stderr": ""
+      },
+      {
+        "revision": "before",
+        "file": "function-semantics.js",
+        "mode": "tree",
+        "exit_code": 0,
+        "stdout": "OK 1\n",
+        "stderr": ""
+      },
+      {
+        "revision": "before",
+        "file": "function-semantics.js",
+        "mode": "vm",
+        "exit_code": 0,
+        "stdout": "OK 1\n",
+        "stderr": ""
+      },
+      {
+        "revision": "after",
+        "file": "semantics.js",
+        "mode": "tree",
+        "exit_code": 0,
+        "stdout": "OK 1\n",
+        "stderr": ""
+      },
+      {
+        "revision": "after",
+        "file": "semantics.js",
+        "mode": "vm",
+        "exit_code": 0,
+        "stdout": "OK 1\n",
+        "stderr": ""
+      },
+      {
+        "revision": "after",
+        "file": "function-semantics.js",
+        "mode": "tree",
+        "exit_code": 0,
+        "stdout": "OK 1\n",
+        "stderr": ""
+      },
+      {
+        "revision": "after",
+        "file": "function-semantics.js",
+        "mode": "vm",
+        "exit_code": 0,
+        "stdout": "OK 1\n",
+        "stderr": ""
+      },
+      {
+        "runtime": "node",
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    ],
+    "vm-subtrees-after.json": [
+      {
+        "subtree": "test/built-ins/String/prototype/slice",
+        "exit_code": 0,
+        "stdout": "# test/built-ins/String/prototype/slice: 0 diverge, 38 agree\n",
+        "stderr": ""
+      },
+      {
+        "subtree": "test/built-ins/String/prototype/substring",
+        "exit_code": 0,
+        "stdout": "# test/built-ins/String/prototype/substring: 0 diverge, 46 agree\n",
+        "stderr": ""
+      },
+      {
+        "subtree": "test/annexB/built-ins/String/prototype/substr",
+        "exit_code": 0,
+        "stdout": "# test/annexB/built-ins/String/prototype/substr: 0 diverge, 15 agree\n",
+        "stderr": ""
+      }
+    ],
+    "growth-before.json": [
+      {
+        "size": 2000,
+        "method": "slice",
+        "seconds": 0.1001,
+        "exit_code": 0,
+        "stdout": "OK 194000\n",
+        "stderr": ""
+      },
+      {
+        "size": 2000,
+        "method": "substring",
+        "seconds": 0.096,
+        "exit_code": 0,
+        "stdout": "OK 194000\n",
+        "stderr": ""
+      },
+      {
+        "size": 2000,
+        "method": "substr",
+        "seconds": 0.0952,
+        "exit_code": 0,
+        "stdout": "OK 194000\n",
+        "stderr": ""
+      },
+      {
+        "size": 4000,
+        "method": "slice",
+        "seconds": 0.2369,
+        "exit_code": 0,
+        "stdout": "OK 388000\n",
+        "stderr": ""
+      },
+      {
+        "size": 4000,
+        "method": "substring",
+        "seconds": 0.2355,
+        "exit_code": 0,
+        "stdout": "OK 388000\n",
+        "stderr": ""
+      },
+      {
+        "size": 4000,
+        "method": "substr",
+        "seconds": 0.242,
+        "exit_code": 0,
+        "stdout": "OK 388000\n",
+        "stderr": ""
+      },
+      {
+        "size": 8000,
+        "method": "slice",
+        "seconds": 0.8335,
+        "exit_code": 0,
+        "stdout": "OK 776000\n",
+        "stderr": ""
+      },
+      {
+        "size": 8000,
+        "method": "substring",
+        "seconds": 0.7601,
+        "exit_code": 0,
+        "stdout": "OK 776000\n",
+        "stderr": ""
+      },
+      {
+        "size": 8000,
+        "method": "substr",
+        "seconds": 0.7689,
+        "exit_code": 0,
+        "stdout": "OK 776000\n",
+        "stderr": ""
+      },
+      {
+        "size": 16000,
+        "method": "slice",
+        "seconds": 2.761,
+        "exit_code": 0,
+        "stdout": "OK 1552000\n",
+        "stderr": ""
+      },
+      {
+        "size": 16000,
+        "method": "substring",
+        "seconds": 2.7719,
+        "exit_code": 0,
+        "stdout": "OK 1552000\n",
+        "stderr": ""
+      },
+      {
+        "size": 16000,
+        "method": "substr",
+        "seconds": 2.7867,
+        "exit_code": 0,
+        "stdout": "OK 1552000\n",
+        "stderr": ""
+      }
+    ],
+    "growth-after.json": [
+      {
+        "size": 2000,
+        "method": "slice",
+        "seconds": 0.0559,
+        "exit_code": 0,
+        "stdout": "OK 194000\n",
+        "stderr": ""
+      },
+      {
+        "size": 2000,
+        "method": "substring",
+        "seconds": 0.0556,
+        "exit_code": 0,
+        "stdout": "OK 194000\n",
+        "stderr": ""
+      },
+      {
+        "size": 2000,
+        "method": "substr",
+        "seconds": 0.0569,
+        "exit_code": 0,
+        "stdout": "OK 194000\n",
+        "stderr": ""
+      },
+      {
+        "size": 4000,
+        "method": "slice",
+        "seconds": 0.0805,
+        "exit_code": 0,
+        "stdout": "OK 388000\n",
+        "stderr": ""
+      },
+      {
+        "size": 4000,
+        "method": "substring",
+        "seconds": 0.0784,
+        "exit_code": 0,
+        "stdout": "OK 388000\n",
+        "stderr": ""
+      },
+      {
+        "size": 4000,
+        "method": "substr",
+        "seconds": 0.0815,
+        "exit_code": 0,
+        "stdout": "OK 388000\n",
+        "stderr": ""
+      },
+      {
+        "size": 8000,
+        "method": "slice",
+        "seconds": 0.1307,
+        "exit_code": 0,
+        "stdout": "OK 776000\n",
+        "stderr": ""
+      },
+      {
+        "size": 8000,
+        "method": "substring",
+        "seconds": 0.1275,
+        "exit_code": 0,
+        "stdout": "OK 776000\n",
+        "stderr": ""
+      },
+      {
+        "size": 8000,
+        "method": "substr",
+        "seconds": 0.1282,
+        "exit_code": 0,
+        "stdout": "OK 776000\n",
+        "stderr": ""
+      },
+      {
+        "size": 16000,
+        "method": "slice",
+        "seconds": 0.2404,
+        "exit_code": 0,
+        "stdout": "OK 1552000\n",
+        "stderr": ""
+      },
+      {
+        "size": 16000,
+        "method": "substring",
+        "seconds": 0.2341,
+        "exit_code": 0,
+        "stdout": "OK 1552000\n",
+        "stderr": ""
+      },
+      {
+        "size": 16000,
+        "method": "substr",
+        "seconds": 0.2534,
+        "exit_code": 0,
+        "stdout": "OK 1552000\n",
+        "stderr": ""
+      }
+    ],
+    "growth-functions.json": [
+      {
+        "revision": "before",
+        "size": 4000,
+        "method": "slice",
+        "seconds": 0.2079,
+        "exit_code": 0,
+        "stdout": "OK 388000\n",
+        "stderr": ""
+      },
+      {
+        "revision": "after",
+        "size": 4000,
+        "method": "slice",
+        "seconds": 0.0459,
+        "exit_code": 0,
+        "stdout": "OK 388000\n",
+        "stderr": ""
+      },
+      {
+        "revision": "before",
+        "size": 4000,
+        "method": "substring",
+        "seconds": 0.203,
+        "exit_code": 0,
+        "stdout": "OK 388000\n",
+        "stderr": ""
+      },
+      {
+        "revision": "after",
+        "size": 4000,
+        "method": "substring",
+        "seconds": 0.0455,
+        "exit_code": 0,
+        "stdout": "OK 388000\n",
+        "stderr": ""
+      },
+      {
+        "revision": "before",
+        "size": 4000,
+        "method": "substr",
+        "seconds": 0.2073,
+        "exit_code": 0,
+        "stdout": "OK 388000\n",
+        "stderr": ""
+      },
+      {
+        "revision": "after",
+        "size": 4000,
+        "method": "substr",
+        "seconds": 0.0473,
+        "exit_code": 0,
+        "stdout": "OK 388000\n",
+        "stderr": ""
+      },
+      {
+        "revision": "before",
+        "size": 8000,
+        "method": "slice",
+        "seconds": 0.698,
+        "exit_code": 0,
+        "stdout": "OK 776000\n",
+        "stderr": ""
+      },
+      {
+        "revision": "after",
+        "size": 8000,
+        "method": "slice",
+        "seconds": 0.0597,
+        "exit_code": 0,
+        "stdout": "OK 776000\n",
+        "stderr": ""
+      },
+      {
+        "revision": "before",
+        "size": 8000,
+        "method": "substring",
+        "seconds": 0.6924,
+        "exit_code": 0,
+        "stdout": "OK 776000\n",
+        "stderr": ""
+      },
+      {
+        "revision": "after",
+        "size": 8000,
+        "method": "substring",
+        "seconds": 0.059,
+        "exit_code": 0,
+        "stdout": "OK 776000\n",
+        "stderr": ""
+      },
+      {
+        "revision": "before",
+        "size": 8000,
+        "method": "substr",
+        "seconds": 0.6979,
+        "exit_code": 0,
+        "stdout": "OK 776000\n",
+        "stderr": ""
+      },
+      {
+        "revision": "after",
+        "size": 8000,
+        "method": "substr",
+        "seconds": 0.0625,
+        "exit_code": 0,
+        "stdout": "OK 776000\n",
+        "stderr": ""
+      },
+      {
+        "revision": "before",
+        "size": 16000,
+        "method": "slice",
+        "seconds": 2.6282,
+        "exit_code": 0,
+        "stdout": "OK 1552000\n",
+        "stderr": ""
+      },
+      {
+        "revision": "after",
+        "size": 16000,
+        "method": "slice",
+        "seconds": 0.1001,
+        "exit_code": 0,
+        "stdout": "OK 1552000\n",
+        "stderr": ""
+      },
+      {
+        "revision": "before",
+        "size": 16000,
+        "method": "substring",
+        "seconds": 2.6683,
+        "exit_code": 0,
+        "stdout": "OK 1552000\n",
+        "stderr": ""
+      },
+      {
+        "revision": "after",
+        "size": 16000,
+        "method": "substring",
+        "seconds": 0.0989,
+        "exit_code": 0,
+        "stdout": "OK 1552000\n",
+        "stderr": ""
+      },
+      {
+        "revision": "before",
+        "size": 16000,
+        "method": "substr",
+        "seconds": 2.6334,
+        "exit_code": 0,
+        "stdout": "OK 1552000\n",
+        "stderr": ""
+      },
+      {
+        "revision": "after",
+        "size": 16000,
+        "method": "substr",
+        "seconds": 0.1212,
+        "exit_code": 0,
+        "stdout": "OK 1552000\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "sources": {
+    "semantics.js": "var rows = [\n  [\"a\\0bcd\", 1, 3, \"\\0b\"],\n  [\"caf\u00e9\", 2, 4, \"f\u00e9\"],\n  [\"a\\u0100z\", 1, 2, \"\\u0100\"],\n  [\"a\\ud83d\\ude00z\", 1, 2, \"\\ud83d\"],\n  [\"a\\ud83d\\ude00z\", 2, 3, \"\\ude00\"],\n  [\"a\\ud800z\", 1, 2, \"\\ud800\"]\n];\nvar methods = [\"slice\", \"substring\", \"substr\"];\nfor (var m = 0; m < methods.length; m++) {\n  for (var r = 0; r < rows.length; r++) {\n    var row = rows[r];\n    var end = methods[m] === \"substr\" ? row[2] - row[1] : row[2];\n    if (row[0][methods[m]](row[1], end) !== row[3]) throw Error(\"code units\");\n  }\n  var order = \"\";\n  var receiver = { toString: function () { order += \"s\"; return \"abcd\"; } };\n  var start = { valueOf: function () { order += \"a\"; return 1; } };\n  var end = { valueOf: function () { order += \"b\"; return 2; } };\n  var result = String.prototype[methods[m]].call(receiver, start, end);\n  if (order !== \"sab\" || result !== (methods[m] === \"substr\" ? \"bc\" : \"b\")) throw Error(\"coercion order\");\n}\n1\n",
+    "function-slice-8000.js": "(function(){var s=\"af\".repeat(8000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.slice(i,i+2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==776000)throw Error(\"checksum\"); return sum;})()",
+    "substring-4000.js": "var s=\"af\".repeat(4000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.substring(i,i+2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==388000)throw Error(\"checksum\"); sum;",
+    "substr-8000.js": "var s=\"af\".repeat(8000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.substr(i,2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==776000)throw Error(\"checksum\"); sum;",
+    "function-slice-16000.js": "(function(){var s=\"af\".repeat(16000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.slice(i,i+2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==1552000)throw Error(\"checksum\"); return sum;})()",
+    "substring-2000.js": "var s=\"af\".repeat(2000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.substring(i,i+2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==194000)throw Error(\"checksum\"); sum;",
+    "function-semantics.js": "(function(){\nvar rows = [\n  [\"a\\0bcd\", 1, 3, \"\\0b\"],\n  [\"caf\u00e9\", 2, 4, \"f\u00e9\"],\n  [\"a\\u0100z\", 1, 2, \"\\u0100\"],\n  [\"a\\ud83d\\ude00z\", 1, 2, \"\\ud83d\"],\n  [\"a\\ud83d\\ude00z\", 2, 3, \"\\ude00\"],\n  [\"a\\ud800z\", 1, 2, \"\\ud800\"]\n];\nvar methods = [\"slice\", \"substring\", \"substr\"];\nfor (var m = 0; m < methods.length; m++) {\n  for (var r = 0; r < rows.length; r++) {\n    var row = rows[r];\n    var end = methods[m] === \"substr\" ? row[2] - row[1] : row[2];\n    if (row[0][methods[m]](row[1], end) !== row[3]) throw Error(\"code units\");\n  }\n  var order = \"\";\n  var receiver = { toString: function () { order += \"s\"; return \"abcd\"; } };\n  var start = { valueOf: function () { order += \"a\"; return 1; } };\n  var end = { valueOf: function () { order += \"b\"; return 2; } };\n  var result = String.prototype[methods[m]].call(receiver, start, end);\n  if (order !== \"sab\" || result !== (methods[m] === \"substr\" ? \"bc\" : \"b\")) throw Error(\"coercion order\");\n}\nreturn 1;\n})()\n",
+    "function-substring-8000.js": "(function(){var s=\"af\".repeat(8000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.substring(i,i+2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==776000)throw Error(\"checksum\"); return sum;})()",
+    "slice-8000.js": "var s=\"af\".repeat(8000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.slice(i,i+2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==776000)throw Error(\"checksum\"); sum;",
+    "function-substr-4000.js": "(function(){var s=\"af\".repeat(4000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.substr(i,2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==388000)throw Error(\"checksum\"); return sum;})()",
+    "function-substr-8000.js": "(function(){var s=\"af\".repeat(8000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.substr(i,2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==776000)throw Error(\"checksum\"); return sum;})()",
+    "substr-16000.js": "var s=\"af\".repeat(16000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.substr(i,2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==1552000)throw Error(\"checksum\"); sum;",
+    "slice-16000.js": "var s=\"af\".repeat(16000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.slice(i,i+2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==1552000)throw Error(\"checksum\"); sum;",
+    "slice-4000.js": "var s=\"af\".repeat(4000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.slice(i,i+2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==388000)throw Error(\"checksum\"); sum;",
+    "function-substring-4000.js": "(function(){var s=\"af\".repeat(4000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.substring(i,i+2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==388000)throw Error(\"checksum\"); return sum;})()",
+    "substring-16000.js": "var s=\"af\".repeat(16000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.substring(i,i+2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==1552000)throw Error(\"checksum\"); sum;",
+    "function-substring-16000.js": "(function(){var s=\"af\".repeat(16000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.substring(i,i+2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==1552000)throw Error(\"checksum\"); return sum;})()",
+    "slice-2000.js": "var s=\"af\".repeat(2000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.slice(i,i+2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==194000)throw Error(\"checksum\"); sum;",
+    "substr-4000.js": "var s=\"af\".repeat(4000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.substr(i,2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==388000)throw Error(\"checksum\"); sum;",
+    "function-substr-16000.js": "(function(){var s=\"af\".repeat(16000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.substr(i,2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==1552000)throw Error(\"checksum\"); return sum;})()",
+    "substring-8000.js": "var s=\"af\".repeat(8000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.substring(i,i+2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==776000)throw Error(\"checksum\"); sum;",
+    "function-slice-4000.js": "(function(){var s=\"af\".repeat(4000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.slice(i,i+2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==388000)throw Error(\"checksum\"); return sum;})()",
+    "substr-2000.js": "var s=\"af\".repeat(2000); var sum=0; for(var i=0;i<s.length;i+=2){var v=s.substr(i,2);if(v!==\"af\")throw Error(\"bad bytes\");sum+=v.charCodeAt(0);} if(sum!==194000)throw Error(\"checksum\"); sum;"
+  },
+  "focused_gate": {
+    "exit_code": 0,
+    "stdout": "focused engine frontend: 1 case passed\n"
+  },
+  "host_gate": {
+    "home_ref": "6d5a3a4c3efaad4d78f89e86b760db5be697a326",
+    "engine_ref": "c2170b6597b1b2104069bd0f74e4fc6d2af14f22",
+    "command": "zig build home-tool home-tool-smoke home-tool-rejections-smoke home-tool-async-context-smoke -Denable_jsc=false -Dtool-js-engine=zig-js -Dzig-js-root=.../ascii-slice/engine",
+    "exit_code": 0,
+    "log": "home-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: uncaught handler failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/2b91bc76e243cb82cd3e228d9ac8823b/home-tool run unhandled_rejection.cjs handler-throw\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: second rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/2b91bc76e243cb82cd3e228d9ac8823b/home-tool run unhandled_rejection.cjs second\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/2b91bc76e243cb82cd3e228d9ac8823b/home-tool run unhandled_rejection.cjs chain\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/2b91bc76e243cb82cd3e228d9ac8823b/home-tool run unhandled_rejection.cjs error\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/2b91bc76e243cb82cd3e228d9ac8823b/home-tool run unhandled_rejection.cjs async\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: UnhandledPromiseRejection: Unhandled promise rejection: undefined\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/2b91bc76e243cb82cd3e228d9ac8823b/home-tool run unhandled_rejection.cjs undefined\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: listener failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run unhandled_rejection.cjs listener-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): undefined\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../zig-out/bin/home-tool run undefined.mjs\n\nOK home-tool exact package imports\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../zig-out/bin/home-tool run declaration/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/dynamic_import/pending-entry.mjs\nfailed command: cd packages/runtime/test/tool_modules/dynamic_import && ./../../../../../zig-out/bin/home-tool run pending-entry.mjs\n\nOK home-tool import.meta\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/require-only from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs: PackagePathNotExported\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../zig-out/bin/home-tool run reject-require-only.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: circular tsconfig extends chain: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../zig-out/bin/home-tool run cycle/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): undefined\nfailed command: cd packages/runtime/test/tool_modules/dynamic_import && ./../../../../../zig-out/bin/home-tool run reject-entry.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run next_tick_failure.cjs error\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: handler failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run next_tick_failure.cjs handler-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run next_tick_failure.cjs monitor\n\nOK home-tool module interop\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/directory from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../zig-out/bin/home-tool run reject-directory.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/blocked from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs: PackagePathNotExported\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../zig-out/bin/home-tool run reject-blocked.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): SyntaxError: Unexpected identifier 'Promise'\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../zig-out/bin/home-tool run cjs-await.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../zig-out/bin/home-tool run dependency-rejected.mjs\n\nOK home-tool runtime transpilation\nhome-tool-smoke\n+- run exe home-tool w\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js:6: Identifier expected. (TS1003)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run runtime_invalid_syntax.js\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run next_tick_failure.cjs override\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../zig-out/bin/home-tool run cycle-a.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/extensionless from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../zig-out/bin/home-tool run reject-extensionless.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./bad.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../zig-out/bin/home-tool run malformed/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run next_tick_failure.cjs exit-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./absent.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../zig-out/bin/home-tool run missing/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: invalid JSONC or runtime path options: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../zig-out/bin/home-tool run invalid-options/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: undefined\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run next_tick_failure.cjs undefined\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_stream_pending.mjs\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run node_stream_pending.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/missing-array from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../zig-out/bin/home-tool run reject-missing-array.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: exit listener witness\nfailed command: ./zig-out/bin/home-tool eval \"process.on('exit', function() { throw new Error('exit listener witness'); });\"\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../zig-out/bin/home-tool run rejected.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: monitor failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run next_tick_failure.cjs monitor-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../zig-out/bin/home-tool run pending.mjs\n\n",
+    "provenance": {
+      "engine_sha": "c2170b6597b1b2104069bd0f74e4fc6d2af14f22",
+      "engine_tracked_status": "",
+      "home_sha": "6d5a3a4c3efaad4d78f89e86b760db5be697a326",
+      "home_tracked_status": "",
+      "sha256": {
+        "/Users/chris/.cache/zig-js-ecosystem-research/ascii-slice/engine/zig-out/lib/libzig-js.a": "bd179d511b2f6db53f654caa43df6f3a53ded78bf12b6d237f5f950fd2407bb1",
+        "/Users/chris/.cache/zig-js-ecosystem-research/ascii-slice/home-tool-after": "1ca0c48d590a705e65c813eb9da648195ebac06c300b01c8ec813638f7e0d93c"
+      }
+    }
+  },
+  "notes": [
+    "slice 38/0, substring 46/0, Annex B substr 15/0 before and after; 0 flips, 0 regressions in these 99 cases only.",
+    "99 forced VM subtree witnesses agree with the tree walker.",
+    "VM method dispatch calls the same interpreter builtinMethod path; no separate VM string extraction implementation was changed.",
+    "The engine archive for Home was rebuilt from a clean isolated checkout of the exact pushed c2170b65 revision, with baseline CPU.",
+    "No full unit, full test262, sanitizer, or whole-consumer pass is claimed."
+  ],
+  "actual_stacks_build": {
+    "status": "failed",
+    "exit_code": 78,
+    "seconds": 0.196,
+    "log": "stacks-build.log",
+    "command": "./buddy build",
+    "consumer_sha": "d557cee9630c209ed5fc58c8c5f633dba82c3488",
+    "log_text": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\nECOSYSTEM UNSUPPORTED: Unsupported runtime flag: bun --conditions\n\nECOSYSTEM RESULT: failed, exit 78\n",
+    "events": "{\"kind\": \"unsupported\", \"reason\": \"Unsupported runtime flag: bun --conditions\"}\n"
+  },
+  "post_fix_docs_profile": {
+    "note": "Actual docs process now samples in regexp replacement capture-span remapping, including stringSliceFromSearchSpan and utf16IndexForByteOffset. This identifies the next workload to reproduce; it does not prove its complete root cause.",
+    "text": "Analysis of sampling home-tool-after (pid 46362) every 1 millisecond\nProcess:         home-tool-after [46362]\nPath:            /Users/USER/*/home-tool-after\nLoad Address:    0x10014c000\nIdentifier:      home-tool-after\nVersion:         0\nCode Type:       ARM64\nPlatform:        macOS\nParent Process:  python3.14 [46360]\nTarget Type:     live task\n\nDate/Time:       2026-11-08 05:50:30.877 -0800\nLaunch Time:     2026-11-08 05:49:30.214 -0800\nOS Version:      macOS 27.0.1 (26A434)\nReport Version:  7\nAnalysis Tool:   /usr/bin/sample\n\nPhysical footprint:         507.8M\nPhysical footprint (peak):  507.8M\nIdle exit:                  untracked\n----\n\nCall graph:\n    1519 Thread_2784553   DispatchQueue_1: com.apple.main-thread  (serial)\n      1519 start  (in dyld) + 6688  [0x19e1d3e80]\n        1519 main  (in home-tool-after) + 1148  [0x100261e78]  start.zig:760\n          1519 tool_main.main  (in home-tool-after) + 1888  [0x1002617cc]  tool_main.zig:151\n            1519 tool_main.runSource  (in home-tool-after) + 656  [0x1002603d8]  tool_main.zig:68\n              1519 evaluate.evaluateUtf8Detailed  (in home-tool-after) + 108  [0x10025ecd8]  evaluate.zig:77\n                1519 evaluate.evaluateUtf8  (in home-tool-after) + 472  [0x10025e5fc]  evaluate.zig:66\n                  1519 JSEvaluateScript  (in home-tool-after) + 284  [0x1019c0d20]  c_api.zig:20202\n                    1519 c_api.evaluateScriptBytes  (in home-tool-after) + 748  [0x1019c1ce0]  c_api.zig:20269\n                      1519 context.Context.evaluateWithThis  (in home-tool-after) + 8700  [0x101914974]  context.zig:10575\n                        1519 interpreter.Interpreter.drainHostCheckpoint  (in home-tool-after) + 44  [0x101915b64]  interpreter.zig:12430\n                          1519 interpreter.Interpreter.drainHostMicrotasks  (in home-tool-after) + 72  [0x100bdd688]  interpreter.zig:12424\n                            1519 interpreter.Interpreter.drainMicrotasks  (in home-tool-after) + 504  [0x100bdd9e0]  interpreter.zig:12410\n                              1519 interpreter.Interpreter.drainJobQueue  (in home-tool-after) + 928  [0x100bdf3f0]  interpreter.zig:12460\n                                1519 promise.runJob  (in home-tool-after) + 5488  [0x100be7db4]  promise.zig:2241\n                                  1519 interpreter.Interpreter.callValueWithThis  (in home-tool-after) + 80  [0x10083a614]  interpreter.zig:10491\n                                    1519 interpreter.Interpreter.callValueWithThisAtSite  (in home-tool-after) + 7000  [0x10083c38c]  interpreter.zig:10546\n                                      1519 interpreter.Interpreter.callNativeObject  (in home-tool-after) + 1232  [0x101038a64]  interpreter.zig:10636\n                                        1519 vm.asyncOnFulfill  (in home-tool-after) + 256  [0x1010568e8]  vm.zig:11774\n                                          1519 vm.asyncDrive  (in home-tool-after) + 3500  [0x101031808]  vm.zig:11719\n                                            1519 vm.execLoop  (in home-tool-after) + 3752  [0x100bfe7b8]  vm.zig:8480\n                                              1519 vm.runChunk  (in home-tool-after) + 313988  [0x100c4da28]  vm.zig:10000\n                                                1519 vm.runInlineFunction  (in home-tool-after) + 1036  [0x100e5a2ec]  vm.zig:14247\n                                                  1519 vm.execLoop  (in home-tool-after) + 3752  [0x100bfe7b8]  vm.zig:8480\n                                                    1519 vm.runChunk  (in home-tool-after) + 414660  [0x100c66368]  vm.zig:10425\n                                                      1519 vm.callValue  (in home-tool-after) + 184  [0x100e5977c]  vm.zig:13465\n                                                        1519 interpreter.Interpreter.callValueWithThisAtSite  (in home-tool-after) + 7000  [0x10083c38c]  interpreter.zig:10546\n                                                          1519 interpreter.Interpreter.callNativeObject  (in home-tool-after) + 1232  [0x101038a64]  interpreter.zig:10636\n                                                            1519 interpreter.stringProtoMethod__func_5569__struct_8544.call  (in home-tool-after) + 220  [0x1016bbfa4]  interpreter.zig:41277\n                                                              1519 interpreter.Interpreter.stringProtocolDispatch  (in home-tool-after) + 2104  [0x100a38de4]  interpreter.zig:21562\n                                                                1519 interpreter.Interpreter.callValueWithThis  (in home-tool-after) + 80  [0x10083a614]  interpreter.zig:10491\n                                                                  1519 interpreter.Interpreter.callValueWithThisAtSite  (in home-tool-after) + 7000  [0x10083c38c]  interpreter.zig:10546\n                                                                    1519 interpreter.Interpreter.callNativeObject  (in home-tool-after) + 1232  [0x101038a64]  interpreter.zig:10636\n                                                                      1519 interpreter.regexpSymbolMethod__func_5604__struct_8500.call  (in home-tool-after) + 1180  [0x10169e9f0]  interpreter.zig:41865\n                                                                        1519 interpreter.Interpreter.regexpReplace  (in home-tool-after) + 3256  [0x1016a1df8]  interpreter.zig:15074\n                                                                          769 interpreter.Interpreter.regexBuiltinExecWith  (in home-tool-after) + 4936  [0x100943338]  interpreter.zig:14826\n                                                                          + 768 interpreter.Interpreter.captureValSpan  (in home-tool-after) + 1228  [0x100946030]  interpreter.zig:22508\n                                                                          + ! 266 interpreter.Interpreter.stringSliceFromSearchSpan  (in home-tool-after) + 172  [0x1009463b4]  interpreter.zig:14847\n                                                                          + ! : 116 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 268  [0x100945b38]  interpreter.zig:14446\n                                                                          + ! : | 72 interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 52  [0x1009896b0]  interpreter.zig:14137\n                                                                          + ! : | + 58 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 64,96,...  [0x1009897a4,0x1009897c4,...]  interpreter.zig:14110\n                                                                          + ! : | + 14 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 24,16,...  [0x10098977c,0x100989774,...]  interpreter.zig:14109\n                                                                          + ! : | 18 interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 0,36,...  [0x10098967c,0x1009896a0,...]  interpreter.zig:14136\n                                                                          + ! : | 17 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 176  [0x100989814]  interpreter.zig:14111\n                                                                          + ! : | 9 interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 80,104  [0x1009896cc,0x1009896e4]  interpreter.zig:14137\n                                                                          + ! : 94 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 196  [0x100945af0]  interpreter.zig:14445\n                                                                          + ! : | 56 interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 52  [0x100989724]  interpreter.zig:14141\n                                                                          + ! : | + 41 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 64,96,...  [0x1009897a4,0x1009897c4,...]  interpreter.zig:14110\n                                                                          + ! : | + 15 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 48,8,...  [0x100989794,0x10098976c,...]  interpreter.zig:14109\n                                                                          + ! : | 17 interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 80,104  [0x100989740,0x100989758]  interpreter.zig:14141\n                                                                          + ! : | 11 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 176  [0x100989814]  interpreter.zig:14111\n                                                                          + ! : | 10 interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 4,16,...  [0x1009896f4,0x100989700,...]  interpreter.zig:14140\n                                                                          + ! : 20 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 120  [0x100945aa4]  interpreter.zig:0\n                                                                          + ! : 15 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 100  [0x100945a90]  interpreter.zig:14444\n                                                                          + ! : 11 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 252,276,...  [0x100945b28,0x100945b40,...]  interpreter.zig:14446\n                                                                          + ! : 5 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 216  [0x100945b04]  interpreter.zig:14445\n                                                                          + ! : 5 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 116  [0x100945aa0]  interpreter.zig:14447\n                                                                          + ! 253 interpreter.Interpreter.stringSliceFromSearchSpan  (in home-tool-after) + 204  [0x1009463d4]  interpreter.zig:14848\n                                                                          + ! : 114 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 268  [0x100945b38]  interpreter.zig:14446\n                                                                          + ! : | 74 interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 52  [0x1009896b0]  interpreter.zig:14137\n                                                                          + ! : | + 60 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 64,96,...  [0x1009897a4,0x1009897c4,...]  interpreter.zig:14110\n                                                                          + ! : | + 14 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 16,24  [0x100989774,0x10098977c]  interpreter.zig:14109\n                                                                          + ! : | 18 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 176  [0x100989814]  interpreter.zig:14111\n                                                                          + ! : | 12 interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 44,36,...  [0x1009896a8,0x1009896a0,...]  interpreter.zig:14136\n                                                                          + ! : | 10 interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 80,104  [0x1009896cc,0x1009896e4]  interpreter.zig:14137\n                                                                          + ! : 102 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 196  [0x100945af0]  interpreter.zig:14445\n                                                                          + ! : | 59 interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 52  [0x100989724]  interpreter.zig:14141\n                                                                          + ! : | + 48 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 64,96,...  [0x1009897a4,0x1009897c4,...]  interpreter.zig:14110\n                                                                          + ! : | + 11 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 48,8,...  [0x100989794,0x10098976c,...]  interpreter.zig:14109\n                                                                          + ! : | 20 interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 80,104  [0x100989740,0x100989758]  interpreter.zig:14141\n                                                                          + ! : | 15 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 176  [0x100989814]  interpreter.zig:14111\n                                                                          + ! : | 8 interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 4,16  [0x1009896f4,0x100989700]  interpreter.zig:14140\n                                                                          + ! : 14 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 252,276  [0x100945b28,0x100945b40]  interpreter.zig:14446\n                                                                          + ! : 10 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 120  [0x100945aa4]  interpreter.zig:0\n                                                                          + ! : 8 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 100  [0x100945a90]  interpreter.zig:14444\n                                                                          + ! : 5 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 116  [0x100945aa0]  interpreter.zig:14447\n                                                                          + ! 249 interpreter.Interpreter.stringSliceFromSearchSpan  (in home-tool-after) + 276  [0x10094641c]  interpreter.zig:14850\n                                                                          + !   249 interpreter.Interpreter.appendUtf16Slice  (in home-tool-after) + 68  [0x1009462b8]  interpreter.zig:14855\n                                                                          + !     109 interpreter.Interpreter.appendUtf16SliceImpl  (in home-tool-after) + 356  [0x100911980]  interpreter.zig:14893\n                                                                          + !     | 73 interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 52  [0x1009896b0]  interpreter.zig:14137\n                                                                          + !     | + 57 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 64,96,...  [0x1009897a4,0x1009897c4,...]  interpreter.zig:14110\n                                                                          + !     | + 15 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 24,32,...  [0x10098977c,0x100989784,...]  interpreter.zig:14109\n                                                                          + !     | + 1 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 164  [0x100989808]  interpreter.zig:14111\n                                                                          + !     | 15 interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 80,104  [0x1009896cc,0x1009896e4]  interpreter.zig:14137\n                                                                          + !     | 14 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 176  [0x100989814]  interpreter.zig:14111\n                                                                          + !     | 7 interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 24  [0x100989694]  interpreter.zig:14136\n                                                                          + !     84 interpreter.Interpreter.appendUtf16SliceImpl  (in home-tool-after) + 388  [0x1009119a0]  interpreter.zig:14894\n                                                                          + !     | 44 interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 52  [0x100989724]  interpreter.zig:14141\n                                                                          + !     | + 37 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 64,56,...  [0x1009897a4,0x10098979c,...]  interpreter.zig:14110\n                                                                          + !     | + 7 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 24,48,...  [0x10098977c,0x100989794,...]  interpreter.zig:14109\n                                                                          + !     | 20 interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 80,104  [0x100989740,0x100989758]  interpreter.zig:14141\n                                                                          + !     | 11 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 176  [0x100989814]  interpreter.zig:14111\n                                                                          + !     | 9 interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 16,36,...  [0x100989700,0x100989714,...]  interpreter.zig:14140\n                                                                          + !     20 interpreter.Interpreter.appendUtf16SliceImpl  (in home-tool-after) + 268  [0x100911928]  interpreter.zig:14892\n                                                                          + !     19 interpreter.Interpreter.appendUtf16SliceImpl  (in home-tool-after) + 288,456  [0x10091193c,0x1009119e4]  interpreter.zig:0\n                                                                          + !     11 interpreter.Interpreter.appendUtf16SliceImpl  (in home-tool-after) + 532  [0x100911a30]  interpreter.zig:14897\n                                                                          + !     4 interpreter.Interpreter.appendUtf16SliceImpl  (in home-tool-after) + 380  [0x100911998]  interpreter.zig:14894\n                                                                          + !     2 interpreter.Interpreter.appendUtf16SliceImpl  (in home-tool-after) + 484  [0x100911a00]  interpreter.zig:14896\n                                                                          + 1 interpreter.Interpreter.captureValSpan  (in home-tool-after) + 1740  [0x100946230]  interpreter.zig:22508\n                                                                          741 interpreter.Interpreter.regexBuiltinExecWith  (in home-tool-after) + 3952  [0x100942f60]  interpreter.zig:14825\n                                                                          + 249 interpreter.Interpreter.stringSliceFromSearchSpan  (in home-tool-after) + 172  [0x1009463b4]  interpreter.zig:14847\n                                                                          + ! 115 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 268  [0x100945b38]  interpreter.zig:14446\n                                                                          + ! : 66 interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 52  [0x1009896b0]  interpreter.zig:14137\n                                                                          + ! : | 55 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 64,96,...  [0x1009897a4,0x1009897c4,...]  interpreter.zig:14110\n                                                                          + ! : | 11 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 24,16  [0x10098977c,0x100989774]  interpreter.zig:14109\n                                                                          + ! : 20 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 176  [0x100989814]  interpreter.zig:14111\n                                                                          + ! : 18 interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 36,0,...  [0x1009896a0,0x10098967c,...]  interpreter.zig:14136\n                                                                          + ! : 11 interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 80,104  [0x1009896cc,0x1009896e4]  interpreter.zig:14137\n                                                                          + ! 89 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 196  [0x100945af0]  interpreter.zig:14445\n                                                                          + ! : 55 interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 52  [0x100989724]  interpreter.zig:14141\n                                                                          + ! : | 36 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 64,56,...  [0x1009897a4,0x10098979c,...]  interpreter.zig:14110\n                                                                          + ! : | 19 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 48,16,...  [0x100989794,0x100989774,...]  interpreter.zig:14109\n                                                                          + ! : 14 interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 104,80,...  [0x100989758,0x100989740,...]  interpreter.zig:14141\n                                                                          + ! : 12 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 176  [0x100989814]  interpreter.zig:14111\n                                                                          + ! : 8 interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 16,4,...  [0x100989700,0x1009896f4,...]  interpreter.zig:14140\n                                                                          + ! 16 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 252,276  [0x100945b28,0x100945b40]  interpreter.zig:14446\n                                                                          + ! 14 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 100  [0x100945a90]  interpreter.zig:14444\n                                                                          + ! 11 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 120  [0x100945aa4]  interpreter.zig:0\n                                                                          + ! 4 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 116  [0x100945aa0]  interpreter.zig:14447\n                                                                          + 249 interpreter.Interpreter.stringSliceFromSearchSpan  (in home-tool-after) + 276  [0x10094641c]  interpreter.zig:14850\n                                                                          + ! 249 interpreter.Interpreter.appendUtf16Slice  (in home-tool-after) + 68  [0x1009462b8]  interpreter.zig:14855\n                                                                          + !   98 interpreter.Interpreter.appendUtf16SliceImpl  (in home-tool-after) + 356  [0x100911980]  interpreter.zig:14893\n                                                                          + !   : 67 interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 52  [0x1009896b0]  interpreter.zig:14137\n                                                                          + !   : | 54 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 64,96  [0x1009897a4,0x1009897c4]  interpreter.zig:14110\n                                                                          + !   : | 12 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 24,32,...  [0x10098977c,0x100989784,...]  interpreter.zig:14109\n                                                                          + !   : | 1 interpreter.Interpreter.appendUtf16SliceImpl  (in home-tool-after) + 388  [0x1009119a0]  interpreter.zig:14894\n                                                                          + !   : |   1 interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 4  [0x1009896f4]  interpreter.zig:14140\n                                                                          + !   : 14 interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 80,104  [0x1009896cc,0x1009896e4]  interpreter.zig:14137\n                                                                          + !   : 13 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 176  [0x100989814]  interpreter.zig:14111\n                                                                          + !   : 4 interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 24  [0x100989694]  interpreter.zig:14136\n                                                                          + !   95 interpreter.Interpreter.appendUtf16SliceImpl  (in home-tool-after) + 388  [0x1009119a0]  interpreter.zig:14894\n                                                                          + !   : 58 interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 52  [0x100989724]  interpreter.zig:14141\n                                                                          + !   : | 41 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 64,56,...  [0x1009897a4,0x10098979c,...]  interpreter.zig:14110\n                                                                          + !   : | 17 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 24,16,...  [0x10098977c,0x100989774,...]  interpreter.zig:14109\n                                                                          + !   : 22 interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 80,104  [0x100989740,0x100989758]  interpreter.zig:14141\n                                                                          + !   : 13 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 176  [0x100989814]  interpreter.zig:14111\n                                                                          + !   : 2 interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 16,36  [0x100989700,0x100989714]  interpreter.zig:14140\n                                                                          + !   23 interpreter.Interpreter.appendUtf16SliceImpl  (in home-tool-after) + 268  [0x100911928]  interpreter.zig:14892\n                                                                          + !   16 interpreter.Interpreter.appendUtf16SliceImpl  (in home-tool-after) + 288,456  [0x10091193c,0x1009119e4]  interpreter.zig:0\n                                                                          + !   13 interpreter.Interpreter.appendUtf16SliceImpl  (in home-tool-after) + 532  [0x100911a30]  interpreter.zig:14897\n                                                                          + !   3 interpreter.Interpreter.appendUtf16SliceImpl  (in home-tool-after) + 380  [0x100911998]  interpreter.zig:14894\n                                                                          + !   1 interpreter.Interpreter.appendUtf16SliceImpl  (in home-tool-after) + 484  [0x100911a00]  interpreter.zig:14896\n                                                                          + 243 interpreter.Interpreter.stringSliceFromSearchSpan  (in home-tool-after) + 204  [0x1009463d4]  interpreter.zig:14848\n                                                                          +   104 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 268  [0x100945b38]  interpreter.zig:14446\n                                                                          +   : 66 interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 52  [0x1009896b0]  interpreter.zig:14137\n                                                                          +   : | 53 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 64,60,...  [0x1009897a4,0x1009897a0,...]  interpreter.zig:14110\n                                                                          +   : | 13 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 24,16  [0x10098977c,0x100989774]  interpreter.zig:14109\n                                                                          +   : 15 interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 36,0,...  [0x1009896a0,0x10098967c,...]  interpreter.zig:14136\n                                                                          +   : 13 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 176  [0x100989814]  interpreter.zig:14111\n                                                                          +   : 10 interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 80,104  [0x1009896cc,0x1009896e4]  interpreter.zig:14137\n                                                                          +   98 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 196  [0x100945af0]  interpreter.zig:14445\n                                                                          +   : 59 interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 52  [0x100989724]  interpreter.zig:14141\n                                                                          +   : | 38 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 64,56,...  [0x1009897a4,0x10098979c,...]  interpreter.zig:14110\n                                                                          +   : | 21 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 8,48,...  [0x10098976c,0x100989794,...]  interpreter.zig:14109\n                                                                          +   : 17 interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 104,80  [0x100989758,0x100989740]  interpreter.zig:14141\n                                                                          +   : 15 interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 176  [0x100989814]  interpreter.zig:14111\n                                                                          +   : 7 interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 16,4,...  [0x100989700,0x1009896f4,...]  interpreter.zig:14140\n                                                                          +   16 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 120  [0x100945aa4]  interpreter.zig:0\n                                                                          +   14 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 100  [0x100945a90]  interpreter.zig:14444\n                                                                          +   9 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 252,276  [0x100945b28,0x100945b40]  interpreter.zig:14446\n                                                                          +   2 interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after) + 116  [0x100945aa0]  interpreter.zig:14447\n                                                                          8 interpreter.Interpreter.regexBuiltinExecWith  (in home-tool-after) + 2556  [0x1009429ec]  interpreter.zig:14809\n                                                                          + 8 regexp_program_cache.Cache.Lease.findFrom  (in home-tool-after) + 168  [0x100941e28]  regexp_program_cache.zig:178\n                                                                          +   8 regex.Regex.Matcher.findFrom  (in home-tool-after) + 140  [0x100941ca0]  regex.zig:1106\n                                                                          +     8 regex.Regex.findFromInner  (in home-tool-after) + 144  [0x10093f094]  regex.zig:1531\n                                                                          +       8 regex.Regex.requiredAbsent  (in home-tool-after) + 316  [0x1009a9f38]  regex.zig:826\n                                                                          +         8 regex.Regex.literalSearch  (in home-tool-after) + 92  [0x1009a790c]  regex.zig:423\n                                                                          +           6 regex.Regex.LiteralPrefilter.init  (in home-tool-after) + 1072  [0x1009a91fc]  regex.zig:381\n                                                                          +           ! 4 regex.Regex.countPair  (in home-tool-after) + 448,508  [0x1009a9508,0x1009a9544]  regex.zig:326\n                                                                          +           ! 1 regex.Regex.countPair  (in home-tool-after) + 444  [0x1009a9504]  regex.zig:0\n                                                                          +           ! 1 regex.Regex.countPair  (in home-tool-after) + 576  [0x1009a9588]  regex.zig:327\n                                                                          +           1 regex.Regex.LiteralPrefilter.init  (in home-tool-after) + 668  [0x1009a9068]  regex.zig:376\n                                                                          +           ! 1 regex.Regex.countByte  (in home-tool-after) + 428  [0x1009a9d88]  regex.zig:311\n                                                                          +           !   1 mem.count__func_1811  (in home-tool-after) + 184  [0x1009aa03c]  mem.zig:1693\n                                                                          +           !     1 mem.countScalar__func_1812  (in home-tool-after) + 368  [0x1009aa4a4]  mem.zig:1735\n                                                                          +           1 regex.Regex.LiteralPrefilter.init  (in home-tool-after) + 772  [0x1009a90d0]  regex.zig:377\n                                                                          +             1 regex.Regex.countByte  (in home-tool-after) + 428  [0x1009a9d88]  regex.zig:311\n                                                                          +               1 mem.count__func_1811  (in home-tool-after) + 184  [0x1009aa03c]  mem.zig:1693\n                                                                          +                 1 mem.countScalar__func_1812  (in home-tool-after) + 188  [0x1009aa3f0]  mem.zig:1733\n                                                                          1 interpreter.Interpreter.regexBuiltinExecWith  (in home-tool-after) + 3440  [0x100942d60]  interpreter.zig:14823\n                                                                            1 interpreter.recordRegexpLegacyBorrowed  (in home-tool-after) + 656  [0x100946924]  interpreter.zig:0\n\nTotal number in stack (recursive counted multiple, when >=5):\n        13       interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 0  [0x100989764]  interpreter.zig:14111\n        12       interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 0  [0x100989764]  interpreter.zig:14109\n        12       interpreter.Interpreter.wtf8SeqAt  (in home-tool-after) + 0  [0x100989764]  interpreter.zig:14110\n        7       interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 0  [0x1009896f0]  interpreter.zig:14140\n        6       interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 0  [0x10098967c]  interpreter.zig:14136\n        6       interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 0  [0x10098967c]  interpreter.zig:14137\n        6       interpreter.Interpreter.jsStringSeqLen  (in home-tool-after) + 52  [0x1009896b0]  interpreter.zig:14137\n        6       interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 0  [0x1009896f0]  interpreter.zig:14141\n        6       interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after) + 52  [0x100989724]  interpreter.zig:14141\n\nSort by top of stack, same collapsed (when >= 5):\n        interpreter.Interpreter.wtf8SeqAt  (in home-tool-after)        920\n        interpreter.Interpreter.utf16IndexForByteOffset  (in home-tool-after)        179\n        interpreter.Interpreter.utf16LenOfSeq  (in home-tool-after)        155\n        interpreter.Interpreter.jsStringSeqLen  (in home-tool-after)        143\n        interpreter.Interpreter.appendUtf16SliceImpl  (in home-tool-after)        112\n        regex.Regex.countPair  (in home-tool-after)        6\n\nBinary Images:\n       0x10014c000 -        0x1023054d7 +home-tool-after (0) <07BA45CF-0FEC-3507-BA58-5BB47FE30BB9> /Users/*/home-tool-after\n       0x19e120000 -        0x19e16f5f7  libobjc.A.dylib (973.1) <C0680DF6-9900-3C29-A071-95A031686EF8> /usr/lib/libobjc.A.dylib\n       0x19e170000 -        0x19e17a23f  libsharedcache.dylib (0) <BBF95357-BEBF-3D89-8900-2BBB14A667C5> /usr/lib/libsharedcache.dylib\n       0x19e17b000 -        0x19e1a1d3b  libdyld.dylib (27062) <62863BCA-DD60-3D32-A9DB-89099BA6F3D7> /usr/lib/system/libdyld.dylib\n       0x19e1a2000 -        0x19e2616e3  dyld (1.0.0 - 27062) <D341DDCB-7969-3A9C-8E03-0CF4751398A9> /usr/lib/dyld\n       0x19e262000 -        0x19e26501f  libsystem_blocks.dylib (98.1) <6F304731-D95D-3501-B4AD-F2934F7F2446> /usr/lib/system/libsystem_blocks.dylib\n       0x19e266000 -        0x19e2bb0df  libxpc.dylib (3298.1.1) <0791121F-B5FC-3F84-BF04-115E86D2D882> /usr/lib/system/libxpc.dylib\n       0x19e2bc000 -        0x19e2dbc13  libsystem_trace.dylib (1966.1.1) <B48A8E3E-A12A-3342-8321-428B555E965E> /usr/lib/system/libsystem_trace.dylib\n       0x19e2dc000 -        0x19e390f27  libcorecrypto.dylib (2109.0.22) <807AA6C9-5D8A-3CA5-B4CE-FACE5296EF6A> /usr/lib/system/libcorecrypto.dylib\n       0x19e391000 -        0x19e3e6c5f  libsystem_malloc.dylib (886.0.8) <2339CB57-FE5A-3154-A206-A76059C749EB> /usr/lib/system/libsystem_malloc.dylib\n       0x19e3e7000 -        0x19e42d19f  libdispatch.dylib (1605.0.2) <022BF08F-0B3A-3225-9E65-16D1553CE90D> /usr/lib/system/libdispatch.dylib\n       0x19e42e000 -        0x19e430d2b  libsystem_featureflags.dylib (108) <20C1CAB2-1F13-3426-8146-9CAE9FF2A33D> /usr/lib/system/libsystem_featureflags.dylib\n       0x19e431000 -        0x19e4b3ca3  libsystem_c.dylib (1786.0.3) <FBA7B23E-AA60-3A90-9AA4-A7A2E0AD63EE> /usr/lib/system/libsystem_c.dylib\n       0x19e4b4000 -        0x19e549033  libc++.1.dylib (2200.27) <1E9BA4AA-B5DA-3CF3-80AC-4B880049573F> /usr/lib/libc++.1.dylib\n       0x19e54a000 -        0x19e563eff  libc++abi.dylib (2200.27) <A21743EE-6E1C-3E74-97EA-7AF793DE4BDF> /usr/lib/libc++abi.dylib\n       0x19e564000 -        0x19e5a29ab  libsystem_kernel.dylib (13432.1.9) <F63BF418-8F75-34A4-AAF1-8CAF2B9B6A05> /usr/lib/system/libsystem_kernel.dylib\n       0x19e5a3000 -        0x19e5af91b  libsystem_pthread.dylib (553.0.1) <5A1828C3-CBC2-3B85-BD07-C8ED10021A41> /usr/lib/system/libsystem_pthread.dylib\n       0x19e5b0000 -        0x19e5b94f3  libsystem_platform.dylib (402.0.1.0.1) <080E4444-A0FB-3913-9756-4E470015F32F> /usr/lib/system/libsystem_platform.dylib\n       0x19e5ba000 -        0x19e5e8903  libsystem_info.dylib (603) <BC387AEB-1CEF-3513-92D7-D7F913596711> /usr/lib/system/libsystem_info.dylib\n       0x1a2712000 -        0x1a271bb13  libsystem_darwin.dylib (1786.0.3) <4E66C888-993C-3E6A-A8DA-A949C01C5B67> /usr/lib/system/libsystem_darwin.dylib\n       0x1a2b6c000 -        0x1a2b7db8b  libsystem_notify.dylib (368) <58FD36D8-37A7-311C-80F2-8E64DD8710CF> /usr/lib/system/libsystem_notify.dylib\n       0x1a4cc9000 -        0x1a4ce3d93  libsystem_networkextension.dylib (2340.1.2) <22E1D190-486F-324F-ABA4-F36AB841BFE9> /usr/lib/system/libsystem_networkextension.dylib\n       0x1a4d71000 -        0x1a4d88247  libsystem_asl.dylib (409) <B4D449B7-A821-3A9A-8019-E917B291F10A> /usr/lib/system/libsystem_asl.dylib\n       0x1a5d1c000 -        0x1a5d1cf2f  libobjcMsgSend.dylib (973.1) <41179EDE-DC97-3BBE-8848-6400D12C1436> /usr/lib/objc/libobjcMsgSend.dylib\n       0x1a6e68000 -        0x1a6e6fedf  libsystem_symptoms.dylib (2394.0.4) <60EE7884-9F4E-3184-A6AC-FA40A7A0297D> /usr/lib/system/libsystem_symptoms.dylib\n       0x1ab200000 -        0x1ab23aaeb  libsystem_containermanager.dylib (833.0.8.0.1) <08A57205-555D-3792-8931-9D5B585AF326> /usr/lib/system/libsystem_containermanager.dylib\n       0x1ac853000 -        0x1ac857317  libsystem_configuration.dylib (1446) <F3EB66A7-7A24-3AE5-B6E8-9A37BB00F119> /usr/lib/system/libsystem_configuration.dylib\n       0x1ac858000 -        0x1ac85ee03  libsystem_sandbox.dylib (3051.0.52) <1E892B56-092E-3832-BDE3-DCE356D7A4FA> /usr/lib/system/libsystem_sandbox.dylib\n       0x1add1c000 -        0x1add1cf2f  libobjcMsgSend1.dylib (973.1) <B40D9B2A-E1EE-37ED-8004-711A1F263DE1> /usr/lib/objc/libobjcMsgSend1.dylib\n       0x1ae43c000 -        0x1ae43ef93  libquarantine.dylib (217.0.4) <7FD4AE22-86EF-382B-83F5-ADF9336C1160> /usr/lib/system/libquarantine.dylib\n       0x1aeb4e000 -        0x1aeb541e7  libsystem_coreservices.dylib (203) <57248E07-11A5-3857-918E-4A3A63B69FE8> /usr/lib/system/libsystem_coreservices.dylib\n       0x1af116000 -        0x1af153b27  libsystem_m.dylib (3326.0.1) <A3FB340F-3ED5-30F4-8B64-9D5860F64D35> /usr/lib/system/libsystem_m.dylib\n       0x1af155000 -        0x1af1584f7  libmacho.dylib (27062) <50DEADEC-3E99-3519-AFC3-4A3FEB3F14C3> /usr/lib/system/libmacho.dylib\n       0x1af172000 -        0x1af17e707  libcommonCrypto.dylib (600041) <41C99F45-C5E6-39DB-B1F2-A1BEA9D242A4> /usr/lib/system/libcommonCrypto.dylib\n       0x1af17f000 -        0x1af188c87  libunwind.dylib (2200.5) <3070AB81-B082-39E8-8A00-EF88DDE9AC47> /usr/lib/system/libunwind.dylib\n       0x1af190000 -        0x1af19a7eb  libcopyfile.dylib (260.0.3) <72D95AF9-BF5E-3A84-81A6-BCC5BDB99857> /usr/lib/system/libcopyfile.dylib\n       0x1af19b000 -        0x1af19e8bf  libcompiler_rt.dylib (103.4) <DFB5CE7F-A36E-36AA-BECE-1392D3D43607> /usr/lib/system/libcompiler_rt.dylib\n       0x1af19f000 -        0x1af1a4077  libsystem_collections.dylib (1786.0.3) <1E8022D4-5A37-3A7A-8936-603E6FA88358> /usr/lib/system/libsystem_collections.dylib\n       0x1af1a5000 -        0x1af1a7f1f  libsystem_secinit.dylib (182) <DE037464-4C5D-3E96-A33F-2A4557CC6A20> /usr/lib/system/libsystem_secinit.dylib\n       0x1af1a8000 -        0x1af1aa97f  libremovefile.dylib (96) <E6E6DFCF-6B2C-3F30-A59D-816CAB1190CE> /usr/lib/system/libremovefile.dylib\n       0x1af1ab000 -        0x1af1abe27  libkeymgr.dylib (31) <5EC997EF-3ADA-360B-9FCD-5F940C83FA4E> /usr/lib/system/libkeymgr.dylib\n       0x1af1ac000 -        0x1af1b4af7  libsystem_dnssd.dylib (3111.0.5.0.1) <DE22096F-1E5B-3D6E-8164-771582DD6391> /usr/lib/system/libsystem_dnssd.dylib\n       0x1af1b5000 -        0x1af1b9f1b  libcache.dylib (95) <80BAE197-E285-3F6E-A1EE-B77FE37D7E5D> /usr/lib/system/libcache.dylib\n       0x1af1ba000 -        0x1af1bb8f3  libSystem.B.dylib (1359) <4FDC9AA6-B344-37FE-B8C6-A4C94A038F57> /usr/lib/libSystem.B.dylib\n       0x1b5d1c000 -        0x1b5d1cf2f  libobjcMsgSend2.dylib (973.1) <BD27A84B-C9AE-3282-BBEA-3B6119837B5A> /usr/lib/objc/libobjcMsgSend2.dylib\n       0x1bdd1c000 -        0x1bdd1cf2f  libobjcMsgSend3.dylib (973.1) <C0860D68-DDFC-3BD7-8B06-DB0645CBBED4> /usr/lib/objc/libobjcMsgSend3.dylib\n       0x1c5d1c000 -        0x1c5d1cf2f  libobjcMsgSend4.dylib (973.1) <A6153BF5-622B-3B01-81B6-F64A365EF613> /usr/lib/objc/libobjcMsgSend4.dylib\n       0x1cdd1c000 -        0x1cdd1cf2f  libobjcMsgSend5.dylib (973.1) <3913A71C-B29A-3AEA-820B-BEC40AC1861A> /usr/lib/objc/libobjcMsgSend5.dylib\n       0x1d5d1c000 -        0x1d5d1cf2f  libobjcMsgSend6.dylib (973.1) <9BC523A3-E167-3F6C-8CAE-0F3EBA671791> /usr/lib/objc/libobjcMsgSend6.dylib\n       0x1ddd1c000 -        0x1ddd1cf2f  libobjcMsgSend7.dylib (973.1) <248B7BCE-5B4C-34C7-A340-43D5228628C5> /usr/lib/objc/libobjcMsgSend7.dylib\n       0x1e5d1c000 -        0x1e5d1cf2f  libobjcMsgSend8.dylib (973.1) <3E041BAD-A8E8-3069-B741-78CD1A45B176> /usr/lib/objc/libobjcMsgSend8.dylib\n       0x1edd1c000 -        0x1edd1cf2f  libobjcMsgSend9.dylib (973.1) <34A67969-21A0-39D6-BB81-8FDA5A2409DB> /usr/lib/objc/libobjcMsgSend9.dylib\n       0x1f5d1c000 -        0x1f5d1cf2f  libobjcMsgSend10.dylib (973.1) <678186C0-8EAD-3B35-8CBB-00285B41E4A0> /usr/lib/objc/libobjcMsgSend10.dylib\n       0x1fdd1c000 -        0x1fdd1cf2f  libobjcMsgSend11.dylib (973.1) <E05CB08C-E956-36FA-8967-AE8E346A8D2C> /usr/lib/objc/libobjcMsgSend11.dylib\n       0x225d1c000 -        0x225d1cf2f  libobjcMsgSend12.dylib (973.1) <10AB03AA-FF1F-3FDC-9DFB-BFC40042C501> /usr/lib/objc/libobjcMsgSend12.dylib\n       0x22dd1c000 -        0x22dd1cf2f  libobjcMsgSend13.dylib (973.1) <ABF53427-FA6F-3D0D-8F9D-7AD795CA5C92> /usr/lib/objc/libobjcMsgSend13.dylib\n       0x235d1c000 -        0x235d1cf2f  libobjcMsgSend14.dylib (973.1) <9A844C46-A6DA-34D4-8EBF-2AD775C30684> /usr/lib/objc/libobjcMsgSend14.dylib\n       0x23dd1c000 -        0x23dd1cf2f  libobjcMsgSend15.dylib (973.1) <7C995666-2B2D-3284-AA0A-EBF7C922838E> /usr/lib/objc/libobjcMsgSend15.dylib\n       0x245d1c000 -        0x245d1cf2f  libobjcMsgSend16.dylib (973.1) <B6C0E14B-53AE-3E22-9ED5-1729C49F46F2> /usr/lib/objc/libobjcMsgSend16.dylib\n       0x24dd1c000 -        0x24dd1cf2f  libobjcMsgSend17.dylib (973.1) <07B4CF85-251B-301B-832B-20B315A59E19> /usr/lib/objc/libobjcMsgSend17.dylib\n       0x255d1c000 -        0x255d1cf2f  libobjcMsgSend18.dylib (973.1) <43E575B7-04DB-3999-A633-1A3B638BA6E3> /usr/lib/objc/libobjcMsgSend18.dylib\n       0x25dd1c000 -        0x25dd1cf2f  libobjcMsgSend19.dylib (973.1) <736F4D85-76F7-3B28-8D87-C07E8F7A0EF4> /usr/lib/objc/libobjcMsgSend19.dylib\n       0x265d1c000 -        0x265d1cf2f  libobjcMsgSend20.dylib (973.1) <74E67C8B-6BCA-3184-A18E-A97F370052C6> /usr/lib/objc/libobjcMsgSend20.dylib\n       0x26dd1c000 -        0x26dd1cf2f  libobjcMsgSend21.dylib (973.1) <CC0D732F-98E7-3888-9E15-70984DA2FB04> /usr/lib/objc/libobjcMsgSend21.dylib\n       0x275d1c000 -        0x275d1cf2f  libobjcMsgSend22.dylib (973.1) <85A60286-5DE3-32BA-B18C-2A498B065C88> /usr/lib/objc/libobjcMsgSend22.dylib\n       0x27dd1c000 -        0x27dd1cf2f  libobjcMsgSend23.dylib (973.1) <5452A0D2-6B19-39BE-ADDD-80B7BCDE3A98> /usr/lib/objc/libobjcMsgSend23.dylib\n       0x285d1c000 -        0x285d1cf2f  libobjcMsgSend24.dylib (973.1) <94BBF2D6-722B-350D-8557-4D25A8E8D53A> /usr/lib/objc/libobjcMsgSend24.dylib\n       0x28dd1c000 -        0x28dd1cf2f  libobjcMsgSend25.dylib (973.1) <35481387-5A8E-3AE4-86A6-94CEB3CC8726> /usr/lib/objc/libobjcMsgSend25.dylib\n       0x2a5d1c000 -        0x2a5d1cf2f  libobjcMsgSend26.dylib (973.1) <9E0C8664-E7F4-39D1-AAFC-BD92B255E4E8> /usr/lib/objc/libobjcMsgSend26.dylib\n       0x2add1c000 -        0x2add1cf2f  libobjcMsgSend27.dylib (973.1) <FD424935-55A9-3650-955A-EED3441A1D19> /usr/lib/objc/libobjcMsgSend27.dylib\n       0x2b5d1c000 -        0x2b5d1cf2f  libobjcMsgSend28.dylib (973.1) <09BA7B97-7DF7-3C7F-932A-B6847662FC49> /usr/lib/objc/libobjcMsgSend28.dylib\n       0x2bdd1c000 -        0x2bdd1cf2f  libobjcMsgSend29.dylib (973.1) <36D5BA3F-2139-30B0-8558-556764BE9813> /usr/lib/objc/libobjcMsgSend29.dylib\n       0x2c5d1c000 -        0x2c5d1cf2f  libobjcMsgSend30.dylib (973.1) <9F05564A-9D12-372C-98FC-E9F0E6BE4F04> /usr/lib/objc/libobjcMsgSend30.dylib\n       0x2caa36000 -        0x2caa3cfe5  libRosetta.dylib (385) <E359944B-D230-33F9-A04E-0C3B17C3326E> /usr/lib/libRosetta.dylib\n       0x2cb425000 -        0x2cb42875b  libsystem_darwindirectory.dylib (129.0.1) <61264923-2AA5-3658-B8C4-550C71E9D4B3> /usr/lib/system/libsystem_darwindirectory.dylib\n       0x2cb429000 -        0x2cb433d9b  libsystem_eligibility.dylib (446.1.3) <EDDE8E9C-A2CF-3931-BBB3-321CB852EB30> /usr/lib/system/libsystem_eligibility.dylib\n       0x2cb434000 -        0x2cb43d42b  libsystem_sanitizers.dylib (32) <7138ED99-7AA0-34EA-B35B-20EF6ADB1EED> /usr/lib/system/libsystem_sanitizers.dylib\n       0x2cb43e000 -        0x2cb43ea13  libsystem_trial.dylib (511) <6AE48824-EC44-3A8C-B501-BE57DBE892E7> /usr/lib/system/libsystem_trial.dylib\n       0x2cdd1c000 -        0x2cdd1cf2f  libobjcMsgSend31.dylib (973.1) <0985E20F-78C3-3466-A2B2-DBB95F7104A3> /usr/lib/objc/libobjcMsgSend31.dylib\n       0x2d5d1c000 -        0x2d5d1cf2f  libobjcMsgSend32.dylib (973.1) <0D309D58-D576-3E5D-AD4B-6D55AB491702> /usr/lib/objc/libobjcMsgSend32.dylib\n       0x2ddd1c000 -        0x2ddd1cf2f  libobjcMsgSend33.dylib (973.1) <346E0484-48FA-369B-8A64-93B5F5341CFE> /usr/lib/objc/libobjcMsgSend33.dylib\n       0x2e5d1c000 -        0x2e5d1cf2f  libobjcMsgSend34.dylib (973.1) <6A31F809-BCBE-3E01-A367-E91FDACCE324> /usr/lib/objc/libobjcMsgSend34.dylib\n"
+  },
+  "automatic_engine_push_run": "https://github.com/zig-utils/zig-js/actions/runs/42486657379",
+  "actual_docs_after": {
+    "status": "timed-out",
+    "exit_code": 124,
+    "seconds": 300.019,
+    "log": "home.log",
+    "command": "bunx bunpress build",
+    "consumer_sha": "6b3007cb334ab21c0cdb7385ebe9a3fdd82e458a",
+    "log_text": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM RESULT: timed-out, exit 124\n",
+    "events": "{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/home-docs-candidate/node_modules/.bun/@stacksjs+bunpress@0.2.17/node_modules/@stacksjs/bunpress/dist/bin/cli.js\", \"arguments\": [\"build\"]}\n",
+    "html_files": 0
+  },
+  "next_regexp_growth_diagnostic": {
+    "scope": "Unchanged c2170b65 runner and Node controls, one diagnostic subprocess per size/variant; real capture replacement with an optional trailing astral character. This is a reproduction to investigate, not a benchmark publication or a semantic compatibility failure. Function-body variants remain to be measured before generalizing a growth conclusion.",
+    "rows": [
+      {
+        "runtime": "node",
+        "size": 500,
+        "astral": false,
+        "seconds": 0.0328,
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "",
+        "source": "var input=\"ab\".repeat(500)+\"\";var actual=input.replace(/(a)(b)/g,\"$2$1\");if(actual!==\"ba\".repeat(500)+\"\")throw Error(\"capture remapping\");actual.length;"
+      },
+      {
+        "runtime": "zig-js",
+        "size": 500,
+        "astral": false,
+        "seconds": 0.1058,
+        "exit_code": 0,
+        "stdout": "OK 1000\n",
+        "stderr": "",
+        "source": "var input=\"ab\".repeat(500)+\"\";var actual=input.replace(/(a)(b)/g,\"$2$1\");if(actual!==\"ba\".repeat(500)+\"\")throw Error(\"capture remapping\");actual.length;"
+      },
+      {
+        "runtime": "node",
+        "size": 500,
+        "astral": true,
+        "seconds": 0.0328,
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "",
+        "source": "var input=\"ab\".repeat(500)+\"\ud83d\ude00\";var actual=input.replace(/(a)(b)/g,\"$2$1\");if(actual!==\"ba\".repeat(500)+\"\ud83d\ude00\")throw Error(\"capture remapping\");actual.length;"
+      },
+      {
+        "runtime": "zig-js",
+        "size": 500,
+        "astral": true,
+        "seconds": 0.0657,
+        "exit_code": 0,
+        "stdout": "OK 1002\n",
+        "stderr": "",
+        "source": "var input=\"ab\".repeat(500)+\"\ud83d\ude00\";var actual=input.replace(/(a)(b)/g,\"$2$1\");if(actual!==\"ba\".repeat(500)+\"\ud83d\ude00\")throw Error(\"capture remapping\");actual.length;"
+      },
+      {
+        "runtime": "node",
+        "size": 1000,
+        "astral": false,
+        "seconds": 0.031,
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "",
+        "source": "var input=\"ab\".repeat(1000)+\"\";var actual=input.replace(/(a)(b)/g,\"$2$1\");if(actual!==\"ba\".repeat(1000)+\"\")throw Error(\"capture remapping\");actual.length;"
+      },
+      {
+        "runtime": "zig-js",
+        "size": 1000,
+        "astral": false,
+        "seconds": 0.0562,
+        "exit_code": 0,
+        "stdout": "OK 2000\n",
+        "stderr": "",
+        "source": "var input=\"ab\".repeat(1000)+\"\";var actual=input.replace(/(a)(b)/g,\"$2$1\");if(actual!==\"ba\".repeat(1000)+\"\")throw Error(\"capture remapping\");actual.length;"
+      },
+      {
+        "runtime": "node",
+        "size": 1000,
+        "astral": true,
+        "seconds": 0.0309,
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "",
+        "source": "var input=\"ab\".repeat(1000)+\"\ud83d\ude00\";var actual=input.replace(/(a)(b)/g,\"$2$1\");if(actual!==\"ba\".repeat(1000)+\"\ud83d\ude00\")throw Error(\"capture remapping\");actual.length;"
+      },
+      {
+        "runtime": "zig-js",
+        "size": 1000,
+        "astral": true,
+        "seconds": 0.1465,
+        "exit_code": 0,
+        "stdout": "OK 2002\n",
+        "stderr": "",
+        "source": "var input=\"ab\".repeat(1000)+\"\ud83d\ude00\";var actual=input.replace(/(a)(b)/g,\"$2$1\");if(actual!==\"ba\".repeat(1000)+\"\ud83d\ude00\")throw Error(\"capture remapping\");actual.length;"
+      },
+      {
+        "runtime": "node",
+        "size": 2000,
+        "astral": false,
+        "seconds": 0.0309,
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "",
+        "source": "var input=\"ab\".repeat(2000)+\"\";var actual=input.replace(/(a)(b)/g,\"$2$1\");if(actual!==\"ba\".repeat(2000)+\"\")throw Error(\"capture remapping\");actual.length;"
+      },
+      {
+        "runtime": "zig-js",
+        "size": 2000,
+        "astral": false,
+        "seconds": 0.0949,
+        "exit_code": 0,
+        "stdout": "OK 4000\n",
+        "stderr": "",
+        "source": "var input=\"ab\".repeat(2000)+\"\";var actual=input.replace(/(a)(b)/g,\"$2$1\");if(actual!==\"ba\".repeat(2000)+\"\")throw Error(\"capture remapping\");actual.length;"
+      },
+      {
+        "runtime": "node",
+        "size": 2000,
+        "astral": true,
+        "seconds": 0.0342,
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "",
+        "source": "var input=\"ab\".repeat(2000)+\"\ud83d\ude00\";var actual=input.replace(/(a)(b)/g,\"$2$1\");if(actual!==\"ba\".repeat(2000)+\"\ud83d\ude00\")throw Error(\"capture remapping\");actual.length;"
+      },
+      {
+        "runtime": "zig-js",
+        "size": 2000,
+        "astral": true,
+        "seconds": 0.4642,
+        "exit_code": 0,
+        "stdout": "OK 4002\n",
+        "stderr": "",
+        "source": "var input=\"ab\".repeat(2000)+\"\ud83d\ude00\";var actual=input.replace(/(a)(b)/g,\"$2$1\");if(actual!==\"ba\".repeat(2000)+\"\ud83d\ude00\")throw Error(\"capture remapping\");actual.length;"
+      },
+      {
+        "runtime": "node",
+        "size": 4000,
+        "astral": false,
+        "seconds": 0.0341,
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "",
+        "source": "var input=\"ab\".repeat(4000)+\"\";var actual=input.replace(/(a)(b)/g,\"$2$1\");if(actual!==\"ba\".repeat(4000)+\"\")throw Error(\"capture remapping\");actual.length;"
+      },
+      {
+        "runtime": "zig-js",
+        "size": 4000,
+        "astral": false,
+        "seconds": 0.2378,
+        "exit_code": 0,
+        "stdout": "OK 8000\n",
+        "stderr": "",
+        "source": "var input=\"ab\".repeat(4000)+\"\";var actual=input.replace(/(a)(b)/g,\"$2$1\");if(actual!==\"ba\".repeat(4000)+\"\")throw Error(\"capture remapping\");actual.length;"
+      },
+      {
+        "runtime": "node",
+        "size": 4000,
+        "astral": true,
+        "seconds": 0.0302,
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "",
+        "source": "var input=\"ab\".repeat(4000)+\"\ud83d\ude00\";var actual=input.replace(/(a)(b)/g,\"$2$1\");if(actual!==\"ba\".repeat(4000)+\"\ud83d\ude00\")throw Error(\"capture remapping\");actual.length;"
+      },
+      {
+        "runtime": "zig-js",
+        "size": 4000,
+        "astral": true,
+        "seconds": 1.7063,
+        "exit_code": 0,
+        "stdout": "OK 8002\n",
+        "stderr": "",
+        "source": "var input=\"ab\".repeat(4000)+\"\ud83d\ude00\";var actual=input.replace(/(a)(b)/g,\"$2$1\");if(actual!==\"ba\".repeat(4000)+\"\ud83d\ude00\")throw Error(\"capture remapping\");actual.length;"
+      }
+    ]
+  },
+  "actual_stacks_typecheck": {
+    "status": "failed",
+    "exit_code": 1,
+    "seconds": 6.906,
+    "log": "stacks-typecheck.log",
+    "command": "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)",
+    "consumer_sha": "d557cee9630c209ed5fc58c8c5f633dba82c3488",
+    "log_text": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\n[2026-11-08T13:55:29.590Z] local.INFO: Building @stacksjs/validation...\nDebug: [writeToFile] Failed to create log directory: TypeError: undefined is not an object (evaluating 'r.F_OK')\nDebug: [writeToFile] Failed to create log directory: TypeError: undefined is not an object (evaluating 'r.F_OK')\nDebug: [writeToFile] Failed to create log directory: TypeError: undefined is not an object (evaluating 'r.F_OK')\nDebug: [writeToFile] Max retries reached. Final error: undefined is not an object (evaluating 'r.F_OK')\nDebug: [writeToFile] Error in operation: TypeError: undefined is not an object (evaluating 'r.F_OK')\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\n\nECOSYSTEM RESULT: failed, exit 1\n",
+    "events": "{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/typescript/bin/tsc\", \"arguments\": [\"--noEmit\", \"-p\", \"storage/framework/tsconfig.framework.json\", \"--pretty\", \"false\"]}\n{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/typescript/bin/tsc\", \"arguments\": [\"--noEmit\", \"-p\", \"storage/framework/tsconfig.defaults.json\", \"--pretty\", \"false\"]}\n{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/storage/framework/core/validation/build.ts\", \"arguments\": []}\n"
+  },
+  "suite_validation": {
+    "unittest_exit_code": 0,
+    "unittest_log": "test_activity_window_and_leap_day (test_suite.DiscoveryTests.test_activity_window_and_leap_day) ... ok\ntest_all_matrix_members_exactly_once_beyond_github_limit (test_suite.DiscoveryTests.test_all_matrix_members_exactly_once_beyond_github_limit) ... ok\ntest_explicit_exclusions_and_forks (test_suite.DiscoveryTests.test_explicit_exclusions_and_forks) ... ok\ntest_manual_subset_is_explicit_and_rejects_unknown_consumers (test_suite.DiscoveryTests.test_manual_subset_is_explicit_and_rejects_unknown_consumers) ... ok\ntest_pagination_does_not_truncate_organizations (test_suite.DiscoveryTests.test_pagination_does_not_truncate_organizations) ... ok\ntest_priority_consumers_have_first_independent_jobs_without_lost_coverage (test_suite.DiscoveryTests.test_priority_consumers_have_first_independent_jobs_without_lost_coverage) ... ok\ntest_push_trigger_cannot_filter_coverage (test_suite.DiscoveryTests.test_push_trigger_cannot_filter_coverage) ... ok\ntest_real_git_checkout_router_logs_and_missing_scheduler_report (test_suite.EndToEndTests.test_real_git_checkout_router_logs_and_missing_scheduler_report) ... warning: templates not found in /opt/git-scm.org/v2.53.0+brewing/share/git-core/templates\nok\ntest_monorepo_private_packages_and_fixture_exclusions (test_suite.PlanTests.test_monorepo_private_packages_and_fixture_exclusions) ... ok\ntest_package_binary_path_cannot_shadow_candidate_runtime (test_suite.PlanTests.test_package_binary_path_cannot_shadow_candidate_runtime) ... ok\ntest_test_files_without_test_script_are_not_ignored (test_suite.PlanTests.test_test_files_without_test_script_are_not_ignored) ... ok\ntest_workspace_installs_cover_members_but_not_independent_nested_apps (test_suite.PlanTests.test_workspace_installs_cover_members_but_not_independent_nested_apps) ... ok\ntest_disk_failure_preserves_prior_evidence_and_cleans_before_saving (test_suite.ResultTests.test_disk_failure_preserves_prior_evidence_and_cleans_before_saving) ... ok\ntest_invalid_repository_never_enters_cleanup (test_suite.ResultTests.test_invalid_repository_never_enters_cleanup) ... ok\ntest_missing_and_wrong_commit_results_fail_closed (test_suite.ResultTests.test_missing_and_wrong_commit_results_fail_closed) ... ok\ntest_shared_runtime_builds_and_smokes_use_baseline_cpu (test_suite.ResultTests.test_shared_runtime_builds_and_smokes_use_baseline_cpu) ... ok\ntest_timeout_is_recorded_and_subprocess_group_is_reaped (test_suite.ResultTests.test_timeout_is_recorded_and_subprocess_group_is_reaped) ... ok\ntest_unsupported_not_run_timeout_and_reference_failure_are_red (test_suite.ResultTests.test_unsupported_not_run_timeout_and_reference_failure_are_red) ... ok\ntest_workflow_and_checked_inventory_are_consistent (test_suite.ResultTests.test_workflow_and_checked_inventory_are_consistent) ... ok\ntest_installed_package_binary_routes_to_home (test_suite.RuntimeRoutingTests.test_installed_package_binary_routes_to_home) ... ok\ntest_nested_script_routes_to_engine_and_propagates_failure (test_suite.RuntimeRoutingTests.test_nested_script_routes_to_engine_and_propagates_failure) ... ok\ntest_test_scheduler_and_native_build_cannot_be_false_passes (test_suite.RuntimeRoutingTests.test_test_scheduler_and_native_build_cannot_be_false_passes) ... ECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\nECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\nECOSYSTEM UNSUPPORTED: bun build requires a host API absent from Home's repository-tool runtime\nECOSYSTEM UNSUPPORTED: bun install requires a host API absent from Home's repository-tool runtime\nok\n\n----------------------------------------------------------------------\nRan 22 tests in 1.709s\n\nOK\n",
+    "actionlint_exit_code": 0,
+    "actionlint_paths": [
+      ".github/workflows/ecosystem.yml",
+      ".github/workflows/validate.yml"
+    ]
+  }
+}
