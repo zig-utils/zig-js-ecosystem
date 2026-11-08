@@ -1,0 +1,625 @@
+{
+  "home_before": "c03d554a2c523078d1f863ba02c8edca5314121e",
+  "home_after": "0f61da20d6a08c37c39e89a05ba02cdb200d86d8",
+  "engine_sha": "e4c6455ab94b8553aa96dc787fc015165944cbf3",
+  "compiler": "0.18.0-dev.146+35accc06e",
+  "profile": "ReleaseSafe",
+  "cpu": "baseline",
+  "source_sha256": {
+    "build.zig": "706ec8b9a020d70967a74904362d5e9f500a9149239c55526128707cd4f100ae",
+    "docs/docs/HOME_TOOL_RUNTIME.md": "bab7fd69fbd0fe8d410d0eec2c43316dc14f1dec63399e062eeffc25f3a8e054",
+    "packages/runtime/src/jsc/tool_builtins.js": "b34682a393dc553b919a90926fbc9d42711e83fcdac70bffb1f1eb0223cd2a1e",
+    "packages/runtime/src/jsc/tool_builtins.zig": "612faaa7cd8df2adbda7d8f8d2354921e1eabfc60c22a7216705e70775549c66",
+    "packages/runtime/src/jsc/tool_main.zig": "726a51e26a818d5009499a883ced06e62efc044b796b71d5aac243806aaad337",
+    "packages/runtime/src/jsc/tool_runtime.zig": "651f56533e172a896365d691343ce2ff77a506020369c5a408b87d3631a2fc17",
+    "packages/runtime/src/jsc/tool_timers.js": "635a698cf6fdcb34bd2308ccf7ee1da925bf8db965a5b8273f42a50af725ae43",
+    "packages/runtime/src/jsc/tool_timers.zig": "f916b97aec95c02c7b5cf749611504ada89d493a0592adff01e693525a9c087d",
+    "packages/runtime/test/tool_modules/timers.mjs": "d5edee750e951e7a8f7871c4fb66ce30ce20354a2cf0574b06cf495608de6b30",
+    "packages/runtime/test/tool_modules/timers_async_context.mjs": "55e179660f14e1de82bddba37a30ed9c844a103689d71a948fe12ce157308369",
+    "packages/runtime/test/tool_modules/timers_exit.cjs": "0a821da497092069770421f7c425440499ee51c39f858e7c100f01341e7ec680",
+    "packages/runtime/test/tool_modules/timers_interval.mjs": "c79de3b801ea5a7bbad388af7b6c949971268219cb528b149606e076198d2712",
+    "packages/runtime/test/tool_modules/timers_unsupported.mjs": "f5defdd4526f794993a054a38a27024d540793497cb9bb2b7aedb3a119bfcd6e"
+  },
+  "oracle_before": [
+    {
+      "runtime": "node",
+      "exit_code": 0,
+      "stdout": "{\"rows\":[[\"undefined\",\"resolved\",\"real\"],[\"null\",\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"string\",\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"zero\",\"resolved\",\"real\"],[\"negative\",\"resolved\",\"real\"],[\"NaN\",\"resolved\",\"real\"],[\"infinity\",\"resolved\",\"real\"],[\"bigint\",\"TypeError\",\"ERR_INVALID_ARG_TYPE\"]],\"refs\":[true,false,true,true]}\n",
+      "stderr": "(node:28398) TimeoutNegativeWarning: -1 is a negative number.\nTimeout duration was set to 1.\n(Use `node --trace-warnings ...` to show where the warning was created)\n(node:28398) TimeoutNaNWarning: NaN is not a number.\nTimeout duration was set to 1.\n(node:28398) TimeoutOverflowWarning: Infinity does not fit into a 32-bit signed integer.\nTimeout duration was set to 1.\n"
+    },
+    {
+      "runtime": "bun",
+      "exit_code": 0,
+      "stdout": "{\"rows\":[[\"undefined\",\"resolved\",\"real\"],[\"null\",\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"string\",\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"zero\",\"resolved\",\"real\"],[\"negative\",\"resolved\",\"real\"],[\"NaN\",\"resolved\",\"real\"],[\"infinity\",\"resolved\",\"real\"],[\"bigint\",\"TypeError\",\"ERR_INVALID_ARG_TYPE\"]],\"refs\":[true,false,true,false]}\n",
+      "stderr": "(node:28414) TimeoutNegativeWarning: -1 is a negative number.\nTimeout duration was set to 1.\n(Use `bun --trace-warnings ...` to show where the warning was created)\n(node:28414) TimeoutNaNWarning: NaN is not a number.\nTimeout duration was set to 1.\n(node:28414) TimeoutOverflowWarning: Infinity does not fit into a 32-bit signed integer.\nTimeout duration was set to 1.\n"
+    },
+    {
+      "runtime": "home-before",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:timers/promises from /Users/chris/.cache/zig-js-ecosystem-research/host-timers/oracle.mjs\n"
+    }
+  ],
+  "oracle_after": {
+    "exit_code": 0,
+    "stdout": "{\"rows\":[[\"undefined\",\"resolved\",\"real\"],[\"null\",\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"string\",\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"zero\",\"resolved\",\"real\"],[\"negative\",\"resolved\",\"real\"],[\"NaN\",\"resolved\",\"real\"],[\"infinity\",\"resolved\",\"real\"],[\"bigint\",\"TypeError\",\"ERR_INVALID_ARG_TYPE\"]],\"refs\":[true,false,true,true]}\n",
+    "stderr": "TimeoutNegativeWarning: -1 is a negative number.\nTimeout duration was set to 1.\nTimeoutNaNWarning: NaN is not a number.\nTimeout duration was set to 1.\nTimeoutOverflowWarning: Infinity does not fit into a 32-bit signed integer.\nTimeout duration was set to 1.\n"
+  },
+  "actual_fixtures": [
+    {
+      "runtime": "node",
+      "fixture": "timers.mjs",
+      "args": [],
+      "exit_code": 0,
+      "stdout": "OK actual timer deadlines, cancellation, callback jobs, values and aliases\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "node",
+      "fixture": "timers_interval.mjs",
+      "args": [],
+      "exit_code": 0,
+      "stdout": "OK actual recurring timer deadlines, self-cancellation, aliases and references\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "node",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "unref"
+      ],
+      "exit_code": 0,
+      "stdout": "registered unreferenced\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "node",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "unref-live"
+      ],
+      "exit_code": 0,
+      "stdout": "unreferenced fired\nreferenced fired\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "node",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "clear-ref"
+      ],
+      "exit_code": 0,
+      "stdout": "cleared reference state\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "node",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "handled"
+      ],
+      "exit_code": 23,
+      "stdout": "monitor\nhandled identity\nlater timer\nexit 23\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "node",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "fatal"
+      ],
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/timers_exit.cjs:38\n    else throw reason;\n         ^\n{ timer: true }\n\nNode.js v26.10.0\n"
+    },
+    {
+      "runtime": "node",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "handler-throw"
+      ],
+      "exit_code": 7,
+      "stdout": "",
+      "stderr": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/timers_exit.cjs:31\n  if (mode === 'handler-throw') process.on('uncaughtException', () => { throw new Error('handler failure'); });\n                                                                        ^\n\nError: handler failure\n    at process.<anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/timers_exit.cjs:31:79)\n    at process.emit (node:events:514:20)\n    at process._fatalException (node:internal/process/execution:192:32)\n\nNode.js v26.10.0\n"
+    },
+    {
+      "runtime": "node",
+      "fixture": "timers_async_context.mjs",
+      "args": [],
+      "exit_code": 0,
+      "stdout": "OK actual timer context across callbacks, nested tasks, jobs, awaits and exceptions\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "node",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "reject"
+      ],
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "node:internal/process/promises:322\n      new UnhandledPromiseRejection(reason);\n      ^\n\nUnhandledPromiseRejection: This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason \"#<Object>\".\n    at throwUnhandledRejectionsMode (node:internal/process/promises:322:7)\n    at processPromiseRejections (node:internal/process/promises:405:17)\n    at process.processTicksAndRejections (node:internal/process/task_queues:106:37) {\n  code: 'ERR_UNHANDLED_REJECTION'\n}\n\nNode.js v26.10.0\n"
+    },
+    {
+      "runtime": "node",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "reject-listener"
+      ],
+      "exit_code": 0,
+      "stdout": "rejected identity\nexit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "fixture": "timers.mjs",
+      "args": [],
+      "exit_code": 0,
+      "stdout": "OK actual timer deadlines, cancellation, callback jobs, values and aliases\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "fixture": "timers_interval.mjs",
+      "args": [],
+      "exit_code": 0,
+      "stdout": "OK actual recurring timer deadlines, self-cancellation, aliases and references\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "unref"
+      ],
+      "exit_code": 0,
+      "stdout": "registered unreferenced\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "unref-live"
+      ],
+      "exit_code": 0,
+      "stdout": "unreferenced fired\nreferenced fired\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "clear-ref"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": " 9 |   setTimeout(() => console.log('referenced fired'), 30);\n10 | }\n11 | else if (mode === 'clear-ref') {\n12 |   const handle = setTimeout(() => console.log('ERROR cleared timer fired'), 1);\n13 |   clearTimeout(handle);\n14 |   if (!handle.hasRef()) throw new Error('Node retains reference state after cancellation');\n                                       ^\nerror: Node retains reference state after cancellation\n      at <anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/timers_exit.cjs:14:35)\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "runtime": "bun",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "handled"
+      ],
+      "exit_code": 23,
+      "stdout": "monitor\nhandled identity\nlater timer\nexit 23\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "fatal"
+      ],
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "33 |     if (error !== reason) throw new Error('timer rejection identity');\n34 |     console.log('rejected identity');\n35 |   });\n36 |   setTimeout(() => {\n37 |     if (mode === 'reject' || mode === 'reject-listener') Promise.reject(reason);\n38 |     else throw reason;\n                    ^\nerror\n      at <anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/timers_exit.cjs:38:16)\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "runtime": "bun",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "handler-throw"
+      ],
+      "exit_code": 7,
+      "stdout": "exit 7\n",
+      "stderr": "26 |       console.log('handled identity');\n27 |       process.exitCode = 23;\n28 |     });\n29 |     setTimeout(() => console.log('later timer'), 20);\n30 |   }\n31 |   if (mode === 'handler-throw') process.on('uncaughtException', () => { throw new Error('handler failure'); });\n                                                                                                              ^\nerror: handler failure\n      at <anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/timers_exit.cjs:31:106)\n"
+    },
+    {
+      "runtime": "bun",
+      "fixture": "timers_async_context.mjs",
+      "args": [],
+      "exit_code": 0,
+      "stdout": "OK actual timer context across callbacks, nested tasks, jobs, awaits and exceptions\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "reject"
+      ],
+      "exit_code": 1,
+      "stdout": "exit 0\n",
+      "stderr": "error\n{\n  timer: true,\n}\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "runtime": "bun",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "reject-listener"
+      ],
+      "exit_code": 0,
+      "stdout": "rejected identity\nexit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-before",
+      "fixture": "timers.mjs",
+      "args": [],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:timers from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/timers.mjs\n"
+    },
+    {
+      "runtime": "home-before",
+      "fixture": "timers_interval.mjs",
+      "args": [],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:timers from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/timers_interval.mjs\n"
+    },
+    {
+      "runtime": "home-before",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "unref"
+      ],
+      "exit_code": 0,
+      "stdout": "registered unreferenced\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-before",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "unref-live"
+      ],
+      "exit_code": 0,
+      "stdout": "unreferenced fired\nreferenced fired\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-before",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "clear-ref"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Node retains reference state after cancellation\n"
+    },
+    {
+      "runtime": "home-before",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "handled"
+      ],
+      "exit_code": 0,
+      "stdout": "exit 0\nlater timer\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-before",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "fatal"
+      ],
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-before",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "handler-throw"
+      ],
+      "exit_code": 0,
+      "stdout": "exit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-before",
+      "fixture": "timers_async_context.mjs",
+      "args": [],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:timers/promises from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/timers_async_context.mjs\n"
+    },
+    {
+      "runtime": "home-before",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "reject"
+      ],
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "Uncaught unhandledRejection: UnhandledPromiseRejection: Unhandled promise rejection: [object Object]\n"
+    },
+    {
+      "runtime": "home-before",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "reject-listener"
+      ],
+      "exit_code": 0,
+      "stdout": "rejected identity\nexit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-before",
+      "fixture": "timers_unsupported.mjs",
+      "args": [],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:timers from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/timers_unsupported.mjs\n"
+    },
+    {
+      "runtime": "zig-js",
+      "fixture": "timers.mjs",
+      "args": [],
+      "exit_code": 0,
+      "stdout": "OK actual timer deadlines, cancellation, callback jobs, values and aliases\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "zig-js",
+      "fixture": "timers_interval.mjs",
+      "args": [],
+      "exit_code": 0,
+      "stdout": "OK actual recurring timer deadlines, self-cancellation, aliases and references\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "zig-js",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "unref"
+      ],
+      "exit_code": 0,
+      "stdout": "registered unreferenced\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "zig-js",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "unref-live"
+      ],
+      "exit_code": 0,
+      "stdout": "unreferenced fired\nreferenced fired\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "zig-js",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "clear-ref"
+      ],
+      "exit_code": 0,
+      "stdout": "cleared reference state\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "zig-js",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "handled"
+      ],
+      "exit_code": 23,
+      "stdout": "monitor\nhandled identity\nlater timer\nexit 23\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "zig-js",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "fatal"
+      ],
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "Uncaught uncaughtException: [object Object]\n"
+    },
+    {
+      "runtime": "zig-js",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "handler-throw"
+      ],
+      "exit_code": 7,
+      "stdout": "",
+      "stderr": "Uncaught uncaughtException: Error: handler failure\n"
+    },
+    {
+      "runtime": "zig-js",
+      "fixture": "timers_async_context.mjs",
+      "args": [],
+      "exit_code": 0,
+      "stdout": "OK actual timer context across callbacks, nested tasks, jobs, awaits and exceptions\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "zig-js",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "reject"
+      ],
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "Uncaught unhandledRejection: UnhandledPromiseRejection: Unhandled promise rejection: [object Object]\n"
+    },
+    {
+      "runtime": "zig-js",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "reject-listener"
+      ],
+      "exit_code": 0,
+      "stdout": "rejected identity\nexit 0\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "zig-js",
+      "fixture": "timers_unsupported.mjs",
+      "args": [],
+      "exit_code": 0,
+      "stdout": "OK unsupported timer lifecycle and signal APIs remain explicit\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "jsc",
+      "fixture": "timers.mjs",
+      "args": [],
+      "exit_code": 0,
+      "stdout": "OK actual timer deadlines, cancellation, callback jobs, values and aliases\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "jsc",
+      "fixture": "timers_interval.mjs",
+      "args": [],
+      "exit_code": 0,
+      "stdout": "OK actual recurring timer deadlines, self-cancellation, aliases and references\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "jsc",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "unref"
+      ],
+      "exit_code": 0,
+      "stdout": "registered unreferenced\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "jsc",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "unref-live"
+      ],
+      "exit_code": 0,
+      "stdout": "unreferenced fired\nreferenced fired\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "jsc",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "clear-ref"
+      ],
+      "exit_code": 0,
+      "stdout": "cleared reference state\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "jsc",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "handled"
+      ],
+      "exit_code": 23,
+      "stdout": "monitor\nhandled identity\nlater timer\nexit 23\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "jsc",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "fatal"
+      ],
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "Uncaught uncaughtException: [object Object]\n"
+    },
+    {
+      "runtime": "jsc",
+      "fixture": "timers_exit.cjs",
+      "args": [
+        "handler-throw"
+      ],
+      "exit_code": 7,
+      "stdout": "",
+      "stderr": "Uncaught uncaughtException: Error: handler failure\n"
+    },
+    {
+      "runtime": "jsc",
+      "fixture": "timers_unsupported.mjs",
+      "args": [],
+      "exit_code": 0,
+      "stdout": "OK unsupported timer lifecycle and signal APIs remain explicit\n",
+      "stderr": ""
+    }
+  ],
+  "actual_stacks_before_and_intermediate": [
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 0.344,
+      "log": "before-stacks.log",
+      "runtime": "before",
+      "command": "./buddy build",
+      "consumer_sha": "d557cee9630c209ed5fc58c8c5f633dba82c3488",
+      "engine_sha": "e4c6455ab94b8553aa96dc787fc015165944cbf3",
+      "log_text": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\nhome-tool (zig-js): Error: cannot resolve module node:timers/promises from /Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/ts-pantry/dist/chunk-730anwa6.js\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "events": "{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/storage/framework/core/buddy/src/cli.ts\", \"arguments\": [\"build\"], \"conditions\": [\"development\"]}\n"
+    },
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 0.671,
+      "log": "after-stacks.log",
+      "runtime": "after",
+      "command": "./buddy build",
+      "consumer_sha": "d557cee9630c209ed5fc58c8c5f633dba82c3488",
+      "engine_sha": "e4c6455ab94b8553aa96dc787fc015165944cbf3",
+      "log_text": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\nhome-tool (zig-js): ReferenceError: Can't find variable: setInterval\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "events": "{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/storage/framework/core/buddy/src/cli.ts\", \"arguments\": [\"build\"], \"conditions\": [\"development\"]}\n"
+    }
+  ],
+  "actual_stacks_final": {
+    "status": "failed",
+    "exit_code": 1,
+    "seconds": 0.556,
+    "log": "final-stacks.log",
+    "command": "./buddy build",
+    "consumer_sha": "d557cee9630c209ed5fc58c8c5f633dba82c3488",
+    "engine_sha": "e4c6455ab94b8553aa96dc787fc015165944cbf3",
+    "log_text": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/bun-query-builder/dist/chunk-awt07pt9.js:11752: ',' expected. (TS1005)\nhome-tool (zig-js): TypeError: readdirSync is not a function. (In 'readdirSync(current, { withFileTypes: true })', 'readdirSync' is undefined)\n\nECOSYSTEM RESULT: failed, exit 1\n",
+    "events": "{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/storage/framework/core/buddy/src/cli.ts\", \"arguments\": [\"build\"], \"conditions\": [\"development\"]}\n"
+  },
+  "gates": {
+    "zig-gates.log": "home-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: second rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/1dfc260c757a5bbf68cfec1ba4d3cf5a/home-tool run unhandled_rejection.cjs second\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: listener failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/1dfc260c757a5bbf68cfec1ba4d3cf5a/home-tool run unhandled_rejection.cjs listener-throw\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/1dfc260c757a5bbf68cfec1ba4d3cf5a/home-tool run unhandled_rejection.cjs async\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: UnhandledPromiseRejection: Unhandled promise rejection: [object Object]\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/1dfc260c757a5bbf68cfec1ba4d3cf5a/home-tool run timers_exit.cjs reject\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: UnhandledPromiseRejection: Unhandled promise rejection: undefined\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run unhandled_rejection.cjs undefined\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: uncaught handler failure\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run unhandled_rejection.cjs handler-throw\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run unhandled_rejection.cjs chain\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/missing-array from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run reject-missing-array.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run rejected.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: monitor failure\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run next_tick_failure.cjs monitor-throw\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run unhandled_rejection.cjs error\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: handler failure\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run next_tick_failure.cjs handler-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run declaration/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/blocked from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs: PackagePathNotExported\nfailed command: cd packages/runtime/test/tool_modules/package_exports && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run reject-blocked.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_stream_pending.mjs\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run node_stream_pending.mjs\n\nOK home-tool exact package imports\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run next_tick_failure.cjs error\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: circular tsconfig extends chain: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run cycle/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): SyntaxError: Unexpected identifier 'Promise'\nfailed command: cd packages/runtime/test/tool_modules/async && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run cjs-await.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./bad.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run malformed/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run next_tick_failure.cjs monitor\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run next_tick_failure.cjs override\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/require-only from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs: PackagePathNotExported\nfailed command: cd packages/runtime/test/tool_modules/package_exports && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run reject-require-only.mjs\n\nhome-tool-smoke\n+- home-tool-timers-smoke\n   +- run exe home-tool w\nUncaught uncaughtException: Error: handler failure\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run timers_exit.cjs handler-throw\n\nOK home-tool module interop\nhome-tool-smoke\n+- home-tool-timers-smoke\n   +- run exe home-tool w\nUncaught uncaughtException: [object Object]\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run timers_exit.cjs fatal\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/dynamic_import/pending-entry.mjs\nfailed command: cd packages/runtime/test/tool_modules/dynamic_import && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run pending-entry.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run next_tick_failure.cjs exit-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: undefined\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run next_tick_failure.cjs undefined\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/directory from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run reject-directory.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): undefined\nfailed command: cd packages/runtime/test/tool_modules/async && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run undefined.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js:6: Identifier expected. (TS1003)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nfailed command: cd packages/runtime/test/tool_modules && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run runtime_invalid_syntax.js\n\nOK home-tool import.meta\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): undefined\nfailed command: cd packages/runtime/test/tool_modules/dynamic_import && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run reject-entry.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: exit listener witness\nfailed command: /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool eval \"process.on('exit', function() { throw new Error('exit listener witness'); });\"\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/extensionless from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run reject-extensionless.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run pending.mjs\n\nOK home-tool runtime transpilation\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run cycle-a.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run dependency-rejected.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./absent.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run missing/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: invalid JSONC or runtime path options: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && /Users/chris/.cache/zig-js-ecosystem-research/host-timers/after/bin/home-tool run invalid-options/entry.cjs\n\nBuild Summary: 148/148 steps succeeded\nhome-tool-async-context-smoke success\n+- run exe home-tool success 66ms\n|  +- compile exe home-tool safe native-native success 32s MaxRSS:1G\n|     +- options cached\n+- run exe home-tool success 15ms\n   +- compile exe home-tool safe native-native (+1 more reused dependencies)\nhome-tool-rejections-smoke success\n+- run exe home-tool success 273ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 273ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 177ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 174ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 175ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 277ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 270ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 272ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 272ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 181ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 277ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 269ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 175ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 268ms\n   +- compile exe home-tool safe native-native (+1 more reused dependencies)\nhome-tool-smoke success\n+- home-tool-timers-smoke success\n|  +- run exe home-tool success 216ms\n|  |  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n|  +- run exe home-tool success 144ms\n|  |  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n|  +- run exe home-tool success 21ms\n|  |  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n|  +- run exe home-tool success 21ms\n|  |  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n|  +- run exe home-tool success 60ms\n|  |  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n|  +- run exe home-tool success 18ms\n|  |  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n|  +- run exe home-tool success 50ms\n|  |  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n|  +- run exe home-tool success 26ms\n|  |  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n|  +- run exe home-tool success 33ms\n|     +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run test home-tool-file-io-tests cached\n|  +- compile test home-tool-file-io-tests safe native-native cached 66ms MaxRSS:30M\n+- run exe home-tool success 265ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run test home-tool-glob-matcher-tests cached\n|  +- compile test home-tool-glob-matcher-tests safe native-native cached 66ms MaxRSS:30M\n+- run test home-tool-glob-walk-tests cached\n|  +- compile test home-tool-glob-walk-tests safe native-native cached 65ms MaxRSS:30M\n+- run exe home-tool success 20ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 17ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 26ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 26ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run test cached\n|  +- compile test safe native-native cached 65ms MaxRSS:30M\n|     +- options (reused)\n+- run exe home-tool success 78ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 20ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 20ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 66ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 17ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 25ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 26ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 33ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 20ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 16ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 18ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 17ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 24ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 16ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 24ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 21ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 30ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 17ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 25ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 30ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 20ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 261ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run test home-tool-package-exports-tests cached\n|  +- compile test home-tool-package-exports-tests safe native-native cached 65ms MaxRSS:30M\n+- run exe home-tool success 40ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 181ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 22ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 25ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 27ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 18ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 180ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 24ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 21ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 185ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 20ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 25ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 24ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 17ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 24ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 24ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 18ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 22ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 25ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 26ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 18ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 18ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 179ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 27ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 14ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 16ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 22ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 24ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 29ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 31ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 20ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 18ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 27ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 21ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 20ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 17ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 17ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 24ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 17ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 22ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 22ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 20ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 21ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 30ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 37ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 29ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 20ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 23ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 23ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 42ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 18ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 28ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 24ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 16ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 17ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 28ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 183ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 14ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 25ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 26ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 18ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n   +- compile exe home-tool safe native-native (+1 more reused dependencies)\nhome-tool success\n+- install home-tool success\n   +- compile exe home-tool safe native-native (+1 more reused dependencies)\n\n",
+    "jsc-gates.log": "home-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: invalid JSONC or runtime path options: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/tsconfig.json\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run invalid-options/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run next_tick_failure.cjs exit-throw\n\nhome-tool-smoke\n+- run exe home-tool w\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js:6: Identifier expected. (TS1003)\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run runtime_invalid_syntax.js\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./absent.json\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run missing/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Cannot resolve @home/exports/missing-array from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run reject-missing-array.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run next_tick_failure.cjs override\n\nOK home-tool runtime transpilation\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): undefined\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run undefined.mjs\n\nOK home-tool import.meta\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_stream_pending.mjs\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run node_stream_pending.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): undefined\nfailed command: cd packages/runtime/test/tool_modules/dynamic_import && ./../../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run reject-entry.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: exit listener witness\nfailed command: ./.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool eval \"process.on('exit', function() { throw new Error('exit listener witness'); });\"\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run pending.mjs\n\nOK home-tool exact package imports\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Cannot resolve @home/exports/require-only from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs: PackagePathNotExported\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run reject-require-only.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run next_tick_failure.cjs monitor\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run declaration/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run next_tick_failure.cjs error\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Cannot resolve @home/exports/blocked from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs: PackagePathNotExported\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run reject-blocked.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: handler failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run next_tick_failure.cjs handler-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Cannot resolve @home/exports/directory from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run reject-directory.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Cannot resolve @home/exports/extensionless from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run reject-extensionless.mjs\n\nOK home-tool module interop\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run rejected.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: undefined\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run next_tick_failure.cjs undefined\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run cycle-a.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./bad.json\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run malformed/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): SyntaxError: Unexpected identifier 'Promise'\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run cjs-await.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: circular tsconfig extends chain: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/tsconfig.json\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run cycle/entry.cjs\n\nhome-tool-smoke\n+- home-tool-timers-smoke\n   +- run exe home-tool w\nUncaught uncaughtException: [object Object]\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run timers_exit.cjs fatal\n\nhome-tool-smoke\n+- home-tool-timers-smoke\n   +- run exe home-tool w\nUncaught uncaughtException: Error: handler failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run timers_exit.cjs handler-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run dependency-rejected.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: monitor failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run next_tick_failure.cjs monitor-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/dynamic_import/pending-entry.mjs\nfailed command: cd packages/runtime/test/tool_modules/dynamic_import && ./../../../../../.zig-cache/o/06ba4611395d7fffe5c6c1b13c310cf4/home-tool run pending-entry.mjs\n\nBuild Summary: 130/130 steps succeeded\nhome-tool-smoke success\n+- home-tool-timers-smoke success\n|  +- run exe home-tool success 213ms\n|  |  +- compile exe home-tool safe native-native success 33s MaxRSS:1G\n|  |     +- options cached\n|  +- run exe home-tool success 128ms\n|  |  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n|  +- run exe home-tool success 14ms\n|  |  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n|  +- run exe home-tool success 18ms\n|  |  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n|  +- run exe home-tool success 52ms\n|  |  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n|  +- run exe home-tool success 15ms\n|  |  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n|  +- run exe home-tool success 40ms\n|  |  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n|  +- run exe home-tool success 18ms\n|  |  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n|  +- run exe home-tool success 18ms\n|     +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run test home-tool-file-io-tests cached\n|  +- compile test home-tool-file-io-tests safe native-native cached 82ms MaxRSS:30M\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run test home-tool-glob-matcher-tests cached\n|  +- compile test home-tool-glob-matcher-tests safe native-native cached 75ms MaxRSS:30M\n+- run test home-tool-glob-walk-tests cached\n|  +- compile test home-tool-glob-walk-tests safe native-native cached 79ms MaxRSS:30M\n+- run exe home-tool success 168ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 16ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 21ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 16ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run test cached\n|  +- compile test safe native-native cached 82ms MaxRSS:30M\n|     +- options (reused)\n+- run exe home-tool success 28ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 163ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 20ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 201ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 20ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 20ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 24ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 160ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 18ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 16ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 16ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 22ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 16ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 18ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 17ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 16ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 18ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 47ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run test home-tool-package-exports-tests cached\n|  +- compile test home-tool-package-exports-tests safe native-native cached 76ms MaxRSS:30M\n+- run exe home-tool success 33ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 14ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 18ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 18ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 16ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 17ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 30ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 161ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 20ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 9ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 16ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 14ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 161ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 10ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 17ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 25ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 16ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 21ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 16ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 159ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 17ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 161ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 17ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 14ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 14ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 14ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 18ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 23ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 170ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 20ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 14ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 24ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 163ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 33ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 21ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 18ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 17ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 17ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 14ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 17ms\n|  +- compile exe home-tool safe native-native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n   +- compile exe home-tool safe native-native (+1 more reused dependencies)\nhome-tool success\n+- install home-tool success\n   +- compile exe home-tool safe native-native (+1 more reused dependencies)\n\n",
+    "engine-linux-build.log": "Build Summary: 4/4 steps succeeded\nhome-tool-bootstrap success\n+- install zig-js success\n   +- compile lib zig-js safe x86_64-linux-musl success 1m MaxRSS:1G\n      +- options cached\n\n",
+    "linux-build.log": "Build Summary: 4/4 steps succeeded\nhome-tool success\n+- install home-tool success\n   +- compile exe home-tool safe x86_64-linux-musl success 35s MaxRSS:1G\n      +- options cached\n\n"
+  },
+  "binary_sha256": {
+    "zig-js": "d4dea7b5b82f345d755e6806efbf1852954f16a58e330da9fa7dc8e5a416245f",
+    "jsc": "2f99a41a684b3205d9acce2d94bcbb33816098c0fb137e17239ff17f1b72d2b1",
+    "linux_cross_compiled": "9d7808394605bc66c79c200a909b44605fc2aaedff6ac1346de337a4fea527fd",
+    "exact_archive": "f8e439fb3b2fe7f3d80f89f9c49060ff7dab0798161384c10c430370857da811"
+  },
+  "limits": [
+    "Linux backend is cross-compiled only locally; exact Linux CI is still required for promotion.",
+    "No engine source, exported symbol or struct layout changed; no test262 conformance measurement is claimed.",
+    "Immediates, refresh, AbortSignal, general I/O and Bun/Node test scheduling remain unsupported.",
+    "JSC has no actual async-context/rejection hooks in this public-C profile; its common tests do not certify those capabilities.",
+    "The old host can exit zero after a fatal timer throw without executing required monitor/handler events; those results remain failed evidence.",
+    "Bun differs from Node for canceled-handle hasRef and fatal/rejection exit-event output; actual differences are retained.",
+    "Stacks still fails at real missing readdirSync and an emitted query-builder diagnostic. The local frozen consumer is d557cee963, distinct from latest CI consumer 8a5e22f1.",
+    "The inherited immediate globals are removed from the bounded host; timeout and interval queues share actual native dispatch."
+  ]
+}
