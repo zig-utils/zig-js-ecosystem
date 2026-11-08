@@ -144,6 +144,38 @@ class PlanTests(unittest.TestCase):
 
 
 class RuntimeRoutingTests(unittest.TestCase):
+    def test_conditions_reach_home_without_consuming_entry_arguments(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            entry = root / "entry.mjs"
+            entry.write_text("throw new Error('orchestration-only fixture')")
+            fake_home = root / "fake-home"
+            fake_home.write_text(f"#!{sys.executable}\nimport sys,json\nprint(json.dumps(sys.argv[1:]))\nsys.exit(19)\n")
+            fake_home.chmod(0o755)
+            run.make_shims(root / "shims")
+            env = {**os.environ, "HOME_TOOL": str(fake_home), "ECOSYSTEM_EVENTS": str(root / "events")}
+            for program in ("bun", "node"):
+                command = [str(root / "shims" / program), "--conditions", "development", "--conditions=first,second",
+                           "--cwd", str(root), str(entry), "--conditions", "entry-argument"]
+                result = subprocess.run(command, cwd=root, env=env, capture_output=True, text=True)
+                self.assertEqual(result.returncode, 19, result.stderr)
+                self.assertEqual(json.loads(result.stdout), ["--conditions=development", "--conditions=first,second",
+                                                            "run", str(entry.resolve()), "--conditions", "entry-argument"])
+            events = [json.loads(line) for line in (root / "events").read_text().splitlines()]
+            self.assertTrue(all(event["conditions"] == ["development", "first,second"] for event in events))
+
+    def test_conditions_never_disappear_on_unsupported_commands(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / "package.json").write_text(json.dumps({"scripts": {"build": "echo never"}}))
+            with patch.object(runtime.Path, "cwd", return_value=root), patch.object(runtime, "event"), patch.object(runtime.subprocess, "call") as call:
+                self.assertEqual(runtime.main(["--conditions", "development", "run", "build"], "bun"), 78)
+                self.assertEqual(runtime.main(["--conditions"], "bun"), 78)
+                self.assertEqual(runtime.main(["--conditions=development", "test"], "bun"), 78)
+                self.assertEqual(runtime.main(["--conditions=development", "install"], "bun"), 78)
+                self.assertEqual(runtime.main(["--conditions=development", "x", "missing-tool"], "npm"), 78)
+                call.assert_not_called()
+
     def test_test_scheduler_and_native_build_cannot_be_false_passes(self):
         with patch.object(runtime, "event"):
             self.assertEqual(runtime.main(["test"], "bun"), 78)
@@ -176,7 +208,7 @@ class RuntimeRoutingTests(unittest.TestCase):
             binary.write_text("#!/usr/bin/env node\n")
             with patch.object(runtime.Path, "cwd", return_value=root), patch.object(runtime, "run_file", return_value=17) as mock:
                 self.assertEqual(runtime.main(["--bun", "tsc", "--noEmit"], "bunx"), 17)
-                mock.assert_called_once_with(binary.resolve(), ["--noEmit"])
+                mock.assert_called_once_with(binary.resolve(), ["--noEmit"], [])
 
 
 class ResultTests(unittest.TestCase):

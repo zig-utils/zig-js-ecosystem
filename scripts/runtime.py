@@ -46,23 +46,26 @@ def find_binary(name, cwd):
     return None
 
 
-def run_file(path, arguments):
+def run_file(path, arguments, conditions=()):
     if path.suffix not in JS_EXTENSIONS:
         first = path.open(errors="replace").readline()
         if "node" not in first and "bun" not in first:
             return blocked(f"Cannot execute non-JS package binary through zig-js: {path}")
-    event("zig-js", file=str(path), arguments=arguments)
-    os.execv(os.environ["HOME_TOOL"], [os.environ["HOME_TOOL"], "run", str(path), *arguments])
+    event("zig-js", file=str(path), arguments=arguments, conditions=list(conditions))
+    flags = ["--conditions=" + condition for condition in conditions]
+    os.execv(os.environ["HOME_TOOL"], [os.environ["HOME_TOOL"], *flags, "run", str(path), *arguments])
 
 
-def run_script(name, arguments, cwd):
+def run_script(name, arguments, cwd, conditions=()):
     root = package_root(cwd)
     path = root / "package.json"
     manifest = json.loads(path.read_text()) if path.is_file() else {}
     command = manifest.get("scripts", {}).get(name)
     if not command:
         binary = find_binary(name, cwd)
-        return run_file(binary, arguments) if binary else blocked(f"No script or installed binary: {name}")
+        return run_file(binary, arguments, conditions) if binary else blocked(f"No script or installed binary: {name}")
+    if conditions:
+        return blocked("Runtime --conditions on shell package scripts is unsupported; conditions were not discarded")
     depth = int(os.environ.get("ECOSYSTEM_SCRIPT_DEPTH", "0"))
     if depth >= 24:
         return blocked("Package script recursion exceeded 24 calls")
@@ -75,19 +78,37 @@ def main(argv=None, program=None):
     argv = list(sys.argv[1:] if argv is None else argv)
     program = program or Path(sys.argv[0]).name
     cwd = Path.cwd()
-    while argv and argv[0] in ("--bun", "--silent"):
-        argv.pop(0)
-    if argv[:1] == ["--cwd"] and len(argv) > 2:
-        os.chdir(argv[1])
-        return main(argv[2:], program)
+    conditions = []
+    while argv:
+        flag = argv[0]
+        if flag in ("--bun", "--silent"):
+            argv.pop(0)
+        elif flag == "--conditions" or flag.startswith("--conditions="):
+            if program not in ("bun", "node"):
+                return blocked(f"Unsupported runtime flag: {program} --conditions")
+            argv.pop(0)
+            if flag == "--conditions":
+                if not argv:
+                    return blocked("Missing value for --conditions")
+                conditions.append(argv.pop(0))
+            else:
+                conditions.append(flag.split("=", 1)[1])
+        elif flag == "--cwd":
+            if len(argv) < 3:
+                return blocked("Missing directory or command for --cwd")
+            os.chdir(argv[1])
+            cwd = Path.cwd()
+            del argv[:2]
+        else:
+            break
     if not argv:
         return blocked(f"Interactive {program} is unavailable")
     command, *rest = argv
     if program in ("npm", "pnpm", "yarn"):
         if command in ("run", "run-script") and rest:
-            return run_script(rest[0], rest[1:], cwd)
+            return run_script(rest[0], rest[1:], cwd, conditions)
         if command in ("test", "build", "typecheck", "smoke"):
-            return run_script(command, rest, cwd)
+            return run_script(command, rest, cwd, conditions)
         return blocked(f"{program} {command} requires a package-manager host adapter")
     if program in ("bunx", "npx") or command == "x":
         args = argv if program in ("bunx", "npx") else rest
@@ -95,12 +116,13 @@ def main(argv=None, program=None):
         if not args:
             return blocked("No installed package binary specified")
         binary = find_binary(args[0], cwd)
-        return run_file(binary, args[1:]) if binary else blocked(f"Package binary not installed: {args[0]}")
+        return run_file(binary, args[1:], conditions) if binary else blocked(f"Package binary not installed: {args[0]}")
     if command in ("-e", "--eval") and rest:
         event("zig-js", eval=True)
-        os.execv(os.environ["HOME_TOOL"], [os.environ["HOME_TOOL"], "eval", rest[0]])
+        flags = ["--conditions=" + condition for condition in conditions]
+        os.execv(os.environ["HOME_TOOL"], [os.environ["HOME_TOOL"], *flags, "eval", rest[0]])
     if command == "run" and rest:
-        return run_script(rest[0], rest[1:], cwd)
+        return run_script(rest[0], rest[1:], cwd, conditions)
     if command in ("test", "--test"):
         return blocked("Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed")
     if command in ("build", "install", "i", "add", "update", "exec", "create"):
@@ -109,9 +131,9 @@ def main(argv=None, program=None):
         return blocked(f"Unsupported runtime flag: {program} {command}")
     binary = find_binary(command, cwd)
     if binary:
-        return run_file(binary, rest)
+        return run_file(binary, rest, conditions)
     if program == "bun":
-        return run_script(command, rest, cwd)
+        return run_script(command, rest, cwd, conditions)
     return blocked(f"JS entry point not found: {command}")
 
 

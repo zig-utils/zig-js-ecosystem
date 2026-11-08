@@ -20,6 +20,13 @@ Dependency setup follows declared workspace membership; independent nested apps 
 
 Stacks (`stacksjs/stacks`) and Home (`home-lang/home`) get the first two independent consumer jobs. They cannot delay each other inside a batch. Remaining consumers retain complete coverage.
 
+Explicit `bun --conditions development <entry>` and equivalent Node flags are
+forwarded to Home's actual package export resolver. Repeated flags and literal
+comma names are preserved, including through `--cwd`; entry arguments remain
+untouched. Condition flags on shell package scripts remain explicitly
+unsupported rather than being discarded. This does not add a test scheduler or
+native Bun runtime to the candidate lane.
+
 The shared engine archive and Home host are compiled for the architecture's baseline CPU. GitHub-hosted runners have different CPU features; a producer's native instruction set is unsuitable for an executable sent to another runner. Runtime provenance records this target, and publication checks the `memcpy` instructions involved in the earlier cross-runner AVX-512 crash.
 
 ## Current runtime boundary

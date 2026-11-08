@@ -1,0 +1,539 @@
+{
+  "home_ref": "41e721b47fa336c3907bc2282cc042af179999c6",
+  "before_home_ref": "7e7b28065c5fd404dcbd383195a60fab72da7b46",
+  "engine_ref": "c2170b6597b1b2104069bd0f74e4fc6d2af14f22",
+  "scope": "Contextual IdentifierReference classification, fixing actual ts-pantry iso_codes:as syntax.",
+  "dependency": {
+    "name": "ts-pantry",
+    "version": "0.11.192",
+    "path": "/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/ts-pantry/dist/chunk-9fzxx1pq.js",
+    "sha256": "3a459bd250ea32171ca5f15398d109c3543bcde288f9fd2b0575f4980091df73",
+    "size_bytes": 1755867,
+    "diagnostic_byte_offset": 1696205,
+    "snippet": "ompletion:$o,debianorgbashcompletion:$o,iso_codes:as,debianorgisocodes:as,deepwisdomai:ol,denilsonsa",
+    "native_node_check": {
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "--check",
+        "/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/ts-pantry/dist/chunk-9fzxx1pq.js"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  },
+  "results": {
+    "as-before.json": [
+      {
+        "source": "const as=7;const x={iso_codes:as};if(x.iso_codes!==7)throw Error(\"value\");console.log(\"OK contextual as\");",
+        "runtime": "node",
+        "exit_code": 0,
+        "stdout": "OK contextual as\n",
+        "stderr": ""
+      },
+      {
+        "source": "const as=7;const x={iso_codes:as};if(x.iso_codes!==7)throw Error(\"value\");console.log(\"OK contextual as\");",
+        "runtime": "home",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/contextual-as.mjs:30: Expression expected. (TS1109)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/contextual-as.mjs\n"
+      },
+      {
+        "source": "const as=7;as;",
+        "runtime": "node",
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "source": "const as=7;as;",
+        "runtime": "home",
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "source": "const x=7;const o={as:x};o.as;",
+        "runtime": "node",
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "source": "const x=7;const o={as:x};o.as;",
+        "runtime": "home",
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    ],
+    "contextual-before.json": [
+      {
+        "name": "as",
+        "source": "const as=7;const o={value:as};const a=[as];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual as\");",
+        "runtime": "node",
+        "exit_code": 0,
+        "stdout": "OK contextual as\n",
+        "stderr": ""
+      },
+      {
+        "name": "as",
+        "source": "const as=7;const o={value:as};const a=[as];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual as\");",
+        "runtime": "before",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/as-identifier.mjs:26: Expression expected. (TS1109)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/as-identifier.mjs\n"
+      },
+      {
+        "name": "satisfies",
+        "source": "const satisfies=7;const o={value:satisfies};const a=[satisfies];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual satisfies\");",
+        "runtime": "node",
+        "exit_code": 0,
+        "stdout": "OK contextual satisfies\n",
+        "stderr": ""
+      },
+      {
+        "name": "satisfies",
+        "source": "const satisfies=7;const o={value:satisfies};const a=[satisfies];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual satisfies\");",
+        "runtime": "before",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/satisfies-identifier.mjs:33: Expression expected. (TS1109)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/satisfies-identifier.mjs\n"
+      },
+      {
+        "name": "using",
+        "source": "const using=7;const o={value:using};const a=[using];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual using\");",
+        "runtime": "node",
+        "exit_code": 0,
+        "stdout": "OK contextual using\n",
+        "stderr": ""
+      },
+      {
+        "name": "using",
+        "source": "const using=7;const o={value:using};const a=[using];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual using\");",
+        "runtime": "before",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/using-identifier.mjs:29: Expression expected. (TS1109)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/using-identifier.mjs\n"
+      },
+      {
+        "name": "accessor",
+        "source": "const accessor=7;const o={value:accessor};const a=[accessor];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual accessor\");",
+        "runtime": "node",
+        "exit_code": 0,
+        "stdout": "OK contextual accessor\n",
+        "stderr": ""
+      },
+      {
+        "name": "accessor",
+        "source": "const accessor=7;const o={value:accessor};const a=[accessor];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual accessor\");",
+        "runtime": "before",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/accessor-identifier.mjs:32: Expression expected. (TS1109)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/accessor-identifier.mjs\n"
+      },
+      {
+        "name": "override",
+        "source": "const override=7;const o={value:override};const a=[override];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual override\");",
+        "runtime": "node",
+        "exit_code": 0,
+        "stdout": "OK contextual override\n",
+        "stderr": ""
+      },
+      {
+        "name": "override",
+        "source": "const override=7;const o={value:override};const a=[override];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual override\");",
+        "runtime": "before",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/override-identifier.mjs:32: Expression expected. (TS1109)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/override-identifier.mjs\n"
+      },
+      {
+        "name": "readonly",
+        "source": "const readonly=7;const o={value:readonly};const a=[readonly];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual readonly\");",
+        "runtime": "node",
+        "exit_code": 0,
+        "stdout": "OK contextual readonly\n",
+        "stderr": ""
+      },
+      {
+        "name": "readonly",
+        "source": "const readonly=7;const o={value:readonly};const a=[readonly];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual readonly\");",
+        "runtime": "before",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/readonly-identifier.mjs:32: Expression expected. (TS1109)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/readonly-identifier.mjs\n"
+      },
+      {
+        "name": "asserts",
+        "source": "const asserts=7;const o={value:asserts};const a=[asserts];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual asserts\");",
+        "runtime": "node",
+        "exit_code": 0,
+        "stdout": "OK contextual asserts\n",
+        "stderr": ""
+      },
+      {
+        "name": "asserts",
+        "source": "const asserts=7;const o={value:asserts};const a=[asserts];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual asserts\");",
+        "runtime": "before",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/asserts-identifier.mjs:31: Expression expected. (TS1109)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/asserts-identifier.mjs\n"
+      },
+      {
+        "name": "infer",
+        "source": "const infer=7;const o={value:infer};const a=[infer];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual infer\");",
+        "runtime": "node",
+        "exit_code": 0,
+        "stdout": "OK contextual infer\n",
+        "stderr": ""
+      },
+      {
+        "name": "infer",
+        "source": "const infer=7;const o={value:infer};const a=[infer];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual infer\");",
+        "runtime": "before",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/infer-identifier.mjs:29: Expression expected. (TS1109)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/infer-identifier.mjs\n"
+      },
+      {
+        "name": "keyof",
+        "source": "const keyof=7;const o={value:keyof};const a=[keyof];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual keyof\");",
+        "runtime": "node",
+        "exit_code": 0,
+        "stdout": "OK contextual keyof\n",
+        "stderr": ""
+      },
+      {
+        "name": "keyof",
+        "source": "const keyof=7;const o={value:keyof};const a=[keyof];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual keyof\");",
+        "runtime": "before",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/keyof-identifier.mjs:29: Expression expected. (TS1109)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/keyof-identifier.mjs\n"
+      },
+      {
+        "name": "unique",
+        "source": "const unique=7;const o={value:unique};const a=[unique];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual unique\");",
+        "runtime": "node",
+        "exit_code": 0,
+        "stdout": "OK contextual unique\n",
+        "stderr": ""
+      },
+      {
+        "name": "unique",
+        "source": "const unique=7;const o={value:unique};const a=[unique];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual unique\");",
+        "runtime": "before",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/unique-identifier.mjs:30: Expression expected. (TS1109)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/unique-identifier.mjs\n"
+      },
+      {
+        "name": "is",
+        "source": "const is=7;const o={value:is};const a=[is];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual is\");",
+        "runtime": "node",
+        "exit_code": 0,
+        "stdout": "OK contextual is\n",
+        "stderr": ""
+      },
+      {
+        "name": "is",
+        "source": "const is=7;const o={value:is};const a=[is];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual is\");",
+        "runtime": "before",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/is-identifier.mjs:26: Expression expected. (TS1109)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/is-identifier.mjs\n"
+      },
+      {
+        "name": "abstract",
+        "source": "const abstract=7;const o={value:abstract};const a=[abstract];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual abstract\");",
+        "runtime": "node",
+        "exit_code": 0,
+        "stdout": "OK contextual abstract\n",
+        "stderr": ""
+      },
+      {
+        "name": "abstract",
+        "source": "const abstract=7;const o={value:abstract};const a=[abstract];if(o.value!==7||a[0]!==7)throw Error(\"value\");console.log(\"OK contextual abstract\");",
+        "runtime": "before",
+        "exit_code": 0,
+        "stdout": "OK contextual abstract\n",
+        "stderr": ""
+      }
+    ],
+    "contextual-fixture-before.json": [
+      {
+        "runtime": "node",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/contextual_identifiers.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "OK contextual identifier object values, arrays, shorthand and arrows\n",
+        "stderr": ""
+      },
+      {
+        "runtime": "bun",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/contextual_identifiers.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "OK contextual identifier object values, arrays, shorthand and arrows\n",
+        "stderr": ""
+      },
+      {
+        "runtime": "before",
+        "command": [
+          "/Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/home-tool-after",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/contextual_identifiers.mjs"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/contextual_identifiers.mjs:177: Expression expected. (TS1109)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/contextual_identifiers.mjs\n"
+      }
+    ],
+    "contextual-after.json": [
+      {
+        "runtime": "zig-js",
+        "command": [
+          "/Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/contextual-home-tool-after",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/contextual_identifiers.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "OK contextual identifier object values, arrays, shorthand and arrows\n",
+        "stderr": ""
+      },
+      {
+        "runtime": "jsc",
+        "command": [
+          "/Users/chris/.cache/zig-js-ecosystem-research/custom-conditions/contextual-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/contextual_identifiers.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "OK contextual identifier object values, arrays, shorthand and arrows\n",
+        "stderr": ""
+      },
+      {
+        "name": "as",
+        "runtime": "zig-js",
+        "exit_code": 0,
+        "stdout": "OK contextual as\n",
+        "stderr": ""
+      },
+      {
+        "name": "as",
+        "runtime": "jsc",
+        "exit_code": 0,
+        "stdout": "OK contextual as\n",
+        "stderr": ""
+      },
+      {
+        "name": "satisfies",
+        "runtime": "zig-js",
+        "exit_code": 0,
+        "stdout": "OK contextual satisfies\n",
+        "stderr": ""
+      },
+      {
+        "name": "satisfies",
+        "runtime": "jsc",
+        "exit_code": 0,
+        "stdout": "OK contextual satisfies\n",
+        "stderr": ""
+      },
+      {
+        "name": "using",
+        "runtime": "zig-js",
+        "exit_code": 0,
+        "stdout": "OK contextual using\n",
+        "stderr": ""
+      },
+      {
+        "name": "using",
+        "runtime": "jsc",
+        "exit_code": 0,
+        "stdout": "OK contextual using\n",
+        "stderr": ""
+      },
+      {
+        "name": "accessor",
+        "runtime": "zig-js",
+        "exit_code": 0,
+        "stdout": "OK contextual accessor\n",
+        "stderr": ""
+      },
+      {
+        "name": "accessor",
+        "runtime": "jsc",
+        "exit_code": 0,
+        "stdout": "OK contextual accessor\n",
+        "stderr": ""
+      },
+      {
+        "name": "override",
+        "runtime": "zig-js",
+        "exit_code": 0,
+        "stdout": "OK contextual override\n",
+        "stderr": ""
+      },
+      {
+        "name": "override",
+        "runtime": "jsc",
+        "exit_code": 0,
+        "stdout": "OK contextual override\n",
+        "stderr": ""
+      },
+      {
+        "name": "readonly",
+        "runtime": "zig-js",
+        "exit_code": 0,
+        "stdout": "OK contextual readonly\n",
+        "stderr": ""
+      },
+      {
+        "name": "readonly",
+        "runtime": "jsc",
+        "exit_code": 0,
+        "stdout": "OK contextual readonly\n",
+        "stderr": ""
+      },
+      {
+        "name": "asserts",
+        "runtime": "zig-js",
+        "exit_code": 0,
+        "stdout": "OK contextual asserts\n",
+        "stderr": ""
+      },
+      {
+        "name": "asserts",
+        "runtime": "jsc",
+        "exit_code": 0,
+        "stdout": "OK contextual asserts\n",
+        "stderr": ""
+      },
+      {
+        "name": "infer",
+        "runtime": "zig-js",
+        "exit_code": 0,
+        "stdout": "OK contextual infer\n",
+        "stderr": ""
+      },
+      {
+        "name": "infer",
+        "runtime": "jsc",
+        "exit_code": 0,
+        "stdout": "OK contextual infer\n",
+        "stderr": ""
+      },
+      {
+        "name": "keyof",
+        "runtime": "zig-js",
+        "exit_code": 0,
+        "stdout": "OK contextual keyof\n",
+        "stderr": ""
+      },
+      {
+        "name": "keyof",
+        "runtime": "jsc",
+        "exit_code": 0,
+        "stdout": "OK contextual keyof\n",
+        "stderr": ""
+      },
+      {
+        "name": "unique",
+        "runtime": "zig-js",
+        "exit_code": 0,
+        "stdout": "OK contextual unique\n",
+        "stderr": ""
+      },
+      {
+        "name": "unique",
+        "runtime": "jsc",
+        "exit_code": 0,
+        "stdout": "OK contextual unique\n",
+        "stderr": ""
+      },
+      {
+        "name": "is",
+        "runtime": "zig-js",
+        "exit_code": 0,
+        "stdout": "OK contextual is\n",
+        "stderr": ""
+      },
+      {
+        "name": "is",
+        "runtime": "jsc",
+        "exit_code": 0,
+        "stdout": "OK contextual is\n",
+        "stderr": ""
+      },
+      {
+        "name": "abstract",
+        "runtime": "zig-js",
+        "exit_code": 0,
+        "stdout": "OK contextual abstract\n",
+        "stderr": ""
+      },
+      {
+        "name": "abstract",
+        "runtime": "jsc",
+        "exit_code": 0,
+        "stdout": "OK contextual abstract\n",
+        "stderr": ""
+      }
+    ],
+    "contextual-stacks-build.json": {
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 0.723,
+      "log": "contextual-stacks-build.log",
+      "command": "./buddy build",
+      "consumer_sha": "d557cee9630c209ed5fc58c8c5f633dba82c3488",
+      "log_text": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\nhome-tool (zig-js): Error: cannot resolve module node:timers/promises from /Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/node_modules/ts-pantry/dist/chunk-730anwa6.js\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "events": "{\"kind\": \"zig-js\", \"file\": \"/Users/chris/.cache/zig-js-ecosystem-research/stacks-prompt-candidate/storage/framework/core/buddy/src/cli.ts\", \"arguments\": [\"build\"], \"conditions\": [\"development\"]}\n"
+    }
+  },
+  "fixture_source": "const as = 1, satisfies = 2, using = 3, accessor = 4, override = 5, readonly = 6, asserts = 7, infer = 8, keyof = 9, unique = 10, is = 11, abstract = 12;\nconst values = {\n  as: as,\n  satisfies: satisfies,\n  using: using,\n  accessor: accessor,\n  override: override,\n  readonly: readonly,\n  asserts: asserts,\n  infer: infer,\n  keyof: keyof,\n  unique: unique,\n  is: is,\n  abstract: abstract,\n};\nconst array = [as, satisfies, using, accessor, override, readonly, asserts, infer, keyof, unique, is, abstract];\nconst shorthand = {as, satisfies, using, accessor, override, readonly, asserts, infer, keyof, unique, is, abstract};\nconst identity = (as) => as;\nfor (let i = 0; i < array.length; i++) {\n  const name = Object.keys(values)[i];\n  if (array[i] !== i + 1 || values[name] !== i + 1 || shorthand[name] !== i + 1 || identity(array[i]) !== i + 1) throw new Error(\"contextual identifier value\");\n}\nconsole.log(\"OK contextual identifier object values, arrays, shorthand and arrows\");\n",
+  "before_parser_gate": {
+    "exit_code": 1,
+    "log": "test\n+- run test 927 pass, 1 fail (928 total)\nerror: 'ts_parser.test.parser: contextual identifier references start object values and array elements' failed:\n       expected 0, found 5\n       /Users/chris/.cache/zig-js-ecosystem-research/zig-0.18/lib/std/testing.zig:93:17: 0x1009e262b in expectEqualInner__func_1002 (test)\n                       return error.TestExpectedEqual;\n                       ^\n       /Users/chris/.cache/zig-js-ecosystem-research/zig-0.18/lib/std/testing.zig:57:5: 0x1009e2837 in expectEqual (test)\n           return expectEqualInner(T, expected, actual);\n           ^\n       /Users/chris/Code/Home/zig-js-ecosystem-home/packages/ts_parser/src/ts_parser.zig:37427:9: 0x1009e28a3 in test.parser: contextual identifier references start object values and array elements (test)\n               try T.expectEqual(@as(usize, 0), setup.parser.diagnostics.items.len);\n               ^\nfailed command: ./.zig-cache/o/bdc2b0b0be484a26f7afe8944996a7da/test --cache-dir=./.zig-cache --seed=0x320aa89f --listen=-\n\nBuild Summary: 3/5 steps succeeded (1 failed); 935/936 tests passed (1 failed)\ntest transitive failure\n+- run test 927 pass, 1 fail (928 total)\n\n"
+  },
+  "after_gates": {
+    "parser-after.log": {
+      "exit_code": 0,
+      "log": ""
+    },
+    "parser-summary.log": {
+      "exit_code": 0,
+      "log": "Build Summary: 5/5 steps succeeded\ntest success\n+- run test cached\n|  +- compile test debug native cached 47ms MaxRSS:30M\n+- run test cached\n   +- compile test debug native cached 47ms MaxRSS:30M\n\n"
+    },
+    "emitter-summary.log": {
+      "exit_code": 0,
+      "log": "Build Summary: 3/3 steps succeeded\ntest success\n+- run test cached\n   +- compile test debug native cached 43ms MaxRSS:30M\n\n"
+    },
+    "contextual-zig-js-gates.log": {
+      "exit_code": 0,
+      "log": "home-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run declaration/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/missing-array from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run reject-missing-array.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/extensionless from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run reject-extensionless.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/directory from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run reject-directory.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: handler failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run next_tick_failure.cjs handler-throw\n\nhome-tool-smoke\n+- run exe home-tool w\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js:6: Identifier expected. (TS1003)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run runtime_invalid_syntax.js\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run next_tick_failure.cjs override\n\nOK home-tool exact package imports\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): undefined\nfailed command: cd packages/runtime/test/tool_modules/dynamic_import && ./../../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run reject-entry.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): SyntaxError: Unexpected identifier 'Promise'\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run cjs-await.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: invalid JSONC or runtime path options: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run invalid-options/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: exit listener witness\nfailed command: ./.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool eval \"process.on('exit', function() { throw new Error('exit listener witness'); });\"\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run dependency-rejected.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: monitor failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run next_tick_failure.cjs monitor-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run rejected.mjs\n\nOK home-tool import.meta\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./absent.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run missing/entry.cjs\n\nOK home-tool runtime transpilation\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): undefined\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run undefined.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: undefined\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run next_tick_failure.cjs undefined\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_stream_pending.mjs\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run node_stream_pending.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run next_tick_failure.cjs monitor\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run next_tick_failure.cjs exit-throw\n\nOK home-tool module interop\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: circular tsconfig extends chain: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run cycle/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run next_tick_failure.cjs error\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/dynamic_import/pending-entry.mjs\nfailed command: cd packages/runtime/test/tool_modules/dynamic_import && ./../../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run pending-entry.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/blocked from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs: PackagePathNotExported\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run reject-blocked.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run cycle-a.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/require-only from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs: PackagePathNotExported\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run reject-require-only.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run pending.mjs\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run unhandled_rejection.cjs error\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./bad.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/cc6cb697ed50c0644d1995803da1f6b7/home-tool run malformed/entry.cjs\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run unhandled_rejection.cjs chain\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run unhandled_rejection.cjs async\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: uncaught handler failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run unhandled_rejection.cjs handler-throw\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: UnhandledPromiseRejection: Unhandled promise rejection: undefined\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run unhandled_rejection.cjs undefined\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: listener failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run unhandled_rejection.cjs listener-throw\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: second rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../zig-out/bin/home-tool run unhandled_rejection.cjs second\n\n"
+    },
+    "contextual-jsc-gates.log": {
+      "exit_code": 0,
+      "log": "home-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: circular tsconfig extends chain: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/tsconfig.json\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run cycle/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run rejected.mjs\n\nOK home-tool module interop\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: invalid JSONC or runtime path options: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/tsconfig.json\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run invalid-options/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): undefined\nfailed command: cd packages/runtime/test/tool_modules/dynamic_import && ./../../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run reject-entry.mjs\n\nOK home-tool import.meta\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/dynamic_import/pending-entry.mjs\nfailed command: cd packages/runtime/test/tool_modules/dynamic_import && ./../../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run pending-entry.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: exit listener witness\nfailed command: ./.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool eval \"process.on('exit', function() { throw new Error('exit listener witness'); });\"\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_stream_pending.mjs\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run node_stream_pending.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js:6: Identifier expected. (TS1003)\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run runtime_invalid_syntax.js\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Cannot resolve @home/exports/require-only from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs: PackagePathNotExported\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run reject-require-only.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): undefined\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run undefined.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): SyntaxError: Unexpected identifier 'Promise'\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run cjs-await.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run next_tick_failure.cjs monitor\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: handler failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run next_tick_failure.cjs handler-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run next_tick_failure.cjs error\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run cycle-a.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run pending.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Cannot resolve @home/exports/missing-array from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run reject-missing-array.mjs\n\nOK home-tool exact package imports\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run declaration/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Cannot resolve @home/exports/extensionless from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run reject-extensionless.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run dependency-rejected.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run next_tick_failure.cjs exit-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: monitor failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run next_tick_failure.cjs monitor-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Cannot resolve @home/exports/blocked from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs: PackagePathNotExported\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run reject-blocked.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run next_tick_failure.cjs override\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./bad.json\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run malformed/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: undefined\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run next_tick_failure.cjs undefined\n\nOK home-tool runtime transpilation\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./absent.json\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run missing/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (jsc): Error: Cannot resolve @home/exports/directory from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/12f753965c83885c03c2e107db7dbb8a/home-tool run reject-directory.mjs\n\n"
+    },
+    "contextual-pickier.log": {
+      "exit_code": 0,
+      "log": ""
+    }
+  },
+  "notes": [
+    "The full parser plus precedence gate adds one regression: 935/936 pass before, and the same selected artifacts pass after without deleting tests. The new unit exercises 12 contextual names across object values, arrays, shorthand and arrows.",
+    "Eleven names fail on before Home; abstract already passes. All twelve pass both after Home backends. Node controls and the combined native Bun witness pass.",
+    "Both common backend gates and zig-js rejection/async-context gates pass. Full emitter artifact passes too. No engine language conformance claim.",
+    "Actual Stacks buddy build now enters the real development graph and fails on missing node:timers/promises. It does not complete its build.",
+    "Do not supply immediate-resolution promises or a blocking sleep as a fake timer implementation. A correct host scheduler/event loop remains required.",
+    "Root Home docs remains independently red at its last actual 300-second execution bound; no rerun or docs success is claimed for these parser/condition changes."
+  ]
+}
