@@ -71,7 +71,6 @@
   },
   "stx_ci_run": 42536172488,
   "stx_ci_status_at_capture": "in_progress",
-  "qualification": "New suite66abf25 qualifies Home0f88 separately; its runtime/Home CPU passed while Stacks CPU remained queued. Caller remains qualified c59c283. Source STX fix is not a suite pin change.",
   "verification_root": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker",
   "limits": [
     "Home cold-module success and explicit WORKER_UNAVAILABLE are not worker execution or image-processing passes.",
@@ -79,5 +78,13 @@
     "No native worker_threads implementation, fake Worker, native Bun candidate fallback, skipped image tests or full frontend compatibility pass.",
     "Foreign untracked module-script test in /Users/chris/Code/Libraries/stx and other original checkouts were preserved; work used an isolated worktree.",
     "No performance or engine test262 claim."
-  ]
+  ],
+  "qualification_at_capture": "New suite66abf25 qualifies Home0f88 separately; its runtime/Home CPU passed while Stacks CPU remained queued. Caller remains qualified c59c283. Source STX fix is not a suite pin change.",
+  "qualification": "Home0f88 suite66abf25 now qualifies against exact engine e7dfc598 with Linux runtime and both actual consumer provenance/CPU steps. Caller d6c6d3f4 promotes that exact suite. This does not certify STX worker execution or the current Stacks locked frontend.",
+  "stx_ci_checks_at_followup": {
+    "lint": "success",
+    "typecheck": "success",
+    "native-signing": "success",
+    "test": "in_progress"
+  }
 }
