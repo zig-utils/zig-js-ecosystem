@@ -1,0 +1,328 @@
+{
+  "scope": "Actual subprocesses and Node-derived statuses/output. Local Zig 0.17/archive is supplementary. Before falsely returns zero on uncaught scheduled exceptions. General standalone Promise rejection reporting remains an open capability gap.",
+  "hashes": {
+    "node": "600484350350ab7852b577ddf97e7888f498334bef3ca74e73ea3b507a5b6fac",
+    "bun": "6b947fc4b25d640c482e40f253cbb2df692a555ce29c247844b766d8fea16dca",
+    "before": "26a04e0645c3820c6da32eda67b5ab7736d7aafca2e698c7b677afe5ac7fdaf3",
+    "home-zig-js": "5cf57c91c7b96d2b3d9e0ae5dd0ac236b39079eb9aa9f20433e7b00a6f731f72",
+    "home-jsc": "d6b3d33a7078f35563e4fa6f1aaebcc59019512997ef96addbce48ba35754f8a",
+    "fixture": "2d929a69c88a022bdc6e466aa2708ec82dec0be16daec2758b0f7750afc1a87d"
+  },
+  "results": [
+    {
+      "runtime": "node",
+      "case": "error",
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:32\n    throw new Error('nextTick callback failure');\n    ^\n\nError: nextTick callback failure\n    at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:32:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)\n\nNode.js v26.10.0\n"
+    },
+    {
+      "runtime": "node",
+      "case": "undefined",
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:31\n    if (mode === 'undefined') throw undefined;\n                              ^\nundefined\n(Use `node --trace-uncaught ...` to show where the exception was thrown)\n\nNode.js v26.10.0\n"
+    },
+    {
+      "runtime": "node",
+      "case": "monitor",
+      "exit_code": 1,
+      "stdout": "monitor\nexit 1\n",
+      "stderr": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:32\n    throw new Error('nextTick callback failure');\n    ^\n\nError: nextTick callback failure\n    at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:32:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)\n\nNode.js v26.10.0\n"
+    },
+    {
+      "runtime": "node",
+      "case": "handled",
+      "exit_code": 21,
+      "stdout": "monitor\nhandled\nlater\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "node",
+      "case": "handler-throw",
+      "exit_code": 7,
+      "stdout": "",
+      "stderr": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:28\n  if (mode === 'handler-throw') process.on('uncaughtException', () => { throw new Error('handler failure'); });\n                                                                        ^\n\nError: handler failure\n    at process.<anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:28:79)\n    at process.emit (node:events:514:20)\n    at process._fatalException (node:internal/process/execution:192:32)\n\nNode.js v26.10.0\n"
+    },
+    {
+      "runtime": "node",
+      "case": "monitor-throw",
+      "exit_code": 7,
+      "stdout": "",
+      "stderr": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:29\n  if (mode === 'monitor-throw') process.on('uncaughtExceptionMonitor', () => { throw new Error('monitor failure'); });\n                                                                               ^\n\nError: monitor failure\n    at process.<anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:29:86)\n    at process.emit (node:events:514:20)\n    at process._fatalException (node:internal/process/execution:178:13)\n\nNode.js v26.10.0\n"
+    },
+    {
+      "runtime": "node",
+      "case": "override",
+      "exit_code": 23,
+      "stdout": "exit 1\n",
+      "stderr": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:32\n    throw new Error('nextTick callback failure');\n    ^\n\nError: nextTick callback failure\n    at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:32:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)\n\nNode.js v26.10.0\n"
+    },
+    {
+      "runtime": "node",
+      "case": "exit-throw",
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:32\n    throw new Error('nextTick callback failure');\n    ^\n\nError: nextTick callback failure\n    at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:32:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)\n\nNode.js v26.10.0\n"
+    },
+    {
+      "runtime": "node",
+      "case": "invalid",
+      "exit_code": 0,
+      "stdout": "TypeError ERR_INVALID_ARG_TYPE\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "error",
+      "exit_code": 1,
+      "stdout": "must not run after fatal callback\nexit 1\n",
+      "stderr": "27 |   if (mode === 'monitor') process.on('uncaughtExceptionMonitor', () => console.log('monitor'));\n28 |   if (mode === 'handler-throw') process.on('uncaughtException', () => { throw new Error('handler failure'); });\n29 |   if (mode === 'monitor-throw') process.on('uncaughtExceptionMonitor', () => { throw new Error('monitor failure'); });\n30 |   process.nextTick(() => {\n31 |     if (mode === 'undefined') throw undefined;\n32 |     throw new Error('nextTick callback failure');\n                                                    ^\nerror: nextTick callback failure\n      at <anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:32:48)\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "runtime": "bun",
+      "case": "undefined",
+      "exit_code": 1,
+      "stdout": "must not run after fatal callback\nexit 1\n",
+      "stderr": "26 |   });\n27 |   if (mode === 'monitor') process.on('uncaughtExceptionMonitor', () => console.log('monitor'));\n28 |   if (mode === 'handler-throw') process.on('uncaughtException', () => { throw new Error('handler failure'); });\n29 |   if (mode === 'monitor-throw') process.on('uncaughtExceptionMonitor', () => { throw new Error('monitor failure'); });\n30 |   process.nextTick(() => {\n31 |     if (mode === 'undefined') throw undefined;\n                                         ^\nerror: undefined\n      at <anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:31:37)\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "runtime": "bun",
+      "case": "monitor",
+      "exit_code": 1,
+      "stdout": "monitor\nmust not run after fatal callback\nexit 1\n",
+      "stderr": "27 |   if (mode === 'monitor') process.on('uncaughtExceptionMonitor', () => console.log('monitor'));\n28 |   if (mode === 'handler-throw') process.on('uncaughtException', () => { throw new Error('handler failure'); });\n29 |   if (mode === 'monitor-throw') process.on('uncaughtExceptionMonitor', () => { throw new Error('monitor failure'); });\n30 |   process.nextTick(() => {\n31 |     if (mode === 'undefined') throw undefined;\n32 |     throw new Error('nextTick callback failure');\n                                                    ^\nerror: nextTick callback failure\n      at <anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:32:48)\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "runtime": "bun",
+      "case": "handled",
+      "exit_code": 21,
+      "stdout": "monitor\nhandled\nlater\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "handler-throw",
+      "exit_code": 7,
+      "stdout": "exit 7\n",
+      "stderr": "23 |     if (mode === 'override') process.exitCode = 23;\n24 |     if (mode === 'exit-throw') throw new Error('exit listener failure');\n25 |     process.nextTick(() => console.log('must not run during exit'));\n26 |   });\n27 |   if (mode === 'monitor') process.on('uncaughtExceptionMonitor', () => console.log('monitor'));\n28 |   if (mode === 'handler-throw') process.on('uncaughtException', () => { throw new Error('handler failure'); });\n                                                                                                              ^\nerror: handler failure\n      at <anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:28:106)\n"
+    },
+    {
+      "runtime": "bun",
+      "case": "monitor-throw",
+      "exit_code": 7,
+      "stdout": "exit 7\n",
+      "stderr": "24 |     if (mode === 'exit-throw') throw new Error('exit listener failure');\n25 |     process.nextTick(() => console.log('must not run during exit'));\n26 |   });\n27 |   if (mode === 'monitor') process.on('uncaughtExceptionMonitor', () => console.log('monitor'));\n28 |   if (mode === 'handler-throw') process.on('uncaughtException', () => { throw new Error('handler failure'); });\n29 |   if (mode === 'monitor-throw') process.on('uncaughtExceptionMonitor', () => { throw new Error('monitor failure'); });\n                                                                                                                     ^\nerror: monitor failure\n      at <anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:29:113)\n"
+    },
+    {
+      "runtime": "bun",
+      "case": "override",
+      "exit_code": 1,
+      "stdout": "must not run after fatal callback\nexit 1\n",
+      "stderr": "27 |   if (mode === 'monitor') process.on('uncaughtExceptionMonitor', () => console.log('monitor'));\n28 |   if (mode === 'handler-throw') process.on('uncaughtException', () => { throw new Error('handler failure'); });\n29 |   if (mode === 'monitor-throw') process.on('uncaughtExceptionMonitor', () => { throw new Error('monitor failure'); });\n30 |   process.nextTick(() => {\n31 |     if (mode === 'undefined') throw undefined;\n32 |     throw new Error('nextTick callback failure');\n                                                    ^\nerror: nextTick callback failure\n      at <anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:32:48)\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "runtime": "bun",
+      "case": "exit-throw",
+      "exit_code": 1,
+      "stdout": "must not run after fatal callback\nexit 1\n",
+      "stderr": "27 |   if (mode === 'monitor') process.on('uncaughtExceptionMonitor', () => console.log('monitor'));\n28 |   if (mode === 'handler-throw') process.on('uncaughtException', () => { throw new Error('handler failure'); });\n29 |   if (mode === 'monitor-throw') process.on('uncaughtExceptionMonitor', () => { throw new Error('monitor failure'); });\n30 |   process.nextTick(() => {\n31 |     if (mode === 'undefined') throw undefined;\n32 |     throw new Error('nextTick callback failure');\n                                                    ^\nerror: nextTick callback failure\n      at <anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:32:48)\n19 | }\n20 | else {\n21 |   process.on('exit', code => {\n22 |     console.log('exit ' + code);\n23 |     if (mode === 'override') process.exitCode = 23;\n24 |     if (mode === 'exit-throw') throw new Error('exit listener failure');\n                                                                           ^\nerror: exit listener failure\n      at <anonymous> (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/next_tick_failure.cjs:24:71)\n"
+    },
+    {
+      "runtime": "bun",
+      "case": "invalid",
+      "exit_code": 0,
+      "stdout": "TypeError ERR_INVALID_ARG_TYPE\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "error",
+      "exit_code": 0,
+      "stdout": "must not run after fatal callback\nexit 0\nmust not run during exit\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "undefined",
+      "exit_code": 0,
+      "stdout": "must not run after fatal callback\nexit 0\nmust not run during exit\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "monitor",
+      "exit_code": 0,
+      "stdout": "must not run after fatal callback\nexit 0\nmust not run during exit\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "handled",
+      "exit_code": 0,
+      "stdout": "later\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "handler-throw",
+      "exit_code": 0,
+      "stdout": "must not run after fatal callback\nexit 0\nmust not run during exit\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "monitor-throw",
+      "exit_code": 0,
+      "stdout": "must not run after fatal callback\nexit 0\nmust not run during exit\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "override",
+      "exit_code": 23,
+      "stdout": "must not run after fatal callback\nexit 0\nmust not run during exit\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "exit-throw",
+      "exit_code": 1,
+      "stdout": "must not run after fatal callback\nexit 0\n",
+      "stderr": "home-tool (zig-js): Error: exit listener failure\n"
+    },
+    {
+      "runtime": "before",
+      "case": "invalid",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "error",
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "Uncaught nextTick exception: Error: nextTick callback failure\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "undefined",
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "Uncaught nextTick exception: undefined\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "monitor",
+      "exit_code": 1,
+      "stdout": "monitor\nexit 1\n",
+      "stderr": "Uncaught nextTick exception: Error: nextTick callback failure\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "handled",
+      "exit_code": 21,
+      "stdout": "monitor\nhandled\nlater\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "handler-throw",
+      "exit_code": 7,
+      "stdout": "",
+      "stderr": "Uncaught nextTick exception: Error: handler failure\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "monitor-throw",
+      "exit_code": 7,
+      "stdout": "",
+      "stderr": "Uncaught nextTick exception: Error: monitor failure\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "override",
+      "exit_code": 23,
+      "stdout": "exit 1\n",
+      "stderr": "Uncaught nextTick exception: Error: nextTick callback failure\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "exit-throw",
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "Uncaught nextTick exception: Error: nextTick callback failure\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "invalid",
+      "exit_code": 0,
+      "stdout": "TypeError ERR_INVALID_ARG_TYPE\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "error",
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "Uncaught nextTick exception: Error: nextTick callback failure\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "undefined",
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "Uncaught nextTick exception: undefined\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "monitor",
+      "exit_code": 1,
+      "stdout": "monitor\nexit 1\n",
+      "stderr": "Uncaught nextTick exception: Error: nextTick callback failure\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "handled",
+      "exit_code": 21,
+      "stdout": "monitor\nhandled\nlater\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "handler-throw",
+      "exit_code": 7,
+      "stdout": "",
+      "stderr": "Uncaught nextTick exception: Error: handler failure\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "monitor-throw",
+      "exit_code": 7,
+      "stdout": "",
+      "stderr": "Uncaught nextTick exception: Error: monitor failure\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "override",
+      "exit_code": 23,
+      "stdout": "exit 1\n",
+      "stderr": "Uncaught nextTick exception: Error: nextTick callback failure\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "exit-throw",
+      "exit_code": 1,
+      "stdout": "exit 1\n",
+      "stderr": "Uncaught nextTick exception: Error: nextTick callback failure\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "invalid",
+      "exit_code": 0,
+      "stdout": "TypeError ERR_INVALID_ARG_TYPE\n",
+      "stderr": ""
+    }
+  ]
+}

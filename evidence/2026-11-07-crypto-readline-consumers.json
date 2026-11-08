@@ -1,0 +1,96 @@
+{
+  "scope": "Complete actual red consumer commands. Dependencies were frozen-installed with scripts disabled; no native candidate fallback. Only the separate earlier Bun reference built Home docs.",
+  "crypto_home": {
+    "status": "failed",
+    "exit_code": 1,
+    "seconds": 0.453,
+    "log": "home-after.log",
+    "log_text": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\nhome-tool (zig-js): Error: cannot resolve module stream/promises from /Users/chris/.cache/zig-js-ecosystem-research/home-docs-candidate/node_modules/.bun/bunfig@0.15.19/node_modules/bunfig/dist/index.js\n\nECOSYSTEM RESULT: failed, exit 1\n",
+    "consumer_sha": "6b3007cb334ab21c0cdb7385ebe9a3fdd82e458a",
+    "events": [
+      {
+        "kind": "zig-js",
+        "file": "/Users/chris/.cache/zig-js-ecosystem-research/home-docs-candidate/node_modules/.bun/@stacksjs+bunpress@0.2.17/node_modules/@stacksjs/bunpress/dist/bin/cli.js",
+        "arguments": [
+          "build"
+        ]
+      }
+    ]
+  },
+  "readline_stacks": {
+    "before": {
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 3.481,
+      "log": "stacks-before.log",
+      "consumer_sha": "f51956ea0f7cca38536501c3f70adae226309131",
+      "log_text": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\nhome-tool (zig-js): Error: cannot resolve module node:readline from /Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/node_modules/@stacksjs/clapp/dist/index.js\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "events": [
+        {
+          "kind": "zig-js",
+          "file": "/Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/node_modules/typescript/bin/tsc",
+          "arguments": [
+            "--noEmit",
+            "-p",
+            "storage/framework/tsconfig.framework.json",
+            "--pretty",
+            "false"
+          ]
+        },
+        {
+          "kind": "zig-js",
+          "file": "/Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/node_modules/typescript/bin/tsc",
+          "arguments": [
+            "--noEmit",
+            "-p",
+            "storage/framework/tsconfig.defaults.json",
+            "--pretty",
+            "false"
+          ]
+        },
+        {
+          "kind": "zig-js",
+          "file": "/Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/storage/framework/core/validation/build.ts",
+          "arguments": []
+        }
+      ]
+    },
+    "after": {
+      "status": "failed",
+      "exit_code": 1,
+      "seconds": 2.185,
+      "log": "stacks-after.log",
+      "consumer_sha": "f51956ea0f7cca38536501c3f70adae226309131",
+      "log_text": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\nhome-tool (zig-js): Error: cannot resolve module node:util from /Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/node_modules/@stacksjs/clapp/dist/index.js\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "events": [
+        {
+          "kind": "zig-js",
+          "file": "/Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/node_modules/typescript/bin/tsc",
+          "arguments": [
+            "--noEmit",
+            "-p",
+            "storage/framework/tsconfig.framework.json",
+            "--pretty",
+            "false"
+          ]
+        },
+        {
+          "kind": "zig-js",
+          "file": "/Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/node_modules/typescript/bin/tsc",
+          "arguments": [
+            "--noEmit",
+            "-p",
+            "storage/framework/tsconfig.defaults.json",
+            "--pretty",
+            "false"
+          ]
+        },
+        {
+          "kind": "zig-js",
+          "file": "/Users/chris/.cache/zig-js-ecosystem-research/stacks-native-cli/storage/framework/core/validation/build.ts",
+          "arguments": []
+        }
+      ]
+    }
+  }
+}

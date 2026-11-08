@@ -1,0 +1,101 @@
+{
+  "scope": "The original stdout callback witness threw inside nextTick. Home returned zero without the required callback-done output. This is false-zero failure evidence, not a passed operation. The corrected exitCode witness and nextTick repair are retained separately.",
+  "results": [
+    {
+      "runtime": "node",
+      "case": "interface",
+      "source": "const r=require(\"node:readline\").createInterface({input:process.stdin});r.on(\"line\",line=>console.log(line));r.on(\"close\",()=>console.log(\"closed\"));",
+      "exit_code": 0,
+      "stdout": "hello\nclosed\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "interface",
+      "source": "const r=require(\"node:readline\").createInterface({input:process.stdin});r.on(\"line\",line=>console.log(line));r.on(\"close\",()=>console.log(\"closed\"));",
+      "exit_code": 0,
+      "stdout": "hello\nclosed\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "interface",
+      "source": "const r=require(\"node:readline\").createInterface({input:process.stdin});r.on(\"line\",line=>console.log(line));r.on(\"close\",()=>console.log(\"closed\"));",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: require(\"node:readline\").createInterface is not a function. (In 'require(\"node:readline\").createInterface({ input: process.stdin })', 'require(\"node:readline\").createInterface' is undefined)\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "interface",
+      "source": "const r=require(\"node:readline\").createInterface({input:process.stdin});r.on(\"line\",line=>console.log(line));r.on(\"close\",()=>console.log(\"closed\"));",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): TypeError: require(\"node:readline\").createInterface is not a function. (In 'require(\"node:readline\").createInterface({ input: process.stdin })', 'require(\"node:readline\").createInterface' is undefined)\n"
+    },
+    {
+      "runtime": "node",
+      "case": "keypress",
+      "source": "require(\"node:readline\").emitKeypressEvents(process.stdin);process.stdin.on(\"keypress\",(text,key)=>console.log(key.name));process.stdin.resume();",
+      "exit_code": 0,
+      "stdout": "up\na\nenter\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "keypress",
+      "source": "require(\"node:readline\").emitKeypressEvents(process.stdin);process.stdin.on(\"keypress\",(text,key)=>console.log(key.name));process.stdin.resume();",
+      "exit_code": 0,
+      "stdout": "up\na\nenter\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "keypress",
+      "source": "require(\"node:readline\").emitKeypressEvents(process.stdin);process.stdin.on(\"keypress\",(text,key)=>console.log(key.name));process.stdin.resume();",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: require(\"node:readline\").emitKeypressEvents is not a function. (In 'require(\"node:readline\").emitKeypressEvents(process.stdin)', 'require(\"node:readline\").emitKeypressEvents' is undefined)\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "keypress",
+      "source": "require(\"node:readline\").emitKeypressEvents(process.stdin);process.stdin.on(\"keypress\",(text,key)=>console.log(key.name));process.stdin.resume();",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): TypeError: require(\"node:readline\").emitKeypressEvents is not a function. (In 'require(\"node:readline\").emitKeypressEvents(process.stdin)', 'require(\"node:readline\").emitKeypressEvents' is undefined)\n"
+    },
+    {
+      "runtime": "node",
+      "case": "stdout-callback",
+      "source": "let done=false;require(\"node:readline\").clearLine(process.stdout,0,()=>{done=true});process.nextTick(()=>{if(!done)throw new Error(\"stdout callback not executed\");console.log(\"callback done\")})",
+      "exit_code": 0,
+      "stdout": "\u001b[2Kcallback done\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "stdout-callback",
+      "source": "let done=false;require(\"node:readline\").clearLine(process.stdout,0,()=>{done=true});process.nextTick(()=>{if(!done)throw new Error(\"stdout callback not executed\");console.log(\"callback done\")})",
+      "exit_code": 0,
+      "stdout": "\u001b[2Kcallback done\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "stdout-callback",
+      "source": "let done=false;require(\"node:readline\").clearLine(process.stdout,0,()=>{done=true});process.nextTick(()=>{if(!done)throw new Error(\"stdout callback not executed\");console.log(\"callback done\")})",
+      "exit_code": 0,
+      "stdout": "\u001b[2K",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "stdout-callback",
+      "source": "let done=false;require(\"node:readline\").clearLine(process.stdout,0,()=>{done=true});process.nextTick(()=>{if(!done)throw new Error(\"stdout callback not executed\");console.log(\"callback done\")})",
+      "exit_code": 0,
+      "stdout": "\u001b[2K",
+      "stderr": ""
+    }
+  ]
+}

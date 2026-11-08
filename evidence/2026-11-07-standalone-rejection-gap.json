@@ -1,0 +1,35 @@
+{
+  "scope": "Actual known false-zero capability limitation: standalone unhandled Promise reporting is not implemented by this public-C tool host. No consumer compatibility claim for such programs.",
+  "results": [
+    {
+      "runtime": "node",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "/Users/chris/.cache/zig-js-ecosystem-research/nexttick/standalone-rejection.cjs:1\nPromise.reject(new Error(\"standalone rejection remains open\"));\n               ^\n\nError: standalone rejection remains open\n    at Object.<anonymous> (/Users/chris/.cache/zig-js-ecosystem-research/nexttick/standalone-rejection.cjs:1:16)\n    at Module._compile (node:internal/modules/cjs/loader:1956:14)\n    at Object..js (node:internal/modules/cjs/loader:2096:10)\n    at Module.load (node:internal/modules/cjs/loader:1678:32)\n    at Module._load (node:internal/modules/cjs/loader:1470:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:33:47\n\nNode.js v26.10.0\n"
+    },
+    {
+      "runtime": "bun",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "1 | Promise.reject(new Error(\"standalone rejection remains open\"));\n                       ^\nerror: standalone rejection remains open\n      at <anonymous> (/Users/chris/.cache/zig-js-ecosystem-research/nexttick/standalone-rejection.cjs:1:20)\n\nBun v1.4.4 (macOS arm64)\n"
+    },
+    {
+      "runtime": "before",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

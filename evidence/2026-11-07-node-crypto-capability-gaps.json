@@ -1,0 +1,101 @@
+{
+  "scope": "Executed unsupported operations; successful Node/Bun references do not imply Home support.",
+  "results": [
+    {
+      "runtime": "node",
+      "case": "cipher",
+      "source": "require(\"node:crypto\").createCipheriv(\"aes-256-gcm\",Buffer.alloc(32),Buffer.alloc(12)).final();console.log(\"cipher done\")",
+      "exit_code": 0,
+      "stdout": "cipher done\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "cipher",
+      "source": "require(\"node:crypto\").createCipheriv(\"aes-256-gcm\",Buffer.alloc(32),Buffer.alloc(12)).final();console.log(\"cipher done\")",
+      "exit_code": 0,
+      "stdout": "cipher done\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "cipher",
+      "source": "require(\"node:crypto\").createCipheriv(\"aes-256-gcm\",Buffer.alloc(32),Buffer.alloc(12)).final();console.log(\"cipher done\")",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: require(\"node:crypto\").createCipheriv is not a function. (In 'require(\"node:crypto\").createCipheriv(\"aes-256-gcm\", Buffer.alloc(32), Buffer.alloc(12))', 'require(\"node:crypto\").createCipheriv' is undefined)\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "cipher",
+      "source": "require(\"node:crypto\").createCipheriv(\"aes-256-gcm\",Buffer.alloc(32),Buffer.alloc(12)).final();console.log(\"cipher done\")",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): TypeError: require(\"node:crypto\").createCipheriv is not a function. (In 'require(\"node:crypto\").createCipheriv(\"aes-256-gcm\", Buffer.alloc(32), Buffer.alloc(12))', 'require(\"node:crypto\").createCipheriv' is undefined)\n"
+    },
+    {
+      "runtime": "node",
+      "case": "hash",
+      "source": "console.log(require(\"node:crypto\").createHash(\"sha256\").update(\"abc\").digest(\"hex\"))",
+      "exit_code": 0,
+      "stdout": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "hash",
+      "source": "console.log(require(\"node:crypto\").createHash(\"sha256\").update(\"abc\").digest(\"hex\"))",
+      "exit_code": 0,
+      "stdout": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "hash",
+      "source": "console.log(require(\"node:crypto\").createHash(\"sha256\").update(\"abc\").digest(\"hex\"))",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): TypeError: require(\"node:crypto\").createHash is not a function. (In 'require(\"node:crypto\").createHash(\"sha256\")', 'require(\"node:crypto\").createHash' is undefined)\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "hash",
+      "source": "console.log(require(\"node:crypto\").createHash(\"sha256\").update(\"abc\").digest(\"hex\"))",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): TypeError: require(\"node:crypto\").createHash is not a function. (In 'require(\"node:crypto\").createHash(\"sha256\")', 'require(\"node:crypto\").createHash' is undefined)\n"
+    },
+    {
+      "runtime": "node",
+      "case": "callback",
+      "source": "require(\"node:crypto\").randomBytes(8,(error,bytes)=>{if(error)throw error;console.log(bytes.length)})",
+      "exit_code": 0,
+      "stdout": "8\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "callback",
+      "source": "require(\"node:crypto\").randomBytes(8,(error,bytes)=>{if(error)throw error;console.log(bytes.length)})",
+      "exit_code": 0,
+      "stdout": "8\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "callback",
+      "source": "require(\"node:crypto\").randomBytes(8,(error,bytes)=>{if(error)throw error;console.log(bytes.length)})",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: Home crypto.randomBytes callbacks require an asynchronous host\n"
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "callback",
+      "source": "require(\"node:crypto\").randomBytes(8,(error,bytes)=>{if(error)throw error;console.log(bytes.length)})",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): Error: Home crypto.randomBytes callbacks require an asynchronous host\n"
+    }
+  ]
+}

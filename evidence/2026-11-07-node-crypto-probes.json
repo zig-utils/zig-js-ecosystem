@@ -1,0 +1,86 @@
+{
+  "scope": "Real subprocesses, no statistical security certification. Home uses OS entropy directly with no weak fallback. Local Zig 0.17/archive checks are supplementary pending exact CI.",
+  "home_parent": "0210e3326272e6ad2b828f1032cf31390fd724ab",
+  "hashes": {
+    "node": "600484350350ab7852b577ddf97e7888f498334bef3ca74e73ea3b507a5b6fac",
+    "bun": "6b947fc4b25d640c482e40f253cbb2df692a555ce29c247844b766d8fea16dca",
+    "before": "574b6a99ed81705a29b591b166c6b2bd974c5edbf78dcf357bb2892e7641d140",
+    "home-zig-js": "a4e49a4fa164ab5c59adaad59a818a4b16742ecd5ddc593825df8242a1163200",
+    "home-jsc": "90a9ea4a7d34827e25fc2f54586f43a964c5e8e84f5b59584061fb9a2e7b7756",
+    "node_crypto_entry.cjs": "d079157103e60d488de01cf27b4aaad0cae35bf5256a0c4dc996cd543666230b",
+    "node_crypto_esm.mjs": "6ab2600f4893617af7bed824ebfad536a15a9b21b4033b5bf54580a736d18797",
+    "node_crypto.expected.json": "e34c2e0a097319ad58ec90328878272442bab3047b90f36d4888f80fd05f524e"
+  },
+  "results": [
+    {
+      "runtime": "node",
+      "case": "node_crypto_entry.cjs",
+      "exit_code": 0,
+      "stdout": "{\"sizes\":[0,1,1,16,32,65537],\"invalid\":[[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"RangeError\",\"ERR_OUT_OF_RANGE\"],[\"RangeError\",\"ERR_OUT_OF_RANGE\"],[\"RangeError\",\"ERR_OUT_OF_RANGE\"],[\"RangeError\",\"ERR_OUT_OF_RANGE\"],[\"RangeError\",\"ERR_OUT_OF_RANGE\"]]}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "node",
+      "case": "node_crypto_esm.mjs",
+      "exit_code": 0,
+      "stdout": "OK home-tool ESM OS entropy\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "node_crypto_entry.cjs",
+      "exit_code": 0,
+      "stdout": "{\"sizes\":[0,1,1,16,32,65537],\"invalid\":[[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"RangeError\",\"ERR_OUT_OF_RANGE\"],[\"RangeError\",\"ERR_OUT_OF_RANGE\"],[\"RangeError\",\"ERR_OUT_OF_RANGE\"],[\"RangeError\",\"ERR_OUT_OF_RANGE\"],[\"RangeError\",\"ERR_OUT_OF_RANGE\"]]}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "node_crypto_esm.mjs",
+      "exit_code": 0,
+      "stdout": "OK home-tool ESM OS entropy\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "node_crypto_entry.cjs",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:crypto from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_crypto_entry.cjs\n"
+    },
+    {
+      "runtime": "before",
+      "case": "node_crypto_esm.mjs",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module crypto from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_crypto_esm.mjs\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "node_crypto_entry.cjs",
+      "exit_code": 0,
+      "stdout": "{\"sizes\":[0,1,1,16,32,65537],\"invalid\":[[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"RangeError\",\"ERR_OUT_OF_RANGE\"],[\"RangeError\",\"ERR_OUT_OF_RANGE\"],[\"RangeError\",\"ERR_OUT_OF_RANGE\"],[\"RangeError\",\"ERR_OUT_OF_RANGE\"],[\"RangeError\",\"ERR_OUT_OF_RANGE\"]]}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "node_crypto_esm.mjs",
+      "exit_code": 0,
+      "stdout": "OK home-tool ESM OS entropy\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "node_crypto_entry.cjs",
+      "exit_code": 0,
+      "stdout": "{\"sizes\":[0,1,1,16,32,65537],\"invalid\":[[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"TypeError\",\"ERR_INVALID_ARG_TYPE\"],[\"RangeError\",\"ERR_OUT_OF_RANGE\"],[\"RangeError\",\"ERR_OUT_OF_RANGE\"],[\"RangeError\",\"ERR_OUT_OF_RANGE\"],[\"RangeError\",\"ERR_OUT_OF_RANGE\"],[\"RangeError\",\"ERR_OUT_OF_RANGE\"]]}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "node_crypto_esm.mjs",
+      "exit_code": 0,
+      "stdout": "OK home-tool ESM OS entropy\n",
+      "stderr": ""
+    }
+  ]
+}
