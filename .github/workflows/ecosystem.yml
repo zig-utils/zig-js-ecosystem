@@ -223,6 +223,8 @@ jobs:
           for name, expected in p['sha256'].items():
               assert hashlib.sha256((pathlib.Path('runtime') / name).read_bytes()).hexdigest() == expected, name
           PY
+      - name: Verify shared runtime executes on this consumer CPU
+        run: timeout --signal=KILL 30s runtime/home-tool eval 'if (Home.engine !== "zig-js") throw new Error("Wrong engine"); console.log("ECOSYSTEM CONSUMER ENGINE zig-js");'
       - name: Check every selected package, library, CLI and app
         env:
           REPOSITORIES: ${{ toJSON(matrix.repositories) }}
