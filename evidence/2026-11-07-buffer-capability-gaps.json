@@ -1,0 +1,23 @@
+{
+  "scope": "Actual unsupported operations; any thrown operation sets a nonzero status, never a compatibility pass.",
+  "results": [
+    {
+      "runtime": "node",
+      "exit_code": 0,
+      "stdout": "[{\"name\":\"base64\",\"status\":\"returned\"},{\"name\":\"numeric read\",\"status\":\"returned\"},{\"name\":\"unsafe allocation\",\"status\":\"returned\"},{\"name\":\"deprecated constructor\",\"status\":\"returned\"},{\"name\":\"array-like object\",\"status\":\"returned\"},{\"name\":\"write\",\"status\":\"returned\"}]\n",
+      "stderr": "(node:3433) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)\n"
+    },
+    {
+      "runtime": "bun",
+      "exit_code": 0,
+      "stdout": "[{\"name\":\"base64\",\"status\":\"returned\"},{\"name\":\"numeric read\",\"status\":\"returned\"},{\"name\":\"unsafe allocation\",\"status\":\"returned\"},{\"name\":\"deprecated constructor\",\"status\":\"returned\"},{\"name\":\"array-like object\",\"status\":\"returned\"},{\"name\":\"write\",\"status\":\"returned\"}]\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "exit_code": 1,
+      "stdout": "[{\"name\":\"base64\",\"status\":\"threw\",\"error\":\"Error\",\"code\":\"ERR_HOME_UNSUPPORTED\",\"message\":\"Home Buffer encoding base64 is not implemented\"},{\"name\":\"numeric read\",\"status\":\"threw\",\"error\":\"TypeError\",\"message\":\"Buffer.from([1, 0, 0, 0]).readUInt32LE is not a function. (In 'Buffer.from([1, 0, 0, 0]).readUInt32LE(0)', 'Buffer.from([1, 0, 0, 0]).readUInt32LE' is undefined)\"},{\"name\":\"unsafe allocation\",\"status\":\"threw\",\"error\":\"TypeError\",\"message\":\"Buffer.allocUnsafe is not a function. (In 'Buffer.allocUnsafe(4)', 'Buffer.allocUnsafe' is undefined)\"},{\"name\":\"deprecated constructor\",\"status\":\"threw\",\"error\":\"Error\",\"code\":\"ERR_HOME_UNSUPPORTED\",\"message\":\"Home Buffer uses from/alloc; the deprecated constructor is not implemented\"},{\"name\":\"array-like object\",\"status\":\"threw\",\"error\":\"TypeError\",\"code\":\"ERR_INVALID_ARG_TYPE\",\"message\":\"Buffer.from requires a string, byte source or ArrayBuffer\"},{\"name\":\"write\",\"status\":\"threw\",\"error\":\"TypeError\",\"message\":\"bytes.write is not a function. (In 'bytes.write(\\\"ab\\\")', 'bytes.write' is undefined)\"}]\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "scope": "Actual Node/Bun/before/Home subprocesses. Buffers use managed typed storage; local Zig 0.17/archive checks remain supplementary to exact CI. No complete Node Buffer or allocator/codec claim.",
+  "fixture_sha256": {
+    "packages/runtime/test/tool_modules/node_buffer_esm.mjs": "cde37b3744c5cf7899642c76ba22656ea0541ee65a4a692215257000da934617",
+    "packages/runtime/test/tool_modules/node_buffer_entry.cjs": "e61b85ba284afc67e9eba574c82268e4ff865aecc94edb97b93349c17330418b",
+    "packages/runtime/test/tool_modules/node_buffer.expected.json": "29250db610f903bf4a39d4e35c4badef25bc1ebbf9743180794ed39da5fc69b9",
+    "packages/runtime/test/tool_modules/node_buffer_strings.json": "af5377b4810bafd8ed9ca2eca354eed273ba417bcbba0ba1de59953c7fa2293e"
+  },
+  "binary_sha256": {
+    "before": "ef2efc23ab994d35f90bbd2ab0b1e764e678fcde23a2860b43cf6a199043dfa0",
+    "home-zig-js": "574b6a99ed81705a29b591b166c6b2bd974c5edbf78dcf357bb2892e7641d140",
+    "home-jsc": "c56a67dfcb0bb8b264245ec9f88125a2b6b534a3b1e422960de139c79ed68ca3"
+  },
+  "results": [
+    {
+      "runtime": "node",
+      "case": "packages/runtime/test/tool_modules/node_buffer_entry.cjs",
+      "exit_code": 0,
+      "stdout": "{\"strings\":[{\"hex\":\"\",\"text\":\"\",\"size\":0},{\"hex\":\"4153434949\",\"text\":\"ASCII\",\"size\":5},{\"hex\":\"68c3a9f09d849e\",\"text\":\"h\u00e9\ud834\udd1e\",\"size\":7},{\"hex\":\"610062\",\"text\":\"a\\u0000b\",\"size\":3},{\"hex\":\"efbfbd\",\"text\":\"\ufffd\",\"size\":3},{\"hex\":\"efbfbd\",\"text\":\"\ufffd\",\"size\":3},{\"hex\":\"efbfbd78\",\"text\":\"\ufffdx\",\"size\":4},{\"hex\":\"efbfbdefbfbd\",\"text\":\"\ufffd\ufffd\",\"size\":6},{\"hex\":\"efbbbf68656c6c6f\",\"text\":\"\ufeffhello\",\"size\":8},{\"hex\":\"f48fbfbf\",\"text\":\"\udbff\udfff\",\"size\":4}],\"hex\":[[171,205],[171],[],[171,205],[],[],[],[15]],\"storage\":{\"source\":[9,7,3,4],\"copy\":[1,6,3,4],\"shared\":[7,3],\"mapped\":[2,7,4,5]},\"json\":{\"type\":\"Buffer\",\"data\":[255,0,3,0,0,9]},\"concat\":[\"6162630000\",\"ab\",0],\"alloc\":[[0,0,0,0],[1,1,1,1],1],\"set\":[1,8,9],\"fill\":[\"ababab\",\"0102010201\",\"abcd\"],\"byteLengths\":[1,2],\"ranges\":[\"\ufffd\u00e9\",\"bcd\",\"def\",\"\",\"\ufffd\"],\"search\":[0,2,2,0,true,0,5,-1,2,0],\"locale\":\"hello\"}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "node",
+      "case": "packages/runtime/test/tool_modules/node_buffer_esm.mjs",
+      "exit_code": 0,
+      "stdout": "OK home-tool ESM Buffer identity\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "packages/runtime/test/tool_modules/node_buffer_entry.cjs",
+      "exit_code": 0,
+      "stdout": "{\"strings\":[{\"hex\":\"\",\"text\":\"\",\"size\":0},{\"hex\":\"4153434949\",\"text\":\"ASCII\",\"size\":5},{\"hex\":\"68c3a9f09d849e\",\"text\":\"h\u00e9\ud834\udd1e\",\"size\":7},{\"hex\":\"610062\",\"text\":\"a\\u0000b\",\"size\":3},{\"hex\":\"efbfbd\",\"text\":\"\ufffd\",\"size\":3},{\"hex\":\"efbfbd\",\"text\":\"\ufffd\",\"size\":3},{\"hex\":\"efbfbd78\",\"text\":\"\ufffdx\",\"size\":4},{\"hex\":\"efbfbdefbfbd\",\"text\":\"\ufffd\ufffd\",\"size\":6},{\"hex\":\"efbbbf68656c6c6f\",\"text\":\"\ufeffhello\",\"size\":8},{\"hex\":\"f48fbfbf\",\"text\":\"\udbff\udfff\",\"size\":4}],\"hex\":[[171,205],[171],[],[171,205],[],[],[],[15]],\"storage\":{\"source\":[9,7,3,4],\"copy\":[1,6,3,4],\"shared\":[7,3],\"mapped\":[2,7,4,5]},\"json\":{\"type\":\"Buffer\",\"data\":[255,0,3,0,0,9]},\"concat\":[\"6162630000\",\"ab\",0],\"alloc\":[[0,0,0,0],[1,1,1,1],1],\"set\":[1,8,9],\"fill\":[\"ababab\",\"0102010201\",\"abcd\"],\"byteLengths\":[1,2],\"ranges\":[\"\ufffd\u00e9\",\"bcd\",\"def\",\"\",\"\ufffd\"],\"search\":[0,2,2,0,true,0,5,-1,2,0],\"locale\":\"hello\"}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "case": "packages/runtime/test/tool_modules/node_buffer_esm.mjs",
+      "exit_code": 0,
+      "stdout": "OK home-tool ESM Buffer identity\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "case": "packages/runtime/test/tool_modules/node_buffer_entry.cjs",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:buffer from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_buffer_entry.cjs\n"
+    },
+    {
+      "runtime": "before",
+      "case": "packages/runtime/test/tool_modules/node_buffer_esm.mjs",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module node:buffer from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_buffer_esm.mjs\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "packages/runtime/test/tool_modules/node_buffer_entry.cjs",
+      "exit_code": 0,
+      "stdout": "{\"strings\":[{\"hex\":\"\",\"text\":\"\",\"size\":0},{\"hex\":\"4153434949\",\"text\":\"ASCII\",\"size\":5},{\"hex\":\"68c3a9f09d849e\",\"text\":\"h\u00e9\ud834\udd1e\",\"size\":7},{\"hex\":\"610062\",\"text\":\"a\\u0000b\",\"size\":3},{\"hex\":\"efbfbd\",\"text\":\"\ufffd\",\"size\":3},{\"hex\":\"efbfbd\",\"text\":\"\ufffd\",\"size\":3},{\"hex\":\"efbfbd78\",\"text\":\"\ufffdx\",\"size\":4},{\"hex\":\"efbfbdefbfbd\",\"text\":\"\ufffd\ufffd\",\"size\":6},{\"hex\":\"efbbbf68656c6c6f\",\"text\":\"\ufeffhello\",\"size\":8},{\"hex\":\"f48fbfbf\",\"text\":\"\udbff\udfff\",\"size\":4}],\"hex\":[[171,205],[171],[],[171,205],[],[],[],[15]],\"storage\":{\"source\":[9,7,3,4],\"copy\":[1,6,3,4],\"shared\":[7,3],\"mapped\":[2,7,4,5]},\"json\":{\"type\":\"Buffer\",\"data\":[255,0,3,0,0,9]},\"concat\":[\"6162630000\",\"ab\",0],\"alloc\":[[0,0,0,0],[1,1,1,1],1],\"set\":[1,8,9],\"fill\":[\"ababab\",\"0102010201\",\"abcd\"],\"byteLengths\":[1,2],\"ranges\":[\"\ufffd\u00e9\",\"bcd\",\"def\",\"\",\"\ufffd\"],\"search\":[0,2,2,0,true,0,5,-1,2,0],\"locale\":\"hello\"}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-zig-js",
+      "case": "packages/runtime/test/tool_modules/node_buffer_esm.mjs",
+      "exit_code": 0,
+      "stdout": "OK home-tool ESM Buffer identity\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "packages/runtime/test/tool_modules/node_buffer_entry.cjs",
+      "exit_code": 0,
+      "stdout": "{\"strings\":[{\"hex\":\"\",\"text\":\"\",\"size\":0},{\"hex\":\"4153434949\",\"text\":\"ASCII\",\"size\":5},{\"hex\":\"68c3a9f09d849e\",\"text\":\"h\u00e9\ud834\udd1e\",\"size\":7},{\"hex\":\"610062\",\"text\":\"a\\u0000b\",\"size\":3},{\"hex\":\"efbfbd\",\"text\":\"\ufffd\",\"size\":3},{\"hex\":\"efbfbd\",\"text\":\"\ufffd\",\"size\":3},{\"hex\":\"efbfbd78\",\"text\":\"\ufffdx\",\"size\":4},{\"hex\":\"efbfbdefbfbd\",\"text\":\"\ufffd\ufffd\",\"size\":6},{\"hex\":\"efbbbf68656c6c6f\",\"text\":\"\ufeffhello\",\"size\":8},{\"hex\":\"f48fbfbf\",\"text\":\"\udbff\udfff\",\"size\":4}],\"hex\":[[171,205],[171],[],[171,205],[],[],[],[15]],\"storage\":{\"source\":[9,7,3,4],\"copy\":[1,6,3,4],\"shared\":[7,3],\"mapped\":[2,7,4,5]},\"json\":{\"type\":\"Buffer\",\"data\":[255,0,3,0,0,9]},\"concat\":[\"6162630000\",\"ab\",0],\"alloc\":[[0,0,0,0],[1,1,1,1],1],\"set\":[1,8,9],\"fill\":[\"ababab\",\"0102010201\",\"abcd\"],\"byteLengths\":[1,2],\"ranges\":[\"\ufffd\u00e9\",\"bcd\",\"def\",\"\",\"\ufffd\"],\"search\":[0,2,2,0,true,0,5,-1,2,0],\"locale\":\"hello\"}\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "case": "packages/runtime/test/tool_modules/node_buffer_esm.mjs",
+      "exit_code": 0,
+      "stdout": "OK home-tool ESM Buffer identity\n",
+      "stderr": ""
+    }
+  ],
+  "shared_storage_scope": "Actual execution, not a conditional skip: system JSC lacks SharedArrayBuffer and fails; Node/Bun/zig-js support the probe.",
+  "shared_storage": [
+    {
+      "runtime": "node",
+      "exit_code": 0,
+      "stdout": "OK shared Buffer storage\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "bun",
+      "exit_code": 0,
+      "stdout": "OK shared Buffer storage\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "before",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): ReferenceError: Can't find variable: Buffer\n"
+    },
+    {
+      "runtime": "home-zig-js",
+      "exit_code": 0,
+      "stdout": "OK shared Buffer storage\n",
+      "stderr": ""
+    },
+    {
+      "runtime": "home-jsc",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (jsc): ReferenceError: Can't find variable: SharedArrayBuffer\n"
+    }
+  ]
+}

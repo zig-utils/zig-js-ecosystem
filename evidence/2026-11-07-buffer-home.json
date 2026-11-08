@@ -1,0 +1,38 @@
+{
+  "scope": "Actual clean candidate before/after and separate native Bun reference. The docs candidate remains red; no Bun fallback or reference dist copied into candidate.",
+  "home_host_before": "6b3007cb334ab21c0cdb7385ebe9a3fdd82e458a",
+  "home_host_after": "0210e3326272e6ad2b828f1032cf31390fd724ab",
+  "before": {
+    "status": "failed",
+    "exit_code": 1,
+    "seconds": 0.346,
+    "log": "home-before.log",
+    "log_text": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\nhome-tool (zig-js): Error: cannot resolve module buffer from /Users/chris/.cache/zig-js-ecosystem-research/home-docs-candidate/node_modules/.bun/bunfig@0.15.19/node_modules/bunfig/dist/index.js\n\nECOSYSTEM RESULT: failed, exit 1\n",
+    "consumer_sha": "6b3007cb334ab21c0cdb7385ebe9a3fdd82e458a"
+  },
+  "after": {
+    "status": "failed",
+    "exit_code": 1,
+    "seconds": 0.286,
+    "log": "home-after.log",
+    "log_text": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\nhome-tool (zig-js): Error: cannot resolve module crypto from /Users/chris/.cache/zig-js-ecosystem-research/home-docs-candidate/node_modules/.bun/bunfig@0.15.19/node_modules/bunfig/dist/index.js\n\nECOSYSTEM RESULT: failed, exit 1\n",
+    "consumer_sha": "6b3007cb334ab21c0cdb7385ebe9a3fdd82e458a",
+    "events": [
+      {
+        "kind": "zig-js",
+        "file": "/Users/chris/.cache/zig-js-ecosystem-research/home-docs-candidate/node_modules/.bun/@stacksjs+bunpress@0.2.17/node_modules/@stacksjs/bunpress/dist/bin/cli.js",
+        "arguments": [
+          "build"
+        ]
+      }
+    ]
+  },
+  "reference": {
+    "status": "passed",
+    "exit_code": 0,
+    "seconds": 1.658,
+    "log": "home-reference.log",
+    "log_text": "$ [\"bun\", \"run\", \"build\"]\n$ bunx bunpress build\n\u001b[?25l\n\u001b[36m\u280b\u001b[0m Building documentation...\n\u001b[36m\u2819\u001b[0m Building documentation...\n\u001b[36m\u2839\u001b[0m Building documentation...\n\u001b[36m\u2838\u001b[0m Building documentation...\n\u001b[36m\u283c\u001b[0m Building documentation...\n\u001b[36m\u2834\u001b[0m Building documentation...\n\u001b[36m\u2826\u001b[0m Building documentation...\n\u001b[36m\u2827\u001b[0m Building documentation...\n\u001b[36m\u2807\u001b[0m Building documentation...\n\u001b[36m\u280f\u001b[0m Building documentation...\n\u001b[36m\u280b\u001b[0m Building documentation...\n\u001b[36m\u2819\u001b[0m Building documentation...\n\u001b[36m\u2839\u001b[0m Building documentation...\n\u001b[36m\u2838\u001b[0m Building documentation...\n\u001b[36m\u283c\u001b[0m Building documentation...\n\u001b[36m\u2834\u001b[0m Building documentation...\n\u001b[K\u001b[?25h\u001b[32m\u2713\u001b[0m Built 159 pages to HTML in 1.43s\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "scope": "Separate clean native Bun reference checkout with same immutable Home source and frozen dependency setup; not candidate runtime evidence"
+  }
+}
