@@ -1,0 +1,852 @@
+﻿2026-11-08T08:42:33.5298098Z Current runner version: '2.338.2'
+2026-11-08T08:42:33.5321391Z ##[group]Runner Image Provisioner
+2026-11-08T08:42:33.5322276Z Hosted Compute Agent
+2026-11-08T08:42:33.5322794Z Version: 20261028.624
+2026-11-08T08:42:33.5323418Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-08T08:42:33.5324491Z Build Date: 2026-10-28T21:51:42Z
+2026-11-08T08:42:33.5325154Z Worker ID: {0540ca45-3d5a-449f-94c6-5b81c9415a31}
+2026-11-08T08:42:33.5325813Z Region: westus3
+2026-11-08T08:42:33.5326313Z Cloud: Azure
+2026-11-08T08:42:33.5327128Z ##[endgroup]
+2026-11-08T08:42:33.5328633Z ##[group]Operating System
+2026-11-08T08:42:33.5329196Z Ubuntu
+2026-11-08T08:42:33.5329769Z 24.04.5
+2026-11-08T08:42:33.5330240Z LTS
+2026-11-08T08:42:33.5330733Z ##[endgroup]
+2026-11-08T08:42:33.5331252Z ##[group]Runner Image
+2026-11-08T08:42:33.5331789Z Image: ubuntu-24.04
+2026-11-08T08:42:33.5332339Z Version: 20261101.360.1
+2026-11-08T08:42:33.5333473Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-08T08:42:33.5335322Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+2026-11-08T08:42:33.5336188Z ##[endgroup]
+2026-11-08T08:42:33.5337264Z ##[group]GITHUB_TOKEN Permissions
+2026-11-08T08:42:33.5339375Z Contents: read
+2026-11-08T08:42:33.5339999Z Metadata: read
+2026-11-08T08:42:33.5340556Z ##[endgroup]
+2026-11-08T08:42:33.5342568Z Secret source: Actions
+2026-11-08T08:42:33.5343449Z Cache mode: write
+2026-11-08T08:42:33.5344378Z Prepare workflow directory
+2026-11-08T08:42:33.5665734Z Prepare all required actions
+2026-11-08T08:42:33.5713551Z Getting action download info
+2026-11-08T08:42:33.9174499Z Download action repository 'actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803' (SHA:d23441a48e516b6c34aea4fa41551a30e30af803)
+2026-11-08T08:42:34.0224098Z Download action repository 'pantry-pm/pantry@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9' (SHA:4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9)
+2026-11-08T08:42:35.7402302Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-08T08:42:35.9410883Z Complete job name: runtime
+2026-11-08T08:42:36.0233573Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+2026-11-08T08:42:36.0234548Z with:
+2026-11-08T08:42:36.0234855Z   repository: zig-utils/zig-js-ecosystem
+2026-11-08T08:42:36.0235231Z   ref: 3e360415fed49f594ac9a4951873575bbda9755a
+2026-11-08T08:42:36.0235543Z   path: suite
+2026-11-08T08:42:36.0235794Z   persist-credentials: false
+2026-11-08T08:42:36.0238637Z   token: ***
+2026-11-08T08:42:36.0238880Z   ssh-strict: true
+2026-11-08T08:42:36.0239124Z   ssh-user: git
+2026-11-08T08:42:36.0239362Z   clean: true
+2026-11-08T08:42:36.0239623Z   sparse-checkout-cone-mode: true
+2026-11-08T08:42:36.0239924Z   fetch-depth: 1
+2026-11-08T08:42:36.0240182Z   fetch-tags: false
+2026-11-08T08:42:36.0240445Z   show-progress: true
+2026-11-08T08:42:36.0240695Z   lfs: false
+2026-11-08T08:42:36.0240957Z   submodules: false
+2026-11-08T08:42:36.0241212Z   set-safe-directory: true
+2026-11-08T08:42:36.0241497Z   allow-unsafe-pr-checkout: false
+2026-11-08T08:42:36.0241992Z ##[endgroup]
+2026-11-08T08:42:36.2793514Z Syncing repository: zig-utils/zig-js-ecosystem
+2026-11-08T08:42:36.2796029Z ##[group]Getting Git version info
+2026-11-08T08:42:36.2796940Z Working directory is '/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/suite'
+2026-11-08T08:42:36.2797675Z [command]/usr/bin/git version
+2026-11-08T08:42:36.2865032Z git version 2.56.0
+2026-11-08T08:42:36.2887572Z ##[endgroup]
+2026-11-08T08:42:36.2901883Z Temporarily overriding HOME='/home/runner/work/_temp/84e982eb-0a2f-4924-a884-8c1fb5c66bfb' before making global git config changes
+2026-11-08T08:42:36.2904166Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T08:42:36.2908481Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/suite
+2026-11-08T08:42:36.2951884Z ##[group]Determining repository object format
+2026-11-08T08:42:36.2953747Z ##[endgroup]
+2026-11-08T08:42:36.2954544Z ##[group]Initializing the repository
+2026-11-08T08:42:36.2959566Z [command]/usr/bin/git init /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/suite
+2026-11-08T08:42:36.3053237Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-08T08:42:36.3054978Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-08T08:42:36.3056179Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-08T08:42:36.3057233Z hint: call:
+2026-11-08T08:42:36.3057971Z hint:
+2026-11-08T08:42:36.3058769Z hint: 	git config --global init.defaultBranch <name>
+2026-11-08T08:42:36.3059586Z hint:
+2026-11-08T08:42:36.3060488Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-08T08:42:36.3061667Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-08T08:42:36.3062739Z hint:
+2026-11-08T08:42:36.3063472Z hint: 	git branch -m <name>
+2026-11-08T08:42:36.3064341Z hint:
+2026-11-08T08:42:36.3065425Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-08T08:42:36.3067090Z Initialized empty Git repository in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/suite/.git/
+2026-11-08T08:42:36.3076422Z [command]/usr/bin/git remote add origin https://github.com/zig-utils/zig-js-ecosystem
+2026-11-08T08:42:36.3115278Z ##[endgroup]
+2026-11-08T08:42:36.3116217Z ##[group]Disabling automatic garbage collection
+2026-11-08T08:42:36.3126030Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-08T08:42:36.3153358Z ##[endgroup]
+2026-11-08T08:42:36.3154369Z ##[group]Setting up auth
+2026-11-08T08:42:36.3155056Z Removing SSH command configuration
+2026-11-08T08:42:36.3160573Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T08:42:36.3191939Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T08:42:36.3522975Z Removing HTTP extra header
+2026-11-08T08:42:36.3529817Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T08:42:36.3568122Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T08:42:36.3764749Z Removing includeIf entries pointing to credentials config files
+2026-11-08T08:42:36.3771363Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T08:42:36.3804188Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T08:42:36.3987872Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-1410d27c-0582-4d22-8b6a-41eb79a6440e.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-08T08:42:36.4024815Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/suite/.git.path /home/runner/work/_temp/git-credentials-1410d27c-0582-4d22-8b6a-41eb79a6440e.config
+2026-11-08T08:42:36.4053453Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/suite/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-1410d27c-0582-4d22-8b6a-41eb79a6440e.config
+2026-11-08T08:42:36.4090444Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/suite/.git.path /github/runner_temp/git-credentials-1410d27c-0582-4d22-8b6a-41eb79a6440e.config
+2026-11-08T08:42:36.4117924Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/suite/.git/worktrees/*.path /github/runner_temp/git-credentials-1410d27c-0582-4d22-8b6a-41eb79a6440e.config
+2026-11-08T08:42:36.4141634Z ##[endgroup]
+2026-11-08T08:42:36.4142769Z ##[group]Fetching the repository
+2026-11-08T08:42:36.4149716Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 3e360415fed49f594ac9a4951873575bbda9755a
+2026-11-08T08:42:37.0533628Z From https://github.com/zig-utils/zig-js-ecosystem
+2026-11-08T08:42:37.0534676Z  * branch            3e360415fed49f594ac9a4951873575bbda9755a -> FETCH_HEAD
+2026-11-08T08:42:37.0545623Z [command]/usr/bin/git rev-parse --verify --quiet 3e360415fed49f594ac9a4951873575bbda9755a^{object}
+2026-11-08T08:42:37.0571339Z 3e360415fed49f594ac9a4951873575bbda9755a
+2026-11-08T08:42:37.0580654Z ##[endgroup]
+2026-11-08T08:42:37.0581134Z ##[group]Determining the checkout info
+2026-11-08T08:42:37.0581606Z ##[endgroup]
+2026-11-08T08:42:37.0583511Z [command]/usr/bin/git sparse-checkout disable
+2026-11-08T08:42:37.0629398Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-08T08:42:37.0656364Z ##[group]Checking out the ref
+2026-11-08T08:42:37.0659831Z [command]/usr/bin/git checkout --progress --force 3e360415fed49f594ac9a4951873575bbda9755a
+2026-11-08T08:42:37.0772106Z Note: switching to '3e360415fed49f594ac9a4951873575bbda9755a'.
+2026-11-08T08:42:37.0772710Z 
+2026-11-08T08:42:37.0773089Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-08T08:42:37.0774118Z changes and commit them, and you can discard any commits you make in this
+2026-11-08T08:42:37.0774810Z state without impacting any branches by switching back to a branch.
+2026-11-08T08:42:37.0775097Z 
+2026-11-08T08:42:37.0775302Z If you want to create a new branch to retain commits you create, you may
+2026-11-08T08:42:37.0775763Z do so (now or later) by using -c with the switch command. Example:
+2026-11-08T08:42:37.0776022Z 
+2026-11-08T08:42:37.0776160Z   git switch -c <new-branch-name>
+2026-11-08T08:42:37.0776372Z 
+2026-11-08T08:42:37.0776492Z Or undo this operation with:
+2026-11-08T08:42:37.0776671Z 
+2026-11-08T08:42:37.0776775Z   git switch -
+2026-11-08T08:42:37.0776931Z 
+2026-11-08T08:42:37.0777151Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-08T08:42:37.0777505Z 
+2026-11-08T08:42:37.0777921Z HEAD is now at 3e36041 fix(runtime): pin real file reads and shared Bun argv
+2026-11-08T08:42:37.0781826Z ##[endgroup]
+2026-11-08T08:42:37.0823707Z [command]/usr/bin/git log -1 --format=%H
+2026-11-08T08:42:37.0848540Z 3e360415fed49f594ac9a4951873575bbda9755a
+2026-11-08T08:42:37.0856279Z ##[group]Removing auth
+2026-11-08T08:42:37.0856846Z Removing SSH command configuration
+2026-11-08T08:42:37.0859762Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T08:42:37.0890212Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T08:42:37.1085716Z Removing HTTP extra header
+2026-11-08T08:42:37.1090716Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T08:42:37.1121582Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T08:42:37.1309075Z Removing includeIf entries pointing to credentials config files
+2026-11-08T08:42:37.1312672Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T08:42:37.1337166Z includeif.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/suite/.git.path
+2026-11-08T08:42:37.1338365Z includeif.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/suite/.git/worktrees/*.path
+2026-11-08T08:42:37.1339305Z includeif.gitdir:/github/workspace/suite/.git.path
+2026-11-08T08:42:37.1339942Z includeif.gitdir:/github/workspace/suite/.git/worktrees/*.path
+2026-11-08T08:42:37.1347315Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/suite/.git.path
+2026-11-08T08:42:37.1370212Z /home/runner/work/_temp/git-credentials-1410d27c-0582-4d22-8b6a-41eb79a6440e.config
+2026-11-08T08:42:37.1380341Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/suite/.git.path /home/runner/work/_temp/git-credentials-1410d27c-0582-4d22-8b6a-41eb79a6440e.config
+2026-11-08T08:42:37.1412625Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/suite/.git/worktrees/*.path
+2026-11-08T08:42:37.1432283Z /home/runner/work/_temp/git-credentials-1410d27c-0582-4d22-8b6a-41eb79a6440e.config
+2026-11-08T08:42:37.1441865Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/suite/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-1410d27c-0582-4d22-8b6a-41eb79a6440e.config
+2026-11-08T08:42:37.1471220Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/suite/.git.path
+2026-11-08T08:42:37.1496112Z /github/runner_temp/git-credentials-1410d27c-0582-4d22-8b6a-41eb79a6440e.config
+2026-11-08T08:42:37.1503769Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/suite/.git.path /github/runner_temp/git-credentials-1410d27c-0582-4d22-8b6a-41eb79a6440e.config
+2026-11-08T08:42:37.1536026Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/suite/.git/worktrees/*.path
+2026-11-08T08:42:37.1555300Z /github/runner_temp/git-credentials-1410d27c-0582-4d22-8b6a-41eb79a6440e.config
+2026-11-08T08:42:37.1561856Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/suite/.git/worktrees/*.path /github/runner_temp/git-credentials-1410d27c-0582-4d22-8b6a-41eb79a6440e.config
+2026-11-08T08:42:37.1590782Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T08:42:37.1759639Z Removing credentials config '/home/runner/work/_temp/git-credentials-1410d27c-0582-4d22-8b6a-41eb79a6440e.config'
+2026-11-08T08:42:37.1768576Z ##[endgroup]
+2026-11-08T08:42:37.1947654Z ##[group]Run python3 - <<'PY'
+2026-11-08T08:42:37.1948093Z [36;1mpython3 - <<'PY'[0m
+2026-11-08T08:42:37.1948403Z [36;1mimport json, os[0m
+2026-11-08T08:42:37.1948747Z [36;1mc = json.load(open('suite/config.json'))[0m
+2026-11-08T08:42:37.1949213Z [36;1mwith open(os.environ['GITHUB_OUTPUT'], 'a') as f:[0m
+2026-11-08T08:42:37.1949684Z [36;1m    for key in ('zig_version', 'home_repository', 'home_ref'):[0m
+2026-11-08T08:42:37.1950073Z [36;1m        f.write(f'{key}={c[key]}\n')[0m
+2026-11-08T08:42:37.1950368Z [36;1mPY[0m
+2026-11-08T08:42:37.1966300Z shell: /usr/bin/bash -e {0}
+2026-11-08T08:42:37.1966622Z ##[endgroup]
+2026-11-08T08:42:37.2327104Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+2026-11-08T08:42:37.2327529Z with:
+2026-11-08T08:42:37.2327777Z   repository: zig-utils/zig-js
+2026-11-08T08:42:37.2328102Z   ref: 72e3c7cec713cc568f274fad90af631521913107
+2026-11-08T08:42:37.2328411Z   path: engine
+2026-11-08T08:42:37.2328718Z   persist-credentials: false
+2026-11-08T08:42:37.2331339Z   token: ***
+2026-11-08T08:42:37.2331569Z   ssh-strict: true
+2026-11-08T08:42:37.2331809Z   ssh-user: git
+2026-11-08T08:42:37.2332041Z   clean: true
+2026-11-08T08:42:37.2332289Z   sparse-checkout-cone-mode: true
+2026-11-08T08:42:37.2332570Z   fetch-depth: 1
+2026-11-08T08:42:37.2332803Z   fetch-tags: false
+2026-11-08T08:42:37.2333039Z   show-progress: true
+2026-11-08T08:42:37.2333280Z   lfs: false
+2026-11-08T08:42:37.2333499Z   submodules: false
+2026-11-08T08:42:37.2333743Z   set-safe-directory: true
+2026-11-08T08:42:37.2334148Z   allow-unsafe-pr-checkout: false
+2026-11-08T08:42:37.2334426Z ##[endgroup]
+2026-11-08T08:42:37.3162045Z Syncing repository: zig-utils/zig-js
+2026-11-08T08:42:37.3166626Z ##[group]Getting Git version info
+2026-11-08T08:42:37.3167680Z Working directory is '/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/engine'
+2026-11-08T08:42:37.3193635Z [command]/usr/bin/git version
+2026-11-08T08:42:37.3231017Z git version 2.56.0
+2026-11-08T08:42:37.3250462Z ##[endgroup]
+2026-11-08T08:42:37.3262996Z Temporarily overriding HOME='/home/runner/work/_temp/0f2e32d9-6a58-49f5-b7fa-46c4bd7e7dea' before making global git config changes
+2026-11-08T08:42:37.3265093Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T08:42:37.3269403Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/engine
+2026-11-08T08:42:37.3304549Z ##[group]Determining repository object format
+2026-11-08T08:42:37.3305730Z ##[endgroup]
+2026-11-08T08:42:37.3306649Z ##[group]Initializing the repository
+2026-11-08T08:42:37.3307960Z [command]/usr/bin/git init /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/engine
+2026-11-08T08:42:37.3338051Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-08T08:42:37.3339345Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-08T08:42:37.3340613Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-08T08:42:37.3341709Z hint: call:
+2026-11-08T08:42:37.3342340Z hint:
+2026-11-08T08:42:37.3343051Z hint: 	git config --global init.defaultBranch <name>
+2026-11-08T08:42:37.3343828Z hint:
+2026-11-08T08:42:37.3344774Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-08T08:42:37.3345943Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-08T08:42:37.3347105Z hint:
+2026-11-08T08:42:37.3347711Z hint: 	git branch -m <name>
+2026-11-08T08:42:37.3348358Z hint:
+2026-11-08T08:42:37.3349214Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-08T08:42:37.3350689Z Initialized empty Git repository in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/engine/.git/
+2026-11-08T08:42:37.3353528Z [command]/usr/bin/git remote add origin https://github.com/zig-utils/zig-js
+2026-11-08T08:42:37.3375276Z ##[endgroup]
+2026-11-08T08:42:37.3376070Z ##[group]Disabling automatic garbage collection
+2026-11-08T08:42:37.3379638Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-08T08:42:37.3410409Z ##[endgroup]
+2026-11-08T08:42:37.3411243Z ##[group]Setting up auth
+2026-11-08T08:42:37.3411835Z Removing SSH command configuration
+2026-11-08T08:42:37.3415636Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T08:42:37.3444290Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T08:42:37.3637966Z Removing HTTP extra header
+2026-11-08T08:42:37.3645832Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T08:42:37.3675049Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T08:42:37.3868236Z Removing includeIf entries pointing to credentials config files
+2026-11-08T08:42:37.3870645Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T08:42:37.3906822Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T08:42:37.4127171Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-aee7ed65-671d-4e39-a261-2c778e7219a9.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-08T08:42:37.4165152Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/engine/.git.path /home/runner/work/_temp/git-credentials-aee7ed65-671d-4e39-a261-2c778e7219a9.config
+2026-11-08T08:42:37.4194325Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/engine/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-aee7ed65-671d-4e39-a261-2c778e7219a9.config
+2026-11-08T08:42:37.4223673Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/engine/.git.path /github/runner_temp/git-credentials-aee7ed65-671d-4e39-a261-2c778e7219a9.config
+2026-11-08T08:42:37.4261005Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/engine/.git/worktrees/*.path /github/runner_temp/git-credentials-aee7ed65-671d-4e39-a261-2c778e7219a9.config
+2026-11-08T08:42:37.4285102Z ##[endgroup]
+2026-11-08T08:42:37.4285858Z ##[group]Fetching the repository
+2026-11-08T08:42:37.4292114Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 72e3c7cec713cc568f274fad90af631521913107
+2026-11-08T08:42:40.0891399Z From https://github.com/zig-utils/zig-js
+2026-11-08T08:42:40.0892676Z  * branch            72e3c7cec713cc568f274fad90af631521913107 -> FETCH_HEAD
+2026-11-08T08:42:40.0905959Z [command]/usr/bin/git rev-parse --verify --quiet 72e3c7cec713cc568f274fad90af631521913107^{object}
+2026-11-08T08:42:40.0932952Z 72e3c7cec713cc568f274fad90af631521913107
+2026-11-08T08:42:40.0938398Z ##[endgroup]
+2026-11-08T08:42:40.0939341Z ##[group]Determining the checkout info
+2026-11-08T08:42:40.0940424Z ##[endgroup]
+2026-11-08T08:42:40.0945053Z [command]/usr/bin/git sparse-checkout disable
+2026-11-08T08:42:40.0989516Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-08T08:42:40.1021473Z ##[group]Checking out the ref
+2026-11-08T08:42:40.1026266Z [command]/usr/bin/git checkout --progress --force 72e3c7cec713cc568f274fad90af631521913107
+2026-11-08T08:42:40.3738057Z Note: switching to '72e3c7cec713cc568f274fad90af631521913107'.
+2026-11-08T08:42:40.3738468Z 
+2026-11-08T08:42:40.3739084Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-08T08:42:40.3740019Z changes and commit them, and you can discard any commits you make in this
+2026-11-08T08:42:40.3740998Z state without impacting any branches by switching back to a branch.
+2026-11-08T08:42:40.3742094Z 
+2026-11-08T08:42:40.3742510Z If you want to create a new branch to retain commits you create, you may
+2026-11-08T08:42:40.3743381Z do so (now or later) by using -c with the switch command. Example:
+2026-11-08T08:42:40.3744155Z 
+2026-11-08T08:42:40.3744387Z   git switch -c <new-branch-name>
+2026-11-08T08:42:40.3744800Z 
+2026-11-08T08:42:40.3745132Z Or undo this operation with:
+2026-11-08T08:42:40.3745471Z 
+2026-11-08T08:42:40.3745668Z   git switch -
+2026-11-08T08:42:40.3745907Z 
+2026-11-08T08:42:40.3746342Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-08T08:42:40.3746975Z 
+2026-11-08T08:42:40.3747730Z HEAD is now at 72e3c7c fix(ecosystem): promote validated bounded gzip runtime
+2026-11-08T08:42:40.3770613Z ##[endgroup]
+2026-11-08T08:42:40.3817445Z [command]/usr/bin/git log -1 --format=%H
+2026-11-08T08:42:40.3858276Z 72e3c7cec713cc568f274fad90af631521913107
+2026-11-08T08:42:40.3859726Z ##[group]Removing auth
+2026-11-08T08:42:40.3860151Z Removing SSH command configuration
+2026-11-08T08:42:40.3869345Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T08:42:40.3893012Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T08:42:40.4088794Z Removing HTTP extra header
+2026-11-08T08:42:40.4093105Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T08:42:40.4124369Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T08:42:40.4314329Z Removing includeIf entries pointing to credentials config files
+2026-11-08T08:42:40.4319063Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T08:42:40.4340567Z includeif.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/engine/.git.path
+2026-11-08T08:42:40.4341947Z includeif.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/engine/.git/worktrees/*.path
+2026-11-08T08:42:40.4343143Z includeif.gitdir:/github/workspace/engine/.git.path
+2026-11-08T08:42:40.4344222Z includeif.gitdir:/github/workspace/engine/.git/worktrees/*.path
+2026-11-08T08:42:40.4355378Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/engine/.git.path
+2026-11-08T08:42:40.4383150Z /home/runner/work/_temp/git-credentials-aee7ed65-671d-4e39-a261-2c778e7219a9.config
+2026-11-08T08:42:40.4395128Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/engine/.git.path /home/runner/work/_temp/git-credentials-aee7ed65-671d-4e39-a261-2c778e7219a9.config
+2026-11-08T08:42:40.4430372Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/engine/.git/worktrees/*.path
+2026-11-08T08:42:40.4450736Z /home/runner/work/_temp/git-credentials-aee7ed65-671d-4e39-a261-2c778e7219a9.config
+2026-11-08T08:42:40.4462053Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/engine/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-aee7ed65-671d-4e39-a261-2c778e7219a9.config
+2026-11-08T08:42:40.4498714Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/engine/.git.path
+2026-11-08T08:42:40.4522808Z /github/runner_temp/git-credentials-aee7ed65-671d-4e39-a261-2c778e7219a9.config
+2026-11-08T08:42:40.4531448Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/engine/.git.path /github/runner_temp/git-credentials-aee7ed65-671d-4e39-a261-2c778e7219a9.config
+2026-11-08T08:42:40.4567733Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/engine/.git/worktrees/*.path
+2026-11-08T08:42:40.4586662Z /github/runner_temp/git-credentials-aee7ed65-671d-4e39-a261-2c778e7219a9.config
+2026-11-08T08:42:40.4592574Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/engine/.git/worktrees/*.path /github/runner_temp/git-credentials-aee7ed65-671d-4e39-a261-2c778e7219a9.config
+2026-11-08T08:42:40.4621931Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T08:42:40.4790170Z Removing credentials config '/home/runner/work/_temp/git-credentials-aee7ed65-671d-4e39-a261-2c778e7219a9.config'
+2026-11-08T08:42:40.4798378Z ##[endgroup]
+2026-11-08T08:42:40.4988915Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+2026-11-08T08:42:40.4989270Z with:
+2026-11-08T08:42:40.4989469Z   repository: home-lang/home
+2026-11-08T08:42:40.4989723Z   ref: 3bd328268913d462ee36032433e0af733c4fe586
+2026-11-08T08:42:40.4989999Z   path: home
+2026-11-08T08:42:40.4990196Z   persist-credentials: false
+2026-11-08T08:42:40.4993068Z   token: ***
+2026-11-08T08:42:40.4993285Z   ssh-strict: true
+2026-11-08T08:42:40.4993515Z   ssh-user: git
+2026-11-08T08:42:40.4993702Z   clean: true
+2026-11-08T08:42:40.4994064Z   sparse-checkout-cone-mode: true
+2026-11-08T08:42:40.4994373Z   fetch-depth: 1
+2026-11-08T08:42:40.4994573Z   fetch-tags: false
+2026-11-08T08:42:40.4994777Z   show-progress: true
+2026-11-08T08:42:40.4994979Z   lfs: false
+2026-11-08T08:42:40.4995177Z   submodules: false
+2026-11-08T08:42:40.4995380Z   set-safe-directory: true
+2026-11-08T08:42:40.4995618Z   allow-unsafe-pr-checkout: false
+2026-11-08T08:42:40.4995859Z ##[endgroup]
+2026-11-08T08:42:40.5783834Z Syncing repository: home-lang/home
+2026-11-08T08:42:40.5789516Z ##[group]Getting Git version info
+2026-11-08T08:42:40.5790162Z Working directory is '/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home'
+2026-11-08T08:42:40.5822465Z [command]/usr/bin/git version
+2026-11-08T08:42:40.5859401Z git version 2.56.0
+2026-11-08T08:42:40.5879153Z ##[endgroup]
+2026-11-08T08:42:40.5891871Z Temporarily overriding HOME='/home/runner/work/_temp/8cf0fae0-f954-4fef-834d-75d35e208c1a' before making global git config changes
+2026-11-08T08:42:40.5893449Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T08:42:40.5895847Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home
+2026-11-08T08:42:40.5931622Z ##[group]Determining repository object format
+2026-11-08T08:42:40.5934648Z ##[endgroup]
+2026-11-08T08:42:40.5935347Z ##[group]Initializing the repository
+2026-11-08T08:42:40.5936310Z [command]/usr/bin/git init /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home
+2026-11-08T08:42:40.5961184Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-08T08:42:40.5962295Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-08T08:42:40.5963366Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-08T08:42:40.5966203Z hint: call:
+2026-11-08T08:42:40.5966694Z hint:
+2026-11-08T08:42:40.5967264Z hint: 	git config --global init.defaultBranch <name>
+2026-11-08T08:42:40.5967947Z hint:
+2026-11-08T08:42:40.5968594Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-08T08:42:40.5970336Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-08T08:42:40.5971179Z hint:
+2026-11-08T08:42:40.5971663Z hint: 	git branch -m <name>
+2026-11-08T08:42:40.5972196Z hint:
+2026-11-08T08:42:40.5972909Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-08T08:42:40.5974386Z Initialized empty Git repository in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/.git/
+2026-11-08T08:42:40.5976687Z [command]/usr/bin/git remote add origin https://github.com/home-lang/home
+2026-11-08T08:42:40.6035946Z ##[endgroup]
+2026-11-08T08:42:40.6036642Z ##[group]Disabling automatic garbage collection
+2026-11-08T08:42:40.6037277Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-08T08:42:40.6066663Z ##[endgroup]
+2026-11-08T08:42:40.6067289Z ##[group]Setting up auth
+2026-11-08T08:42:40.6067766Z Removing SSH command configuration
+2026-11-08T08:42:40.6073217Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T08:42:40.6100675Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T08:42:40.6287105Z Removing HTTP extra header
+2026-11-08T08:42:40.6292362Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T08:42:40.6320518Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T08:42:40.6537674Z Removing includeIf entries pointing to credentials config files
+2026-11-08T08:42:40.6546093Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T08:42:40.6578225Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T08:42:40.6771743Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-ecff0e35-4fd1-4baf-9e43-8c3fb50d2595.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-08T08:42:40.6806631Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/.git.path /home/runner/work/_temp/git-credentials-ecff0e35-4fd1-4baf-9e43-8c3fb50d2595.config
+2026-11-08T08:42:40.6834416Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-ecff0e35-4fd1-4baf-9e43-8c3fb50d2595.config
+2026-11-08T08:42:40.6862974Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/home/.git.path /github/runner_temp/git-credentials-ecff0e35-4fd1-4baf-9e43-8c3fb50d2595.config
+2026-11-08T08:42:40.6898807Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/home/.git/worktrees/*.path /github/runner_temp/git-credentials-ecff0e35-4fd1-4baf-9e43-8c3fb50d2595.config
+2026-11-08T08:42:40.6924908Z ##[endgroup]
+2026-11-08T08:42:40.6925498Z ##[group]Fetching the repository
+2026-11-08T08:42:40.6935229Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 3bd328268913d462ee36032433e0af733c4fe586
+2026-11-08T08:42:52.9040353Z From https://github.com/home-lang/home
+2026-11-08T08:42:52.9040831Z  * branch                3bd328268913d462ee36032433e0af733c4fe586 -> FETCH_HEAD
+2026-11-08T08:42:52.9054376Z [command]/usr/bin/git rev-parse --verify --quiet 3bd328268913d462ee36032433e0af733c4fe586^{object}
+2026-11-08T08:42:52.9084208Z 3bd328268913d462ee36032433e0af733c4fe586
+2026-11-08T08:42:52.9089265Z ##[endgroup]
+2026-11-08T08:42:52.9089619Z ##[group]Determining the checkout info
+2026-11-08T08:42:52.9091391Z ##[endgroup]
+2026-11-08T08:42:52.9097223Z [command]/usr/bin/git sparse-checkout disable
+2026-11-08T08:42:52.9136162Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-08T08:42:52.9161727Z ##[group]Checking out the ref
+2026-11-08T08:42:52.9165455Z [command]/usr/bin/git checkout --progress --force 3bd328268913d462ee36032433e0af733c4fe586
+2026-11-08T08:42:54.0217205Z Updating files:   6% (6845/108975)
+2026-11-08T08:42:54.0551382Z Updating files:   7% (7629/108975)
+2026-11-08T08:42:54.0814828Z Updating files:   8% (8718/108975)
+2026-11-08T08:42:54.1017250Z Updating files:   9% (9808/108975)
+2026-11-08T08:42:54.1215535Z Updating files:  10% (10898/108975)
+2026-11-08T08:42:54.1412082Z Updating files:  11% (11988/108975)
+2026-11-08T08:42:54.1611026Z Updating files:  12% (13077/108975)
+2026-11-08T08:42:54.1837389Z Updating files:  13% (14167/108975)
+2026-11-08T08:42:54.2050454Z Updating files:  14% (15257/108975)
+2026-11-08T08:42:54.2261344Z Updating files:  15% (16347/108975)
+2026-11-08T08:42:54.2475139Z Updating files:  16% (17436/108975)
+2026-11-08T08:42:54.2696280Z Updating files:  17% (18526/108975)
+2026-11-08T08:42:54.2921973Z Updating files:  18% (19616/108975)
+2026-11-08T08:42:54.3132913Z Updating files:  19% (20706/108975)
+2026-11-08T08:42:54.3354406Z Updating files:  20% (21795/108975)
+2026-11-08T08:42:54.4021984Z Updating files:  21% (22885/108975)
+2026-11-08T08:42:54.4236973Z Updating files:  22% (23975/108975)
+2026-11-08T08:42:54.4461055Z Updating files:  23% (25065/108975)
+2026-11-08T08:42:54.4692009Z Updating files:  24% (26154/108975)
+2026-11-08T08:42:54.4884060Z Updating files:  25% (27244/108975)
+2026-11-08T08:42:54.5116920Z Updating files:  26% (28334/108975)
+2026-11-08T08:42:54.5573730Z Updating files:  27% (29424/108975)
+2026-11-08T08:42:54.5792855Z Updating files:  28% (30513/108975)
+2026-11-08T08:42:54.6022640Z Updating files:  29% (31603/108975)
+2026-11-08T08:42:54.6251182Z Updating files:  30% (32693/108975)
+2026-11-08T08:42:54.6461780Z Updating files:  31% (33783/108975)
+2026-11-08T08:42:54.6680070Z Updating files:  32% (34872/108975)
+2026-11-08T08:42:54.6903354Z Updating files:  33% (35962/108975)
+2026-11-08T08:42:54.7116312Z Updating files:  34% (37052/108975)
+2026-11-08T08:42:54.7343691Z Updating files:  35% (38142/108975)
+2026-11-08T08:42:54.7557756Z Updating files:  36% (39231/108975)
+2026-11-08T08:42:54.7757909Z Updating files:  37% (40321/108975)
+2026-11-08T08:42:54.7949804Z Updating files:  38% (41411/108975)
+2026-11-08T08:42:54.8242315Z Updating files:  39% (42501/108975)
+2026-11-08T08:42:54.8440735Z Updating files:  40% (43590/108975)
+2026-11-08T08:42:54.8867220Z Updating files:  41% (44680/108975)
+2026-11-08T08:42:54.9055124Z Updating files:  42% (45770/108975)
+2026-11-08T08:42:54.9252872Z Updating files:  43% (46860/108975)
+2026-11-08T08:42:54.9448498Z Updating files:  44% (47949/108975)
+2026-11-08T08:42:54.9640157Z Updating files:  45% (49039/108975)
+2026-11-08T08:42:54.9822451Z Updating files:  46% (50129/108975)
+2026-11-08T08:42:55.0011633Z Updating files:  47% (51219/108975)
+2026-11-08T08:42:55.0072015Z Updating files:  48% (52308/108975)
+2026-11-08T08:42:55.0204220Z Updating files:  48% (52641/108975)
+2026-11-08T08:42:55.0393845Z Updating files:  49% (53398/108975)
+2026-11-08T08:42:55.0587609Z Updating files:  50% (54488/108975)
+2026-11-08T08:42:55.0776746Z Updating files:  51% (55578/108975)
+2026-11-08T08:42:55.0999949Z Updating files:  52% (56667/108975)
+2026-11-08T08:42:55.1197641Z Updating files:  53% (57757/108975)
+2026-11-08T08:42:55.1408136Z Updating files:  54% (58847/108975)
+2026-11-08T08:42:55.1617034Z Updating files:  55% (59937/108975)
+2026-11-08T08:42:55.1815839Z Updating files:  56% (61026/108975)
+2026-11-08T08:42:55.2015789Z Updating files:  57% (62116/108975)
+2026-11-08T08:42:55.2216467Z Updating files:  58% (63206/108975)
+2026-11-08T08:42:55.2430183Z Updating files:  59% (64296/108975)
+2026-11-08T08:42:55.2643467Z Updating files:  60% (65385/108975)
+2026-11-08T08:42:55.3098970Z Updating files:  61% (66475/108975)
+2026-11-08T08:42:55.3360932Z Updating files:  62% (67565/108975)
+2026-11-08T08:42:55.3574438Z Updating files:  63% (68655/108975)
+2026-11-08T08:42:55.3772603Z Updating files:  64% (69744/108975)
+2026-11-08T08:42:55.3986956Z Updating files:  65% (70834/108975)
+2026-11-08T08:42:55.4193842Z Updating files:  66% (71924/108975)
+2026-11-08T08:42:55.4398800Z Updating files:  67% (73014/108975)
+2026-11-08T08:42:55.4610882Z Updating files:  68% (74103/108975)
+2026-11-08T08:42:55.4824939Z Updating files:  69% (75193/108975)
+2026-11-08T08:42:55.5918274Z Updating files:  70% (76283/108975)
+2026-11-08T08:42:55.6751178Z Updating files:  71% (77373/108975)
+2026-11-08T08:42:55.7685771Z Updating files:  72% (78462/108975)
+2026-11-08T08:42:55.8231750Z Updating files:  73% (79552/108975)
+2026-11-08T08:42:55.8477051Z Updating files:  74% (80642/108975)
+2026-11-08T08:42:55.8727183Z Updating files:  75% (81732/108975)
+2026-11-08T08:42:55.9125387Z Updating files:  76% (82821/108975)
+2026-11-08T08:42:55.9530226Z Updating files:  77% (83911/108975)
+2026-11-08T08:42:56.0047245Z Updating files:  78% (85001/108975)
+2026-11-08T08:42:56.0072495Z Updating files:  79% (86091/108975)
+2026-11-08T08:42:56.0335643Z Updating files:  79% (86153/108975)
+2026-11-08T08:42:56.0616401Z Updating files:  80% (87180/108975)
+2026-11-08T08:42:56.0918919Z Updating files:  81% (88270/108975)
+2026-11-08T08:42:56.1214263Z Updating files:  82% (89360/108975)
+2026-11-08T08:42:56.1823255Z Updating files:  83% (90450/108975)
+2026-11-08T08:42:56.2348003Z Updating files:  84% (91539/108975)
+2026-11-08T08:42:56.3699372Z Updating files:  85% (92629/108975)
+2026-11-08T08:42:56.4890494Z Updating files:  86% (93719/108975)
+2026-11-08T08:42:56.5812045Z Updating files:  87% (94809/108975)
+2026-11-08T08:42:56.6760485Z Updating files:  88% (95898/108975)
+2026-11-08T08:42:56.7706987Z Updating files:  89% (96988/108975)
+2026-11-08T08:42:56.8410865Z Updating files:  90% (98078/108975)
+2026-11-08T08:42:56.8791212Z Updating files:  91% (99168/108975)
+2026-11-08T08:42:56.9229937Z Updating files:  92% (100257/108975)
+2026-11-08T08:42:56.9480779Z Updating files:  93% (101347/108975)
+2026-11-08T08:42:56.9742885Z Updating files:  94% (102437/108975)
+2026-11-08T08:42:56.9999298Z Updating files:  95% (103527/108975)
+2026-11-08T08:42:57.0072126Z Updating files:  96% (104616/108975)
+2026-11-08T08:42:57.0286304Z Updating files:  96% (104909/108975)
+2026-11-08T08:42:57.0763701Z Updating files:  97% (105706/108975)
+2026-11-08T08:42:57.1685175Z Updating files:  98% (106796/108975)
+2026-11-08T08:42:57.2252061Z Updating files:  99% (107886/108975)
+2026-11-08T08:42:57.2252676Z Updating files: 100% (108975/108975)
+2026-11-08T08:42:57.2253233Z Updating files: 100% (108975/108975), done.
+2026-11-08T08:42:57.3614922Z Note: switching to '3bd328268913d462ee36032433e0af733c4fe586'.
+2026-11-08T08:42:57.3615861Z 
+2026-11-08T08:42:57.3616824Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-08T08:42:57.3617535Z changes and commit them, and you can discard any commits you make in this
+2026-11-08T08:42:57.3618070Z state without impacting any branches by switching back to a branch.
+2026-11-08T08:42:57.3618380Z 
+2026-11-08T08:42:57.3618590Z If you want to create a new branch to retain commits you create, you may
+2026-11-08T08:42:57.3619085Z do so (now or later) by using -c with the switch command. Example:
+2026-11-08T08:42:57.3619378Z 
+2026-11-08T08:42:57.3619506Z   git switch -c <new-branch-name>
+2026-11-08T08:42:57.3619698Z 
+2026-11-08T08:42:57.3619819Z Or undo this operation with:
+2026-11-08T08:42:57.3620019Z 
+2026-11-08T08:42:57.3620124Z   git switch -
+2026-11-08T08:42:57.3620258Z 
+2026-11-08T08:42:57.3620500Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-08T08:42:57.3620841Z 
+2026-11-08T08:42:57.3621137Z HEAD is now at 3bd328268 fix(home-tool): expose the actual process argument array as Bun argv
+2026-11-08T08:42:57.3719304Z ##[endgroup]
+2026-11-08T08:42:57.3761210Z [command]/usr/bin/git log -1 --format=%H
+2026-11-08T08:42:57.3785552Z 3bd328268913d462ee36032433e0af733c4fe586
+2026-11-08T08:42:57.3795031Z ##[group]Removing auth
+2026-11-08T08:42:57.3795467Z Removing SSH command configuration
+2026-11-08T08:42:57.3799687Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T08:42:57.3827762Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T08:42:57.4174442Z Removing HTTP extra header
+2026-11-08T08:42:57.4179074Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T08:42:57.4209443Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T08:42:57.4555465Z Removing includeIf entries pointing to credentials config files
+2026-11-08T08:42:57.4560313Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T08:42:57.4585113Z includeif.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/.git.path
+2026-11-08T08:42:57.4586241Z includeif.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/.git/worktrees/*.path
+2026-11-08T08:42:57.4587162Z includeif.gitdir:/github/workspace/home/.git.path
+2026-11-08T08:42:57.4587836Z includeif.gitdir:/github/workspace/home/.git/worktrees/*.path
+2026-11-08T08:42:57.4596209Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/.git.path
+2026-11-08T08:42:57.4617835Z /home/runner/work/_temp/git-credentials-ecff0e35-4fd1-4baf-9e43-8c3fb50d2595.config
+2026-11-08T08:42:57.4628584Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/.git.path /home/runner/work/_temp/git-credentials-ecff0e35-4fd1-4baf-9e43-8c3fb50d2595.config
+2026-11-08T08:42:57.4660577Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/.git/worktrees/*.path
+2026-11-08T08:42:57.4680703Z /home/runner/work/_temp/git-credentials-ecff0e35-4fd1-4baf-9e43-8c3fb50d2595.config
+2026-11-08T08:42:57.4699882Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-ecff0e35-4fd1-4baf-9e43-8c3fb50d2595.config
+2026-11-08T08:42:57.4730607Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/home/.git.path
+2026-11-08T08:42:57.4751204Z /github/runner_temp/git-credentials-ecff0e35-4fd1-4baf-9e43-8c3fb50d2595.config
+2026-11-08T08:42:57.4759436Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/home/.git.path /github/runner_temp/git-credentials-ecff0e35-4fd1-4baf-9e43-8c3fb50d2595.config
+2026-11-08T08:42:57.4789008Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/home/.git/worktrees/*.path
+2026-11-08T08:42:57.4808270Z /github/runner_temp/git-credentials-ecff0e35-4fd1-4baf-9e43-8c3fb50d2595.config
+2026-11-08T08:42:57.4815200Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/home/.git/worktrees/*.path /github/runner_temp/git-credentials-ecff0e35-4fd1-4baf-9e43-8c3fb50d2595.config
+2026-11-08T08:42:57.4844760Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T08:42:57.5176713Z Removing credentials config '/home/runner/work/_temp/git-credentials-ecff0e35-4fd1-4baf-9e43-8c3fb50d2595.config'
+2026-11-08T08:42:57.5186686Z ##[endgroup]
+2026-11-08T08:42:57.5420935Z ##[group]Run pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9
+2026-11-08T08:42:57.5421366Z with:
+2026-11-08T08:42:57.5421567Z   packages: zig@0.18.0-dev.146+35accc06e
+2026-11-08T08:42:57.5421820Z   version: latest
+2026-11-08T08:42:57.5422035Z   config-path: pantry.config.ts
+2026-11-08T08:42:57.5422267Z   install: true
+2026-11-08T08:42:57.5422497Z   registry-url: https://registry.pantry.dev
+2026-11-08T08:42:57.5422777Z   release: false
+2026-11-08T08:42:57.5422982Z   release-make-latest: auto
+2026-11-08T08:42:57.5423213Z   release-draft: false
+2026-11-08T08:42:57.5423423Z   release-prerelease: false
+2026-11-08T08:42:57.5423661Z   release-changelog: CHANGELOG.md
+2026-11-08T08:42:57.5424148Z   release-dry-run: false
+2026-11-08T08:42:57.5424385Z   apple-signing: false
+2026-11-08T08:42:57.5424609Z   release-app-store: false
+2026-11-08T08:42:57.5424867Z   release-app-store-validate-only: false
+2026-11-08T08:42:57.5425164Z   release-app-store-retry-existing: true
+2026-11-08T08:42:57.5425477Z   release-s3: false
+2026-11-08T08:42:57.5425681Z   release-s3-provider: aws
+2026-11-08T08:42:57.5425919Z   release-s3-force-path-style: false
+2026-11-08T08:42:57.5426244Z   release-s3-cache-control: public, max-age=31536000, immutable
+2026-11-08T08:42:57.5426565Z ##[endgroup]
+2026-11-08T08:42:57.7735129Z ##[group]Setup pantry
+2026-11-08T08:43:15.3985306Z [command]/usr/bin/unzip -o -q /home/runner/work/_temp/df0247b7-e9f8-4870-863a-74614a337f32
+2026-11-08T08:43:15.4826607Z [command]/usr/bin/chmod +x /home/runner/work/_temp/afaae78d-6da1-4627-b65f-0b3b67c34e17/pantry
+2026-11-08T08:43:15.5001589Z pantry pantry 0.11.192 (0785af03c)
+2026-11-08T08:43:15.5002411Z ##[endgroup]
+2026-11-08T08:43:15.7024860Z Cache hit for: pantry-v2-0.11.192-linux-x64-no-lock-none-zig@0.18.0-dev.146+35accc06e
+2026-11-08T08:43:16.9794848Z Received 54525952 of 139436696 (39.1%), 51.9 MBs/sec
+2026-11-08T08:43:17.5716168Z Received 139436696 of 139436696 (100.0%), 83.5 MBs/sec
+2026-11-08T08:43:17.5717009Z Cache Size: ~133 MB (139436696 B)
+2026-11-08T08:43:17.5744402Z [command]/usr/bin/tar -xf /home/runner/work/_temp/99d9e206-3df1-456b-84a6-c51190acbee3/cache.tzst -P -C /home/runner/work/zig-js-ecosystem/zig-js-ecosystem --use-compress-program unzstd
+2026-11-08T08:43:18.4128273Z Cache restored successfully
+2026-11-08T08:43:18.4172448Z Exact cache hit: pantry-v2-0.11.192-linux-x64-no-lock-none-zig@0.18.0-dev.146+35accc06e
+2026-11-08T08:43:18.4179782Z Installing bun.sh@latest via pantry SDK (defaulted to latest)
+2026-11-08T08:43:18.7836889Z Cache hit — reconciling system deps against lock/spec: zig@0.18.0-dev.146+35accc06e
+2026-11-08T08:43:18.7837733Z Installing ziglang.org@0.18.0-dev.146+35accc06e via pantry SDK (from deps spec)
+2026-11-08T08:43:18.7841177Z Installing ziglang.org@0.18.0-dev.146_35accc06e via pantry SDK (from this action run)
+2026-11-08T08:43:18.7850297Z Setup complete
+2026-11-08T08:43:18.8041422Z ##[group]Run test "$(zig version)" = "$ZIG_VERSION"
+2026-11-08T08:43:18.8041799Z [36;1mtest "$(zig version)" = "$ZIG_VERSION"[0m
+2026-11-08T08:43:18.8042279Z [36;1mzig build home-tool-bootstrap -Dcpu=baseline[0m
+2026-11-08T08:43:18.8057622Z shell: /usr/bin/bash -e {0}
+2026-11-08T08:43:18.8057883Z env:
+2026-11-08T08:43:18.8058215Z   BUN_INSTALL: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/pantry
+2026-11-08T08:43:18.8058599Z   ZIG_VERSION: 0.18.0-dev.146+35accc06e
+2026-11-08T08:43:18.8058851Z ##[endgroup]
+2026-11-08T08:44:49.1483816Z ##[group]Run zig build home-tool -Dcpu=baseline -Dtool-js-engine=zig-js -Dzig-js-root="$GITHUB_WORKSPACE/engine"
+2026-11-08T08:44:49.1485206Z [36;1mzig build home-tool -Dcpu=baseline -Dtool-js-engine=zig-js -Dzig-js-root="$GITHUB_WORKSPACE/engine"[0m
+2026-11-08T08:44:49.1500607Z shell: /usr/bin/bash -e {0}
+2026-11-08T08:44:49.1500905Z env:
+2026-11-08T08:44:49.1501273Z   BUN_INSTALL: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/pantry
+2026-11-08T08:44:49.1501693Z ##[endgroup]
+2026-11-08T08:44:58.5157904Z ##[group]Run zig-out/bin/home-tool eval 'if (Home.engine !== "zig-js") throw new Error("Wrong engine"); console.log("ECOSYSTEM ENGINE zig-js");'
+2026-11-08T08:44:58.5158802Z [36;1mzig-out/bin/home-tool eval 'if (Home.engine !== "zig-js") throw new Error("Wrong engine"); console.log("ECOSYSTEM ENGINE zig-js");'[0m
+2026-11-08T08:44:58.5159690Z [36;1mzig build home-tool-smoke home-tool-rejections-smoke -Dcpu=baseline -Dtool-js-engine=zig-js -Dzig-js-root="$GITHUB_WORKSPACE/engine"[0m
+2026-11-08T08:44:58.5173007Z shell: /usr/bin/bash -e {0}
+2026-11-08T08:44:58.5173260Z env:
+2026-11-08T08:44:58.5173573Z   BUN_INSTALL: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/pantry
+2026-11-08T08:44:58.5174125Z ##[endgroup]
+2026-11-08T08:44:58.6296564Z ECOSYSTEM ENGINE zig-js
+2026-11-08T08:44:59.0108802Z home-tool-rejections-smoke
+2026-11-08T08:44:59.0126880Z +- run exe home-tool w
+2026-11-08T08:44:59.0128090Z Uncaught unhandledRejection: UnhandledPromiseRejection: Unhandled promise rejection: undefined
+2026-11-08T08:44:59.0129942Z failed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run unhandled_rejection.cjs undefined
+2026-11-08T08:44:59.0131256Z 
+2026-11-08T08:44:59.3908083Z home-tool-rejections-smoke
+2026-11-08T08:44:59.3908853Z +- run exe home-tool w
+2026-11-08T08:44:59.3909737Z Uncaught unhandledRejection: Error: standalone rejection
+2026-11-08T08:44:59.3911321Z failed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run unhandled_rejection.cjs chain
+2026-11-08T08:44:59.3912492Z 
+2026-11-08T08:44:59.7615181Z home-tool-rejections-smoke
+2026-11-08T08:44:59.7615881Z +- run exe home-tool w
+2026-11-08T08:44:59.7616554Z Uncaught unhandledRejection: Error: standalone rejection
+2026-11-08T08:44:59.7618171Z failed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run unhandled_rejection.cjs error
+2026-11-08T08:44:59.7619299Z 
+2026-11-08T08:45:00.3495309Z home-tool-rejections-smoke
+2026-11-08T08:45:00.3514624Z +- run exe home-tool w
+2026-11-08T08:45:00.3544673Z Uncaught unhandledRejection: Error: second rejection
+2026-11-08T08:45:00.3575186Z failed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run unhandled_rejection.cjs second
+2026-11-08T08:45:00.3584305Z 
+2026-11-08T08:45:00.6789505Z home-tool-rejections-smoke
+2026-11-08T08:45:00.6790208Z +- run exe home-tool w
+2026-11-08T08:45:00.6790795Z Uncaught unhandledRejection: Error: standalone rejection
+2026-11-08T08:45:00.6792096Z failed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run unhandled_rejection.cjs async
+2026-11-08T08:45:00.6793174Z 
+2026-11-08T08:45:00.7451508Z home-tool-rejections-smoke
+2026-11-08T08:45:00.7452412Z +- run exe home-tool w
+2026-11-08T08:45:00.7453137Z Uncaught unhandledRejection: Error: uncaught handler failure
+2026-11-08T08:45:00.7454893Z failed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run unhandled_rejection.cjs handler-throw
+2026-11-08T08:45:00.7456495Z 
+2026-11-08T08:45:01.0243284Z home-tool-rejections-smoke
+2026-11-08T08:45:01.0244378Z +- run exe home-tool w
+2026-11-08T08:45:01.0245053Z Uncaught uncaughtException: Error: listener failure
+2026-11-08T08:45:01.0246627Z failed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run unhandled_rejection.cjs listener-throw
+2026-11-08T08:45:01.0247853Z 
+2026-11-08T08:45:01.3695836Z home-tool-smoke
+2026-11-08T08:45:01.3718957Z +- run exe home-tool w
+2026-11-08T08:45:01.3721177Z home-tool tsconfig: circular tsconfig extends chain: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/tsconfig.json
+2026-11-08T08:45:01.3724138Z home-tool (zig-js): Error: Cannot resolve @value from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig
+2026-11-08T08:45:01.3726477Z failed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run cycle/entry.cjs
+2026-11-08T08:45:01.3727638Z 
+2026-11-08T08:45:01.4383389Z home-tool-smoke
+2026-11-08T08:45:01.4384328Z +- run exe home-tool w
+2026-11-08T08:45:01.4384918Z Uncaught uncaughtException: undefined
+2026-11-08T08:45:01.4386329Z failed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run next_tick_failure.cjs undefined
+2026-11-08T08:45:01.4387548Z 
+2026-11-08T08:45:02.7904921Z home-tool-smoke
+2026-11-08T08:45:02.7964863Z +- run exe home-tool w
+2026-11-08T08:45:02.8004530Z Uncaught uncaughtException: Error: handler failure
+2026-11-08T08:45:02.8035161Z failed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run next_tick_failure.cjs handler-throw
+2026-11-08T08:45:02.8036326Z 
+2026-11-08T08:45:03.2613244Z OK home-tool runtime transpilation
+2026-11-08T08:45:03.3841103Z OK home-tool import.meta
+2026-11-08T08:45:03.3871727Z home-tool-smoke
+2026-11-08T08:45:03.3871990Z +- run exe home-tool w
+2026-11-08T08:45:03.3872276Z Uncaught uncaughtException: Error: monitor failure
+2026-11-08T08:45:03.3873008Z failed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run next_tick_failure.cjs monitor-throw
+2026-11-08T08:45:03.3873564Z 
+2026-11-08T08:45:03.5118068Z home-tool-smoke
+2026-11-08T08:45:03.5118752Z +- run exe home-tool w
+2026-11-08T08:45:03.5119382Z home-tool (zig-js): undefined
+2026-11-08T08:45:03.5120659Z failed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run undefined.mjs
+2026-11-08T08:45:03.5121780Z 
+2026-11-08T08:45:04.7446446Z home-tool-smoke
+2026-11-08T08:45:04.7446919Z +- run exe home-tool w
+2026-11-08T08:45:04.7447248Z Uncaught uncaughtException: Error: nextTick callback failure
+2026-11-08T08:45:04.7448009Z failed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run next_tick_failure.cjs exit-throw
+2026-11-08T08:45:04.7448582Z 
+2026-11-08T08:45:04.7760534Z home-tool-smoke
+2026-11-08T08:45:04.7761166Z +- run exe home-tool w
+2026-11-08T08:45:04.7762704Z home-tool (zig-js): Error: Module evaluation is still pending: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/packages/runtime/test/tool_modules/node_stream_pending.mjs
+2026-11-08T08:45:04.7765407Z failed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run node_stream_pending.mjs
+2026-11-08T08:45:04.7766588Z 
+2026-11-08T08:45:05.1259699Z home-tool-smoke
+2026-11-08T08:45:05.1260451Z +- run exe home-tool w
+2026-11-08T08:45:05.1261359Z Uncaught uncaughtException: Error: nextTick callback failure
+2026-11-08T08:45:05.1263483Z failed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run next_tick_failure.cjs override
+2026-11-08T08:45:05.1264983Z 
+2026-11-08T08:45:05.4689417Z home-tool-smoke
+2026-11-08T08:45:05.4689869Z +- run exe home-tool w
+2026-11-08T08:45:05.4691342Z home-tool (zig-js): Error: Cannot resolve @value from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias
+2026-11-08T08:45:05.4692684Z failed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run declaration/entry.cjs
+2026-11-08T08:45:05.4693256Z 
+2026-11-08T08:45:06.1476589Z home-tool-smoke
+2026-11-08T08:45:06.1477542Z +- run exe home-tool w
+2026-11-08T08:45:06.1478281Z home-tool (zig-js): Error: async rejection witness
+2026-11-08T08:45:06.1479554Z failed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run rejected.mjs
+2026-11-08T08:45:06.1481505Z 
+2026-11-08T08:45:06.2705431Z OK home-tool exact package imports
+2026-11-08T08:45:06.2736965Z home-tool-smoke
+2026-11-08T08:45:06.2737477Z +- run exe home-tool w
+2026-11-08T08:45:06.2738121Z Uncaught uncaughtException: Error: nextTick callback failure
+2026-11-08T08:45:06.2739568Z failed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run next_tick_failure.cjs monitor
+2026-11-08T08:45:06.2740687Z 
+2026-11-08T08:45:06.4046140Z home-tool-smoke
+2026-11-08T08:45:06.4046584Z +- run exe home-tool w
+2026-11-08T08:45:06.4047829Z home-tool (zig-js): Error: Module evaluation is still pending: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/packages/runtime/test/tool_modules/async/pending.mjs
+2026-11-08T08:45:06.4049008Z failed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run pending.mjs
+2026-11-08T08:45:06.4049534Z 
+2026-11-08T08:45:06.5792613Z home-tool-smoke
+2026-11-08T08:45:06.5793305Z +- run exe home-tool w
+2026-11-08T08:45:06.5794375Z Uncaught uncaughtException: Error: nextTick callback failure
+2026-11-08T08:45:06.5795924Z failed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run next_tick_failure.cjs error
+2026-11-08T08:45:06.5797119Z 
+2026-11-08T08:45:06.8675121Z home-tool-smoke
+2026-11-08T08:45:06.8675546Z +- run exe home-tool w
+2026-11-08T08:45:06.8676782Z home-tool tsconfig: invalid JSONC or runtime path options: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/tsconfig.json
+2026-11-08T08:45:06.8678945Z home-tool (zig-js): Error: Cannot resolve @value from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig
+2026-11-08T08:45:06.8680924Z failed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run invalid-options/entry.cjs
+2026-11-08T08:45:06.8681873Z 
+2026-11-08T08:45:08.3759059Z OK home-tool module interop
+2026-11-08T08:45:08.7087134Z home-tool-smoke
+2026-11-08T08:45:08.7087826Z +- run exe home-tool w
+2026-11-08T08:45:08.7089501Z /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js:6: Identifier expected. (TS1003)
+2026-11-08T08:45:08.7091750Z home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js
+2026-11-08T08:45:08.7094070Z failed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run runtime_invalid_syntax.js
+2026-11-08T08:45:08.7095589Z 
+2026-11-08T08:45:09.3309444Z home-tool-smoke
+2026-11-08T08:45:09.3309827Z +- run exe home-tool w
+2026-11-08T08:45:09.3310321Z home-tool tsconfig: extended tsconfig is missing: ./absent.json
+2026-11-08T08:45:09.3311737Z home-tool (zig-js): Error: Cannot resolve @value from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig
+2026-11-08T08:45:09.3313607Z failed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run missing/entry.cjs
+2026-11-08T08:45:09.3314633Z 
+2026-11-08T08:45:09.6561593Z home-tool-smoke
+2026-11-08T08:45:09.6562087Z +- run exe home-tool w
+2026-11-08T08:45:09.6562656Z home-tool (zig-js): SyntaxError: Unexpected identifier 'Promise'
+2026-11-08T08:45:09.6564226Z failed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run cjs-await.cjs
+2026-11-08T08:45:09.6565147Z 
+2026-11-08T08:45:11.0150269Z home-tool-smoke
+2026-11-08T08:45:11.0150776Z +- run exe home-tool w
+2026-11-08T08:45:11.0151293Z home-tool (zig-js): Error: exit listener witness
+2026-11-08T08:45:11.0152484Z failed command: ./.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool eval "process.on('exit', function() { throw new Error('exit listener witness'); });"
+2026-11-08T08:45:11.0153436Z 
+2026-11-08T08:45:12.1184360Z home-tool-smoke
+2026-11-08T08:45:12.1185066Z +- run exe home-tool w
+2026-11-08T08:45:12.1185763Z home-tool tsconfig: extended tsconfig is missing: ./bad.json
+2026-11-08T08:45:12.1187287Z home-tool (zig-js): Error: Cannot resolve @value from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig
+2026-11-08T08:45:12.1189351Z failed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run malformed/entry.cjs
+2026-11-08T08:45:12.1190406Z 
+2026-11-08T08:45:12.4562303Z home-tool-smoke
+2026-11-08T08:45:12.4562896Z +- run exe home-tool w
+2026-11-08T08:45:12.4564304Z home-tool (zig-js): Error: Async module cycles are not implemented: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home/packages/runtime/test/tool_modules/async/cycle-a.mjs
+2026-11-08T08:45:12.4566283Z failed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run cycle-a.mjs
+2026-11-08T08:45:12.4567214Z 
+2026-11-08T08:45:12.7913836Z home-tool-smoke
+2026-11-08T08:45:12.7914432Z +- run exe home-tool w
+2026-11-08T08:45:12.7914912Z home-tool (zig-js): Error: async rejection witness
+2026-11-08T08:45:12.7916100Z failed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/37fe824ae58ed08fd7cea67d1ec8c2e5/home-tool run dependency-rejected.mjs
+2026-11-08T08:45:12.7917073Z 
+2026-11-08T08:45:14.4959541Z ##[group]Run mkdir -p runtime/engine/zig-out/lib
+2026-11-08T08:45:14.4959936Z [36;1mmkdir -p runtime/engine/zig-out/lib[0m
+2026-11-08T08:45:14.4960268Z [36;1mcp home/zig-out/bin/home-tool runtime/home-tool[0m
+2026-11-08T08:45:14.4960668Z [36;1mcp engine/zig-out/lib/libzig-js.a runtime/engine/zig-out/lib/[0m
+2026-11-08T08:45:14.4961018Z [36;1mpython3 - <<'PY'[0m
+2026-11-08T08:45:14.4961294Z [36;1mimport hashlib, json, os, pathlib, subprocess[0m
+2026-11-08T08:45:14.4961626Z [36;1mconfig = json.load(open('suite/config.json'))[0m
+2026-11-08T08:45:14.4962242Z [36;1massert subprocess.check_output(['git', '-C', 'engine', 'rev-parse', 'HEAD'], text=True).strip() == os.environ['ENGINE_SHA'][0m
+2026-11-08T08:45:14.4962878Z [36;1mdata = {'engine_sha': os.environ['ENGINE_SHA'], 'suite_ref': os.environ['SUITE_REF'],[0m
+2026-11-08T08:45:14.4963406Z [36;1m        'home_repository': config['home_repository'], 'home_ref': config['home_ref'],[0m
+2026-11-08T08:45:14.4964240Z [36;1m        'zig_version': subprocess.check_output(['zig', 'version'], text=True).strip(),[0m
+2026-11-08T08:45:14.4964843Z [36;1m        'build_cpu': 'baseline',[0m
+2026-11-08T08:45:14.4965262Z [36;1m        'sha256': {str(p.relative_to('runtime')): hashlib.sha256(p.read_bytes()).hexdigest()[0m
+2026-11-08T08:45:14.4965762Z [36;1m                   for p in pathlib.Path('runtime').rglob('*') if p.is_file()}}[0m
+2026-11-08T08:45:14.4966285Z [36;1mpathlib.Path('runtime/provenance.json').write_text(json.dumps(data, indent=2) + '\n')[0m
+2026-11-08T08:45:14.4966693Z [36;1mPY[0m
+2026-11-08T08:45:14.4967032Z [36;1m# The prior cross-runner SIGILL was a ZMM vmovups in memcpy. Check[0m
+2026-11-08T08:45:14.4967508Z [36;1m# this exact shared-artifact regression before publishing the archive.[0m
+2026-11-08T08:45:14.4968060Z [36;1mobjdump -d --disassemble=memcpy runtime/home-tool > "$RUNNER_TEMP/runtime-memcpy.txt"[0m
+2026-11-08T08:45:14.4968571Z [36;1mif grep -Eq '\bzmm[0-9]+' "$RUNNER_TEMP/runtime-memcpy.txt"; then[0m
+2026-11-08T08:45:14.4968945Z [36;1m  cat "$RUNNER_TEMP/runtime-memcpy.txt"[0m
+2026-11-08T08:45:14.4969333Z [36;1m  echo 'Shared runtime memcpy unexpectedly requires AVX-512' >&2[0m
+2026-11-08T08:45:14.4969676Z [36;1m  exit 1[0m
+2026-11-08T08:45:14.4969868Z [36;1mfi[0m
+2026-11-08T08:45:14.4970092Z [36;1mtar -czf runtime.tar.gz -C runtime .[0m
+2026-11-08T08:45:14.4983140Z shell: /usr/bin/bash -e {0}
+2026-11-08T08:45:14.4983410Z env:
+2026-11-08T08:45:14.4983717Z   BUN_INSTALL: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/pantry
+2026-11-08T08:45:14.4984390Z   ENGINE_SHA: 72e3c7cec713cc568f274fad90af631521913107
+2026-11-08T08:45:14.4984732Z   SUITE_REF: 3e360415fed49f594ac9a4951873575bbda9755a
+2026-11-08T08:45:14.4985020Z ##[endgroup]
+2026-11-08T08:45:25.9982151Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-08T08:45:25.9982554Z with:
+2026-11-08T08:45:25.9982753Z   name: ecosystem-runtime
+2026-11-08T08:45:25.9982985Z   path: runtime.tar.gz
+2026-11-08T08:45:25.9983227Z   if-no-files-found: error
+2026-11-08T08:45:25.9983447Z   retention-days: 7
+2026-11-08T08:45:25.9983655Z   compression-level: 6
+2026-11-08T08:45:25.9983857Z   overwrite: false
+2026-11-08T08:45:25.9984449Z   include-hidden-files: false
+2026-11-08T08:45:25.9984684Z env:
+2026-11-08T08:45:25.9984975Z   BUN_INSTALL: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/pantry
+2026-11-08T08:45:25.9985335Z ##[endgroup]
+2026-11-08T08:45:26.1627477Z (node:3017) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-08T08:45:26.1628136Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-08T08:45:26.1673315Z With the provided path, there will be 1 file uploaded
+2026-11-08T08:45:26.1695125Z Artifact name is valid!
+2026-11-08T08:45:26.1706160Z Root directory input is valid!
+2026-11-08T08:45:26.5457613Z Beginning upload of artifact content to blob storage
+2026-11-08T08:45:26.8274518Z (node:3017) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-08T08:45:27.5385829Z Uploaded bytes 8388608
+2026-11-08T08:45:27.7648882Z Uploaded bytes 16777216
+2026-11-08T08:45:27.9060572Z Uploaded bytes 25165824
+2026-11-08T08:45:28.0782433Z Uploaded bytes 33554432
+2026-11-08T08:45:28.1335252Z Uploaded bytes 41943040
+2026-11-08T08:45:28.4171257Z Uploaded bytes 50331648
+2026-11-08T08:45:28.7027324Z Uploaded bytes 58720256
+2026-11-08T08:45:28.7953680Z Uploaded bytes 60166791
+2026-11-08T08:45:28.8560618Z Finished uploading artifact content to blob storage!
+2026-11-08T08:45:28.8564899Z SHA256 digest of uploaded artifact zip is 929a2f413860f71e3a4c72d6b318df5e184dc399b13e22ccc5d0e5fd6240a51e
+2026-11-08T08:45:28.8567704Z Finalizing artifact upload
+2026-11-08T08:45:29.3670472Z Artifact ecosystem-runtime.zip successfully finalized. Artifact ID 13610738488
+2026-11-08T08:45:29.3671870Z Artifact ecosystem-runtime has been successfully uploaded! Final size is 60166791 bytes. Artifact ID is 13610738488
+2026-11-08T08:45:29.3681992Z Artifact download URL: https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42463811764/artifacts/13610738488
+2026-11-08T08:45:29.3955520Z Post job cleanup.
+2026-11-08T08:45:29.4762207Z Post job cleanup.
+2026-11-08T08:45:29.5676711Z [command]/usr/bin/git version
+2026-11-08T08:45:29.5714548Z git version 2.56.0
+2026-11-08T08:45:29.5751389Z Temporarily overriding HOME='/home/runner/work/_temp/4bcf4ddd-39d2-4fae-8900-69e6d128c333' before making global git config changes
+2026-11-08T08:45:29.5752783Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T08:45:29.5757239Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/home
+2026-11-08T08:45:29.5785667Z Removing SSH command configuration
+2026-11-08T08:45:29.5792343Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T08:45:29.5827797Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T08:45:29.6277941Z Removing HTTP extra header
+2026-11-08T08:45:29.6285475Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T08:45:29.6287123Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T08:45:29.6680295Z Removing includeIf entries pointing to credentials config files
+2026-11-08T08:45:29.6691087Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T08:45:29.6724901Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T08:45:29.7308381Z Post job cleanup.
+2026-11-08T08:45:29.8142493Z [command]/usr/bin/git version
+2026-11-08T08:45:29.8190778Z git version 2.56.0
+2026-11-08T08:45:29.8237361Z Temporarily overriding HOME='/home/runner/work/_temp/e50e948d-a1ff-4140-b5e4-fbf74f630f8b' before making global git config changes
+2026-11-08T08:45:29.8238147Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T08:45:29.8244579Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/engine
+2026-11-08T08:45:29.8274415Z Removing SSH command configuration
+2026-11-08T08:45:29.8281762Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T08:45:29.8317432Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T08:45:29.8524772Z Removing HTTP extra header
+2026-11-08T08:45:29.8531391Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T08:45:29.8563126Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T08:45:29.8766896Z Removing includeIf entries pointing to credentials config files
+2026-11-08T08:45:29.8780110Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T08:45:29.8814614Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T08:45:29.9202294Z Post job cleanup.
+2026-11-08T08:45:30.0084858Z [command]/usr/bin/git version
+2026-11-08T08:45:30.0117523Z git version 2.56.0
+2026-11-08T08:45:30.0157806Z Temporarily overriding HOME='/home/runner/work/_temp/d912c2cc-331e-4aa8-99fb-863f91e6b99f' before making global git config changes
+2026-11-08T08:45:30.0159615Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T08:45:30.0165039Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/suite
+2026-11-08T08:45:30.0208419Z Removing SSH command configuration
+2026-11-08T08:45:30.0208866Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T08:45:30.0235413Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T08:45:30.0432572Z Removing HTTP extra header
+2026-11-08T08:45:30.0439121Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T08:45:30.0492321Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T08:45:30.0708575Z Removing includeIf entries pointing to credentials config files
+2026-11-08T08:45:30.0714492Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T08:45:30.0751224Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T08:45:30.1111857Z Cleaning up orphan processes
+2026-11-08T08:45:30.1409241Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
