@@ -1,0 +1,61 @@
+Exact artifact cross-runner failure evidence
+Source run: https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42427975707
+Home job: https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42427975707/job/128572538637
+
+{
+  "engine_sha": "4fefaeda14beb2f69128622d11e8255d1d270220",
+  "suite_ref": "4e356cb47db0d514580c227503f2c9029d96fc4b",
+  "home_repository": "home-lang/home",
+  "home_ref": "1ffd5237378104bdfbdce1b7946e0d7742ece337",
+  "zig_version": "0.18.0-dev.146+35accc06e",
+  "sha256": {
+    "home-tool": "c89e04eaaef0e84ec51ccc6f4fc88a1733c36bf54b1284a6e77b7b11cd864c53",
+    "engine/zig-out/lib/libzig-js.a": "4fe3fd7b9eb0ed13cb248bf44efcb2f27fc82a149c54311c0876244f2afdbb39"
+  }
+}
+
+{
+  "status": "timed-out",
+  "exit_code": 124,
+  "seconds": 300.001,
+  "log": "0006.log",
+  "label": "verify Home.engine",
+  "lane": "engine",
+  "command": [
+    "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/runtime/home-tool",
+    "eval",
+    "if (Home.engine !== \"zig-js\") throw new Error(\"wrong engine\"); console.log(\"ECOSYSTEM ENGINE zig-js\");"
+  ],
+  "engine_invocations": 0
+}
+
+$ ["/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/runtime/home-tool", "eval", "if (Home.engine !== \"zig-js\") throw new Error(\"wrong engine\"); console.log(\"ECOSYSTEM ENGINE zig-js\");"]
+Illegal instruction at address 0x387338b
+
+ECOSYSTEM RESULT: timed-out, exit 124
+
+
+objdump -d --start-address=0x3873360 --stop-address=0x38733b0 home-tool
+
+home-tool:	file format elf64-x86-64
+
+Disassembly of section .text:
+
+00000000038732a0 <memcpy>:
+ 3873360: 40 48 29 cf                  	subq	%rcx, %rdi
+ 3873364: 62 f1 7c 48 10 14 0e         	vmovups	(%rsi,%rcx), %zmm2
+ 387336b: 62 f1 7c 48 10 0c 3e         	vmovups	(%rsi,%rdi), %zmm1
+ 3873372: 62 f1 7c 48 11 00            	vmovups	%zmm0, (%rax)
+ 3873378: 62 f1 7c 48 11 14 08         	vmovups	%zmm2, (%rax,%rcx)
+ 387337f: 62 f1 7c 48 11 0c 38         	vmovups	%zmm1, (%rax,%rdi)
+ 3873386: e9 0c 01 00 00               	jmp	0x3873497 <memcpy+0x1f7>
+ 387338b: 62 f1 7c 48 10 06            	vmovups	(%rsi), %zmm0
+ 3873391: 89 f7                        	movl	%esi, %edi
+ 3873393: 83 e7 3f                     	andl	$0x3f, %edi
+ 3873396: 4c 8d 44 17 c0               	leaq	-0x40(%rdi,%rdx), %r8
+ 387339b: 49 c1 e8 06                  	shrq	$0x6, %r8
+ 387339f: 44 89 c1                     	movl	%r8d, %ecx
+ 38733a2: 4d 8d 48 ff                  	leaq	-0x1(%r8), %r9
+ 38733a6: 83 e1 07                     	andl	$0x7, %ecx
+ 38733a9: 62 f1 7c 48 11 00            	vmovups	%zmm0, (%rax)
+ 38733af: 49 83 f9 07                  	cmpq	$0x7, %r9
