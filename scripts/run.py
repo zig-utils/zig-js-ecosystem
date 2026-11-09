@@ -35,6 +35,27 @@ def process_tree_rss_kib(pid):
     return sum(rss for child, _, rss in processes if child in descendants)
 
 
+def terminate_process_group(process):
+    # SIGKILL delivery and the root's wait() do not establish that every group
+    # member has stopped. Orphans may still be running when the root is reaped.
+    deadline = time.monotonic() + 5
+    try:
+        os.killpg(process.pid, signal.SIGKILL)
+    except ProcessLookupError:
+        pass
+    process.wait(timeout=max(0.01, deadline - time.monotonic()))
+    while True:
+        rows = subprocess.check_output(["ps", "-axo", "pgid=,stat="], text=True,
+                                       timeout=max(0.01, deadline - time.monotonic()))
+        active = any(int(group) == process.pid and not state.startswith(("Z", "X"))
+                     for group, state in (line.split() for line in rows.splitlines() if line.strip()))
+        if not active:
+            return
+        if time.monotonic() >= deadline:
+            raise RuntimeError(f"command process group {process.pid} did not stop after SIGKILL")
+        time.sleep(0.01)
+
+
 def execute(argv, cwd, env, log, timeout, memory_limit_mb=3072):
     if not isinstance(memory_limit_mb, int) or isinstance(memory_limit_mb, bool) or memory_limit_mb <= 0:
         raise ValueError("command memory limit must be a positive integer in MiB")
@@ -70,9 +91,12 @@ def execute(argv, cwd, env, log, timeout, memory_limit_mb=3072):
             # behind if ps fails. run_and_save records the orchestration error.
             if reason is not None or process.poll() is None:
                 try:
-                    os.killpg(process.pid, signal.SIGKILL)
-                except ProcessLookupError:
-                    pass
+                    terminate_process_group(process)
+                except Exception:
+                    if reason:
+                        stream.write(f"\nECOSYSTEM LIMIT: {reason}\n")
+                        stream.flush()
+                    raise
             code = process.wait()
         status = "passed" if code == 0 else "failed"
         if reason == "command time budget exhausted":

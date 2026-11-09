@@ -7,6 +7,7 @@ from pathlib import Path
 import subprocess
 import sys
 import tempfile
+import threading
 import unittest
 from types import SimpleNamespace
 from unittest.mock import patch
@@ -328,6 +329,43 @@ class ResultTests(unittest.TestCase):
                 self.assertEqual(result["exit_code"], code)
                 self.assertEqual(result["status"], "passed" if code == 0 else "failed")
                 self.assertNotIn("reason", result)
+
+    def test_memory_guard_waits_for_delayed_group_member_exit(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            child = ("import os,time; from pathlib import Path; "
+                     "Path('child.pid').write_text(str(os.getpid())); "
+                     "payload=bytearray(64*1024*1024); time.sleep(60)")
+            parent = "import subprocess,sys,time; subprocess.Popen([sys.executable,'-c',sys.argv[1]]); time.sleep(60)"
+            pending = []
+            def delayed_group_signal(group, signum):
+                self.assertEqual(signum, signal.SIGKILL)
+                child_pid = int((root / "child.pid").read_text())
+                self.assertEqual(os.getpgid(child_pid), group)
+                # Model the root's termination being observed before a child
+                # has finished handling the group termination. Both are real
+                # owned processes; the test always joins the child's cleanup.
+                os.kill(group, signum)
+                def stop_child():
+                    try:
+                        os.kill(child_pid, signum)
+                    except ProcessLookupError:
+                        pass
+                timer = threading.Timer(0.5, stop_child)
+                pending.append(timer)
+                timer.start()
+            try:
+                with patch.object(run.os, "killpg", side_effect=delayed_group_signal):
+                    result = run.execute([sys.executable, "-c", parent, child], root, os.environ.copy(),
+                                         root / "delayed-exit.log", 10, memory_limit_mb=48)
+                self.assertEqual(result["status"], "failed")
+                child_pid = int((root / "child.pid").read_text())
+                state = subprocess.run(["ps", "-o", "stat=", "-p", str(child_pid)],
+                                       capture_output=True, text=True).stdout.strip()
+                self.assertTrue(not state or state.startswith("Z"), state)
+            finally:
+                for timer in pending:
+                    timer.join()
 
     def test_monitoring_error_kills_and_reaps_active_command(self):
         with tempfile.TemporaryDirectory() as temp:
