@@ -1,0 +1,704 @@
+{
+  "observed_at_utc": "2026-11-09T13:56:34.435232+00:00",
+  "engine_before": "f43f717b137c0893416cfcae721c96a07dbd157c",
+  "engine_after": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+  "scope": "Bound retired result storage and retain live result ownership; matcher scratch and live searches keep their existing behavior/budgets.",
+  "reports": {
+    "cache-retention-red.json": {
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "test",
+        "--dep",
+        "regex",
+        "-Mroot=src/regexp_program_cache.zig",
+        "-Mregex=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/regex-final/src/root.zig",
+        "--test-filter",
+        "oversized result scratch"
+      ],
+      "exit_code": 1,
+      "seconds": 2.5110137919982662
+    },
+    "cache-retention-tests.json": {
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "test",
+        "--dep",
+        "regex",
+        "-Mroot=src/regexp_program_cache.zig",
+        "-Mregex=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/regex-final/src/root.zig",
+        "--test-filter",
+        "RegExp program cache"
+      ],
+      "exit_code": 0,
+      "seconds": 2.414494457996625
+    },
+    "engine-cache-build.json": {
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "install",
+        "test262-bin",
+        "test-frontend",
+        "-Doptimize=ReleaseSafe",
+        "-Dtest-filter=RegExp",
+        "-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-final/bin/home-tool",
+        "-j1",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/engine-cache-final/zig-out",
+        "--summary",
+        "all"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 233.41001391600003,
+      "source_manifest_unchanged": true,
+      "manifest": {
+        "src/regexp_program_cache.zig": "45e9737374ba92f2450ab1948223d3543cedb492822b27d758cdc40bc855702b"
+      }
+    },
+    "cache-pushed-build.json": {
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "install",
+        "test262-bin",
+        "test-frontend",
+        "-Doptimize=ReleaseSafe",
+        "-Dtest-filter=RegExp",
+        "-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-final/bin/home-tool",
+        "-j1",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/engine-cache-final/zig-out",
+        "--summary",
+        "all"
+      ],
+      "engine_sha": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+      "exit_code": 0,
+      "seconds": 0.28650637499958975,
+      "archive_sha256": "e141e082ae57b0d62f16d445291eb73f15332689daf47a6b7c1d36086bafb613"
+    },
+    "cache-before-corpus.json": {
+      "binary_sha256": "f8a891bb951f840806f1f8c21f347ba1ee509c0cd59cfda950b4fac07a45b83b",
+      "rows": [
+        {
+          "path": "test/language/literals/regexp",
+          "filter": null,
+          "passed": 238,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 3.427730082999915,
+          "log": "cache-before-corpus-0.log"
+        },
+        {
+          "path": "test/built-ins/String/prototype/match",
+          "filter": null,
+          "passed": 51,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.07326370899681933,
+          "log": "cache-before-corpus-1.log"
+        },
+        {
+          "path": "test/built-ins/String/prototype/matchAll",
+          "filter": null,
+          "passed": 25,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.04408412500197301,
+          "log": "cache-before-corpus-2.log"
+        },
+        {
+          "path": "test/built-ins/String/prototype/replace",
+          "filter": null,
+          "passed": 55,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.0897149999946123,
+          "log": "cache-before-corpus-3.log"
+        },
+        {
+          "path": "test/built-ins/String/prototype/replaceAll",
+          "filter": null,
+          "passed": 45,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.07428895799966995,
+          "log": "cache-before-corpus-4.log"
+        },
+        {
+          "path": "test/built-ins/String/prototype/search",
+          "filter": null,
+          "passed": 43,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.08331891700072447,
+          "log": "cache-before-corpus-5.log"
+        },
+        {
+          "path": "test/built-ins/String/prototype/split",
+          "filter": null,
+          "passed": 120,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.14349624999886146,
+          "log": "cache-before-corpus-6.log"
+        },
+        {
+          "path": "test/built-ins/RegExp/prototype/exec",
+          "filter": null,
+          "passed": 79,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.09018470800219802,
+          "log": "cache-before-corpus-7.log"
+        },
+        {
+          "path": "test/built-ins/RegExp/prototype/test",
+          "filter": null,
+          "passed": 45,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.08459812500223052,
+          "log": "cache-before-corpus-8.log"
+        },
+        {
+          "path": "test/built-ins/RegExp/regexp-modifiers",
+          "filter": null,
+          "passed": 70,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.08975958300288767,
+          "log": "cache-before-corpus-9.log"
+        },
+        {
+          "path": "test/built-ins/RegExp/lookBehind",
+          "filter": null,
+          "passed": 17,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.02417187500395812,
+          "log": "cache-before-corpus-10.log"
+        },
+        {
+          "path": "test/built-ins/RegExp",
+          "filter": "S15.10.2.3_",
+          "passed": 17,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.02420062499732012,
+          "log": "cache-before-corpus-11.log"
+        },
+        {
+          "path": "test/built-ins/RegExp",
+          "filter": "S15.10.2.5_",
+          "passed": 5,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.012044499999319669,
+          "log": "cache-before-corpus-12.log"
+        },
+        {
+          "path": "test/built-ins/RegExp",
+          "filter": "S15.10.2.8_",
+          "passed": 60,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.08956066700193333,
+          "log": "cache-before-corpus-13.log"
+        },
+        {
+          "path": "test/built-ins/RegExp",
+          "filter": "S15.10.2.9_",
+          "passed": 4,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.012017041997751221,
+          "log": "cache-before-corpus-14.log"
+        },
+        {
+          "path": "test/built-ins/RegExp",
+          "filter": "S15.10.2.11_",
+          "passed": 7,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.02395204200001899,
+          "log": "cache-before-corpus-15.log"
+        }
+      ]
+    },
+    "cache-after-corpus.json": {
+      "binary_sha256": "1475d2680d29411dae137828ef88e33c910e01a84dbe7b883bca138f3fbb98b8",
+      "rows": [
+        {
+          "path": "test/language/literals/regexp",
+          "filter": null,
+          "passed": 238,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 3.6916620830015745,
+          "log": "cache-after-corpus-0.log"
+        },
+        {
+          "path": "test/built-ins/String/prototype/match",
+          "filter": null,
+          "passed": 51,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.08819087500160094,
+          "log": "cache-after-corpus-1.log"
+        },
+        {
+          "path": "test/built-ins/String/prototype/matchAll",
+          "filter": null,
+          "passed": 25,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.046403250002185814,
+          "log": "cache-after-corpus-2.log"
+        },
+        {
+          "path": "test/built-ins/String/prototype/replace",
+          "filter": null,
+          "passed": 55,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.08593345800181851,
+          "log": "cache-after-corpus-3.log"
+        },
+        {
+          "path": "test/built-ins/String/prototype/replaceAll",
+          "filter": null,
+          "passed": 45,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.09040879199892515,
+          "log": "cache-after-corpus-4.log"
+        },
+        {
+          "path": "test/built-ins/String/prototype/search",
+          "filter": null,
+          "passed": 43,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.04829254200012656,
+          "log": "cache-after-corpus-5.log"
+        },
+        {
+          "path": "test/built-ins/String/prototype/split",
+          "filter": null,
+          "passed": 120,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.14869454099971335,
+          "log": "cache-after-corpus-6.log"
+        },
+        {
+          "path": "test/built-ins/RegExp/prototype/exec",
+          "filter": null,
+          "passed": 79,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.09056145799695514,
+          "log": "cache-after-corpus-7.log"
+        },
+        {
+          "path": "test/built-ins/RegExp/prototype/test",
+          "filter": null,
+          "passed": 45,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.0778639589989325,
+          "log": "cache-after-corpus-8.log"
+        },
+        {
+          "path": "test/built-ins/RegExp/regexp-modifiers",
+          "filter": null,
+          "passed": 70,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.0905662079967442,
+          "log": "cache-after-corpus-9.log"
+        },
+        {
+          "path": "test/built-ins/RegExp/lookBehind",
+          "filter": null,
+          "passed": 17,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.023895667000033427,
+          "log": "cache-after-corpus-10.log"
+        },
+        {
+          "path": "test/built-ins/RegExp",
+          "filter": "S15.10.2.3_",
+          "passed": 17,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.03882583299855469,
+          "log": "cache-after-corpus-11.log"
+        },
+        {
+          "path": "test/built-ins/RegExp",
+          "filter": "S15.10.2.5_",
+          "passed": 5,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.012100458996428642,
+          "log": "cache-after-corpus-12.log"
+        },
+        {
+          "path": "test/built-ins/RegExp",
+          "filter": "S15.10.2.8_",
+          "passed": 60,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.09014212500187568,
+          "log": "cache-after-corpus-13.log"
+        },
+        {
+          "path": "test/built-ins/RegExp",
+          "filter": "S15.10.2.9_",
+          "passed": 4,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.011879375000717118,
+          "log": "cache-after-corpus-14.log"
+        },
+        {
+          "path": "test/built-ins/RegExp",
+          "filter": "S15.10.2.11_",
+          "passed": 7,
+          "failed": 0,
+          "failed_paths": [],
+          "exit_code": 0,
+          "timed_out": false,
+          "seconds": 0.024069417006103322,
+          "log": "cache-after-corpus-15.log"
+        }
+      ]
+    },
+    "cache-corpus-comparison.json": [
+      {
+        "path": "test/language/literals/regexp",
+        "filter": null,
+        "before_passed": 238,
+        "after_passed": 238,
+        "gains": [],
+        "regressions": []
+      },
+      {
+        "path": "test/built-ins/String/prototype/match",
+        "filter": null,
+        "before_passed": 51,
+        "after_passed": 51,
+        "gains": [],
+        "regressions": []
+      },
+      {
+        "path": "test/built-ins/String/prototype/matchAll",
+        "filter": null,
+        "before_passed": 25,
+        "after_passed": 25,
+        "gains": [],
+        "regressions": []
+      },
+      {
+        "path": "test/built-ins/String/prototype/replace",
+        "filter": null,
+        "before_passed": 55,
+        "after_passed": 55,
+        "gains": [],
+        "regressions": []
+      },
+      {
+        "path": "test/built-ins/String/prototype/replaceAll",
+        "filter": null,
+        "before_passed": 45,
+        "after_passed": 45,
+        "gains": [],
+        "regressions": []
+      },
+      {
+        "path": "test/built-ins/String/prototype/search",
+        "filter": null,
+        "before_passed": 43,
+        "after_passed": 43,
+        "gains": [],
+        "regressions": []
+      },
+      {
+        "path": "test/built-ins/String/prototype/split",
+        "filter": null,
+        "before_passed": 120,
+        "after_passed": 120,
+        "gains": [],
+        "regressions": []
+      },
+      {
+        "path": "test/built-ins/RegExp/prototype/exec",
+        "filter": null,
+        "before_passed": 79,
+        "after_passed": 79,
+        "gains": [],
+        "regressions": []
+      },
+      {
+        "path": "test/built-ins/RegExp/prototype/test",
+        "filter": null,
+        "before_passed": 45,
+        "after_passed": 45,
+        "gains": [],
+        "regressions": []
+      },
+      {
+        "path": "test/built-ins/RegExp/regexp-modifiers",
+        "filter": null,
+        "before_passed": 70,
+        "after_passed": 70,
+        "gains": [],
+        "regressions": []
+      },
+      {
+        "path": "test/built-ins/RegExp/lookBehind",
+        "filter": null,
+        "before_passed": 17,
+        "after_passed": 17,
+        "gains": [],
+        "regressions": []
+      },
+      {
+        "path": "test/built-ins/RegExp",
+        "filter": "S15.10.2.3_",
+        "before_passed": 17,
+        "after_passed": 17,
+        "gains": [],
+        "regressions": []
+      },
+      {
+        "path": "test/built-ins/RegExp",
+        "filter": "S15.10.2.5_",
+        "before_passed": 5,
+        "after_passed": 5,
+        "gains": [],
+        "regressions": []
+      },
+      {
+        "path": "test/built-ins/RegExp",
+        "filter": "S15.10.2.8_",
+        "before_passed": 60,
+        "after_passed": 60,
+        "gains": [],
+        "regressions": []
+      },
+      {
+        "path": "test/built-ins/RegExp",
+        "filter": "S15.10.2.9_",
+        "before_passed": 4,
+        "after_passed": 4,
+        "gains": [],
+        "regressions": []
+      },
+      {
+        "path": "test/built-ins/RegExp",
+        "filter": "S15.10.2.11_",
+        "before_passed": 7,
+        "after_passed": 7,
+        "gains": [],
+        "regressions": []
+      }
+    ],
+    "home-cache-build.json": {
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/engine-cache-final",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-cache-final",
+        "--summary",
+        "all"
+      ],
+      "home_sha": "17a504a214019bf674d5605560a817142b62fecb",
+      "engine_sha": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 28.47748066699569,
+      "engine_archive_sha256": "e141e082ae57b0d62f16d445291eb73f15332689daf47a6b7c1d36086bafb613",
+      "home_binary_sha256": "9f5913b21fc996a59c9a899bfe7dfb47807fcd033418171789c70316e350cbba"
+    },
+    "cache-consumer-commands.json": [
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.346,
+        "log": "cache-engine-witness.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-cache-final/bin/home-tool",
+          "eval",
+          "if(Home.engine!==\"zig-js\")throw new Error(\"wrong engine\"); console.log(\"ECOSYSTEM ENGINE\",Home.engine);"
+        ],
+        "label": "cache-engine-witness"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 292208,
+        "memory_limit_mb": 3072,
+        "seconds": 1.008,
+        "log": "cache-isolated-replace.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-cache-final/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/isolated-repro.cjs"
+        ],
+        "label": "cache-isolated-replace"
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 1722656,
+        "memory_limit_mb": 3072,
+        "seconds": 33.897,
+        "log": "cache-docs-build.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-cache-final/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/node_modules/@stacksjs/bunpress/dist/bin/cli.js",
+          "build"
+        ],
+        "label": "cache-docs-build"
+      }
+    ]
+  },
+  "logs": {
+    "cache-retention-red.log": "1/2 regexp_program_cache.test.RegExp program cache releases oversized result scratch after a live capture retires...FAIL (TestUnexpectedResult)\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/std/testing.zig:584:14: 0x104241a17 in expect (root)\n    if (!ok) return error.TestUnexpectedResult;\n             ^\n/Users/chris/Code/Libraries/zig-js/src/regexp_program_cache.zig:487:5: 0x10434df73 in test.RegExp program cache releases oversized result scratch after a live capture retires (root)\n    try std.testing.expect(owned.result_arena.queryCapacity() <= 64 * 1024);\n    ^\n2/2 regexp_program_cache.test.RegExp program cache releases oversized result scratch after misses and errors...FAIL (TestUnexpectedResult)\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/std/testing.zig:584:14: 0x104241a17 in expect (root)\n    if (!ok) return error.TestUnexpectedResult;\n             ^\n/Users/chris/Code/Libraries/zig-js/src/regexp_program_cache.zig:505:5: 0x10424236b in test.RegExp program cache releases oversized result scratch after misses and errors (root)\n    try std.testing.expect(owned.result_arena.queryCapacity() <= 64 * 1024);\n    ^\n0 passed; 0 skipped; 2 failed.\nerror: the following test command failed with exit code 1:\n.zig-cache/o/9d770f00eddd1aad65d5f2cf62b3ea74/root --seed=0xce101789\n",
+    "cache-retention-initial-lifetime-failure.log": "1/9 regexp_program_cache.test.RegExp program cache compares complete immutable keys by value...OK\n2/9 regexp_program_cache.test.RegExp program cache reclaims an unpinned eviction...OK\n3/9 regexp_program_cache.test.RegExp program cache shares a backtracking program by value, never while it is pinned...OK\nthread 3105645 panic: write after free at *1052e9c50\noriginal alloc of [addr: 1052e9460, len: 8294 (0x2066) align: 8]: \n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/std/mem/Allocator.zig:147:26: 0x10029972b in rawAlloc (root)\n    return a.vtable.alloc(a.ptr, len, alignment, ret_addr);\n                         ^\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/std/mem/Allocator.zig:147:26: 0x1002a7c47 in rawAlloc (root)\n    return a.vtable.alloc(a.ptr, len, alignment, ret_addr);\n                         ^\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/std/mem/Allocator.zig:195:79: 0x10044f153 in createAdvancedWithRetAddr (root)\n    const ptr: *align(a.toByteUnits()) T = @ptrCast(try self.allocBytesAligned(a, @sizeOf(T), return_address));\n                                                                              ^\n/Users/chris/Code/Libraries/zig-js/../../Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/regex-final/src/backtrack.zig:184:42: 0x100445bef in pushContinuation (root)\n        const link = try allocator.create(ContinuationLink);\n                                         ^\n/Users/chris/Code/Libraries/zig-js/../../Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/regex-final/src/backtrack.zig:230:52: 0x100446c67 in matchWithContinuations__func_1209 (root)\n                        head = try pushContinuation(allocator, head, .{ .node = if (reverse) pair.right else pair.left });\n                                                   ^\n/Users/chris/Code/Libraries/zig-js/../../Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/regex-final/src/backtrack.zig:123:44: 0x10040882f in findFromWithPrefix (root)\n                self.matchWithContinuations(self.ast_root, pos, false) catch |err| {\n                                           ^\n/Users/chris/Code/Libraries/zig-js/../../Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/regex-final/src/regex.zig:1284:49: 0x1003d166f in findBacktracking (root)\n        const result = engine.findFromWithPrefix(input, start, prefix);\n                                                ^\n(additional stack frames may have been skipped...)\n\nfree: \n/Users/chris/Code/Libraries/zig-js/src/regexp_program_cache.zig:75:40: 0x1003d6973 in resetResults (root)\n            _ = self.result_arena.reset(.{ .retain_with_limit = max_retained_result_bytes });\n                                       ^\n/Users/chris/Code/Libraries/zig-js/src/regexp_program_cache.zig:71:44: 0x1003dac63 in finishMatchAttempt (root)\n            if (!matched) self.resetResults();\n                                           ^\n/Users/chris/Code/Libraries/zig-js/src/regexp_program_cache.zig:176:45: 0x1003d585b in find (root)\n            owned_program.finishMatchAttempt(found != null);\n                                            ^\n/Users/chris/Code/Libraries/zig-js/src/regexp_program_cache.zig:404:43: 0x1004e8b63 in test.RegExp program cache shares a backtracking program by value, never while it is pinned (root)\n    try std.testing.expect((try later.find(\"aab\")) == null);\n                                          ^\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/compiler/test_runner.zig:295:25: 0x100390d9b in mainTerminal (root)\n        if (test_fn.func()) |_| {\n                        ^\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/compiler/test_runner.zig:74:28: 0x100390877 in main (root)\n        return mainTerminal(init);\n                           ^\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/std/start.zig:795:88: 0x10038e7a3 in callMain (root)\n    if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{\n                                                                                       ^\n(additional stack frames may have been skipped...)\n\nstack trace:\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/std/heap/SafeAllocator.zig:839:14: 0x1003a8f43 in checkFreed (root)\n        panic(\n             ^\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/std/heap/SafeAllocator.zig:717:35: 0x1003a86a7 in deinitLeakedBucket (root)\n            .freed => s.checkFreed(footer),\n                                  ^\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/std/heap/SafeAllocator.zig:672:61: 0x1003a5d23 in deinitLog (root)\n                    .bucket => leaks += s.deinitLeakedBucket(ent.toBucket(), log),\n                                                            ^\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/std/heap/SafeAllocator.zig:654:23: 0x1003a58e7 in deinit (root)\n    return s.deinitLog(true);\n                      ^\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/compiler/test_runner.zig:285:50: 0x10039106f in mainTerminal (root)\n            if (testing.allocator_instance.deinit() != 0) leaks += 1;\n                                                 ^\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/compiler/test_runner.zig:74:28: 0x100390877 in main (root)\n        return mainTerminal(init);\n                           ^\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/std/start.zig:795:88: 0x10038e7a3 in callMain (root)\n    if (fn_info.param_types[0].? == std.process.Init.Minimal) return wrapMain(root.main(.{\n                                                                                       ^\n???:?:?: 0x18f537e7f in start (/usr/lib/dyld)\nerror: the following test command terminated with signal ABRT:\n.zig-cache/o/3943b3f28175e20dd793e94d4297e375/root --seed=0xba9fd0b1\n",
+    "cache-retention-tests.log": "1/10 regexp_program_cache.test.RegExp program cache compares complete immutable keys by value...OK\n2/10 regexp_program_cache.test.RegExp program cache reclaims an unpinned eviction...OK\n3/10 regexp_program_cache.test.RegExp program cache shares a backtracking program by value, never while it is pinned...OK\n4/10 regexp_program_cache.test.RegExp program cache recycles an unpinned arena without moving pinned leases...OK\n5/10 regexp_program_cache.test.RegExp program cache reuses matcher and result arenas across hot matches...OK\n6/10 regexp_program_cache.test.RegExp program cache keeps lazy DFA scratch across result resets...OK\n7/10 regexp_program_cache.test.RegExp program cache uses a transient lease when every slot is pinned...OK\n8/10 regexp_program_cache.test.RegExp program cache keeps released leases with live results out of eviction...OK\n9/10 regexp_program_cache.test.RegExp program cache releases oversized result scratch after a live capture retires...OK\n10/10 regexp_program_cache.test.RegExp program cache releases oversized result scratch after misses and errors...OK\nAll 10 tests passed.\n",
+    "cache-docs-build.log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-cache-final/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/node_modules/@stacksjs/bunpress/dist/bin/cli.js\", \"build\"]\n\u001b[?25l\n\u001b[K\u001b[?25h\u001b[31m\u2717\u001b[0m Build failed\nError during build: TypeError: Bun.write is not a function. (In 'Bun.write(D(K, \"404.html\"), q)', 'Bun.write' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 1722656 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+    "final-docs-build.log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-final/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/node_modules/@stacksjs/bunpress/dist/bin/cli.js\", \"build\"]\n\u001b[?25l\nECOSYSTEM PEAK SAMPLED RSS: 3156592 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n",
+    "engine-cache-build.log": "focused engine frontend: 8 cases passed\nBuild Summary: 17/17 steps succeeded\ntest-frontend success\n+- run exe focused-engine-tests success 409ms\n   +- compile exe focused-engine-tests safe native success 1m MaxRSS:4G\n      +- options cached\ntest262-bin success\n+- run test cached\n|  +- compile test safe native cached 58ms MaxRSS:30M\n+- install test262 success\n   +- compile exe test262 safe native success 1m MaxRSS:4G\n      +- options cached\n      +- options (reused)\ninstall success\n+- install generated to libzig-js.a success\n|  +- run /usr/bin/env (libzig-js.a) success 637ms\n|     +- compile lib zig-js safe native success 1m MaxRSS:3G\n|     |  +- options (reused)\n|     +- run xcrun (objc_bridge.o) cached\n|     +- compile obj zig-js-objc-dispatch safe native cached 45ms MaxRSS:30M\n+- install include/ success\n\n"
+  },
+  "probe_sources": {
+    "cache-probe.zig": "const std = @import(\"std\");\nconst Regex = @import(\"regex\").Regex;\nconst Cache = @import(\"cache\").Cache;\npub fn main(init: std.process.Init) !void {\n    const a = std.heap.page_allocator;\n    const io = std.Io.Threaded.global_single_threaded.io();\n    var args = try std.process.Args.Iterator.initAllocator(init.minimal.args, a);\n    defer args.deinit();\n    _ = args.next();\n    const input = try std.Io.Dir.cwd().readFileAlloc(io, args.next().?, a, .limited(4 * 1024 * 1024));\n    defer a.free(input);\n    var cache = Cache.init(a);\n    defer cache.deinit();\n    const owned = try Cache.OwnedProgram.create(a);\n    const compile_allocator = owned.compileAllocator();\n    const compiled = try compile_allocator.create(Regex);\n    compiled.* = try Regex.compileWithFlags(compile_allocator, \"==(.+?)==\", .{ .ecmascript = true });\n    owned.publish(compiled);\n    var lease = cache.adopt(\"==(.+?)==\", \"g\", owned);\n    defer lease.release();\n    for (0..3) |iteration| {\n        var pos: usize = 0;\n        var count: usize = 0;\n        while (pos <= input.len) {\n            var found = (try lease.findFrom(input, pos)) orelse break;\n            pos = found.value.end;\n            count += 1;\n            found.deinit();\n        }\n        std.debug.print(\"{{\\\"iteration\\\":{d},\\\"matches\\\":{d},\\\"compile_arena_bytes\\\":{d},\\\"matcher_arena_bytes\\\":{d},\\\"result_arena_bytes\\\":{d}}}\\n\", .{iteration,count,owned.compile_arena.queryCapacity(),owned.matcher_arena.queryCapacity(),owned.result_arena.queryCapacity()});\n    }\n}\n"
+  },
+  "cache-probe.jsonl": [
+    {
+      "iteration": 0,
+      "matches": 29,
+      "compile_arena_bytes": 5328,
+      "matcher_arena_bytes": 0,
+      "result_arena_bytes": 39199866
+    },
+    {
+      "iteration": 1,
+      "matches": 29,
+      "compile_arena_bytes": 5328,
+      "matcher_arena_bytes": 0,
+      "result_arena_bytes": 39199866
+    },
+    {
+      "iteration": 2,
+      "matches": 29,
+      "compile_arena_bytes": 5328,
+      "matcher_arena_bytes": 0,
+      "result_arena_bytes": 39199866
+    }
+  ],
+  "cache-probe-after.jsonl": [
+    {
+      "iteration": 0,
+      "matches": 29,
+      "compile_arena_bytes": 5328,
+      "matcher_arena_bytes": 0,
+      "result_arena_bytes": 65536
+    },
+    {
+      "iteration": 1,
+      "matches": 29,
+      "compile_arena_bytes": 5328,
+      "matcher_arena_bytes": 0,
+      "result_arena_bytes": 65536
+    },
+    {
+      "iteration": 2,
+      "matches": 29,
+      "compile_arena_bytes": 5328,
+      "matcher_arena_bytes": 0,
+      "result_arena_bytes": 65536
+    }
+  ],
+  "implementation": "const std = @import(\"std\");\nconst regex = @import(\"regex\");\nconst Regex = regex.Regex;\n\n/// Bounded interpreter-local ownership for compiled programs and mutable\n/// matcher scratch. A lease pins its entry across reentrant JavaScript calls;\n/// when all entries are pinned, the new program stays transient rather than\n/// weakening the bound or invalidating an outer operation.\n///\n/// Programs are shared by source and flags. A regexp literal is a fresh\n/// RegExp object every time it is evaluated, so keying by object would\n/// recompile a hot literal on every call. Sharing is safe for backtracking\n/// programs too: their search state is reset at the start of every match,\n/// and the pin keeps a reentrant use off a program an outer one is using.\npub const Cache = struct {\n    /// Real code cycles through more distinct patterns than a small table\n    /// holds: a utility-class compiler runs ~80 literals per class list, and\n    /// round-robin eviction of a cyclic working set larger than the table\n    /// misses on every lookup. A compiled program is a few KB.\n    pub const capacity = 256;\n\n    // Retired results must not make every cache entry retain its largest\n    // search. Keep small hot-match storage, while releasing one-off peaks.\n    // Live results and persistent matcher scratch have separate lifetimes.\n    const max_retained_result_bytes: usize = 64 * 1024;\n\n    /// Compilation performs many small allocations whose lifetimes are exactly\n    /// the program lifetime. Keep those in a per-program arena so eviction is\n    /// one batch release. Separate retained-capacity arenas keep matcher scratch\n    /// stable while allowing each later match result to be reclaimed in bulk.\n    pub const OwnedProgram = struct {\n        compile_arena: std.heap.ArenaAllocator,\n        matcher_arena: std.heap.ArenaAllocator,\n        result_arena: std.heap.ArenaAllocator,\n        backing_allocator: std.mem.Allocator,\n        regex: ?*Regex = null,\n        // A result may outlive its lease or another search on that lease.\n        // Reclaim its storage and permit eviction only after the last retires.\n        live_results: usize = 0,\n        released_transient: bool = false,\n\n        pub fn create(backing: std.mem.Allocator) !*OwnedProgram {\n            const owned = try backing.create(OwnedProgram);\n            owned.* = .{\n                .compile_arena = .init(backing),\n                .matcher_arena = .init(backing),\n                .result_arena = .init(backing),\n                .backing_allocator = backing,\n            };\n            return owned;\n        }\n\n        pub fn compileAllocator(self: *OwnedProgram) std.mem.Allocator {\n            return self.compile_arena.allocator();\n        }\n\n        pub fn publish(self: *OwnedProgram, compiled: *Regex) void {\n            std.debug.assert(self.regex == null);\n            self.regex = compiled;\n        }\n\n        fn setRuntimeAllocator(self: *OwnedProgram, allocator: std.mem.Allocator) void {\n            const compiled = self.regex.?;\n            compiled.allocator = allocator;\n            if (compiled.backtrack_engine) |*engine| engine.allocator = allocator;\n        }\n\n        fn beginMatch(self: *OwnedProgram) std.mem.Allocator {\n            const allocator = self.result_arena.allocator();\n            self.setRuntimeAllocator(allocator);\n            return allocator;\n        }\n\n        fn finishMatchAttempt(self: *OwnedProgram, matched: bool) void {\n            if (matched) {\n                self.live_results += 1;\n            } else if (self.live_results == 0) self.resetResults();\n        }\n\n        fn retireResult(self: *OwnedProgram) void {\n            std.debug.assert(self.live_results > 0);\n            self.live_results -= 1;\n            if (self.live_results != 0) return;\n            if (self.released_transient) self.deinit() else self.resetResults();\n        }\n\n        fn resetResults(self: *OwnedProgram) void {\n            _ = self.result_arena.reset(.{ .retain_with_limit = max_retained_result_bytes });\n        }\n\n        fn reset(self: *OwnedProgram) void {\n            std.debug.assert(self.regex != null);\n            std.debug.assert(self.live_results == 0);\n            _ = self.compile_arena.reset(.retain_capacity);\n            _ = self.matcher_arena.reset(.retain_capacity);\n            self.resetResults();\n            self.regex = null;\n        }\n\n        pub fn deinit(self: *OwnedProgram) void {\n            const backing = self.backing_allocator;\n            // Do not call Regex.deinit: its immutable fields were allocated by\n            // compile_arena, while its runtime allocator points at one of the\n            // other arenas. Releasing all three owns the complete graph.\n            self.result_arena.deinit();\n            self.matcher_arena.deinit();\n            self.compile_arena.deinit();\n            backing.destroy(self);\n        }\n    };\n\n    const Entry = struct {\n        /// `keyHash(source, flags)`, compared before the bytes on every lookup.\n        hash: u64,\n        source: []const u8,\n        flags: []const u8,\n        owned: *OwnedProgram,\n        matcher: ?Regex.Matcher = null,\n        pins: usize = 0,\n    };\n\n    allocator: std.mem.Allocator,\n    entries: [capacity]Entry = undefined,\n    occupied: [capacity]bool = @splat(false),\n    len: usize = 0,\n    next: usize = 0,\n\n    pub const Lease = struct {\n        const Cached = struct { cache: *Cache, index: usize };\n        const Transient = struct {\n            owned: *OwnedProgram,\n            matcher: ?Regex.Matcher = null,\n        };\n\n        owner: union(enum) {\n            cached: Cached,\n            transient: Transient,\n            released,\n        },\n\n        pub const OwnedMatch = struct {\n            value: regex.Match,\n            allocator: std.mem.Allocator,\n            owner: *OwnedProgram,\n\n            pub fn deinit(self: *OwnedMatch) void {\n                self.value.deinit(self.allocator);\n                self.owner.retireResult();\n            }\n        };\n\n        fn owned(self: *Lease) *OwnedProgram {\n            return switch (self.owner) {\n                .cached => |cached| cached.cache.entries[cached.index].owned,\n                .transient => |*transient| transient.owned,\n                .released => unreachable,\n            };\n        }\n\n        pub fn program(self: *Lease) *Regex {\n            return switch (self.owner) {\n                .cached => |cached| cached.cache.entries[cached.index].owned.regex.?,\n                .transient => |*transient| transient.owned.regex.?,\n                .released => unreachable,\n            };\n        }\n\n        fn matcher(self: *Lease) *Regex.Matcher {\n            return switch (self.owner) {\n                .cached => |cached| blk: {\n                    const entry = &cached.cache.entries[cached.index];\n                    if (entry.matcher == null) entry.matcher = entry.owned.regex.?.matcherWithScratchAllocator(entry.owned.matcher_arena.allocator());\n                    break :blk &entry.matcher.?;\n                },\n                .transient => |*transient| blk: {\n                    if (transient.matcher == null) transient.matcher = transient.owned.regex.?.matcherWithScratchAllocator(transient.owned.matcher_arena.allocator());\n                    break :blk &transient.matcher.?;\n                },\n                .released => unreachable,\n            };\n        }\n\n        pub fn find(self: *Lease, input: []const u8) !?OwnedMatch {\n            const owned_program = self.owned();\n            const allocator = owned_program.beginMatch();\n            const found = self.matcher().find(input) catch |err| {\n                owned_program.finishMatchAttempt(false);\n                return err;\n            };\n            owned_program.finishMatchAttempt(found != null);\n            return if (found) |match| .{\n                .value = match,\n                .allocator = allocator,\n                .owner = owned_program,\n            } else null;\n        }\n\n        pub fn findFrom(self: *Lease, input: []const u8, start: usize) !?OwnedMatch {\n            const owned_program = self.owned();\n            const allocator = owned_program.beginMatch();\n            const found = self.matcher().findFrom(input, start) catch |err| {\n                owned_program.finishMatchAttempt(false);\n                return err;\n            };\n            owned_program.finishMatchAttempt(found != null);\n            return if (found) |match| .{\n                .value = match,\n                .allocator = allocator,\n                .owner = owned_program,\n            } else null;\n        }\n\n        pub fn release(self: *Lease) void {\n            switch (self.owner) {\n                .cached => |cached| {\n                    const entry = &cached.cache.entries[cached.index];\n                    std.debug.assert(entry.pins > 0);\n                    entry.pins -= 1;\n                },\n                .transient => |*transient| {\n                    if (transient.matcher) |*scratch| scratch.deinit();\n                    transient.owned.released_transient = true;\n                    if (transient.owned.live_results == 0) transient.owned.deinit();\n                },\n                .released => return,\n            }\n            self.owner = .released;\n        }\n    };\n\n    pub fn init(allocator: std.mem.Allocator) Cache {\n        return .{ .allocator = allocator };\n    }\n\n    pub fn deinit(self: *Cache) void {\n        const allocator = self.allocator;\n        for (&self.entries, self.occupied) |*entry, occupied| {\n            if (!occupied) continue;\n            std.debug.assert(entry.pins == 0);\n            destroyEntry(entry);\n        }\n        self.* = .init(allocator);\n    }\n\n    fn destroyEntry(entry: *Entry) void {\n        if (entry.matcher) |*matcher| matcher.deinit();\n        entry.owned.deinit();\n    }\n\n    fn keyHash(source: []const u8, flags: []const u8) u64 {\n        var hasher = std.hash.Wyhash.init(0);\n        hasher.update(flags);\n        hasher.update(&.{0});\n        hasher.update(source);\n        return hasher.final();\n    }\n\n    fn matches(entry: *const Entry, hash: u64, source: []const u8, flags: []const u8) bool {\n        return entry.hash == hash and std.mem.eql(u8, entry.flags, flags) and std.mem.eql(u8, entry.source, source);\n    }\n\n    fn inUse(entry: *const Entry) bool {\n        return entry.pins != 0 or entry.owned.live_results != 0;\n    }\n\n    pub fn acquire(self: *Cache, source: []const u8, flags: []const u8) ?Lease {\n        const hash = keyHash(source, flags);\n        for (&self.entries, self.occupied, 0..) |*entry, occupied, index| {\n            if (!occupied) continue;\n            if (!matches(entry, hash, source, flags)) continue;\n            // A callback may recursively use the same RegExp while its outer\n            // operation still owns matcher state. Skip pinned matches so the\n            // recursive operation gets an independent cached or transient\n            // program/matcher pair instead of corrupting the outer search.\n            if (inUse(entry)) continue;\n            entry.pins = 1;\n            return .{ .owner = .{ .cached = .{ .cache = self, .index = index } } };\n        }\n        return null;\n    }\n\n    /// Return resettable compile storage for a miss. Stable occupied slots keep\n    /// outstanding lease indices valid; an unpinned full-cache victim becomes\n    /// a hole and is filled by `adopt` after compilation succeeds.\n    pub fn ownerForMiss(self: *Cache) !*OwnedProgram {\n        if (self.len < capacity) return OwnedProgram.create(self.allocator);\n        for (0..capacity) |offset| {\n            const candidate = (self.next + offset) % capacity;\n            if (!self.occupied[candidate]) continue;\n            const entry = &self.entries[candidate];\n            if (inUse(entry)) continue;\n            if (entry.matcher) |*matcher| matcher.deinit();\n            const owned = entry.owned;\n            owned.reset();\n            self.occupied[candidate] = false;\n            self.len -= 1;\n            self.next = candidate;\n            return owned;\n        }\n        return OwnedProgram.create(self.allocator);\n    }\n\n    /// Adopt one successfully compiled program. Ownership always transfers:\n    /// either an unpinned slot owns it, or the returned transient lease does.\n    pub fn adopt(self: *Cache, source: []const u8, flags: []const u8, owned: *OwnedProgram) Lease {\n        var index: ?usize = null;\n        if (self.len < capacity) {\n            for (0..capacity) |offset| {\n                const candidate = (self.next + offset) % capacity;\n                if (self.occupied[candidate]) continue;\n                index = candidate;\n                break;\n            }\n        } else {\n            for (0..capacity) |offset| {\n                const candidate = (self.next + offset) % capacity;\n                if (inUse(&self.entries[candidate])) continue;\n                destroyEntry(&self.entries[candidate]);\n                self.occupied[candidate] = false;\n                self.len -= 1;\n                index = candidate;\n                break;\n            }\n        }\n        const target = index orelse return .{ .owner = .{ .transient = .{\n            .owned = owned,\n        } } };\n        self.entries[target] = .{\n            .hash = keyHash(source, flags),\n            .source = source,\n            .flags = flags,\n            .owned = owned,\n            .pins = 1,\n        };\n        self.occupied[target] = true;\n        self.len += 1;\n        self.next = (target + 1) % capacity;\n        return .{ .owner = .{ .cached = .{ .cache = self, .index = target } } };\n    }\n\n    pub fn matcherCount(self: *const Cache) usize {\n        var count: usize = 0;\n        for (self.entries, self.occupied) |entry, occupied| if (occupied and entry.matcher != null) {\n            count += 1;\n        };\n        return count;\n    }\n\n    pub fn hasVmMatcher(self: *const Cache) bool {\n        for (self.entries, self.occupied) |entry, occupied| {\n            if (!occupied) continue;\n            if (entry.matcher) |matcher| if (matcher.vm_cell != null) return true;\n        }\n        return false;\n    }\n};\n\nfn compileOwned(backing: std.mem.Allocator, pattern: []const u8) !*Cache.OwnedProgram {\n    const owned = try Cache.OwnedProgram.create(backing);\n    errdefer owned.deinit();\n    const compile_allocator = owned.compileAllocator();\n    const program = try compile_allocator.create(Regex);\n    program.* = try Regex.compileWithFlags(compile_allocator, pattern, .{ .ecmascript = true });\n    owned.publish(program);\n    return owned;\n}\n\ntest \"RegExp program cache compares complete immutable keys by value\" {\n    var cache = Cache.init(std.testing.allocator);\n    defer cache.deinit();\n    const program = try compileOwned(std.testing.allocator, \"a\");\n    var lease = cache.adopt(\"a\\x00b\", \"gi\", program);\n    lease.release();\n    var hit = cache.acquire(\"a\\x00b\", \"gi\").?;\n    defer hit.release();\n    try std.testing.expect(cache.acquire(\"a\\x00b\", \"gi\") == null);\n    try std.testing.expect(cache.acquire(\"a\", \"gi\") == null);\n    try std.testing.expect(cache.acquire(\"a\\x00c\", \"gi\") == null);\n    try std.testing.expect(cache.acquire(\"a\\x00b\", \"g\") == null);\n}\n\ntest \"RegExp program cache reclaims an unpinned eviction\" {\n    var cache = Cache.init(std.testing.allocator);\n    defer cache.deinit();\n    var keys: [Cache.capacity + 1][4]u8 = undefined;\n    for (&keys, 0..) |*key, i| {\n        std.mem.writeInt(u32, key, @intCast(i), .little);\n        const program = try compileOwned(std.testing.allocator, \"a\");\n        var lease = cache.adopt(key, \"\", program);\n        lease.release();\n    }\n    try std.testing.expectEqual(Cache.capacity, cache.len);\n    try std.testing.expect(cache.acquire(&keys[0], \"\") == null);\n    var newest = cache.acquire(&keys[Cache.capacity], \"\").?;\n    newest.release();\n}\n\ntest \"RegExp program cache shares a backtracking program by value, never while it is pinned\" {\n    var cache = Cache.init(std.testing.allocator);\n    defer cache.deinit();\n    const program = try compileOwned(std.testing.allocator, \"(a+)b\\\\1\");\n    try std.testing.expectEqual(.backtracking, program.regex.?.engine_type);\n    var lease = cache.adopt(\"(a+)b\\\\1\", \"\", program);\n    const shared = lease.program();\n    {\n        var found = (try lease.find(\"xaabaa\")).?;\n        defer found.deinit();\n        try std.testing.expectEqualStrings(\"aa\", found.value.captures[0]);\n    }\n    // An outer match still holds it: a reentrant use must compile its own.\n    try std.testing.expect(cache.acquire(\"(a+)b\\\\1\", \"\") == null);\n    lease.release();\n\n    // Released, a later RegExp with the same source gets the same program, and\n    // the earlier search's captures do not leak into the new one.\n    var later = cache.acquire(\"(a+)b\\\\1\", \"\").?;\n    defer later.release();\n    try std.testing.expectEqual(shared, later.program());\n    var found = (try later.find(\"abab\")).?;\n    defer found.deinit();\n    try std.testing.expectEqualStrings(\"aba\", found.value.slice);\n    try std.testing.expectEqualStrings(\"a\", found.value.captures[0]);\n    try std.testing.expect((try later.find(\"aab\")) == null);\n}\n\ntest \"RegExp program cache recycles an unpinned arena without moving pinned leases\" {\n    var cache = Cache.init(std.testing.allocator);\n    defer cache.deinit();\n    var keys: [Cache.capacity][4]u8 = undefined;\n    for (&keys, 0..) |*key, i| {\n        std.mem.writeInt(u32, key, @intCast(i), .little);\n        var lease = cache.adopt(key, \"\", try compileOwned(std.testing.allocator, \"a\"));\n        lease.release();\n    }\n    var pinned = cache.acquire(&keys[0], \"\").?;\n    const pinned_program = pinned.program();\n    const recycled = try cache.ownerForMiss();\n    try std.testing.expect(recycled.regex == null);\n    try std.testing.expectEqual(pinned_program, pinned.program());\n    try std.testing.expectEqual(Cache.capacity - 1, cache.len);\n    recycled.deinit();\n    pinned.release();\n}\n\ntest \"RegExp program cache reuses matcher and result arenas across hot matches\" {\n    var cache = Cache.init(std.testing.allocator);\n    defer cache.deinit();\n    var lease = cache.adopt(\"(a+?)(b)\", \"\", try compileOwned(std.testing.allocator, \"(a+?)(b)\"));\n    defer lease.release();\n    for (0..128) |_| {\n        var found = (try lease.find(\"aaab\")).?;\n        defer found.deinit();\n        try std.testing.expectEqualStrings(\"aaab\", found.value.slice);\n        try std.testing.expectEqualStrings(\"aaa\", found.value.captures[0]);\n        try std.testing.expectEqualStrings(\"b\", found.value.captures[1]);\n    }\n}\n\ntest \"RegExp program cache keeps lazy DFA scratch across result resets\" {\n    var cache = Cache.init(std.testing.allocator);\n    defer cache.deinit();\n    var lease = cache.adopt(\"(ab+)\", \"\", try compileOwned(std.testing.allocator, \"(ab+)\"));\n    defer lease.release();\n\n    // A shared global RegExp can first be observed with nonzero lastIndex in\n    // one interpreter, priming only VM scratch. A later zero start lazily\n    // creates the DFA; resetting that match result must not free the DFA.\n    var from_middle = (try lease.findFrom(\"xxabbb\", 2)).?;\n    from_middle.deinit();\n    var first = (try lease.findFrom(\"xxabbb\", 0)).?;\n    first.deinit();\n    var reused = (try lease.findFrom(\"xxabbb\", 0)).?;\n    defer reused.deinit();\n    try std.testing.expectEqualStrings(\"abbb\", reused.value.slice);\n    try std.testing.expectEqualStrings(\"abbb\", reused.value.captures[0]);\n}\n\ntest \"RegExp program cache uses a transient lease when every slot is pinned\" {\n    var cache = Cache.init(std.testing.allocator);\n    defer cache.deinit();\n    var leases: [Cache.capacity]Cache.Lease = undefined;\n    var keys: [Cache.capacity + 1][4]u8 = undefined;\n    for (&leases, 0..) |*lease, i| {\n        std.mem.writeInt(u32, &keys[i], @intCast(i), .little);\n        const program = try compileOwned(std.testing.allocator, \"a\");\n        lease.* = cache.adopt(&keys[i], \"\", program);\n    }\n    std.mem.writeInt(u32, &keys[Cache.capacity], Cache.capacity, .little);\n    const extra = try compileOwned(std.testing.allocator, \"b\");\n    var transient = cache.adopt(&keys[Cache.capacity], \"\", extra);\n    switch (transient.owner) {\n        .transient => {},\n        else => return error.TestUnexpectedResult,\n    }\n    var live = (try transient.find(\"b\")).?;\n    transient.release();\n    try std.testing.expectEqualStrings(\"b\", live.value.slice);\n    live.deinit();\n    for (&leases) |*lease| lease.release();\n}\n\ntest \"RegExp program cache keeps released leases with live results out of eviction\" {\n    const allocator = std.testing.allocator;\n    var cache = Cache.init(allocator);\n    defer cache.deinit();\n    var lease = cache.adopt(\"(a+?)!\", \"\", try compileOwned(allocator, \"(a+?)!\"));\n    var live = (try lease.find(\"aaa!\")).?;\n    lease.release();\n    try std.testing.expect(cache.acquire(\"(a+?)!\", \"\") == null);\n    var keys: [Cache.capacity][4]u8 = undefined;\n    for (&keys, 0..) |*key, i| {\n        std.mem.writeInt(u32, key, @intCast(i), .little);\n        var other = cache.adopt(key, \"\", try compileOwned(allocator, \"b\"));\n        other.release();\n    }\n    const recycled = try cache.ownerForMiss();\n    recycled.deinit();\n    try std.testing.expectEqualStrings(\"aaa\", live.value.captures[0]);\n    live.deinit();\n    var reused = cache.acquire(\"(a+?)!\", \"\").?;\n    defer reused.release();\n    var found = (try reused.find(\"a!\")).?;\n    defer found.deinit();\n    try std.testing.expectEqualStrings(\"a\", found.value.captures[0]);\n}\n\ntest \"RegExp program cache releases oversized result scratch after a live capture retires\" {\n    const allocator = std.testing.allocator;\n    var cache = Cache.init(allocator);\n    defer cache.deinit();\n    const owned = try compileOwned(allocator, \"a(.+?)!\");\n    var lease = cache.adopt(\"a(.+?)!\", \"\", owned);\n    defer lease.release();\n    const input = try allocator.alloc(u8, 8192);\n    defer allocator.free(input);\n    @memset(input, 'x');\n    input[0] = 'a';\n    input[input.len - 1] = '!';\n    var found = (try lease.find(input)).?;\n    try std.testing.expectEqualStrings(input[1 .. input.len - 1], found.value.captures[0]);\n    try std.testing.expect(owned.result_arena.queryCapacity() > 64 * 1024);\n    found.deinit();\n    try std.testing.expect(owned.result_arena.queryCapacity() <= 64 * 1024);\n    var again = (try lease.find(\"aok!\")).?;\n    defer again.deinit();\n    try std.testing.expectEqualStrings(\"ok\", again.value.captures[0]);\n}\n\ntest \"RegExp program cache releases oversized result scratch after misses and errors\" {\n    const allocator = std.testing.allocator;\n    var cache = Cache.init(allocator);\n    defer cache.deinit();\n    const owned = try compileOwned(allocator, \"a(.+?)!\");\n    var lease = cache.adopt(\"a(.+?)!\", \"\", owned);\n    defer lease.release();\n    const input = try allocator.alloc(u8, 8192);\n    defer allocator.free(input);\n    @memset(input, 'x');\n    input[0] = 'a';\n    try std.testing.expect((try lease.find(input)) == null);\n    try std.testing.expect(owned.result_arena.queryCapacity() <= 64 * 1024);\n    lease.program().backtrack_engine.?.max_steps = 10000;\n    try std.testing.expectError(error.Timeout, lease.find(input));\n    try std.testing.expect(owned.result_arena.queryCapacity() <= 64 * 1024);\n    lease.program().backtrack_engine.?.max_steps = 10000000;\n    var recovered = (try lease.find(\"aok!\")).?;\n    defer recovered.deinit();\n    try std.testing.expectEqualStrings(\"ok\", recovered.value.captures[0]);\n}\n",
+  "limits": [
+    "The first trim-only prototype failed SafeAllocator lifetime checks; only the ownership-aware final implementation was committed.",
+    "The cache probe retains the same 29 matches across three iterations, with result capacity 39,199,866 before and 65,536 bytes after.",
+    "Home root docs then stayed below 3072 MiB and failed on the next genuinely missing API, Bun.write. It was not called a package pass.",
+    "The targeted 881-case test262 diagnostics remain at zero failures; no full-corpus claim."
+  ]
+}
