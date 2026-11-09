@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "functional_suite": "8716be77155583a0f002bd0ec948b5a038729729",
+  "engine_sha": "f847fc6a9490deb961d90e0ebbd97339df60972b",
+  "home_ref": "ce3f03d26fa99c09dd9b95d75d0677353241da9f",
+  "qualification_run": 42714104949,
+  "validation_run": 42714040899,
+  "observed_status": "queued",
+  "caller_remains": "eb118444a83f76b904c07d123283e23361fc0251",
+  "required_before_promotion": [
+    "Suite validation passes",
+    "Exact baseline Linux runtime executes common nested-return fixture and all required rejection/context/file-URL gates",
+    "Both actual priority consumer provenance and CPU preflight steps pass"
+  ],
+  "notes": [
+    "Initial dispatch using the commit SHA as workflow ref received HTTP422 and created no run. Successful retry uses main as workflow ref and pins both suite and engine inputs to immutable validated revisions.",
+    "Do not promote this evidence-only descendant instead of functional8716be7.",
+    "All three committed Home sources match validated SHA256 values in nested-arrow-closer evidence. Existing full push runs remain queued and were not cancelled."
+  ]
+}
