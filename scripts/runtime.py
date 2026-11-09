@@ -91,7 +91,10 @@ def run_script(name, arguments, cwd, conditions=()):
         return blocked("Package script recursion exceeded 24 calls")
     env = {**os.environ, "ECOSYSTEM_SCRIPT_DEPTH": str(depth + 1)}
     # Arguments are positional shell parameters; never concatenate untrusted text.
-    return subprocess.call(["/bin/sh", "-c", command + ' "$@"', "ecosystem-script", *arguments], cwd=root, env=env)
+    # With no arguments, preserve syntax and the last command's exit status:
+    # an appended empty "$@" can break a subshell or mask failure after ';'.
+    shell_command = command + ' "$@"' if arguments else command
+    return subprocess.call(["/bin/sh", "-c", shell_command, "ecosystem-script", *arguments], cwd=root, env=env)
 
 
 def main(argv=None, program=None):

@@ -148,6 +148,23 @@ class PlanTests(unittest.TestCase):
 
 
 class RuntimeRoutingTests(unittest.TestCase):
+    def test_shell_scripts_preserve_no_argument_syntax_status_and_literal_arguments(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            scripts = {"compound": "printf first && (printf second)",
+                       "failure": "false;", "simple": "printf '<%s>'"}
+            (root / "package.json").write_text(json.dumps({"scripts": scripts}))
+            run.make_shims(root / "shims")
+            cases = [("compound", [], 0, "firstsecond"), ("failure", [], 1, ""),
+                     ("simple", [], 0, "<>"), ("simple", [""], 0, "<>"),
+                     ("simple", ["a b", "$(never-execute)"], 0, "<a b><$(never-execute)>")]
+            for name, arguments, code, output in cases:
+                with self.subTest(script=name, arguments=arguments):
+                    result = subprocess.run([str(root / "shims/bun"), "run", name, *arguments],
+                                            cwd=root, capture_output=True, text=True, timeout=10)
+                    self.assertEqual(result.returncode, code, result.stderr)
+                    self.assertEqual(result.stdout, output)
+
     def test_scoped_package_bin_uses_installed_manifest_and_keeps_exit_status(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

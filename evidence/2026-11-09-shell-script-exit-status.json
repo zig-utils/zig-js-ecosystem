@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "kind": "real shell and engine before/after reproduction",
+  "engine_archive_revision": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+  "home": "6a281236a212e12723a2fe05a851f16ab89c5cd8",
+  "cases": {
+    "before-literal": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 9408,
+      "memory_limit_mb": 3072,
+      "seconds": 0.07,
+      "log": "before-literal.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/shell-no-args/shims/bun",
+        "run",
+        "simple",
+        "a b",
+        "$(never-execute)"
+      ]
+    },
+    "after-literal": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 11712,
+      "memory_limit_mb": 3072,
+      "seconds": 0.065,
+      "log": "after-literal.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/shell-no-args/shims/bun",
+        "run",
+        "simple",
+        "a b",
+        "$(never-execute)"
+      ]
+    },
+    "stacks-typecheck-after": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1202992,
+      "memory_limit_mb": 3072,
+      "seconds": 7.46,
+      "log": "stacks-typecheck-after.log",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun run typecheck"
+      ]
+    },
+    "before-js-failure": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 22272,
+      "memory_limit_mb": 3072,
+      "seconds": 0.251,
+      "log": "before-js-failure.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/shell-no-args/shims/bun",
+        "run",
+        "js-failure"
+      ]
+    },
+    "native-failure": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 176,
+      "memory_limit_mb": 3072,
+      "seconds": 0.055,
+      "log": "native-failure.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "failure"
+      ]
+    },
+    "after-js-failure": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 34896,
+      "memory_limit_mb": 3072,
+      "seconds": 0.197,
+      "log": "after-js-failure.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/shell-no-args/shims/bun",
+        "run",
+        "js-failure"
+      ]
+    },
+    "after-failure": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 4352,
+      "memory_limit_mb": 3072,
+      "seconds": 0.076,
+      "log": "after-failure.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/shell-no-args/shims/bun",
+        "run",
+        "failure"
+      ]
+    },
+    "native-js-failure": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 112,
+      "memory_limit_mb": 3072,
+      "seconds": 0.05,
+      "log": "native-js-failure.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "js-failure"
+      ]
+    },
+    "after-compound": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 10784,
+      "memory_limit_mb": 3072,
+      "seconds": 0.083,
+      "log": "after-compound.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/shell-no-args/shims/bun",
+        "run",
+        "compound"
+      ]
+    },
+    "before-failure": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 11824,
+      "memory_limit_mb": 3072,
+      "seconds": 0.113,
+      "log": "before-failure.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/shell-no-args/shims/bun",
+        "run",
+        "failure"
+      ]
+    },
+    "native-compound": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 144,
+      "memory_limit_mb": 3072,
+      "seconds": 0.059,
+      "log": "native-compound.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "compound"
+      ]
+    },
+    "native-literal": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1680,
+      "memory_limit_mb": 3072,
+      "seconds": 0.032,
+      "log": "native-literal.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "simple",
+        "a b",
+        "$(never-execute)"
+      ]
+    },
+    "before-compound": {
+      "status": "failed",
+      "exit_code": 2,
+      "peak_sampled_rss_kib": 17760,
+      "memory_limit_mb": 3072,
+      "seconds": 0.185,
+      "log": "before-compound.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/shell-no-args/shims/bun",
+        "run",
+        "compound"
+      ]
+    }
+  },
+  "validation": {
+    "python_tests": 32,
+    "dependency_tests": 7,
+    "dependency_assertions": 26,
+    "actionlint": "passed"
+  },
+  "audit": "Bounded scan of passed candidate logs in the completed extname Stacks/Home reports found zero home-tool (zig-js): or ECOSYSTEM UNSUPPORTED: error markers. This is not a global false-pass audit."
+}
