@@ -1,0 +1,613 @@
+{
+  "schema_version": 1,
+  "home_commit": "d4f39e2e4ca102eef09854018a5439cbb6213683",
+  "before_home": "6a281236a212e12723a2fe05a851f16ab89c5cd8",
+  "local_engine_archive_revision": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+  "archive_sha256": "e141e082ae57b0d62f16d445291eb73f15332689daf47a6b7c1d36086bafb613",
+  "scope": "TypeScript parser generic lookahead; Home common host gate",
+  "parser_before": {
+    "passed": 936,
+    "failed": 1,
+    "total": 937
+  },
+  "parser_after": {
+    "passed": 937,
+    "failed": 0,
+    "total": 937
+  },
+  "new_ast_vectors": 6,
+  "mandatory_runtime_comparison_witnesses": 42,
+  "actual_stacks_datetime_checks": 7,
+  "generic_controls": 3,
+  "malformed_controls": 2,
+  "source_hashes": {
+    "packages/ts_parser/src/ts_parser.zig": "48433359b1ed114b857ab40d097ac19d5f6d73d143b6f3dc42bd034e5c5e2509",
+    "packages/runtime/test/tool_modules/main.ts": "70421d40279240a62d9a139e95f1a3020e7a9c3d35f924033faa4ec7d94a423b",
+    "packages/runtime/test/tool_modules/comparison_bounds.ts": "ee755d3d378e22d16d958c20eba15933e1d101b9e2c68a40f6851e38fbde1ee6"
+  },
+  "consumer_source": {
+    "consumer_revision": "a55421a020f3e7480bc31177fd720d3d423eab40",
+    "path": "storage/framework/core/datetime/src/parse.ts",
+    "sha256": "c65b54d873dbfda8afde910b8c55669220df52fe4bd6f5aa3228b3c83dcbbc04"
+  },
+  "validation": {
+    "after-parser-all": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 357344,
+      "memory_limit_mb": 3072,
+      "seconds": 25.735,
+      "log": "after-parser-all.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "test",
+        "--dep",
+        "ts_lexer",
+        "--dep",
+        "hir",
+        "--dep",
+        "string_interner",
+        "-Mroot=packages/ts_parser/src/ts_parser.zig",
+        "--dep",
+        "string_interner",
+        "-Mhir=packages/hir/src/hir.zig",
+        "-Mts_lexer=packages/ts_lexer/src/ts_lexer.zig",
+        "-Mstring_interner=packages/string_interner/src/string_interner.zig",
+        "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-parser-all"
+      ]
+    },
+    "missing-close-paren-bun": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 736,
+      "memory_limit_mb": 3072,
+      "seconds": 0.045,
+      "log": "missing-close-paren-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/missing-close-paren.mjs"
+      ]
+    },
+    "zig-js-gates": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 761360,
+      "memory_limit_mb": 3072,
+      "seconds": 162.799,
+      "log": "zig-js-gates.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/engine-cache-final",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js",
+        "-j1",
+        "--summary",
+        "all"
+      ]
+    },
+    "witness-after": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6928,
+      "memory_limit_mb": 3072,
+      "seconds": 0.044,
+      "log": "witness-after.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/comparison_bounds.ts"
+      ]
+    },
+    "generic-controls-before": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 17120,
+      "memory_limit_mb": 3072,
+      "seconds": 0.056,
+      "log": "generic-controls-before.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-module-scope/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/generic-controls.ts"
+      ]
+    },
+    "consumer-jsc": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 15072,
+      "memory_limit_mb": 3072,
+      "seconds": 0.233,
+      "log": "consumer-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/consumer.ts"
+      ]
+    },
+    "consumer-after": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 0,
+      "memory_limit_mb": 3072,
+      "seconds": 0.09,
+      "log": "consumer-after.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/consumer.ts"
+      ]
+    },
+    "root-before": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 761056,
+      "memory_limit_mb": 3072,
+      "seconds": 3.346,
+      "log": "root-before.log"
+    },
+    "witness-jsc-before": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 13552,
+      "memory_limit_mb": 3072,
+      "seconds": 0.304,
+      "log": "witness-jsc-before.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-module-scope/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/comparison_bounds.ts"
+      ]
+    },
+    "missing-close-paren-node": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 832,
+      "memory_limit_mb": 3072,
+      "seconds": 0.068,
+      "log": "missing-close-paren-node.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/missing-close-paren.mjs"
+      ]
+    },
+    "missing-ternary-branch-before": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 16320,
+      "memory_limit_mb": 3072,
+      "seconds": 0.047,
+      "log": "missing-ternary-branch-before.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-module-scope/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/missing-ternary-branch.mjs"
+      ]
+    },
+    "typed-after": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 16784,
+      "memory_limit_mb": 3072,
+      "seconds": 0.06,
+      "log": "typed-after.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/typed.ts"
+      ]
+    },
+    "consumer-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 944,
+      "memory_limit_mb": 3072,
+      "seconds": 0.06,
+      "log": "consumer-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/consumer.ts"
+      ]
+    },
+    "missing-ternary-branch-node": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1584,
+      "memory_limit_mb": 3072,
+      "seconds": 0.092,
+      "log": "missing-ternary-branch-node.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/missing-ternary-branch.mjs"
+      ]
+    },
+    "missing-close-paren-after": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 6432,
+      "memory_limit_mb": 3072,
+      "seconds": 0.036,
+      "log": "missing-close-paren-after.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/missing-close-paren.mjs"
+      ]
+    },
+    "typed-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 944,
+      "memory_limit_mb": 3072,
+      "seconds": 0.024,
+      "log": "typed-bun.log"
+    },
+    "missing-close-paren-jsc": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 12944,
+      "memory_limit_mb": 3072,
+      "seconds": 0.062,
+      "log": "missing-close-paren-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/missing-close-paren.mjs"
+      ]
+    },
+    "witness-node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 72848,
+      "memory_limit_mb": 3072,
+      "seconds": 0.831,
+      "log": "witness-node.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/comparison_bounds.ts"
+      ]
+    },
+    "next-nullish-home": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 15568,
+      "memory_limit_mb": 3072,
+      "seconds": 0.24,
+      "log": "next-nullish-home.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/next-parenthesized-nullish.ts"
+      ]
+    },
+    "witness-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 8896,
+      "memory_limit_mb": 3072,
+      "seconds": 0.237,
+      "log": "witness-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/comparison_bounds.ts"
+      ]
+    },
+    "generic-controls-node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 976,
+      "memory_limit_mb": 3072,
+      "seconds": 0.144,
+      "log": "generic-controls-node.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/generic-controls.ts"
+      ]
+    },
+    "missing-close-paren-before": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 11792,
+      "memory_limit_mb": 3072,
+      "seconds": 0.043,
+      "log": "missing-close-paren-before.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-module-scope/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/missing-close-paren.mjs"
+      ]
+    },
+    "root-after": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 645120,
+      "memory_limit_mb": 3072,
+      "seconds": 3.232,
+      "log": "root-after.log"
+    },
+    "generic-controls-after": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 19392,
+      "memory_limit_mb": 3072,
+      "seconds": 0.043,
+      "log": "generic-controls-after.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/generic-controls.ts"
+      ]
+    },
+    "plain-after": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1360,
+      "memory_limit_mb": 3072,
+      "seconds": 0.187,
+      "log": "plain-after.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/plain.mjs"
+      ]
+    },
+    "if-after": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 21168,
+      "memory_limit_mb": 3072,
+      "seconds": 0.043,
+      "log": "if-after.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/if.mjs"
+      ]
+    },
+    "plain-home": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.07,
+      "log": "plain-home.log"
+    },
+    "consumer-before": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 28544,
+      "memory_limit_mb": 3072,
+      "seconds": 0.522,
+      "log": "consumer-before.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-module-scope/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/consumer.ts"
+      ]
+    },
+    "if-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1104,
+      "memory_limit_mb": 3072,
+      "seconds": 0.027,
+      "log": "if-bun.log"
+    },
+    "generic-controls-jsc": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6576,
+      "memory_limit_mb": 3072,
+      "seconds": 0.143,
+      "log": "generic-controls-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/generic-controls.ts"
+      ]
+    },
+    "missing-ternary-branch-bun": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5664,
+      "memory_limit_mb": 3072,
+      "seconds": 0.071,
+      "log": "missing-ternary-branch-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/missing-ternary-branch.mjs"
+      ]
+    },
+    "next-nullish-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 128,
+      "memory_limit_mb": 3072,
+      "seconds": 0.069,
+      "log": "next-nullish-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/next-parenthesized-nullish.ts"
+      ]
+    },
+    "consumer-node": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 70720,
+      "memory_limit_mb": 3072,
+      "seconds": 0.699,
+      "log": "consumer-node.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/consumer.ts"
+      ]
+    },
+    "plain-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 384,
+      "memory_limit_mb": 3072,
+      "seconds": 0.023,
+      "log": "plain-bun.log"
+    },
+    "missing-ternary-branch-jsc": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 0,
+      "memory_limit_mb": 3072,
+      "seconds": 0.058,
+      "log": "missing-ternary-branch-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/missing-ternary-branch.mjs"
+      ]
+    },
+    "typed-home": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 7728,
+      "memory_limit_mb": 3072,
+      "seconds": 0.024,
+      "log": "typed-home.log"
+    },
+    "if-home": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 6512,
+      "memory_limit_mb": 3072,
+      "seconds": 0.026,
+      "log": "if-home.log"
+    },
+    "witness-before": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 14416,
+      "memory_limit_mb": 3072,
+      "seconds": 0.405,
+      "log": "witness-before.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-module-scope/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/comparison_bounds.ts"
+      ]
+    },
+    "before-parser-all": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 345056,
+      "memory_limit_mb": 3072,
+      "seconds": 28.514,
+      "log": "before-parser-all.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "test",
+        "--dep",
+        "ts_lexer",
+        "--dep",
+        "hir",
+        "--dep",
+        "string_interner",
+        "-Mroot=packages/ts_parser/src/ts_parser.zig",
+        "--dep",
+        "string_interner",
+        "-Mhir=packages/hir/src/hir.zig",
+        "-Mts_lexer=packages/ts_lexer/src/ts_lexer.zig",
+        "-Mstring_interner=packages/string_interner/src/string_interner.zig",
+        "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/before-parser-all"
+      ]
+    },
+    "missing-ternary-branch-after": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 12752,
+      "memory_limit_mb": 3072,
+      "seconds": 0.033,
+      "log": "missing-ternary-branch-after.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/missing-ternary-branch.mjs"
+      ]
+    },
+    "jsc-gates": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 711632,
+      "memory_limit_mb": 3072,
+      "seconds": 103.671,
+      "log": "jsc-gates.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-jsc",
+        "-j1",
+        "--summary",
+        "all"
+      ]
+    },
+    "generic-controls-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 128,
+      "memory_limit_mb": 3072,
+      "seconds": 0.049,
+      "log": "generic-controls-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/generic-controls.ts"
+      ]
+    },
+    "before-parser": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 299488,
+      "memory_limit_mb": 3072,
+      "seconds": 19.256,
+      "log": "before-parser.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "test",
+        "--dep",
+        "ts_lexer",
+        "--dep",
+        "hir",
+        "--dep",
+        "string_interner",
+        "-Mroot=packages/ts_parser/src/ts_parser.zig",
+        "--dep",
+        "string_interner",
+        "-Mhir=packages/hir/src/hir.zig",
+        "-Mts_lexer=packages/ts_lexer/src/ts_lexer.zig",
+        "-Mstring_interner=packages/string_interner/src/string_interner.zig",
+        "--test-filter",
+        "logical comparison chains",
+        "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/before-parser-tests"
+      ]
+    }
+  },
+  "notes": [
+    "Logical ||, && and ?? cannot occur at the outer level of a type-argument list. Preserve relational expression parsing in both generic-call and instantiation lookahead; leave single | and & type syntax unchanged.",
+    "Three standalone valid comparison programs fail Home before and pass after; plain/typed forms retained.",
+    "Node and Bun execute all42 portable runtime witnesses. Both old Home providers reject the same fixture; both updated common gates execute it successfully.",
+    "Both updated Home providers execute the actual unchanged Stacks parse.ts against all7 real clock bounds. Bun passes too; Node cannot resolve its extensionless ./intl import, and that separate reference failure remains recorded.",
+    "Three real union/intersection/conditional generic calls remain passing; malformed ternary and unclosed-paren inputs remain rejected on Node, Bun and both updated Home providers.",
+    "Full local zig-js common/rejection/context/file-URL gates and JSC common gate pass under ReleaseSafe. Focused Pickier and Zig fmt checks pass.",
+    "Root Stacks build still fails known SVG invalid regex. The datetime TS1005 diagnostic is removed; another module-context TS1005 in useWebSocket.ts:3083 is exposed. Its standalone nullish/ternary reduction actually passes, so no cause or fix for that next warning is claimed.",
+    "No missing host API, unsupported scheduler, unexecuted upstream test or resource-limited failure is replaced with a passing check. Suite still needs exact Linux qualification against latest pushed engine1c4e0428 before caller promotion."
+  ]
+}

@@ -1,0 +1,969 @@
+{
+  "schema_version": 1,
+  "run": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42691615258",
+  "suite": "8ce56bfe0c5da4b7a0a85b4fb1d079d12a350f7e",
+  "consumers": [
+    {
+      "repository": "stacksjs/stacks",
+      "consumer_sha": "a55421a020f3e7480bc31177fd720d3d423eab40",
+      "engine_sha": "4148436f1e48257edff4ba498809532c95643190",
+      "runtime_provenance": {
+        "engine_sha": "4148436f1e48257edff4ba498809532c95643190",
+        "suite_ref": "8ce56bfe0c5da4b7a0a85b4fb1d079d12a350f7e",
+        "home_repository": "home-lang/home",
+        "home_ref": "6a281236a212e12723a2fe05a851f16ab89c5cd8",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "ba5a94fe22e24687a7e84e5e9b207dfe578713f0d965be9beb8c5d4656f05850",
+          "engine/zig-out/lib/libzig-js.a": "338cf7d8b0225b1833fb27d66afdd16f08e3fe04f9711900d7d7f4d7c62f646a"
+        }
+      },
+      "scopes": 99,
+      "checks": 927,
+      "statuses": {
+        "passed": 195,
+        "unsupported": 355,
+        "failed": 272,
+        "timed-out": 1,
+        "not-run": 104
+      },
+      "lanes": {
+        "candidate": {
+          "unsupported": 355,
+          "failed": 215,
+          "passed": 55
+        },
+        "engine": {
+          "passed": 1
+        },
+        "reference": {
+          "passed": 113,
+          "failed": 57,
+          "timed-out": 1,
+          "not-run": 104
+        },
+        "reference-setup": {
+          "passed": 10
+        },
+        "setup": {
+          "passed": 16
+        }
+      },
+      "artifact_id": 13708334587,
+      "zip_sha256_verified": "874cdc8790657e5507c48956e15f8b028ad97b33c29af9fe203c8a87f3ef8109",
+      "candidate_map_compared_to": {
+        "repository": "zig-utils/zig-js-ecosystem",
+        "run_id": 42683040525,
+        "url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42683040525",
+        "measured_at": "2026-11-09T20:08:22Z",
+        "artifact_id": 13707100659,
+        "digest": "sha256:6f976a13f1c7c4784a6c5d69f41b320e9dd37b53d3ec547b17c4f801bc467f58",
+        "focused": true,
+        "artifact_url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42683040525/artifacts/13707100659"
+      },
+      "candidate_status_changes": [],
+      "inspected_logs": [
+        {
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 381128,
+            "memory_limit_mb": 3072,
+            "seconds": 3.488,
+            "log": "0005.log",
+            "label": ".: dependencies",
+            "lane": "setup",
+            "command": [
+              "/home/runner/.bun/bin/bun",
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate",
+              "--frozen-lockfile"
+            ],
+            "engine_invocations": 0
+          },
+          "tail": [
+            "[0.09ms] \".env.production\"",
+            "warn: registry token references unset variable $BUN_AUTH_TOKEN, ignoring credential",
+            "bun install v1.4.4 (38afee6c8)",
+            "",
+            "+ @actions/expressions@0.3.61",
+            "+ @stacksjs/components@https://registry.pantry.dev/@stacksjs/components@f1790ff",
+            "+ better-dx@0.2.38",
+            "+ bun-plugin-stx@https://registry.pantry.dev/bun-plugin-stx@f1790ff",
+            "+ @stacksjs/stx@https://registry.pantry.dev/@stacksjs/stx@f1790ff",
+            "+ stacks@workspace:storage/framework/core",
+            "",
+            "307 packages installed [1.84s]",
+            "",
+            "Blocked 16 postinstalls. Run `bun pm untrusted` for details.",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 381128 KiB; limit 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: passed, exit 0"
+          ]
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 1237412,
+            "memory_limit_mb": 3072,
+            "seconds": 2.606,
+            "log": "0016.log",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "./buddy build"
+            ],
+            "engine_invocations": 3
+          },
+          "tail": [
+            "[stx] Plugin loaded: @stacksjs/components",
+            "[stx build] Mode: SSG (default \u2014 ssr is false)",
+            "No site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.",
+            "  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,",
+            "  via --domain, or with SITE_URL in the build environment.",
+            "\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts",
+            "",
+            "  Build failed: invalid regular expression",
+            "Failed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate",
+            "",
+            "The frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.",
+            "The error it printed above is the cause - this step only relays its exit status.",
+            "",
+            "Failed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 1237412 KiB; limit 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: failed, exit 1"
+          ]
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 661340,
+            "memory_limit_mb": 3072,
+            "seconds": 1.803,
+            "log": "0017.log",
+            "label": ".: test",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "./buddy test"
+            ],
+            "engine_invocations": 2,
+            "unsupported_reasons": [
+              "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+            ],
+            "reason": "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+          },
+          "tail": [
+            "$ [\"/bin/sh\", \"-c\", \"./buddy test\"]",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/datetime/src/parse.ts:4999: ')' expected. (TS1005)",
+            "[2026-11-09T20:28:38.379Z] local.INFO: Running   buddy test ",
+            "ECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed",
+            "[2026-11-09T20:28:38.729Z] local.ERROR: Tests failed",
+            "Failed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/test/index.ts --interaction --emoji --cache --verbose --cwd /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate",
+            "Failed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/test/index.ts --interaction --emoji --cache --verbose --cwd /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 661340 KiB; limit 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: failed, exit 1"
+          ]
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 1819080,
+            "memory_limit_mb": 3072,
+            "seconds": 7.113,
+            "log": "0018.log",
+            "label": ".: typecheck",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)"
+            ],
+            "engine_invocations": 3
+          },
+          "tail": [
+            "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]",
+            "[2026-11-09T20:28:45.760Z] local.INFO: Building @stacksjs/validation...",
+            "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 1819080 KiB; limit 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: failed, exit 1"
+          ]
+        },
+        {
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 385792,
+            "memory_limit_mb": 3072,
+            "seconds": 2.924,
+            "log": "0643.log",
+            "label": ".: reference dependencies",
+            "lane": "reference-setup",
+            "command": [
+              "/home/runner/.bun/bin/bun",
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/reference",
+              "--frozen-lockfile"
+            ],
+            "engine_invocations": 0
+          },
+          "tail": [
+            "[0.09ms] \".env.production\"",
+            "warn: registry token references unset variable $BUN_AUTH_TOKEN, ignoring credential",
+            "bun install v1.4.4 (38afee6c8)",
+            "",
+            "+ @actions/expressions@0.3.61",
+            "+ @stacksjs/components@https://registry.pantry.dev/@stacksjs/components@f1790ff",
+            "+ better-dx@0.2.38",
+            "+ bun-plugin-stx@https://registry.pantry.dev/bun-plugin-stx@f1790ff",
+            "+ @stacksjs/stx@https://registry.pantry.dev/@stacksjs/stx@f1790ff",
+            "+ stacks@workspace:storage/framework/core",
+            "",
+            "307 packages installed [1.57s]",
+            "",
+            "Blocked 16 postinstalls. Run `bun pm untrusted` for details.",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 385792 KiB; limit 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: passed, exit 0"
+          ]
+        },
+        {
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 822688,
+            "memory_limit_mb": 3072,
+            "seconds": 68.035,
+            "log": "0654.log",
+            "label": ".: build",
+            "lane": "reference",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "./buddy build"
+            ],
+            "engine_invocations": 0
+          },
+          "tail": [
+            "  Failed: 0",
+            "  Time: 67071ms",
+            "",
+            "",
+            "  Build complete! (SSG)",
+            "",
+            "    Pages generated: 5",
+            "    Sitemap: dist/sitemap.xml",
+            "    Build time: 67.11s",
+            "    Output: dist/",
+            "",
+            "  To preview locally:",
+            "    cd dist && npx serve",
+            "",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 822688 KiB; limit 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: passed, exit 0"
+          ]
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": -9,
+            "peak_sampled_rss_kib": 3196136,
+            "memory_limit_mb": 3072,
+            "seconds": 24.234,
+            "log": "0655.log",
+            "reason": "sampled command tree RSS exceeded 3072 MiB",
+            "label": ".: test",
+            "lane": "reference",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "./buddy test"
+            ],
+            "engine_invocations": 0
+          },
+          "tail": [
+            "(skip) postgres the Jobs list pages both tables in the database and matches paging them in memory",
+            "(skip) mysql the Jobs list pages both tables in the database and matches paging them in memory",
+            "",
+            "::endgroup::",
+            "",
+            "::group::tests/unit/model-viewer-component.test.ts:",
+            "[env] warning: unset 42 encrypted value(s) no loaded env file could decrypt (Bun preloads .env.<NODE_ENV> on its own): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more",
+            "[SendPasswordResetEmailJob] Job file loaded",
+            "[events] registered 2 listeners",
+            "[stx] Plugin loaded: @stacksjs/components",
+            "[stx] Plugin loaded: @stacksjs/components",
+            "\u001b[32m[ts-css]\u001b[0m CSS engine loaded from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/reference/node_modules/@stacksjs/ts-css/dist",
+            "\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 3196136 KiB; limit 3072 MiB",
+            "ECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: failed, exit -9"
+          ]
+        },
+        {
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 1601424,
+            "memory_limit_mb": 3072,
+            "seconds": 30.678,
+            "log": "0656.log",
+            "label": ".: typecheck",
+            "lane": "reference",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)"
+            ],
+            "engine_invocations": 0
+          },
+          "tail": [
+            "[1.43kb] dist/authenticator.d.ts",
+            "[1.00kb] dist/email-verification.d.ts",
+            "[0.36kb] dist/password/reset-store.d.ts",
+            "[1.33kb] dist/password/reset-token.d.ts",
+            "[0.86kb] dist/password/reset-store.js",
+            "[2.76kb] dist/password/credentials.d.ts",
+            "[1.58kb] dist/password/reset.d.ts",
+            "[6.98kb] dist/password/credentials.js",
+            "[3.89kb] dist/password/reset-token.js",
+            "[8.88kb] dist/password/reset.js",
+            "[233ms] Built @stacksjs/auth",
+            "$ bun tsc --noEmit -p tsconfig.type-tests.json --pretty false",
+            "$ bun tsc --noEmit -p tsconfig.type-tests.json --pretty false",
+            "$ bun tsc --noEmit -p tsconfig.type-tests.json --pretty false",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 1601424 KiB; limit 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: passed, exit 0"
+          ]
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": -9,
+            "peak_sampled_rss_kib": 3260904,
+            "memory_limit_mb": 3072,
+            "seconds": 3.978,
+            "log": "0793.log",
+            "reason": "sampled command tree RSS exceeded 3072 MiB",
+            "label": "storage/framework/core/i18n: typecheck",
+            "lane": "reference",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bunx --bun tsc --noEmit"
+            ],
+            "engine_invocations": 0
+          },
+          "tail": [
+            "$ [\"/bin/sh\", \"-c\", \"bunx --bun tsc --noEmit\"]",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 3260904 KiB; limit 3072 MiB",
+            "ECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: failed, exit -9"
+          ]
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": -9,
+            "peak_sampled_rss_kib": 3244320,
+            "memory_limit_mb": 3072,
+            "seconds": 4.2,
+            "log": "0796.log",
+            "reason": "sampled command tree RSS exceeded 3072 MiB",
+            "label": "storage/framework/core/image: typecheck",
+            "lane": "reference",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun tsc --noEmit"
+            ],
+            "engine_invocations": 0
+          },
+          "tail": [
+            "$ [\"/bin/sh\", \"-c\", \"bun tsc --noEmit\"]",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 3244320 KiB; limit 3072 MiB",
+            "ECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: failed, exit -9"
+          ]
+        },
+        {
+          "check": {
+            "status": "timed-out",
+            "exit_code": 124,
+            "peak_sampled_rss_kib": 404252,
+            "memory_limit_mb": 3072,
+            "seconds": 14.365,
+            "log": "0823.log",
+            "reason": "command time budget exhausted",
+            "label": "storage/framework/core: test",
+            "lane": "reference",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun test"
+            ],
+            "engine_invocations": 0
+          },
+          "tail": [
+            "::endgroup::",
+            "",
+            "::group::actions/tests/upgrade-snapshot.test.ts:",
+            "(pass) snapshotTree + diffSnapshots > marks root launchers executable after archive-based upgrades [0.04ms]",
+            "(pass) snapshotTree + diffSnapshots > reports 0 changed when content is identical (mtime touched, bytes same) [0.63ms]",
+            "(pass) snapshotTree + diffSnapshots > reports added when a new file appears [0.50ms]",
+            "(pass) snapshotTree + diffSnapshots > reports changed when content actually changes [0.48ms]",
+            "(pass) snapshotTree + diffSnapshots > reports removed when a file disappears [0.49ms]",
+            "(pass) snapshotTree + diffSnapshots > honors skip[] [0.39ms]",
+            "",
+            "::endgroup::",
+            "",
+            "::group::actions/tests/dashboard-runtime.test.ts:",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 404252 KiB; limit 3072 MiB",
+            "ECOSYSTEM LIMIT: command time budget exhausted",
+            "",
+            "ECOSYSTEM RESULT: timed-out, exit 124"
+          ]
+        }
+      ]
+    },
+    {
+      "repository": "home-lang/home",
+      "consumer_sha": "6a281236a212e12723a2fe05a851f16ab89c5cd8",
+      "engine_sha": "4148436f1e48257edff4ba498809532c95643190",
+      "runtime_provenance": {
+        "engine_sha": "4148436f1e48257edff4ba498809532c95643190",
+        "suite_ref": "8ce56bfe0c5da4b7a0a85b4fb1d079d12a350f7e",
+        "home_repository": "home-lang/home",
+        "home_ref": "6a281236a212e12723a2fe05a851f16ab89c5cd8",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "ba5a94fe22e24687a7e84e5e9b207dfe578713f0d965be9beb8c5d4656f05850",
+          "engine/zig-out/lib/libzig-js.a": "338cf7d8b0225b1833fb27d66afdd16f08e3fe04f9711900d7d7f4d7c62f646a"
+        }
+      },
+      "scopes": 46,
+      "checks": 234,
+      "statuses": {
+        "passed": 103,
+        "failed": 56,
+        "timed-out": 3,
+        "unsupported": 38,
+        "not-run": 34
+      },
+      "lanes": {
+        "candidate": {
+          "failed": 42,
+          "unsupported": 38,
+          "passed": 7
+        },
+        "direct-consumer": {
+          "passed": 4
+        },
+        "engine": {
+          "passed": 1
+        },
+        "reference": {
+          "passed": 9,
+          "failed": 6,
+          "timed-out": 1,
+          "not-run": 34
+        },
+        "reference-setup": {
+          "passed": 38,
+          "failed": 4,
+          "timed-out": 1
+        },
+        "setup": {
+          "passed": 44,
+          "failed": 4,
+          "timed-out": 1
+        }
+      },
+      "artifact_id": 13710150996,
+      "zip_sha256_verified": "3e6e4cc26f9f380119982ae45528b3edc02b350750ec5eae0ea76d82a731ed08",
+      "candidate_map_compared_to": {
+        "repository": "zig-utils/zig-js-ecosystem",
+        "run_id": 42683040525,
+        "url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42683040525",
+        "measured_at": "2026-11-09T20:08:22Z",
+        "artifact_id": 13707100659,
+        "digest": "sha256:6f976a13f1c7c4784a6c5d69f41b320e9dd37b53d3ec547b17c4f801bc467f58",
+        "focused": true,
+        "artifact_url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42683040525/artifacts/13707100659"
+      },
+      "candidate_status_changes": [],
+      "inspected_logs": [
+        {
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 103580,
+            "memory_limit_mb": 3072,
+            "seconds": 0.328,
+            "log": "0009.log",
+            "label": ".: dependencies",
+            "lane": "setup",
+            "command": [
+              "/home/runner/.bun/bin/bun",
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate",
+              "--frozen-lockfile"
+            ],
+            "engine_invocations": 0
+          },
+          "tail": [
+            "  \"dependency_setup\": {",
+            "    \"reused\": false,",
+            "    \"reason\": \"independent install or locked scope\",",
+            "    \"dependencies\": []",
+            "  }",
+            "}",
+            "bun install v1.4.4 (38afee6c8)",
+            "",
+            "+ @stacksjs/bunpress@0.2.17",
+            "+ @types/bun@1.4.2",
+            "+ better-dx@0.2.25",
+            "+ react@18.3.1",
+            "",
+            "76 packages installed [306.00ms]",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 103580 KiB; limit 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: passed, exit 0"
+          ]
+        },
+        {
+          "check": {
+            "status": "timed-out",
+            "exit_code": 124,
+            "peak_sampled_rss_kib": 129348,
+            "memory_limit_mb": 3072,
+            "seconds": 300.017,
+            "log": "0019.log",
+            "reason": "command time budget exhausted",
+            "label": "packages/runtime/upstream/bench: dependencies",
+            "lane": "setup",
+            "command": [
+              "/home/runner/.bun/bin/bun",
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate",
+              "--frozen-lockfile"
+            ],
+            "engine_invocations": 0
+          },
+          "tail": [
+            "$ [\"/home/runner/.bun/bin/bun\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate\", \"--frozen-lockfile\"]",
+            "{",
+            "  \"dependency_setup\": {",
+            "    \"reused\": false,",
+            "    \"reason\": \"independent install or locked scope\",",
+            "    \"dependencies\": []",
+            "  }",
+            "}",
+            "[0.02ms] \".env\"",
+            "bun install v1.4.4 (38afee6c8)",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 129348 KiB; limit 3072 MiB",
+            "ECOSYSTEM LIMIT: command time budget exhausted",
+            "",
+            "ECOSYSTEM RESULT: timed-out, exit 124"
+          ]
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": -9,
+            "peak_sampled_rss_kib": 3158656,
+            "memory_limit_mb": 3072,
+            "seconds": 22.516,
+            "log": "0052.log",
+            "reason": "sampled command tree RSS exceeded 3072 MiB",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bunx bunpress build"
+            ],
+            "engine_invocations": 1
+          },
+          "tail": [
+            "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]",
+            "  Building documentation...",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 3158656 KiB; limit 3072 MiB",
+            "ECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: failed, exit -9"
+          ]
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 10676,
+            "memory_limit_mb": 3072,
+            "seconds": 0.038,
+            "log": "0053.log",
+            "label": ".: test",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun test"
+            ],
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+            ],
+            "reason": "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+          },
+          "tail": [
+            "$ [\"/bin/sh\", \"-c\", \"bun test\"]",
+            "ECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 10676 KiB; limit 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: failed, exit 78"
+          ]
+        },
+        {
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 631900,
+            "memory_limit_mb": 3072,
+            "seconds": 0.925,
+            "log": "0054.log",
+            "label": ".: typecheck",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun --bun tsc --noEmit"
+            ],
+            "engine_invocations": 1
+          },
+          "tail": [
+            "$ [\"/bin/sh\", \"-c\", \"bun --bun tsc --noEmit\"]",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 631900 KiB; limit 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: passed, exit 0"
+          ]
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": -9,
+            "peak_sampled_rss_kib": 3221508,
+            "memory_limit_mb": 3072,
+            "seconds": 5.159,
+            "log": "0057.log",
+            "reason": "sampled command tree RSS exceeded 3072 MiB",
+            "label": "packages/action: typecheck",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "tsc --noEmit"
+            ],
+            "engine_invocations": 1
+          },
+          "tail": [
+            "$ [\"/bin/sh\", \"-c\", \"tsc --noEmit\"]",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 3221508 KiB; limit 3072 MiB",
+            "ECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: failed, exit -9"
+          ]
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": -9,
+            "peak_sampled_rss_kib": 3191184,
+            "memory_limit_mb": 3072,
+            "seconds": 12.779,
+            "log": "0074.log",
+            "reason": "sampled command tree RSS exceeded 3072 MiB",
+            "label": "packages/runtime/upstream/bench/bundle: module initialization index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+              "index.ts"
+            ],
+            "engine_invocations": 1
+          },
+          "tail": [
+            "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun\", \"index.ts\"]",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 3191184 KiB; limit 3072 MiB",
+            "ECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: failed, exit -9"
+          ]
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": -9,
+            "peak_sampled_rss_kib": 3181720,
+            "memory_limit_mb": 3072,
+            "seconds": 4.41,
+            "log": "0117.log",
+            "reason": "sampled command tree RSS exceeded 3072 MiB",
+            "label": "packages/runtime/upstream/packages/bun-types: test",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "tsc"
+            ],
+            "engine_invocations": 1
+          },
+          "tail": [
+            "$ [\"/bin/sh\", \"-c\", \"tsc\"]",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 3181720 KiB; limit 3072 MiB",
+            "ECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: failed, exit -9"
+          ]
+        },
+        {
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 95016,
+            "memory_limit_mb": 3072,
+            "seconds": 0.452,
+            "log": "0142.log",
+            "label": ".: reference dependencies",
+            "lane": "reference-setup",
+            "command": [
+              "/home/runner/.bun/bin/bun",
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference",
+              "--frozen-lockfile"
+            ],
+            "engine_invocations": 0
+          },
+          "tail": [
+            "  \"dependency_setup\": {",
+            "    \"reused\": false,",
+            "    \"reason\": \"independent install or locked scope\",",
+            "    \"dependencies\": []",
+            "  }",
+            "}",
+            "bun install v1.4.4 (38afee6c8)",
+            "",
+            "+ @stacksjs/bunpress@0.2.17",
+            "+ @types/bun@1.4.2",
+            "+ better-dx@0.2.25",
+            "+ react@18.3.1",
+            "",
+            "76 packages installed [428.00ms]",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 95016 KiB; limit 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: passed, exit 0"
+          ]
+        },
+        {
+          "check": {
+            "status": "timed-out",
+            "exit_code": 124,
+            "peak_sampled_rss_kib": 141532,
+            "memory_limit_mb": 3072,
+            "seconds": 300.014,
+            "log": "0152.log",
+            "reason": "command time budget exhausted",
+            "label": "packages/runtime/upstream/bench: reference dependencies",
+            "lane": "reference-setup",
+            "command": [
+              "/home/runner/.bun/bin/bun",
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference",
+              "--frozen-lockfile"
+            ],
+            "engine_invocations": 0
+          },
+          "tail": [
+            "$ [\"/home/runner/.bun/bin/bun\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference\", \"--frozen-lockfile\"]",
+            "{",
+            "  \"dependency_setup\": {",
+            "    \"reused\": false,",
+            "    \"reason\": \"independent install or locked scope\",",
+            "    \"dependencies\": []",
+            "  }",
+            "}",
+            "[0.02ms] \".env\"",
+            "bun install v1.4.4 (38afee6c8)",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 141532 KiB; limit 3072 MiB",
+            "ECOSYSTEM LIMIT: command time budget exhausted",
+            "",
+            "ECOSYSTEM RESULT: timed-out, exit 124"
+          ]
+        },
+        {
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 305328,
+            "memory_limit_mb": 3072,
+            "seconds": 2.811,
+            "log": "0185.log",
+            "label": ".: build",
+            "lane": "reference",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bunx bunpress build"
+            ],
+            "engine_invocations": 0
+          },
+          "tail": [
+            "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]",
+            "  Building documentation...",
+            "\u001b[32m\u2713\u001b[0m Built 159 pages to HTML in 2.75s",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 305328 KiB; limit 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: passed, exit 0"
+          ]
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 2667640,
+            "memory_limit_mb": 3072,
+            "seconds": 139.462,
+            "log": "0186.log",
+            "label": ".: test",
+            "lane": "reference",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun test"
+            ],
+            "engine_invocations": 0
+          },
+          "tail": [
+            "gyp ERR! System Linux 7.0.0-1017-azure",
+            "gyp ERR! command \"/home/runner/.bun/bin/bun\" \"/tmp/bun.test.0TsvLr/node_modules/.bin/node-gyp\" \"rebuild\" \"--release\" \"-j\" \"max\"",
+            "gyp ERR! cwd /tmp/bun.test.0TsvLr",
+            "gyp ERR! node -v v26.3.0",
+            "gyp ERR! node-gyp -v v11.2.0",
+            "gyp ERR! not ok ",
+            "error: \"node-gyp\" exited with code 1",
+            "",
+            "",
+            "make: Entering directory '/tmp/bun.test.0TsvLr/build'",
+            "  CXX(target) Release/obj.target/v8tests/main.o",
+            "make: Leaving directory '/tmp/bun.test.0TsvLr/build'",
+            "",
+            "build failed: 1, bailing out",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 2667640 KiB; limit 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: failed, exit 1"
+          ]
+        },
+        {
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 152492,
+            "memory_limit_mb": 3072,
+            "seconds": 1.309,
+            "log": "0187.log",
+            "label": ".: typecheck",
+            "lane": "reference",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun --bun tsc --noEmit"
+            ],
+            "engine_invocations": 0
+          },
+          "tail": [
+            "$ [\"/bin/sh\", \"-c\", \"bun --bun tsc --noEmit\"]",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 152492 KiB; limit 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: passed, exit 0"
+          ]
+        },
+        {
+          "check": {
+            "status": "timed-out",
+            "exit_code": 124,
+            "peak_sampled_rss_kib": 934832,
+            "memory_limit_mb": 3072,
+            "seconds": 145.035,
+            "log": "0200.log",
+            "reason": "command time budget exhausted",
+            "label": "packages/runtime/upstream/bench/ffi: build",
+            "lane": "reference",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "cd src && bun run build"
+            ],
+            "engine_invocations": 0
+          },
+          "tail": [
+            "$ [\"/bin/sh\", \"-c\", \"cd src && bun run build\"]",
+            "$ bun run build:napi && bun run build:ffi",
+            "$ napi build --release --platform --no-dts-header --features enable-napi && bun run cleanup",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 934832 KiB; limit 3072 MiB",
+            "ECOSYSTEM LIMIT: command time budget exhausted",
+            "",
+            "ECOSYSTEM RESULT: timed-out, exit 124"
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Both candidate status maps match preceding3836 suite. Stacks consumer changed32a86 to a554; real root build progresses installed037 net failure to known SVG regex rejection. Native build generates5 pages.",
+    "Stacks routed typecheck now executes its compound shell command and reaches real missing Bun.build, not shell syntax failure.",
+    "Native Stacks root tests exceed3072MiB at3196136KiB; core tests exhaust300s. All limits and failures retained.",
+    "Home root docs exceeds3072MiB at3158656KiB; root typecheck passes. Native tests still fail Node26 V8 build API compilation.",
+    "Standalone reproduction of the datetime source warning now fails valid JS comparison chains in Home; investigation ongoing. No parser fix claimed here."
+  ]
+}
