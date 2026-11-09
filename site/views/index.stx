@@ -1,0 +1,119 @@
+<script client>
+const query = state('')
+const organization = state('')
+const outcome = state('')
+const items = @json(clientRows)
+function matches(name, owner, status) {
+  return (!query() || name.toLowerCase().includes(query().trim().toLowerCase()))
+    && (!organization() || owner === organization())
+    && (!outcome() || status === outcome())
+}
+const visibleCount = derived(() => items.filter(item => matches(item.name, item.owner, item.status)).length)
+function resetFilters() {
+  query.set('')
+  organization.set('')
+  outcome.set('')
+}
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>zig-js ecosystem · Integration status</title>
+  <meta name="description" content="Measured compatibility across the zig-js ecosystem. Explore real candidate, reference and native CI outcomes, with immutable runtime evidence.">
+  <meta name="theme-color" content="#111411">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="stylesheet" href="./assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#repositories">Skip to repositories</a>
+  <aside class="sidebar">
+    <a class="brand" href="./" aria-label="zig-js ecosystem home"><span class="brand-mark">z</span><span>zig-js<span class="brand-sub">ecosystem</span></span></a>
+    <div class="sidebar-label">WORKSPACE</div>
+    <nav aria-label="Main navigation">
+      <a class="nav-item active" href="#overview"><span class="nav-icon">◫</span>Overview<span class="nav-dot"></span></a>
+      <a class="nav-item" href="#repositories"><span class="nav-icon">▤</span>Repositories<span class="nav-number">{{ total }}</span></a>
+      <a class="nav-item" href="#methodology"><span class="nav-icon">◎</span>Reading the results</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-label">OPEN SOURCE, OBSERVABLE</div>
+      <a href="https://github.com/zig-utils/zig-js-ecosystem">Suite source <span>↗</span></a>
+      <a href="https://github.com/zig-utils/zig-js">Engine source <span>↗</span></a>
+      <div class="built-with">Built with <a href="https://github.com/stacksjs/stx">STX</a><br>Evidence over assumptions.</div>
+    </div>
+  </aside>
+  <main class="main" id="overview">
+    <header class="topbar"><div><span class="breadcrumb">zig-utils</span><span class="slash">/</span>Ecosystem</div><a href="https://github.com/zig-utils/zig-js/actions/workflows/ecosystem.yml">View CI ↗</a></header>
+    <section class="page-heading">
+      <div><div class="eyebrow"><span class="orange-dot"></span> INTEGRATION OBSERVATORY</div><h1>Ecosystem health<span class="accent">.</span></h1><p>One engine. Every consumer. The evidence behind what works.</p></div>
+      <div class="refresh"><span class="refresh-symbol">↻</span><div>Snapshot refreshed<time>{{ generated }}</time></div></div>
+    </section>
+    @if(warnings.length)
+      <div class="notice" role="status"><strong>Some live data could not refresh.</strong> Dated measured evidence is retained below.
+      @foreach(warnings as warning)<p>{{ warning }}</p>@endforeach
+      </div>
+    @endif
+    <div class="summary-grid">
+      <div class="stat"><span class="stat-label">Selected repositories</span><strong>{{ total }}</strong><span class="stat-note">Across owned organizations</span></div>
+      <div class="stat"><span class="stat-label">Repository reports</span><strong>{{ measured }}<small> / {{ total }}</small></strong><span class="stat-note">Includes native and coverage-only results</span></div>
+      <div class="stat"><span class="stat-label">Candidate checks recorded</span><strong>{{ candidateChecks.toLocaleString('en-US') }}</strong><span class="stat-note">Includes failures and unexecuted checks</span></div>
+      <div class="stat"><span class="stat-label">Candidate passed</span><strong class="success-text">{{ counts.passed }}<small> repos</small></strong><span class="stat-note">All recorded candidate checks executed</span></div>
+    </div>
+    <section class="distribution" aria-label="Repository outcome distribution">
+      <div class="distribution-bar">@foreach(statuses as group)@if(group.count)<span class="segment {{ group.status }}" style="width: {{ group.count / total * 100 }}%" title="{{ group.label }}: {{ group.count }}"></span>@endif@endforeach</div>
+      <div class="legend">@foreach(statuses as group)@if(group.count)<span><i class="dot {{ group.status }}"></i>{{ group.label }} <b>{{ group.count }}</b></span>@endif@endforeach</div>
+    </section>
+    <section class="section" aria-labelledby="priority-heading">
+      <div class="section-heading"><h2 id="priority-heading">Priority integrations</h2><span class="small muted">Stacks & Home first</span></div>
+      <div class="priority-grid">
+        @foreach(priorities as repo)
+        <a class="priority-card" href="{{ repo.href }}">
+          <div class="card-top"><span class="repo-symbol {{ repo.owner }}">{{ repo.shortName === 'stacks' ? 'S' : 'H' }}</span><span class="badge {{ repo.status }}"><i></i>{{ repo.label }}</span><span class="card-arrow">↗</span></div>
+          <h3>{{ repo.name }}</h3><p class="priority-summary">{{ repo.candidate }}</p>
+          <div class="card-footer"><span>{{ repo.scopes }} scopes inspected</span><span>engine <code>{{ repo.engine }}</code></span></div>
+        </a>
+        @endforeach
+      </div>
+    </section>
+    <section class="section" aria-labelledby="runs-heading">
+      <div class="section-heading"><h2 id="runs-heading">Latest CI activity</h2><span class="small muted">Live job state · separate from measured results</span></div>
+      <div class="run-grid">
+        @foreach(runs as run)
+        <a class="run-card" href="{{ run.html_url }}"><div><span class="mono small">{{ run.repository }}</span><span class="badge {{ run.stateClass }}">{{ run.state }}</span></div><p><span>Run #{{ run.id }}</span><span>{{ run.completed }} / {{ run.total }} jobs complete</span></p><div class="run-bottom"><code>{{ run.sha }}</code><span>Open run ↗</span></div></a>
+        @endforeach
+      </div>
+      @if(!runs.length)<p class="notice">Live job state unavailable. Measured results below retain their original run dates.</p>@endif
+    </section>
+    <section class="section repositories" id="repositories" aria-labelledby="repos-heading">
+      <div class="section-heading"><h2 id="repos-heading">Repository integrations <span class="count">{{ total }}</span></h2><a class="small subtle-link" href="./snapshot.json">Download snapshot ↓</a></div>
+      <p class="section-description">Candidate results use zig-js through Home. Native-only and unsupported checks remain distinct.</p>
+      <noscript><p class="notice">All repositories are shown. Enable JavaScript to search and filter.</p></noscript>
+      <div class="toolbar">
+        <label class="search"><span aria-hidden="true">⌕</span><span class="sr-only">Search repositories</span><input type="search" x-model="query" placeholder="Search repositories…" autocomplete="off"></label>
+        <label><span class="sr-only">Organization</span><select x-model="organization"><option value="">All organizations</option>@foreach(owners as owner)<option value="{{ owner }}">{{ owner }}</option>@endforeach</select></label>
+        <label><span class="sr-only">Candidate outcome</span><select x-model="outcome"><option value="">All outcomes</option>@foreach(statuses as group)<option value="{{ group.status }}">{{ group.label }} ({{ group.count }})</option>@endforeach</select></label>
+        <button type="button" class="reset" @click="resetFilters()">Reset</button>
+      </div>
+      <div class="table-scroll"><table class="repo-table"><thead><tr><th scope="col">Repository</th><th scope="col">zig-js outcome</th><th scope="col">Candidate checks</th><th scope="col">Reference Bun</th><th scope="col">Measured engine</th><th scope="col"><span class="sr-only">Details</span></th></tr></thead><tbody>
+      @foreach(rows as repo)
+        <tr :if="matches('{{ repo.name }}', '{{ repo.owner }}', '{{ repo.status }}')">
+          <td><a class="repo-name" href="{{ repo.href }}">{{ repo.shortName }}</a><span class="repo-owner">{{ repo.owner }} <span>· {{ repo.language }}</span></span></td>
+          <td><span class="badge {{ repo.status }}"><i></i>{{ repo.label }}</span></td>
+          <td class="check-cell">{{ repo.candidate }}@if(repo.hasNative)<span class="native-summary">Native Zig: {{ repo.native }}</span>@endif</td><td class="check-cell reference-cell">{{ repo.reference }}</td>
+          <td><code>{{ repo.engine }}</code><span class="evidence-age">@if(repo.priorEngine)Prior engine snapshot@else{{ repo.measured }}@endif</span></td>
+          <td><a class="row-link" href="{{ repo.href }}" aria-label="Inspect {{ repo.name }}">↗</a></td>
+        </tr>
+      @endforeach
+      </tbody></table></div>
+      <div class="empty-state" :if="visibleCount() === 0"><strong>No matching repositories</strong><p>Try another name, organization or outcome.</p><button class="reset" type="button" @click="resetFilters()">Clear filters</button></div>
+      <div class="table-footer"><span><span :text="visibleCount()">{{ total }}</span> of {{ total }} repositories</span><span>Open a repository for every check & its provenance ↗</span></div>
+    </section>
+    <section class="methodology" id="methodology">
+      <div><div class="eyebrow">READING THE SIGNAL</div><h2>A pass has to mean something.</h2><p>Results describe the recorded consumer revision and engine, not a blanket compatibility promise. New runs may still be queued while earlier evidence is displayed.</p></div>
+      <div class="method-items"><div><span class="method-number">01</span><p><strong>Execution is explicit.</strong> “Passed” requires real zig-js invocations and every recorded candidate check passing. Module initialization is a smoke check, not an upstream test-suite pass.</p></div><div><span class="method-number">02</span><p><strong>Gaps stay visible.</strong> Unsupported host APIs, unexecuted tests, timeouts and setup failures never count as passes. Native Zig and reference Bun checks have their own lanes.</p></div><div><span class="method-number">03</span><p><strong>Trace it to the source.</strong> Every measured repository links to its original run, checks and immutable engine, suite and Home revisions.</p></div></div>
+    </section>
+    <footer class="footer"><span>zig-js ecosystem <span class="footer-separator">/</span> Built with STX</span><span>Activity since {{ cutoff }} · Excluded: {{ exclusions }}</span></footer>
+  </main>
+</body>
+</html>

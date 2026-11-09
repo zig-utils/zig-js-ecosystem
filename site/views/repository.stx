@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{{ repo.name }} · zig-js ecosystem</title><meta name="theme-color" content="#111411"><link rel="icon" href="../../favicon.svg"><link rel="stylesheet" href="../../assets/site.css"></head>
+<body class="detail-body">
+  <main class="detail-main">
+    <header class="topbar"><a class="detail-back" href="../../#repositories">← All integrations</a><a href="{{ repo.sourceUrl }}">Source repository ↗</a></header>
+    <section class="page-heading"><div><div class="eyebrow">CONSUMER EVIDENCE</div><h1>{{ repo.name }}</h1><p>Every recorded check, with its execution lane and immutable provenance.</p></div><span class="badge {{ repo.status }}"><i></i>{{ repo.label }}</span></section>
+    @if(repo.priorEngine)<p class="notice">These measurements use a prior engine revision. Open the source run for its exact execution context.</p>@endif
+    <div class="summary-grid detail-stats"><div class="stat"><span class="stat-label">Candidate · zig-js</span><p>{{ repo.candidate }}</p></div><div class="stat"><span class="stat-label">Reference · Bun</span><p>{{ repo.reference }}</p></div><div class="stat"><span class="stat-label">Native checks</span><p>{{ repo.native }}</p></div></div>
+    @if(repo.source)
+    <section class="provenance"><div class="section-heading"><h2>Measurement provenance</h2><a class="small subtle-link" href="./evidence.json">Evidence JSON ↓</a></div><dl>
+      <div><dt>Measured</dt><dd>{{ repo.measured }}</dd></div>
+      <div><dt>Consumer</dt><dd><a href="{{ repo.sourceUrl }}/commit/{{ repo.fullSha }}"><code>{{ repo.fullSha }}</code> ↗</a></dd></div>
+      <div><dt>Report engine</dt><dd><a href="https://github.com/zig-utils/zig-js/commit/{{ repo.fullEngine }}"><code>{{ repo.fullEngine }}</code> ↗</a></dd></div>
+      @if(repo.hasProvenance)
+      <div><dt>Suite</dt><dd><a href="https://github.com/zig-utils/zig-js-ecosystem/commit/{{ repo.provenance.suite_ref }}"><code>{{ repo.provenance.suite_ref }}</code> ↗</a></dd></div>
+      <div><dt>Home runtime</dt><dd><a href="https://github.com/home-lang/home/commit/{{ repo.provenance.home_ref }}"><code>{{ repo.provenance.home_ref }}</code> ↗</a></dd></div>
+      <div><dt>Build profile</dt><dd>{{ repo.provenance.build_cpu }} · {{ repo.provenance.build_optimize }} · Zig {{ repo.provenance.zig_version }}</dd></div>
+      @else<div><dt>Runtime provenance</dt><dd>No Home runtime provenance recorded. Native or non-executable results do not establish zig-js support.</dd></div>@endif
+      <div><dt>Original evidence</dt><dd><a href="{{ repo.source.url }}">Run #{{ repo.source.run_id }} ↗</a> · <a href="{{ repo.source.artifact_url }}">Report artifact & command logs ↗</a></dd></div>
+      <div><dt>Report archive SHA-256</dt><dd class="digest"><code>{{ repo.source.digest }}</code></dd></div>
+    </dl></section>
+    @else<p class="notice">No measured result is available for this repository. It remains in the selected inventory and does not count as a pass.</p>@endif
+    <section class="section"><div class="section-heading"><h2>Recorded checks <span class="count">{{ repo.checks.length }}</span></h2><span class="small muted">{{ repo.scopes }} scopes inspected</span></div><p class="section-description">Candidate = zig-js via Home · Reference = native Bun · Native = declared native tooling · Setup = checkout/install. Open the report artifact for the full command logs.</p>
+      <div class="table-scroll"><table class="checks-table"><thead><tr><th scope="col">Check</th><th scope="col">Lane</th><th scope="col">Outcome</th><th scope="col">Duration</th></tr></thead><tbody>@foreach(repo.checks as check)<tr><td><strong>{{ check.label }}</strong>@if(check.reason)<p class="check-reason">{{ check.reason }}</p>@endif<span class="check-log">{{ check.log }}</span></td><td><span class="lane {{ check.lane }}">{{ check.lane }}</span></td><td><span class="badge {{ check.status }}">{{ check.statusLabel }}</span></td><td class="mono small">{{ check.secondsLabel }}</td></tr>@endforeach</tbody></table></div>
+    </section>
+    <footer class="footer"><a href="../../">← Ecosystem overview</a><span>Snapshot refreshed {{ generated }}</span></footer>
+  </main>
+</body></html>
