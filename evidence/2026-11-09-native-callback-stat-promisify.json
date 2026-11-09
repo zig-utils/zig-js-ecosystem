@@ -103,8 +103,32 @@
     "The callback contract remains bounded to string POSIX paths and numeric metadata; BigInt, URL/Buffer paths and unknown options remain explicit refusals. Callback lstat preserves native errors even for throwIfNoEntry:false; measured Node26 callback stat alone suppresses missing entries.",
     "Native metadata witness compares seven predicates, size/ino/nlink and date field shape against real OS fixtures, including links, missing paths, ENOTDIR, loops, FIFO/socket and character device. No positive block-device or exact worker-pool ordering/performance claim.",
     "Generic public promisify supports custom symbol/descriptor/receiver/exception semantics. Node private multi-result symbols and Promise-returning-original deprecation warnings are not implemented.",
-    "Bun1.4.4 differs from Node26 at the empty-path native errno contract; its failed reference output is retained, not skipped.",
+    "Bun1.4.4 omits error.path on empty input while Node26 preserves the empty string. Both return ENOENT with correct syscall; the precise failed reference is retained, not skipped.",
     "Actual declared registry Jest29.7 command remains failed: after genuine stat/lstat adaptation, path-exists invokes promisify(fs.access), which is still absent. Both actual runs emit real zig-js invocation events; no native Bun candidate fallback or Jest test pass is claimed.",
     "Existing action memory, docs deadlines, absent test scheduler/editor host and Stacks worker_threads/Bun.build/reference-memory failures remain obligations."
-  ]
+  ],
+  "empty_path_error_oracles": {
+    "node": {
+      "exit_code": 0,
+      "output": "{\"operation\":\"stat\",\"code\":\"ENOENT\",\"syscall\":\"stat\",\"path\":\"\",\"arguments\":1,\"result\":\"undefined\"}\n{\"operation\":\"lstat\",\"code\":\"ENOENT\",\"syscall\":\"lstat\",\"path\":\"\",\"arguments\":1,\"result\":\"undefined\"}\n"
+    },
+    "bun": {
+      "exit_code": 0,
+      "output": "{\"operation\":\"stat\",\"code\":\"ENOENT\",\"syscall\":\"stat\",\"arguments\":1,\"result\":\"undefined\"}\n{\"operation\":\"lstat\",\"code\":\"ENOENT\",\"syscall\":\"lstat\",\"arguments\":1,\"result\":\"undefined\"}\n"
+    }
+  },
+  "oracle_clarification": "Node26.10 and Bun1.4.4 both return ENOENT with the correct stat/lstat syscall for empty input. Node retains error.path as the empty string; Bun omits error.path. That field difference is the retained failed Bun reference, not an errno-code mismatch.",
+  "functional_suite_ref": "e4f53f848d2a82d4ba73111aedacdf007ea45ca4",
+  "dispatch": {
+    "run_id": 42564324557,
+    "validation_run_id": 42564324360,
+    "engine_sha": "d54eb93121eaed287c810e3f362585f8366b9169",
+    "repositories": [
+      "stacksjs/stacks",
+      "home-lang/home"
+    ],
+    "reference": true,
+    "status_at_dispatch": "queued",
+    "caller_pin": "c52cf3d297aaf52d0d5dac6150cabddf28b496b9"
+  }
 }
