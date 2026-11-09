@@ -1,0 +1,263 @@
+{
+  "recorded_utc": "2026-11-09",
+  "fix": {
+    "repository": "stacksjs/stx",
+    "commit": "f1790ff15faa4f94b0b5aade84cf4f436a010078",
+    "parent": "454a717c096dd947501e1ad3f9bf4a79a1606828",
+    "description": "Reuse the actual validator from shared parsed page metadata; remove duplicate nested regex/function re-evaluation. Keep the existing thrown/rejected validator recovery."
+  },
+  "provenance": {
+    "local_host": "macOS arm64",
+    "runtime_home": "c84af37b60db3ff78e074ea0734559e0867d6d92",
+    "local_engine_archive_revision": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+    "local_engine_archive_sha256": "e141e082ae57b0d62f16d445291eb73f15332689daf47a6b7c1d36086bafb613",
+    "native_reference_bun": "1.4.4 (38afee6c8)",
+    "node_reference": "26.10.0",
+    "source_manifest": {
+      "commit": "f1790ff15faa4f94b0b5aade84cf4f436a010078",
+      "files": {
+        "packages/stx/src/ssg.ts": "1993add77ab38dcb54b17aee67ce45f4f459574b843b67c0edb5b4a8786ac379",
+        "packages/stx/src/page-meta.ts": "4f385d2e4054b97c830ac72ee91717abdbfac015b2aba637b3fc6a8b0033ec03",
+        "packages/stx/test/ssg-page-validation.test.ts": "87ed29cab79507af3e1fb1d33d52cd6d32ec0e84e7e15664816cd40ad0a70da6"
+      },
+      "before_ssg_sha256": "85ad4439a5d3797c7bac579e01eaeef3754b592ad912db05aa9cccb021efc8e2",
+      "before_factory_sha256": "3e06038b576899bec1dcaa76d1c0c390ce5704a5422c707d316839bcd91ae6e5",
+      "before_factory_bytes": 35076
+    },
+    "candidate": "Retained task-owned Stacks037 cohort overlay without local Pantry. This is a source CLI continuation, not the current installed Stacks CI build."
+  },
+  "reproduction": {
+    "pattern": {
+      "pattern": "definePageMeta\\s*\\(\\s*\\{[\\s\\S]*?validate\\s*:\\s*((?:\\([^)]*\\)|[^,}])*(?:\\{[\\s\\S]*?\\})?)",
+      "flags": "m",
+      "subject": "definePageMeta({ validate: route => false })"
+    },
+    "actual_old_factory": "35,076 bytes; Node syntax check succeeds, native parser diagnostic fails offset23407, actual Home regex constructor rejects. Captured full factory retained locally; hash recorded above. No regex guard changed.",
+    "before_home_source_cli": {
+      "result": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 575264,
+        "memory_limit_mb": 3072,
+        "seconds": 0.592,
+        "log": "after-source-ssg.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-path-to-file-url/after-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/packages/stx/dist/cli.js",
+          "build",
+          "--pages",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-cohort837/candidate/resources/views",
+          "--out",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-path-to-file-url/ssg-output"
+        ],
+        "runtime_shims_first": true,
+        "no_local_pantry": true
+      },
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-path-to-file-url/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/packages/stx/dist/cli.js\", \"build\", \"--pages\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-cohort837/candidate/resources/views\", \"--out\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-path-to-file-url/ssg-output\"]\n[stx] Plugin loaded: @stacksjs/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\n\n  Build failed: Unexpected token\n\nECOSYSTEM PEAK SAMPLED RSS: 575264 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "source": "73706b1742e3ea58a5a45b66aff3ea6c4674df7d; same original ssg.ts bytes as the native-before parent454a717c. Source has other concurrent descendants by the after run; do not infer whole-source compatibility."
+    },
+    "native_before": {
+      "cases": 8,
+      "passed": 5,
+      "failed": 3,
+      "assertions": 29,
+      "log": "bun test v1.4.4 (38afee6c8)\n\npackages/stx/test/ssg-page-validation.test.ts:\n[stx] partialsDir resolves to \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/partials\", which does not exist. Configured as \"partials\".\n[stx] layoutsDir resolves to \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/layouts\", which does not exist. Configured as \"layouts\".\n[stx] Plugin loaded: @stacksjs/components\n\u001b[32m[ts-css]\u001b[0m CSS engine loaded from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/node_modules/@stacksjs/ts-css/dist\nFound 1 routes\nGenerating 1 pages...\nValidation failed for /, skipping...\n\nBuild complete!\n  Total: 1 pages\n  Success: 0\n  Cached: 0\n  Failed: 0\n  Time: 41ms\n\n(pass) uses parsed page metadata for SSG expression refusal [45.14ms]\nFound 1 routes\nGenerating 1 pages...\nExternalized 2 asset(s) from 1 page(s) (83.1KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 75ms\n\n34 |       generate404: false,\n35 |       cleanOutput: true,\n36 |     })\n37 |     expect(result.totalPages).toBe(1)\n38 |     expect(result.failedCount).toBe(0)\n39 |     expect(result.successCount).toBe(rendered ? 1 : 0)\n                                     ^\nerror: expect(received).toBe(expected)\n\nExpected: 0\nReceived: 1\n\n      at <anonymous> (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/packages/stx/test/ssg-page-validation.test.ts:39:33)\n(fail) uses parsed page metadata for SSG block refusal [81.28ms]\nFound 1 routes\nGenerating 1 pages...\nExternalized 2 asset(s) from 1 page(s) (83.1KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 11ms\n\n34 |       generate404: false,\n35 |       cleanOutput: true,\n36 |     })\n37 |     expect(result.totalPages).toBe(1)\n38 |     expect(result.failedCount).toBe(0)\n39 |     expect(result.successCount).toBe(rendered ? 1 : 0)\n                                     ^\nerror: expect(received).toBe(expected)\n\nExpected: 0\nReceived: 1\n\n      at <anonymous> (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/packages/stx/test/ssg-page-validation.test.ts:39:33)\n(fail) uses parsed page metadata for SSG async block refusal [11.79ms]\nFound 1 routes\nGenerating 1 pages...\nExternalized 2 asset(s) from 1 page(s) (83.1KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 8ms\n\n34 |       generate404: false,\n35 |       cleanOutput: true,\n36 |     })\n37 |     expect(result.totalPages).toBe(1)\n38 |     expect(result.failedCount).toBe(0)\n39 |     expect(result.successCount).toBe(rendered ? 1 : 0)\n                                     ^\nerror: expect(received).toBe(expected)\n\nExpected: 0\nReceived: 1\n\n      at <anonymous> (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/packages/stx/test/ssg-page-validation.test.ts:39:33)\n(fail) uses parsed page metadata for SSG method refusal [8.04ms]\nFound 1 routes\nGenerating 1 pages...\nExternalized 2 asset(s) from 1 page(s) (83.1KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 10ms\n\n(pass) uses parsed page metadata for SSG block acceptance [10.61ms]\nFound 1 routes\nGenerating 1 pages...\nExternalized 2 asset(s) from 1 page(s) (83.1KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 8ms\n\n(pass) uses parsed page metadata for SSG async acceptance [8.34ms]\nFound 1 routes\nGenerating 1 pages...\nExternalized 2 asset(s) from 1 page(s) (83.1KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 10ms\n\n(pass) uses parsed page metadata for SSG validation error recovery [9.79ms]\nFound 1 routes\nGenerating 1 pages...\nExternalized 2 asset(s) from 1 page(s) (83.1KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 7ms\n\n(pass) uses parsed page metadata for SSG nonfunction metadata [7.63ms]\n\n 5 pass\n 3 fail\n 29 expect() calls\nRan 8 tests across 1 file. [357.00ms]\n",
+      "cause": "Block, async block and method validators returning false incorrectly generate a page. Existing expression refusal and acceptance/error recovery controls pass."
+    }
+  },
+  "validation": {
+    "node-check": {
+      "result": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 37712,
+        "memory_limit_mb": 3072,
+        "seconds": 0.17,
+        "log": "node-check.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "--check",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-ssg-validation/before-factory.js"
+        ]
+      },
+      "log": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"--check\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-ssg-validation/before-factory.js\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 37712 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "parser-before": {
+      "result": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 176,
+        "memory_limit_mb": 3072,
+        "seconds": 0.022,
+        "log": "parser-before.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-cohort837/parser-probe",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-ssg-validation/before-factory.js"
+        ]
+      },
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-cohort837/parser-probe\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-ssg-validation/before-factory.js\"]\nerror=UnexpectedToken offset=23407 token=rparen reason=null\nreturn;\n            }\n          }\n          let it = A.match(/definePageMeta\\s*\\(\\s*\\{[\\s\\S]*?validate\\s*:\\s*((?:\\([^)]*\\)|[^,}])*(?:\\{[\\s\\S]*?\\})?)/m);\n          if (it)\n            try {\n              if (!await Function(\"route\", `\n                const validate = ${it[1]};\n                return validate(route);\n              `)({ params: N })) {\n                console.warn(`Validation failed \nerror: UnexpectedToken\n\nECOSYSTEM PEAK SAMPLED RSS: 176 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "regex-node": {
+      "result": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 816,
+        "memory_limit_mb": 3072,
+        "seconds": 0.06,
+        "log": "regex-node.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-ssg-validation/regex-witness.mjs"
+        ]
+      },
+      "log": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-ssg-validation/regex-witness.mjs\"]\n{\"matched\":\"route => false \"}\n\nECOSYSTEM PEAK SAMPLED RSS: 816 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "regex-bun": {
+      "result": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.021,
+        "log": "regex-bun.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-ssg-validation/regex-witness.mjs"
+        ]
+      },
+      "log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-ssg-validation/regex-witness.mjs\"]\n{\"matched\":\"route => false \"}\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "regex-home": {
+      "result": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.093,
+        "log": "regex-home.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-path-to-file-url/after-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-ssg-validation/regex-witness.mjs"
+        ]
+      },
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-path-to-file-url/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-ssg-validation/regex-witness.mjs\"]\nhome-tool (zig-js): SyntaxError: invalid regular expression\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "production-build": {
+      "result": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 549632,
+        "memory_limit_mb": 3072,
+        "seconds": 1.708,
+        "log": "production-build.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "--bun",
+          "build.ts"
+        ]
+      },
+      "log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"--bun\", \"build.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 549632 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "typecheck": {
+      "result": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 741696,
+        "memory_limit_mb": 3072,
+        "seconds": 1.265,
+        "log": "typecheck.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "run",
+          "typecheck"
+        ]
+      },
+      "log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"run\", \"typecheck\"]\n$ bun --bun tsc --noEmit\n\nECOSYSTEM PEAK SAMPLED RSS: 741696 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "lint": {
+      "result": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 2352,
+        "memory_limit_mb": 3072,
+        "seconds": 0.125,
+        "log": "lint.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "x",
+          "--bun",
+          "pickier",
+          "packages/stx/src/ssg.ts",
+          "packages/stx/test/ssg-page-validation.test.ts",
+          "--config",
+          ".config/code-style.ts"
+        ]
+      },
+      "log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"x\", \"--bun\", \"pickier\", \"packages/stx/src/ssg.ts\", \"packages/stx/test/ssg-page-validation.test.ts\", \"--config\", \".config/code-style.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 2352 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "format": {
+      "result": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 146720,
+        "memory_limit_mb": 3072,
+        "seconds": 0.4,
+        "log": "format.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "run",
+          "format:check"
+        ]
+      },
+      "log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"run\", \"format:check\"]\n$ bun x --bun pickier run --mode format --check --config .config/code-style.ts\n\u001b[90mScanned 299 files, found 0 errors and 0 warnings.\u001b[0m\n\nECOSYSTEM PEAK SAMPLED RSS: 146720 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "native-tests": {
+      "result": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 161760,
+        "memory_limit_mb": 3072,
+        "seconds": 0.565,
+        "log": "native-tests.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "test",
+          "packages/stx/test/ssg-page-validation.test.ts",
+          "packages/stx/test/ssg.test.ts",
+          "packages/stx/test/page-meta-layout.test.ts"
+        ]
+      },
+      "log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"test\", \"packages/stx/test/ssg-page-validation.test.ts\", \"packages/stx/test/ssg.test.ts\", \"packages/stx/test/page-meta-layout.test.ts\"]\nbun test v1.4.4 (38afee6c8)\n\npackages/stx/test/ssg-page-validation.test.ts:\n[stx] partialsDir resolves to \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/partials\", which does not exist. Configured as \"partials\".\n[stx] layoutsDir resolves to \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/layouts\", which does not exist. Configured as \"layouts\".\n[stx] Plugin loaded: @stacksjs/components\n\u001b[32m[ts-css]\u001b[0m CSS engine loaded from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/node_modules/@stacksjs/ts-css/dist\nFound 1 routes\nGenerating 1 pages...\nValidation failed for /, skipping...\n\nBuild complete!\n  Total: 1 pages\n  Success: 0\n  Cached: 0\n  Failed: 0\n  Time: 21ms\n\n(pass) uses parsed page metadata for SSG expression refusal [23.53ms]\nFound 1 routes\nGenerating 1 pages...\nValidation failed for /, skipping...\n\nBuild complete!\n  Total: 1 pages\n  Success: 0\n  Cached: 0\n  Failed: 0\n  Time: 1ms\n\n(pass) uses parsed page metadata for SSG block refusal [1.88ms]\nFound 1 routes\nGenerating 1 pages...\nValidation failed for /, skipping...\n\nBuild complete!\n  Total: 1 pages\n  Success: 0\n  Cached: 0\n  Failed: 0\n  Time: 1ms\n\n(pass) uses parsed page metadata for SSG async block refusal [1.97ms]\nFound 1 routes\nGenerating 1 pages...\nValidation failed for /, skipping...\n\nBuild complete!\n  Total: 1 pages\n  Success: 0\n  Cached: 0\n  Failed: 0\n  Time: 1ms\n\n(pass) uses parsed page metadata for SSG method refusal [1.77ms]\nFound 1 routes\nGenerating 1 pages...\nExternalized 2 asset(s) from 1 page(s) (83.1KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 49ms\n\n(pass) uses parsed page metadata for SSG block acceptance [50.13ms]\nFound 1 routes\nGenerating 1 pages...\nExternalized 2 asset(s) from 1 page(s) (83.1KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 9ms\n\n(pass) uses parsed page metadata for SSG async acceptance [10.07ms]\nFound 1 routes\nGenerating 1 pages...\nExternalized 2 asset(s) from 1 page(s) (83.1KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 7ms\n\n(pass) uses parsed page metadata for SSG validation error recovery [8.24ms]\nFound 1 routes\nGenerating 1 pages...\nExternalized 2 asset(s) from 1 page(s) (83.1KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 7ms\n\n(pass) uses parsed page metadata for SSG nonfunction metadata [7.84ms]\n\npackages/stx/test/page-meta-layout.test.ts:\n(pass) the declared layout is used > applies the layout a page names in page meta [5.49ms]\n(pass) the declared layout is used > wraps a page that has no @section blocks [2.10ms]\n(pass) the declared layout is used > treats layout: false as @nolayout [1.63ms]\n(pass) precedence > lets @extends in the template win over page meta [2.85ms]\n(pass) precedence > leaves a page with neither unlayouted [0.94ms]\n(pass) a layout that does not exist > names the layouts that do [0.83ms]\n(pass) extraction > reads a plain object literal [0.46ms]\n(pass) extraction > returns null when the call is absent or not a literal [0.43ms]\n(pass) extraction > keeps false distinct from not-declared [0.85ms]\n\npackages/stx/test/ssg.test.ts:\n(pass) Static Site Generation > defineStaticPaths > should return paths from sync function [0.45ms]\n(pass) Static Site Generation > defineStaticPaths > should return paths from async function [11.44ms]\n(pass) Static Site Generation > defineStaticPaths > should set fallback to false by default [0.32ms]\n(pass) Static Site Generation > createMarkdownLoader > should create a markdown loader [0.23ms]\n(pass) Static Site Generation > createMarkdownLoader > should parse markdown with frontmatter [0.74ms]\n(pass) Static Site Generation > createMarkdownLoader > should generate table of contents [0.41ms]\n(pass) Static Site Generation > createMarkdownLoader > should handle markdown without frontmatter [0.42ms]\n(pass) Static Site Generation > createISRHandler > should create an ISR handler [0.26ms]\n(pass) Static Site Generation > createISRHandler > should return null for uncached routes [0.34ms]\n(pass) Static Site Generation > createISRHandler > should invalidate cached routes [0.91ms]\nFound 2 routes\nGenerating 2 pages...\nGenerated robots.txt\nExternalized 1 asset(s) from 2 page(s) (167.3KB removed from HTML)\n\nBuild complete!\n  Total: 2 pages\n  Success: 2\n  Cached: 0\n  Failed: 0\n  Time: 11ms\n\n(pass) Static Site Generation > generateStaticSite > should generate static site from pages [12.94ms]\nFound 1 routes\nGenerating 1 pages...\nGenerated sitemap.xml with 1 URLs\nGenerated robots.txt\nExternalized 1 asset(s) from 1 page(s) (83.6KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 4ms\n\n(pass) Static Site Generation > generateStaticSite > should generate sitemap when enabled [4.83ms]\nFound 1 routes\nGenerating 1 pages...\nGenerated robots.txt\nExternalized 1 asset(s) from 1 page(s) (83.6KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 3ms\n\n(pass) Static Site Generation > generateStaticSite > should generate 404 page [4.27ms]\nFound 2 routes\nGenerating 2 pages...\nGenerated robots.txt\nExternalized 1 asset(s) from 1 page(s) (83.6KB removed from HTML)\n\nBuild complete!\n  Total: 2 pages\n  Success: 2\n  Cached: 0\n  Failed: 0\n  Time: 8ms\n\n(pass) Static Site Generation > generateStaticSite > should use custom 404 page if exists [9.57ms]\nFound 3 routes\nGenerating 3 pages...\nGenerated robots.txt\nExternalized 1 asset(s) from 3 page(s) (250.9KB removed from HTML)\n\nBuild complete!\n  Total: 3 pages\n  Success: 3\n  Cached: 0\n  Failed: 0\n  Time: 8ms\n\n(pass) Static Site Generation > generateStaticSite > should handle nested directories [9.27ms]\nFound 1 routes\nGenerating 1 pages...\nGenerated robots.txt\nExternalized 1 asset(s) from 1 page(s) (83.6KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 4ms\n\n(pass) Static Site Generation > generateStaticSite > should call build hooks [5.21ms]\nFound 1 routes\nGenerating 1 pages...\nGenerated robots.txt\nExternalized 1 asset(s) from 1 page(s) (83.6KB removed from HTML)\nCopied public assets from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/.test-ssg/public\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 4ms\n\n(pass) Static Site Generation > generateStaticSite > should copy public directory [5.85ms]\nFound 1 routes\nGenerating 1 pages...\nGenerated robots.txt\nExternalized 1 asset(s) from 1 page(s) (83.6KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 4ms\n\n(pass) Static Site Generation > generateStaticSite > should track build time [4.13ms]\nFound 0 routes\nGenerating 0 pages...\nGenerated robots.txt\n\nBuild complete!\n  Total: 0 pages\n  Success: 0\n  Cached: 0\n  Failed: 0\n  Time: 1ms\n\n(pass) Static Site Generation > generateStaticSite > should handle empty pages directory [1.93ms]\nFound 1 routes\nGenerating 1 pages...\nGenerated robots.txt\nExternalized 1 asset(s) from 1 page(s) (83.6KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 9ms\n\nFound 1 routes\nGenerating 1 pages...\nGenerated robots.txt\nExternalized 1 asset(s) from 1 page(s) (83.6KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 5ms\n\n(pass) Static Site Generation > build cache dependency tracking (#1717) > invalidates a page when one of its included partials is edited [16.04ms]\nFound 1 routes\nGenerating 1 pages...\nGenerated robots.txt\nExternalized 1 asset(s) from 1 page(s) (83.6KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 5ms\n\nFound 1 routes\nGenerating 1 pages...\nGenerated robots.txt\nExternalized 1 asset(s) from 1 page(s) (83.6KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 1\n  Failed: 0\n  Time: 2ms\n\n(pass) Static Site Generation > build cache dependency tracking (#1717) > still hits the cache when nothing changed (no spurious re-renders) [8.04ms]\nFound 1 routes\nGenerating 1 pages...\nGenerated robots.txt\nExternalized 3 asset(s) from 1 page(s) (333.8KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 62ms\n\n(pass) Static Site Generation > island chunking (#1746) > flag OFF (default): islands stay inline, no chunk dir written [63.97ms]\nFound 1 routes\nGenerating 1 pages...\nGenerated robots.txt\nExternalized 3 asset(s) from 1 page(s) (333.8KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 15ms\n  Island chunks: 1 (2.9 KB lifted out of inline HTML)\n\n(pass) Static Site Generation > island chunking (#1746) > flag ON: island IIFE moves to a content-hashed chunk the tag references [17.22ms]\nFound 1 routes\nGenerating 1 pages...\nGenerated robots.txt\nExternalized 3 asset(s) from 1 page(s) (333.8KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 14ms\n  Island chunks: 1 (2.9 KB lifted out of inline HTML)\n\n(pass) Static Site Generation > island chunking (#1746) > prefetchIslands: warms a visible island chunk with a <link rel=\"prefetch\"> [15.58ms]\nFound 1 routes\nGenerating 1 pages...\nGenerated robots.txt\nExternalized 3 asset(s) from 1 page(s) (333.8KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 15ms\n  Island chunks: 1 (2.9 KB lifted out of inline HTML)\n\n(pass) Static Site Generation > island chunking (#1746) > no prefetch hints when prefetchIslands is off (chunking only) [15.92ms]\nFound 1 routes\nGenerating 1 pages...\nGenerated robots.txt\nExternalized 3 asset(s) from 1 page(s) (333.8KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 12ms\n  Island chunks: 1 (2.9 KB lifted out of inline HTML)\n\n(pass) Static Site Generation > island chunking (#1746) > integrityIslands: stamps a sha384 SRI hash on the chunk tag [13.80ms]\nFound 1 routes\nGenerating 1 pages...\nGenerated robots.txt\nExternalized 3 asset(s) from 1 page(s) (333.8KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 13ms\n  Island chunks: 1 (2.9 KB lifted out of inline HTML)\n\n(pass) Static Site Generation > island chunking (#1746) > no integrity when integrityIslands is off [13.95ms]\nFound 1 routes\nGenerating 1 pages...\nGenerated robots.txt\nExternalized 3 asset(s) from 1 page(s) (333.8KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 14ms\n  Island chunks: 1 (2.9 KB lifted out of inline HTML)\n\n(pass) Static Site Generation > island chunking (#1746) > reports island-chunk stats in the SSGResult [14.98ms]\nFound 1 routes\nGenerating 1 pages...\nGenerated robots.txt\nExternalized 3 asset(s) from 1 page(s) (333.8KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 14ms\n\n(pass) Static Site Generation > island chunking (#1746) > omits island-chunk stats when chunking is off [15.15ms]\nFound 1 routes\nGenerating 1 pages...\nGenerated robots.txt\nExternalized 3 asset(s) from 1 page(s) (333.8KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 12ms\n  Island chunks: 1 (2.9 KB lifted out of inline HTML)\n\n(pass) Static Site Generation > island chunking (#1746) > writes an island manifest (pages \u2192 chunks, sizes) when chunking emits chunks [13.78ms]\nFound 1 routes\nGenerating 1 pages...\nGenerated robots.txt\nExternalized 3 asset(s) from 1 page(s) (333.8KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 14ms\n\n(pass) Static Site Generation > island chunking (#1746) > writes no manifest when chunking is off [14.96ms]\nFound 1 routes\nGenerating 1 pages...\nGenerated robots.txt\nExternalized 3 asset(s) from 1 page(s) (334.3KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 15ms\n  Island chunks: 1 (4.6 KB lifted out of inline HTML)\n\nFound 1 routes\nGenerating 1 pages...\nGenerated robots.txt\nExternalized 3 asset(s) from 1 page(s) (333.8KB removed from HTML)\n\nBuild complete!\n  Total: 1 pages\n  Success: 1\n  Cached: 0\n  Failed: 0\n  Time: 14ms\n  Island chunks: 1 (2.9 KB lifted out of inline HTML)\n\n(pass) Static Site Generation > island chunking (#1746) > minifies island chunks when minify is on (smaller lazy payload) [31.11ms]\n\n 49 pass\n 0 fail\n 141 expect() calls\nRan 49 tests across 3 files. [540.00ms]\n\nECOSYSTEM PEAK SAMPLED RSS: 161760 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "after-source-ssg": {
+      "result": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 583680,
+        "memory_limit_mb": 3072,
+        "seconds": 0.624,
+        "log": "after-source-ssg.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-path-to-file-url/after-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/packages/stx/dist/cli.js",
+          "build",
+          "--pages",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-cohort837/candidate/resources/views",
+          "--out",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-ssg-validation/ssg-output"
+        ]
+      },
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-path-to-file-url/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/packages/stx/dist/cli.js\", \"build\", \"--pages\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-cohort837/candidate/resources/views\", \"--out\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-ssg-validation/ssg-output\"]\n[stx] Plugin loaded: @stacksjs/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n\n  Build failed: Z.extname is not a function. (In 'Z.extname(a.name)', 'Z.extname' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 583680 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    }
+  },
+  "limits": [
+    "Native-after executes49 real tests /141 assertions, including all8 route generation witnesses. These are native reference tests, not Home scheduler execution.",
+    "Routed ordinary Home SSG progresses to actual missing node:path.extname after config/CSS initialization. It remains a failed build.",
+    "The regex remains rejected by Home; consumer integration no longer uses that duplicate parser. SVG optimizer regex, compression, docs memory, Bun.build and unsupported schedulers remain open.",
+    "Existing automatic STX publication is owned by its CI. No manual publish or consumer dependency cohort adoption was performed."
+  ]
+}
