@@ -1,0 +1,627 @@
+{
+  "observed_at_utc": "2026-11-09T17:48:34.998103+00:00",
+  "commit": "73706b1742e3ea58a5a45b66aff3ea6c4674df7d",
+  "scope": "Initialize only the selected actual asynchronous response encoder when requested. Preserve existing uncompressed error recovery and byte caching. Metadata/CLI startup is independent of unused callbacks.",
+  "candidate_archive_engine": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+  "helper_and_help_home": "a98722f63d4f68c03f2fe8e086d131810f1fbeea",
+  "ssg_probe_home": "e3d899f11e6d719941767483957c1e372ef3070d",
+  "reports": {
+    "source-manifest": {
+      "packages/stx/src/compression.ts": "8c29f47ee3cd1f93c9e084804f6abc0a9ec7de6d143d14cf87ea779cbd7f62e6",
+      "packages/stx/test/fixtures/compression-loading.mjs": "d77562eb588b542cfc29c60e073a1f1aafa16605ec2928768348e0adeacbc439"
+    },
+    "home-gzip-request": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5072,
+      "memory_limit_mb": 3072,
+      "seconds": 0.022,
+      "log": "home-gzip-request.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-lazy-compression/compression-emitted.mjs",
+        "gzip"
+      ],
+      "source_unchanged": true
+    },
+    "home-metadata": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 592,
+      "memory_limit_mb": 3072,
+      "seconds": 0.09,
+      "log": "home-metadata.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-lazy-compression/compression-emitted.mjs"
+      ],
+      "source_unchanged": true
+    },
+    "home-brotli-request": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5136,
+      "memory_limit_mb": 3072,
+      "seconds": 0.022,
+      "log": "home-brotli-request.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-lazy-compression/compression-emitted.mjs",
+        "br"
+      ],
+      "source_unchanged": true
+    },
+    "native-gzip-request": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1600,
+      "memory_limit_mb": 3072,
+      "seconds": 0.022,
+      "log": "native-gzip-request.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "packages/stx/test/fixtures/compression-loading.mjs",
+        "gzip"
+      ],
+      "source_unchanged": true
+    },
+    "native-tests": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2320,
+      "memory_limit_mb": 3072,
+      "seconds": 0.061,
+      "log": "native-tests.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "packages/stx/test/compression.test.ts"
+      ],
+      "source_unchanged": true
+    },
+    "image-ci-checkpoint": {
+      "jobs": [
+        {
+          "id": 129320173393,
+          "name": "native-signing",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 42663284075,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v7.0.1",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run pantry-pm/pantry/packages/action@c1ef80f71239e7f3626e3ed0ef3eb960d61ae5b5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run bun install --frozen-lockfile",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Build native packaging dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run bun test packages/stx/test/native-signing.test.ts packages/desktop/test/native-update.test.ts packages/desktop/test/application-data.test.ts packages/desktop/test/self-update.test.ts",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Post Run pantry-pm/pantry/packages/action@c1ef80f71239e7f3626e3ed0ef3eb960d61ae5b5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            },
+            {
+              "name": "Post Run actions/checkout@v7.0.1",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            }
+          ]
+        },
+        {
+          "id": 129320173877,
+          "name": "typecheck",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 42663284075,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v7.0.1",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Provision managed tools through Pantry",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Use cached node_modules",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Install Dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Typecheck",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Post Use cached node_modules",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Post Provision managed tools through Pantry",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            },
+            {
+              "name": "Post Run actions/checkout@v7.0.1",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            }
+          ]
+        },
+        {
+          "id": 129320174113,
+          "name": "lint",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 42663284075,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v7.0.1",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Provision managed tools through Pantry",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Use cached node_modules",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Install Dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Lint",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Format Check",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Post Use cached node_modules",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Post Provision managed tools through Pantry",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            },
+            {
+              "name": "Post Run actions/checkout@v7.0.1",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15
+            }
+          ]
+        },
+        {
+          "id": 129320174182,
+          "name": "test",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 42663284075,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v7.0.1",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Provision managed tools through Pantry",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Use cached node_modules",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Install Dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Build",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Verify an installed consumer of the actual package archives",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Warm the browser before the startup budget",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Unit Test",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            },
+            {
+              "name": "Component Tests with Coverage",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Integration Tests",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            },
+            {
+              "name": "Post Use cached node_modules",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 20
+            },
+            {
+              "name": "Post Provision managed tools through Pantry",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 21
+            },
+            {
+              "name": "Post Run actions/checkout@v7.0.1",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 22
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 23
+            }
+          ]
+        },
+        {
+          "id": 129328720953,
+          "name": "publish-commit",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 42663284075,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Provision managed tools through Pantry",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Install Dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Build",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Publish Commit",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Post Provision managed tools through Pantry",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            },
+            {
+              "name": "Post Run actions/checkout@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            }
+          ]
+        }
+      ]
+    },
+    "lint": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2288,
+      "memory_limit_mb": 3072,
+      "seconds": 0.089,
+      "log": "lint.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "x",
+        "--bun",
+        "pickier",
+        "packages/stx/src/compression.ts",
+        "packages/stx/test/fixtures/compression-loading.mjs",
+        "--config",
+        ".config/code-style.ts"
+      ],
+      "source_unchanged": true
+    },
+    "home-cli-help": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 538848,
+      "memory_limit_mb": 3072,
+      "seconds": 0.476,
+      "log": "home-cli-help.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/packages/stx/dist/cli.js",
+        "--help"
+      ],
+      "source_unchanged": true
+    },
+    "home-source-ssg": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 464272,
+      "memory_limit_mb": 3072,
+      "seconds": 0.506,
+      "log": "home-source-ssg.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-parenthesized-return/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/packages/stx/dist/cli.js",
+        "build",
+        "--pages",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-cohort837/candidate/resources/views",
+        "--out",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-lazy-compression/ssg-output"
+      ],
+      "artifact_lane": "Native production output from source73706b17, not an installed Stacks dependency upgrade",
+      "source_cli_sha256": "e70296ba873d1707ad4f164ee3815ba87458d4a174a4ca7db22c03061c66dd5c",
+      "home_binary_sha256": "dcb609dd493490f0cf0bdaf1ec30c1f439b84182239f0697c161f6d2acecd029",
+      "candidate_without_pantry": true,
+      "runtime_shims_first": true
+    },
+    "production-build": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 413360,
+      "memory_limit_mb": 3072,
+      "seconds": 1.414,
+      "log": "production-build.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "--bun",
+        "build.ts"
+      ],
+      "source_unchanged": true
+    },
+    "typecheck": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 714192,
+      "memory_limit_mb": 3072,
+      "seconds": 0.69,
+      "log": "typecheck.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "typecheck"
+      ],
+      "source_unchanged": true
+    },
+    "native-brotli-request": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1520,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "native-brotli-request.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "packages/stx/test/fixtures/compression-loading.mjs",
+        "br"
+      ],
+      "source_unchanged": true
+    },
+    "before-native-tests": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.126,
+      "log": "before-native-tests.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "packages/stx/test/compression.test.ts"
+      ]
+    },
+    "format": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 33872,
+      "memory_limit_mb": 3072,
+      "seconds": 0.344,
+      "log": "format.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "format:check"
+      ],
+      "source_unchanged": true
+    },
+    "before-home-metadata": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 144,
+      "memory_limit_mb": 3072,
+      "seconds": 0.095,
+      "log": "before-home-metadata.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-lazy-compression/compression-emitted.mjs"
+      ]
+    }
+  },
+  "actual_logs": {
+    "native-brotli-request": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"packages/stx/test/fixtures/compression-loading.mjs\", \"br\"]\nOK compression metadata without requesting response encoding\nOK actual br response: 27 bytes\n\nECOSYSTEM PEAK SAMPLED RSS: 1520 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "before-native-tests": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"test\", \"packages/stx/test/compression.test.ts\"]\nbun test v1.4.4 (38afee6c8)\n\npackages/stx/test/compression.test.ts:\n(pass) negotiateEncoding > prefers brotli when both are on offer [0.53ms]\n(pass) negotiateEncoding > falls back to gzip [0.02ms]\n(pass) negotiateEncoding > returns nothing when the client asks for nothing it can read [0.27ms]\n(pass) negotiateEncoding > honours q=0 as the refusal it is [0.98ms]\n(pass) negotiateEncoding > reads the wildcard, in both directions [0.01ms]\n(pass) negotiateEncoding > is not fooled by a coding that merely contains a known name\n(pass) isCompressible > accepts text and the text-shaped application types [0.07ms]\n(pass) isCompressible > refuses formats that are already compressed [0.02ms]\n(pass) compressResponse > compresses a page, and it round-trips [11.02ms]\n(pass) compressResponse > uses gzip for a client that cannot read brotli [0.77ms]\n(pass) compressResponse > marks the response as varying by encoding [0.22ms]\n(pass) compressResponse > leaves the body alone when the client asked for no encoding [0.20ms]\n(pass) compressResponse > does not re-encode something already encoded [0.03ms]\n(pass) compressResponse > skips a payload too small to be worth it [0.03ms]\n(pass) compressResponse > leaves a binary response untouched [0.03ms]\n(pass) compressResponse > leaves a bodiless response untouched [0.02ms]\n(pass) compressResponse > preserves status and headers [0.03ms]\n(pass) compressResponse > reports the compressed length, not the original [0.04ms]\n(pass) the body survives every exit (#compression) > a payload under the threshold still arrives intact [0.03ms]\n(pass) the body survives every exit (#compression) > an incompressible payload still arrives intact [2.40ms]\n(pass) the body survives every exit (#compression) > preserves status and headers on the uncompressed path too [0.07ms]\n(pass) Vary is a cache key, and it is stated once > is set even when the answer was not compressed [0.04ms]\n(pass) Vary is a cache key, and it is stated once > does not repeat a field the response already declared [0.04ms]\n(pass) Vary is a cache key, and it is stated once > keeps the fields that were already there [0.03ms]\n(pass) compression never blocks the loop it serves from > uses no synchronous zlib call in the response path [2.18ms]\n(pass) streaming responses > never touches an event stream [0.22ms]\n(pass) streaming responses > isCompressible says no to it directly [0.01ms]\n\n 27 pass\n 0 fail\n 49 expect() calls\nRan 27 tests across 1 file. [96.00ms]\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "home-cli-help": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/packages/stx/dist/cli.js\", \"--help\"]\nstx/0.2.838\n\nUsage:\n  $ stx <command> [options]\n\nCommands:\n  a11y [target]             Scan .stx files for accessibility issues (directory, file, or glob)\n  analyze [patterns...]     Analyze STX templates for performance and best practices\n  build [input]             Generate static HTML files from STX templates (SSG)\n  bundle [directory]        Analyze bundle size and composition\n  codemod [patterns...]     Find hand-rolled code that an stx primitive already covers\n  compile <input>           Compile stx template to native Craft component code\n  debug <file>              Debug STX template processing step by step\n  deploy [directory]        Deploy built site to Netlify\n  dev [file]                Start a development server for an STX app or file\n  docs                      Generate documentation for components, templates, and directives\n  doctor                    Diagnose the stx framework-runtime resolution + staleness chain\n  format [patterns...]      Format STX and Markdown files automatically\n  iconify <command>         Generate Iconify icon packages\n  images <input>            Optimize images for production\n  init [file]               Create a new STX file\n  interactive               Start interactive REPL mode for template development\n  native <action> [file]    Compile .stx screens into the JavaScriptCore bundle Craft renders natively\n  perf [command...]         Show performance statistics for STX operations\n  pwa <command>             PWA tools - audit configuration and build output\n  screenshot [input]        Capture PNG screenshot(s) of page(s) via Bun WebView \u2014 a file, URL, or dist directory\n  start                     Start the production server (serves pre-built .output/)\n  status [directory]        Show status of STX project and files\n  story                     Start component showcase and testing server\n  test [patterns...]        Run tests with Bun test runner and browser environment\n  typecheck [patterns...]   Type-check the TypeScript inside .stx script blocks\n  version                   Show the version of the CLI\n  watch [patterns...]       Watch STX files for changes and run commands\n\n  build:\n    build:native <input>    Build stx template into a native desktop/mobile app\n\n  components:\n    components:build [input]  Compile .stx files into a progressive web component library\n\n  story:\n    story:build             Build static story site\n    story:test              Run visual regression tests\n\nRun `stx <command> --help` for command details.\n\nOptions:\n  -h, --help     Display this message \n  -v, --version  Display version number \n\nECOSYSTEM PEAK SAMPLED RSS: 538848 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "home-source-ssg": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-parenthesized-return/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/packages/stx/dist/cli.js\", \"build\", \"--pages\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-cohort837/candidate/resources/views\", \"--out\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-lazy-compression/ssg-output\"]\n[2026-11-09T17:41:24.712Z] local.ERROR: Configuration loading failed after 66ms:\n\n  Build failed: Failed to load configuration from \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-cohort837/candidate/config/ui.ts\": pathToFileURL is not a function. (In 'pathToFileURL(canonicalPath)', 'pathToFileURL' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 464272 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+    "format": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"run\", \"format:check\"]\n$ bun x --bun pickier run --mode format --check --config .config/code-style.ts\n\u001b[90mScanned 299 files, found 0 errors and 0 warnings.\u001b[0m\n\nECOSYSTEM PEAK SAMPLED RSS: 33872 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "lint": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"x\", \"--bun\", \"pickier\", \"packages/stx/src/compression.ts\", \"packages/stx/test/fixtures/compression-loading.mjs\", \"--config\", \".config/code-style.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 2288 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "before-home-metadata": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-lazy-compression/compression-emitted.mjs\"]\nhome-tool (zig-js): TypeError: promisify original must be a function\n\nECOSYSTEM PEAK SAMPLED RSS: 144 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+    "typecheck": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"run\", \"typecheck\"]\n$ bun --bun tsc --noEmit\n\nECOSYSTEM PEAK SAMPLED RSS: 714192 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "production-build": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"--bun\", \"build.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 413360 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "native-tests": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"test\", \"packages/stx/test/compression.test.ts\"]\nbun test v1.4.4 (38afee6c8)\n\npackages/stx/test/compression.test.ts:\n(pass) negotiateEncoding > prefers brotli when both are on offer [0.16ms]\n(pass) negotiateEncoding > falls back to gzip [0.01ms]\n(pass) negotiateEncoding > returns nothing when the client asks for nothing it can read [0.01ms]\n(pass) negotiateEncoding > honours q=0 as the refusal it is [0.06ms]\n(pass) negotiateEncoding > reads the wildcard, in both directions [0.01ms]\n(pass) negotiateEncoding > is not fooled by a coding that merely contains a known name\n(pass) isCompressible > accepts text and the text-shaped application types [0.05ms]\n(pass) isCompressible > refuses formats that are already compressed [0.02ms]\n(pass) compressResponse > compresses a page, and it round-trips [2.24ms]\n(pass) compressResponse > uses gzip for a client that cannot read brotli [0.34ms]\n(pass) compressResponse > marks the response as varying by encoding [0.04ms]\n(pass) compressResponse > leaves the body alone when the client asked for no encoding [0.03ms]\n(pass) compressResponse > does not re-encode something already encoded [0.03ms]\n(pass) compressResponse > skips a payload too small to be worth it [0.03ms]\n(pass) compressResponse > leaves a binary response untouched [0.03ms]\n(pass) compressResponse > leaves a bodiless response untouched [0.02ms]\n(pass) compressResponse > preserves status and headers [0.03ms]\n(pass) compressResponse > reports the compressed length, not the original [0.04ms]\n(pass) the body survives every exit (#compression) > a payload under the threshold still arrives intact [0.03ms]\n(pass) the body survives every exit (#compression) > an incompressible payload still arrives intact [0.54ms]\n(pass) the body survives every exit (#compression) > preserves status and headers on the uncompressed path too [0.06ms]\n(pass) Vary is a cache key, and it is stated once > is set even when the answer was not compressed [0.05ms]\n(pass) Vary is a cache key, and it is stated once > does not repeat a field the response already declared [0.05ms]\n(pass) Vary is a cache key, and it is stated once > keeps the fields that were already there [0.03ms]\n(pass) compression never blocks the loop it serves from > uses no synchronous zlib call in the response path [0.22ms]\n(pass) streaming responses > never touches an event stream [0.08ms]\n(pass) streaming responses > isCompressible says no to it directly\n\n 27 pass\n 0 fail\n 49 expect() calls\nRan 27 tests across 1 file. [40.00ms]\n\nECOSYSTEM PEAK SAMPLED RSS: 2320 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "home-metadata": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-lazy-compression/compression-emitted.mjs\"]\nOK compression metadata without requesting response encoding\n\nECOSYSTEM PEAK SAMPLED RSS: 592 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "home-brotli-request": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-lazy-compression/compression-emitted.mjs\", \"br\"]\nOK compression metadata without requesting response encoding\nhome-tool (zig-js): Error: Requested br encoding did not execute\n\nECOSYSTEM PEAK SAMPLED RSS: 5136 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+    "native-gzip-request": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"packages/stx/test/fixtures/compression-loading.mjs\", \"gzip\"]\nOK compression metadata without requesting response encoding\nOK actual gzip response: 325 bytes\n\nECOSYSTEM PEAK SAMPLED RSS: 1600 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "home-gzip-request": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-lazy-compression/compression-emitted.mjs\", \"gzip\"]\nOK compression metadata without requesting response encoding\nhome-tool (zig-js): Error: Requested gzip encoding did not execute\n\nECOSYSTEM PEAK SAMPLED RSS: 5072 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+  },
+  "fixture": "import { compressResponse, isCompressible, negotiateEncoding } from '../../src/compression.ts'\n\nif (negotiateEncoding('br;q=0, gzip') !== 'gzip' || negotiateEncoding('br;q=0,gzip;q=0') !== null)\n  throw new Error('Encoding negotiation changed')\nif (!isCompressible('text/html; charset=utf-8') || isCompressible('image/png') || isCompressible('text/event-stream'))\n  throw new Error('Compression content-type filtering changed')\nconsole.log('OK compression metadata without requesting response encoding')\n\nif (process.argv[2] === 'gzip' || process.argv[2] === 'br') {\n  const encoding = process.argv[2]\n  const input = 'actual response bytes '.repeat(2048)\n  const request = new Request('https://example.test/', { headers: { 'Accept-Encoding': encoding } })\n  const response = new Response(input, { headers: { 'Content-Type': 'text/plain' } })\n  const output = await compressResponse(request, response)\n  if (output.headers.get('Content-Encoding') !== encoding)\n    throw new Error(`Requested ${encoding} encoding did not execute`)\n  const bytes = new Uint8Array(await output.arrayBuffer())\n  if (bytes.length === 0 || bytes.length >= input.length)\n    throw new Error('Encoding did not return genuine compressed bytes')\n  console.log(`OK actual ${encoding} response: ${bytes.length} bytes`)\n}\n",
+  "interpretation": [
+    "27 native compression tests and49 assertions pass before/after, including real gzip/Brotli byte checks and unchanged async-only paths. Both strict native fixtures return actual compressed bytes.",
+    "The unchanged emitted metadata fixture fails promisify initialization before and passes after on Home. Rebuilt full STX CLI --help exits0 on Home; this is source CLI startup, not an installed Stacks dependency upgrade or a build pass.",
+    "Strict Home gzip/br fixtures actually invoke compressResponse, then fail because requested Content-Encoding is absent. Existing uncompressed fallback is explicitly not a compression-support pass. No host callback API is supplied or faked.",
+    "Actual source SSG build against the separate Stacks candidate uses new Homee3, runtime shims first in PATH and no local Pantry. It fails config/ui.ts loading at missing pathToFileURL; not an image/build pass. Candidate manifest/lock overlays are the task-owned complete037 cohort from prior triage; normal installed consumer CI is retained separately.",
+    "All production/typecheck/lint/format checks pass. STX image changea649e3cc is now fully CI-green, including automatic publish-commit129328720953. Compression source CI42666931501 is queued at last observation; a concurrent descendantd3a0d238 also has CI. No manual publication occurred."
+  ]
+}
