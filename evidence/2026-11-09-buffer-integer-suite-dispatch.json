@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "functional_suite": "94373e10a88fbcaa9fa8155a691d390947cd8807",
+  "home_ref": "1a1fa2dac95c46530e009d325cdf055713d9627c",
+  "engine_sha": "58cef91b45cc3f30f32accd61f572ecbde2228da",
+  "dispatch_request": {
+    "ref": "main",
+    "inputs": {
+      "engine_sha": "58cef91b45cc3f30f32accd61f572ecbde2228da",
+      "suite_ref": "94373e10a88fbcaa9fa8155a691d390947cd8807",
+      "reference": true,
+      "repositories": "stacksjs/stacks,home-lang/home"
+    }
+  },
+  "qualification": {
+    "conclusion": "",
+    "databaseId": 42721958424,
+    "headSha": "94373e10a88fbcaa9fa8155a691d390947cd8807",
+    "status": "queued",
+    "url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42721958424"
+  },
+  "validation": {
+    "conclusion": "",
+    "databaseId": 42721852562,
+    "headSha": "94373e10a88fbcaa9fa8155a691d390947cd8807",
+    "status": "queued",
+    "url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42721852562"
+  },
+  "caller_remains": "8716be77155583a0f002bd0ec948b5a038729729",
+  "promotion_requirements": [
+    "Suite validation succeeds",
+    "Exact baseline Linux runtime executes mandatory1070 integer-read checks plus existing common/rejection/context/file-URL gates",
+    "Actual Stacks and Home provenance/CPU steps7/8 succeed"
+  ],
+  "next_blockers": [
+    "Real Stacks avatar PNG decode reaches missing node:zlib.inflateSync; native Bun reference passes. Implement actual bounded zlib format/checksum semantics; do not alias it to gzip or fake decoded output.",
+    "Root Stacks evaluation-step-budget failure remains. Current500-million-step default was not raised. Observational trace yields only anonymous/global frames; dirname walk matches Node and no pathname bug is claimed.",
+    "Home docs3072MiB cap, missing Bun.build and unexecuted schedulers remain unchanged."
+  ],
+  "notes": [
+    "Promote functional94373e1 only after required actual CI evidence; later evidence-only heads must not replace it.",
+    "All three pushed Home source hashes match validated common fixtures and both provider builds. Unfiltered every-push42716025250 retains full selected coverage."
+  ]
+}

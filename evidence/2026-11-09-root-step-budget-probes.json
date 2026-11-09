@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "source_consumer": "ec12d68abea59b1de25592e59bb02cd915557209",
+  "runtime_home_before": "ce3f03d26fa99c09dd9b95d75d0677353241da9f",
+  "local_engine_archive": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+  "budget_trace": {
+    "result": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 748512,
+      "memory_limit_mb": 3072,
+      "seconds": 11.108,
+      "log": "trace-cli.log"
+    },
+    "source": "import process from \"node:process\";\nif(Home.engine!==\"zig-js\")throw new Error(\"wrong engine\");\nError.stackTraceLimit=40;\nprocess.on(\"unhandledRejection\",(error)=>{console.error(\"BUDGET TRACE\",error.stack);process.exitCode=1;});\nawait import(\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/@stacksjs/stx/dist/cli.js\");\n",
+    "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/nested-arrow-closers/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/step-budget/trace-cli.mjs\", \"build\", \"--pages\", \"resources/views\", \"--out\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/step-budget/output\"]\n[stx] Plugin loaded: @stacksjs/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\nBUDGET TRACE RangeError: evaluation step budget exceeded\n    at <anonymous>\n    at <global> (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/step-budget/trace-cli.mjs:1:1)\nBUDGET TRACE RangeError: evaluation step budget exceeded\n    at <anonymous>\n    at <global> (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/step-budget/trace-cli.mjs:1:1)\nBUDGET TRACE RangeError: evaluation step budget exceeded\n    at <anonymous>\n    at <global> (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/step-budget/trace-cli.mjs:1:1)\nBUDGET TRACE RangeError: evaluation step budget exceeded\n    at <anonymous>\n    at <global> (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/step-budget/trace-cli.mjs:1:1)\nBUDGET TRACE RangeError: evaluation step budget exceeded\n    at <anonymous>\n    at <global> (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/step-budget/trace-cli.mjs:1:1)\nBUDGET TRACE RangeError: evaluation step budget exceeded\n    at <anonymous>\n    at <global> (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/step-budget/trace-cli.mjs:1:1)\n\nECOSYSTEM PEAK SAMPLED RSS: 748512 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+  },
+  "dirname_control": {
+    "dirname-home": {
+      "result": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 480,
+        "memory_limit_mb": 3072,
+        "seconds": 0.097,
+        "log": "dirname-home.log"
+      },
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/nested-arrow-closers/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/step-budget/dirname-chain.mjs\"]\n[[[\"/\",\"/\"]],[[\"/a\",\"/\"],[\"/\",\"/\"]],[[\"/a/b\",\"/a\"],[\"/a\",\"/\"],[\"/\",\"/\"]],[[\".\",\".\"]],[[\"\",\".\"],[\".\",\".\"]],[[\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/src/index.js\",\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/src\"],[\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/src\",\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist\"],[\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist\",\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images\"],[\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images\",\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules\"],[\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules\",\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate\"],[\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate\",\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations\"],[\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations\",\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08\"],[\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08\",\"/Users/chris/Code/Verification\"],[\"/Users/chris/Code/Verification\",\"/Users/chris/Code\"],[\"/Users/chris/Code\",\"/Users/chris\"],[\"/Users/chris\",\"/Users\"],[\"/Users\",\"/\"],[\"/\",\"/\"]]]\n\nECOSYSTEM PEAK SAMPLED RSS: 480 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "dirname-node": {
+      "result": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32848,
+        "memory_limit_mb": 3072,
+        "seconds": 0.197,
+        "log": "dirname-node.log"
+      },
+      "log": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/step-budget/dirname-chain.mjs\"]\n[[[\"/\",\"/\"]],[[\"/a\",\"/\"],[\"/\",\"/\"]],[[\"/a/b\",\"/a\"],[\"/a\",\"/\"],[\"/\",\"/\"]],[[\".\",\".\"]],[[\"\",\".\"],[\".\",\".\"]],[[\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/src/index.js\",\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/src\"],[\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/src\",\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist\"],[\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist\",\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images\"],[\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images\",\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules\"],[\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules\",\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate\"],[\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate\",\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations\"],[\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations\",\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08\"],[\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08\",\"/Users/chris/Code/Verification\"],[\"/Users/chris/Code/Verification\",\"/Users/chris/Code\"],[\"/Users/chris/Code\",\"/Users/chris\"],[\"/Users/chris\",\"/Users\"],[\"/Users\",\"/\"],[\"/\",\"/\"]]]\n\nECOSYSTEM PEAK SAMPLED RSS: 32848 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "raster_control": {
+    "home_before": {
+      "result": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 225008,
+        "memory_limit_mb": 3072,
+        "seconds": 42.463,
+        "log": "rasters-home.log"
+      },
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/nested-arrow-closers/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/step-budget/raster-probe.mjs\"]\nBEGIN /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/public/images/atomic-fx-diagram.png\nERROR /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/public/images/atomic-fx-diagram.png TypeError: t.readUInt32BE is not a function. (In 't.readUInt32BE(0)', 't.readUInt32BE' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 225008 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "native_bun_limit_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/step-budget/raster-probe.mjs\"]\n[env] warning: skipped 42 encrypted value(s) in .env.development (DOTENV_PRIVATE_KEY_DEVELOPMENT not set; existing plaintext or defaults apply): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\n[env] loaded 0/1 variables from .env.development\n[env] warning: skipped 42 encrypted value(s) in .env.development (DOTENV_PRIVATE_KEY_DEVELOPMENT not set; existing plaintext or defaults apply): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\n\nECOSYSTEM LIMIT: command time budget exhausted\n",
+    "native_bun_outcome": "Diagnostic did not complete under120-second guard; SIGKILL was sent, then ps group-state query timed out. No successful oracle or image-validity conclusion is claimed. Separate actual128x128 avatar native Bun reference passes in Buffer evidence."
+  },
+  "notes": [
+    "No production engine, Home or consumer behavior was changed for these observational probes. Only current Buffer feature is claimed implemented.",
+    "Original root failure remains red; no increased step budget, disabled image work, swallowed host failure, native candidate fallback or test skip was introduced."
+  ]
+}
