@@ -1,0 +1,266 @@
+{
+  "observed_at_utc": "2026-11-09T17:08:45.174708+00:00",
+  "decision": "Rejected prototype, no Home source change landed. Source files restored after saving exact patch.",
+  "home_prototype_revision": "713e679518088db7109eaf8b359ac93452df495c",
+  "candidate_archive": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+  "prototype_patch": "diff --git a/packages/runtime/src/jsc/tool_main.zig b/packages/runtime/src/jsc/tool_main.zig\nindex 8eaba1871..8091017ec 100644\n--- a/packages/runtime/src/jsc/tool_main.zig\n+++ b/packages/runtime/src/jsc/tool_main.zig\n@@ -45,7 +45,7 @@ fn runSource(\n     module_completion: bool,\n     conditions: []const []const u8,\n ) !u8 {\n-    var engine = try tool_runtime.Engine.init(allocator);\n+    var engine = try tool_runtime.initEngine(allocator);\n     defer engine.deinit();\n \n     const ctx = engine.currentContext();\ndiff --git a/packages/runtime/src/jsc/tool_runtime.zig b/packages/runtime/src/jsc/tool_runtime.zig\nindex dba13953b..50d682ed0 100644\n--- a/packages/runtime/src/jsc/tool_runtime.zig\n+++ b/packages/runtime/src/jsc/tool_runtime.zig\n@@ -27,3 +27,18 @@ pub const rejections = @import(\"tool_rejections.zig\");\n pub const evaluate = @import(\"evaluate.zig\");\n pub const extern_fns = @import(\"extern_fns.zig\");\n pub const opaques = @import(\"opaques.zig\");\n+\n+/// Repository commands retain their modules while creating many transient\n+/// render values. Use the linked provider's collectible context for that work.\n+pub fn initEngine(allocator: @import(\"std\").mem.Allocator) !Engine {\n+    if (comptime @import(\"build_options\").use_zig_js) {\n+        const provider = struct {\n+            extern fn ZJSGlobalContextCreateGarbageCollected(enable_jit: bool) ?*opaques.JSContextRef;\n+        };\n+        return .{\n+            .allocator = allocator,\n+            .context = provider.ZJSGlobalContextCreateGarbageCollected(true) orelse return error.JSCInitFailed,\n+        };\n+    }\n+    return Engine.init(allocator);\n+}\n",
+  "prototype_binary_sha256": "7d994b4c2c549a2918f0b859265372bc0eea710c41c8bc59cf490b82ea4bd7c7",
+  "reports": {
+    "after-entropy": {
+      "status": "failed",
+      "exit_code": -9,
+      "peak_sampled_rss_kib": 3245696,
+      "memory_limit_mb": 3072,
+      "seconds": 13.932,
+      "log": "after-entropy.log",
+      "reason": "sampled command tree RSS exceeded 3072 MiB",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-gc-context/gc-host/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-gc-context/entropy-churn.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-gc-context/churn-input.txt"
+      ]
+    },
+    "before-churn": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2106736,
+      "memory_limit_mb": 3072,
+      "seconds": 6.016,
+      "log": "before-churn.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-gc-context/replacement-churn.mjs"
+      ],
+      "engine_sha": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+      "home_sha": "a98722f63d4f68c03f2fe8e086d131810f1fbeea"
+    },
+    "before-entropy": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2943968,
+      "memory_limit_mb": 3072,
+      "seconds": 12.348,
+      "log": "before-entropy.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-gc-context/entropy-churn.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-gc-context/churn-input.txt"
+      ]
+    },
+    "before-large": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2250960,
+      "memory_limit_mb": 3072,
+      "seconds": 12.19,
+      "log": "before-large.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-gc-context/replacement-churn-large.mjs"
+      ]
+    },
+    "build-gc": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1217232,
+      "memory_limit_mb": 3072,
+      "seconds": 32.327,
+      "log": "build-gc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/engine-cache-final",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-gc-context/gc-host",
+        "--summary",
+        "all"
+      ],
+      "manifest": {
+        "packages/runtime/src/jsc/tool_main.zig": "cc636f5dbf60a235454ce49e14dd25d3679435e8420ded1e733ebdad8da16174",
+        "packages/runtime/src/jsc/tool_runtime.zig": "1ac5b61324b068e5a9a8ee00d26d5ccf1d1cbe9b96129c4956b5c0225b30b106"
+      },
+      "source_unchanged": true
+    },
+    "churn-input": {
+      "seed": 94628,
+      "bytes": 262144,
+      "sha256": "fb07d19e9e08b0e1f8c222a628a8159d6033cdd37ab6475f2449ecabe15e7f5a"
+    },
+    "gc-docs": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1855584,
+      "memory_limit_mb": 3072,
+      "seconds": 27.082,
+      "log": "gc-docs.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-gc-context/gc-host/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/node_modules/@stacksjs/bunpress/dist/bin/cli.js",
+        "build"
+      ]
+    }
+  },
+  "logs": {
+    "after-entropy": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-gc-context/gc-host/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-gc-context/entropy-churn.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-gc-context/churn-input.txt\"]\nOK entropy churn 651646\n\nECOSYSTEM PEAK SAMPLED RSS: 3245696 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n",
+    "before-churn": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-gc-context/replacement-churn.mjs\"]\nOK churn 1073741824\n\nECOSYSTEM PEAK SAMPLED RSS: 2106736 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "before-entropy": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-gc-context/entropy-churn.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-gc-context/churn-input.txt\"]\nOK entropy churn 651646\n\nECOSYSTEM PEAK SAMPLED RSS: 2943968 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "before-large": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-gc-context/replacement-churn-large.mjs\"]\nOK churn 2147483648\n\nECOSYSTEM PEAK SAMPLED RSS: 2250960 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "build-gc": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"home-tool\", \"-Doptimize=ReleaseSafe\", \"-Denable_jsc=false\", \"-Dtool-js-engine=zig-js\", \"-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/engine-cache-final\", \"--prefix\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-gc-context/gc-host\", \"--summary\", \"all\"]\nBuild Summary: 4/4 steps succeeded\nhome-tool success\n+- install home-tool success\n   +- compile exe home-tool safe native success 32s MaxRSS:1G\n      +- options cached\n\n\nECOSYSTEM PEAK SAMPLED RSS: 1217232 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "gc-docs": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-gc-context/gc-host/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/node_modules/@stacksjs/bunpress/dist/bin/cli.js\", \"build\"]\n\u001b[?25l\n\u001b[K\u001b[?25h\u001b[31m\u2717\u001b[0m Build failed\nError during build: RangeError: Invalid string length\n\nECOSYSTEM PEAK SAMPLED RSS: 1855584 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+  },
+  "fixtures": {
+    "entropy-churn.mjs": "import fs from \"node:fs\";\nif(Home.engine!==\"zig-js\")throw new Error(\"wrong engine\");\nconst input=fs.readFileSync(process.argv[2],\"utf8\");let checksum=0;for(let i=0;i<8192;i++){const out=input.replace(/\\x00/g,\"y\");if(out.length!==input.length)throw new Error(\"bad replacement\");checksum+=out.charCodeAt((i*8191)%input.length);}\nconsole.log(\"OK entropy churn\",checksum);\n",
+    "replacement-churn-large.mjs": "if(Home.engine!==\"zig-js\")throw new Error(\"wrong engine\");\nconst input=\"x\".repeat(256*1024);\nlet checksum=0;for(let i=0;i<8192;i++){const output=input.replace(/absent/g,\"y\");if(output.length!==input.length||output.charCodeAt(0)!==120)throw new Error(\"bad replacement\");checksum+=output.length;}\nconsole.log(\"OK churn\",checksum);\n",
+    "replacement-churn.mjs": "if(Home.engine!==\"zig-js\")throw new Error(\"wrong engine\");\nconst input=\"x\".repeat(256*1024);\nlet checksum=0;for(let i=0;i<4096;i++){const output=input.replace(/absent/g,\"y\");if(output.length!==input.length||output.charCodeAt(0)!==120)throw new Error(\"bad replacement\");checksum+=output.length;}\nconsole.log(\"OK churn\",checksum);\n"
+  },
+  "interpretation": [
+    "The GC context constructor exists in the linked archive and the ReleaseSafe host builds.",
+    "The entropy fixture printed its result but then exceeded the unchanged 3072 MiB guard, so it is a failure.",
+    "The actual bunpress docs command fails with RangeError: Invalid string length. No GC fix or memory cause is established.",
+    "Old stress reference host is Home a98722f63; prototype is Home713e679518. This is not a controlled causal comparison across otherwise identical Home revisions.",
+    "The original Linux docs over-limit report remains open. No limits, unsupported checks or caller pins changed."
+  ],
+  "engine_ci": {
+    "run_id": 42644865893,
+    "dependency_audit_job": 129255481583,
+    "dependency_fix_commit": "5d1cd9778161ae15880691b55820c93ead3e9826",
+    "inventory_reports": {
+      "after-audit": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 13744,
+        "memory_limit_mb": 3072,
+        "seconds": 0.469,
+        "log": "after-audit.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "dependency-audit"
+        ]
+      },
+      "before-audit": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 495088,
+        "memory_limit_mb": 3072,
+        "seconds": 5.374,
+        "log": "before-audit.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "dependency-audit"
+        ]
+      },
+      "classified-audit": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 61312,
+        "memory_limit_mb": 3072,
+        "seconds": 1.358,
+        "log": "classified-audit.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "dependency-audit"
+        ]
+      },
+      "docs-build": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 258384,
+        "memory_limit_mb": 3072,
+        "seconds": 0.476,
+        "log": "docs-build.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "run",
+          "docs:build"
+        ]
+      },
+      "docs-links": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 491648,
+        "memory_limit_mb": 3072,
+        "seconds": 1.656,
+        "log": "docs-links.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "docs-link-check",
+          "-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool"
+        ]
+      },
+      "final-audit": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 18368,
+        "memory_limit_mb": 3072,
+        "seconds": 0.438,
+        "log": "final-audit.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "dependency-audit"
+        ]
+      },
+      "matching-audit": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 36992,
+        "memory_limit_mb": 3072,
+        "seconds": 2.334,
+        "log": "matching-audit.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "dependency-audit"
+        ]
+      },
+      "missing-callers": [
+        [
+          "tools/verify-c-api.ts",
+          "docs/.data/c-api-value-brands-2026-11-08.json"
+        ]
+      ],
+      "verified-audit": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 27280,
+        "memory_limit_mb": 3072,
+        "seconds": 1.293,
+        "log": "verified-audit.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "dependency-audit"
+        ]
+      }
+    },
+    "inventory_logs": {
+      "after-audit": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"dependency-audit\"]\ndependency audit: tool 'tools/verify-c-api.ts' has unclassified caller/reference 'docs/.data/c-api-value-brands-2026-11-08.json'\nerror: DependencyAuditFailed\n/Users/chris/Code/Libraries/zig-js/tools/dependency_audit.zig:127:5: 0x10428788f in fail__func_936 (dependency-audit)\n    return error.DependencyAuditFailed;\n    ^\n/Users/chris/Code/Libraries/zig-js/tools/dependency_audit.zig:612:25: 0x104273237 in auditToolMigrationInventory (dependency-audit)\n                        return fail(\"tool '{s}' has unclassified caller/reference '{s}'\", .{ tool.path, path });\n                        ^\n/Users/chris/Code/Libraries/zig-js/tools/dependency_audit.zig:871:5: 0x10427837b in main (dependency-audit)\n    try auditToolMigrationInventory(init.gpa, init.io, tool_inventory);\n    ^\ndependency-audit\n+- run exe dependency-audit failure\nerror: process exited with code 1\nfailed command: cd . && ./.zig-cache/o/35e8cad6fc0154d7d098211d3afd7d38/dependency-audit\n\nBuild Summary: 3/5 steps succeeded (1 failed)\ndependency-audit transitive failure\n+- run exe dependency-audit failure\n\n\nECOSYSTEM PEAK SAMPLED RSS: 13744 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "before-audit": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"dependency-audit\"]\ndependency-audit\n+- run test w\ndependency audit: build.zig.zon cannot require a sibling checkout\ndependency audit: package zig_regex does not match its exact owned source and native Zig hash\ndependency audit: build.zig.zon pinned package count drifted\ndependency audit: package zig_regex does not match its exact owned source and native Zig hash\ndependency audit: package zig_regex requires an immutable revision\ndependency audit: duplicate package zig_regex\nfailed command: ./.zig-cache/o/f661e85d279f8600ae769897f6494631/test --cache-dir=./.zig-cache --seed=0x1379f4f3 --listen=-\n\ndependency audit: package zig_regex does not match its exact owned source and native Zig hash\nerror: DependencyAuditFailed\n/Users/chris/Code/Libraries/zig-js/tools/dependency_audit.zig:127:5: 0x100ed8ce3 in fail__func_877 (dependency-audit)\n    return error.DependencyAuditFailed;\n    ^\n/Users/chris/Code/Libraries/zig-js/tools/dependency_audit.zig:290:13: 0x100ea7eff in auditZonSource (dependency-audit)\n            return fail(\"package {s} does not match its exact owned source and native Zig hash\", .{package.name});\n            ^\n/Users/chris/Code/Libraries/zig-js/tools/dependency_audit.zig:297:5: 0x100ea80cb in auditZon (dependency-audit)\n    try auditZonSource(gpa, source, inventory.boundaries.production_zig_packages);\n    ^\n/Users/chris/Code/Libraries/zig-js/tools/dependency_audit.zig:867:5: 0x100eb3edf in main (dependency-audit)\n    try auditZon(init.gpa, init.io, inventory);\n    ^\ndependency-audit\n+- run exe dependency-audit failure\nerror: process exited with code 1\nfailed command: cd . && ./.zig-cache/o/35e8cad6fc0154d7d098211d3afd7d38/dependency-audit\n\nBuild Summary: 3/5 steps succeeded (1 failed); 3/3 tests passed\ndependency-audit transitive failure\n+- run exe dependency-audit failure\n\n\nECOSYSTEM PEAK SAMPLED RSS: 495088 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "classified-audit": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"dependency-audit\"]\ndependency audit: owned sibling zig-utils/zig-gc@0285ef801dd221a4ae8e88b31a09ae31627657a3 occurs 0 times, expected 8\nerror: DependencyAuditFailed\n/Users/chris/Code/Libraries/zig-js/tools/dependency_audit.zig:127:5: 0x103097013 in fail__func_951 (dependency-audit)\n    return error.DependencyAuditFailed;\n    ^\n/Users/chris/Code/Libraries/zig-js/tools/dependency_audit.zig:761:13: 0x10308983b in auditCi (dependency-audit)\n            return fail(\"owned sibling {s}@{s} occurs {d} times, expected {d}\", .{ item.repository, item.revision, actual, item.occurrences });\n            ^\n/Users/chris/Code/Libraries/zig-js/tools/dependency_audit.zig:873:5: 0x10308c5db in main (dependency-audit)\n    try auditCi(init.gpa, init.io, inventory);\n    ^\ndependency-audit\n+- run exe dependency-audit failure\nerror: process exited with code 1\nfailed command: cd . && ./.zig-cache/o/35e8cad6fc0154d7d098211d3afd7d38/dependency-audit\n\nBuild Summary: 3/5 steps succeeded (1 failed)\ndependency-audit transitive failure\n+- run exe dependency-audit failure\n\n\nECOSYSTEM PEAK SAMPLED RSS: 61312 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "docs-build": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"run\", \"docs:build\"]\n$ bun ../../Tools/bunpress/packages/bunpress/bin/cli.ts build --outdir ./dist --check-manifest docs/.data/bunpress-output-v1.json\n\u001b[?25l\n\u001b[36m\u280b\u001b[0m Building documentation...\n\u001b[36m\u2819\u001b[0m Building documentation...\n\u001b[36m\u2839\u001b[0m Building documentation...\n\u001b[K\u001b[?25h\u001b[31m\u2717\u001b[0m Build failed\nError during build: 122 |       const within = relative(root, target)\n123 |       if (within === '..' || within.startsWith(`..${sep}`) || isAbsolute(within))\n124 |         return destination\n125 |       const source = sources.get(target)\n126 |       if (!source)\n127 |         throw new Error(`Markdown link has no documentation source: ${rawPath}`)\n                        ^\nerror: Markdown link has no documentation source: .data/wasm-simd-benchmark-2026-07-18.md\n      at resolveLink (/Users/chris/Code/Tools/bunpress/packages/bunpress/src/markdown-pages.ts:127:19)\n      at element (/Users/chris/Code/Tools/bunpress/packages/bunpress/src/markdown-pages.ts:161:43)\n      at rewriteMarkdownSourceLinks (/Users/chris/Code/Tools/bunpress/packages/bunpress/src/markdown-pages.ts:165:6)\n      at renderMarkdownBody (/Users/chris/Code/Tools/bunpress/packages/bunpress/src/serve.ts:3303:23)\n      at async markdownToHtml (/Users/chris/Code/Tools/bunpress/packages/bunpress/src/serve.ts:3108:22)\n      at async <anonymous> (/Users/chris/Code/Tools/bunpress/packages/bunpress/bin/cli.ts:231:45)\n      at async <anonymous> (/Users/chris/Code/Tools/bunpress/packages/bunpress/src/build-output.ts:48:28)\n      at async serialized (/Users/chris/Code/Tools/bunpress/packages/bunpress/src/build-output.ts:14:22)\n\nerror: script \"docs:build\" exited with code 1\n\nECOSYSTEM PEAK SAMPLED RSS: 258384 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "docs-links": "docs-link-check: 378 files, all links resolve\nystem-2026-11-08/toolchain/zig/zig\", \"build\", \"docs-link-check\", \"-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 491648 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+      "final-audit": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"dependency-audit\"]\ndependency audit: tool 'tools/verify-c-api.ts' has unclassified caller/reference 'docs/.data/c-api-value-brands-2026-11-08.json'\nerror: DependencyAuditFailed\n/Users/chris/Code/Libraries/zig-js/tools/dependency_audit.zig:127:5: 0x10480f88f in fail__func_936 (dependency-audit)\n    return error.DependencyAuditFailed;\n    ^\n/Users/chris/Code/Libraries/zig-js/tools/dependency_audit.zig:612:25: 0x1047fb237 in auditToolMigrationInventory (dependency-audit)\n                        return fail(\"tool '{s}' has unclassified caller/reference '{s}'\", .{ tool.path, path });\n                        ^\n/Users/chris/Code/Libraries/zig-js/tools/dependency_audit.zig:871:5: 0x10480037b in main (dependency-audit)\n    try auditToolMigrationInventory(init.gpa, init.io, tool_inventory);\n    ^\ndependency-audit\n+- run exe dependency-audit failure\nerror: process exited with code 1\nfailed command: cd . && ./.zig-cache/o/35e8cad6fc0154d7d098211d3afd7d38/dependency-audit\n\nBuild Summary: 3/5 steps succeeded (1 failed)\ndependency-audit transitive failure\n+- run exe dependency-audit failure\n\n\nECOSYSTEM PEAK SAMPLED RSS: 18368 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "matching-audit": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"dependency-audit\"]\ndependency audit ok: 16 classified edges, 0 migration targets, 65 classified repository tools\n\nECOSYSTEM PEAK SAMPLED RSS: 36992 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+      "verified-audit": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"dependency-audit\"]\ndependency audit: owned sibling zig-utils/zig-gc@9bdb139cb4c6cdaa37b6fa2abebcf549cfe43762 occurs 0 times, expected 8\nerror: DependencyAuditFailed\n/Users/chris/Code/Libraries/zig-js/tools/dependency_audit.zig:127:5: 0x10049b013 in fail__func_951 (dependency-audit)\n    return error.DependencyAuditFailed;\n    ^\n/Users/chris/Code/Libraries/zig-js/tools/dependency_audit.zig:761:13: 0x10048d83b in auditCi (dependency-audit)\n            return fail(\"owned sibling {s}@{s} occurs {d} times, expected {d}\", .{ item.repository, item.revision, actual, item.occurrences });\n            ^\n/Users/chris/Code/Libraries/zig-js/tools/dependency_audit.zig:873:5: 0x1004905db in main (dependency-audit)\n    try auditCi(init.gpa, init.io, inventory);\n    ^\ndependency-audit\n+- run exe dependency-audit failure\nerror: process exited with code 1\nfailed command: cd . && ./.zig-cache/o/35e8cad6fc0154d7d098211d3afd7d38/dependency-audit\n\nBuild Summary: 3/5 steps succeeded (1 failed)\ndependency-audit transitive failure\n+- run exe dependency-audit failure\n\n\nECOSYSTEM PEAK SAMPLED RSS: 27280 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "remaining_ci_failures": [
+      "TSan races in vm.closureDefinitionLocation and vm.publishLazyChunk, including arrays/holes.js, cve/mc-grow-buffer-storm.js and vmstate/regexp-churn-threads.js (job129255481140).",
+      "CI docs rendered-manifest drift in advanced/vm-quickening/index.html, c-api/README/index.html, search-index.json (job129255481207)."
+    ],
+    "local_docs_build": "Separately fails in the existing owned BunPress checkout resolving .data/wasm-simd-benchmark-2026-07-18.md; docs-link-check passes.",
+    "inventory_semantics": "Production package pins follow build.zig.zon. Legacy CI sibling GC pin follows the existing73c802e checkout, separately from production9bdb139. Exact new C API transcript reference is classified; no audit rules weakened."
+  }
+}
