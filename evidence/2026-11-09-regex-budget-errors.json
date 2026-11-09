@@ -1,0 +1,91 @@
+{
+  "date_utc": "2026-11-09",
+  "regex_fix_sha": "16687e41d90678ccfa06a5cb050dd602d9b26437",
+  "source_base": "429fa48b71b90c56e7c6a401dbd8f294856ceb6f",
+  "status": "verified raw library fix pushed; engine pin unchanged",
+  "results": {
+    "budget-comparison.json": {
+      "before": {
+        "exit_code": 0,
+        "output": "MATCH 0:0 steps=50 limit=25\n",
+        "sha256": "d8a8ec1af8768f14892cfb929d7db5a416cae2b5149ea0eb9b003cfd53813367"
+      },
+      "after": {
+        "exit_code": 1,
+        "output": "error: Timeout\n/Users/chris/Code/Libraries/zig-js/../zig-regex/src/regex.zig:1280:51: 0x105016a77 in findBacktracking (root)\n        if (engine.step_count > engine.max_steps) return error.Timeout;\n                                                  ^\n/Users/chris/Code/Libraries/zig-js/../zig-regex/src/regex.zig:1524:21: 0x10501a71b in findInner (root)\n                if (try self.findBacktracking(input, 0)) |result| {\n                    ^\n/Users/chris/Code/Libraries/zig-js/../zig-regex/src/regex.zig:1350:9: 0x10501a9ab in find (root)\n        return self.findInner(input, null, null);\n        ^\n/Users/chris/Code/Libraries/zig-js/../../Verification/zig-js-ecosystem-2026-11-08/js-tokens/budget-probe.zig:8:17: 0x10501ab8b in main (root)\n    const hit = try re.find(input);\n                ^\n",
+        "sha256": "4796908a396acdad0e359edc79151bd3c8914f05c35692fc72c9657cdf297f74"
+      },
+      "node": {
+        "source": "const s=\"a\".repeat(64)+\"X\";console.log(JSON.stringify({input:s,anchored:/^(?!.+X)/.exec(s),unanchored:/(?!.+X)/.exec(s)?.index,positive:/a+X/.test(s)}));",
+        "exit_code": 0,
+        "output": "{\"input\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaX\",\"anchored\":null,\"unanchored\":64,\"positive\":true}\n"
+      }
+    },
+    "budget-full-tests.json": {
+      "exit_code": 0,
+      "seconds": 224.617,
+      "command": [
+        "zig",
+        "build",
+        "test",
+        "-j2"
+      ],
+      "source_base": "429fa48b71b90c56e7c6a401dbd8f294856ceb6f"
+    },
+    "budget-engine-before.json": {
+      "source": "var n=20; var s=\"a\".repeat(n); var r=new RegExp(\"^(?!(?:a?){\"+n+\"}a{\"+n+\"}$)\"); r.test(s);",
+      "before_engine_sha": "56258e7206ae4e0aa278dd787b25196b8700b767",
+      "before_regex_sha": "fdd9",
+      "results": [
+        {
+          "name": "node",
+          "exit_code": 0,
+          "output": "false\n",
+          "timed_out": false,
+          "timeout_seconds": 30,
+          "seconds": 0.051
+        },
+        {
+          "name": "engine-before",
+          "exit_code": 0,
+          "output": "OK true\n",
+          "timed_out": false,
+          "timeout_seconds": 30,
+          "seconds": 0.041
+        }
+      ]
+    },
+    "budget-engine-sizes.json": {
+      "source": "var rows=[];for(var n of [1,2,3,4,8,12,16,20]){var r=new RegExp(\"^(?!(?:a?){\"+n+\"}a{\"+n+\"}$)\"); rows.push([n,r.test(\"a\".repeat(n))]);} JSON.stringify(rows);",
+      "results": {
+        "node": {
+          "exit_code": 0,
+          "output": "[[1,false],[2,false],[3,false],[4,false],[8,false],[12,false],[16,false],[20,false]]\n"
+        },
+        "engine-before": {
+          "exit_code": 0,
+          "output": "OK [[1,true],[2,true],[3,true],[4,true],[8,true],[12,true],[16,true],[20,true]]\n"
+        }
+      }
+    }
+  },
+  "logs": {
+    "budget-red-test.log": "1/1 parser_compiler_edge_cases.test.backtrack: exhausted budget is an error across public searches...expected error.Timeout, found true\nFAIL (TestExpectedError)\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/std/testing.zig:634:9: 0x102669bd7 in expectError__func_1007 (root)\n        return error.TestExpectedError;\n        ^\n/Users/chris/Code/Libraries/zig-regex/tests/parser_compiler_edge_cases.zig:576:5: 0x10267be83 in test.backtrack: exhausted budget is an error across public searches (root)\n    try std.testing.expectError(error.Timeout, re.isMatch(input));\n    ^\n0 passed; 0 skipped; 1 failed.\nerror: the following test command failed with exit code 1:\n.zig-cache/o/4342a8cafb53e87458afa21145aea0e0/root --seed=0xbe4ac270\n",
+    "budget-green-test.log": "1/1 parser_compiler_edge_cases.test.backtrack: exhausted budget is an error across public searches...OK\nAll 1 tests passed.\n",
+    "budget-focused-tests.log": "1/4 parser_compiler_edge_cases.test.backtrack: exhausted budget is an error across public searches...OK\n2/4 parser_compiler_edge_cases.test.backtrack: budget exhaustion preserves partial cleanup and offset searches...OK\n3/4 parser_compiler_edge_cases.test.backtrack: exact budget succeeds and iterator initializes its own input...OK\n4/4 parser_compiler_edge_cases.test.backtrack: runtime budget fix retains critical compilation guards...OK\nAll 4 tests passed.\n",
+    "budget-full-tests.log": "test\n+- run test w\nSimple literal: 5 iterations, avg 4\u03bcs per match\nAlternation: 5 iterations, avg 4\u03bcs per match\nQuantifier: 5 iterations, avg 1422\u03bcs per match\nCapture groups: 5 iterations, avg 345\u03bcs per match\nEmail pattern: 5 iterations, avg 1898\u03bcs per match\nPhone number: 5 iterations, avg 2642\u03bcs per match\nURL matching: 5 iterations, avg 9176\u03bcs per match\nLong text search: 5 iterations, avg 4\u03bcs per match\nSimple compile: 5 compilations, avg 2368\u03bcs per compile\nComplex compile: 5 compilations, avg 4499\u03bcs per compile\nfailed command: ./.zig-cache/o/0bcf8899651f82c74605160b46fa581f/test --cache-dir=./.zig-cache --seed=0x35c1711b --listen=-\n\n",
+    "analyze-subtrees.log": "QUANT depth=12 type=star span=47:106 risk=critical factor=1500000\n  CRITICAL: Nested quantifiers detected (quantifier on expression with quantifiers)\nQUANT depth=10 type=plus span=162:209 risk=critical factor=1000000\n  CRITICAL: Nested quantifiers detected (quantifier on expression with quantifiers)\nQUANT depth=6 type=plus span=433:498 risk=critical factor=1000000\n  CRITICAL: Nested quantifiers detected (quantifier on expression with quantifiers)\n"
+  },
+  "reproduction_sources": {
+    "budget-probe.zig": "const std = @import(\"std\");\nconst regex = @import(\"regex\");\npub fn main() !void {\n    var re = try regex.Regex.compileWithFlags(std.heap.page_allocator, \"(?!.+X)\", .{.ecmascript=true});\n    defer re.deinit();\n    re.backtrack_engine.?.max_steps = 25;\n    const input = \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaX\";\n    const hit = try re.find(input);\n    if (hit) |r| {var m = r;defer m.deinit(std.heap.page_allocator);std.debug.print(\"MATCH {d}:{d} steps={d} limit={d}\\n\", .{m.start,m.end,re.backtrack_engine.?.step_count,re.backtrack_engine.?.max_steps});} else std.debug.print(\"NO MATCH steps={d}\\n\", .{re.backtrack_engine.?.step_count});\n}\n",
+    "analyze-subtrees.zig": "const std = @import(\"std\");\nconst regex = @import(\"regex\");\nfn walk(node: anytype, source: []const u8, depth: usize) anyerror!void {\n    var r = try regex.analyzePattern(std.heap.page_allocator, node);\n    defer r.deinit(std.heap.page_allocator);\n    var critical = false;\n    for (r.issues) |issue| {\n        if (std.mem.startsWith(u8, issue, \"CRITICAL:\")) critical = true;\n    }\n    if (critical and (node.node_type == .star or node.node_type == .plus or node.node_type == .optional or node.node_type == .repeat)) {\n        std.debug.print(\"QUANT depth={d} type={s} span={d}:{d} risk={s} factor={d}\\n\", .{depth, @tagName(node.node_type), node.span.start, node.span.end, @tagName(r.risk_level), r.explosion_factor});\n        for (r.issues) |issue| std.debug.print(\"  {s}\\n\", .{issue});\n    }\n    switch (node.node_type) {\n        .star => try walk(node.data.star.child, source, depth + 1),\n        .plus => try walk(node.data.plus.child, source, depth + 1),\n        .optional => try walk(node.data.optional.child, source, depth + 1),\n        .repeat => try walk(node.data.repeat.child, source, depth + 1),\n        .group => try walk(node.data.group.child, source, depth + 1),\n        .lookahead => try walk(node.data.lookahead.child, source, depth + 1),\n        .lookbehind => try walk(node.data.lookbehind.child, source, depth + 1),\n        .concat => {try walk(node.data.concat.left, source, depth + 1);try walk(node.data.concat.right, source, depth + 1);},\n        .alternation => {try walk(node.data.alternation.left, source, depth + 1);try walk(node.data.alternation.right, source, depth + 1);},\n        else => {},\n    }\n}\npub fn main(init: std.process.Init) !void {\n    const a = std.heap.page_allocator;\n    const io = std.Io.Threaded.global_single_threaded.io();\n    var args = try std.process.Args.Iterator.initAllocator(init.minimal.args, a);\n    defer args.deinit();\n    _ = args.next();\n    const source = try std.Io.Dir.cwd().readFileAlloc(io, args.next().?, a, .limited(1024 * 1024));\n    defer a.free(source);\n    var p = try regex.parser.Parser.init(a, source);\n    p.ecmascript = true;\n    var tree = try p.parse();defer tree.deinit();\n    try walk(tree.root, source, 0);\n}\n"
+  },
+  "limits": [
+    "Configured25-step raw-library probe returns false match0:0 after50steps before, explicit Timeout after. Node with its ordinary budget finds unanchored match at64 and no anchored match. Resource-exhaustion errors are not compared with unlimited Node execution as if they were matching semantics.",
+    "Four focused regression tests cover14 public search/transform/stateful/iterator paths, partial capture cleanup, nonzero offset, positive assertions, exact budget boundary, recovery and iterator input initialization. Full zig build test -j2 exit0 in224.617s, including fixed-seed grammar fuzz. Existing compile-error catch behavior in the upstream random fuzz harness is unchanged; no complete per-input no-error claim.",
+    "Default10-million-step budget, static critical-pattern guards and safety thresholds remain unchanged. Critical backreference witnesses still reject. Full js-tokens remains PatternTooComplex; three exact rejecting quantifiers are isolated at spans47:106,162:209,433:498. No safety acceptance fix claimed.",
+    "Engine still pins fdd9c2e333ea6ac2fd06d080d939ef7f11d61b1b. Source inspection finds interpreter.zig search calls catching all errors as null in exec, test and internal global execution. Propagate genuine resource exhaustion and validate at the actual engine boundary before promoting this dependency. No engine/runtime fix or test262 flip claimed here.",
+    "A default-engine bounded-negative-lookahead attempt differs from Node even for n=1,2,3,4,8,12,16,20. It is not a clean budget witness and must not be attributed to budget exhaustion. Full before-control matrix retained; independent semantic reduction required.",
+    "Sampled full-test stack shows active fixed-seed grammar fuzz; process completed normally. No timeout extended, fuzz input skipped, missing host fabricated or native Bun candidate fallback."
+  ]
+}
