@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "source_ci": "https://github.com/stacksjs/stacks/actions/runs/42687025941",
+  "native_failures": {
+    "artifact-freshness": {
+      "job": 129396468113,
+      "failure": "Generated native catalog retained11 strings tests but source has12"
+    },
+    "buddy": {
+      "job": 129396468208,
+      "root_suite": {
+        "passed": 763,
+        "failed": 1,
+        "assertions": 11902,
+        "failure": "Registry-only STX version assertion rejects immutable commit cohort"
+      },
+      "core_suite": {
+        "passed": 1614,
+        "skipped": 2,
+        "failed": 2,
+        "assertions": 7906,
+        "failure": "Two generated native-catalog drift assertions"
+      }
+    }
+  },
+  "fixes": {
+    "cohort_guard": "8a2b1edc",
+    "generated_catalog": "68ba87a7d200e2d886f964a6e1ca032005edcf60"
+  },
+  "results": {
+    "wrong-commit-control": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 162640,
+      "memory_limit_mb": 3072,
+      "seconds": 3.302,
+      "log": "wrong-commit-control.log"
+    },
+    "declarations-final": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 160896,
+      "memory_limit_mb": 3072,
+      "seconds": 3.325,
+      "log": "declarations-final.log"
+    },
+    "catalog-generate": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 89600,
+      "memory_limit_mb": 3072,
+      "seconds": 0.662,
+      "log": "catalog-generate.log"
+    },
+    "catalog-check-after": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 96192,
+      "memory_limit_mb": 3072,
+      "seconds": 0.592,
+      "log": "catalog-check-after.log"
+    },
+    "lint": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 857008,
+      "memory_limit_mb": 3072,
+      "seconds": 3.614,
+      "log": "lint.log"
+    },
+    "catalog-tests-after": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 93792,
+      "memory_limit_mb": 3072,
+      "seconds": 0.605,
+      "log": "catalog-tests-after.log"
+    },
+    "nested-copy-control": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 161344,
+      "memory_limit_mb": 3072,
+      "seconds": 2.142,
+      "log": "nested-copy-control.log"
+    },
+    "declarations-after": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 185712,
+      "memory_limit_mb": 3072,
+      "seconds": 4.418,
+      "log": "declarations-after.log"
+    },
+    "typecheck": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1474304,
+      "memory_limit_mb": 3072,
+      "seconds": 4.653,
+      "log": "typecheck.log"
+    },
+    "declarations-before": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 189856,
+      "memory_limit_mb": 3072,
+      "seconds": 2.472,
+      "log": "declarations-before.log"
+    },
+    "native-catalog-before": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 104656,
+      "memory_limit_mb": 3072,
+      "seconds": 0.288,
+      "log": "native-catalog-before.log"
+    }
+  },
+  "focused_validation": {
+    "dependency_tests": 7,
+    "dependency_assertions": 165,
+    "catalog_tests": 4,
+    "catalog_assertions": 2703,
+    "lint_files": 5658,
+    "lint_errors": 0,
+    "typecheck": "passed"
+  },
+  "negative_controls": [
+    "Mismatched real manifest artifact commit is rejected",
+    "Actual nested same-version package from prior without-overrides install is rejected by real resolution path",
+    "Temporary manifest bytes and installed symlink restored before final passing run"
+  ],
+  "boundary": "Native consumer source CI and reference evidence only. No candidate scheduler or missing host API was replaced, skipped or declared passing."
+}

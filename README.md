@@ -45,6 +45,8 @@ Module initialization is only a smoke check. CLI `--help` is only a CLI smoke ch
 
 ## Run and inspect
 
+The [STX ecosystem dashboard](https://zig-utils.github.io/zig-js-ecosystem/) shows the complete selected inventory, dated per-consumer outcomes, every recorded check and immutable runtime provenance. Search by repository, organization or outcome. Live CI activity is separate from the latest measured results; unsupported, unexecuted, native-only and not-applicable checks never become runtime passes. It refreshes on suite completion, site changes and a 15-minute schedule. See [site/README.md](site/README.md) for the production build and data collection details.
+
 The automatic check appears in [zig-js Actions](https://github.com/zig-utils/zig-js/actions/workflows/ecosystem.yml). Its jobs call the reusable workflow here, so they are attached to the engine push without a cross-repository token or repository-dispatch secret. The final `ecosystem-report` artifact contains `report.md`, `report.json`, the run inventory, every consumer result, and command logs. The `ecosystem-runtime` artifact contains runtime provenance and binaries.
 
 Run manually from [this repository's Actions](https://github.com/zig-utils/zig-js-ecosystem/actions/workflows/ecosystem.yml):
