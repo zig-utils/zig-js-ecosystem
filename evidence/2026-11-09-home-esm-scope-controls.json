@@ -1,0 +1,99 @@
+{
+  "recorded_utc": "2026-11-09",
+  "home_fix": "6a281236a212e12723a2fe05a851f16ab89c5cd8",
+  "local_engine_archive": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+  "scope": "Supplementary local rejection/TDZ controls, actually executed. The mandatory common fixture remains the nine committed valid/CommonJS modules. These controls are not reported as Bun scheduler execution.",
+  "fixtures": {
+    "entry.mjs": "let failures = 0;\nfor (const [file, expected] of [['./duplicate_require.mjs', 'SyntaxError'], ['./duplicate_exports.mjs', 'SyntaxError'], ['./tdz_require.mjs', 'ReferenceError']]) {\n  let actual;\n  try { await import(file); }\n  catch (error) { actual = error.name; }\n  console.log(JSON.stringify({ file, expected, actual }));\n  if (actual !== expected) failures++;\n}\nif (failures) throw new Error('Actual ESM rejection controls differ: ' + failures + '/3');\nconsole.log('OK actual ESM duplicate binding rejection and TDZ: 3 controls');\n",
+    "duplicate_require.mjs": "const require = 1;\nconst require = 2;\nexport { require };\n",
+    "duplicate_exports.mjs": "let exports = 1;\nvar exports = 2;\nexport { exports };\n",
+    "tdz_require.mjs": "export const result = require;\nconst require = 7;\n"
+  },
+  "validation": {
+    "reject-node": {
+      "result": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 46224,
+        "memory_limit_mb": 3072,
+        "seconds": 0.142,
+        "log": "reject-node.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "entry.mjs"
+        ]
+      },
+      "log": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"entry.mjs\"]\n{\"file\":\"./duplicate_require.mjs\",\"expected\":\"SyntaxError\",\"actual\":\"SyntaxError\"}\n{\"file\":\"./duplicate_exports.mjs\",\"expected\":\"SyntaxError\",\"actual\":\"SyntaxError\"}\n{\"file\":\"./tdz_require.mjs\",\"expected\":\"ReferenceError\",\"actual\":\"ReferenceError\"}\nOK actual ESM duplicate binding rejection and TDZ: 3 controls\n\nECOSYSTEM PEAK SAMPLED RSS: 46224 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "reject-bun": {
+      "result": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 928,
+        "memory_limit_mb": 3072,
+        "seconds": 0.023,
+        "log": "reject-bun.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "run",
+          "entry.mjs"
+        ]
+      },
+      "log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"run\", \"entry.mjs\"]\n{\"file\":\"./duplicate_require.mjs\",\"expected\":\"SyntaxError\",\"actual\":\"BuildMessage\"}\n{\"file\":\"./duplicate_exports.mjs\",\"expected\":\"SyntaxError\",\"actual\":\"BuildMessage\"}\n{\"file\":\"./tdz_require.mjs\",\"expected\":\"ReferenceError\",\"actual\":\"ReferenceError\"}\n4 |   try { await import(file); }\n5 |   catch (error) { actual = error.name; }\n6 |   console.log(JSON.stringify({ file, expected, actual }));\n7 |   if (actual !== expected) failures++;\n8 | }\n9 | if (failures) throw new Error('Actual ESM rejection controls differ: ' + failures + '/3');\n                            ^\nerror: Actual ESM rejection controls differ: 2/3\n      at /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-module-scope/rejections/entry.mjs:9:25\n\nBun v1.4.4 (macOS arm64)\n\nECOSYSTEM PEAK SAMPLED RSS: 928 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "reject-before": {
+      "result": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.101,
+        "log": "reject-before.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/after-zig-js/bin/home-tool",
+          "run",
+          "entry.mjs"
+        ]
+      },
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/after-zig-js/bin/home-tool\", \"run\", \"entry.mjs\"]\n{\"file\":\"./duplicate_require.mjs\",\"expected\":\"SyntaxError\",\"actual\":\"SyntaxError\"}\n{\"file\":\"./duplicate_exports.mjs\",\"expected\":\"SyntaxError\",\"actual\":\"SyntaxError\"}\n{\"file\":\"./tdz_require.mjs\",\"expected\":\"ReferenceError\",\"actual\":\"SyntaxError\"}\nhome-tool (zig-js): Error: Actual ESM rejection controls differ: 1/3\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "reject-after": {
+      "result": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 464,
+        "memory_limit_mb": 3072,
+        "seconds": 0.061,
+        "log": "reject-after.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-module-scope/after-zig-js/bin/home-tool",
+          "run",
+          "entry.mjs"
+        ]
+      },
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-module-scope/after-zig-js/bin/home-tool\", \"run\", \"entry.mjs\"]\n{\"file\":\"./duplicate_require.mjs\",\"expected\":\"SyntaxError\",\"actual\":\"SyntaxError\"}\n{\"file\":\"./duplicate_exports.mjs\",\"expected\":\"SyntaxError\",\"actual\":\"SyntaxError\"}\n{\"file\":\"./tdz_require.mjs\",\"expected\":\"ReferenceError\",\"actual\":\"ReferenceError\"}\nOK actual ESM duplicate binding rejection and TDZ: 3 controls\n\nECOSYSTEM PEAK SAMPLED RSS: 464 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "reject-jsc": {
+      "result": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.06,
+        "log": "reject-jsc.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-module-scope/after-jsc/bin/home-tool",
+          "run",
+          "entry.mjs"
+        ]
+      },
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-module-scope/after-jsc/bin/home-tool\", \"run\", \"entry.mjs\"]\n{\"file\":\"./duplicate_require.mjs\",\"expected\":\"SyntaxError\",\"actual\":\"SyntaxError\"}\n{\"file\":\"./duplicate_exports.mjs\",\"expected\":\"SyntaxError\",\"actual\":\"SyntaxError\"}\n{\"file\":\"./tdz_require.mjs\",\"expected\":\"ReferenceError\",\"actual\":\"ReferenceError\"}\nOK actual ESM duplicate binding rejection and TDZ: 3 controls\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "findings": [
+    "Node26.10 matches all3 expected exception kinds. Both updated Home providers also match3/3. Duplicate const-require and let/var-exports still reject with actual SyntaxError.",
+    "Before Home1a845e693 matches2/3: TDZ source is wrongly rejected as SyntaxError because the injected require parameter collides. After6a281236a correctly reaches ReferenceError.",
+    "Bun1.4.4 rejects both invalid duplicate sources with BuildMessage rather than SyntaxError, and reaches ReferenceError for TDZ. Strict Node error-name witness therefore really fails2/3 on Bun; no expected kind was weakened.",
+    "No source changed after the validated Home commit; these are additional diagnostic evidence, not a new functional suite revision."
+  ]
+}
