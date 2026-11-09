@@ -1,0 +1,142 @@
+{
+  "recorded_utc": "2026-11-09",
+  "status": "Unfixed actual SVG style-regex blocker; no production regex or engine change",
+  "provenance": {
+    "home": "1a845e69365ffe318d48181b193bfca24e39e273",
+    "engine_archive": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+    "source_stx": "f1790ff15faa4f94b0b5aade84cf4f436a010078",
+    "native_regex_module": "16df9870ca4a4ec8d0b932e90a62a8b3fb9af563",
+    "factory_bytes": 588871,
+    "factory_sha256": "b43eed832e956429c58a1916bd26e709c47d22ebdeb633e956ca677dd05c884a",
+    "factory_identical_to_previously_reconstructed_pattern": true,
+    "factory_line11334": "var gc = new RegExp(`${X0}:${Y0}${H0}${K0}`, \"ig\");"
+  },
+  "pattern_oracle": {
+    "pattern": "\\s*((?:[^:;\\\\]|\\\\(?:[0-9a-f]{1,6}\\s?|\\r\\n|.))*?)\\s*:\\s*((?:[^!'\"();\\\\]+?|\\\\(?:[0-9a-f]{1,6}\\s?|\\r\\n|.)|'(?:[^'\\n\\r\\\\]|\\\\(?:[0-9a-f]{1,6}\\s?|\\r\\n|.))*?(?:'|$)|\"(?:[^\"\\n\\r\\\\]|\\\\(?:[0-9a-f]{1,6}\\s?|\\r\\n|.))*?(?:\"|$)|\\((?:[^'\"()\\\\]+|\\\\(?:[0-9a-f]{1,6}\\s?|\\r\\n|.)|'(?:[^'\\n\\r\\\\]|\\\\(?:[0-9a-f]{1,6}\\s?|\\r\\n|.))*?(?:'|$)|\"(?:[^\"\\n\\r\\\\]|\\\\(?:[0-9a-f]{1,6}\\s?|\\r\\n|.))*?(?:\"|$))*?\\)|[^;]*?)*?)(\\s*!important(?![-(\\w]))?\\s*(?:;\\s*|$)",
+    "flags": "ig",
+    "sample": "fill:red;",
+    "matches": [
+      "fill:red;"
+    ],
+    "oracle": "v26.10.0"
+  },
+  "strict_native_diagnostic": {
+    "source": "const std=@import(\"std\");\nconst regex=@import(\"regex\");\npub fn main(init: std.process.Init) !void {\n const allocator=std.heap.page_allocator;\n const io=std.Io.Threaded.global_single_threaded.io();\n var args=try std.process.Args.Iterator.initAllocator(init.minimal.args,allocator);defer args.deinit();_ = args.next();const path=args.next().?;\n const source=try std.Io.Dir.cwd().readFileAlloc(io,path,allocator,.limited(1024*1024));defer allocator.free(source);\n var diagnostic:?regex.CompileErrorReason=null;\n var re=regex.Regex.compileWithFlagsDiagnostic(allocator,source,.{.ecmascript=true,.case_insensitive=true},&diagnostic) catch |err| {std.debug.print(\"ERR {s} {s}\\n\",.{@errorName(err),if(diagnostic)|d|@tagName(d) else \"unknown\"});return err;};defer re.deinit();std.debug.print(\"OK\\n\",.{});\n}\n",
+    "result": "Actual Regex.compileWithFlagsDiagnostic(ecmascript=true, case_insensitive=true) rejects PatternTooComplex; strict diagnostic propagates the error with exit1. Stack identifies pattern_analyzer.zig:607 via regex.zig:187. This is a compile rejection, not an API pass.",
+    "superseded_local_diagnostic": "Earlier local helper printed ERR then returned0. Only corrected strict nonzero reproduction is recorded below; neither result is called regex support."
+  },
+  "validation": {
+    "svg-strict-probe-build": {
+      "result": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 320080,
+        "memory_limit_mb": 3072,
+        "seconds": 1.973,
+        "log": "svg-strict-probe-build.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build-exe",
+          "--dep",
+          "regex",
+          "-Mroot=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/svg-regex-probe.zig",
+          "-Mregex=/Users/chris/Code/Libraries/zig-regex/src/root.zig",
+          "-lc",
+          "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/svg-regex-probe"
+        ]
+      },
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build-exe\", \"--dep\", \"regex\", \"-Mroot=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/svg-regex-probe.zig\", \"-Mregex=/Users/chris/Code/Libraries/zig-regex/src/root.zig\", \"-lc\", \"-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/svg-regex-probe\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 320080 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "svg-strict-probe-result": {
+      "result": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.252,
+        "log": "svg-strict-probe-result.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/svg-regex-probe",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/svg-style-pattern.txt"
+        ]
+      },
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/svg-regex-probe\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/svg-style-pattern.txt\"]\nERR PatternTooComplex unknown\nerror: PatternTooComplex\n../../../Libraries/zig-regex/src/pattern_analyzer.zig:607:9: 0x102aa1d6b in analyzeAndValidate (root)\n        return RegexError.PatternTooComplex;\n        ^\n../../../Libraries/zig-regex/src/regex.zig:187:13: 0x102aa3917 in compileWithFlagsInner (root)\n            try pattern_analyzer.analyzeAndValidate(allocator, tree.root, .high);\n            ^\n../../../Libraries/zig-regex/src/regex.zig:110:9: 0x102aa477f in compileWithFlagsDiagnostic (root)\n        return compileWithFlagsInner(allocator, pattern, flags, diagnostic);\n        ^\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/svg-regex-probe.zig:9:230: 0x102aa4b6f in main (root)\n var re=regex.Regex.compileWithFlagsDiagnostic(allocator,source,.{.ecmascript=true,.case_insensitive=true},&diagnostic) catch |err| {std.debug.print(\"ERR {s} {s}\\n\",.{@errorName(err),if(diagnostic)|d|@tagName(d) else \"unknown\"});return err;};defer re.deinit();std.debug.print(\"OK\\n\",.{});\n                                                                                                                                                                                                                                     ^\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "svg-factory-capture": {
+      "result": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 629008,
+        "memory_limit_mb": 3072,
+        "seconds": 0.778,
+        "log": "svg-factory-capture.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/after-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/capture-svg-factory.mjs",
+          "build",
+          "--pages",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-cohort837/candidate/resources/views",
+          "--out",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/ssg-capture-output"
+        ]
+      },
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/capture-svg-factory.mjs\", \"build\", \"--pages\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-cohort837/candidate/resources/views\", \"--out\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/ssg-capture-output\"]\n[stx] Plugin loaded: @stacksjs/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n\n  Build failed: invalid regular expression\n\nECOSYSTEM PEAK SAMPLED RSS: 629008 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "svg-factory-node-check": {
+      "result": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 30800,
+        "memory_limit_mb": 3072,
+        "seconds": 0.188,
+        "log": "svg-factory-node-check.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "--check",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/svg-factory-2.js"
+        ]
+      },
+      "log": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"--check\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/svg-factory-2.js\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 30800 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "svg-node-oracle": {
+      "result": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 832,
+        "memory_limit_mb": 3072,
+        "seconds": 0.059,
+        "log": "svg-node-oracle.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-html-trivia/svg-pattern-home.mjs",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-html-trivia/svg-pattern-node.json"
+        ]
+      },
+      "log": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-html-trivia/svg-pattern-home.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-html-trivia/svg-pattern-node.json\"]\nOK SVG style regex [\"fill:red;\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 832 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "svg-current-home": {
+      "result": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 688,
+        "memory_limit_mb": 3072,
+        "seconds": 0.09,
+        "log": "svg-current-home.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/after-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-html-trivia/svg-pattern-home.mjs",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-html-trivia/svg-pattern-node.json"
+        ]
+      },
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-extname/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-html-trivia/svg-pattern-home.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-html-trivia/svg-pattern-node.json\"]\nhome-tool (zig-js): SyntaxError: invalid regular expression\n\nECOSYSTEM PEAK SAMPLED RSS: 688 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    }
+  },
+  "limits": [
+    "Transparent eval recorder saves real factory text and delegates to the original indirect eval; ordinary noninstrumented SSG also fails. It is diagnostic evidence, not a package pass.",
+    "The new captured factory is byte-identical to the earlier588871-byte SVG convertStyleToAttrs factory, so prior pattern reconstruction is tied to this current execution.",
+    "Keep critical pattern analysis, backtracking step counters and all other resource guards intact. No cap increase, analyzer bypass, fake successful image result or native Bun candidate fallback was introduced.",
+    "Current functional suitea465738 qualification42676422012 is building exact runtime. Caller remains qualified047b820 pending exact Linux and both priority preflights."
+  ]
+}
