@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "source_repository": "stacksjs/ts-images",
+  "failed_source_commit": "ad0fbd0d545c6e46bb8d1fb63b5418bcc48fcf6b",
+  "fixed_source_commit": "22073a9be5e9ebe0586864a67abcf357095ce5e7",
+  "failed_publication": {
+    "run": 42716620718,
+    "job": 129500163880,
+    "failed_step": "Publish Commit",
+    "source_commit": "ad0fbd0d545c6e46bb8d1fb63b5418bcc48fcf6b",
+    "log_excerpt": [
+      "2026-11-09T23:00:51.2773052Z ##[group]Run pantry publish:commit './packages/ts-images' && pantry publish:commit './packages/bun-plugin'",
+      "2026-11-09T23:00:51.2773489Z \u001b[36;1mpantry publish:commit './packages/ts-images' && pantry publish:commit './packages/bun-plugin'\u001b[0m",
+      "2026-11-09T23:00:51.2898395Z Registry: https://registry.pantry.dev",
+      "2026-11-09T23:00:51.2922346Z Error: cannot stage 'dist': cp: cannot stat '/home/runner/work/ts-images/ts-images/packages/ts-images/dist': No such file or directory",
+      "2026-11-09T23:00:51.2923405Z   \u2717 Failed: error.TarballCreationFailed",
+      "2026-11-09T23:00:51.2924483Z \u2717 1 package(s) failed"
+    ]
+  },
+  "fix": "Build both image and plugin module artifacts in the isolated publish job; assert real exported JS, CLI and declarations exist before packaging.",
+  "local_builds": {
+    "images-publish-build": {
+      "result": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 163936,
+        "memory_limit_mb": 3072,
+        "seconds": 0.269,
+        "log": "images-publish-build.log",
+        "nonempty_artifacts": {
+          "dist/src/index.js": true,
+          "dist/bin/cli.js": true,
+          "dist/index.d.ts": true
+        }
+      },
+      "log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"build.ts\"]\n[2026-11-09T23:02:43.166Z] local.INFO: Building...\n[2026-11-09T23:02:43.281Z] local.SUCCESS: Built\n\nECOSYSTEM PEAK SAMPLED RSS: 163936 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "plugin-publish-build": {
+      "result": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 62592,
+        "memory_limit_mb": 3072,
+        "seconds": 0.163,
+        "log": "plugin-publish-build.log",
+        "nonempty_artifacts": {
+          "dist/index.js": true,
+          "dist/index.d.ts": true
+        }
+      },
+      "log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"build.ts\"]\nBuilding...\nBuilt\n\nECOSYSTEM PEAK SAMPLED RSS: 62592 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "actionlint": "passed",
+  "run": 42717185502,
+  "observed_status": "in_progress",
+  "next": "Only after actual commit artifact publication, pin Stacks to immutable22073a9 (not failed ad0fbd0). Preserve native local WebP failure and Stacks evaluation-step-budget failure."
+}
