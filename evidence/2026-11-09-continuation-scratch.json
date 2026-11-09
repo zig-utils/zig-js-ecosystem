@@ -1,0 +1,1857 @@
+{
+  "regex_sha": "16df9870ca4a4ec8d0b932e90a62a8b3fb9af563",
+  "native_gate": {
+    "status": "passed",
+    "exit_code": 0,
+    "peak_sampled_rss_kib": 1921344,
+    "memory_limit_mb": 3072,
+    "seconds": 506.8,
+    "log": "full-tests.log",
+    "command": [
+      "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+      "build",
+      "test",
+      "-j1",
+      "--cache-dir",
+      "/Users/chris/Code/Libraries/zig-regex/.zig-cache",
+      "--summary",
+      "all"
+    ]
+  },
+  "native_tests": {
+    "cached_source_root_tests": 193,
+    "fresh_external_tests": 459,
+    "total": 652,
+    "note": "The initial snapshot ran and passed the same 193 root tests before failing because external tests were omitted. The corrected complete 49-step gate reused that compiler-validated result and freshly passed all 459 external tests."
+  },
+  "fixed_memory_red": "1/1 backtrack.test.backtrack: lazy continuation retires unreachable scan state...FAIL (OutOfMemory)\n/Users/chris/Code/Libraries/zig-regex/src/backtrack.zig:2635:43: 0x102e198f7 in test.backtrack: lazy continuation retires unreachable scan state (test)\n    var found = engine.find(input) orelse return engine.match_error orelse error.ExpectedMatch;\n                                          ^\n0 passed; 0 skipped; 1 failed.\nerror: the following test command failed with exit code 1:\n.zig-cache/o/70ccf03abc2486678935c28c1bd65238/test --seed=0x82c598db\n",
+  "fixed_memory_green": "1/1 backtrack.test.backtrack: lazy continuation retires unreachable scan state...OK\nAll 1 tests passed.\n",
+  "focused_tests": "1/8 backtrack.test.backtrack: lazy continuation retires unreachable scan state...OK\n2/8 backtrack.test.backtrack: continuation pool preserves shared tails while recycling dead heads...OK\n3/8 backtrack.test.backtrack: pooled continuations propagate every allocation failure...OK\n4/8 backtrack.test.backtrack: ReDoS protection - nested quantifiers (a+)+b...OK\n5/8 backtrack.test.backtrack: ReDoS protection - nested stars (a*)*b...OK\n6/8 backtrack.test.backtrack: ReDoS protection - ambiguous alternation (a|a)*b...OK\n7/8 backtrack.test.backtrack: configurable step limit...OK\n8/8 backtrack.test.backtrack: step counter increments...OK\nAll 8 tests passed.\n",
+  "differential": [
+    {
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/prefix-matrix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/prefix-cases.json"
+      ],
+      "exit_code": 0,
+      "seconds": 0.2571968749980442,
+      "count": 1056,
+      "oracle_count": 1056,
+      "mismatches": []
+    },
+    {
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/prefix-matrix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/regex-backref-continuations/cases.json"
+      ],
+      "exit_code": 0,
+      "seconds": 0.4577277080024942,
+      "count": 4144,
+      "oracle_count": 4144,
+      "mismatches": []
+    },
+    {
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/page-probe",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/failed-input.txt"
+      ],
+      "exit_code": 0,
+      "matches": 29,
+      "matches_identical_to_saved_Node_agreement": true
+    }
+  ],
+  "cache_comparison": [
+    {
+      "version": "before",
+      "rows": [
+        {
+          "iteration": 0,
+          "matches": 29,
+          "compile_arena_bytes": 5328,
+          "matcher_arena_bytes": 0,
+          "result_arena_bytes": 65536,
+          "peak_result_arena_bytes": 17256740
+        },
+        {
+          "iteration": 1,
+          "matches": 29,
+          "compile_arena_bytes": 5328,
+          "matcher_arena_bytes": 0,
+          "result_arena_bytes": 65536,
+          "peak_result_arena_bytes": 17256740
+        },
+        {
+          "iteration": 2,
+          "matches": 29,
+          "compile_arena_bytes": 5328,
+          "matcher_arena_bytes": 0,
+          "result_arena_bytes": 65536,
+          "peak_result_arena_bytes": 17256740
+        }
+      ]
+    },
+    {
+      "version": "after",
+      "rows": [
+        {
+          "iteration": 0,
+          "matches": 29,
+          "compile_arena_bytes": 5328,
+          "matcher_arena_bytes": 0,
+          "result_arena_bytes": 14240,
+          "peak_result_arena_bytes": 14240
+        },
+        {
+          "iteration": 1,
+          "matches": 29,
+          "compile_arena_bytes": 5328,
+          "matcher_arena_bytes": 0,
+          "result_arena_bytes": 14240,
+          "peak_result_arena_bytes": 14240
+        },
+        {
+          "iteration": 2,
+          "matches": 29,
+          "compile_arena_bytes": 5328,
+          "matcher_arena_bytes": 0,
+          "result_arena_bytes": 14240,
+          "peak_result_arena_bytes": 14240
+        }
+      ]
+    }
+  ],
+  "full_raw_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"test\", \"-j1\", \"--cache-dir\", \"/Users/chris/Code/Libraries/zig-regex/.zig-cache\", \"--summary\", \"all\"]\ntest\n+- run test w\nSimple literal: 5 iterations, avg 6\u03bcs per match\nAlternation: 5 iterations, avg 4\u03bcs per match\nQuantifier: 5 iterations, avg 1411\u03bcs per match\nCapture groups: 5 iterations, avg 348\u03bcs per match\nEmail pattern: 5 iterations, avg 1912\u03bcs per match\nPhone number: 5 iterations, avg 2630\u03bcs per match\nURL matching: 5 iterations, avg 9258\u03bcs per match\nLong text search: 5 iterations, avg 3\u03bcs per match\nSimple compile: 5 compilations, avg 2379\u03bcs per compile\nComplex compile: 5 compilations, avg 4578\u03bcs per compile\nfailed command: /Users/chris/Code/Libraries/zig-regex/.zig-cache/o/3208733f6e7bbaf80f20cb9a166dcb48/test --cache-dir=/Users/chris/Code/Libraries/zig-regex/.zig-cache --seed=0xf68acc4d --listen=-\n\nBuild Summary: 49/49 steps succeeded; 459/459 tests passed\ntest success\n+- run test cached\n|  +- compile test debug native cached 49ms MaxRSS:30M\n+- run test cached\n|  +- compile test debug native cached 44ms MaxRSS:30M\n+- run test 13 pass (13 total) 190ms MaxRSS:4M\n|  +- compile test debug native success 2s MaxRSS:386M\n+- run test 22 pass (22 total) 417ms MaxRSS:6M\n|  +- compile test debug native success 2s MaxRSS:385M\n+- run test 18 pass (18 total) 179ms MaxRSS:4M\n|  +- compile test debug native success 2s MaxRSS:383M\n+- run test 27 pass (27 total) 527ms MaxRSS:7M\n|  +- compile test debug native success 2s MaxRSS:384M\n+- run test 13 pass (13 total) 379ms MaxRSS:6M\n|  +- compile test debug native success 2s MaxRSS:386M\n+- run test 16 pass (16 total) 246ms MaxRSS:5M\n|  +- compile test debug native success 2s MaxRSS:385M\n+- run test 17 pass (17 total) 417ms MaxRSS:6M\n|  +- compile test debug native success 2s MaxRSS:386M\n+- run test 8 pass (8 total) 158ms MaxRSS:4M\n|  +- compile test debug native success 2s MaxRSS:391M\n+- run test 5 pass (5 total) 270ms MaxRSS:4M\n|  +- compile test debug native cached 45ms MaxRSS:30M\n+- run test 6 pass (6 total) 7s MaxRSS:83M\n|  +- compile test debug native success 2s MaxRSS:387M\n+- run test 3 pass (3 total) 35s MaxRSS:355M\n|  +- compile test debug native success 2s MaxRSS:387M\n+- run test 1 pass (1 total) 7m MaxRSS:1G\n|  +- compile test debug native success 2s MaxRSS:386M\n+- run test 8 pass (8 total) 272ms MaxRSS:5M\n|  +- compile test debug native success 2s MaxRSS:381M\n+- run test 15 pass (15 total) 230ms MaxRSS:5M\n|  +- compile test debug native success 2s MaxRSS:400M\n+- run test 20 pass (20 total) 356ms MaxRSS:6M\n|  +- compile test debug native success 2s MaxRSS:385M\n+- run test 8 pass (8 total) 1s MaxRSS:15M\n|  +- compile test debug native success 2s MaxRSS:379M\n+- run test 9 pass (9 total) 303ms MaxRSS:5M\n|  +- compile test debug native success 1s MaxRSS:376M\n+- run test 82 pass (82 total) 8s MaxRSS:82M\n|  +- compile test debug native success 2s MaxRSS:416M\n+- run test 54 pass (54 total) 866ms MaxRSS:11M\n|  +- compile test debug native success 2s MaxRSS:401M\n+- run test 24 pass (24 total) 334ms MaxRSS:6M\n|  +- compile test debug native success 2s MaxRSS:386M\n+- run test 66 pass (66 total) 1s MaxRSS:17M\n|  +- compile test debug native success 2s MaxRSS:420M\n+- run test 24 pass (24 total) 182ms MaxRSS:4M\n   +- compile test debug native success 2s MaxRSS:392M\n\n\nECOSYSTEM PEAK SAMPLED RSS: 1921344 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+  "incomplete_snapshot": {
+    "result": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 874048,
+      "memory_limit_mb": 3072,
+      "seconds": 25.867,
+      "log": "full-tests.log"
+    },
+    "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"test\", \"--cache-dir\", \"/Users/chris/Code/Libraries/zig-regex/.zig-cache\", \"--summary\", \"all\"]\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/string_anchors.zig:1:1: error: unable to load \"string_anchors.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/string_anchors.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/multiline_dotall.zig:1:1: error: unable to load \"multiline_dotall.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/multiline_dotall.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/posix_classes.zig:1:1: error: unable to load \"posix_classes.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/posix_classes.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/non_capturing_groups.zig:1:1: error: unable to load \"non_capturing_groups.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/non_capturing_groups.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/random_fuzz.zig:1:1: error: unable to load \"random_fuzz.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/random_fuzz.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/inline_modifiers.zig:1:1: error: unable to load \"inline_modifiers.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/inline_modifiers.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/stress_edge_cases.zig:1:1: error: unable to load \"stress_edge_cases.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/stress_edge_cases.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/differential_fuzz.zig:1:1: error: unable to load \"differential_fuzz.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/differential_fuzz.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/utf8_unicode.zig:1:1: error: unable to load \"utf8_unicode.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/utf8_unicode.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/parser_compiler_edge_cases.zig:1:1: error: unable to load \"parser_compiler_edge_cases.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/parser_compiler_edge_cases.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/thread_safety.zig:1:1: error: unable to load \"thread_safety.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/thread_safety.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/lazy_quantifiers.zig:1:1: error: unable to load \"lazy_quantifiers.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/lazy_quantifiers.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/benchmarks.zig:1:1: error: unable to load \"benchmarks.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex --dep benchmark -Mroot=tests/benchmarks.zig -Mregex=src/root.zig -Odebug --dep regex -Mbenchmark=src/benchmark.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/advanced_edge_cases.zig:1:1: error: unable to load \"advanced_edge_cases.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/advanced_edge_cases.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/iterator.zig:1:1: error: unable to load \"iterator.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/iterator.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/case_insensitive.zig:1:1: error: unable to load \"case_insensitive.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/case_insensitive.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/anchored_search.zig:1:1: error: unable to load \"anchored_search.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/anchored_search.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/named_captures.zig:1:1: error: unable to load \"named_captures.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/named_captures.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/fuzz.zig:1:1: error: unable to load \"fuzz.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/fuzz.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/backreferences.zig:1:1: error: unable to load \"backreferences.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/backreferences.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/integration.zig:1:1: error: unable to load \"integration.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/integration.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\ntest\n+- run test\n   +- compile test debug native 1 errors\ntests/regression.zig:1:1: error: unable to load \"regression.zig\": FileNotFound\nerror: 1 compilation errors\nfailed command: /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig test -Odebug --dep regex -Mroot=tests/regression.zig -Mregex=src/root.zig -lc --cache-dir /Users/chris/Code/Libraries/zig-regex/.zig-cache --global-cache-dir /Users/chris/.cache/zig --build-root . --name test --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\nBuild Summary: 4/49 steps succeeded (22 failed); 193/193 tests passed\ntest transitive failure\n+- run test 193 pass (193 total) 20s MaxRSS:182M\n|  +- compile test debug native success 2s MaxRSS:449M\n+- run test success 129ms MaxRSS:2M\n|  +- compile test debug native success 1s MaxRSS:267M\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n|  +- compile test debug native 1 errors\n+- run test transitive failure\n   +- compile test debug native 1 errors\n\n\nECOSYSTEM PEAK SAMPLED RSS: 874048 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+  },
+  "parallel_guard": {
+    "result": {
+      "status": "failed",
+      "exit_code": -9,
+      "peak_sampled_rss_kib": 3158960,
+      "memory_limit_mb": 3072,
+      "seconds": 5.003,
+      "log": "full-tests.log",
+      "reason": "sampled command tree RSS exceeded 3072 MiB"
+    },
+    "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"test\", \"--cache-dir\", \"/Users/chris/Code/Libraries/zig-regex/.zig-cache\", \"--summary\", \"all\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 3158960 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+  },
+  "before_clean_docs": {
+    "status": "passed",
+    "exit_code": 0,
+    "peak_sampled_rss_kib": 1648944,
+    "memory_limit_mb": 3072,
+    "seconds": 38.978,
+    "log": "before-clean-docs.log",
+    "command": [
+      "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool",
+      "run",
+      "/Users/chris/Code/Home/zig-js-ecosystem-home/node_modules/@stacksjs/bunpress/dist/bin/cli.js",
+      "build"
+    ],
+    "generated_output_absent_at_start": true,
+    "home_sha": "a98722f63d4f68c03f2fe8e086d131810f1fbeea",
+    "engine_sha": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a"
+  },
+  "source_manifest": {
+    "build.zig.zon": "b2845155e738f4b3e0b348df4745ec7ae931588120ee0a8a7b1fb8f9d5e93c48",
+    "build.zig": "7dbddc87a9e4e0b3aff48a6e8f879cab30d0a8f9093d75bc6ad19d5f484a513d",
+    "tests/case_insensitive.zig": "df315179dc6c32e38ae2b574b64bcbaec5e5522ad1eca0440bf41f208f9efb4d",
+    "tests/benchmarks.zig": "777531680f9cca0723e48be8e11bf5f850479ba697f5c71b59c5b4c5f47bd468",
+    "tests/advanced_edge_cases.zig": "cc0c58bd480441f02fe795afc391593136d24066d3f7744145f1a0ee4517e1a6",
+    "tests/string_anchors.zig": "31a79184d10e2eff2c7186d504cc74adf3356253c0434f9ca2615dcab4eac209",
+    "tests/fuzz.zig": "46ed820f6ccfd641f9af66063c77d1d29c90179a011df97eaedb4b9e98bc93ba",
+    "tests/differential_fuzz.zig": "8be6c887145b5e1cd595a7eb6b617e377c2e13ae07b08f645f9a9749237fcdba",
+    "tests/multiline_dotall.zig": "8ba45a30ef14362aafdfc896e339521e81f2e54aa740024a596a15bd411c8f59",
+    "tests/named_captures.zig": "4de74bcaa8200211679b3e6d2ad3efaffeae34fbb6f07f0b9a36f069831d8f90",
+    "tests/backreferences.zig": "48ab633ea7b7edfbaeb625226ba344a3fef59aff33f8a456a5b6ae04a92c87a2",
+    "tests/comprehensive.zig": "bb2e0f9c8eedc8b88229a35c39d472bd080e36a754c9cc5ba8ca44c815936f6c",
+    "tests/utf8_unicode.zig": "31b26e1ec986b9758e1e9b91102ed08e641b769d8429b539fde1a186c090fc76",
+    "tests/iterator.zig": "5d86a58cab77d7e439cff4720a8ee335a7ef0b811e61a4672a824afda95c5ac5",
+    "tests/lazy_quantifiers.zig": "46b22cad33181f3b4d3c4d53b57c80618bb17450515c343038b8059a8328ca27",
+    "tests/parser_compiler_edge_cases.zig": "bfd1ff3118fd067cdc4f1c7edb8a84a112c7ff94f471c3210a61e5b3345f2278",
+    "tests/regression.zig": "4d4b1e2fc91311540ab22c637abbd90c10e9e5074c792cacc7f62530d2126c31",
+    "tests/stress_edge_cases.zig": "0ee623a9ac733e042841c85678e517abd057bec722d6629a6e7d79f4e91c9e24",
+    "tests/inline_modifiers.zig": "825625a63eb096a6f739661bccf6d6039029c195bf581d62327c342c59508606",
+    "tests/thread_safety.zig": "87479ef72e46c045eb94a9201afa58a62706aba9ea9b8f977fb17c20dee57803",
+    "tests/anchored_search.zig": "275245f706740d021eb0608788dc84eba51d3b74a21086d8e57870726ffb9482",
+    "tests/random_fuzz.zig": "4292e5fffa25f0d1a1d7a8c389f91f59f0fed154e42c7b4ed29dbca32ac5f7bc",
+    "tests/non_capturing_groups.zig": "169ed6673007f286aae1004a9e96120b8031705429f01f17e80a056d242fa763",
+    "tests/edge_cases.zig": "68c23618b1e40976f2345ee16cc66297ef7fffade9a987e8ea0d4a29e47878f0",
+    "tests/lookahead.zig": "01fb1aa68e6ae335d318cd6a1f7f281fe36525fa9a850977a6de90e2b60f7e92",
+    "tests/integration.zig": "a5f7f506846a7fddc971b8c9fe7af2ecfff6ed574d22394d33a5ccf43eeb8201",
+    "tests/quantifiers.zig": "de21d9444fb681d99341fe6a0cb5d261c4cd1471c0c4f1cfef2f13d7cd4a36a8",
+    "tests/posix_classes.zig": "9097a16f6a50c3b1b7abf4833cf988f87b2da02263c6b1e14ef4c1fd7de6b69a",
+    "tests/lookbehind.zig": "19f101908a7fafc749b693eab3f4fc60397b77f956f9a5dc09f57249e9afb5fc",
+    "src/utf8_class.zig": "36c49b729f82ccab8d12f830fb3b106b771591e0f309750884d696a8a08f08d5",
+    "src/debug.zig": "05f42b22a3762140c274c9c6ff2055984cb2659f9fa81ada454edaed54b5f43a",
+    "src/ast_optimizer.zig": "5f9f6690d186b03984623cc3b8c171f2bb2c2fc1d21a202cb596a0fd5a274326",
+    "src/pretty_print.zig": "10338530ba387303e184c05e701f207a29104f3d6170df8e998ff7ef6c8e0cfc",
+    "src/advanced_features.zig": "557d3c1fe3c882e0c6a9aa43015133e9c1eab304fcb4f4bdc384a023cdc6605f",
+    "src/unicode_prop_data.zig": "c9e9ac62a162e127bda60eac2ae5a834136a438f3574234b329c9cf3f1a14db2",
+    "src/macros.zig": "460fba7045a4819f0afd8b89cc3fe044287a7d3aff53d922a581f4c942813dde",
+    "src/builder.zig": "ae4125b5ccf5f69cc3fbafd73f360680265fa5bb9da41729e0597c1cf92e1767",
+    "src/regex.zig": "9988d000f62d472c6f80ca19e99a9ad3c14fce7e19993fd128c7d4aa970359de",
+    "src/unicode.zig": "7218059c5355f7c07c8139401863bc883a5efd0d9435239b447a8b80c1380073",
+    "src/main.zig": "f9733c061bb061932a3e6198e7d2bae3828573f9b6462f88b5b44c6414c1fb79",
+    "src/parser.zig": "c4c7d34b2a8418f21f71c3365c36a18a2cb4d0a1f1b23c9076ea1405da39f492",
+    "src/errors.zig": "9bc69420eb87427f1daaf4a85ca2d9efdc22aa87d121dd1d553de58fd6f6200c",
+    "src/unicode_gc_data.zig": "a6632d5355b5e35949c0061942df5f30904b88a9d9136ce3ea2830e9b7033998",
+    "src/profiling.zig": "9f6f1cfb6b32735ff80aea4ba7e3c5f68798449f9f8c13c2fd5977d9a39ecf5d",
+    "src/vm.zig": "29ff23d69eedf372d996b464f6a0b98ebe2934c069b4ed946f48888bea86f396",
+    "src/named_captures.zig": "af98cdb3b19cc15ce13c64771d8d815d4e5fcc1963cd0592fd0cf93be85e7cef",
+    "src/compiler.zig": "c990566a3c371c804260dcbebaba4801626293dccd2adeb1b686f29081053369",
+    "src/ast.zig": "40a3ba465fc875dfa6274f471597a2794797db04997671b7ea3235768de7ae02",
+    "src/lint.zig": "6e141a832d176b01fd41a8adbb20344c96508af27f7bc80aa55db818c18487c6",
+    "src/pattern_analyzer.zig": "2ee465b25656ab7bcd8ba1a21fc87a7d05a86b829075ea24453c79813a43c143",
+    "src/unicode_casefold_data.zig": "63c2561619a559e4192ebb1fd548e9ed2ca16b574459120bf2dc02c1eee13921",
+    "src/common.zig": "307adf268c792f08a3e2e6f59161facbd7535cd5768d27c8dd9d760536a7c6b4",
+    "src/backtrack.zig": "b450e7be37169997ec3c688a1e3fe07be62818ec22f39eb39f0aca315ed7e055",
+    "src/optimizer.zig": "a4426b407ef55b9b0b83dd0cc37ff76c759aa035ce93c054213baceb54936455",
+    "src/thread_safety.zig": "6a3f492f19f0c236463cadd362facc2a4facd94cc436f8ff428cb18ecbc70559",
+    "src/c_api.zig": "df463f4039e536835bf084c94986a1dd37fba413eb4e1d51b898443b9a9a1a41",
+    "src/reverse.zig": "e686f8470ad2c6fd5c0f8b18da905927b0f1eb3ee3270ed7e81fa8fee62c2e2b",
+    "src/nfa_optimizer.zig": "7d0870e3ec9a8ed86e7328dc69a76253966533f9933e0291c5eaed5f5ae6bc31",
+    "src/onepass.zig": "89db686ac85da811a6aad3d528acf800ca4252c28b4fd27d202fdd72f6686d5a",
+    "src/root.zig": "8c8311989c442c921f88dc540075b756228bea6583e2c7762e06fa2d5e0e2b73",
+    "src/benchmark.zig": "84bbc165bc8dc709a5f75007f8f63cf43872d369e3c97dd679e0310e95049b82",
+    "src/rgi_emoji_data.zig": "72799cfe9057bb4b929787293ea97f5597bfa90d04f3a5e6910ab5959fa80b46",
+    "src/dfa.zig": "a51ba406a52a612c6a0f742cd823a9fea78b3e16a87eb2fe7744e1abe392e99c"
+  },
+  "engine_adoption": "Pushed immutable compiler-verified dependency pin and Node-confirmed retention-test fixture. All 10 cache tests pass against both old/new libraries. Exact downstream Linux validation remains pending.",
+  "linux_docs": "still failed at previous pushed engine 9b0b3b90; no CI pass claimed",
+  "observed_at_utc": "2026-11-09T15:30:10.672178+00:00",
+  "engine_sha": "2e26e227fe74c89b89494934ff57302ab16aded2",
+  "functional_suite_ref": "016419c81e04c1734293291943ac08504f29cf80",
+  "runtime_home_sha": "a98722f63d4f68c03f2fe8e086d131810f1fbeea",
+  "library_ci": {
+    "url": "https://github.com/zig-utils/zig-regex/actions/runs/42643382801",
+    "metadata": {
+      "jobs": [
+        {
+          "id": 129250059135,
+          "name": "test",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 42643382801,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run mlugg/setup-zig@v2",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Build",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Test",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Post Run mlugg/setup-zig@v2",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            }
+          ]
+        },
+        {
+          "id": 129250059513,
+          "name": "build (x86_64-macos)",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 42643382801,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run mlugg/setup-zig@v2",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Build (x86_64-macos)",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Post Run mlugg/setup-zig@v2",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            }
+          ]
+        },
+        {
+          "id": 129250059548,
+          "name": "build (aarch64-linux)",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 42643382801,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run mlugg/setup-zig@v2",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Build (aarch64-linux)",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Post Run mlugg/setup-zig@v2",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            }
+          ]
+        },
+        {
+          "id": 129250059576,
+          "name": "build (aarch64-macos)",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 42643382801,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run mlugg/setup-zig@v2",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Build (aarch64-macos)",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Post Run mlugg/setup-zig@v2",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            }
+          ]
+        },
+        {
+          "id": 129250059710,
+          "name": "build (x86_64-linux)",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 42643382801,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run mlugg/setup-zig@v2",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Build (x86_64-linux)",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Post Run mlugg/setup-zig@v2",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            }
+          ]
+        },
+        {
+          "id": 129250059792,
+          "name": "build (x86_64-windows)",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 42643382801,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run mlugg/setup-zig@v2",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Build (x86_64-windows)",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Post Run mlugg/setup-zig@v2",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "engine_cache_validation": {
+    "results": [
+      {
+        "version": "before",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "test",
+          "--dep",
+          "regex",
+          "-Mroot=src/regexp_program_cache.zig",
+          "-Mregex=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/regex-final/src/root.zig",
+          "--test-filter",
+          "RegExp program cache"
+        ],
+        "exit_code": 0,
+        "seconds": 2.7804192080002395
+      },
+      {
+        "version": "after",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "test",
+          "--dep",
+          "regex",
+          "-Mroot=src/regexp_program_cache.zig",
+          "-Mregex=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig",
+          "--test-filter",
+          "RegExp program cache"
+        ],
+        "exit_code": 0,
+        "seconds": 2.5474862920018495
+      }
+    ],
+    "before_log": "1/10 regexp_program_cache.test.RegExp program cache compares complete immutable keys by value...OK\n2/10 regexp_program_cache.test.RegExp program cache reclaims an unpinned eviction...OK\n3/10 regexp_program_cache.test.RegExp program cache shares a backtracking program by value, never while it is pinned...OK\n4/10 regexp_program_cache.test.RegExp program cache recycles an unpinned arena without moving pinned leases...OK\n5/10 regexp_program_cache.test.RegExp program cache reuses matcher and result arenas across hot matches...OK\n6/10 regexp_program_cache.test.RegExp program cache keeps lazy DFA scratch across result resets...OK\n7/10 regexp_program_cache.test.RegExp program cache uses a transient lease when every slot is pinned...OK\n8/10 regexp_program_cache.test.RegExp program cache keeps released leases with live results out of eviction...OK\n9/10 regexp_program_cache.test.RegExp program cache releases oversized result scratch after a live capture retires...OK\n10/10 regexp_program_cache.test.RegExp program cache releases oversized result scratch after misses and errors...OK\nAll 10 tests passed.\n",
+    "after_log": "1/10 regexp_program_cache.test.RegExp program cache compares complete immutable keys by value...OK\n2/10 regexp_program_cache.test.RegExp program cache reclaims an unpinned eviction...OK\n3/10 regexp_program_cache.test.RegExp program cache shares a backtracking program by value, never while it is pinned...OK\n4/10 regexp_program_cache.test.RegExp program cache recycles an unpinned arena without moving pinned leases...OK\n5/10 regexp_program_cache.test.RegExp program cache reuses matcher and result arenas across hot matches...OK\n6/10 regexp_program_cache.test.RegExp program cache keeps lazy DFA scratch across result resets...OK\n7/10 regexp_program_cache.test.RegExp program cache uses a transient lease when every slot is pinned...OK\n8/10 regexp_program_cache.test.RegExp program cache keeps released leases with live results out of eviction...OK\n9/10 regexp_program_cache.test.RegExp program cache releases oversized result scratch after a live capture retires...OK\n10/10 regexp_program_cache.test.RegExp program cache releases oversized result scratch after misses and errors...OK\nAll 10 tests passed.\n",
+    "initial_stale_fixture_log": "1/10 regexp_program_cache.test.RegExp program cache compares complete immutable keys by value...OK\n2/10 regexp_program_cache.test.RegExp program cache reclaims an unpinned eviction...OK\n3/10 regexp_program_cache.test.RegExp program cache shares a backtracking program by value, never while it is pinned...OK\n4/10 regexp_program_cache.test.RegExp program cache recycles an unpinned arena without moving pinned leases...OK\n5/10 regexp_program_cache.test.RegExp program cache reuses matcher and result arenas across hot matches...OK\n6/10 regexp_program_cache.test.RegExp program cache keeps lazy DFA scratch across result resets...OK\n7/10 regexp_program_cache.test.RegExp program cache uses a transient lease when every slot is pinned...OK\n8/10 regexp_program_cache.test.RegExp program cache keeps released leases with live results out of eviction...OK\n9/10 regexp_program_cache.test.RegExp program cache releases oversized result scratch after a live capture retires...FAIL (TestUnexpectedResult)\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/std/testing.zig:584:14: 0x1021d9a1f in expect (root)\n    if (!ok) return error.TestUnexpectedResult;\n             ^\n/Users/chris/Code/Libraries/zig-js/src/regexp_program_cache.zig:541:5: 0x1022e7e87 in test.RegExp program cache releases oversized result scratch after a live capture retires (root)\n    try std.testing.expect(owned.result_arena.queryCapacity() > 64 * 1024);\n    ^\n10/10 regexp_program_cache.test.RegExp program cache releases oversized result scratch after misses and errors...OK\n9 passed; 0 skipped; 1 failed.\nerror: the following test command failed with exit code 1:\n.zig-cache/o/f70c29a43212562c24521f81420fbce2/root --seed=0x3ca27fd1\n",
+    "node_oracle": {
+      "version": "v26.10.0",
+      "pattern": "a(.+)!(?:\\1)?",
+      "input_bytes": 8192,
+      "match_length": 8192,
+      "capture_length": 8190,
+      "recovery_capture": "ok"
+    },
+    "interpretation": "The original retention fixture assumed a lazy scan accumulated oversized scratch. Its stale >64 KiB assertion failed after the allocation fix. A greedy capture with an optional backreference genuinely retains alternatives and passes the unchanged oversized-live-result/retirement/recovery assertions against both revisions."
+  },
+  "local_engine_attempts": [
+    {
+      "result": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 9360,
+        "memory_limit_mb": 3072,
+        "seconds": 0.098,
+        "log": "engine-build.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "install",
+          "test262-bin",
+          "test-frontend",
+          "-Doptimize=ReleaseSafe",
+          "-Dtest-filter=RegExp",
+          "-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool",
+          "-j1",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out",
+          "--summary",
+          "all"
+        ],
+        "source_manifest_unchanged": true,
+        "manifest": {
+          "src/gc.zig": "6322905852294f58c6be5fc85768b0b4a6a1d611b38bda12fc27d064b665a9ce",
+          "src/objc_abi_dispatch.zig": "fb8aa8a98192a013d1dece853ac0fbb044cf5bfbd5afd260d33dae6e377cdb42",
+          "src/gc_runtime.zig": "24c8147c7a50a3ffdfe2b96544fe01e96ffa21f02c844420c4093df64aeb974f",
+          "src/promise_profile.zig": "cd9a830600d225e944302eed7b91e67b16881ebf897303116eb29438e94186ff",
+          "src/valuebox.zig": "4ae6c5f5c1b057473ff65fa0b18e74b198a46131d9d7e8f6aa6cd0296b2ae380",
+          "src/shape.zig": "de4edb880852e2573ec48ef2c6bffd318508b76d845ae942f8839f02325c404b",
+          "src/engine_io.zig": "79c802c91f9c792e9a73396bcac0e5e9184581664a7b40a40a9f5ee0fe8c04df",
+          "src/cldr_timedata.zig": "ff1e59d340a6688a8ed58497db6c3c0eabdc7e5e9561a1dffffe910bb8a21ec5",
+          "src/value.zig": "b61780aedef7b059e39cc6326b50c4cce75ebb2a24e82733521e0a31afa4e7a6",
+          "src/text_codec.zig": "52629a59d0e172eeb7e4c831cf6f519235d203a122f93efdd6def0ad4146021e",
+          "src/annex_b.zig": "c2406b65edf3b6e8bf1f0b3a044879d10414461b95e56336775a4d0479becffd",
+          "src/private_name_map.zig": "f9d775da91627212b6538f8d4c9b6f73501e0e7f00dd05656ca0462c382b9c41",
+          "src/nanbox.zig": "f11fd3fdd8653569808c2343fbee0d493963e36876fd2e48276e0964eb58d6dc",
+          "src/agent.zig": "0bb5da7b3a39296ff615b97bcfe8bbbe777c097a9de37d8c8268158221fb0875",
+          "src/script_cache.zig": "679f71428daccc223970e2ec56cc425b46aa0fe4c21c524ccd4115bfb5ccb123",
+          "src/encoding_multibyte_data.zig": "20df969b7df81a44a30f41bc7eab8dca1319599e9c272d9dad32ee1fa861ac3c",
+          "src/encoding_multibyte.zig": "7d13bcd952e96f0d50fc163b9ef381ef7fde5b64542a3829852672b1bd7af8eb",
+          "src/parser.zig": "b115c9c623133d8fef7354be57cbabbcb7c17ec7bab566a58736a1b00ae0463b",
+          "src/intl_displaynames_data.zig": "6b9953c921131d2bf75c3ee913b1f492db5ee94b102fc4fd07ab8dae18acc501",
+          "src/cldr_tzalias.zig": "85ae111d2307e8a2315b2eb9db2facfa413f98e9e71b837f3242016779ef9866",
+          "src/promise.zig": "606f849ea57bd8bad2d6a9efde4671fb797a889428acd4704c0f9e20d3ffdad3",
+          "src/async_context_scope_tests.zig": "c70911274737fa331b5cc0c43fd4d867b750915f0eb709508a5e4166695e410a",
+          "src/unicode_grapheme_data.zig": "e3777e15ebf1206d07b3619711f8d0039f00e270dda70ccf3b5d47f605aae97a",
+          "src/fetch_headers.zig": "3dcbb74205d28e9c6a9a4c23a53812630efd257d01b6526aa63b75170b875b0c",
+          "src/unicode_case.zig": "c8abbf247e2ab6844366426704e3d489ea53e053d2ebe1957e88ac679333494c",
+          "src/iana_zones.zig": "e7095d9ce91519545ecdccd04f3d4ccbf286b026d0d9274041e911dee165a983",
+          "src/regexp_compat.zig": "428675d7a7d9c483acba6abd059dc58efba72e80c0a2cfe530a7868164d37735",
+          "src/regexp_program_cache.zig": "45e9737374ba92f2450ab1948223d3543cedb492822b27d758cdc40bc855702b",
+          "src/cldr_numbers.zig": "2f4dec865a96b686a491f74a1e335e56f67c0b93f7ee9a5ed0abb989e3a02c0b",
+          "src/vm.zig": "68832b6de79efa63d51743076e51476155330e77b87dbbe44786c61b415d3c46",
+          "src/interpreter.zig": "a06f8a2ce588e3a538668820cecfb9e86a16b4164925347d736bffc99eb57ee9",
+          "src/compiler.zig": "12514c84118100182e4e221215d884a90d3fa19b877e4bf06aa5ae282b561290",
+          "src/ast.zig": "bf5af950aa5698898c6c47d14877bf7341eb0faede6b6917b6c02062a46b0799",
+          "src/cldr_collation.zig": "ffe961a9196960460ab6c3839580e93bc829d783383ee5cb24573aa740b7e208",
+          "src/unicode_case_data.zig": "d84991e0afa56e3730c4d9d837189afdac42ac775bba115223a2f5d2a8115eab",
+          "src/strcell.zig": "e56ebefcdbf961ffa57c7b579307b9a4392fa50674f0be8c014d4a48c431f2c1",
+          "src/jsthread.zig": "a4a9e5c86f07f6889aaef95c42eaff7fd28d2672ed31a9fd565b1a83c275183e",
+          "src/builtins.zig": "876e1262815442fb9b30f74d5bf454832194ece24543be64063bf5de8195a5ce",
+          "src/private_abi.zig": "fa161bf65c22c47e5bd9f48b19fa9478e0e3fdcdb14b6f049e3b5d9ee56befbd",
+          "src/bytecode.zig": "a63d492789ddf7e2efe1abc943ddc1a35e8b34da76ff5aa562316e4abf0e5446",
+          "src/parallel_lock.zig": "339bf61d2ee6209c65c5fb73e7381367b30537250928e43bdc73feaf3fa336b4",
+          "src/root_handshake.zig": "d94a481391d661b8f387c6c0e2ce6aa7cf70f3245e555e9c9fd9f044761eeec3",
+          "src/cldr_locale.zig": "99c74a33d405ddda981bf1001eccf7532c0fad7699d2c0561fcd1981b1d25ac4",
+          "src/gil.zig": "8950be3ffa335fa114dc27d43ff373e5605d6ed0e0597447959efef1472a6acc",
+          "src/numbering_systems.zig": "46b19995a5e10921e8fe7c4417c34acd73215b68749631aba05e008a74cd561f",
+          "src/text_codec_tables.zig": "f664fca08cedac08a5eb779adfeb51f6cfc4a512291395eb282fa4e1030a59a8",
+          "src/focused_jit_tests.zig": "c3ec3acf2eb0991da6f007cc10db8ecec08046b1b22cd9bdb7dd47ab5624a240",
+          "src/io_compat.zig": "eb103b30e9b979eb22b96a8b812b7c7d42f1eebaa7c0f6538095e60e0b2aa5a3",
+          "src/iana_offsets.zig": "54d474b108bd44463fa3e365acf9a531425adbc228aaa9d59f95dfa622cb1efb",
+          "src/c_api.zig": "0ace752df5a92b311bbb2c91b9affd504c7277e414da0a50917c942992e843fe",
+          "src/stack_scan.zig": "b23e5f2614766d6f97a3503316d72f77ca17af8a6b4c54808b8f4ee5920c2ef7",
+          "src/intl_weekdata.zig": "75ea2d6de31bec8652b155739339e92246d201481ef40030b484296eb8d29b5a",
+          "src/unicode_normalize.zig": "fa6c05a4a42edba4fc09a9cbbe045cf5ec4c136ec0ba7778e649c1f2c3638c93",
+          "src/lexer.zig": "3edb635f58395cfa9b0aef4d9255555837f4093c873e21a9d30d7faf3ec8050a",
+          "src/intl_units_data.zig": "8ab55f32494b9c498564d73c314b52e8520c37311b92536c0329804554beea18",
+          "src/root.zig": "69f4b893d81d9fefe1035666a445f5256db6f917c5d31877de42b3e4eb7a3692",
+          "src/idna.zig": "2f9abafc1a595425eeb373bca2b0de5284c6c6c6ea172a8499601874d45dd8dc",
+          "src/diagnostic_site.zig": "50cb9322279fd1d55ec0641722383c30f9ce445b50ade4cfa7f5218d6ac041c9",
+          "src/value_nb.zig": "44341cecc7f863e92f8fc099cb2f3d91f10213f659a391857a17d67884bb6e9a",
+          "src/unicode_idna_data.zig": "903185d22f0ac7f8a439e29bdf8d176d6a61a31eb76d70c300dd09ee3775407f",
+          "src/intl_localeinfo.zig": "2481e50bdc9ab8234c5a9ebc1010bda3f10824ef54dc8164802b4c9888326b8c",
+          "src/jsstring.zig": "5e510266e96ce31a936b0fd7c2f555e96ff9c16893fb54f7d3e145777a50afc5",
+          "src/cldr_plurals.zig": "39f1765a11b86ba3db35ee02f2886d74fcf856e42be78be8ef2d2844fc6e937d",
+          "src/jit.zig": "3e531522f537856b1dc62c8c53ae5dc87eda0c42eb2f9c3efc5afa4381db127e",
+          "src/structured_clone.zig": "dfeabc9e9945df595d4320bedec66422d17366bc048bbf977bc6f203c73f5f68",
+          "src/worker.zig": "0bd4b1094ff52a1674eacdd165983d242b6c2c5fd088514df4f6a88d7e8f44ad",
+          "src/object_profile.zig": "d1a6acd8c68b394f0a5a2e1fb664e7d70aee6f7654fd4f758bec0c6e366d52a9",
+          "src/context.zig": "e1fb38802c803bccfb8ae20c6d77ed90d84f769599094ff11464d4fc138c242d",
+          "src/encoding_singlebyte_data.zig": "911e1c05d0c002fd26b6d456b6a4a7e4aabeec1f714820caae3a48b25fcbff12",
+          "src/shared_buffer.zig": "3224e03136d0c2ab8c22074d12ad71a5d1608b2daaa152e712e33f9338b9487a",
+          "src/runtime_threads.zig": "b1fc06baeef1bf4526738b4a416d55f6713d08279b3ed1ec6ca3b000e0b8432d",
+          "src/unicode_normalize_data.zig": "ae426c64928f36070214968fc732d78efe2695b7bddb3a3bf0f2e0cb3c2caa75",
+          "src/gc_relocation.zig": "4040f1d076fed197932ee1e78b59228b13f81633027fc07af964c1986fd89157",
+          "src/wasm/gc.zig": "6f4aa70cea3573891d067b3a6e2427971f091dbec326a5a13e05f4faa6c96465",
+          "src/wasm/decode.zig": "be27e004345ffa4e2c47391d391f96f514d2f523a6686dbf3ffe3b32a4affa60",
+          "src/wasm/simd_validate.zig": "ab457e5915a4e38bf48ff9bf47c3b91da23342c838fcc3331a4ee481c2c07526",
+          "src/wasm/atomic.zig": "915dbd4eab8c3199ad09b17c19692cca47e738866bdec634925ceb530558d426",
+          "src/wasm/worker_integration.zig": "8b4400e21e0a7e1641e89e8529a62e1f105d4fcd7dc9ef320f48fddf7ba54238",
+          "src/wasm/simd.zig": "1fadd15460198e6ddb7fec4d60fce8993fa1bad0b7b82aa1206a9b3ff2f33da9",
+          "src/wasm/types.zig": "815cf4d42ad5d7526c4294d37554c874a6316281d78ff01e7773f06f5cd610fa",
+          "src/wasm/api.zig": "faed0969300a34c4f0bd636bb0585d106d6aa31dc1512378d72d1191fa1aac82",
+          "src/wasm/exec.zig": "2249cdd35539163d2095244dac0c5093c3180a3862ea08039ccc5a70fa7710f6",
+          "src/wasm/validate.zig": "5e2a15195f2e3f4c2b8427bcf693dbf73df84c02884504a3ccb34586121ffb3b",
+          "src/private_abi/encoded_value.zig": "a99d35227ae1bb099888a1e943a90d67f5079799a2be4996cbddbaeade53ff4d",
+          "src/private_abi/jstype.zig": "1640359d3708c7ce10fe5fda6c674b7ede21d62668e163540260129bdc2fae45",
+          "src/jit/optimizer_verify.zig": "26f2b9375cabd4baf21e71da9d4b351c1fa5a9a35407f5bfa47b7f33cbb17a44",
+          "src/jit/gdb_jit.zig": "87339fffb143ffa7d927a87c109294e4bedec4c1c58e12ea3e984efe842207b7",
+          "src/jit/native_observability.zig": "99524292c361dfab71d4dacd163b0526d8286dda05cb6d8d1276378582e56176",
+          "src/jit/optimizer_program_verify.zig": "63aeb6679c20a9de8391a1ee306e667a496e52249132bee085af5733242c8bc2",
+          "src/jit/executable_memory.zig": "9cdb000eb80c88af1063933f10b8af9c93fbb8565ada409b85264bdd9063efad",
+          "src/jit/compiler.zig": "470581b5f11e17cbfb12e626c26fd5f43ede7abfe57e3de479e27ced61f8eb68",
+          "src/jit/aarch64.zig": "e5e233f326ea799496bb20c71d396f16d58e666474e58b226fc97953f83e5b83",
+          "src/jit/optimizer.zig": "e6013c247249bdc0221458d7163d76a5071cfb13b4f9ceda61d589fffd4dfe91",
+          "src/jit/perf_jitdump.zig": "33241b755794d47164a9aa8e8dad6b557fb11fccc3c9859b306b05bcae9f0150",
+          "src/jit/optimizer_compiler.zig": "70b54e702f0af90fd6843f31312043441703801a7a48b5026d0b221778fc572f",
+          "build.zig": "70badbc4015049869024e3ddc201c5b90ac890d183dfe5459ab1c5a62671ae78",
+          "build.zig.zon": "495891379f6c97daeaf50f0af99b015b535b00d09cba7677decd5e9e184d1f69",
+          "tools/focused_engine_tests.zig": "64137d51de2fed03aa07e28880f2868e98602052f1f7edf87427f129dcde0d63"
+        }
+      },
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"install\", \"test262-bin\", \"test-frontend\", \"-Doptimize=ReleaseSafe\", \"-Dtest-filter=RegExp\", \"-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool\", \"-j1\", \"--prefix\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out\", \"--summary\", \"all\"]\n./build.zig.zon:10:21: error: hash mismatch: manifest declares zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG but the fetched package has N-V-__8AAHpKGwD-1Jtrtu7E_kDzUQSZSxqw4im5IStJTiot\n            .hash = \"zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG\",\n                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nECOSYSTEM PEAK SAMPLED RSS: 9360 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "result": {
+        "status": "failed",
+        "exit_code": -9,
+        "peak_sampled_rss_kib": 3149280,
+        "memory_limit_mb": 3072,
+        "seconds": 105.636,
+        "log": "engine-build.log",
+        "reason": "sampled command tree RSS exceeded 3072 MiB",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "install",
+          "test262-bin",
+          "test-frontend",
+          "-Doptimize=ReleaseSafe",
+          "-Dtest-filter=RegExp",
+          "-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool",
+          "-j1",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out",
+          "--summary",
+          "all"
+        ],
+        "source_manifest_unchanged": true,
+        "manifest": {
+          "src/gc.zig": "6322905852294f58c6be5fc85768b0b4a6a1d611b38bda12fc27d064b665a9ce",
+          "src/objc_abi_dispatch.zig": "fb8aa8a98192a013d1dece853ac0fbb044cf5bfbd5afd260d33dae6e377cdb42",
+          "src/gc_runtime.zig": "24c8147c7a50a3ffdfe2b96544fe01e96ffa21f02c844420c4093df64aeb974f",
+          "src/promise_profile.zig": "cd9a830600d225e944302eed7b91e67b16881ebf897303116eb29438e94186ff",
+          "src/valuebox.zig": "4ae6c5f5c1b057473ff65fa0b18e74b198a46131d9d7e8f6aa6cd0296b2ae380",
+          "src/shape.zig": "de4edb880852e2573ec48ef2c6bffd318508b76d845ae942f8839f02325c404b",
+          "src/engine_io.zig": "79c802c91f9c792e9a73396bcac0e5e9184581664a7b40a40a9f5ee0fe8c04df",
+          "src/cldr_timedata.zig": "ff1e59d340a6688a8ed58497db6c3c0eabdc7e5e9561a1dffffe910bb8a21ec5",
+          "src/value.zig": "b61780aedef7b059e39cc6326b50c4cce75ebb2a24e82733521e0a31afa4e7a6",
+          "src/text_codec.zig": "52629a59d0e172eeb7e4c831cf6f519235d203a122f93efdd6def0ad4146021e",
+          "src/annex_b.zig": "c2406b65edf3b6e8bf1f0b3a044879d10414461b95e56336775a4d0479becffd",
+          "src/private_name_map.zig": "f9d775da91627212b6538f8d4c9b6f73501e0e7f00dd05656ca0462c382b9c41",
+          "src/nanbox.zig": "f11fd3fdd8653569808c2343fbee0d493963e36876fd2e48276e0964eb58d6dc",
+          "src/agent.zig": "0bb5da7b3a39296ff615b97bcfe8bbbe777c097a9de37d8c8268158221fb0875",
+          "src/script_cache.zig": "679f71428daccc223970e2ec56cc425b46aa0fe4c21c524ccd4115bfb5ccb123",
+          "src/encoding_multibyte_data.zig": "20df969b7df81a44a30f41bc7eab8dca1319599e9c272d9dad32ee1fa861ac3c",
+          "src/encoding_multibyte.zig": "7d13bcd952e96f0d50fc163b9ef381ef7fde5b64542a3829852672b1bd7af8eb",
+          "src/parser.zig": "b115c9c623133d8fef7354be57cbabbcb7c17ec7bab566a58736a1b00ae0463b",
+          "src/intl_displaynames_data.zig": "6b9953c921131d2bf75c3ee913b1f492db5ee94b102fc4fd07ab8dae18acc501",
+          "src/cldr_tzalias.zig": "85ae111d2307e8a2315b2eb9db2facfa413f98e9e71b837f3242016779ef9866",
+          "src/promise.zig": "606f849ea57bd8bad2d6a9efde4671fb797a889428acd4704c0f9e20d3ffdad3",
+          "src/async_context_scope_tests.zig": "c70911274737fa331b5cc0c43fd4d867b750915f0eb709508a5e4166695e410a",
+          "src/unicode_grapheme_data.zig": "e3777e15ebf1206d07b3619711f8d0039f00e270dda70ccf3b5d47f605aae97a",
+          "src/fetch_headers.zig": "3dcbb74205d28e9c6a9a4c23a53812630efd257d01b6526aa63b75170b875b0c",
+          "src/unicode_case.zig": "c8abbf247e2ab6844366426704e3d489ea53e053d2ebe1957e88ac679333494c",
+          "src/iana_zones.zig": "e7095d9ce91519545ecdccd04f3d4ccbf286b026d0d9274041e911dee165a983",
+          "src/regexp_compat.zig": "428675d7a7d9c483acba6abd059dc58efba72e80c0a2cfe530a7868164d37735",
+          "src/regexp_program_cache.zig": "45e9737374ba92f2450ab1948223d3543cedb492822b27d758cdc40bc855702b",
+          "src/cldr_numbers.zig": "2f4dec865a96b686a491f74a1e335e56f67c0b93f7ee9a5ed0abb989e3a02c0b",
+          "src/vm.zig": "68832b6de79efa63d51743076e51476155330e77b87dbbe44786c61b415d3c46",
+          "src/interpreter.zig": "a06f8a2ce588e3a538668820cecfb9e86a16b4164925347d736bffc99eb57ee9",
+          "src/compiler.zig": "12514c84118100182e4e221215d884a90d3fa19b877e4bf06aa5ae282b561290",
+          "src/ast.zig": "bf5af950aa5698898c6c47d14877bf7341eb0faede6b6917b6c02062a46b0799",
+          "src/cldr_collation.zig": "ffe961a9196960460ab6c3839580e93bc829d783383ee5cb24573aa740b7e208",
+          "src/unicode_case_data.zig": "d84991e0afa56e3730c4d9d837189afdac42ac775bba115223a2f5d2a8115eab",
+          "src/strcell.zig": "e56ebefcdbf961ffa57c7b579307b9a4392fa50674f0be8c014d4a48c431f2c1",
+          "src/jsthread.zig": "a4a9e5c86f07f6889aaef95c42eaff7fd28d2672ed31a9fd565b1a83c275183e",
+          "src/builtins.zig": "876e1262815442fb9b30f74d5bf454832194ece24543be64063bf5de8195a5ce",
+          "src/private_abi.zig": "fa161bf65c22c47e5bd9f48b19fa9478e0e3fdcdb14b6f049e3b5d9ee56befbd",
+          "src/bytecode.zig": "a63d492789ddf7e2efe1abc943ddc1a35e8b34da76ff5aa562316e4abf0e5446",
+          "src/parallel_lock.zig": "339bf61d2ee6209c65c5fb73e7381367b30537250928e43bdc73feaf3fa336b4",
+          "src/root_handshake.zig": "d94a481391d661b8f387c6c0e2ce6aa7cf70f3245e555e9c9fd9f044761eeec3",
+          "src/cldr_locale.zig": "99c74a33d405ddda981bf1001eccf7532c0fad7699d2c0561fcd1981b1d25ac4",
+          "src/gil.zig": "8950be3ffa335fa114dc27d43ff373e5605d6ed0e0597447959efef1472a6acc",
+          "src/numbering_systems.zig": "46b19995a5e10921e8fe7c4417c34acd73215b68749631aba05e008a74cd561f",
+          "src/text_codec_tables.zig": "f664fca08cedac08a5eb779adfeb51f6cfc4a512291395eb282fa4e1030a59a8",
+          "src/focused_jit_tests.zig": "c3ec3acf2eb0991da6f007cc10db8ecec08046b1b22cd9bdb7dd47ab5624a240",
+          "src/io_compat.zig": "eb103b30e9b979eb22b96a8b812b7c7d42f1eebaa7c0f6538095e60e0b2aa5a3",
+          "src/iana_offsets.zig": "54d474b108bd44463fa3e365acf9a531425adbc228aaa9d59f95dfa622cb1efb",
+          "src/c_api.zig": "0ace752df5a92b311bbb2c91b9affd504c7277e414da0a50917c942992e843fe",
+          "src/stack_scan.zig": "b23e5f2614766d6f97a3503316d72f77ca17af8a6b4c54808b8f4ee5920c2ef7",
+          "src/intl_weekdata.zig": "75ea2d6de31bec8652b155739339e92246d201481ef40030b484296eb8d29b5a",
+          "src/unicode_normalize.zig": "fa6c05a4a42edba4fc09a9cbbe045cf5ec4c136ec0ba7778e649c1f2c3638c93",
+          "src/lexer.zig": "3edb635f58395cfa9b0aef4d9255555837f4093c873e21a9d30d7faf3ec8050a",
+          "src/intl_units_data.zig": "8ab55f32494b9c498564d73c314b52e8520c37311b92536c0329804554beea18",
+          "src/root.zig": "69f4b893d81d9fefe1035666a445f5256db6f917c5d31877de42b3e4eb7a3692",
+          "src/idna.zig": "2f9abafc1a595425eeb373bca2b0de5284c6c6c6ea172a8499601874d45dd8dc",
+          "src/diagnostic_site.zig": "50cb9322279fd1d55ec0641722383c30f9ce445b50ade4cfa7f5218d6ac041c9",
+          "src/value_nb.zig": "44341cecc7f863e92f8fc099cb2f3d91f10213f659a391857a17d67884bb6e9a",
+          "src/unicode_idna_data.zig": "903185d22f0ac7f8a439e29bdf8d176d6a61a31eb76d70c300dd09ee3775407f",
+          "src/intl_localeinfo.zig": "2481e50bdc9ab8234c5a9ebc1010bda3f10824ef54dc8164802b4c9888326b8c",
+          "src/jsstring.zig": "5e510266e96ce31a936b0fd7c2f555e96ff9c16893fb54f7d3e145777a50afc5",
+          "src/cldr_plurals.zig": "39f1765a11b86ba3db35ee02f2886d74fcf856e42be78be8ef2d2844fc6e937d",
+          "src/jit.zig": "3e531522f537856b1dc62c8c53ae5dc87eda0c42eb2f9c3efc5afa4381db127e",
+          "src/structured_clone.zig": "dfeabc9e9945df595d4320bedec66422d17366bc048bbf977bc6f203c73f5f68",
+          "src/worker.zig": "0bd4b1094ff52a1674eacdd165983d242b6c2c5fd088514df4f6a88d7e8f44ad",
+          "src/object_profile.zig": "d1a6acd8c68b394f0a5a2e1fb664e7d70aee6f7654fd4f758bec0c6e366d52a9",
+          "src/context.zig": "e1fb38802c803bccfb8ae20c6d77ed90d84f769599094ff11464d4fc138c242d",
+          "src/encoding_singlebyte_data.zig": "911e1c05d0c002fd26b6d456b6a4a7e4aabeec1f714820caae3a48b25fcbff12",
+          "src/shared_buffer.zig": "3224e03136d0c2ab8c22074d12ad71a5d1608b2daaa152e712e33f9338b9487a",
+          "src/runtime_threads.zig": "b1fc06baeef1bf4526738b4a416d55f6713d08279b3ed1ec6ca3b000e0b8432d",
+          "src/unicode_normalize_data.zig": "ae426c64928f36070214968fc732d78efe2695b7bddb3a3bf0f2e0cb3c2caa75",
+          "src/gc_relocation.zig": "4040f1d076fed197932ee1e78b59228b13f81633027fc07af964c1986fd89157",
+          "src/wasm/gc.zig": "6f4aa70cea3573891d067b3a6e2427971f091dbec326a5a13e05f4faa6c96465",
+          "src/wasm/decode.zig": "be27e004345ffa4e2c47391d391f96f514d2f523a6686dbf3ffe3b32a4affa60",
+          "src/wasm/simd_validate.zig": "ab457e5915a4e38bf48ff9bf47c3b91da23342c838fcc3331a4ee481c2c07526",
+          "src/wasm/atomic.zig": "915dbd4eab8c3199ad09b17c19692cca47e738866bdec634925ceb530558d426",
+          "src/wasm/worker_integration.zig": "8b4400e21e0a7e1641e89e8529a62e1f105d4fcd7dc9ef320f48fddf7ba54238",
+          "src/wasm/simd.zig": "1fadd15460198e6ddb7fec4d60fce8993fa1bad0b7b82aa1206a9b3ff2f33da9",
+          "src/wasm/types.zig": "815cf4d42ad5d7526c4294d37554c874a6316281d78ff01e7773f06f5cd610fa",
+          "src/wasm/api.zig": "faed0969300a34c4f0bd636bb0585d106d6aa31dc1512378d72d1191fa1aac82",
+          "src/wasm/exec.zig": "2249cdd35539163d2095244dac0c5093c3180a3862ea08039ccc5a70fa7710f6",
+          "src/wasm/validate.zig": "5e2a15195f2e3f4c2b8427bcf693dbf73df84c02884504a3ccb34586121ffb3b",
+          "src/private_abi/encoded_value.zig": "a99d35227ae1bb099888a1e943a90d67f5079799a2be4996cbddbaeade53ff4d",
+          "src/private_abi/jstype.zig": "1640359d3708c7ce10fe5fda6c674b7ede21d62668e163540260129bdc2fae45",
+          "src/jit/optimizer_verify.zig": "26f2b9375cabd4baf21e71da9d4b351c1fa5a9a35407f5bfa47b7f33cbb17a44",
+          "src/jit/gdb_jit.zig": "87339fffb143ffa7d927a87c109294e4bedec4c1c58e12ea3e984efe842207b7",
+          "src/jit/native_observability.zig": "99524292c361dfab71d4dacd163b0526d8286dda05cb6d8d1276378582e56176",
+          "src/jit/optimizer_program_verify.zig": "63aeb6679c20a9de8391a1ee306e667a496e52249132bee085af5733242c8bc2",
+          "src/jit/executable_memory.zig": "9cdb000eb80c88af1063933f10b8af9c93fbb8565ada409b85264bdd9063efad",
+          "src/jit/compiler.zig": "470581b5f11e17cbfb12e626c26fd5f43ede7abfe57e3de479e27ced61f8eb68",
+          "src/jit/aarch64.zig": "e5e233f326ea799496bb20c71d396f16d58e666474e58b226fc97953f83e5b83",
+          "src/jit/optimizer.zig": "e6013c247249bdc0221458d7163d76a5071cfb13b4f9ceda61d589fffd4dfe91",
+          "src/jit/perf_jitdump.zig": "33241b755794d47164a9aa8e8dad6b557fb11fccc3c9859b306b05bcae9f0150",
+          "src/jit/optimizer_compiler.zig": "70b54e702f0af90fd6843f31312043441703801a7a48b5026d0b221778fc572f",
+          "build.zig": "70badbc4015049869024e3ddc201c5b90ac890d183dfe5459ab1c5a62671ae78",
+          "build.zig.zon": "495891379f6c97daeaf50f0af99b015b535b00d09cba7677decd5e9e184d1f69",
+          "tools/focused_engine_tests.zig": "64137d51de2fed03aa07e28880f2868e98602052f1f7edf87427f129dcde0d63"
+        }
+      },
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"install\", \"test262-bin\", \"test-frontend\", \"-Doptimize=ReleaseSafe\", \"-Dtest-filter=RegExp\", \"-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool\", \"-j1\", \"--prefix\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out\", \"--summary\", \"all\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 3149280 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+    },
+    {
+      "result": {
+        "status": "failed",
+        "exit_code": -9,
+        "peak_sampled_rss_kib": 3153456,
+        "memory_limit_mb": 3072,
+        "seconds": 8.986,
+        "log": "engine-build.log",
+        "reason": "sampled command tree RSS exceeded 3072 MiB",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "test262-bin",
+          "test-frontend",
+          "-Doptimize=ReleaseSafe",
+          "-Dtest-filter=RegExp",
+          "-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool",
+          "-j1",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out",
+          "--summary",
+          "all"
+        ],
+        "source_manifest_unchanged": true,
+        "manifest": {
+          "src/gc.zig": "6322905852294f58c6be5fc85768b0b4a6a1d611b38bda12fc27d064b665a9ce",
+          "src/objc_abi_dispatch.zig": "fb8aa8a98192a013d1dece853ac0fbb044cf5bfbd5afd260d33dae6e377cdb42",
+          "src/gc_runtime.zig": "24c8147c7a50a3ffdfe2b96544fe01e96ffa21f02c844420c4093df64aeb974f",
+          "src/promise_profile.zig": "cd9a830600d225e944302eed7b91e67b16881ebf897303116eb29438e94186ff",
+          "src/valuebox.zig": "4ae6c5f5c1b057473ff65fa0b18e74b198a46131d9d7e8f6aa6cd0296b2ae380",
+          "src/shape.zig": "de4edb880852e2573ec48ef2c6bffd318508b76d845ae942f8839f02325c404b",
+          "src/engine_io.zig": "79c802c91f9c792e9a73396bcac0e5e9184581664a7b40a40a9f5ee0fe8c04df",
+          "src/cldr_timedata.zig": "ff1e59d340a6688a8ed58497db6c3c0eabdc7e5e9561a1dffffe910bb8a21ec5",
+          "src/value.zig": "b61780aedef7b059e39cc6326b50c4cce75ebb2a24e82733521e0a31afa4e7a6",
+          "src/text_codec.zig": "52629a59d0e172eeb7e4c831cf6f519235d203a122f93efdd6def0ad4146021e",
+          "src/annex_b.zig": "c2406b65edf3b6e8bf1f0b3a044879d10414461b95e56336775a4d0479becffd",
+          "src/private_name_map.zig": "f9d775da91627212b6538f8d4c9b6f73501e0e7f00dd05656ca0462c382b9c41",
+          "src/nanbox.zig": "f11fd3fdd8653569808c2343fbee0d493963e36876fd2e48276e0964eb58d6dc",
+          "src/agent.zig": "0bb5da7b3a39296ff615b97bcfe8bbbe777c097a9de37d8c8268158221fb0875",
+          "src/script_cache.zig": "679f71428daccc223970e2ec56cc425b46aa0fe4c21c524ccd4115bfb5ccb123",
+          "src/encoding_multibyte_data.zig": "20df969b7df81a44a30f41bc7eab8dca1319599e9c272d9dad32ee1fa861ac3c",
+          "src/encoding_multibyte.zig": "7d13bcd952e96f0d50fc163b9ef381ef7fde5b64542a3829852672b1bd7af8eb",
+          "src/parser.zig": "b115c9c623133d8fef7354be57cbabbcb7c17ec7bab566a58736a1b00ae0463b",
+          "src/intl_displaynames_data.zig": "6b9953c921131d2bf75c3ee913b1f492db5ee94b102fc4fd07ab8dae18acc501",
+          "src/cldr_tzalias.zig": "85ae111d2307e8a2315b2eb9db2facfa413f98e9e71b837f3242016779ef9866",
+          "src/promise.zig": "606f849ea57bd8bad2d6a9efde4671fb797a889428acd4704c0f9e20d3ffdad3",
+          "src/async_context_scope_tests.zig": "c70911274737fa331b5cc0c43fd4d867b750915f0eb709508a5e4166695e410a",
+          "src/unicode_grapheme_data.zig": "e3777e15ebf1206d07b3619711f8d0039f00e270dda70ccf3b5d47f605aae97a",
+          "src/fetch_headers.zig": "3dcbb74205d28e9c6a9a4c23a53812630efd257d01b6526aa63b75170b875b0c",
+          "src/unicode_case.zig": "c8abbf247e2ab6844366426704e3d489ea53e053d2ebe1957e88ac679333494c",
+          "src/iana_zones.zig": "e7095d9ce91519545ecdccd04f3d4ccbf286b026d0d9274041e911dee165a983",
+          "src/regexp_compat.zig": "428675d7a7d9c483acba6abd059dc58efba72e80c0a2cfe530a7868164d37735",
+          "src/regexp_program_cache.zig": "78c824b62f5fc1ec85b97a4cf8318a4378143ef81b7a85b199429469e5d5375e",
+          "src/cldr_numbers.zig": "2f4dec865a96b686a491f74a1e335e56f67c0b93f7ee9a5ed0abb989e3a02c0b",
+          "src/vm.zig": "68832b6de79efa63d51743076e51476155330e77b87dbbe44786c61b415d3c46",
+          "src/interpreter.zig": "a06f8a2ce588e3a538668820cecfb9e86a16b4164925347d736bffc99eb57ee9",
+          "src/compiler.zig": "12514c84118100182e4e221215d884a90d3fa19b877e4bf06aa5ae282b561290",
+          "src/ast.zig": "bf5af950aa5698898c6c47d14877bf7341eb0faede6b6917b6c02062a46b0799",
+          "src/cldr_collation.zig": "ffe961a9196960460ab6c3839580e93bc829d783383ee5cb24573aa740b7e208",
+          "src/unicode_case_data.zig": "d84991e0afa56e3730c4d9d837189afdac42ac775bba115223a2f5d2a8115eab",
+          "src/strcell.zig": "e56ebefcdbf961ffa57c7b579307b9a4392fa50674f0be8c014d4a48c431f2c1",
+          "src/jsthread.zig": "a4a9e5c86f07f6889aaef95c42eaff7fd28d2672ed31a9fd565b1a83c275183e",
+          "src/builtins.zig": "876e1262815442fb9b30f74d5bf454832194ece24543be64063bf5de8195a5ce",
+          "src/private_abi.zig": "fa161bf65c22c47e5bd9f48b19fa9478e0e3fdcdb14b6f049e3b5d9ee56befbd",
+          "src/bytecode.zig": "a63d492789ddf7e2efe1abc943ddc1a35e8b34da76ff5aa562316e4abf0e5446",
+          "src/parallel_lock.zig": "339bf61d2ee6209c65c5fb73e7381367b30537250928e43bdc73feaf3fa336b4",
+          "src/root_handshake.zig": "d94a481391d661b8f387c6c0e2ce6aa7cf70f3245e555e9c9fd9f044761eeec3",
+          "src/cldr_locale.zig": "99c74a33d405ddda981bf1001eccf7532c0fad7699d2c0561fcd1981b1d25ac4",
+          "src/gil.zig": "8950be3ffa335fa114dc27d43ff373e5605d6ed0e0597447959efef1472a6acc",
+          "src/numbering_systems.zig": "46b19995a5e10921e8fe7c4417c34acd73215b68749631aba05e008a74cd561f",
+          "src/text_codec_tables.zig": "f664fca08cedac08a5eb779adfeb51f6cfc4a512291395eb282fa4e1030a59a8",
+          "src/focused_jit_tests.zig": "c3ec3acf2eb0991da6f007cc10db8ecec08046b1b22cd9bdb7dd47ab5624a240",
+          "src/io_compat.zig": "eb103b30e9b979eb22b96a8b812b7c7d42f1eebaa7c0f6538095e60e0b2aa5a3",
+          "src/iana_offsets.zig": "54d474b108bd44463fa3e365acf9a531425adbc228aaa9d59f95dfa622cb1efb",
+          "src/c_api.zig": "0ace752df5a92b311bbb2c91b9affd504c7277e414da0a50917c942992e843fe",
+          "src/stack_scan.zig": "b23e5f2614766d6f97a3503316d72f77ca17af8a6b4c54808b8f4ee5920c2ef7",
+          "src/intl_weekdata.zig": "75ea2d6de31bec8652b155739339e92246d201481ef40030b484296eb8d29b5a",
+          "src/unicode_normalize.zig": "fa6c05a4a42edba4fc09a9cbbe045cf5ec4c136ec0ba7778e649c1f2c3638c93",
+          "src/lexer.zig": "3edb635f58395cfa9b0aef4d9255555837f4093c873e21a9d30d7faf3ec8050a",
+          "src/intl_units_data.zig": "8ab55f32494b9c498564d73c314b52e8520c37311b92536c0329804554beea18",
+          "src/root.zig": "69f4b893d81d9fefe1035666a445f5256db6f917c5d31877de42b3e4eb7a3692",
+          "src/idna.zig": "2f9abafc1a595425eeb373bca2b0de5284c6c6c6ea172a8499601874d45dd8dc",
+          "src/diagnostic_site.zig": "50cb9322279fd1d55ec0641722383c30f9ce445b50ade4cfa7f5218d6ac041c9",
+          "src/value_nb.zig": "44341cecc7f863e92f8fc099cb2f3d91f10213f659a391857a17d67884bb6e9a",
+          "src/unicode_idna_data.zig": "903185d22f0ac7f8a439e29bdf8d176d6a61a31eb76d70c300dd09ee3775407f",
+          "src/intl_localeinfo.zig": "2481e50bdc9ab8234c5a9ebc1010bda3f10824ef54dc8164802b4c9888326b8c",
+          "src/jsstring.zig": "5e510266e96ce31a936b0fd7c2f555e96ff9c16893fb54f7d3e145777a50afc5",
+          "src/cldr_plurals.zig": "39f1765a11b86ba3db35ee02f2886d74fcf856e42be78be8ef2d2844fc6e937d",
+          "src/jit.zig": "3e531522f537856b1dc62c8c53ae5dc87eda0c42eb2f9c3efc5afa4381db127e",
+          "src/structured_clone.zig": "dfeabc9e9945df595d4320bedec66422d17366bc048bbf977bc6f203c73f5f68",
+          "src/worker.zig": "0bd4b1094ff52a1674eacdd165983d242b6c2c5fd088514df4f6a88d7e8f44ad",
+          "src/object_profile.zig": "d1a6acd8c68b394f0a5a2e1fb664e7d70aee6f7654fd4f758bec0c6e366d52a9",
+          "src/context.zig": "e1fb38802c803bccfb8ae20c6d77ed90d84f769599094ff11464d4fc138c242d",
+          "src/encoding_singlebyte_data.zig": "911e1c05d0c002fd26b6d456b6a4a7e4aabeec1f714820caae3a48b25fcbff12",
+          "src/shared_buffer.zig": "3224e03136d0c2ab8c22074d12ad71a5d1608b2daaa152e712e33f9338b9487a",
+          "src/runtime_threads.zig": "b1fc06baeef1bf4526738b4a416d55f6713d08279b3ed1ec6ca3b000e0b8432d",
+          "src/unicode_normalize_data.zig": "ae426c64928f36070214968fc732d78efe2695b7bddb3a3bf0f2e0cb3c2caa75",
+          "src/gc_relocation.zig": "4040f1d076fed197932ee1e78b59228b13f81633027fc07af964c1986fd89157",
+          "src/wasm/gc.zig": "6f4aa70cea3573891d067b3a6e2427971f091dbec326a5a13e05f4faa6c96465",
+          "src/wasm/decode.zig": "be27e004345ffa4e2c47391d391f96f514d2f523a6686dbf3ffe3b32a4affa60",
+          "src/wasm/simd_validate.zig": "ab457e5915a4e38bf48ff9bf47c3b91da23342c838fcc3331a4ee481c2c07526",
+          "src/wasm/atomic.zig": "915dbd4eab8c3199ad09b17c19692cca47e738866bdec634925ceb530558d426",
+          "src/wasm/worker_integration.zig": "8b4400e21e0a7e1641e89e8529a62e1f105d4fcd7dc9ef320f48fddf7ba54238",
+          "src/wasm/simd.zig": "1fadd15460198e6ddb7fec4d60fce8993fa1bad0b7b82aa1206a9b3ff2f33da9",
+          "src/wasm/types.zig": "815cf4d42ad5d7526c4294d37554c874a6316281d78ff01e7773f06f5cd610fa",
+          "src/wasm/api.zig": "faed0969300a34c4f0bd636bb0585d106d6aa31dc1512378d72d1191fa1aac82",
+          "src/wasm/exec.zig": "2249cdd35539163d2095244dac0c5093c3180a3862ea08039ccc5a70fa7710f6",
+          "src/wasm/validate.zig": "5e2a15195f2e3f4c2b8427bcf693dbf73df84c02884504a3ccb34586121ffb3b",
+          "src/private_abi/encoded_value.zig": "a99d35227ae1bb099888a1e943a90d67f5079799a2be4996cbddbaeade53ff4d",
+          "src/private_abi/jstype.zig": "1640359d3708c7ce10fe5fda6c674b7ede21d62668e163540260129bdc2fae45",
+          "src/jit/optimizer_verify.zig": "26f2b9375cabd4baf21e71da9d4b351c1fa5a9a35407f5bfa47b7f33cbb17a44",
+          "src/jit/gdb_jit.zig": "87339fffb143ffa7d927a87c109294e4bedec4c1c58e12ea3e984efe842207b7",
+          "src/jit/native_observability.zig": "99524292c361dfab71d4dacd163b0526d8286dda05cb6d8d1276378582e56176",
+          "src/jit/optimizer_program_verify.zig": "63aeb6679c20a9de8391a1ee306e667a496e52249132bee085af5733242c8bc2",
+          "src/jit/executable_memory.zig": "9cdb000eb80c88af1063933f10b8af9c93fbb8565ada409b85264bdd9063efad",
+          "src/jit/compiler.zig": "470581b5f11e17cbfb12e626c26fd5f43ede7abfe57e3de479e27ced61f8eb68",
+          "src/jit/aarch64.zig": "e5e233f326ea799496bb20c71d396f16d58e666474e58b226fc97953f83e5b83",
+          "src/jit/optimizer.zig": "e6013c247249bdc0221458d7163d76a5071cfb13b4f9ceda61d589fffd4dfe91",
+          "src/jit/perf_jitdump.zig": "33241b755794d47164a9aa8e8dad6b557fb11fccc3c9859b306b05bcae9f0150",
+          "src/jit/optimizer_compiler.zig": "70b54e702f0af90fd6843f31312043441703801a7a48b5026d0b221778fc572f",
+          "build.zig": "70badbc4015049869024e3ddc201c5b90ac890d183dfe5459ab1c5a62671ae78",
+          "build.zig.zon": "495891379f6c97daeaf50f0af99b015b535b00d09cba7677decd5e9e184d1f69",
+          "tools/focused_engine_tests.zig": "64137d51de2fed03aa07e28880f2868e98602052f1f7edf87427f129dcde0d63"
+        }
+      },
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"test262-bin\", \"test-frontend\", \"-Doptimize=ReleaseSafe\", \"-Dtest-filter=RegExp\", \"-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool\", \"-j1\", \"--prefix\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out\", \"--summary\", \"all\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 3153456 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+    },
+    {
+      "result": {
+        "status": "failed",
+        "exit_code": -9,
+        "peak_sampled_rss_kib": 3182528,
+        "memory_limit_mb": 3072,
+        "seconds": 76.079,
+        "log": "frontend-only.log",
+        "reason": "sampled command tree RSS exceeded 3072 MiB",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "test-frontend",
+          "-Doptimize=ReleaseSafe",
+          "-Dtest-filter=RegExp",
+          "-j1",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out",
+          "--summary",
+          "all",
+          "--verbose"
+        ]
+      },
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"test-frontend\", \"-Doptimize=ReleaseSafe\", \"-Dtest-filter=RegExp\", \"-j1\", \"--prefix\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out\", \"--summary\", \"all\", \"--verbose\"]\ninfo(verbose): /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --name configurer -fsingle-threaded --dep @build --dep @dependencies -Mroot=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/compiler/configurer.zig -Mzig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/build.zig -Mzig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/build.zig --dep zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V --dep zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG -M@dependencies=.zig-cache/o/f30fe0e203c33d9abf8b70d55640a633/dependencies.zig --dep zig_regex=zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG --dep zig_gc=zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V -M@build=build.zig --listen=-\ninfo(verbose): /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-\n\nECOSYSTEM PEAK SAMPLED RSS: 3182528 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+    }
+  ],
+  "fetch_layout": {
+    "compiler": "0.18.0-dev.146+35accc06e",
+    "compiler_reported_hash": "zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG",
+    "cached_archive_sha256": "b391bfc10b3ca97b4e1ac363b8ffc53cd72d02d9835f4ac0b397186fa928ed4b",
+    "first_paths": [
+      "zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/zig-regex-16df9870ca4a4ec8d0b932e90a62a8b3fb9af563/LICENSE",
+      "zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/zig-regex-16df9870ca4a4ec8d0b932e90a62a8b3fb9af563/README.md",
+      "zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/zig-regex-16df9870ca4a4ec8d0b932e90a62a8b3fb9af563/build.zig",
+      "zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/zig-regex-16df9870ca4a4ec8d0b932e90a62a8b3fb9af563/build.zig.zon",
+      "zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/zig-regex-16df9870ca4a4ec8d0b932e90a62a8b3fb9af563/src/advanced_features.zig",
+      "zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/zig-regex-16df9870ca4a4ec8d0b932e90a62a8b3fb9af563/src/ast.zig",
+      "zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/zig-regex-16df9870ca4a4ec8d0b932e90a62a8b3fb9af563/src/ast_optimizer.zig",
+      "zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/zig-regex-16df9870ca4a4ec8d0b932e90a62a8b3fb9af563/src/backtrack.zig",
+      "zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/zig-regex-16df9870ca4a4ec8d0b932e90a62a8b3fb9af563/src/benchmark.zig",
+      "zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/zig-regex-16df9870ca4a4ec8d0b932e90a62a8b3fb9af563/src/builder.zig",
+      "zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/zig-regex-16df9870ca4a4ec8d0b932e90a62a8b3fb9af563/src/c_api.zig",
+      "zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/zig-regex-16df9870ca4a4ec8d0b932e90a62a8b3fb9af563/src/common.zig"
+    ],
+    "recovery": "Build with a fresh task-owned global cache so the compiler fetches the original immutable URL; do not rewrite package hashes or mutate foreign extractions."
+  },
+  "frontend_memory_process_samples": [
+    {
+      "rss_kib": 173856,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "00:00",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "173856",
+          "00:00",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 309248,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "00:01",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "305760",
+          "00:01",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 460640,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "00:03",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "466688",
+          "00:03",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 597200,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "00:06",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "599984",
+          "00:06",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 831072,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "00:07",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "833632",
+          "00:07",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 969872,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "00:07",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "967856",
+          "00:07",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 1125232,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "00:07",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "1130432",
+          "00:07",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 1284864,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "00:08",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "1290176",
+          "00:08",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 1425424,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "00:08",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "1430352",
+          "00:08",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 1564272,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "00:08",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "1563968",
+          "00:08",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 1728320,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "00:10",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "1724720",
+          "00:10",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 1867872,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "00:11",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "1868752",
+          "00:11",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 2005712,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "00:33",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "2002432",
+          "00:33",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 2163408,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "00:41",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "2158992",
+          "00:41",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 2297008,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "00:51",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "2294672",
+          "00:51",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 2436928,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "00:53",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "2432816",
+          "00:53",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 2569024,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "00:55",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "2565728",
+          "00:55",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 2704096,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "00:57",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "2700096",
+          "00:57",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 2840240,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "01:00",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "2837296",
+          "01:00",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 2972112,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "01:02",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "2968368",
+          "01:02",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 3079152,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "01:03",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "3076144",
+          "01:03",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 3089856,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "01:03",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "3086752",
+          "01:03",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 3098800,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4416",
+          "01:04",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "3094592",
+          "01:04",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 3110448,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4016",
+          "01:04",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "3089408",
+          "01:04",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 3075808,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4016",
+          "01:04",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "3072176",
+          "01:04",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 3072160,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "4016",
+          "01:05",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "3076352",
+          "01:05",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 3079520,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "2224",
+          "01:14",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "3086208",
+          "01:14",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 3118128,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "2224",
+          "01:15",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "3108384",
+          "01:15",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 3122080,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "2224",
+          "01:15",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "3096800",
+          "01:15",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    },
+    {
+      "rss_kib": 3182528,
+      "rows": [
+        [
+          "17466",
+          "17460",
+          "2224",
+          "01:16",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache/o/e227f6fda35e0d60ebcfba103ea0caf1/maker build --zig-lib=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib --zig=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig --global-cache=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --seed=0x7be620b test-frontend -Doptimize=ReleaseSafe -Dtest-filter=RegExp -j1 --prefix /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/engine/zig-out --summary all --verbose"
+        ],
+        [
+          "17565",
+          "17466",
+          "3184720",
+          "01:16",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig build-exe -fno-sanitize-thread -Osafe --dep js -Mroot=tools/focused_engine_tests.zig --dep regex --dep gc --dep private_abi_options -Mjs=src/root.zig -Mregex=zig-pkg/zig_regex-0.2.1-omky0XpKGwAtdEvHWpryg6oE2rs1j5VuYkzU61ETnnEG/src/root.zig -Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig -Mprivate_abi_options=.zig-cache/o/adbaeba593bea1e72b02c35faf0cc270/options.zig -lc --cache-dir .zig-cache --global-cache-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/continuation-pool/fresh-global-cache --build-root . --name focused-engine-tests --zig-lib-dir /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/lib/ --listen=-"
+        ]
+      ]
+    }
+  ],
+  "test262_flips": null,
+  "test262_status": "Unmeasured for new engine: compiler processes exceeded the unchanged 3072 MiB guard before runner execution. No new frontend, full archive, conformance, or local Home package pass is inferred.",
+  "before_clean_docs_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/node_modules/@stacksjs/bunpress/dist/bin/cli.js\", \"build\"]\n\u001b[?25l\n\u001b[K\u001b[?25h\u001b[32m\u2713\u001b[0m Built 159 pages to HTML in 38.65s\n\nECOSYSTEM PEAK SAMPLED RSS: 1648944 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+  "prior_consumer_evidence": "2026-11-09-native-output-consumers.json",
+  "captured_page_fixture": "fixtures/2026-11-09-home-bunpress-highlight.json.gz",
+  "captured_input_sha256": "e5153dfd7b2b751c91020e22fbbd45765bc8af411d52b3d17f21139deefa120b",
+  "full_push_run": "https://github.com/zig-utils/zig-js/actions/runs/42644867170",
+  "priority_dispatch": {
+    "observed_at": "2026-11-09T15:29:06.501661+00:00",
+    "command": [
+      "/Users/chris/.local/share/pantry/global/bin/gh",
+      "workflow",
+      "run",
+      "ecosystem.yml",
+      "--repo",
+      "zig-utils/zig-js-ecosystem",
+      "--ref",
+      "main",
+      "--json"
+    ],
+    "inputs": {
+      "engine_sha": "2e26e227fe74c89b89494934ff57302ab16aded2",
+      "suite_ref": "016419c81e04c1734293291943ac08504f29cf80",
+      "repositories": "stacksjs/stacks,home-lang/home",
+      "reference": "true"
+    },
+    "exit_code": 0,
+    "stdout": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42645117675\n",
+    "stderr": "",
+    "workflow_identical_to_functional_suite": true
+  },
+  "next_stacks_dependency_observation": {
+    "latest_stx_manifest": {
+      "bin": {
+        "stx": "./dist/cli.js"
+      },
+      "bugs": {
+        "url": "https://github.com/stacksjs/stx/issues"
+      },
+      "dist": {
+        "shasum": "1c9e0fa65443dc3223942f630b793106e1518f49",
+        "tarball": "https://registry.npmjs.org/@stacksjs/stx/-/stx-0.2.837.tgz",
+        "fileCount": 1402,
+        "integrity": "sha512-Qt57oADk6XdoovVkx5NnuxgT0N+pdh1YavMxgab97n+FyLBFQZV1Ptf+fCPH5+klS9STKFdn8K/73zGTO3memg==",
+        "signatures": [
+          {
+            "sig": "MEQCIAJH1+MHLIdEN2uV94/uFjXR0PqR7RDy5dfnykezmjM3AiB4JyINFTZeB5CmUZ7jxdmRrpYcn9GTXkHuxDz6d4w4LA==",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEYCIQDwImP7zTA7OW9jqMYgJrAVQSp2qm517bDoATkNY0aYBwIhAOc6AVNxdHXNrByEAQjTy9k35nOui/zLhnx8WmE3Q1Bn",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@stacksjs%2fstx@0.2.837",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 8783523
+      },
+      "name": "@stacksjs/stx",
+      "type": "module",
+      "types": "./dist/index.d.ts",
+      "author": "Chris Breuer <chris@stacksjs.org>",
+      "module": "./dist/index.js",
+      "exports": {
+        ".": {
+          "types": "./dist/index.d.ts",
+          "import": "./dist/index.js"
+        },
+        "./*": {
+          "types": "./dist/*.d.ts",
+          "import": "./dist/*.js"
+        },
+        "./pwa": {
+          "types": "./dist/pwa.d.ts",
+          "import": "./dist/pwa.js"
+        },
+        "./ssg": {
+          "types": "./dist/ssg.d.ts",
+          "import": "./dist/ssg.js"
+        },
+        "./craft": {
+          "types": "./dist/craft-entry.d.ts",
+          "import": "./dist/craft.js"
+        },
+        "./native": {
+          "types": "./dist/native/index.d.ts",
+          "import": "./dist/native/index.js"
+        },
+        "./database": {
+          "types": "./dist/database.d.ts",
+          "import": "./dist/database.js"
+        },
+        "./composables": {
+          "bun": "./dist/composables/index.js",
+          "types": "./dist/composables/index.d.ts",
+          "import": "./dist/composables/index.js"
+        },
+        "./jsx-runtime": {
+          "types": "./dist/jsx-runtime.d.ts",
+          "import": "./dist/jsx-runtime.js"
+        },
+        "./composables/*": {
+          "bun": "./dist/composables/*.js",
+          "types": "./dist/composables/*.d.ts",
+          "import": "./dist/composables/*.js"
+        },
+        "./native/testing": {
+          "types": "./dist/native/testing.d.ts",
+          "import": "./dist/native/testing.js"
+        },
+        "./visual-testing": {
+          "types": "./dist/visual-testing.d.ts",
+          "import": "./dist/visual-testing.js"
+        },
+        "./bundle-analyzer": {
+          "types": "./dist/bundle-analyzer/index.d.ts",
+          "import": "./dist/bundle-analyzer.js"
+        },
+        "./jsx-dev-runtime": {
+          "types": "./dist/jsx-runtime.d.ts",
+          "import": "./dist/jsx-runtime.js"
+        }
+      },
+      "license": "MIT",
+      "scripts": {
+        "zip": "bun run zip:all",
+        "lint": "bun x --bun pickier lint",
+        "test": "bun test --preload ./happy-dom.ts",
+        "build": "bun run build:css && bun --bun build.ts",
+        "fresh": "bun x rimraf node_modules/ bun.lock && bun i",
+        "compile": "bun build ./bin/cli.ts --compile --minify --outfile ./bin/stx",
+        "zip:all": "bun run zip:linux-x64 && bun run zip:linux-arm64 && bun run zip:windows-x64 && bun run zip:darwin-x64 && bun run zip:darwin-arm64",
+        "lint:fix": "bun x --bun pickier lint --fix",
+        "build:css": "bun ./scripts/build-css.ts",
+        "changelog": "bun x changelogen --output CHANGELOG.md",
+        "css:watch": "bun ./scripts/watch-css.ts",
+        "typecheck": "bun tsc -p tsconfig.src.json --noEmit",
+        "test:watch": "bun test --watch --preload ./happy-dom.ts",
+        "compile:all": "bun run compile:linux-x64 && bun run compile:linux-arm64 && bun run compile:windows-x64 && bun run compile:darwin-x64 && bun run compile:darwin-arm64",
+        "test:coverage": "bun test --coverage --preload ./happy-dom.ts",
+        "zip:linux-x64": "zip -j bin/stx-linux-x64.zip bin/stx-linux-x64",
+        "prepublishOnly": "bun run build",
+        "zip:darwin-x64": "zip -j bin/stx-darwin-x64.zip bin/stx-darwin-x64",
+        "zip:linux-arm64": "zip -j bin/stx-linux-arm64.zip bin/stx-linux-arm64",
+        "zip:windows-x64": "zip -j bin/stx-windows-x64.zip bin/stx-windows-x64.exe",
+        "zip:darwin-arm64": "zip -j bin/stx-darwin-arm64.zip bin/stx-darwin-arm64",
+        "compile:linux-x64": "bun build ./bin/cli.ts --compile --minify --target=bun-linux-x64 --outfile ./bin/stx-linux-x64",
+        "compile:darwin-x64": "bun build ./bin/cli.ts --compile --minify --target=bun-darwin-x64 --outfile ./bin/stx-darwin-x64",
+        "compile:linux-arm64": "bun build ./bin/cli.ts --compile --minify --target=bun-linux-arm64 --outfile ./bin/stx-linux-arm64",
+        "compile:windows-x64": "bun build ./bin/cli.ts --compile --minify --target=bun-windows-x64 --outfile ./bin/stx-windows-x64.exe",
+        "compile:darwin-arm64": "bun build ./bin/cli.ts --compile --minify --target=bun-darwin-arm64 --outfile ./bin/stx-darwin-arm64"
+      },
+      "_npmUser": {
+        "name": "GitHub Actions",
+        "email": "npm-oidc-no-reply@github.com",
+        "trustedPublisher": {
+          "id": "github",
+          "oidcConfigId": "cd0b7b05-07f3-4560-91e8-9099929143be"
+        }
+      },
+      "homepage": "https://github.com/stacksjs/stx#readme",
+      "keywords": [
+        "blade",
+        "css",
+        "bun",
+        "stx",
+        "plugin",
+        "generation",
+        "typescript",
+        "stacks"
+      ],
+      "repository": {
+        "url": "git+https://github.com/stacksjs/stx.git",
+        "type": "git"
+      },
+      "description": "A performant UI Framework. Powered by Bun.",
+      "directories": {},
+      "maintainers": [
+        {
+          "name": "chrisbreuer",
+          "email": "chrisbreuer93@icloud.com"
+        },
+        {
+          "name": "glenn123",
+          "email": "gtorregosa@gmail.com"
+        }
+      ],
+      "dependencies": {
+        "bunfig": "^0.15.21",
+        "ts-images": "^0.2.22",
+        "stx-router": "0.2.837",
+        "bun-plugin-stx": "0.2.837",
+        "@stacksjs/clapp": "^0.2.16",
+        "ts-broadcasting": "^0.0.11",
+        "@stacksjs/ts-css": "^0.3.21",
+        "@stacksjs/desktop": "0.2.837",
+        "@stacksjs/ts-i18n": "^0.1.11",
+        "@stacksjs/sanitizer": "0.2.837",
+        "ts-syntax-highlighter": "^0.2.1"
+      },
+      "_hasShrinkwrap": false,
+      "_npmOperationalInternal": {
+        "tmp": "tmp/stx_0.2.837_1794235683551_0.6726738337345274",
+        "host": "s3://npm-registry-packages-npm-production"
+      },
+      "_id": "@stacksjs/stx@0.2.837",
+      "version": "0.2.837"
+    },
+    "published_companions": [
+      {
+        "name": "stx-router",
+        "version": "0.2.837",
+        "integrity": "sha512-7lgsS5YZ/8ivdRlcc6AwwB4XFuKBKI6dHCrxu0cIIkdRHSN8bqHspZAiVw0NSuYoFHFugmB/VdvF9a1r3OXDLQ==",
+        "tarball": "https://registry.npmjs.org/stx-router/-/stx-router-0.2.837.tgz",
+        "registry_exists": true
+      },
+      {
+        "name": "bun-plugin-stx",
+        "version": "0.2.837",
+        "integrity": "sha512-UnDZqyNe8+OuFNiV3qWgWOWrgsd9GHoe5MtYE2/ATJ4quuwaR1MAxiRynG5VgLUic/s4bDQdC2hK28iRbT1+ig==",
+        "tarball": "https://registry.npmjs.org/bun-plugin-stx/-/bun-plugin-stx-0.2.837.tgz",
+        "registry_exists": true
+      },
+      {
+        "name": "@stacksjs/desktop",
+        "version": "0.2.837",
+        "integrity": "sha512-Gcmrhb9NROsaXa9KrMXWcpBB/J6SEfkCIEZOcDSCkfiNLJe6tw2+AN9fHt8U45S5W3TgSfAMOCifqJ6lwRxqTg==",
+        "tarball": "https://registry.npmjs.org/@stacksjs/desktop/-/desktop-0.2.837.tgz",
+        "registry_exists": true
+      },
+      {
+        "name": "@stacksjs/sanitizer",
+        "version": "0.2.837",
+        "integrity": "sha512-j7qNKBp0999Tw4AM9haUJEbXeJ3yosvdTW2XLKKdOIrN2gXlyRWVPBd424AmVqSXY7/2s4lFrFPGPbNWL1QM5Q==",
+        "tarball": "https://registry.npmjs.org/@stacksjs/sanitizer/-/sanitizer-0.2.837.tgz",
+        "registry_exists": true
+      }
+    ],
+    "scope": "Registry presence checked only. No dependency graph update or Stacks compatibility pass is claimed. Follow dependency skill and regenerate both locks when testing the complete cohort."
+  },
+  "limits": {
+    "command_memory_limit_mb": 3072,
+    "consumer_command_timeout_seconds": 300,
+    "backtrack_default_max_steps": 10000000,
+    "changed": false
+  }
+}
