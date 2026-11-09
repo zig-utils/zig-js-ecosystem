@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "functional_suite": "46dfbf7ff12fbb13d98e2dc5851a0c2478705ef9",
+  "tested_engine": "1c4e0428d7e1258a6a90999c424a37e7a8e3b5ad",
+  "home": "d4f39e2e4ca102eef09854018a5439cbb6213683",
+  "qualification_run": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42699794129",
+  "validation_run": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42699729285",
+  "validation": {
+    "jobs": [
+      {
+        "id": 129440938584,
+        "name": "validate",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 42699729285,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run python3 -m unittest discover -s tests -v",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Read dependency-test toolchain pin",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Run oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Verify real workspace dependency setup",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Check Python syntax",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Post Run oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13
+          },
+          {
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 14
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15
+          }
+        ]
+      }
+    ]
+  },
+  "qualification": {
+    "jobs": [
+      {
+        "id": 129441171407,
+        "name": "discover",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 42699794129,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Resolve exact revisions",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Validate orchestration",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Discover and freeze active public consumers",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 12
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13
+          }
+        ]
+      },
+      {
+        "id": 129444347657,
+        "name": "runtime",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 42699794129,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Read toolchain pins",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Run pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Build exact pushed engine archive",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Build Home against this engine",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Verify engine identity and Home host/module/TypeScript integration",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          },
+          {
+            "name": "Package runtime and immutable provenance",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10
+          },
+          {
+            "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11
+          },
+          {
+            "name": "Post Run pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 19
+          },
+          {
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 20
+          },
+          {
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 21
+          },
+          {
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 22
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 23
+          }
+        ]
+      },
+      {
+        "id": 129449577504,
+        "name": "Consumers stacksjs/stacks",
+        "status": "in_progress",
+        "conclusion": null,
+        "run_id": 42699794129,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Read toolchain pins",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Run pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Run oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Unpack and verify runtime provenance",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Verify shared runtime executes on this consumer CPU",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Check every selected package, library, CLI and app",
+            "status": "in_progress",
+            "conclusion": null,
+            "number": 9
+          },
+          {
+            "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+            "status": "pending",
+            "conclusion": null,
+            "number": 10
+          },
+          {
+            "name": "Post Run oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6",
+            "status": "pending",
+            "conclusion": null,
+            "number": 18
+          },
+          {
+            "name": "Post Run pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9",
+            "status": "pending",
+            "conclusion": null,
+            "number": 19
+          },
+          {
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "pending",
+            "conclusion": null,
+            "number": 20
+          }
+        ]
+      },
+      {
+        "id": 129449577505,
+        "name": "Consumers home-lang/home",
+        "status": "in_progress",
+        "conclusion": null,
+        "run_id": 42699794129,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Read toolchain pins",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Run pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Run oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Unpack and verify runtime provenance",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Verify shared runtime executes on this consumer CPU",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Check every selected package, library, CLI and app",
+            "status": "in_progress",
+            "conclusion": null,
+            "number": 9
+          },
+          {
+            "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+            "status": "pending",
+            "conclusion": null,
+            "number": 10
+          },
+          {
+            "name": "Post Run oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6",
+            "status": "pending",
+            "conclusion": null,
+            "number": 18
+          },
+          {
+            "name": "Post Run pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9",
+            "status": "pending",
+            "conclusion": null,
+            "number": 19
+          },
+          {
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "pending",
+            "conclusion": null,
+            "number": 20
+          }
+        ]
+      }
+    ]
+  },
+  "runtime_log_evidence": [
+    "2026-11-09T21:18:09.2718208Z   ref: 46dfbf7ff12fbb13d98e2dc5851a0c2478705ef9",
+    "2026-11-09T21:18:09.5926037Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 46dfbf7ff12fbb13d98e2dc5851a0c2478705ef9",
+    "2026-11-09T21:18:11.5146622Z  * branch            46dfbf7ff12fbb13d98e2dc5851a0c2478705ef9 -> FETCH_HEAD",
+    "2026-11-09T21:18:11.5157659Z [command]/usr/bin/git rev-parse --verify --quiet 46dfbf7ff12fbb13d98e2dc5851a0c2478705ef9^{object}",
+    "2026-11-09T21:18:11.5192400Z 46dfbf7ff12fbb13d98e2dc5851a0c2478705ef9",
+    "2026-11-09T21:18:11.5300973Z [command]/usr/bin/git checkout --progress --force 46dfbf7ff12fbb13d98e2dc5851a0c2478705ef9",
+    "2026-11-09T21:18:11.6488158Z Note: switching to '46dfbf7ff12fbb13d98e2dc5851a0c2478705ef9'.",
+    "2026-11-09T21:18:11.6598913Z 46dfbf7ff12fbb13d98e2dc5851a0c2478705ef9",
+    "2026-11-09T21:18:11.8394514Z   ref: 1c4e0428d7e1258a6a90999c424a37e7a8e3b5ad",
+    "2026-11-09T21:18:12.2524239Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 1c4e0428d7e1258a6a90999c424a37e7a8e3b5ad",
+    "2026-11-09T21:18:14.5386283Z  * branch            1c4e0428d7e1258a6a90999c424a37e7a8e3b5ad -> FETCH_HEAD",
+    "2026-11-09T21:18:14.5395586Z [command]/usr/bin/git rev-parse --verify --quiet 1c4e0428d7e1258a6a90999c424a37e7a8e3b5ad^{object}",
+    "2026-11-09T21:18:14.5426774Z 1c4e0428d7e1258a6a90999c424a37e7a8e3b5ad",
+    "2026-11-09T21:18:14.5518377Z [command]/usr/bin/git checkout --progress --force 1c4e0428d7e1258a6a90999c424a37e7a8e3b5ad",
+    "2026-11-09T21:18:14.7938180Z Note: switching to '1c4e0428d7e1258a6a90999c424a37e7a8e3b5ad'.",
+    "2026-11-09T21:18:14.8063712Z 1c4e0428d7e1258a6a90999c424a37e7a8e3b5ad",
+    "2026-11-09T21:18:14.9312439Z   ref: d4f39e2e4ca102eef09854018a5439cbb6213683",
+    "2026-11-09T21:18:15.1387355Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin d4f39e2e4ca102eef09854018a5439cbb6213683",
+    "2026-11-09T21:18:28.2910094Z  * branch                d4f39e2e4ca102eef09854018a5439cbb6213683 -> FETCH_HEAD",
+    "2026-11-09T21:18:28.2920612Z [command]/usr/bin/git rev-parse --verify --quiet d4f39e2e4ca102eef09854018a5439cbb6213683^{object}",
+    "2026-11-09T21:18:28.2953272Z d4f39e2e4ca102eef09854018a5439cbb6213683",
+    "2026-11-09T21:18:28.3042432Z [command]/usr/bin/git checkout --progress --force d4f39e2e4ca102eef09854018a5439cbb6213683",
+    "2026-11-09T21:18:35.5347011Z Note: switching to 'd4f39e2e4ca102eef09854018a5439cbb6213683'.",
+    "2026-11-09T21:18:35.5362833Z HEAD is now at d4f39e2e4 fix(parser): preserve logical relational comparison chains",
+    "2026-11-09T21:18:35.5588077Z d4f39e2e4ca102eef09854018a5439cbb6213683",
+    "2026-11-09T21:23:35.0601440Z ##[group]Run zig-out/bin/home-tool eval 'if (Home.engine !== \"zig-js\") throw new Error(\"Wrong engine\"); console.log(\"ECOSYSTEM ENGINE zig-js\");'",
+    "2026-11-09T21:23:35.0602296Z \u001b[36;1mzig-out/bin/home-tool eval 'if (Home.engine !== \"zig-js\") throw new Error(\"Wrong engine\"); console.log(\"ECOSYSTEM ENGINE zig-js\");'\u001b[0m",
+    "2026-11-09T21:23:35.0603217Z \u001b[36;1mzig build home-tool-smoke home-tool-rejections-smoke home-tool-async-context-smoke home-tool-file-url-smoke -Dcpu=baseline -Doptimize=\"ReleaseSafe\" -Dtool-js-engine=zig-js -Dzig-js-root=\"$GITHUB_WORKSPACE/engine\"\u001b[0m",
+    "2026-11-09T21:23:35.0873770Z ECOSYSTEM ENGINE zig-js",
+    "2026-11-09T21:24:22.4973607Z   ENGINE_SHA: 1c4e0428d7e1258a6a90999c424a37e7a8e3b5ad",
+    "2026-11-09T21:24:22.4973892Z   SUITE_REF: 46dfbf7ff12fbb13d98e2dc5851a0c2478705ef9"
+  ],
+  "artifact_metadata": {
+    "artifacts": [
+      {
+        "id": 13711493765,
+        "name": "ecosystem-runtime",
+        "size_in_bytes": 38795620,
+        "url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13711493765",
+        "archive_download_url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13711493765/zip",
+        "expired": false,
+        "created_at": "2026-11-09T21:24:30Z",
+        "expires_at": "2026-11-16T21:24:27Z",
+        "updated_at": "2026-11-09T21:24:30Z",
+        "digest": "sha256:0e4a806629bfbdee3b29cd276b300f38d6c14fbf003292b4a991d26c15e52478",
+        "workflow_run": {
+          "id": 42699794129,
+          "repository_id": 1449802195,
+          "head_repository_id": 1449802195,
+          "head_branch": "main",
+          "head_sha": "46dfbf7ff12fbb13d98e2dc5851a0c2478705ef9"
+        }
+      },
+      {
+        "id": 13710967808,
+        "name": "ecosystem-inventory",
+        "size_in_bytes": 13197,
+        "url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13710967808",
+        "archive_download_url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13710967808/zip",
+        "expired": false,
+        "created_at": "2026-11-09T21:15:04Z",
+        "expires_at": "2026-12-09T21:15:03Z",
+        "updated_at": "2026-11-09T21:15:04Z",
+        "digest": "sha256:0dc43d9e00d5bd73f5b4266831ccc774f6b2568647f52eddf5638489c7565925",
+        "workflow_run": {
+          "id": 42699794129,
+          "repository_id": 1449802195,
+          "head_repository_id": 1449802195,
+          "head_branch": "main",
+          "head_sha": "46dfbf7ff12fbb13d98e2dc5851a0c2478705ef9"
+        }
+      }
+    ]
+  },
+  "artifact_note": "Remote digest metadata retained. Runtime ZIP was not downloaded or locally hash-verified here; both consumers passed the workflow's actual provenance and CPU execution steps.",
+  "promoted_engine": "00f387110bd18fb42685a6b3436f49d9d6818e68",
+  "caller_fields": [
+    "uses",
+    "suite_ref"
+  ],
+  "compatibility_boundary": "Local parser937/937, mandatory42 comparisons and actual7 datetime witnesses are recorded separately. This promotion qualifies exact runtime and orchestration gates; package compatibility checks remain running/failing. Every selected repository remains covered and no complete ecosystem pass is claimed."
+}
