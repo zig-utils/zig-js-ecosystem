@@ -1,0 +1,1155 @@
+{
+  "schema_version": 1,
+  "home_commit": "ce510786658438280c0755c03eaff935808a7c1e",
+  "before_home": "d4f39e2e4ca102eef09854018a5439cbb6213683",
+  "local_engine_archive_revision": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+  "archive_sha256": "e141e082ae57b0d62f16d445291eb73f15332689daf47a6b7c1d36086bafb613",
+  "parser_before": {
+    "passed": 937,
+    "failed": 1,
+    "total": 938
+  },
+  "parser_final": {
+    "passed": 938,
+    "failed": 0,
+    "total": 938
+  },
+  "new_ast_forms": [
+    "ternary then const arrow declaration",
+    "ternary then arrow assignment",
+    "ternary then function declaration"
+  ],
+  "mandatory_runtime_vectors": 18,
+  "typed_return_controls": [
+    "default parameter with typed arrow return",
+    "nested generic default return",
+    "keyword-named type query typeof source.function"
+  ],
+  "malformed_controls": 2,
+  "final_validated_source_hashes": {
+    "packages/ts_parser/src/ts_parser.zig": "a1b766ca46f15b71a27f7873299505826b619aa2068cf40af1f4b6524a9df416",
+    "packages/runtime/test/tool_modules/main.ts": "c9a6d3d5f3ec4c89757109d0c37ad19788b31ad8262caf1009d36a95e9b9b784",
+    "packages/runtime/test/tool_modules/ternary_asi_arrows.ts": "316e6f1599ae9f0d715587c4a6a6316057231f5256ca95f1439486e7ccef4c10"
+  },
+  "consumer_source": {
+    "consumer": "a55421a020f3e7480bc31177fd720d3d423eab40",
+    "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-immutable-cohort/candidate/storage/framework/core/composables/src/useWebSocket.ts",
+    "sha256": "5892fcc92ea968a3dbfe2eb06b355dc0a38b526ba8703b28ed55edb1470cdc59"
+  },
+  "results": {
+    "whole-no-imports-after": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 384,
+      "memory_limit_mb": 3072,
+      "seconds": 0.102,
+      "log": "whole-no-imports-after.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/whole-no-imports.ts"
+      ]
+    },
+    "after-parser-all": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 547616,
+      "memory_limit_mb": 3072,
+      "seconds": 7.356,
+      "log": "after-parser-all.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "test",
+        "--dep",
+        "ts_lexer",
+        "--dep",
+        "hir",
+        "--dep",
+        "string_interner",
+        "-Mroot=packages/ts_parser/src/ts_parser.zig",
+        "--dep",
+        "string_interner",
+        "-Mhir=packages/hir/src/hir.zig",
+        "-Mts_lexer=packages/ts_lexer/src/ts_lexer.zig",
+        "-Mstring_interner=packages/string_interner/src/string_interner.zig",
+        "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/after-parser-all"
+      ]
+    },
+    "malformed-ternary-node": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 832,
+      "memory_limit_mb": 3072,
+      "seconds": 0.051,
+      "log": "malformed-ternary-node.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/malformed-ternary.mjs"
+      ]
+    },
+    "prefix-node": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 832,
+      "memory_limit_mb": 3072,
+      "seconds": 0.068,
+      "log": "prefix-node.log"
+    },
+    "zig-js-gates": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1012128,
+      "memory_limit_mb": 3072,
+      "seconds": 47.279,
+      "log": "zig-js-gates.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/engine-cache-final",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/after-zig-js",
+        "-j1",
+        "--summary",
+        "all"
+      ]
+    },
+    "typed-arrow-control-run-home": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 11536,
+      "memory_limit_mb": 3072,
+      "seconds": 0.03,
+      "log": "typed-arrow-control-run-home.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/typed-arrow-control.ts"
+      ]
+    },
+    "function-after-asi-final": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5344,
+      "memory_limit_mb": 3072,
+      "seconds": 0.018,
+      "log": "function-after-asi-final.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/final-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/function-after-asi.mjs"
+      ]
+    },
+    "next-debounce-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1616,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "next-debounce-bun.log"
+    },
+    "malformed-ternary-final-jsc": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5440,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "malformed-ternary-final-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/final-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/malformed-ternary.mjs"
+      ]
+    },
+    "whole-no-imports-run-node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 39952,
+      "memory_limit_mb": 3072,
+      "seconds": 0.256,
+      "log": "whole-no-imports-run-node.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/whole-no-imports.ts"
+      ]
+    },
+    "typed-arrow-control-final": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 7632,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "typed-arrow-control-final.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/final-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/typed-arrow-control.ts"
+      ]
+    },
+    "keyword-property-return-node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1184,
+      "memory_limit_mb": 3072,
+      "seconds": 0.172,
+      "log": "keyword-property-return-node.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/keyword-property-return.ts"
+      ]
+    },
+    "keyword-property-return-before": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 28496,
+      "memory_limit_mb": 3072,
+      "seconds": 0.131,
+      "log": "keyword-property-return-before.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/keyword-property-return.ts"
+      ]
+    },
+    "malformed-return-bun": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 2288,
+      "memory_limit_mb": 3072,
+      "seconds": 0.023,
+      "log": "malformed-return-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/malformed-return.ts"
+      ]
+    },
+    "whole-no-imports-run-home": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 432,
+      "memory_limit_mb": 3072,
+      "seconds": 0.125,
+      "log": "whole-no-imports-run-home.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/whole-no-imports.ts"
+      ]
+    },
+    "function-after-asi-before": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 736,
+      "memory_limit_mb": 3072,
+      "seconds": 0.134,
+      "log": "function-after-asi-before.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/function-after-asi.mjs"
+      ]
+    },
+    "root-final": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1237840,
+      "memory_limit_mb": 3072,
+      "seconds": 2.019,
+      "log": "root-final.log"
+    },
+    "ternary_asi_arrows-final": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 4720,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "ternary_asi_arrows-final.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/final-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_asi_arrows.ts"
+      ]
+    },
+    "malformed-return-final": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5056,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "malformed-return-final.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/final-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/malformed-return.ts"
+      ]
+    },
+    "typed-arrow-control-run-node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 832,
+      "memory_limit_mb": 3072,
+      "seconds": 0.092,
+      "log": "typed-arrow-control-run-node.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/typed-arrow-control.ts"
+      ]
+    },
+    "root-before": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 709376,
+      "memory_limit_mb": 3072,
+      "seconds": 2.328,
+      "log": "root-before.log"
+    },
+    "prefix-home": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6528,
+      "memory_limit_mb": 3072,
+      "seconds": 0.025,
+      "log": "prefix-home.log"
+    },
+    "whole-no-imports-final-jsc": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2768,
+      "memory_limit_mb": 3072,
+      "seconds": 0.027,
+      "log": "whole-no-imports-final-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/final-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/whole-no-imports.ts"
+      ]
+    },
+    "final-jsc-gates": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 945808,
+      "memory_limit_mb": 3072,
+      "seconds": 40.003,
+      "log": "final-jsc-gates.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/final-jsc",
+        "-j1",
+        "--summary",
+        "all"
+      ]
+    },
+    "arrow-after-asi-final": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5248,
+      "memory_limit_mb": 3072,
+      "seconds": 0.021,
+      "log": "arrow-after-asi-final.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/final-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/arrow-after-asi.mjs"
+      ]
+    },
+    "nullish-arms-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2368,
+      "memory_limit_mb": 3072,
+      "seconds": 0.023,
+      "log": "nullish-arms-bun.log"
+    },
+    "final-witness-before": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 29568,
+      "memory_limit_mb": 3072,
+      "seconds": 0.248,
+      "log": "final-witness-before.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_asi_arrows.ts"
+      ]
+    },
+    "malformed-ternary-after": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5168,
+      "memory_limit_mb": 3072,
+      "seconds": 0.03,
+      "log": "malformed-ternary-after.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/malformed-ternary.mjs"
+      ]
+    },
+    "generic-return-control-final-jsc": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5808,
+      "memory_limit_mb": 3072,
+      "seconds": 0.022,
+      "log": "generic-return-control-final-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/final-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/generic-return-control.ts"
+      ]
+    },
+    "arrow-after-asi-run-node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 320,
+      "memory_limit_mb": 3072,
+      "seconds": 0.064,
+      "log": "arrow-after-asi-run-node.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/arrow-after-asi.mjs"
+      ]
+    },
+    "whole-no-imports-run-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2288,
+      "memory_limit_mb": 3072,
+      "seconds": 0.022,
+      "log": "whole-no-imports-run-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/whole-no-imports.ts"
+      ]
+    },
+    "assignment-after-asi-after": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5248,
+      "memory_limit_mb": 3072,
+      "seconds": 0.033,
+      "log": "assignment-after-asi-after.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/assignment-after-asi.mjs"
+      ]
+    },
+    "typed-arrow-control-run-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1280,
+      "memory_limit_mb": 3072,
+      "seconds": 0.024,
+      "log": "typed-arrow-control-run-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/typed-arrow-control.ts"
+      ]
+    },
+    "generic-return-control-after": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6560,
+      "memory_limit_mb": 3072,
+      "seconds": 0.026,
+      "log": "generic-return-control-after.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/generic-return-control.ts"
+      ]
+    },
+    "whole-no-imports-home": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 144,
+      "memory_limit_mb": 3072,
+      "seconds": 0.142,
+      "log": "whole-no-imports-home.log"
+    },
+    "generic-return-control-before": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6512,
+      "memory_limit_mb": 3072,
+      "seconds": 0.026,
+      "log": "generic-return-control-before.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/generic-return-control.ts"
+      ]
+    },
+    "bare-home": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 7968,
+      "memory_limit_mb": 3072,
+      "seconds": 0.027,
+      "log": "bare-home.log"
+    },
+    "malformed-return-node": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 832,
+      "memory_limit_mb": 3072,
+      "seconds": 0.106,
+      "log": "malformed-return-node.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/malformed-return.ts"
+      ]
+    },
+    "bare-node": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 816,
+      "memory_limit_mb": 3072,
+      "seconds": 0.04,
+      "log": "bare-node.log"
+    },
+    "whole-no-imports-node": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 41824,
+      "memory_limit_mb": 3072,
+      "seconds": 0.332,
+      "log": "whole-no-imports-node.log"
+    },
+    "witness-node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 240,
+      "memory_limit_mb": 3072,
+      "seconds": 0.064,
+      "log": "witness-node.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_asi_arrows.ts"
+      ]
+    },
+    "final-parser-all": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 554816,
+      "memory_limit_mb": 3072,
+      "seconds": 7.414,
+      "log": "final-parser-all.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "test",
+        "--dep",
+        "ts_lexer",
+        "--dep",
+        "hir",
+        "--dep",
+        "string_interner",
+        "-Mroot=packages/ts_parser/src/ts_parser.zig",
+        "--dep",
+        "string_interner",
+        "-Mhir=packages/hir/src/hir.zig",
+        "-Mts_lexer=packages/ts_lexer/src/ts_lexer.zig",
+        "-Mstring_interner=packages/string_interner/src/string_interner.zig",
+        "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/final-parser-all"
+      ]
+    },
+    "arrow-after-asi-run-home": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 9408,
+      "memory_limit_mb": 3072,
+      "seconds": 0.023,
+      "log": "arrow-after-asi-run-home.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/arrow-after-asi.mjs"
+      ]
+    },
+    "keyword-property-return-final-jsc": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6496,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "keyword-property-return-final-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/final-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/keyword-property-return.ts"
+      ]
+    },
+    "keyword-property-return-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 432,
+      "memory_limit_mb": 3072,
+      "seconds": 0.068,
+      "log": "keyword-property-return-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/keyword-property-return.ts"
+      ]
+    },
+    "no-generics-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2368,
+      "memory_limit_mb": 3072,
+      "seconds": 0.027,
+      "log": "no-generics-bun.log"
+    },
+    "witness-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2192,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "witness-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_asi_arrows.ts"
+      ]
+    },
+    "function-after-asi-node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 26464,
+      "memory_limit_mb": 3072,
+      "seconds": 0.422,
+      "log": "function-after-asi-node.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/function-after-asi.mjs"
+      ]
+    },
+    "keyword-property-return-final": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6432,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "keyword-property-return-final.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/final-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/keyword-property-return.ts"
+      ]
+    },
+    "final-witness-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1904,
+      "memory_limit_mb": 3072,
+      "seconds": 0.05,
+      "log": "final-witness-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_asi_arrows.ts"
+      ]
+    },
+    "assignment-after-asi-run-home": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 12656,
+      "memory_limit_mb": 3072,
+      "seconds": 0.027,
+      "log": "assignment-after-asi-run-home.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/assignment-after-asi.mjs"
+      ]
+    },
+    "ternary_asi_arrows-after": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6432,
+      "memory_limit_mb": 3072,
+      "seconds": 0.024,
+      "log": "ternary_asi_arrows-after.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_asi_arrows.ts"
+      ]
+    },
+    "malformed-return-after": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5584,
+      "memory_limit_mb": 3072,
+      "seconds": 0.024,
+      "log": "malformed-return-after.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/malformed-return.ts"
+      ]
+    },
+    "root-after": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 957168,
+      "memory_limit_mb": 3072,
+      "seconds": 2.168,
+      "log": "root-after.log"
+    },
+    "arrow-after-asi-after": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5392,
+      "memory_limit_mb": 3072,
+      "seconds": 0.028,
+      "log": "arrow-after-asi-after.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/arrow-after-asi.mjs"
+      ]
+    },
+    "malformed-return-before": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 432,
+      "memory_limit_mb": 3072,
+      "seconds": 0.096,
+      "log": "malformed-return-before.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/malformed-return.ts"
+      ]
+    },
+    "final-zig-js-gates": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1190368,
+      "memory_limit_mb": 3072,
+      "seconds": 48.369,
+      "log": "final-zig-js-gates.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/engine-cache-final",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/final-zig-js",
+        "-j1",
+        "--summary",
+        "all"
+      ]
+    },
+    "bare-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2288,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "bare-bun.log"
+    },
+    "whole-no-imports-final": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.349,
+      "log": "whole-no-imports-final.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/final-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/whole-no-imports.ts"
+      ]
+    },
+    "next-debounce-node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 43024,
+      "memory_limit_mb": 3072,
+      "seconds": 0.231,
+      "log": "next-debounce-node.log"
+    },
+    "function-after-asi-intermediate": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 784,
+      "memory_limit_mb": 3072,
+      "seconds": 0.111,
+      "log": "function-after-asi-intermediate.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/function-after-asi.mjs"
+      ]
+    },
+    "prefix-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2368,
+      "memory_limit_mb": 3072,
+      "seconds": 0.025,
+      "log": "prefix-bun.log"
+    },
+    "next-debounce-after": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 688,
+      "memory_limit_mb": 3072,
+      "seconds": 0.108,
+      "log": "next-debounce-after.log"
+    },
+    "assignment-after-asi-run-node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 832,
+      "memory_limit_mb": 3072,
+      "seconds": 0.041,
+      "log": "assignment-after-asi-run-node.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/assignment-after-asi.mjs"
+      ]
+    },
+    "assignment-after-asi-run-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 944,
+      "memory_limit_mb": 3072,
+      "seconds": 0.028,
+      "log": "assignment-after-asi-run-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/assignment-after-asi.mjs"
+      ]
+    },
+    "typed-arrow-control-after": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 7936,
+      "memory_limit_mb": 3072,
+      "seconds": 0.027,
+      "log": "typed-arrow-control-after.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/typed-arrow-control.ts"
+      ]
+    },
+    "malformed-ternary-before": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 9360,
+      "memory_limit_mb": 3072,
+      "seconds": 0.021,
+      "log": "malformed-ternary-before.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/malformed-ternary.mjs"
+      ]
+    },
+    "ternary_asi_arrows-final-jsc": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5872,
+      "memory_limit_mb": 3072,
+      "seconds": 0.022,
+      "log": "ternary_asi_arrows-final-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/final-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_asi_arrows.ts"
+      ]
+    },
+    "generic-return-control-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2160,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "generic-return-control-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/generic-return-control.ts"
+      ]
+    },
+    "whole-no-imports-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.068,
+      "log": "whole-no-imports-bun.log"
+    },
+    "no-generics-home": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6512,
+      "memory_limit_mb": 3072,
+      "seconds": 0.026,
+      "log": "no-generics-home.log"
+    },
+    "malformed-ternary-bun": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 944,
+      "memory_limit_mb": 3072,
+      "seconds": 0.021,
+      "log": "malformed-ternary-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/malformed-ternary.mjs"
+      ]
+    },
+    "nullish-arms-node": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 832,
+      "memory_limit_mb": 3072,
+      "seconds": 0.05,
+      "log": "nullish-arms-node.log"
+    },
+    "malformed-return-final-jsc": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 6544,
+      "memory_limit_mb": 3072,
+      "seconds": 0.021,
+      "log": "malformed-return-final-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/final-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/malformed-return.ts"
+      ]
+    },
+    "witness-before": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 336,
+      "memory_limit_mb": 3072,
+      "seconds": 0.098,
+      "log": "witness-before.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_asi_arrows.ts"
+      ]
+    },
+    "final-witness-node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 57168,
+      "memory_limit_mb": 3072,
+      "seconds": 0.387,
+      "log": "final-witness-node.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_asi_arrows.ts"
+      ]
+    },
+    "generic-return-control-node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 832,
+      "memory_limit_mb": 3072,
+      "seconds": 0.066,
+      "log": "generic-return-control-node.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/generic-return-control.ts"
+      ]
+    },
+    "malformed-ternary-final": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 6432,
+      "memory_limit_mb": 3072,
+      "seconds": 0.021,
+      "log": "malformed-ternary-final.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/final-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/malformed-ternary.mjs"
+      ]
+    },
+    "before-parser-all": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 585616,
+      "memory_limit_mb": 3072,
+      "seconds": 9.036,
+      "log": "before-parser-all.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "test",
+        "--dep",
+        "ts_lexer",
+        "--dep",
+        "hir",
+        "--dep",
+        "string_interner",
+        "-Mroot=packages/ts_parser/src/ts_parser.zig",
+        "--dep",
+        "string_interner",
+        "-Mhir=packages/hir/src/hir.zig",
+        "-Mts_lexer=packages/ts_lexer/src/ts_lexer.zig",
+        "-Mstring_interner=packages/string_interner/src/string_interner.zig",
+        "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/before-parser-all"
+      ]
+    },
+    "final-witness-before-jsc": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 208,
+      "memory_limit_mb": 3072,
+      "seconds": 0.147,
+      "log": "final-witness-before-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/datetime-comparison/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_asi_arrows.ts"
+      ]
+    },
+    "function-after-asi-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1680,
+      "memory_limit_mb": 3072,
+      "seconds": 0.103,
+      "log": "function-after-asi-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/function-after-asi.mjs"
+      ]
+    },
+    "nullish-arms-home": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6976,
+      "memory_limit_mb": 3072,
+      "seconds": 0.021,
+      "log": "nullish-arms-home.log"
+    },
+    "next-debounce-before": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 528,
+      "memory_limit_mb": 3072,
+      "seconds": 0.135,
+      "log": "next-debounce-before.log"
+    },
+    "keyword-property-return-intermediate": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 21328,
+      "memory_limit_mb": 3072,
+      "seconds": 0.109,
+      "log": "keyword-property-return-intermediate.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/keyword-property-return.ts"
+      ]
+    },
+    "no-generics-node": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 816,
+      "memory_limit_mb": 3072,
+      "seconds": 0.06,
+      "log": "no-generics-node.log"
+    },
+    "generic-return-control-final": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 4336,
+      "memory_limit_mb": 3072,
+      "seconds": 0.018,
+      "log": "generic-return-control-final.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/final-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/generic-return-control.ts"
+      ]
+    },
+    "assignment-after-asi-final": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 9680,
+      "memory_limit_mb": 3072,
+      "seconds": 0.021,
+      "log": "assignment-after-asi-final.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/final-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/assignment-after-asi.mjs"
+      ]
+    },
+    "jsc-gates": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1057104,
+      "memory_limit_mb": 3072,
+      "seconds": 42.376,
+      "log": "jsc-gates.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/after-jsc",
+        "-j1",
+        "--summary",
+        "all"
+      ]
+    },
+    "arrow-after-asi-run-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 640,
+      "memory_limit_mb": 3072,
+      "seconds": 0.028,
+      "log": "arrow-after-asi-run-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/websocket-parser/arrow-after-asi.mjs"
+      ]
+    }
+  },
+  "notes": [
+    "Return-type arrow/recovery lookahead stops at top-level assignments and standalone function declarations, preserving keyword-named properties after a dot. No diagnostics were globally suppressed.",
+    "Actual Node and Bun execution accept the unmodified import-free WebSocket source body and all reduced programs. Initial node --check .ts invocations did not strip TypeScript and are retained as incorrect oracle invocations, separate from corrected actual Node execution.",
+    "The import-free full-source probe tests parsing/emission of declarations only. It does not execute browser WebSocket APIs or establish network support.",
+    "An intermediate assignment-only change still rejected the following function declaration; intermediate logs and artifacts are retained. The final fix passes all938 parser tests, all18 real mandatory ASI vectors and both providers common gates.",
+    "Final zig-js common/rejection/context/file-URL gates and JSC common gate pass in ReleaseSafe. Both final providers preserve malformed-return/ternary rejection, generic/default typed returns and typeof source.function. Focused Pickier and Zig formatting pass.",
+    "Actual routed Stacks root build clears useWebSocket.ts warnings3083/3399, exposes browser/src/utils/debounce.ts:1235 TS1005, and still fails the known SVG regex. Debounce also fails the old Home provider and passes actual Node/Bun, so it is retained as a pre-existing next parser blocker.",
+    "No new WebSocket host API, scheduler, fake test pass, resource cap change or native Bun candidate fallback. Exact Linux qualification against latest pushed engine00f38711 is still required before caller promotion."
+  ]
+}
