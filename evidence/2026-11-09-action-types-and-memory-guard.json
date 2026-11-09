@@ -1,0 +1,284 @@
+{
+  "date_utc": "2026-11-09",
+  "home_before": "24aef37c366583ea6959d6295a836764dc7a8db2",
+  "home_fix": "dbb9cb6a8135cc8aaffa5146f9ef354a15de7edd",
+  "engine_archive_revision": "93943bdfd02651f87015bb936be786f4a52e57eb",
+  "toolchain": {
+    "typescript": "5.9.3",
+    "bun": "1.4.4",
+    "node": "26.10.0"
+  },
+  "actual_cwd": "packages/action",
+  "before": {
+    "node": {
+      "command": [
+        "node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "cwd": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/action",
+      "exit_code": 2,
+      "limit_reason": null,
+      "seconds": 0.6973693750042003,
+      "peak_rss_kib": 148064,
+      "samples": [
+        {
+          "seconds": 0.030803542002104223,
+          "rss_kib": 32,
+          "processes": 1
+        },
+        {
+          "seconds": 0.2605007090023719,
+          "rss_kib": 61440,
+          "processes": 1
+        },
+        {
+          "seconds": 0.4892627499939408,
+          "rss_kib": 148064,
+          "processes": 1
+        }
+      ],
+      "log_text": "src/index.test.ts(1,40): error TS2307: Cannot find module 'bun:test' or its corresponding type declarations.\n"
+    },
+    "bun": {
+      "command": [
+        "bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "cwd": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/action",
+      "exit_code": 2,
+      "limit_reason": null,
+      "seconds": 0.4704000839992659,
+      "peak_rss_kib": 154640,
+      "samples": [
+        {
+          "seconds": 0.02305858400359284,
+          "rss_kib": 32,
+          "processes": 1
+        },
+        {
+          "seconds": 0.26109983399510384,
+          "rss_kib": 154640,
+          "processes": 1
+        }
+      ],
+      "log_text": "src/index.test.ts(1,40): error TS2307: Cannot find module 'bun:test' or its corresponding type declarations.\n"
+    },
+    "home-jsc": {
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-reads/jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "cwd": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/action",
+      "exit_code": 2,
+      "limit_reason": null,
+      "seconds": 2.7311193749919767,
+      "peak_rss_kib": 131328,
+      "samples": [
+        {
+          "seconds": 0.023776707996148616,
+          "rss_kib": 32,
+          "processes": 1
+        },
+        {
+          "seconds": 0.24469704199873377,
+          "rss_kib": 74192,
+          "processes": 1
+        },
+        {
+          "seconds": 0.47241154199582525,
+          "rss_kib": 79376,
+          "processes": 1
+        },
+        {
+          "seconds": 0.7001229169982253,
+          "rss_kib": 87968,
+          "processes": 1
+        },
+        {
+          "seconds": 0.9282561250001891,
+          "rss_kib": 100720,
+          "processes": 1
+        },
+        {
+          "seconds": 1.156303083000239,
+          "rss_kib": 102208,
+          "processes": 1
+        },
+        {
+          "seconds": 1.3797107499995036,
+          "rss_kib": 105728,
+          "processes": 1
+        },
+        {
+          "seconds": 1.6126216249977006,
+          "rss_kib": 108624,
+          "processes": 1
+        },
+        {
+          "seconds": 1.8408998749946477,
+          "rss_kib": 112208,
+          "processes": 1
+        },
+        {
+          "seconds": 2.0697114169888664,
+          "rss_kib": 118304,
+          "processes": 1
+        },
+        {
+          "seconds": 2.297994332999224,
+          "rss_kib": 120016,
+          "processes": 1
+        },
+        {
+          "seconds": 2.529294749998371,
+          "rss_kib": 131328,
+          "processes": 1
+        }
+      ],
+      "log_text": "src/index.test.ts(1,40): error TS2307: Cannot find module 'bun:test' or its corresponding type declarations.\n"
+    }
+  },
+  "after_references": {
+    "node": {
+      "command": [
+        "node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    "bun": {
+      "command": [
+        "bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    "home-jsc": {
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-reads/jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    "bun-tests": {
+      "command": [
+        "bun",
+        "test"
+      ],
+      "exit_code": 0,
+      "output": "bun test v1.4.4 (38afee6c8)\n\nsrc/index.test.ts:\n(pass) Setup Home Action > exports main function [0.01ms]\n(pass) Setup Home Action > handles version parsing\n(pass) Setup Home Action > handles platform detection [0.41ms]\n\n 3 pass\n 0 fail\n 3 expect() calls\nRan 3 tests across 1 file. [4.00ms]\n"
+    }
+  },
+  "fix": "Include already declared Bun types alongside Node, preserving all included src tests. No dependencies added or tests excluded. Pickier and git diff --check pass. Three native Bun action tests pass; zig-js test scheduler remains unsupported.",
+  "probes": {
+    "bounded": {
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-reads/after/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "exit_code": -9,
+      "reason": "512MiB diagnostic RSS bound",
+      "seconds": 0.715770417000158,
+      "peak_rss_kib": 554800,
+      "engine_archive_revision": "93943bdfd02651f87015bb936be786f4a52e57eb",
+      "log_text": ""
+    },
+    "version": {
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-reads/after/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/node_modules/typescript/bin/tsc",
+        "--version"
+      ],
+      "exit_code": 0,
+      "reason": null,
+      "seconds": 0.6485920000000078,
+      "peak_rss_kib": 635440,
+      "engine_archive_revision": "93943bdfd02651f87015bb936be786f4a52e57eb",
+      "log_text": "Version 5.9.3\n"
+    },
+    "action-1024": {
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-reads/after/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "exit_code": -9,
+      "reason": "1024MiB diagnostic RSS bound",
+      "seconds": 1.2540660419999767,
+      "peak_rss_kib": 1049088,
+      "engine_archive_revision": "93943bdfd02651f87015bb936be786f4a52e57eb",
+      "log_text": ""
+    },
+    "collected-1024": {
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/collected-context/after/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "exit_code": -9,
+      "reason": "1024MiB diagnostic RSS bound",
+      "seconds": 2.134609540999918,
+      "peak_rss_kib": 1055696,
+      "engine_archive_revision": "93943bdfd02651f87015bb936be786f4a52e57eb",
+      "log_text": ""
+    },
+    "guarded-action": {
+      "status": "timed-out",
+      "exit_code": 124,
+      "peak_sampled_rss_kib": 1582752,
+      "memory_limit_mb": 3072,
+      "seconds": 30.473,
+      "log": "guarded-action.log",
+      "reason": "command time budget exhausted",
+      "log_text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-reads/after/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/node_modules/typescript/bin/tsc\", \"--noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 1582752 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: command time budget exhausted\n\nECOSYSTEM RESULT: timed-out, exit 124\n"
+    },
+    "guarded-action-1024": {
+      "status": "failed",
+      "exit_code": -9,
+      "peak_sampled_rss_kib": 1132272,
+      "memory_limit_mb": 1024,
+      "seconds": 1.492,
+      "log": "guarded-action-1024.log",
+      "reason": "sampled command tree RSS exceeded 1024 MiB",
+      "log_text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-reads/after/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/node_modules/typescript/bin/tsc\", \"--noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 1132272 KiB; limit 1024 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 1024 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+    }
+  },
+  "guard": {
+    "command_memory_limit_mb": 3072,
+    "sample_interval_seconds": 0.1,
+    "implementation": "Sum sampled RSS of command and descendants via ps. Kill command process group on memory/time limits; resource limit stays failed even if unsupported events were also emitted. Log active command, budget and limit before launch. Record sampled peak, limit and reason. Monitoring errors kill/reap the command and remain orchestration errors.",
+    "limitations": [
+      "Sampled RSS sums shared pages and omits allocations between samples; it is not a kernel-enforced limit and does not establish or guarantee prevention of runner OOM.",
+      "Native macOS samples do not reproduce the exact Linux runner shutdown.",
+      "Exact current engine b1bf5e42 includes later VM changes; local939 probes are not a current-engine before/after conformance measurement."
+    ],
+    "tests_log": "test_activity_window_and_leap_day (test_suite.DiscoveryTests.test_activity_window_and_leap_day) ... ok\ntest_all_matrix_members_exactly_once_beyond_github_limit (test_suite.DiscoveryTests.test_all_matrix_members_exactly_once_beyond_github_limit) ... ok\ntest_explicit_exclusions_and_forks (test_suite.DiscoveryTests.test_explicit_exclusions_and_forks) ... ok\ntest_manual_subset_is_explicit_and_rejects_unknown_consumers (test_suite.DiscoveryTests.test_manual_subset_is_explicit_and_rejects_unknown_consumers) ... ok\ntest_pagination_does_not_truncate_organizations (test_suite.DiscoveryTests.test_pagination_does_not_truncate_organizations) ... ok\ntest_priority_consumers_have_first_independent_jobs_without_lost_coverage (test_suite.DiscoveryTests.test_priority_consumers_have_first_independent_jobs_without_lost_coverage) ... ok\ntest_push_trigger_cannot_filter_coverage (test_suite.DiscoveryTests.test_push_trigger_cannot_filter_coverage) ... ok\ntest_real_git_checkout_router_logs_and_missing_scheduler_report (test_suite.EndToEndTests.test_real_git_checkout_router_logs_and_missing_scheduler_report) ... warning: templates not found in /opt/git-scm.org/v2.53.0+brewing/share/git-core/templates\nok\ntest_monorepo_private_packages_and_fixture_exclusions (test_suite.PlanTests.test_monorepo_private_packages_and_fixture_exclusions) ... ok\ntest_package_binary_path_cannot_shadow_candidate_runtime (test_suite.PlanTests.test_package_binary_path_cannot_shadow_candidate_runtime) ... ok\ntest_test_files_without_test_script_are_not_ignored (test_suite.PlanTests.test_test_files_without_test_script_are_not_ignored) ... ok\ntest_workspace_installs_cover_members_but_not_independent_nested_apps (test_suite.PlanTests.test_workspace_installs_cover_members_but_not_independent_nested_apps) ... ok\ntest_real_artifact_hashes_and_source_cpu_profile_mismatches (test_suite.ProvenanceTests.test_real_artifact_hashes_and_source_cpu_profile_mismatches) ... ok\ntest_unsafe_or_missing_build_profiles_fail_closed (test_suite.ProvenanceTests.test_unsafe_or_missing_build_profiles_fail_closed) ... ok\ntest_disk_failure_preserves_prior_evidence_and_cleans_before_saving (test_suite.ResultTests.test_disk_failure_preserves_prior_evidence_and_cleans_before_saving) ... ok\ntest_invalid_repository_never_enters_cleanup (test_suite.ResultTests.test_invalid_repository_never_enters_cleanup) ... ok\ntest_memory_guard_counts_child_and_reaps_its_process_group (test_suite.ResultTests.test_memory_guard_counts_child_and_reaps_its_process_group) ... ok\ntest_memory_guard_retains_actual_success_and_failure (test_suite.ResultTests.test_memory_guard_retains_actual_success_and_failure) ... ok\ntest_missing_and_wrong_commit_results_fail_closed (test_suite.ResultTests.test_missing_and_wrong_commit_results_fail_closed) ... ok\ntest_monitoring_error_kills_and_reaps_active_command (test_suite.ResultTests.test_monitoring_error_kills_and_reaps_active_command) ... ok\ntest_shared_runtime_builds_and_smokes_use_baseline_cpu (test_suite.ResultTests.test_shared_runtime_builds_and_smokes_use_baseline_cpu) ... ok\ntest_timeout_is_recorded_and_subprocess_group_is_reaped (test_suite.ResultTests.test_timeout_is_recorded_and_subprocess_group_is_reaped) ... ok\ntest_unsupported_not_run_timeout_and_reference_failure_are_red (test_suite.ResultTests.test_unsupported_not_run_timeout_and_reference_failure_are_red) ... ok\ntest_workflow_and_checked_inventory_are_consistent (test_suite.ResultTests.test_workflow_and_checked_inventory_are_consistent) ... ok\ntest_conditions_never_disappear_on_unsupported_commands (test_suite.RuntimeRoutingTests.test_conditions_never_disappear_on_unsupported_commands) ... ECOSYSTEM UNSUPPORTED: Runtime --conditions on shell package scripts is unsupported; conditions were not discarded\nECOSYSTEM UNSUPPORTED: Missing value for --conditions\nECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\nECOSYSTEM UNSUPPORTED: bun install requires a host API absent from Home's repository-tool runtime\nECOSYSTEM UNSUPPORTED: Unsupported runtime flag: npm --conditions\nok\ntest_conditions_reach_home_without_consuming_entry_arguments (test_suite.RuntimeRoutingTests.test_conditions_reach_home_without_consuming_entry_arguments) ... ok\ntest_installed_package_binary_routes_to_home (test_suite.RuntimeRoutingTests.test_installed_package_binary_routes_to_home) ... ok\ntest_nested_script_routes_to_engine_and_propagates_failure (test_suite.RuntimeRoutingTests.test_nested_script_routes_to_engine_and_propagates_failure) ... ok\ntest_scoped_package_bin_uses_installed_manifest_and_keeps_exit_status (test_suite.RuntimeRoutingTests.test_scoped_package_bin_uses_installed_manifest_and_keeps_exit_status) ... ok\ntest_test_scheduler_and_native_build_cannot_be_false_passes (test_suite.RuntimeRoutingTests.test_test_scheduler_and_native_build_cannot_be_false_passes) ... ECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\nECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\nECOSYSTEM UNSUPPORTED: bun build requires a host API absent from Home's repository-tool runtime\nECOSYSTEM UNSUPPORTED: bun install requires a host API absent from Home's repository-tool runtime\nok\n\n----------------------------------------------------------------------\nRan 30 tests in 1.894s\n\nOK\n"
+  },
+  "constructor_diagnostic": {
+    "build": "4/4 home-tool build steps succeeded against pushed939 archive",
+    "change": "Temporarily select existing ZJSGlobalContextCreateGarbageCollected(true) instead of public arena constructor. No engine ABI was changed.",
+    "result": "Still exceeds 1024MiB diagnostic RSS bound, no typecheck verdict. Reverted the owned Home engine.zig diagnostic edit. No unvalidated collector change shipped."
+  },
+  "limits": [
+    "The first native probe using a 3072MiB bound and buffered samples lost its tool session with no final native result; its cause is unknown and no verdict is fabricated.",
+    "The reference config correction does not solve zig-js typecheck memory/runtime cost or the CI runner shutdown.",
+    "No test262 conformance claim, whole consumer pass, fake host API or native Bun candidate fallback.",
+    "Engine caller remains on qualified suite46722 until the exact new functional suite passes validation, actual Linux runtime and both real consumer provenance/CPU checks."
+  ]
+}

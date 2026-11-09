@@ -20,7 +20,24 @@ EXCLUDED_PARTS = {"node_modules", ".git", "vendor", "vendored", "fixtures", "__f
 TEST_FILE = re.compile(r"(?:^|/)(?:[^/]+\.(?:test|spec)\.[cm]?[jt]sx?)$")
 
 
-def execute(argv, cwd, env, log, timeout):
+def process_tree_rss_kib(pid):
+    # Sample descendants too: package managers and build scripts spawn workers.
+    # This is a sampled guard, not a kernel-enforced allocation limit.
+    rows = subprocess.check_output(["ps", "-axo", "pid=,ppid=,rss="], text=True)
+    processes = [tuple(map(int, line.split())) for line in rows.splitlines() if line.strip()]
+    descendants = {pid}
+    while True:
+        children = {child for child, parent, _ in processes if parent in descendants}
+        added = children - descendants
+        if not added:
+            break
+        descendants.update(added)
+    return sum(rss for child, _, rss in processes if child in descendants)
+
+
+def execute(argv, cwd, env, log, timeout, memory_limit_mb=3072):
+    if not isinstance(memory_limit_mb, int) or isinstance(memory_limit_mb, bool) or memory_limit_mb <= 0:
+        raise ValueError("command memory limit must be a positive integer in MiB")
     start = time.monotonic()
     log.parent.mkdir(parents=True, exist_ok=True)
     with log.open("w") as stream:
@@ -32,20 +49,46 @@ def execute(argv, cwd, env, log, timeout):
         except OSError as error:
             stream.write(str(error) + "\n")
             return {"status": "failed", "exit_code": 127, "seconds": 0, "log": log.name}
+        peak_rss_kib = 0
+        reason = None
         try:
-            code = process.wait(timeout=max(0.01, timeout))
-            status = "passed" if code == 0 else "failed"
-        except subprocess.TimeoutExpired:
-            # Kill the complete command tree; an orphan must never contaminate another repo.
-            try:
-                os.killpg(process.pid, signal.SIGKILL)
-            except ProcessLookupError:
-                pass
-            process.wait()
+            while process.poll() is None:
+                peak_rss_kib = max(peak_rss_kib, process_tree_rss_kib(process.pid))
+                if peak_rss_kib > memory_limit_mb * 1024:
+                    reason = f"sampled command tree RSS exceeded {memory_limit_mb} MiB"
+                    break
+                remaining = timeout - (time.monotonic() - start)
+                if remaining <= 0:
+                    reason = "command time budget exhausted"
+                    break
+                try:
+                    process.wait(timeout=min(0.1, remaining))
+                except subprocess.TimeoutExpired:
+                    pass
+        finally:
+            # Reap on limits AND monitoring errors; never leave a live command
+            # behind if ps fails. run_and_save records the orchestration error.
+            if reason is not None or process.poll() is None:
+                try:
+                    os.killpg(process.pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+            code = process.wait()
+        status = "passed" if code == 0 else "failed"
+        if reason == "command time budget exhausted":
             code, status = 124, "timed-out"
+        elif reason is not None:
+            status = "failed"
+        stream.write(f"\nECOSYSTEM PEAK SAMPLED RSS: {peak_rss_kib} KiB; limit {memory_limit_mb} MiB\n")
+        if reason:
+            stream.write(f"ECOSYSTEM LIMIT: {reason}\n")
         stream.write(f"\nECOSYSTEM RESULT: {status}, exit {code}\n")
-    return {"status": status, "exit_code": code,
-            "seconds": round(time.monotonic() - start, 3), "log": log.name}
+    result = {"status": status, "exit_code": code, "peak_sampled_rss_kib": peak_rss_kib,
+              "memory_limit_mb": memory_limit_mb,
+              "seconds": round(time.monotonic() - start, 3), "log": log.name}
+    if reason:
+        result["reason"] = reason
+    return result
 
 
 def tracked_files(checkout):
@@ -202,12 +245,18 @@ def run_repository(repo, args, config, result=None):
         if budget <= 0:
             record = {"status": "not-run", "reason": "repository time budget exhausted"}
         else:
-            record = execute(argv, cwd, run_env, out / f"{counter:04d}.log", budget)
+            print(f"{name}: {lane}: {label}: starting {json.dumps(argv)} "
+                  f"(timeout {budget:.3f}s, sampled RSS limit "
+                  f"{config.get('command_memory_limit_mb', 3072)} MiB)", flush=True)
+            record = execute(argv, cwd, run_env, out / f"{counter:04d}.log", budget,
+                             config.get("command_memory_limit_mb", 3072))
         events = [json.loads(line) for line in event_path.read_text().splitlines()] if event_path.exists() else []
         record.update({"label": label, "lane": lane, "command": argv,
                        "engine_invocations": sum(e["kind"] == "zig-js" for e in events)})
         unsupported = [event["reason"] for event in events if event["kind"] == "unsupported"]
         if unsupported:
+            record["unsupported_reasons"] = sorted(set(unsupported))
+        if unsupported and not record.get("reason", "").startswith("sampled command tree RSS"):
             record.update(status="unsupported", reason="; ".join(sorted(set(unsupported))))
         elif requires_engine and record["status"] == "passed" and not record["engine_invocations"]:
             record.update(status="unsupported", reason="Command exited zero without executing JavaScript on zig-js")

@@ -2,6 +2,7 @@ import datetime as dt
 import hashlib
 import json
 import os
+import signal
 from pathlib import Path
 import subprocess
 import sys
@@ -297,6 +298,52 @@ class ResultTests(unittest.TestCase):
             result = run.execute(command, root, os.environ.copy(), root / "timeout.log", 0.1)
             self.assertEqual(result["status"], "timed-out")
             self.assertEqual(result["exit_code"], 124)
+
+    def test_memory_guard_counts_child_and_reaps_its_process_group(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            child = ("import os,time; from pathlib import Path; "
+                     "Path('child.pid').write_text(str(os.getpid())); "
+                     "payload=bytearray(64*1024*1024); time.sleep(60)")
+            parent = "import subprocess,sys,time; subprocess.Popen([sys.executable,'-c',sys.argv[1]]); time.sleep(60)"
+            result = run.execute([sys.executable, "-c", parent, child], root, os.environ.copy(),
+                                 root / "memory.log", 10, memory_limit_mb=48)
+            self.assertEqual(result["status"], "failed")
+            self.assertEqual(result["exit_code"], -signal.SIGKILL)
+            self.assertGreater(result["peak_sampled_rss_kib"], 48 * 1024)
+            self.assertEqual(result["memory_limit_mb"], 48)
+            self.assertIn("RSS exceeded 48 MiB", result["reason"])
+            self.assertIn("ECOSYSTEM LIMIT:", (root / "memory.log").read_text())
+            child_pid = int((root / "child.pid").read_text())
+            state = subprocess.run(["ps", "-o", "stat=", "-p", str(child_pid)],
+                                   capture_output=True, text=True).stdout.strip()
+            self.assertTrue(not state or state.startswith("Z"), state)
+
+    def test_memory_guard_retains_actual_success_and_failure(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            for code in (0, 7):
+                result = run.execute([sys.executable, "-c", f"raise SystemExit({code})"], root,
+                                     os.environ.copy(), root / f"exit-{code}.log", 10, memory_limit_mb=128)
+                self.assertEqual(result["exit_code"], code)
+                self.assertEqual(result["status"], "passed" if code == 0 else "failed")
+                self.assertNotIn("reason", result)
+
+    def test_monitoring_error_kills_and_reaps_active_command(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            real_popen = subprocess.Popen
+            processes = []
+            def capture(*args, **kwargs):
+                process = real_popen(*args, **kwargs)
+                processes.append(process)
+                return process
+            with patch.object(run.subprocess, "Popen", side_effect=capture), \
+                    patch.object(run, "process_tree_rss_kib", side_effect=OSError("ps unavailable")):
+                with self.assertRaisesRegex(OSError, "ps unavailable"):
+                    run.execute([sys.executable, "-c", "import time; time.sleep(60)"], root,
+                                os.environ.copy(), root / "monitor-error.log", 10)
+            self.assertEqual(processes[0].poll(), -signal.SIGKILL)
 
     def test_workflow_and_checked_inventory_are_consistent(self):
         root = Path(__file__).resolve().parents[1]
