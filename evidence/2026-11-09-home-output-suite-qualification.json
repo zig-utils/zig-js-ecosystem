@@ -1,0 +1,285 @@
+{
+  "observed_at_utc": "2026-11-09T14:27:36.247492+00:00",
+  "functional_suite_ref": "016419c81e04c1734293291943ac08504f29cf80",
+  "engine_sha": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+  "home_sha": "a98722f63d4f68c03f2fe8e086d131810f1fbeea",
+  "caller_ref": "af315372bad1d050857c60d0a06e8dd7a682ab48",
+  "dispatch": {
+    "observed_at_utc": "2026-11-09T14:19:44.715957+00:00",
+    "command": [
+      "/Users/chris/.local/share/pantry/global/bin/gh",
+      "workflow",
+      "run",
+      "ecosystem.yml",
+      "--repo",
+      "zig-utils/zig-js-ecosystem",
+      "--ref",
+      "main",
+      "--json"
+    ],
+    "inputs": {
+      "engine_sha": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+      "suite_ref": "016419c81e04c1734293291943ac08504f29cf80",
+      "repositories": "stacksjs/stacks,home-lang/home",
+      "reference": "true"
+    },
+    "exit_code": 0,
+    "stdout": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42633589721\n",
+    "stderr": "",
+    "run": {
+      "conclusion": "",
+      "createdAt": "2026-11-09T14:19:44Z",
+      "databaseId": 42633589721,
+      "event": "workflow_dispatch",
+      "headSha": "016419c81e04c1734293291943ac08504f29cf80",
+      "status": "queued",
+      "url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42633589721"
+    }
+  },
+  "validation_run_id": 42633177814,
+  "validation": {
+    "jobs": [
+      {
+        "id": 129214405565,
+        "name": "validate",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 42633177814,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run python3 -m unittest discover -s tests -v",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Read dependency-test toolchain pin",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Run oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Verify real workspace dependency setup",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Check Python syntax",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Post Run oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13
+          },
+          {
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 14
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15
+          }
+        ]
+      }
+    ]
+  },
+  "qualification_run_id": 42633589721,
+  "qualification_initial_snapshot": {
+    "jobs": [
+      {
+        "id": 129215853353,
+        "name": "discover",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 42633589721,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Resolve exact revisions",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Validate orchestration",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Discover and freeze active public consumers",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 12
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13
+          }
+        ]
+      },
+      {
+        "id": 129216238354,
+        "name": "runtime",
+        "status": "in_progress",
+        "conclusion": null,
+        "run_id": 42633589721,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Read toolchain pins",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Run pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Build exact pushed engine archive",
+            "status": "in_progress",
+            "conclusion": null,
+            "number": 7
+          },
+          {
+            "name": "Build Home against this engine",
+            "status": "pending",
+            "conclusion": null,
+            "number": 8
+          },
+          {
+            "name": "Verify engine identity and Home host/module/TypeScript integration",
+            "status": "pending",
+            "conclusion": null,
+            "number": 9
+          },
+          {
+            "name": "Package runtime and immutable provenance",
+            "status": "pending",
+            "conclusion": null,
+            "number": 10
+          },
+          {
+            "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+            "status": "pending",
+            "conclusion": null,
+            "number": 11
+          },
+          {
+            "name": "Post Run pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9",
+            "status": "pending",
+            "conclusion": null,
+            "number": 19
+          },
+          {
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "pending",
+            "conclusion": null,
+            "number": 20
+          },
+          {
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "pending",
+            "conclusion": null,
+            "number": 21
+          },
+          {
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "status": "pending",
+            "conclusion": null,
+            "number": 22
+          }
+        ]
+      }
+    ]
+  },
+  "promotion_requirements": [
+    "Validation run succeeds.",
+    "Exact Linux Zig 0.18 baseline runtime job succeeds with the new Home mandatory output fixtures and the existing rejection/context gates.",
+    "Both real priority consumer pinned-provenance and runner-CPU probe steps succeed.",
+    "Promote this exact functional_suite_ref in both engine caller fields; later evidence-only commits are not the qualified revision.",
+    "Keep all unfiltered engine push runs active and retain actual per-consumer unsupported/failure evidence."
+  ],
+  "coverage_limit": "The manual two-repository qualification is not a replacement for unfiltered every-push ecosystem coverage. Engine push run 42624206332 remains active."
+}
