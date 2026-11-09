@@ -1,0 +1,649 @@
+{
+  "observed_at_utc": "2026-11-09T17:29:00.828906+00:00",
+  "commit": "a649e3cc19f2b50ad46091279ab962c304cc6d91",
+  "parent": "0ca542e298f0847610b92190ca052d6f91381c30",
+  "unpublished_commit_rebased": "286ecc50dea68a8d2570e26459dc585187b3bdf7",
+  "scope": "Load actual codecs only on requested async image work. Existing metadata functions remain usable; errors initializing a requested backend stay outside image/placeholder recovery catches.",
+  "candidate_engine": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+  "candidate_home": "a98722f63d4f68c03f2fe8e086d131810f1fbeea",
+  "candidate_binary_sha256": "be4c6d8221970c26c704243e59e1f8647ad6c1ac809af28ee732e3c99c49c08f",
+  "reports": {
+    "after-cli-help": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 434528,
+      "memory_limit_mb": 3072,
+      "seconds": 0.523,
+      "log": "after-cli-help.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/packages/stx/dist/cli.js",
+        "--help"
+      ]
+    },
+    "after-home-metadata": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5904,
+      "memory_limit_mb": 3072,
+      "seconds": 0.027,
+      "log": "after-home-metadata.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-lazy-images/image-backend-emitted.mjs"
+      ]
+    },
+    "after-home-resize": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5104,
+      "memory_limit_mb": 3072,
+      "seconds": 0.026,
+      "log": "after-home-resize.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-lazy-images/image-backend-emitted.mjs",
+        "resize"
+      ]
+    },
+    "after-native-images": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 471440,
+      "memory_limit_mb": 3072,
+      "seconds": 24.931,
+      "log": "after-native-images.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "packages/stx/test/image-optimization.test.ts",
+        "packages/stx/test/image-optimization",
+        "packages/stx/test/builtins/image-delivery.test.ts",
+        "packages/stx/test/builtins/image-delivery-shared.test.ts",
+        "packages/stx/test/builtins/image-transparent-placeholder.test.ts"
+      ],
+      "source_unchanged": true
+    },
+    "after-source-manifest": {
+      "packages/stx/src/image-optimization/processor.ts": "e3ea3400ec31bdf0bce10eb19935b81eb00dc96b30c76027cf9aa981aca83674",
+      "packages/stx/src/builtins/image-delivery.ts": "0421356be0e0475d79ef094f8f82520e59ba247d7ffb8957a81ad75259a96b38",
+      "packages/stx/test/fixtures/image-backend-loading.mjs": "c8058306fc015348e5b95e7d40f3a5cad910e0b7126e4ae2f2e46706d11b54df"
+    },
+    "before-cli": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 353536,
+      "memory_limit_mb": 3072,
+      "seconds": 0.448,
+      "log": "before-cli.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/packages/stx/dist/cli.js",
+        "--help"
+      ]
+    },
+    "before-home-metadata": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 138000,
+      "memory_limit_mb": 3072,
+      "seconds": 0.236,
+      "log": "before-home-metadata.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-lazy-images/image-backend-emitted.mjs"
+      ]
+    },
+    "before-native-images": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 489024,
+      "memory_limit_mb": 3072,
+      "seconds": 21.913,
+      "log": "before-native-images.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "packages/stx/test/image-optimization.test.ts",
+        "packages/stx/test/image-optimization",
+        "packages/stx/test/builtins/image-delivery.test.ts",
+        "packages/stx/test/builtins/image-delivery-shared.test.ts",
+        "packages/stx/test/builtins/image-transparent-placeholder.test.ts"
+      ]
+    },
+    "before-source-manifest": {
+      "packages/stx/src/image-optimization/processor.ts": {
+        "sha256": "b0a0e2d5056096af4af658ff81da1fc0d1b7cee51367eb76e988b4f53521531c",
+        "bytes": 18204
+      },
+      "packages/stx/src/builtins/image-delivery.ts": {
+        "sha256": "a9a38cf69b8a9cd48be02fc311e88de7901511f271ba847e1e1ac2c9d40d83d9",
+        "bytes": 25761
+      },
+      "packages/stx/dist/image-optimization/processor.js": {
+        "sha256": "533c6694265c2d53b06e47d5535f276b795635cdc9a00061dfbbd6c4c7c80ad5",
+        "bytes": 9631
+      },
+      "packages/stx/dist/builtins/image-delivery.js": {
+        "sha256": "a0f1b8275fd04e5fdb448bb7a94cd271a1f12a85a1da93b38ff60fb9f23f420d",
+        "bytes": 12935
+      },
+      "packages/stx/dist/cli.js": {
+        "sha256": "76a2896cc97dac091b5cd0f4886178c3e45a16f9f8cc1130e1e91f74464bd6d7",
+        "bytes": 65654
+      }
+    },
+    "format": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 34000,
+      "memory_limit_mb": 3072,
+      "seconds": 0.375,
+      "log": "format.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "format:check"
+      ],
+      "source_unchanged": true
+    },
+    "home-hex-resize": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 46896,
+      "memory_limit_mb": 3072,
+      "seconds": 0.269,
+      "log": "home-hex-resize.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-lazy-images/image-backend-emitted-hex.mjs",
+        "resize"
+      ],
+      "source_unchanged": true
+    },
+    "lint": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2320,
+      "memory_limit_mb": 3072,
+      "seconds": 0.127,
+      "log": "lint.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "x",
+        "--bun",
+        "pickier",
+        "packages/stx/src/image-optimization/processor.ts",
+        "packages/stx/src/builtins/image-delivery.ts",
+        "packages/stx/test/fixtures/image-backend-loading.mjs",
+        "--config",
+        ".config/code-style.ts"
+      ],
+      "source_unchanged": true
+    },
+    "native-fixture-resize": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1632,
+      "memory_limit_mb": 3072,
+      "seconds": 0.061,
+      "log": "native-fixture-resize.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "packages/stx/test/fixtures/image-backend-loading.mjs",
+        "resize"
+      ]
+    },
+    "native-hex-resize": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1072,
+      "memory_limit_mb": 3072,
+      "seconds": 0.1,
+      "log": "native-hex-resize.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "packages/stx/test/fixtures/image-backend-loading.mjs",
+        "resize"
+      ],
+      "source_unchanged": true
+    },
+    "production-build": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 399136,
+      "memory_limit_mb": 3072,
+      "seconds": 1.471,
+      "log": "production-build.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "--bun",
+        "build.ts"
+      ]
+    },
+    "stx661-ci": {
+      "jobs": [
+        {
+          "id": 129310413670,
+          "name": "native-signing",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 42660487853,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v7.0.1",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run pantry-pm/pantry/packages/action@c1ef80f71239e7f3626e3ed0ef3eb960d61ae5b5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run bun install --frozen-lockfile",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Build native packaging dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run bun test packages/stx/test/native-signing.test.ts packages/desktop/test/native-update.test.ts packages/desktop/test/application-data.test.ts packages/desktop/test/self-update.test.ts",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Post Run pantry-pm/pantry/packages/action@c1ef80f71239e7f3626e3ed0ef3eb960d61ae5b5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            },
+            {
+              "name": "Post Run actions/checkout@v7.0.1",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            }
+          ]
+        },
+        {
+          "id": 129310414063,
+          "name": "test",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 42660487853,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v7.0.1",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Provision managed tools through Pantry",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Use cached node_modules",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Install Dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Build",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Verify an installed consumer of the actual package archives",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Warm the browser before the startup budget",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Unit Test",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            },
+            {
+              "name": "Component Tests with Coverage",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Integration Tests",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            },
+            {
+              "name": "Post Use cached node_modules",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 20
+            },
+            {
+              "name": "Post Provision managed tools through Pantry",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 21
+            },
+            {
+              "name": "Post Run actions/checkout@v7.0.1",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 22
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 23
+            }
+          ]
+        },
+        {
+          "id": 129310414196,
+          "name": "lint",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 42660487853,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v7.0.1",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Provision managed tools through Pantry",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Use cached node_modules",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Install Dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Lint",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Format Check",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Post Use cached node_modules",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Post Provision managed tools through Pantry",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            },
+            {
+              "name": "Post Run actions/checkout@v7.0.1",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15
+            }
+          ]
+        },
+        {
+          "id": 129310414939,
+          "name": "typecheck",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 42660487853,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v7.0.1",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Provision managed tools through Pantry",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Use cached node_modules",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Install Dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Typecheck",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Post Use cached node_modules",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Post Provision managed tools through Pantry",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            },
+            {
+              "name": "Post Run actions/checkout@v7.0.1",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            }
+          ]
+        },
+        {
+          "id": 129320470370,
+          "name": "publish-commit",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 42660487853,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Provision managed tools through Pantry",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Install Dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Build",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Publish Commit",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Post Provision managed tools through Pantry",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            },
+            {
+              "name": "Post Run actions/checkout@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            }
+          ]
+        }
+      ]
+    },
+    "typecheck": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 657200,
+      "memory_limit_mb": 3072,
+      "seconds": 0.854,
+      "log": "typecheck.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "typecheck"
+      ],
+      "source_unchanged": true
+    }
+  },
+  "logs": {
+    "before-cli": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/packages/stx/dist/cli.js\", \"--help\"]\nhome-tool (zig-js): SyntaxError: invalid regular expression\n\nECOSYSTEM PEAK SAMPLED RSS: 353536 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+    "before-native-images": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"test\", \"packages/stx/test/image-optimization.test.ts\", \"packages/stx/test/image-optimization\", \"packages/stx/test/builtins/image-delivery.test.ts\", \"packages/stx/test/builtins/image-delivery-shared.test.ts\", \"packages/stx/test/builtins/image-transparent-placeholder.test.ts\"]\nbun test v1.4.4 (38afee6c8)\n\npackages/stx/test/image-optimization.test.ts:\n(pass) Image Processor > Constants > DEFAULT_WIDTHS should be array of numbers [2.43ms]\n(pass) Image Processor > Constants > DEFAULT_FORMATS should include webp and jpeg [0.45ms]\n(pass) Image Processor > Constants > DEFAULT_QUALITY should be between 1 and 100 [0.24ms]\n(pass) Image Processor > isSharpAvailable > should return boolean [1.01ms]\n(pass) Image Processor > getImageMetadata > should parse PNG dimensions from buffer [0.58ms]\n(pass) Image Processor > getImageMetadata > should parse PNG dimensions from file [1.77ms]\n(pass) Image Processor > getImageMetadata > should throw for invalid image [0.86ms]\n(pass) Image Processor > generateSrcSet > should generate srcset string from variants [0.31ms]\n(pass) Image Processor > generateSrcSet > should filter by format [0.28ms]\n(pass) Image Processor > generateSrcSet > should sort by width [0.26ms]\n(pass) Image Processor > generateSizes > should return 100vw for empty breakpoints [0.25ms]\n(pass) Image Processor > generateSizes > should generate sizes from breakpoints [0.29ms]\n(pass) Image Processor > getFallbackVariant > should return middle JPEG variant [0.28ms]\n(pass) Image Processor > getFallbackVariant > should return middle variant if no JPEG [0.30ms]\n(pass) Image Processor > groupVariantsByFormat > should group variants correctly [0.32ms]\n(pass) Image Processor > isImageFile > should identify image files [0.31ms]\n(pass) Image Processor > isImageFile > should reject non-image files [0.39ms]\n(pass) Image Processor > isImageFile > should handle uppercase extensions [0.34ms]\n(pass) Image Processor > getMimeType > should return correct MIME types [0.39ms]\n(pass) Image Processor > getTotalSize > should sum variant sizes [0.36ms]\n(pass) Image Processor > getTotalSize > should return 0 for empty array [0.28ms]\n(pass) Image Processor > formatSize > should format bytes [0.33ms]\n(pass) Image Processor > formatSize > should format kilobytes [0.30ms]\n(pass) Image Processor > formatSize > should format megabytes [0.26ms]\n(pass) Image Processor > ImageProcessingError > should have correct properties [0.29ms]\n(pass) Image Component > parseImageComponent > should parse basic Image component [0.67ms]\n(pass) Image Component > parseImageComponent > should parse all props [0.30ms]\n(pass) Image Component > parseImageComponent > should return null for invalid component [0.28ms]\n(pass) Image Component > renderImageComponent > should render simple img in dev mode [0.38ms]\n(pass) Image Component > renderImageComponent > should include loading=\"lazy\" by default [0.33ms]\n(pass) Image Component > renderImageComponent > should not include loading=\"lazy\" with priority [0.33ms]\n(pass) Image Component > renderImageComponent > should include decoding=\"async\" [0.38ms]\n(pass) Image Component > renderImageComponent > should render picture element with variants [0.45ms]\n(pass) Image Component > renderImageComponent > should escape HTML in alt text [0.29ms]\n(pass) Image Component > processImageComponents > should process multiple Image components [0.54ms]\n(pass) Image Component > processImageComponents > should collect preload links [0.24ms]\n(pass) Image Directive > imageDirective should be defined [0.31ms]\n(pass) Image Directive > createImageDirective should create directive [0.28ms]\n(pass) Image Directive > clearImageCache should not throw [0.49ms]\n(pass) Build Plugin > createImagePlugin > should create plugin with default options [0.31ms]\n(pass) Build Plugin > createImagePlugin > should accept custom options [0.27ms]\n(pass) Build Plugin > generateImageManifest > should generate manifest from processed images [0.24ms]\n(pass) Configuration > defaultImageConfig should have required fields [0.21ms]\n(pass) Configuration > defaultImageConfig widths should be sorted ascending [0.29ms]\n(pass) Configuration > defaultImageConfig formats should include webp [0.30ms]\n(pass) Integration > should export all required functions [0.32ms]\n(pass) Integration > end-to-end: parse image metadata and generate srcset [0.58ms]\n\npackages/stx/test/builtins/image-delivery.test.ts:\n\u001b[32m[ts-css]\u001b[0m CSS engine loaded from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/node_modules/@stacksjs/ts-css/dist\n(pass) build-time Image delivery > renders <Image> with responsive formats, intrinsic size, and a content placeholder [145.49ms]\n[stx-images] Skipping unreadable raster: images/broken.png\n(pass) build-time Image delivery > skips an unreadable raster without failing every valid image [25.18ms]\n(pass) build-time Image delivery > does not send an oversized original frame to responsive encoders [55.83ms]\n[stx] partialsDir resolves to \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/partials\", which does not exist. Configured as \"partials\".\n[stx] layoutsDir resolves to \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/layouts\", which does not exist. Configured as \"layouts\".\n[stx] Plugin loaded: @stacksjs/components\n(pass) build-time Image delivery > keeps a reactive source on an img root instead of binding src to picture [43.92ms]\n[stx-images] Skipping unreadable raster: images/broken.png\n[stx-images] Skipping unreadable raster: images/broken.png\n(pass) build-time Image delivery > names variants the same from any output directory, so releases reuse the cache [29.14ms]\n(pass) build-time Image delivery > only probes a corrupt raster once, then skips it on later runs [19.25ms]\n[stx-images] Skipping unreadable raster: images/broken.png\n[stx-images] Skipping unreadable raster: images/fixed-later.png\n(pass) build-time Image delivery > retries a file that was corrupt once its bytes change [24.78ms]\n[stx-images] Skipping unreadable raster: images/broken.png\n(pass) build-time Image delivery > reuses variants already on disk instead of re-encoding them [18.28ms]\n(pass) variants written by an older encoder > does not reuse them once the encoder changes [34.61ms]\n(pass) variants written by an older encoder > invalidates opaque photo variants after an encoder upgrade and keeps warm caches [38.54ms]\n(pass) variants written by an older encoder > names the encoders it resolves [0.22ms]\n\npackages/stx/test/builtins/image-delivery-shared.test.ts:\n(pass) image delivery catalog across module copies > is two module instances, or the test proves nothing [0.02ms]\n(pass) image delivery catalog across module copies > serves a catalog installed through one copy from the other [0.11ms]\n(pass) image delivery catalog across module copies > shares transparency and clearing too [0.02ms]\n\npackages/stx/test/builtins/image-transparent-placeholder.test.ts:\n(pass) StxImage over a transparent source > detects a palette PNG with tRNS as transparent, and an RGBA photo with no clear pixel as opaque [0.07ms]\n(pass) StxImage over a transparent source > keeps the PNG fallback for the transparent source [0.01ms]\n(pass) StxImage over a transparent source > renders the transparent image with no placeholder and nothing to clear [2.63ms]\n(pass) StxImage over a transparent source > refuses a derived placeholder even when one is asked for explicitly [1.14ms]\n(pass) StxImage over a transparent source > offers no WebP source for the transparent image unless every variant carries alpha [0.46ms]\n(pass) StxImage over a transparent source > gives the opaque image a placeholder that its load event clears [2.45ms]\n(pass) StxImage over a transparent source > runs an author onload after the cleanup instead of emitting a second attribute [1.07ms]\n(pass) StxImage over a transparent source > clears a colour placeholder without touching a background image the author set [0.83ms]\n(pass) StxImage over a transparent thumbhash placeholder > renders none when the warmed placeholder says the image is transparent [0.69ms]\n(pass) webpHeaderHasAlpha > reads a simple lossy frame as opaque [0.04ms]\n(pass) webpHeaderHasAlpha > reads the VP8X alpha flag [0.02ms]\n(pass) webpHeaderHasAlpha > reads the VP8L alpha_is_used bit [0.02ms]\n\npackages/stx/test/image-optimization/serve.test.ts:\n(pass) handleImageRequest \u2014 request parsing > returns null when URL pathname does not match [0.33ms]\n(pass) handleImageRequest \u2014 request parsing > 400 when src is missing [0.11ms]\n(pass) handleImageRequest \u2014 request parsing > 400 when src is not absolute path [0.02ms]\n(pass) handleImageRequest \u2014 request parsing > 400 when src is protocol-relative [0.02ms]\n(pass) handleImageRequest \u2014 request parsing > refuses path traversal escape from publicDir [0.02ms]\n(pass) handleImageRequest \u2014 request parsing > 400 when src has unsupported extension [0.02ms]\n(pass) handleImageRequest \u2014 request parsing > 400 when neither w nor h is provided [0.03ms]\n(pass) handleImageRequest \u2014 request parsing > 400 when w is not a positive integer [0.02ms]\n(pass) handleImageRequest \u2014 request parsing > 400 when format is invalid [0.03ms]\n(pass) handleImageRequest \u2014 request parsing > 400 when quality is out of range [0.02ms]\n(pass) handleImageRequest \u2014 request parsing > 400 when fit is invalid [0.02ms]\n(pass) handleImageRequest \u2014 request parsing > 404 when src does not exist [0.03ms]\n(pass) handleImageRequest \u2014 successful transform > returns the resized image with correct headers [3237.90ms]\n(pass) handleImageRequest \u2014 successful transform > hits cache on second identical request [2062.70ms]\n(pass) handleImageRequest \u2014 successful transform > produces different cache entries for different params [3701.01ms]\n(pass) handleImageRequest \u2014 successful transform > produces different cache entries for different source files [4162.22ms]\n(pass) handleImageRequest \u2014 successful transform > returns 304 on conditional GET with matching If-None-Match [2032.67ms]\n(pass) handleImageRequest \u2014 successful transform > clamps oversized width to maxWidth [3065.31ms]\n(pass) handleImageRequest \u2014 successful transform > uses defaultQuality when q is not specified [2368.02ms]\n(pass) handleImageRequest \u2014 successful transform > respects a custom routePath [0.93ms]\n\npackages/stx/test/image-optimization/auto-sibling.test.ts:\n(pass) rewriteImagesWithSiblings > wraps img in <picture> with avif+webp sources when both siblings exist [1.36ms]\n(pass) rewriteImagesWithSiblings > emits only the formats whose sibling files exist [0.07ms]\n(pass) rewriteImagesWithSiblings > leaves img unchanged when no siblings exist [0.04ms]\n(pass) rewriteImagesWithSiblings > handles .jpeg extension (not just .jpg) for basename matching [0.04ms]\n(pass) rewriteImagesWithSiblings > skips imgs already inside a <picture> [0.04ms]\n(pass) rewriteImagesWithSiblings > skips remote URLs (http/https/protocol-relative) [0.03ms]\n(pass) rewriteImagesWithSiblings > skips data: URIs [0.02ms]\n(pass) rewriteImagesWithSiblings > skips unknown extensions (.svg, no extension, etc.) [0.07ms]\n(pass) rewriteImagesWithSiblings > skips relative URLs (no leading slash) [0.23ms]\n(pass) rewriteImagesWithSiblings > refuses to probe paths that escape publicDir via traversal [0.04ms]\n(pass) rewriteImagesWithSiblings > handles multiple imgs in one document [0.10ms]\n(pass) rewriteImagesWithSiblings > preserves all attributes on the original img tag [0.04ms]\n(pass) rewriteImagesWithSiblings > returns input unchanged when html has no <img> tags [0.02ms]\n(pass) rewriteImagesWithSiblings > returns input unchanged when publicDir is missing [0.01ms]\n(pass) rewriteImagesWithSiblings > respects custom format priority order [0.16ms]\n\npackages/stx/test/image-optimization/thumbhash.test.ts:\n(pass) thumbhash placeholder strategy > returns a base64 PNG dataURL when placeholder=thumbhash [106.48ms]\n(pass) thumbhash placeholder strategy > still works alongside the other placeholder strategies [261.98ms]\n(pass) thumbhash placeholder strategy > reuses cached output across calls with the same hash [163.77ms]\n\n 111 pass\n 0 fail\n 280 expect() calls\nRan 111 tests across 7 files. [21.87s]\n\nECOSYSTEM PEAK SAMPLED RSS: 489024 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "before-home-metadata": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-lazy-images/image-backend-emitted.mjs\"]\nhome-tool (zig-js): SyntaxError: invalid regular expression\n\nECOSYSTEM PEAK SAMPLED RSS: 138000 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+    "native-fixture-resize": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"packages/stx/test/fixtures/image-backend-loading.mjs\", \"resize\"]\nOK image helpers initialized and produced metadata without requesting codecs\nOK requested image resize produced an actual 2 by 2 PNG\n\nECOSYSTEM PEAK SAMPLED RSS: 1632 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "production-build": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"--bun\", \"build.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 399136 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "after-home-metadata": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-lazy-images/image-backend-emitted.mjs\"]\nOK image helpers initialized and produced metadata without requesting codecs\n\nECOSYSTEM PEAK SAMPLED RSS: 5904 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "after-home-resize": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-lazy-images/image-backend-emitted.mjs\", \"resize\"]\nOK image helpers initialized and produced metadata without requesting codecs\nhome-tool (zig-js): Error: Home Buffer encoding base64 is not implemented\n\nECOSYSTEM PEAK SAMPLED RSS: 5104 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+    "after-cli-help": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/packages/stx/dist/cli.js\", \"--help\"]\nhome-tool (zig-js): TypeError: promisify original must be a function\n\nECOSYSTEM PEAK SAMPLED RSS: 434528 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+    "native-hex-resize": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"packages/stx/test/fixtures/image-backend-loading.mjs\", \"resize\"]\nOK image helpers initialized and produced metadata without requesting codecs\nOK requested image resize produced an actual 2 by 2 PNG\n\nECOSYSTEM PEAK SAMPLED RSS: 1072 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "home-hex-resize": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/home-write-path-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stx-lazy-images/image-backend-emitted-hex.mjs\", \"resize\"]\nOK image helpers initialized and produced metadata without requesting codecs\nhome-tool (zig-js): SyntaxError: invalid regular expression\n\nECOSYSTEM PEAK SAMPLED RSS: 46896 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+    "after-native-images": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"test\", \"packages/stx/test/image-optimization.test.ts\", \"packages/stx/test/image-optimization\", \"packages/stx/test/builtins/image-delivery.test.ts\", \"packages/stx/test/builtins/image-delivery-shared.test.ts\", \"packages/stx/test/builtins/image-transparent-placeholder.test.ts\"]\nbun test v1.4.4 (38afee6c8)\n\npackages/stx/test/image-optimization.test.ts:\n(pass) Image Processor > Constants > DEFAULT_WIDTHS should be array of numbers [3.08ms]\n(pass) Image Processor > Constants > DEFAULT_FORMATS should include webp and jpeg [0.72ms]\n(pass) Image Processor > Constants > DEFAULT_QUALITY should be between 1 and 100 [0.30ms]\n(pass) Image Processor > isSharpAvailable > should return boolean [0.52ms]\n(pass) Image Processor > getImageMetadata > should parse PNG dimensions from buffer [0.47ms]\n(pass) Image Processor > getImageMetadata > should parse PNG dimensions from file [0.75ms]\n(pass) Image Processor > getImageMetadata > should throw for invalid image [0.63ms]\n(pass) Image Processor > generateSrcSet > should generate srcset string from variants [0.36ms]\n(pass) Image Processor > generateSrcSet > should filter by format [0.30ms]\n(pass) Image Processor > generateSrcSet > should sort by width [0.25ms]\n(pass) Image Processor > generateSizes > should return 100vw for empty breakpoints [0.29ms]\n(pass) Image Processor > generateSizes > should generate sizes from breakpoints [0.38ms]\n(pass) Image Processor > getFallbackVariant > should return middle JPEG variant [0.31ms]\n(pass) Image Processor > getFallbackVariant > should return middle variant if no JPEG [0.41ms]\n(pass) Image Processor > groupVariantsByFormat > should group variants correctly [0.47ms]\n(pass) Image Processor > isImageFile > should identify image files [0.40ms]\n(pass) Image Processor > isImageFile > should reject non-image files [0.28ms]\n(pass) Image Processor > isImageFile > should handle uppercase extensions [0.26ms]\n(pass) Image Processor > getMimeType > should return correct MIME types [0.24ms]\n(pass) Image Processor > getTotalSize > should sum variant sizes [0.27ms]\n(pass) Image Processor > getTotalSize > should return 0 for empty array [0.30ms]\n(pass) Image Processor > formatSize > should format bytes [0.28ms]\n(pass) Image Processor > formatSize > should format kilobytes [0.30ms]\n(pass) Image Processor > formatSize > should format megabytes [0.26ms]\n(pass) Image Processor > ImageProcessingError > should have correct properties [0.26ms]\n(pass) Image Component > parseImageComponent > should parse basic Image component [0.40ms]\n(pass) Image Component > parseImageComponent > should parse all props [0.28ms]\n(pass) Image Component > parseImageComponent > should return null for invalid component [0.31ms]\n(pass) Image Component > renderImageComponent > should render simple img in dev mode [0.38ms]\n(pass) Image Component > renderImageComponent > should include loading=\"lazy\" by default [0.28ms]\n(pass) Image Component > renderImageComponent > should not include loading=\"lazy\" with priority [0.23ms]\n(pass) Image Component > renderImageComponent > should include decoding=\"async\" [0.22ms]\n(pass) Image Component > renderImageComponent > should render picture element with variants [0.41ms]\n(pass) Image Component > renderImageComponent > should escape HTML in alt text [0.27ms]\n(pass) Image Component > processImageComponents > should process multiple Image components [0.41ms]\n(pass) Image Component > processImageComponents > should collect preload links [0.24ms]\n(pass) Image Directive > imageDirective should be defined [0.20ms]\n(pass) Image Directive > createImageDirective should create directive [0.22ms]\n(pass) Image Directive > clearImageCache should not throw [0.52ms]\n(pass) Build Plugin > createImagePlugin > should create plugin with default options [0.26ms]\n(pass) Build Plugin > createImagePlugin > should accept custom options [0.26ms]\n(pass) Build Plugin > generateImageManifest > should generate manifest from processed images [0.35ms]\n(pass) Configuration > defaultImageConfig should have required fields [0.33ms]\n(pass) Configuration > defaultImageConfig widths should be sorted ascending [0.26ms]\n(pass) Configuration > defaultImageConfig formats should include webp [0.26ms]\n(pass) Integration > should export all required functions [0.25ms]\n(pass) Integration > end-to-end: parse image metadata and generate srcset [0.51ms]\n\npackages/stx/test/builtins/image-delivery.test.ts:\n\u001b[32m[ts-css]\u001b[0m CSS engine loaded from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/node_modules/@stacksjs/ts-css/dist\n(pass) build-time Image delivery > renders <Image> with responsive formats, intrinsic size, and a content placeholder [91.62ms]\n[stx-images] Skipping unreadable raster: images/broken.png\n(pass) build-time Image delivery > skips an unreadable raster without failing every valid image [28.44ms]\n(pass) build-time Image delivery > does not send an oversized original frame to responsive encoders [60.20ms]\n[stx] partialsDir resolves to \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/partials\", which does not exist. Configured as \"partials\".\n[stx] layoutsDir resolves to \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/image-worker/source/layouts\", which does not exist. Configured as \"layouts\".\n[stx] Plugin loaded: @stacksjs/components\n(pass) build-time Image delivery > keeps a reactive source on an img root instead of binding src to picture [47.54ms]\n[stx-images] Skipping unreadable raster: images/broken.png\n[stx-images] Skipping unreadable raster: images/broken.png\n(pass) build-time Image delivery > names variants the same from any output directory, so releases reuse the cache [33.33ms]\n(pass) build-time Image delivery > only probes a corrupt raster once, then skips it on later runs [20.95ms]\n[stx-images] Skipping unreadable raster: images/broken.png\n[stx-images] Skipping unreadable raster: images/fixed-later.png\n(pass) build-time Image delivery > retries a file that was corrupt once its bytes change [32.20ms]\n[stx-images] Skipping unreadable raster: images/broken.png\n(pass) build-time Image delivery > reuses variants already on disk instead of re-encoding them [20.87ms]\n(pass) variants written by an older encoder > does not reuse them once the encoder changes [39.54ms]\n(pass) variants written by an older encoder > invalidates opaque photo variants after an encoder upgrade and keeps warm caches [39.92ms]\n(pass) variants written by an older encoder > names the encoders it resolves [0.44ms]\n\npackages/stx/test/builtins/image-delivery-shared.test.ts:\n(pass) image delivery catalog across module copies > is two module instances, or the test proves nothing [0.02ms]\n(pass) image delivery catalog across module copies > serves a catalog installed through one copy from the other [0.14ms]\n(pass) image delivery catalog across module copies > shares transparency and clearing too [0.02ms]\n\npackages/stx/test/builtins/image-transparent-placeholder.test.ts:\n(pass) StxImage over a transparent source > detects a palette PNG with tRNS as transparent, and an RGBA photo with no clear pixel as opaque [0.10ms]\n(pass) StxImage over a transparent source > keeps the PNG fallback for the transparent source [0.02ms]\n(pass) StxImage over a transparent source > renders the transparent image with no placeholder and nothing to clear [3.25ms]\n(pass) StxImage over a transparent source > refuses a derived placeholder even when one is asked for explicitly [1.65ms]\n(pass) StxImage over a transparent source > offers no WebP source for the transparent image unless every variant carries alpha [0.54ms]\n(pass) StxImage over a transparent source > gives the opaque image a placeholder that its load event clears [2.60ms]\n(pass) StxImage over a transparent source > runs an author onload after the cleanup instead of emitting a second attribute [1.01ms]\n(pass) StxImage over a transparent source > clears a colour placeholder without touching a background image the author set [0.97ms]\n(pass) StxImage over a transparent thumbhash placeholder > renders none when the warmed placeholder says the image is transparent [1.03ms]\n(pass) webpHeaderHasAlpha > reads a simple lossy frame as opaque [0.05ms]\n(pass) webpHeaderHasAlpha > reads the VP8X alpha flag [0.02ms]\n(pass) webpHeaderHasAlpha > reads the VP8L alpha_is_used bit [0.01ms]\n\npackages/stx/test/image-optimization/serve.test.ts:\n(pass) handleImageRequest \u2014 request parsing > returns null when URL pathname does not match [0.41ms]\n(pass) handleImageRequest \u2014 request parsing > 400 when src is missing [0.28ms]\n(pass) handleImageRequest \u2014 request parsing > 400 when src is not absolute path [0.03ms]\n(pass) handleImageRequest \u2014 request parsing > 400 when src is protocol-relative [0.02ms]\n(pass) handleImageRequest \u2014 request parsing > refuses path traversal escape from publicDir [0.02ms]\n(pass) handleImageRequest \u2014 request parsing > 400 when src has unsupported extension [0.02ms]\n(pass) handleImageRequest \u2014 request parsing > 400 when neither w nor h is provided [0.04ms]\n(pass) handleImageRequest \u2014 request parsing > 400 when w is not a positive integer [0.02ms]\n(pass) handleImageRequest \u2014 request parsing > 400 when format is invalid [0.03ms]\n(pass) handleImageRequest \u2014 request parsing > 400 when quality is out of range [0.02ms]\n(pass) handleImageRequest \u2014 request parsing > 400 when fit is invalid [0.02ms]\n(pass) handleImageRequest \u2014 request parsing > 404 when src does not exist [0.04ms]\n(pass) handleImageRequest \u2014 successful transform > returns the resized image with correct headers [3654.35ms]\n(pass) handleImageRequest \u2014 successful transform > hits cache on second identical request [2402.41ms]\n(pass) handleImageRequest \u2014 successful transform > produces different cache entries for different params [4430.79ms]\n(pass) handleImageRequest \u2014 successful transform > produces different cache entries for different source files [5018.00ms]\n(pass) handleImageRequest \u2014 successful transform > returns 304 on conditional GET with matching If-None-Match [2310.95ms]\n(pass) handleImageRequest \u2014 successful transform > clamps oversized width to maxWidth [3601.86ms]\n(pass) handleImageRequest \u2014 successful transform > uses defaultQuality when q is not specified [2350.03ms]\n(pass) handleImageRequest \u2014 successful transform > respects a custom routePath [0.16ms]\n\npackages/stx/test/image-optimization/auto-sibling.test.ts:\n(pass) rewriteImagesWithSiblings > wraps img in <picture> with avif+webp sources when both siblings exist [0.53ms]\n(pass) rewriteImagesWithSiblings > emits only the formats whose sibling files exist [0.05ms]\n(pass) rewriteImagesWithSiblings > leaves img unchanged when no siblings exist [0.04ms]\n(pass) rewriteImagesWithSiblings > handles .jpeg extension (not just .jpg) for basename matching [0.04ms]\n(pass) rewriteImagesWithSiblings > skips imgs already inside a <picture> [0.03ms]\n(pass) rewriteImagesWithSiblings > skips remote URLs (http/https/protocol-relative) [0.03ms]\n(pass) rewriteImagesWithSiblings > skips data: URIs [0.02ms]\n(pass) rewriteImagesWithSiblings > skips unknown extensions (.svg, no extension, etc.) [0.04ms]\n(pass) rewriteImagesWithSiblings > skips relative URLs (no leading slash) [0.02ms]\n(pass) rewriteImagesWithSiblings > refuses to probe paths that escape publicDir via traversal [0.02ms]\n(pass) rewriteImagesWithSiblings > handles multiple imgs in one document [0.07ms]\n(pass) rewriteImagesWithSiblings > preserves all attributes on the original img tag [0.03ms]\n(pass) rewriteImagesWithSiblings > returns input unchanged when html has no <img> tags [0.02ms]\n(pass) rewriteImagesWithSiblings > returns input unchanged when publicDir is missing [0.01ms]\n(pass) rewriteImagesWithSiblings > respects custom format priority order [0.04ms]\n\npackages/stx/test/image-optimization/thumbhash.test.ts:\n(pass) thumbhash placeholder strategy > returns a base64 PNG dataURL when placeholder=thumbhash [106.08ms]\n(pass) thumbhash placeholder strategy > still works alongside the other placeholder strategies [252.40ms]\n(pass) thumbhash placeholder strategy > reuses cached output across calls with the same hash [157.16ms]\n\n 111 pass\n 0 fail\n 280 expect() calls\nRan 111 tests across 7 files. [24.91s]\n\nECOSYSTEM PEAK SAMPLED RSS: 471440 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "typecheck": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"run\", \"typecheck\"]\n$ bun --bun tsc --noEmit\n\nECOSYSTEM PEAK SAMPLED RSS: 657200 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "format": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"run\", \"format:check\"]\n$ bun x --bun pickier run --mode format --check --config .config/code-style.ts\n\u001b[90mScanned 299 files, found 0 errors and 0 warnings.\u001b[0m\n\nECOSYSTEM PEAK SAMPLED RSS: 34000 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "lint": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"x\", \"--bun\", \"pickier\", \"packages/stx/src/image-optimization/processor.ts\", \"packages/stx/src/builtins/image-delivery.ts\", \"packages/stx/test/fixtures/image-backend-loading.mjs\", \"--config\", \".config/code-style.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 2320 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+  },
+  "fixture": "import { generateSrcSet, getMimeType, resizeAndConvert } from '../../src/image-optimization/processor.ts'\nimport { getImageDelivery, prepareImageDelivery } from '../../src/builtins/image-delivery.ts'\n\nif (getMimeType('png') !== 'image/png')\n  throw new Error('Wrong PNG MIME type')\nif (generateSrcSet([{ width: 32, url: '/small.png', format: 'png' }, { width: 64, url: '/large.png', format: 'png' }]) !== '/small.png 32w, /large.png 64w')\n  throw new Error('Wrong responsive image metadata')\nif (getImageDelivery('/never-registered.png') !== undefined || typeof prepareImageDelivery !== 'function')\n  throw new Error('Wrong image delivery exports')\n\nconsole.log('OK image helpers initialized and produced metadata without requesting codecs')\n\nif (process.argv[2] === 'resize') {\n  // Actual opaque red pixel, encoded as a complete PNG, not header-only test data.\n  const source = Buffer.from('89504e470d0a1a0a0000000d49484452000000010000000108060000001f15c4890000000d49444154789c63f8cfc0f01f00050001ff89993d1d0000000049454e44ae426082', 'hex')\n  const output = await resizeAndConvert(source, { width: 2, height: 2, format: 'png', quality: 100, fit: 'fill' })\n  if (output[0] !== 0x89 || output[1] !== 0x50 || output.readUInt32BE(16) !== 2 || output.readUInt32BE(20) !== 2)\n    throw new Error('Requested resize did not produce a genuine 2 by 2 PNG')\n  console.log('OK requested image resize produced an actual 2 by 2 PNG')\n}\n",
+  "source_manifest_survived_rebase": true,
+  "interpretation": [
+    "111 real native image tests and 280 assertions pass on both sides. Native fixture performs an actual1x1 red PNG to2x2 PNG resize.",
+    "The unchanged emitted image-helper entry fails SVG regex initialization before and returns correct MIME/srcset/catalog metadata after through Home. This is an executed metadata fixture, not a whole image API pass.",
+    "Requested Home resize still fails. Original base64 fixture hits explicitly unsupported Buffer base64; the same PNG supplied as hex reaches the genuine invalid SVG regex. Both failures are retained.",
+    "The full rebuilt Home CLI advances to TypeError: promisify original must be a function in compression initialization; still failed.",
+    "No codec or networking API is faked; no tests skipped and no candidate JS run uses native Bun. Native build/setup/reference tests stay distinct.",
+    "661fd626f5 CI42660487853 is now fully green, including publish-commit129320470370; this validates both preceding STX source regex fixes. Image changea649e3cc has its own CI pending."
+  ]
+}
