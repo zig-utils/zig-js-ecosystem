@@ -15875,7 +15875,8 @@
     "isolated-backreferences.log": "649584eaa46f74a57360963f33fddd579dba54c4c394e8ec65b66ffd02224d25",
     "isolated-full-tests.log": "a0053def9cf770f0c186e43aa42e5580725519bfe0157a0d19d0807ac62f3135",
     "engine-build-shared-fetch-cache-failure.log": "ff6ce2a514eb9662adc4863de58047021c871c98bc3174e9c8686fb88e6da298",
-    "engine-build.log": "283d19966dcba485b0cd241c5e025dd4e358c98e91105fb16bdcdc3d02917205"
+    "engine-build.log": "283d19966dcba485b0cd241c5e025dd4e358c98e91105fb16bdcdc3d02917205",
+    "library-ci-qualification.json": "144c7252a1bf3dcc212f48a7ed1c3998b190fffa6de135b93d4728b51c90b98a"
   },
   "regex_diff": "commit ab2ab7e2c18dcc70a9a2455464cfbc2777feda1b\nAuthor:     Chris <chrisbreuer93@gmail.com>\nAuthorDate: Mon Nov 9 02:26:37 2026 -0800\nCommit:     Chris <chrisbreuer93@gmail.com>\nCommitDate: Mon Nov 9 02:26:37 2026 -0800\n\n    fix(backtrack): reconstruct final captures in fixed repeats\n    \n    Extend ordered finite-repeat matching to capturing bodies without capture-sensitive backreferences. Clear body captures per iteration, reconstruct the final ordered capture state, and restore failed alternatives in forward/reverse direct and constrained matching. Preserve reported allocation failures and the existing static guards and search budget.\n    \n    Node-derived 192-case comparison: match/capture mismatches 40 -> 8 and capture-span mismatches 42 -> 10, with 32 gains and zero new mismatches in each comparison. Variable-count and backreference-sensitive failures remain recorded. Fourteen focused tests pass; isolated frozen-source full Debug gate passes 49/49 steps and 637/637 tests in 473.418 seconds. The earlier interrupted full check is retained as failed evidence; its 27 backreference tests pass in isolation. Engine/test262 impact will be measured with the immutable consumer pin; no full-corpus claim.\n\ndiff --git a/src/backtrack.zig b/src/backtrack.zig\nindex dd4c8a2..f897e37 100644\n--- a/src/backtrack.zig\n+++ b/src/backtrack.zig\n@@ -443,8 +443,18 @@ pub const BacktrackEngine = struct {\n                 return self.matchQuantifierConstrained(node, pos, target_end);\n             },\n             .alternation => {\n-                if (self.matchNodeConstrained(node.data.alternation.left, pos, target_end)) return true;\n-                return self.matchNodeConstrained(node.data.alternation.right, pos, target_end);\n+                const saved = self.allocator.dupe(CaptureGroup, self.captures) catch |err| {\n+                    self.match_error = err;\n+                    return false;\n+                };\n+                defer self.allocator.free(saved);\n+                const left = self.matchNodeConstrained(node.data.alternation.left, pos, target_end);\n+                if (left and self.match_error == null) return true;\n+                @memcpy(self.captures, saved);\n+                if (self.match_error != null) return false;\n+                const right = self.matchNodeConstrained(node.data.alternation.right, pos, target_end);\n+                if (!right or self.match_error != null) @memcpy(self.captures, saved);\n+                return right and self.match_error == null;\n             },\n             .backref => {\n                 return if (self.matchBackreference(node.data.backref, pos)) |end| end == target_end else false;\n@@ -459,11 +469,8 @@ pub const BacktrackEngine = struct {\n     }\n \n     fn matchQuantifierConstrained(self: *BacktrackEngine, node: *ast.Node, pos: usize, target_end: usize) bool {\n-        if (node.node_type == .repeat and self.fixedRepeatHasUncapturedChoices(node.data.repeat)) {\n-            var ends: std.ArrayList(usize) = .empty;\n-            defer ends.deinit(self.allocator);\n-            self.collectFixedRepeatMatches(node.data.repeat, pos, &ends, false) catch return false;\n-            return std.mem.indexOfScalar(usize, ends.items, target_end) != null;\n+        if (node.node_type == .repeat and self.fixedRepeatHasChoices(node.data.repeat)) {\n+            return self.matchFixedRepeatConstrained(node.data.repeat, pos, target_end, false);\n         }\n         switch (node.node_type) {\n             .star, .plus, .optional, .repeat => {\n@@ -741,9 +748,10 @@ pub const BacktrackEngine = struct {\n                     }\n                 }\n             }\n-            // Out of memory leaves the remaining captures as they were, which is\n-            // the same stale-capture state a failed match already tolerates.\n-            self.pushNodeChildren(&pending, n) catch return;\n+            self.pushNodeChildren(&pending, n) catch {\n+                self.match_error = error.OutOfMemory;\n+                return;\n+            };\n         }\n     }\n \n@@ -796,7 +804,7 @@ pub const BacktrackEngine = struct {\n                 // ECMA-262 RepeatMatcher with min=max=1 still permits the\n                 // continuation to backtrack inside its one required child.\n                 // Greediness only orders optional additional iterations.\n-                if (self.fixedRepeatHasUncapturedChoices(repeat)) {\n+                if (self.fixedRepeatHasChoices(repeat)) {\n                     try self.collectFixedRepeatMatches(repeat, pos, positions, false);\n                 } else if (repeat.bounds.min == 1 and repeat.bounds.max != null and repeat.bounds.max.? == 1) {\n                     self.clearCapturesIn(repeat.child);\n@@ -950,21 +958,48 @@ pub const BacktrackEngine = struct {\n         }\n     }\n \n-    fn fixedRepeatHasUncapturedChoices(self: *BacktrackEngine, repeat: ast.Node.Repeat) bool {\n+    fn fixedRepeatHasChoices(self: *BacktrackEngine, repeat: ast.Node.Repeat) bool {\n+        // Backreferences can make a continuation require a different capture\n+        // state at the same ending position. Keep that case on the existing\n+        // path until continuation enumeration carries those distinct states.\n         return repeat.bounds.min > 1 and repeat.bounds.max != null and\n             repeat.bounds.max.? == repeat.bounds.min and\n-            !self.hasCapturingGroup(repeat.child) and\n+            !(self.hasCapturingGroup(repeat.child) and self.hasBackreference(self.ast_root)) and\n             (self.hasQuantifiers(repeat.child) or self.hasAlternation(repeat.child));\n     }\n \n     fn collectFixedRepeatMatches(self: *BacktrackEngine, repeat: ast.Node.Repeat, pos: usize, positions: *std.ArrayList(usize), comptime reverse: bool) anyerror!void {\n-        return self.collectFixedRepeatMatchesInner(repeat, pos, positions, reverse) catch |err| {\n+        _ = self.collectFixedRepeatMatchesInner(repeat, pos, positions, null, reverse) catch |err| {\n             self.match_error = err;\n             return err;\n         };\n     }\n \n-    fn collectFixedRepeatMatchesInner(self: *BacktrackEngine, repeat: ast.Node.Repeat, pos: usize, positions: *std.ArrayList(usize), comptime reverse: bool) anyerror!void {\n+    fn matchFixedRepeatConstrained(self: *BacktrackEngine, repeat: ast.Node.Repeat, pos: usize, target: usize, comptime reverse: bool) bool {\n+        const saved = self.allocator.dupe(CaptureGroup, self.captures) catch |err| {\n+            self.match_error = err;\n+            return false;\n+        };\n+        defer self.allocator.free(saved);\n+        var unused: std.ArrayList(usize) = .empty;\n+        defer unused.deinit(self.allocator);\n+        const matched = self.collectFixedRepeatMatchesInner(repeat, pos, &unused, target, reverse) catch |err| {\n+            self.match_error = err;\n+            @memcpy(self.captures, saved);\n+            return false;\n+        };\n+        if (!matched) @memcpy(self.captures, saved);\n+        return matched;\n+    }\n+\n+    fn collectFixedRepeatMatchesInner(self: *BacktrackEngine, repeat: ast.Node.Repeat, pos: usize, positions: *std.ArrayList(usize), target: ?usize, comptime reverse: bool) anyerror!bool {\n+        const has_captures = self.hasCapturingGroup(repeat.child);\n+        if (self.match_error) |err| return err;\n+        const saved: ?[]CaptureGroup = if (has_captures and target == null) try self.allocator.dupe(CaptureGroup, self.captures) else null;\n+        defer if (saved) |caps| {\n+            @memcpy(self.captures, caps);\n+            self.allocator.free(caps);\n+        };\n         var frontier: std.ArrayList(usize) = .empty;\n         defer frontier.deinit(self.allocator);\n         var next: std.ArrayList(usize) = .empty;\n@@ -985,6 +1020,8 @@ pub const BacktrackEngine = struct {\n             seen.clearRetainingCapacity();\n             for (frontier.items) |start| {\n                 ends.clearRetainingCapacity();\n+                if (has_captures) self.clearCapturesIn(repeat.child);\n+                if (self.match_error) |err| return err;\n                 if (reverse) {\n                     try self.collectAllReverseMatches(repeat.child, start, &ends);\n                 } else {\n@@ -993,17 +1030,31 @@ pub const BacktrackEngine = struct {\n                 if (self.match_error) |err| return err;\n                 if (self.step_count > self.max_steps) return error.Timeout;\n                 for (ends.items) |end| {\n-                    // ECMA-262 RepeatMatcher: with no captures in the body,\n-                    // paths at the same iteration/position have identical\n-                    // continuations. Keep the first to preserve child priority.\n+                    if (target != null and count + 1 == repeat.bounds.min) {\n+                        if (end != target.?) continue;\n+                        if (!has_captures) return true;\n+                        self.clearCapturesIn(repeat.child);\n+                        const matched = if (reverse)\n+                            self.matchReverseNodeConstrained(repeat.child, start, end)\n+                        else\n+                            self.matchNodeConstrained(repeat.child, start, end);\n+                        if (self.match_error) |err| return err;\n+                        if (matched) return true;\n+                        continue;\n+                    }\n+                    // ECMA-262 22.2.2.3.1 steps 3-4 clear captures before\n+                    // each next iteration. Equal iteration/position states thus\n+                    // have equal continuations; preserve the earliest path.\n+                    // Targeted reconstruction above retains the final captures.\n                     const entry = try seen.getOrPut(end);\n                     if (!entry.found_existing) try next.append(self.allocator, end);\n                 }\n             }\n-            if (next.items.len == 0) return;\n+            if (next.items.len == 0) return false;\n             std.mem.swap(std.ArrayList(usize), &frontier, &next);\n         }\n         try positions.appendSlice(self.allocator, frontier.items);\n+        return frontier.items.len != 0;\n     }\n \n     fn collectGreedyRepeatMatches(self: *BacktrackEngine, repeat: ast.Node.Repeat, pos: usize, positions: *std.ArrayList(usize)) !void {\n@@ -1085,12 +1136,20 @@ pub const BacktrackEngine = struct {\n     }\n \n     fn matchAlternation(self: *BacktrackEngine, alt: ast.Node.Alternation, pos: usize) ?usize {\n-        // Try left first\n-        if (self.matchNode(alt.left, pos)) |end| {\n-            return end;\n-        }\n-        // Try right\n-        return self.matchNode(alt.right, pos);\n+        // CompileSubpattern (Disjunction): a failed alternative must not leak\n+        // captured strings into the next alternative's MatchState.\n+        const saved = self.allocator.dupe(CaptureGroup, self.captures) catch |err| {\n+            self.match_error = err;\n+            return null;\n+        };\n+        defer self.allocator.free(saved);\n+        const left = self.matchNode(alt.left, pos);\n+        if (self.match_error == null) if (left) |end| return end;\n+        @memcpy(self.captures, saved);\n+        if (self.match_error != null) return null;\n+        const right = self.matchNode(alt.right, pos);\n+        if (right == null or self.match_error != null) @memcpy(self.captures, saved);\n+        return if (self.match_error == null) right else null;\n     }\n \n     fn matchStar(self: *BacktrackEngine, quant: ast.Node.Quantifier, pos: usize) ?usize {\n@@ -1169,11 +1228,14 @@ pub const BacktrackEngine = struct {\n     }\n \n     fn matchRepeat(self: *BacktrackEngine, repeat: ast.Node.Repeat, pos: usize) ?usize {\n-        if (self.fixedRepeatHasUncapturedChoices(repeat)) {\n+        if (self.fixedRepeatHasChoices(repeat)) {\n             var ends: std.ArrayList(usize) = .empty;\n             defer ends.deinit(self.allocator);\n             self.collectFixedRepeatMatches(repeat, pos, &ends, false) catch return null;\n-            return if (ends.items.len != 0) ends.items[0] else null;\n+            if (ends.items.len == 0) return null;\n+            const target = ends.items[0];\n+            if (self.hasCapturingGroup(repeat.child) and !self.matchFixedRepeatConstrained(repeat, pos, target, false)) return null;\n+            return target;\n         }\n         const min = repeat.bounds.min;\n         const max = repeat.bounds.max;\n@@ -1425,8 +1487,20 @@ pub const BacktrackEngine = struct {\n     }\n \n     fn matchReverseAlternation(self: *BacktrackEngine, alt: ast.Node.Alternation, pos: usize) ?usize {\n-        if (self.matchReverseNode(alt.left, pos)) |start| return start;\n-        return self.matchReverseNode(alt.right, pos);\n+        // CompileSubpattern (Disjunction): a failed alternative must not leak\n+        // captured strings into the next alternative's MatchState.\n+        const saved = self.allocator.dupe(CaptureGroup, self.captures) catch |err| {\n+            self.match_error = err;\n+            return null;\n+        };\n+        defer self.allocator.free(saved);\n+        const left = self.matchReverseNode(alt.left, pos);\n+        if (self.match_error == null) if (left) |end| return end;\n+        @memcpy(self.captures, saved);\n+        if (self.match_error != null) return null;\n+        const right = self.matchReverseNode(alt.right, pos);\n+        if (right == null or self.match_error != null) @memcpy(self.captures, saved);\n+        return if (self.match_error == null) right else null;\n     }\n \n     fn matchReverseGroup(self: *BacktrackEngine, group: ast.Node.Group, pos: usize) ?usize {\n@@ -1505,11 +1579,14 @@ pub const BacktrackEngine = struct {\n     }\n \n     fn matchReverseRepeat(self: *BacktrackEngine, repeat: ast.Node.Repeat, pos: usize) ?usize {\n-        if (self.fixedRepeatHasUncapturedChoices(repeat)) {\n+        if (self.fixedRepeatHasChoices(repeat)) {\n             var starts: std.ArrayList(usize) = .empty;\n             defer starts.deinit(self.allocator);\n             self.collectFixedRepeatMatches(repeat, pos, &starts, true) catch return null;\n-            return if (starts.items.len != 0) starts.items[0] else null;\n+            if (starts.items.len == 0) return null;\n+            const target = starts.items[0];\n+            if (self.hasCapturingGroup(repeat.child) and !self.matchFixedRepeatConstrained(repeat, pos, target, true)) return null;\n+            return target;\n         }\n         const min = repeat.bounds.min;\n         const max = repeat.bounds.max;\n@@ -1545,11 +1622,8 @@ pub const BacktrackEngine = struct {\n     }\n \n     fn matchReverseNodeConstrained(self: *BacktrackEngine, node: *ast.Node, pos: usize, target_start: usize) bool {\n-        if (node.node_type == .repeat and self.fixedRepeatHasUncapturedChoices(node.data.repeat)) {\n-            var starts: std.ArrayList(usize) = .empty;\n-            defer starts.deinit(self.allocator);\n-            self.collectFixedRepeatMatches(node.data.repeat, pos, &starts, true) catch return false;\n-            return std.mem.indexOfScalar(usize, starts.items, target_start) != null;\n+        if (node.node_type == .repeat and self.fixedRepeatHasChoices(node.data.repeat)) {\n+            return self.matchFixedRepeatConstrained(node.data.repeat, pos, target_start, true);\n         }\n         if (node.node_type == .repeat) {\n             const repeat = node.data.repeat;\n@@ -1613,8 +1687,18 @@ pub const BacktrackEngine = struct {\n                 return false;\n             },\n             .alternation => {\n-                if (self.matchReverseNodeConstrained(node.data.alternation.left, pos, target_start)) return true;\n-                return self.matchReverseNodeConstrained(node.data.alternation.right, pos, target_start);\n+                const saved = self.allocator.dupe(CaptureGroup, self.captures) catch |err| {\n+                    self.match_error = err;\n+                    return false;\n+                };\n+                defer self.allocator.free(saved);\n+                const left = self.matchReverseNodeConstrained(node.data.alternation.left, pos, target_start);\n+                if (left and self.match_error == null) return true;\n+                @memcpy(self.captures, saved);\n+                if (self.match_error != null) return false;\n+                const right = self.matchReverseNodeConstrained(node.data.alternation.right, pos, target_start);\n+                if (!right or self.match_error != null) @memcpy(self.captures, saved);\n+                return right and self.match_error == null;\n             },\n             .backref => return if (self.matchReverseBackreference(node.data.backref, pos)) |start| start == target_start else false,\n             .lookahead => return if (self.matchLookahead(node.data.lookahead, pos)) |start| start == target_start else false,\n@@ -1669,7 +1753,7 @@ pub const BacktrackEngine = struct {\n             },\n             .repeat => {\n                 const repeat = node.data.repeat;\n-                if (self.fixedRepeatHasUncapturedChoices(repeat)) {\n+                if (self.fixedRepeatHasChoices(repeat)) {\n                     try self.collectFixedRepeatMatches(repeat, pos, positions, true);\n                 } else if (repeat.bounds.min == 1 and repeat.bounds.max != null and repeat.bounds.max.? == 1) {\n                     self.clearCapturesIn(repeat.child);\ndiff --git a/tests/parser_compiler_edge_cases.zig b/tests/parser_compiler_edge_cases.zig\nindex 9ee373b..9cb62a0 100644\n--- a/tests/parser_compiler_edge_cases.zig\n+++ b/tests/parser_compiler_edge_cases.zig\n@@ -736,3 +736,89 @@ test \"backtrack: direct fixed repeats preserve child priority and outer captures\n     try std.testing.expectEqualStrings(\"aa\", hit.captures[0]);\n     try std.testing.expect(hit.captures_present[0]);\n }\n+\n+test \"backtrack: exact repeats backtrack while preserving final captures\" {\n+    const allocator = std.testing.allocator;\n+    var positive = try Regex.compileWithFlags(allocator, \"^(?=(a?){2}a{2}$)\", .{ .ecmascript = true });\n+    defer positive.deinit();\n+    const found = try positive.find(\"aa\");\n+    try std.testing.expect(found != null);\n+    var hit = found.?;\n+    defer hit.deinit(allocator);\n+    try std.testing.expect(hit.captures_present[0]);\n+    try std.testing.expectEqualStrings(\"\", hit.captures[0]);\n+    var negative = try Regex.compileWithFlags(allocator, \"^(?!(a?){2}a{2}$)\", .{ .ecmascript = true });\n+    defer negative.deinit();\n+    try std.testing.expect(!try negative.isMatch(\"aa\"));\n+}\n+\n+test \"backtrack: failed alternatives do not leak captured strings\" {\n+    const allocator = std.testing.allocator;\n+    inline for (.{ \"^(?=(a)c|(a)$)\", \"^(?=((a)c|(a)){2}$)\" }, .{ \"a\", \"aca\" }) |pattern, input| {\n+        var re = try Regex.compileWithFlags(allocator, pattern, .{ .ecmascript = true });\n+        defer re.deinit();\n+        const found = try re.find(input);\n+        try std.testing.expect(found != null);\n+        var hit = found.?;\n+        defer hit.deinit(allocator);\n+        const failed_capture: usize = if (hit.captures.len == 2) 0 else 1;\n+        try std.testing.expect(!hit.captures_present[failed_capture]);\n+        try std.testing.expectEqualStrings(\"a\", hit.captures[hit.captures.len - 1]);\n+    }\n+}\n+\n+test \"backtrack: capturing fixed repeats retain resource failure and recover\" {\n+    const allocator = std.testing.allocator;\n+    var re = try Regex.compileWithFlags(allocator, \"^(?=(a?){2}a{2}$)\", .{ .ecmascript = true });\n+    defer re.deinit();\n+    var failing = std.testing.FailingAllocator.init(allocator, .{ .fail_index = 0 });\n+    re.backtrack_engine.?.allocator = failing.allocator();\n+    try std.testing.expectError(error.OutOfMemory, re.find(\"aa\"));\n+    re.backtrack_engine.?.allocator = allocator;\n+    var hit = (try re.find(\"aa\")).?;\n+    defer hit.deinit(allocator);\n+    try std.testing.expect(hit.captures_present[0]);\n+    try std.testing.expectEqualStrings(\"\", hit.captures[0]);\n+\n+    var empty = try Regex.compileWithFlags(allocator, \"(?=(()?){1000000}b?)\", .{ .ecmascript = true });\n+    defer empty.deinit();\n+    empty.backtrack_engine.?.max_steps = 50;\n+    try std.testing.expectError(error.Timeout, empty.isMatch(\"\"));\n+}\n+\n+test \"backtrack: fixed capture reconstruction respects greediness and nesting\" {\n+    const allocator = std.testing.allocator;\n+    const Case = struct { pattern: []const u8, input: []const u8, index: ?usize, captures: []const ?[]const u8 };\n+    const cases = [_]Case{\n+        .{ .pattern = \"^(?=(a?){2}$)\", .input = \"a\", .index = 0, .captures = &.{\"\"} },\n+        .{ .pattern = \"^(?=(a??){2}$)\", .input = \"a\", .index = 0, .captures = &.{\"a\"} },\n+        .{ .pattern = \"(?<=^(a?){2})$\", .input = \"a\", .index = 1, .captures = &.{\"\"} },\n+        .{ .pattern = \"(?<=^(a??){2})$\", .input = \"a\", .index = 1, .captures = &.{\"a\"} },\n+        .{ .pattern = \"^(?=((a)?b){2}$)\", .input = \"abb\", .index = 0, .captures = &.{ \"b\", null } },\n+        .{ .pattern = \"^(?=((a)|(b)){2}$)\", .input = \"ab\", .index = 0, .captures = &.{ \"b\", null, \"b\" } },\n+        .{ .pattern = \"^(?=(?<part>a??){2}$)\", .input = \"a\", .index = 0, .captures = &.{\"a\"} },\n+        .{ .pattern = \"(?<=^a(?i:(a??)){2})$\", .input = \"aA\", .index = 2, .captures = &.{\"A\"} },\n+        .{ .pattern = \"(?<=^a(?i:(a??)){2})$\", .input = \"Aa\", .index = null, .captures = &.{} },\n+        .{ .pattern = \"^(?=(()?){2}$)\", .input = \"\", .index = 0, .captures = &.{ \"\", null } },\n+    };\n+    for (cases) |case| {\n+        inline for (.{ false, true }) |unicode| {\n+            var re = try Regex.compileWithFlags(allocator, case.pattern, .{ .ecmascript = true, .unicode = unicode });\n+            defer re.deinit();\n+            const found = try re.find(case.input);\n+            if (case.index) |index| {\n+                try std.testing.expect(found != null);\n+                var hit = found.?;\n+                defer hit.deinit(allocator);\n+                try std.testing.expectEqual(index, hit.start);\n+                try std.testing.expectEqual(case.captures.len, hit.captures.len);\n+                for (case.captures, 0..) |expected, i| {\n+                    if (expected) |text| {\n+                        try std.testing.expect(hit.captures_present[i]);\n+                        try std.testing.expectEqualStrings(text, hit.captures[i]);\n+                    } else try std.testing.expect(!hit.captures_present[i]);\n+                }\n+            } else try std.testing.expect(found == null);\n+        }\n+    }\n+}",
   "engine_diff": "commit e1ff2cfd248677b564253d525e986e6cb9610f57\nAuthor:     Chris <chrisbreuer93@gmail.com>\nAuthorDate: Mon Nov 9 02:32:32 2026 -0800\nCommit:     Chris <chrisbreuer93@gmail.com>\nCommitDate: Mon Nov 9 02:32:32 2026 -0800\n\n    fix(regexp): preserve final capture state in fixed repetitions\n    \n    Pin owned zig-regex ab2ab7e with the compiler-verified immutable package hash. Capture-bearing exact repeats reconstruct final captures in forward/reverse matching, and failed alternatives restore capture state. Add 50 Node-derived generator/VM vectors with actual d-flag indices, alongside the existing 42- and 82-vector regressions.\n    \n    Native 192-case comparisons improve value/capture mismatches 40 -> 8 and capture-index mismatches 42 -> 10: 32 gains and zero new mismatches in each measured matrix. Fourteen focused library tests and the complete 637-test Debug target pass. Production frontend 3 cases / 174 vectors and combined build 10/10 pass. Top-level and VM witnesses return OK 1; the before VM witness reports its genuine wrong null match.\n    \n    Flips 0 test262 cases across 788 completed diagnostics: literals 238; String match 51, matchAll 25, replace 55, replaceAll 45, search 43, split 120; RegExp exec 79, test 45, modifiers 70, lookBehind 17. All pass on both exact binaries. Full RegExp comparison remains incomplete; tokenizer still PatternTooComplex. Variable-count and capture-sensitive backreference failures remain retained. Static guards, default budget, consumer coverage and validated suite pin are unchanged.\n\ndiff --git a/build.zig.zon b/build.zig.zon\nindex 9b83d8b1..c305349e 100644\n--- a/build.zig.zon\n+++ b/build.zig.zon\n@@ -6,8 +6,8 @@\n     .dependencies = .{\n         // Homegrown regex engine, reused to back JS RegExp (pantry: zig-regex).\n         .zig_regex = .{\n-            .url = \"https://codeload.github.com/zig-utils/zig-regex/tar.gz/a341f0cc4e5a3832ca3d209610f52c3de9ba4278\",\n-            .hash = \"zig_regex-0.2.1-omky0XzRGgDkATKSlyDaNxh58BFW0rleVAHoCb8PifmY\",\n+            .url = \"https://codeload.github.com/zig-utils/zig-regex/tar.gz/ab2ab7e2c18dcc70a9a2455464cfbc2777feda1b\",\n+            .hash = \"zig_regex-0.2.1-omky0TfjGgAQSfLUEGhmCFsV3Lb_HZslcixf73disM_p\",\n         },\n         // Precise tracing GC to unblock Phase 7 (issue #1); see\n         // docs/threads/P7-gc-design.md. Opt-in contexts route heap cells\ndiff --git a/tools/focused_engine_tests.zig b/tools/focused_engine_tests.zig\nindex d69db0bc..c7645852 100644\n--- a/tools/focused_engine_tests.zig\n+++ b/tools/focused_engine_tests.zig\n@@ -25,6 +25,72 @@ const ErrorCase = struct {\n };\n \n const frontend_cases = [_]Case{\n+    .{\n+        .name = \"fixed RegExp repeats restore capture state\",\n+        .source =\n+        \\\\(function*(){\n+        \\\\var cases = [\n+        \\\\  [\"^(?=(a?){2}a{2}$)\",\"aa\",\"d\",[0,\"\",[\"\"],[[0,0]]]],\n+        \\\\  [\"^(?=(a?){2}a{2}$)\",\"aa\",\"ud\",[0,\"\",[\"\"],[[0,0]]]],\n+        \\\\  [\"^(?!(a?){2}a{2}$)\",\"aa\",\"d\",null],\n+        \\\\  [\"^(?!(a?){2}a{2}$)\",\"aa\",\"ud\",null],\n+        \\\\  [\"^(?=(a?){3}a{3}$)\",\"aaa\",\"d\",[0,\"\",[\"\"],[[0,0]]]],\n+        \\\\  [\"^(?=(a?){3}a{3}$)\",\"aaa\",\"ud\",[0,\"\",[\"\"],[[0,0]]]],\n+        \\\\  [\"^(?!(a?){3}a{3}$)\",\"aaa\",\"d\",null],\n+        \\\\  [\"^(?!(a?){3}a{3}$)\",\"aaa\",\"ud\",null],\n+        \\\\  [\"^(?=(a?){2}$)\",\"a\",\"d\",[0,\"\",[\"\"],[[1,1]]]],\n+        \\\\  [\"^(?=(a?){2}$)\",\"a\",\"ud\",[0,\"\",[\"\"],[[1,1]]]],\n+        \\\\  [\"^(?=(a??){2}$)\",\"a\",\"d\",[0,\"\",[\"a\"],[[0,1]]]],\n+        \\\\  [\"^(?=(a??){2}$)\",\"a\",\"ud\",[0,\"\",[\"a\"],[[0,1]]]],\n+        \\\\  [\"(?<=^(a?){2})$\",\"a\",\"d\",[1,\"\",[\"\"],[[0,0]]]],\n+        \\\\  [\"(?<=^(a?){2})$\",\"a\",\"ud\",[1,\"\",[\"\"],[[0,0]]]],\n+        \\\\  [\"(?<=^(a??){2})$\",\"a\",\"d\",[1,\"\",[\"a\"],[[0,1]]]],\n+        \\\\  [\"(?<=^(a??){2})$\",\"a\",\"ud\",[1,\"\",[\"a\"],[[0,1]]]],\n+        \\\\  [\"((?=a)(a|aa)){2}\",\"aa\",\"d\",[0,\"aa\",[\"a\",\"a\"],[[1,2],[1,2]]]],\n+        \\\\  [\"((?=a)(a|aa)){2}\",\"aa\",\"ud\",[0,\"aa\",[\"a\",\"a\"],[[1,2],[1,2]]]],\n+        \\\\  [\"((?=a)(aa|a)){2}\",\"aa\",\"d\",[0,\"aa\",[\"a\",\"a\"],[[1,2],[1,2]]]],\n+        \\\\  [\"((?=a)(aa|a)){2}\",\"aa\",\"ud\",[0,\"aa\",[\"a\",\"a\"],[[1,2],[1,2]]]],\n+        \\\\  [\"(?<=((aa|a)(?<=a)){2})$\",\"aa\",\"d\",[2,\"\",[\"a\",\"a\"],[[0,1],[0,1]]]],\n+        \\\\  [\"(?<=((aa|a)(?<=a)){2})$\",\"aa\",\"ud\",[2,\"\",[\"a\",\"a\"],[[0,1],[0,1]]]],\n+        \\\\  [\"^(?=((a)?b){2}$)\",\"abb\",\"d\",[0,\"\",[\"b\",null],[[2,3],null]]],\n+        \\\\  [\"^(?=((a)?b){2}$)\",\"abb\",\"ud\",[0,\"\",[\"b\",null],[[2,3],null]]],\n+        \\\\  [\"^(?=((a)|(b)){2}$)\",\"ab\",\"d\",[0,\"\",[\"b\",null,\"b\"],[[1,2],null,[1,2]]]],\n+        \\\\  [\"^(?=((a)|(b)){2}$)\",\"ab\",\"ud\",[0,\"\",[\"b\",null,\"b\"],[[1,2],null,[1,2]]]],\n+        \\\\  [\"^(?=(?<part>a??){2}$)\",\"a\",\"d\",[0,\"\",[\"a\"],[[0,1]]]],\n+        \\\\  [\"^(?=(?<part>a??){2}$)\",\"a\",\"ud\",[0,\"\",[\"a\"],[[0,1]]]],\n+        \\\\  [\"(?<=^(?<part>a??){2})$\",\"a\",\"d\",[1,\"\",[\"a\"],[[0,1]]]],\n+        \\\\  [\"(?<=^(?<part>a??){2})$\",\"a\",\"ud\",[1,\"\",[\"a\"],[[0,1]]]],\n+        \\\\  [\"^(?=(?i:(a?)){2}aa$)\",\"aa\",\"d\",[0,\"\",[\"\"],[[0,0]]]],\n+        \\\\  [\"^(?=(?i:(a?)){2}aa$)\",\"aa\",\"ud\",[0,\"\",[\"\"],[[0,0]]]],\n+        \\\\  [\"^(?=(?i:(a?)){2}aa$)\",\"AAaa\",\"d\",[0,\"\",[\"A\"],[[1,2]]]],\n+        \\\\  [\"^(?=(?i:(a?)){2}aa$)\",\"AAaa\",\"ud\",[0,\"\",[\"A\"],[[1,2]]]],\n+        \\\\  [\"(?<=^a(?i:(a??)){2})$\",\"aA\",\"d\",[2,\"\",[\"A\"],[[1,2]]]],\n+        \\\\  [\"(?<=^a(?i:(a??)){2})$\",\"aA\",\"ud\",[2,\"\",[\"A\"],[[1,2]]]],\n+        \\\\  [\"(?<=^a(?i:(a??)){2})$\",\"Aa\",\"d\",null],\n+        \\\\  [\"(?<=^a(?i:(a??)){2})$\",\"Aa\",\"ud\",null],\n+        \\\\  [\"^(?=(a??){2}?$)\",\"a\",\"d\",[0,\"\",[\"a\"],[[0,1]]]],\n+        \\\\  [\"^(?=(a??){2}?$)\",\"a\",\"ud\",[0,\"\",[\"a\"],[[0,1]]]],\n+        \\\\  [\"^(?=(()?){2}$)\",\"\",\"d\",[0,\"\",[\"\",null],[[0,0],null]]],\n+        \\\\  [\"^(?=(()?){2}$)\",\"\",\"ud\",[0,\"\",[\"\",null],[[0,0],null]]],\n+        \\\\  [\"^(?=((a)c|(a)){2}$)\",\"aca\",\"d\",[0,\"\",[\"a\",null,\"a\"],[[2,3],null,[2,3]]]],\n+        \\\\  [\"^(?=((a)c|(a)){2}$)\",\"aca\",\"ud\",[0,\"\",[\"a\",null,\"a\"],[[2,3],null,[2,3]]]],\n+        \\\\  [\"^(?=(a)c|(a)$)\",\"a\",\"d\",[0,\"\",[null,\"a\"],[null,[0,1]]]],\n+        \\\\  [\"^(?=(a)c|(a)$)\",\"a\",\"ud\",[0,\"\",[null,\"a\"],[null,[0,1]]]],\n+        \\\\  [\"(?<=(c(a)|(a)))$\",\"a\",\"d\",[1,\"\",[\"a\",null,\"a\"],[[0,1],null,[0,1]]]],\n+        \\\\  [\"(?<=(c(a)|(a)))$\",\"a\",\"ud\",[1,\"\",[\"a\",null,\"a\"],[[0,1],null,[0,1]]]],\n+        \\\\  [\"(?<=((a)c|(a)))$\",\"a\",\"d\",[1,\"\",[\"a\",null,\"a\"],[[0,1],null,[0,1]]]],\n+        \\\\  [\"(?<=((a)c|(a)))$\",\"a\",\"ud\",[1,\"\",[\"a\",null,\"a\"],[[0,1],null,[0,1]]]],\n+        \\\\  ];\n+        \\\\for (var i=0;i<cases.length;i++) {\n+        \\\\  var row=cases[i]; var m=new RegExp(row[0],row[2]).exec(row[1]);\n+        \\\\  var got=m ? [m.index,m[0],m.slice(1),m.indices.slice(1)] : null;\n+        \\\\  if (JSON.stringify(got)!==JSON.stringify(row[3])) throw Error(\"fixed capture row \"+i+\": \"+JSON.stringify(got));\n+        \\\\}\n+        \\\\return 1;\n+        \\\\})().next().value;\n+        ,\n+        .expected = 1,\n+    },\n     .{\n         .name = \"fixed capture-free RegExp repeats preserve choices\",\n         .source =",
@@ -15888,5 +15889,342 @@
     "788 files in the listed test262 subtrees complete and pass on both exact before and after binaries: 0 gains and 0 regressions in those subtrees. The full RegExp comparison remains incomplete from its previously retained timeout; no full-corpus or whole-package compatibility claim.",
     "The actual complete js-tokens 4.0.0 pattern still hits PatternTooComplex; its engine literal still reports UnexpectedToken. These finite-repeat/capture fixes do not qualify the tokenizer or Jest. Static critical-analysis gates and the default 10-million-step search limit are unchanged.",
     "No new exact-engine Home/Linux compatibility is claimed. Automatic ecosystem coverage retains all selected repositories and all unsupported schedulers/host APIs. The engine caller remains pinned to the previously validated functional suite 2aceaf6. This is evidence-only suite maintenance, not a new functional suite promotion."
-  ]
+  ],
+  "post_push_library_ci": {
+    "observed_at_utc": "2026-11-09 10:36:40 UTC",
+    "repo": "zig-utils/zig-regex",
+    "run_id": 42600915705,
+    "revision": "ab2ab7e2c18dcc70a9a2455464cfbc2777feda1b",
+    "status": "completed",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "id": 129104859667,
+        "name": "test",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 42600915705,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run mlugg/setup-zig@v2",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Build",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Test",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Post Run mlugg/setup-zig@v2",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          },
+          {
+            "name": "Post Run actions/checkout@v6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11
+          }
+        ]
+      },
+      {
+        "id": 129104859814,
+        "name": "build (aarch64-linux)",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 42600915705,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run mlugg/setup-zig@v2",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Build (aarch64-linux)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Post Run mlugg/setup-zig@v2",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Post Run actions/checkout@v6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          }
+        ]
+      },
+      {
+        "id": 129104859963,
+        "name": "build (x86_64-macos)",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 42600915705,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run mlugg/setup-zig@v2",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Build (x86_64-macos)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Post Run mlugg/setup-zig@v2",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Post Run actions/checkout@v6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          }
+        ]
+      },
+      {
+        "id": 129104859994,
+        "name": "build (x86_64-linux)",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 42600915705,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run mlugg/setup-zig@v2",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Build (x86_64-linux)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Post Run mlugg/setup-zig@v2",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Post Run actions/checkout@v6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          }
+        ]
+      },
+      {
+        "id": 129104860115,
+        "name": "build (x86_64-windows)",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 42600915705,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run mlugg/setup-zig@v2",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Build (x86_64-windows)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Post Run mlugg/setup-zig@v2",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Post Run actions/checkout@v6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          }
+        ]
+      },
+      {
+        "id": 129104860151,
+        "name": "build (aarch64-macos)",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 42600915705,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run mlugg/setup-zig@v2",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Build (aarch64-macos)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Post Run mlugg/setup-zig@v2",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Post Run actions/checkout@v6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          }
+        ]
+      }
+    ],
+    "test_job_id": 129104859667,
+    "test_log_excerpt": "2026-11-09T10:31:47.2474631Z ##[group]Run zig build test\n2026-11-09T10:31:47.2475030Z \u001b[36;1mzig build test\u001b[0m\n2026-11-09T10:31:47.2524228Z shell: /usr/bin/bash -e {0}\n2026-11-09T10:31:47.2524483Z env:\n2026-11-09T10:31:47.2524775Z   ZIG_GLOBAL_CACHE_DIR: /home/runner/work/zig-regex/zig-regex/.zig-cache\n2026-11-09T10:31:47.2525165Z   ZIG_LOCAL_CACHE_DIR: /home/runner/work/zig-regex/zig-regex/.zig-cache\n2026-11-09T10:31:47.2525453Z ##[endgroup]\n2026-11-09T10:31:49.1277048Z test\n2026-11-09T10:31:49.1277520Z +- run test w\n2026-11-09T10:31:49.1278313Z Simple literal: 5 iterations, avg 3μs per match\n2026-11-09T10:31:49.1278661Z Alternation: 5 iterations, avg 2μs per match\n2026-11-09T10:31:49.1278993Z Quantifier: 5 iterations, avg 448μs per match\n2026-11-09T10:31:49.1279301Z Capture groups: 5 iterations, avg 79μs per match\n2026-11-09T10:31:49.1279646Z Email pattern: 5 iterations, avg 600μs per match\n2026-11-09T10:31:49.1279988Z Phone number: 5 iterations, avg 779μs per match\n2026-11-09T10:31:49.1280407Z URL matching: 5 iterations, avg 1842μs per match\n2026-11-09T10:31:49.1280719Z Long text search: 5 iterations, avg 10μs per match\n2026-11-09T10:31:49.1281060Z Simple compile: 5 compilations, avg 533μs per compile\n2026-11-09T10:31:49.1281394Z Complex compile: 5 compilations, avg 1013μs per compile\n2026-11-09T10:31:49.1281912Z failed command: ./.zig-cache/o/f4a2cf29bf4aac6faa913a931262a019/test --cache-dir=./.zig-cache --seed=0x478364ad --listen=-\n2026-11-09T10:31:49.1282280Z \n2026-11-09T10:33:02.9740084Z Post job cleanup.\n",
+    "setup_cache_version_evidence": [
+      "2026-11-09T10:29:52.4408235Z Attempting restore of Zig cache with prefix 'setup-zig-cache-v2-test-zig-x86_64-linux-0.17.0-dev.1441+d5181a9c9--'",
+      "2026-11-09T10:29:52.6840850Z Cache hit for restore-key: setup-zig-cache-v2-test-zig-x86_64-linux-0.17.0-dev.1441+d5181a9c9--42591559579-1",
+      "2026-11-09T10:29:55.7805138Z Cache hit (key 'setup-zig-cache-v2-test-zig-x86_64-linux-0.17.0-dev.1441+d5181a9c9--42591559579-1'): populating Zig cache directory at /home/runner/work/zig-regex/zig-regex/.zig-cache",
+      "2026-11-09T10:33:03.2132731Z Saving Zig cache with key 'setup-zig-cache-v2-test-zig-x86_64-linux-0.17.0-dev.1441+d5181a9c9--42600915705-1'"
+    ],
+    "limits": "This independent library CI result is separate from the local exact 0.18 engine/library qualification. It does not qualify Home packages or a whole ecosystem run."
+  }
 }
