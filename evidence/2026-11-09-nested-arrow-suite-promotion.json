@@ -1,0 +1,544 @@
+{
+  "schema_version": 1,
+  "functional_suite": "8716be77155583a0f002bd0ec948b5a038729729",
+  "home_ref": "ce3f03d26fa99c09dd9b95d75d0677353241da9f",
+  "tested_engine": "f847fc6a9490deb961d90e0ebbd97339df60972b",
+  "promoted_engine_commit": "58cef91b45cc3f30f32accd61f572ecbde2228da",
+  "qualification_run": 42714104949,
+  "validation_run": 42714040899,
+  "validation_jobs": [
+    {
+      "id": 129490786114,
+      "name": "validate",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 42714040899,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run python3 -m unittest discover -s tests -v",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Read dependency-test toolchain pin",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Verify real workspace dependency setup",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Check Python syntax",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Post Run oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        },
+        {
+          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        }
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "id": 129491017188,
+      "name": "discover",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 42714104949,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Resolve exact revisions",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Validate orchestration",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Discover and freeze active public consumers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        }
+      ]
+    },
+    {
+      "id": 129492114098,
+      "name": "runtime",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 42714104949,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Read toolchain pins",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Build exact pushed engine archive",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Build Home against this engine",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Verify engine identity and Home host/module/TypeScript integration",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Package runtime and immutable provenance",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Post Run pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19
+        },
+        {
+          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20
+        },
+        {
+          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21
+        },
+        {
+          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23
+        }
+      ]
+    },
+    {
+      "id": 129495346218,
+      "name": "Consumers stacksjs/stacks",
+      "status": "in_progress",
+      "conclusion": null,
+      "run_id": 42714104949,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Read toolchain pins",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Unpack and verify runtime provenance",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Verify shared runtime executes on this consumer CPU",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Check every selected package, library, CLI and app",
+          "status": "in_progress",
+          "conclusion": null,
+          "number": 9
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "status": "pending",
+          "conclusion": null,
+          "number": 10
+        },
+        {
+          "name": "Post Run oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6",
+          "status": "pending",
+          "conclusion": null,
+          "number": 18
+        },
+        {
+          "name": "Post Run pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9",
+          "status": "pending",
+          "conclusion": null,
+          "number": 19
+        },
+        {
+          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "status": "pending",
+          "conclusion": null,
+          "number": 20
+        }
+      ]
+    },
+    {
+      "id": 129495346244,
+      "name": "Consumers home-lang/home",
+      "status": "in_progress",
+      "conclusion": null,
+      "run_id": 42714104949,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Read toolchain pins",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Unpack and verify runtime provenance",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Verify shared runtime executes on this consumer CPU",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Check every selected package, library, CLI and app",
+          "status": "in_progress",
+          "conclusion": null,
+          "number": 9
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "status": "pending",
+          "conclusion": null,
+          "number": 10
+        },
+        {
+          "name": "Post Run oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6",
+          "status": "pending",
+          "conclusion": null,
+          "number": 18
+        },
+        {
+          "name": "Post Run pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9",
+          "status": "pending",
+          "conclusion": null,
+          "number": 19
+        },
+        {
+          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "status": "pending",
+          "conclusion": null,
+          "number": 20
+        }
+      ]
+    }
+  ],
+  "runtime_log_proof": [
+    "2026-11-09T22:44:08.5731349Z   ref: 8716be77155583a0f002bd0ec948b5a038729729",
+    "2026-11-09T22:44:08.9993018Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 8716be77155583a0f002bd0ec948b5a038729729",
+    "2026-11-09T22:44:11.1244877Z  * branch            8716be77155583a0f002bd0ec948b5a038729729 -> FETCH_HEAD",
+    "2026-11-09T22:44:11.1246433Z [command]/usr/bin/git rev-parse --verify --quiet 8716be77155583a0f002bd0ec948b5a038729729^{object}",
+    "2026-11-09T22:44:11.1275420Z 8716be77155583a0f002bd0ec948b5a038729729",
+    "2026-11-09T22:44:11.1379083Z [command]/usr/bin/git checkout --progress --force 8716be77155583a0f002bd0ec948b5a038729729",
+    "2026-11-09T22:44:11.2578570Z Note: switching to '8716be77155583a0f002bd0ec948b5a038729729'.",
+    "2026-11-09T22:44:11.2583906Z HEAD is now at 8716be7 fix(runtime): pin nested generic arrow return repair",
+    "2026-11-09T22:44:11.2690072Z 8716be77155583a0f002bd0ec948b5a038729729",
+    "2026-11-09T22:44:11.4373825Z   ref: f847fc6a9490deb961d90e0ebbd97339df60972b",
+    "2026-11-09T22:44:11.6284483Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin f847fc6a9490deb961d90e0ebbd97339df60972b",
+    "2026-11-09T22:44:13.8133951Z  * branch            f847fc6a9490deb961d90e0ebbd97339df60972b -> FETCH_HEAD",
+    "2026-11-09T22:44:13.8143233Z [command]/usr/bin/git rev-parse --verify --quiet f847fc6a9490deb961d90e0ebbd97339df60972b^{object}",
+    "2026-11-09T22:44:13.8173187Z f847fc6a9490deb961d90e0ebbd97339df60972b",
+    "2026-11-09T22:44:13.8262065Z [command]/usr/bin/git checkout --progress --force f847fc6a9490deb961d90e0ebbd97339df60972b",
+    "2026-11-09T22:44:14.0638553Z Note: switching to 'f847fc6a9490deb961d90e0ebbd97339df60972b'.",
+    "2026-11-09T22:44:14.0760017Z f847fc6a9490deb961d90e0ebbd97339df60972b",
+    "2026-11-09T22:44:14.1998968Z   ref: ce3f03d26fa99c09dd9b95d75d0677353241da9f",
+    "2026-11-09T22:44:14.4556825Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin ce3f03d26fa99c09dd9b95d75d0677353241da9f",
+    "2026-11-09T22:44:26.9466167Z  * branch                ce3f03d26fa99c09dd9b95d75d0677353241da9f -> FETCH_HEAD",
+    "2026-11-09T22:44:26.9476628Z [command]/usr/bin/git rev-parse --verify --quiet ce3f03d26fa99c09dd9b95d75d0677353241da9f^{object}",
+    "2026-11-09T22:44:26.9509948Z ce3f03d26fa99c09dd9b95d75d0677353241da9f",
+    "2026-11-09T22:44:26.9597578Z [command]/usr/bin/git checkout --progress --force ce3f03d26fa99c09dd9b95d75d0677353241da9f",
+    "2026-11-09T22:44:34.0661272Z Note: switching to 'ce3f03d26fa99c09dd9b95d75d0677353241da9f'.",
+    "2026-11-09T22:44:34.0670463Z HEAD is now at ce3f03d26 fix(parser): count packed generic closers in arrow returns",
+    "2026-11-09T22:44:34.0900916Z ce3f03d26fa99c09dd9b95d75d0677353241da9f",
+    "2026-11-09T22:44:38.6410609Z \u001b[36;1mzig build home-tool-bootstrap -Dcpu=baseline -Doptimize=\"ReleaseSafe\"\u001b[0m",
+    "2026-11-09T22:48:22.4140814Z ##[group]Run zig build home-tool -Dcpu=baseline -Doptimize=\"ReleaseSafe\" -Dtool-js-engine=zig-js -Dzig-js-root=\"$GITHUB_WORKSPACE/engine\"",
+    "2026-11-09T22:48:22.4142254Z \u001b[36;1mzig build home-tool -Dcpu=baseline -Doptimize=\"ReleaseSafe\" -Dtool-js-engine=zig-js -Dzig-js-root=\"$GITHUB_WORKSPACE/engine\"\u001b[0m",
+    "2026-11-09T22:49:17.1177420Z \u001b[36;1mzig build home-tool-smoke home-tool-rejections-smoke home-tool-async-context-smoke home-tool-file-url-smoke -Dcpu=baseline -Doptimize=\"ReleaseSafe\" -Dtool-js-engine=zig-js -Dzig-js-root=\"$GITHUB_WORKSPACE/engine\"\u001b[0m",
+    "2026-11-09T22:49:17.7923157Z home-tool-rejections-smoke",
+    "2026-11-09T22:49:17.8860064Z home-tool-rejections-smoke",
+    "2026-11-09T22:49:17.9784285Z home-tool-rejections-smoke",
+    "2026-11-09T22:49:18.0694546Z home-tool-rejections-smoke",
+    "2026-11-09T22:49:18.1563378Z home-tool-rejections-smoke",
+    "2026-11-09T22:49:18.2521020Z home-tool-rejections-smoke",
+    "2026-11-09T22:49:18.5253207Z home-tool-rejections-smoke",
+    "2026-11-09T22:49:18.6088915Z home-tool-rejections-smoke",
+    "2026-11-09T22:49:19.5737191Z home-tool-smoke",
+    "2026-11-09T22:49:19.8622622Z home-tool-smoke",
+    "2026-11-09T22:49:20.2958853Z home-tool-smoke",
+    "2026-11-09T22:49:20.9722599Z home-tool-smoke",
+    "2026-11-09T22:49:21.1612441Z home-tool-smoke",
+    "2026-11-09T22:49:21.9394830Z home-tool-smoke",
+    "2026-11-09T22:49:22.5872466Z home-tool-smoke",
+    "2026-11-09T22:49:22.9322470Z home-tool-smoke",
+    "2026-11-09T22:49:23.2682424Z home-tool-smoke",
+    "2026-11-09T22:49:23.3572466Z home-tool-smoke",
+    "2026-11-09T22:49:23.6382646Z home-tool-smoke",
+    "2026-11-09T22:49:24.1100131Z home-tool-smoke",
+    "2026-11-09T22:49:24.4932539Z home-tool-smoke",
+    "2026-11-09T22:49:25.0022434Z home-tool-smoke",
+    "2026-11-09T22:49:26.5322866Z home-tool-smoke",
+    "2026-11-09T22:49:27.2182352Z home-tool-smoke",
+    "2026-11-09T22:49:28.3932858Z home-tool-smoke",
+    "2026-11-09T22:49:28.4872485Z home-tool-smoke",
+    "2026-11-09T22:49:29.4202447Z home-tool-smoke",
+    "2026-11-09T22:49:30.0722432Z home-tool-smoke",
+    "2026-11-09T22:49:30.3582675Z home-tool-smoke",
+    "2026-11-09T22:49:30.4482433Z home-tool-smoke",
+    "2026-11-09T22:49:30.5402412Z home-tool-smoke",
+    "2026-11-09T22:49:31.3072506Z home-tool-smoke",
+    "2026-11-09T22:49:31.5932616Z home-tool-smoke",
+    "2026-11-09T22:49:32.0578951Z home-tool-smoke",
+    "2026-11-09T22:49:33.1652866Z home-tool-smoke",
+    "2026-11-09T22:49:33.4052378Z home-tool-smoke",
+    "2026-11-09T22:49:33.6832728Z home-tool-smoke",
+    "2026-11-09T22:49:33.7704818Z home-tool-smoke",
+    "2026-11-09T22:49:33.7741025Z home-tool-smoke",
+    "2026-11-09T22:49:33.8642685Z home-tool-smoke",
+    "2026-11-09T22:49:52.9804400Z \u001b[36;1m        'build_cpu': 'baseline',\u001b[0m",
+    "2026-11-09T22:49:52.9838627Z   ENGINE_SHA: f847fc6a9490deb961d90e0ebbd97339df60972b",
+    "2026-11-09T22:49:52.9839043Z   SUITE_REF: 8716be77155583a0f002bd0ec948b5a038729729"
+  ],
+  "runtime_artifact_metadata": [
+    {
+      "id": 13716734305,
+      "name": "ecosystem-runtime",
+      "size_in_bytes": 38795248,
+      "url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13716734305",
+      "archive_download_url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13716734305/zip",
+      "expired": false,
+      "created_at": "2026-11-09T22:50:00Z",
+      "expires_at": "2026-11-16T22:49:58Z",
+      "updated_at": "2026-11-09T22:50:00Z",
+      "digest": "sha256:777f657839094f27dd0a3cd035c9998a10b3de5c9b877dba988f0a6d618fda65",
+      "workflow_run": {
+        "id": 42714104949,
+        "repository_id": 1449802195,
+        "head_repository_id": 1449802195,
+        "head_branch": "main",
+        "head_sha": "8716be77155583a0f002bd0ec948b5a038729729"
+      }
+    },
+    {
+      "id": 13716249179,
+      "name": "ecosystem-inventory",
+      "size_in_bytes": 13222,
+      "url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13716249179",
+      "archive_download_url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13716249179/zip",
+      "expired": false,
+      "created_at": "2026-11-09T22:43:32Z",
+      "expires_at": "2026-12-09T22:43:31Z",
+      "updated_at": "2026-11-09T22:43:32Z",
+      "digest": "sha256:86721537a36ef99b220752d8128f3293cb99e871a8843c9741e027c830de78dd",
+      "workflow_run": {
+        "id": 42714104949,
+        "repository_id": 1449802195,
+        "head_repository_id": 1449802195,
+        "head_branch": "main",
+        "head_sha": "8716be77155583a0f002bd0ec948b5a038729729"
+      }
+    }
+  ],
+  "artifact_scope": "Remote GitHub metadata; runtime ZIP was not downloaded locally and its digest is not claimed locally verified. Actual runtime and both consumer probes executed successfully on CI.",
+  "notes": [
+    "Required common fixture executes six nested arrow returns and two signed/unsigned shift controls. Rejection/context/file-URL gates also execute on exact baseline Linux ReleaseSafe runtime.",
+    "Both priority package compatibility steps remain in progress; preflight qualification is not a complete compatibility pass.",
+    "Promote functional8716be7, never the later evidence-only suite head. All selected consumers, limitations and resource quotas retained."
+  ]
+}
