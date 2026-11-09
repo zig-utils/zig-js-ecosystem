@@ -211,6 +211,7 @@
     "stx835-after-install.log": "[0.10ms] \".env.production\"\nwarn: registry token references unset variable $BUN_AUTH_TOKEN, ignoring credential\nbun install v1.4.4 (38afee6c8)\nResolving dependencies\nResolved, downloaded and extracted [18]\nSaved lockfile\n\n+ @stacksjs/stx@0.2.835\n\n8 packages installed [1102.00ms]\n"
   },
   "limits": [
+    "The attempted Stacks0546 integration repair is REVERTED by555938 after native CI rejects its partial release family. Earlier local worker-to-net progression is diagnostic evidence only and does not qualify a supported dependency update.",
     "Actual candidate still fails missing net after the released optional-worker fix. No full Stacks build pass, Node network host or worker emulation is claimed.",
     "References use a separate checkout and native Bun; generated dist artifacts never satisfy candidate checks. Reference build passes5 pages, and actual buddy typecheck exits0.",
     "All12 direct STX pins updated together. Nested807 required by other released packages remains legitimate in the resolved lock, not a claim that every transitive STX copy was upgraded.",
@@ -227,11 +228,219 @@
     "discovery_job_id": 129011018962,
     "observed_state": "queued",
     "intended_new_stacks_ref": "0546c19a38bbfe8a46c90b13406f1247557ad5a2",
-    "inventory_frozen_ref_not_yet_observed": true
+    "inventory_frozen_ref_not_yet_observed": false,
+    "inventory_artifact_id": 13653711421,
+    "inventory_zip_sha256": "af727cd53192587fd751ef72ceb7610d7597526828f1524a07b05aedc021c903",
+    "frozen_selected": [
+      {
+        "full_name": "home-lang/home",
+        "default_branch": "main",
+        "pushed_at": "2026-11-09T06:06:21Z",
+        "language": "Zig",
+        "fork": false,
+        "html_url": "https://github.com/home-lang/home",
+        "sha": "868c04a2bbcb0e62486efed545195fc607f94814"
+      },
+      {
+        "full_name": "stacksjs/stacks",
+        "default_branch": "main",
+        "pushed_at": "2026-11-09T06:14:29Z",
+        "language": "TypeScript",
+        "fork": false,
+        "html_url": "https://github.com/stacksjs/stacks",
+        "sha": "0546c19a38bbfe8a46c90b13406f1247557ad5a2"
+      }
+    ]
   },
   "stacks_own_ci": {
     "run_id": 42571834070,
     "status": "in_progress",
     "head_sha": "0546c19a38bbfe8a46c90b13406f1247557ad5a2"
+  },
+  "final_status": "partial update rejected by actual native CI and reverted",
+  "rollback": {
+    "commit": "5559383819cfe832b6f30ccc0766a3f774cf40bd",
+    "tree_equals_before": "deff05e5e6b2145f4304a9659569abf29c2a6f23",
+    "native_ci_run_id": 42571834070,
+    "native_ci_job_id": 129010730949,
+    "actual_failure_excerpt": "TENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\n2026-11-09T06:19:04.7793201Z [2026-11-09T06:19:04.766Z] local.INFO: Running   buddy test \n2026-11-09T06:19:04.7884592Z [env] warning: skipped 42 encrypted value(s) in .env.development (DOTENV_PRIVATE_KEY_DEVELOPMENT not set; existing plaintext or defaults apply): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\n2026-11-09T06:19:04.7913857Z [env] warning: skipped 42 encrypted value(s) in .env.development (DOTENV_PRIVATE_KEY_DEVELOPMENT not set; existing plaintext or defaults apply): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\n2026-11-09T06:19:05.6369109Z bun test v1.4.4 (38afee6c8)\n2026-11-09T06:19:05.6414349Z \n2026-11-09T06:19:05.6427292Z ##[group]tests/declared-dependencies.test.ts:\n2026-11-09T06:19:05.6952584Z [env] warning: unset 39 encrypted value(s) no loaded env file could decrypt (Bun preloads .env.<NODE_ENV> on its own): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +34 more\n2026-11-09T06:19:06.6398664Z [SendPasswordResetEmailJob] Job file loaded\n2026-11-09T06:19:06.6835398Z [events] registered 2 listeners\n2026-11-09T06:19:06.6994710Z (pass) published package dependencies > finds the core packages [0.42ms]\n2026-11-09T06:19:06.7034408Z 87 |           if (runtimePackages.has(name) && version !== expected)\n2026-11-09T06:19:06.7035386Z 88 |             mismatched.push(`${manifest.name}: ${field}.${name} is ${version}; expected ${expected}`)\n2026-11-09T06:19:06.7036177Z 89 |         }\n2026-11-09T06:19:06.7036508Z 90 |       }\n2026-11-09T06:19:06.7036841Z 91 |     }\n2026-11-09T06:19:06.7037219Z 92 |     expect(mismatched.sort()).toEqual([])\n2026-11-09T06:19:06.7037722Z                                    ^\n2026-11-09T06:19:06.7038618Z error: expect(received).toEqual(expected)\n2026-11-09T06:19:06.7039001Z \n2026-11-09T06:19:06.7039140Z - []\n2026-11-09T06:19:06.7039463Z + [\n2026-11-09T06:19:06.7040061Z +   \"@stacksjs/actions: dependencies.@stacksjs/components is 0.2.807; expected 0.2.835\",\n2026-11-09T06:19:06.7041084Z +   \"@stacksjs/actions: dependencies.bun-plugin-stx is 0.2.807; expected 0.2.835\",\n2026-11-09T06:19:06.7042212Z +   \"@stacksjs/browser-extension: dependencies.bun-plugin-stx is 0.2.807; expected 0.2.835\",\n2026-11-09T06:19:06.7042815Z +   \"@stacksjs/buddy: dependencies.bun-plugin-stx is 0.2.807; expected 0.2.835\",\n2026-11-09T06:19:06.7043372Z +   \"@stacksjs/defaults: dependencies.@stacksjs/sanitizer is 0.2.807; expected 0.2.835\",\n2026-11-09T06:19:06.7043944Z +   \"@stacksjs/ui: dependencies.@stacksjs/components is 0.2.807; expected 0.2.835\",\n2026-11-09T06:19:06.7044478Z +   \"stacks: dependencies.@stacksjs/desktop is 0.2.807; expected 0.2.835\",\n2026-11-09T06:19:06.7045136Z +   \"stacks: devDependencies.@stacksjs/components is 0.2.807; expected 0.2.835\",\n2026-11-09T06:19:06.7045664Z +   \"stacks: devDependencies.bun-plugin-stx is 0.2.807; expected 0.2.835\",\n2026-11-09T06:19:06.7046045Z + ]\n2026-11-09T06:19:06.7046155Z \n2026-11-09T06:19:06.7046249Z - Expected  - 1\n2026-11-09T06:19:06.7046470Z + Received  + 11\n2026-11-09T06:19:06.7046601Z \n2026-11-09T06:19:06.7046931Z       at <anonymous> (/home/runner/work/stacks/stacks/tests/declared-dependencies.test.ts:92:31)\n2026-11-09T06:19:06.7047418Z \n2026-11-09T06:19:06.7059868Z ##[error]- []\n+ [\n+   \"@stacksjs/actions: dependencies.@stacksjs/components is 0.2.807; expected 0.2.835\",\n+   \"@stacksjs/actions: dependencies.bun-plugin-stx is 0.2.807; expected 0.2.835\",\n+   \"@stacksjs/browser-extension: dependencies.bun-plugin-stx is 0.2.807; expected 0.2.835\",\n+   \"@stacksjs/buddy: dependencies.bun-plugin-stx is 0.2.807; expected 0.2.835\",\n+   \"@stacksjs/defaults: dependencies.@stacksjs/sanitizer is 0.2.807; expected 0.2.835\",\n+   \"@stacksjs/ui: dependencies.@stacksjs/components is 0.2.807; expected 0.2.835\",\n+   \"stacks: dependencies.@stacksjs/desktop is 0.2.807; expected 0.2.835\",\n+   \"stacks: devDependencies.@stacksjs/components is 0.2.807; expected 0.2.835\",\n+   \"stacks: devDependencies.bun-plugin-stx is 0.2.807; expected 0.2.835\",\n+ ]\n\n- Expected  - 1\n+ Received  + 11\n\n      at <anonymous> (/home/runner/work/stacks/stacks/tests/declared-dependencies.test.ts:92:31)\n2026-11-09T06:19:06.7075342Z (fail) published package dependencies > ships one STX release across compiler, runtime, desktop and sanitizer declarations [4.11ms]\n2026-11-09T06:19:07.0013970Z (pass) published package dependencies > declares every package its source imports [297.80ms]\n2026-11-09T06:19:07.1032407Z (pass) published package dependencies > includes every umbrella export in its published files [101.80ms]\n2026-11-09T06:19:07.1183655Z (pass) published package dependencies > fails umbrella generation without replacing a prior build when a dependency is missing [15.10ms]\n2026-11-09T06:19:07.1545665Z (pass) published package dependencies > keeps CLI static runtime imports inside its published package boundary [36.21ms]\n2026-11-09T06:19:07.1548199Z (pass) published package dependencies > does not declare the same package as both a dependency and a devDependency [0.34ms]\n2026-11-09T06:19:07.1548839Z \n2026-11-09T06:19:07.1549221Z ##[endgroup]\n2026-11-09T06:19:07.1575028Z \n2026-11-09T06:19:07.1575595Z ##[group]tests/dependency-commits.test.ts:\n2026-11-09T06:19:07.1682647Z [env] warning: unset 39 encrypted value(s) no loaded env file could decrypt (Bun preloads .env.<NODE_ENV> on its own): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +34 more\n2026-11-09T06:19:07.5004274Z [SendPasswordResetEmailJob] Job file loaded\n2026-11-09T06:19:07.5087583Z [events] registered 2 listeners\n2026-11-09T06:19:07.5110780Z (pass) dependency commit integrity > recognizes dependency commit subjects [0.09ms]\n2026-11-09T06:19:07.5112585Z (pass) dependency commit integrity > requires a dependency manifest or dependency-manager lock change [0.18ms]\n20",
+    "locally_reproduced_failure": "bun test v1.4.4 (38afee6c8)\n\ntests/declared-dependencies.test.ts:\n[SendPasswordResetEmailJob] Job file loaded\n[events] registered 2 listeners\n(pass) published package dependencies > finds the core packages [0.07ms]\n87 |           if (runtimePackages.has(name) && version !== expected)\n88 |             mismatched.push(`${manifest.name}: ${field}.${name} is ${version}; expected ${expected}`)\n89 |         }\n90 |       }\n91 |     }\n92 |     expect(mismatched.sort()).toEqual([])\n                                   ^\nerror: expect(received).toEqual(expected)\n\n- []\n+ [\n+   \"@stacksjs/actions: dependencies.@stacksjs/components is 0.2.807; expected 0.2.835\",\n+   \"@stacksjs/actions: dependencies.bun-plugin-stx is 0.2.807; expected 0.2.835\",\n+   \"@stacksjs/browser-extension: dependencies.bun-plugin-stx is 0.2.807; expected 0.2.835\",\n+   \"@stacksjs/buddy: dependencies.bun-plugin-stx is 0.2.807; expected 0.2.835\",\n+   \"@stacksjs/defaults: dependencies.@stacksjs/sanitizer is 0.2.807; expected 0.2.835\",\n+   \"@stacksjs/ui: dependencies.@stacksjs/components is 0.2.807; expected 0.2.835\",\n+   \"stacks: dependencies.@stacksjs/desktop is 0.2.807; expected 0.2.835\",\n+   \"stacks: devDependencies.@stacksjs/components is 0.2.807; expected 0.2.835\",\n+   \"stacks: devDependencies.bun-plugin-stx is 0.2.807; expected 0.2.835\",\n+ ]\n\n- Expected  - 1\n+ Received  + 11\n\n      at <anonymous> (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-stx835/tests/declared-dependencies.test.ts:92:31)\n(fail) published package dependencies > ships one STX release across compiler, runtime, desktop and sanitizer declarations [3.15ms]\n(pass) published package dependencies > declares every package its source imports [249.52ms]\n(pass) published package dependencies > includes every umbrella export in its published files [98.18ms]\n(pass) published package dependencies > fails umbrella generation without replacing a prior build when a dependency is missing [10.86ms]\n(pass) published package dependencies > keeps CLI static runtime imports inside its published package boundary [16.53ms]\n(pass) published package dependencies > does not declare the same package as both a dependency and a devDependency [0.15ms]\n\n 6 pass\n 1 fail\n 146 expect() calls\nRan 7 tests across 1 file. [1.95s]\n",
+    "companion_latest": {
+      "@stacksjs/components": {
+        "version": "0.2.833",
+        "dist": {
+          "shasum": "9786055d824c0b0d3d50dbb4016f3ea5d765404f",
+          "tarball": "https://registry.npmjs.org/@stacksjs/components/-/components-0.2.833.tgz",
+          "fileCount": 602,
+          "integrity": "sha512-j2wxrECG1Ck0lKpCgI2L26DR737HRSyOiXqMfNC8b3ViKky7HtqpzHePpFfDWAgM20kVO81hLMJY8aTOOJ96fw==",
+          "signatures": [
+            {
+              "sig": "MEYCIQC4krO8RrfKT2K93Lh2bqRd2mxiPKp2CmZsx/pzTANLOAIhAKIxPURinyEGQ7ZpU68LA4oxgKZq81qfGd877xLtxNj2",
+              "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+            },
+            {
+              "sig": "MEUCIQCyjYF78EMqUJcWTMHg6s4eFWjUs6N/mkSY28dM1rma0gIgTjvw36/TvQVyi/FSQKRZkXnD43RSu6pICQaFKZMdEL0=",
+              "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+            }
+          ],
+          "attestations": {
+            "url": "https://registry.npmjs.org/-/npm/v1/attestations/@stacksjs%2fcomponents@0.2.833",
+            "provenance": {
+              "predicateType": "https://slsa.dev/provenance/v1"
+            }
+          },
+          "unpackedSize": 2128401
+        }
+      },
+      "@stacksjs/desktop": {
+        "version": "0.2.833",
+        "dist": {
+          "shasum": "b7b4b07740a3c8b534c04957aa0546e71ef52795",
+          "tarball": "https://registry.npmjs.org/@stacksjs/desktop/-/desktop-0.2.833.tgz",
+          "fileCount": 84,
+          "integrity": "sha512-jHn9XiZUNmnonYJ34LoAU3MWSa0dWg8qcAJP7d5O9lPErDQZFZrWTlB/xNlDTZQOtr8Cb9V/t8ivR/+p8aTmDg==",
+          "signatures": [
+            {
+              "sig": "MEUCIQCerTadNbkk2Cpl0c0FEcJKvZo3ODduDMgADfbMDQMEiQIgIfZIfx3CJGP7Ps9lCjKVY/rYVgvvsCGmTa7EBE2L5no=",
+              "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+            },
+            {
+              "sig": "MEUCIQDUrxeevNE9+CJcMUr7dx4MLL5vIduBMhdnYkl8yckRXgIgQHM8xYU/lKcYyvQODPEwFJjo2QVNTjSx0MTOthrRtdg=",
+              "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+            }
+          ],
+          "attestations": {
+            "url": "https://registry.npmjs.org/-/npm/v1/attestations/@stacksjs%2fdesktop@0.2.833",
+            "provenance": {
+              "predicateType": "https://slsa.dev/provenance/v1"
+            }
+          },
+          "unpackedSize": 407537
+        }
+      },
+      "@stacksjs/sanitizer": {
+        "version": "0.2.833",
+        "dist": {
+          "shasum": "80b6991f8d88e31a6444442219e0b995fe5a0b87",
+          "tarball": "https://registry.npmjs.org/@stacksjs/sanitizer/-/sanitizer-0.2.833.tgz",
+          "fileCount": 8,
+          "integrity": "sha512-jgfgPLsHW5vOxWyY+h6sEbtJZoogtDRUaFxRER/44sVxnY/n5/5hEMrXQ5MpoSxZS3ELDS6qlpvv9IUhV5Lsxw==",
+          "signatures": [
+            {
+              "sig": "MEUCIQCvlqZNALNdOXB4mZ9YhnmTXi6Z7YBX3Zr0QhBHTmgLHwIgRfNg8Cv0u9LYnCQIR+pIXwsVUNEz5PvaTVa4zp1ocHs=",
+              "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+            },
+            {
+              "sig": "MEYCIQD3nvA/JwnwAlxoBzAhnK0D+WeDDFDDVjz/B46FeyDT3QIhAIp/Q5pbD2h90+UME5scTj2uiWps0+jYKP7kco4+REMl",
+              "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+            }
+          ],
+          "attestations": {
+            "url": "https://registry.npmjs.org/-/npm/v1/attestations/@stacksjs%2fsanitizer@0.2.833",
+            "provenance": {
+              "predicateType": "https://slsa.dev/provenance/v1"
+            }
+          },
+          "unpackedSize": 12495
+        }
+      },
+      "bun-plugin-stx": {
+        "version": "0.2.833",
+        "dist": {
+          "shasum": "6cd825bf9121787d5847a7ddbbbc2f43cdbd4eed",
+          "tarball": "https://registry.npmjs.org/bun-plugin-stx/-/bun-plugin-stx-0.2.833.tgz",
+          "fileCount": 20,
+          "integrity": "sha512-FZ9GyxrCffVAE3Bat5u2RA4c/QMaauIkdmPCiMXOZWcnCGtP/9C5Q/MUj9EiSRmLuoGfzJ9Hp87T4qMGgEn1fQ==",
+          "signatures": [
+            {
+              "sig": "MEYCIQCrzpwZgzVfqUv90cFq7gYf3ZupdyIIezEj75ZlvSmakAIhAK3jTwPH7WBnh6MSU0cUkJy4+8Jkorlqv/sSnnX+n5ku",
+              "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+            },
+            {
+              "sig": "MEQCICcMJicccIqmll86XUJaRKKUQ/JgSUjoMjgxGMASjyOrAiBDWI0GDrTsGTpsXiE0xbXsJ/zYGv6ZF47yvZbsu6bRwQ==",
+              "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+            }
+          ],
+          "attestations": {
+            "url": "https://registry.npmjs.org/-/npm/v1/attestations/bun-plugin-stx@0.2.833",
+            "provenance": {
+              "predicateType": "https://slsa.dev/provenance/v1"
+            }
+          },
+          "unpackedSize": 549145
+        }
+      },
+      "stx-router": {
+        "version": "0.2.833",
+        "dist": {
+          "shasum": "7178a2cf0b21ff29d00bc5c39843cbb45f79070d",
+          "tarball": "https://registry.npmjs.org/stx-router/-/stx-router-0.2.833.tgz",
+          "fileCount": 27,
+          "integrity": "sha512-FIrRgwyqnob0fjQ02kPI8JbnRcWo3FP0bvYHmPa7HDS09aRnLmnPLNeiOwSevYrA18+PgMWYNIXf09QivHyF8A==",
+          "signatures": [
+            {
+              "sig": "MEYCIQCdJ37a0DPAPBqg1Wzry/TThXigQFo+Kp4xfA4g3lReRwIhAL9MNK6KVmDIs4QcVGbg1xsXSALCLXFBf3r2jIIfXVBz",
+              "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+            },
+            {
+              "sig": "MEYCIQCbBcrNdlSr2pNfdXbRTvgwMgDEzuX92xtw0Zr8OBPhZQIhAN9TfAasoWsAoL5jFUhOmwBZfEgyPX1EiQPr/LOe54vQ",
+              "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+            }
+          ],
+          "attestations": {
+            "url": "https://registry.npmjs.org/-/npm/v1/attestations/stx-router@0.2.833",
+            "provenance": {
+              "predicateType": "https://slsa.dev/provenance/v1"
+            }
+          },
+          "unpackedSize": 270379
+        }
+      }
+    },
+    "companion_835_queries": {
+      "@stacksjs/components": {
+        "status": 404
+      },
+      "@stacksjs/desktop": {
+        "status": 404
+      },
+      "@stacksjs/sanitizer": {
+        "status": 404
+      },
+      "bun-plugin-stx": {
+        "status": 404
+      },
+      "stx-router": {
+        "status": 404
+      }
+    },
+    "coherent_833_worker_imports": [
+      {
+        "file": "package/dist/builtins/image-warmup-worker.js",
+        "snippet": "import { parentPort } from \"node:worker_threads\";"
+      },
+      {
+        "file": "package/dist/builtins/image-worker.js",
+        "snippet": "import { Worker as ThreadWorker } from \"node:worker_threads\";"
+      },
+      {
+        "file": "package/dist/builtins/image-worker.js",
+        "snippet": "    return unavailable(\"node:worker_threads has no Worker in this runtime\");"
+      },
+      {
+        "file": "package/dist/chunk-28z6pq6w.js",
+        "snippet": "mport{join as gt}from\"path\";import{fileURLToPath as mt}from\"url\";import{Worker as pt}from\"worker_threads\";var ke=Symbol(\"stx.image-worker.unavailable\");function en(e=typeof Re.availableParallelism===\"func"
+      },
+      {
+        "file": "package/dist/chunk-28z6pq6w.js",
+        "snippet": "rror?e.message:String(e)}async function Fe(e,i){if(typeof pt!==\"function\")return he(\"node:worker_threads has no Worker in this runtime\");let t=sn();if(!t)return he(\"no image-warmup-worker entry beside thi"
+      }
+    ],
+    "reason": "All five companion835 package versions are unpublished404. Coherent833 still has static worker imports. Restore known-consistent807 tree and retain blocker instead of disabling invariant, inventing packages or passing with a native fallback.",
+    "frozen_install_log": "[0.20ms] \".env.production\"\nwarn: registry token references unset variable $BUN_AUTH_TOKEN, ignoring credential\nbun install v1.4.4 (38afee6c8)\n\n+ @stacksjs/stx@0.2.807\n\n2 packages installed [1.63s]\n",
+    "declared_tests_log": "bun test v1.4.4 (38afee6c8)\n\ntests/declared-dependencies.test.ts:\n[SendPasswordResetEmailJob] Job file loaded\n[events] registered 2 listeners\n(pass) published package dependencies > finds the core packages [0.06ms]\n(pass) published package dependencies > ships one STX release across compiler, runtime, desktop and sanitizer declarations [0.66ms]\n(pass) published package dependencies > declares every package its source imports [232.77ms]\n(pass) published package dependencies > includes every umbrella export in its published files [93.45ms]\n(pass) published package dependencies > fails umbrella generation without replacing a prior build when a dependency is missing [9.73ms]\n(pass) published package dependencies > keeps CLI static runtime imports inside its published package boundary [16.35ms]\n(pass) published package dependencies > does not declare the same package as both a dependency and a devDependency [0.12ms]\n\n 7 pass\n 0 fail\n 146 expect() calls\nRan 7 tests across 1 file. [1.80s]\n",
+    "validation_note": "Combined Bun command selected only7 declared-dependency tests; the separate explicit ./workspace lockfile command ran4 additional tests, all passing. Both full transcripts retained.",
+    "lock_tests_log": "bun test v1.4.4 (38afee6c8)\n\nstorage/framework/core/buddy/tests/lockfile-matches-manifests.test.ts:\n(pass) bun.lock > records the workspaces [0.06ms]\n(pass) bun.lock > records the same ranges the manifests declare [12.74ms]\n(pass) pantry.lock > records the workspaces [0.02ms]\n(pass) pantry.lock > records the same ranges the manifests declare [2.40ms]\n\n 4 pass\n 0 fail\n 4 expect() calls\nRan 4 tests across 1 file. [273.00ms]\n",
+    "native_ci_run_id_after_revert": 42573329598
   }
 }
