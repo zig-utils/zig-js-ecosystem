@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "source_commit": "ec12d68abea59b1de25592e59bb02cd915557209",
+  "run": 42718515659,
+  "job": 129506172100,
+  "failure": "Pantry setup FFmpeg9.0.2 download timed out after an internal retry. Auth tests never ran in this leg.",
+  "log_proof": [
+    "2026-11-09T23:12:29.4019259Z   packages: bun.com@1.4.4 git-scm.org curl.se sqlite.org ffmpeg.org@9.0.2",
+    "2026-11-09T23:17:56.5744010Z   ! mysql.com@26.7.0: timed out (transient); retrying once in 10s",
+    "2026-11-09T23:20:19.2014662Z Installing ffmpeg.org@9.0.2 via Pantry native dependency resolver (from deps spec)",
+    "2026-11-09T23:20:19.2039750Z [command]/opt/hostedtoolcache/pantry-cli/0.11.184/x64/pantry install git-scm.org@2.53.0 curl.se@8.23.0 ffmpeg.org@9.0.2 --no-save",
+    "2026-11-09T23:27:26.5029426Z   > ffmpeg.org@9.0.2...",
+    "2026-11-09T23:27:26.5029765Z   ! ffmpeg.org@9.0.2: timed out (transient); retrying once in 10s",
+    "2026-11-09T23:32:37.4378883Z   > ffmpeg.org@9.0.2...- ffmpeg.org@9.0.2 (timed out; failed again after one retry)",
+    "2026-11-09T23:43:25.4499791Z error: 1 package failed to install:",
+    "2026-11-09T23:43:25.4500229Z   ffmpeg.org@9.0.2: timed out; failed again after one retry [transient: network, timeout or registry outage; a rerun may pass]",
+    "2026-11-09T23:43:25.4504965Z ##[error]ffmpeg.org@9.0.2: timed out; failed again after one retry (transient)",
+    "2026-11-09T23:43:25.4514432Z ##[error]Required system packages bun.com@1.4.4, git-scm.org, curl.se, sqlite.org, ffmpeg.org@9.0.2 failed to install: The process '/opt/hostedtoolcache/pantry-cli/0.11.184/x64/pantry' failed with exit code 1"
+  ],
+  "rerun": {
+    "requested": true,
+    "tool_result": "success=true",
+    "action": "rerun the failed auth-1 job and its dependents"
+  },
+  "notes": [
+    "No auth behavior, fixture, required FFmpeg package or test time budget was changed for a transient install error.",
+    "Preserve the failed install and unexecuted tests; a requested rerun is not a pass."
+  ]
+}
