@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "run": 42777217015,
+  "suite_ref": "aeea21987512dae3436d2ba29a1ea54e210667dd",
+  "engine_sha": "8002da3b38aef1c2e4975910475bbde1a9292035",
+  "runtime_home": "8a25794c8e26ed926052d74c7d747b099ab5aab9",
+  "consumer_sha": "8b9e1572fee6a8345213159d892fd82d91604927",
+  "scopes": 99,
+  "reported_checks": 927,
+  "candidate_statuses": {
+    "unsupported": 355,
+    "failed": 213,
+    "passed": 57
+  },
+  "artifact_local_verification": {
+    "id": 13745089677,
+    "sha256": "905292c3d71ea376e116a41aa755528cad1f3ab220d0c1d91e339f8e4a4a46a7",
+    "bytes": 1646350
+  },
+  "report_sha256": "a89011567370017b8a09a5d6b394ae4eeec52c22a2f85fbe5e589606435a0960",
+  "candidate_status_changes_since_buffer_qualification": [
+    {
+      "before": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 76776,
+        "memory_limit_mb": 3072,
+        "seconds": 0.288,
+        "log": "0299.log",
+        "label": "storage/framework/core/i18n: module initialization src/index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+          "src/index.ts"
+        ],
+        "engine_invocations": 1
+      },
+      "after": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 48716,
+        "memory_limit_mb": 3072,
+        "seconds": 0.222,
+        "log": "0299.log",
+        "label": "storage/framework/core/i18n: module initialization src/index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+          "src/index.ts"
+        ],
+        "engine_invocations": 1
+      },
+      "logs": {
+        "before": {
+          "sha256": "2354b29bb3bc5f0055f2d844fe4ee5f632f9235941a60091f0b461f793347f08",
+          "excerpt": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 76776 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        },
+        "after": {
+          "sha256": "e9fb1099f87b77c739200591ec05a563fcb60c8496b2dbe440c3e462a28071bd",
+          "excerpt": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 48716 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      }
+    },
+    {
+      "before": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 107344,
+        "memory_limit_mb": 3072,
+        "seconds": 0.256,
+        "log": "0464.log",
+        "label": "storage/framework/core/realtime: module initialization src/index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+          "src/index.ts"
+        ],
+        "engine_invocations": 1
+      },
+      "after": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 64108,
+        "memory_limit_mb": 3072,
+        "seconds": 0.222,
+        "log": "0464.log",
+        "label": "storage/framework/core/realtime: module initialization src/index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+          "src/index.ts"
+        ],
+        "engine_invocations": 1
+      },
+      "logs": {
+        "before": {
+          "sha256": "561e1e272b49391580221372014e6dce8424803c8afc96b9365a2e2fb6d5d449",
+          "excerpt": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 107344 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        },
+        "after": {
+          "sha256": "bf64a137c004a6b10ea6e02d21535f2fd92d2aeefbbd2b72fa66954117221e75",
+          "excerpt": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 64108 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      }
+    }
+  ],
+  "interpretation": [
+    "Two candidate module initializations previously passed and now fail readonly writes: i18n0299 and realtime0464.57 pass/213 fail/355 unsupported; all99scopes/927checks retained.",
+    "Engine changed93b7cc49 to8002da3 and Home1fb to8a, so CI alone cannot attribute the two failures. Local same9b archive before/after and isolated strict export fixture reproduce the loader/emitter interaction.",
+    "Root0016 remains step-budget failure;0018 typecheck reaches missing Bun.build. No root pass or test execution invented.",
+    "Reference status differences include machine/time-budget variation and consumer failures, not engine gains."
+  ]
+}

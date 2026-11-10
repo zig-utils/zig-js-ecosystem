@@ -1,0 +1,1975 @@
+{
+  "schema_version": 1,
+  "home_commit": "f80ee42ea6f135cfc5e02159c044aba3a3c79b96",
+  "before_home": "9172e5a67a43610844d508fe085c843a9353ef9c",
+  "local_engine_sha": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+  "local_archive_sha256": "e141e082ae57b0d62f16d445291eb73f15332689daf47a6b7c1d36086bafb613",
+  "next_qualification_engine": "f3bd13860268fcfc45ea9e5c09108f3a343ef5c0",
+  "source_hashes": {
+    "packages/ts_emit/src/js_emit.zig": "10200c735e4791a837804ec4b117f6abf54e3e55db222eea182038042479e192",
+    "packages/runtime/test/tool_modules/main.ts": "5082addd5205fc5717c26c2d875268cc88d1e873cbf6d69b75970edef4d024d4",
+    "packages/runtime/test/tool_modules/export_precedence/after.mjs": "9108a2653b1a2ebf9d62f16adc764f87ae866dfa244f54e98421b986800d4b51",
+    "packages/runtime/test/tool_modules/export_precedence/alias.mjs": "a1310cbdcc55ce16c8c0707ab1d8e78f0adbee9a68f4fb610291f59bc8b64180",
+    "packages/runtime/test/tool_modules/export_precedence/before.mjs": "39109e1b76691b048e7beb59822499b503d90b40b7014abd9667782a2e249bc1",
+    "packages/runtime/test/tool_modules/export_precedence/entry.mjs": "bf85a531b5f30846fb8a274df731c3b9f397ef2301605932ee38cdb422b914cc",
+    "packages/runtime/test/tool_modules/export_precedence/local.mjs": "79bac72581be7706efd0fa56131caeef999a58760ee616e6bdc8e0ad40e4b806",
+    "packages/runtime/test/tool_modules/export_precedence/namespace.mjs": "0b96fc8bd66fbc0508f47c0d1c1a3903931458387e6327f210e81c398325ab5e",
+    "packages/runtime/test/tool_modules/export_precedence/override.mjs": "86c3b44a90ebfda6712dc73052ea4afed31b98b227a72bd3f1e3125aa0f5ce84",
+    "packages/runtime/test/tool_modules/export_precedence/source.mjs": "e91e2a48e7f69de7836f779f5babee896881f37ae0a581d3a878cc7b7ad7e261"
+  },
+  "binary_sha256": {
+    "before-zig-js": "d4d42f34c721fd5b8e353e4a82446fe1ece5e8e06d9a244e414a0aee560b05a6",
+    "before-jsc": "e468a12ee7bd07ec95ca02414947538868f51fda91dfdcc0c20ab8ebe2f19d99",
+    "after-zig-js": "ac3542d206feac5259a8ec47f63b66c7f1c2c1ec19b6649f3ab02b71f38f9726",
+    "after-jsc": "dc1f1fb2ca23f38baa55713f49e9979f3502edaf90f65f4e450001511d43417a"
+  },
+  "mandatory_operations": 14,
+  "emitter_tests": {
+    "passed": 521,
+    "skipped": 1,
+    "total": 522,
+    "skip": "Existing fast .d.ts: declared function is preserved, d_ts_fast.zig returns SkipZigTest for empty local dtsx stub output. No dtsx implementation/content pass claim."
+  },
+  "results": {
+    "after-jsc-fixture": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.094,
+      "log": "after-jsc-fixture.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/export_precedence/entry.mjs"
+      ],
+      "log_sha256": "a748bb0d64b6031cb68d565ede6e9dd939971980ef8827e20b818ff153b17ae0",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/export_precedence/entry.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+      "runtime_home": "f80ee42ea6f135cfc5e02159c044aba3a3c79b96"
+    },
+    "after-jsc-i18n": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.06,
+      "log": "after-jsc-i18n.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-jsc/bin/home-tool",
+        "run",
+        "src/index.ts"
+      ],
+      "log_sha256": "bd702da250d49471bd84672b1e9f92cf00e9529ed05f03070f0c4640fc3e0753",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-jsc/bin/home-tool\", \"run\", \"src/index.ts\"]\nhome-tool (jsc): Error: cannot resolve module node:async_hooks from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/core/logging/src/index.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "runtime_home": "9172e5a67a43610844d508fe085c843a9353ef9c"
+    },
+    "after-jsc-named-live-gap": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5424,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "after-jsc-named-live-gap.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/entry.mjs"
+      ],
+      "log_sha256": "f3e911a3379b80bbe7ac4e2f34366868cc453a799d12d14a0865b3adb391b9a8",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/entry.mjs\"]\nhome-tool (jsc): Error: live\n\nECOSYSTEM PEAK SAMPLED RSS: 5424 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "runtime_home": "f80ee42ea6f135cfc5e02159c044aba3a3c79b96"
+    },
+    "after-jsc-realtime": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 6464,
+      "memory_limit_mb": 3072,
+      "seconds": 0.029,
+      "log": "after-jsc-realtime.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-jsc/bin/home-tool",
+        "run",
+        "src/index.ts"
+      ],
+      "log_sha256": "cd7f0fa6daf441b138cdbc6bc7efb1476e43a1f98f69ebbda7cac15e46209da0",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-jsc/bin/home-tool\", \"run\", \"src/index.ts\"]\nhome-tool (jsc): Error: cannot resolve module node:async_hooks from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/core/realtime/src/stream.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 6464 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "runtime_home": "9172e5a67a43610844d508fe085c843a9353ef9c"
+    },
+    "after-zig-js-fixture": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 432,
+      "memory_limit_mb": 3072,
+      "seconds": 0.059,
+      "log": "after-zig-js-fixture.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/export_precedence/entry.mjs"
+      ],
+      "log_sha256": "46015f3c945c8a13dd81a4802cf3fe6be7aa9cd81c1269bef9b249b1392b4fdb",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/export_precedence/entry.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+      "runtime_home": "f80ee42ea6f135cfc5e02159c044aba3a3c79b96"
+    },
+    "after-zig-js-i18n": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 87792,
+      "memory_limit_mb": 3072,
+      "seconds": 0.148,
+      "log": "after-zig-js-i18n.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+        "run",
+        "src/index.ts"
+      ],
+      "log_sha256": "f26ed588c6d497cab74b849b4499f7b909d3bc648e8840f17dd22abbdf3f2bb7",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 87792 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "runtime_home": "9172e5a67a43610844d508fe085c843a9353ef9c"
+    },
+    "after-zig-js-named-live-gap": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5056,
+      "memory_limit_mb": 3072,
+      "seconds": 0.022,
+      "log": "after-zig-js-named-live-gap.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/entry.mjs"
+      ],
+      "log_sha256": "86c2bfe39398d6fdfd19150b33d008b1fb785e6bc0753ef3a7b6754a3894e010",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/entry.mjs\"]\nhome-tool (zig-js): Error: live\n\nECOSYSTEM PEAK SAMPLED RSS: 5056 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "runtime_home": "f80ee42ea6f135cfc5e02159c044aba3a3c79b96"
+    },
+    "after-zig-js-realtime": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 6560,
+      "memory_limit_mb": 3072,
+      "seconds": 0.092,
+      "log": "after-zig-js-realtime.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+        "run",
+        "src/index.ts"
+      ],
+      "log_sha256": "584f752d598503a34aa4399eef5f36f823a05c8a60b8ce688a65cc039e229874",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 6560 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "runtime_home": "9172e5a67a43610844d508fe085c843a9353ef9c"
+    },
+    "before-jsc-fixture-final": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 4896,
+      "memory_limit_mb": 3072,
+      "seconds": 0.021,
+      "log": "before-jsc-fixture-final.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/export_precedence/entry.mjs"
+      ],
+      "log_sha256": "d45f68c9954cc0e03bbf06bb6134d1312fc1f71c9bfb3cc66532f8dcfe7dd706",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/export_precedence/entry.mjs\"]\nhome-tool (jsc): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 4896 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "runtime_home": "9172e5a67a43610844d508fe085c843a9353ef9c"
+    },
+    "before-jsc-fixture": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 112,
+      "memory_limit_mb": 3072,
+      "seconds": 0.024,
+      "log": "before-jsc-fixture.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/export_precedence/entry.mjs"
+      ],
+      "log_sha256": "c52d581d2220380afa10036b8e59886b32ed00f4a059737fcf3550af98862339",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/export_precedence/entry.mjs\"]\nhome-tool (jsc): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 112 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "runtime_home": "9172e5a67a43610844d508fe085c843a9353ef9c"
+    },
+    "before-zig-js-fixture-final": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 464,
+      "memory_limit_mb": 3072,
+      "seconds": 0.097,
+      "log": "before-zig-js-fixture-final.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/export_precedence/entry.mjs"
+      ],
+      "log_sha256": "46b4b0a8c87007b8247ef2faf8644837e62cb496001b6d433d75553cc5c65c54",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/export_precedence/entry.mjs\"]\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 464 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "runtime_home": "9172e5a67a43610844d508fe085c843a9353ef9c"
+    },
+    "before-zig-js-fixture": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 464,
+      "memory_limit_mb": 3072,
+      "seconds": 0.059,
+      "log": "before-zig-js-fixture.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/export_precedence/entry.mjs"
+      ],
+      "log_sha256": "46b4b0a8c87007b8247ef2faf8644837e62cb496001b6d433d75553cc5c65c54",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/export_precedence/entry.mjs\"]\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 464 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "runtime_home": "9172e5a67a43610844d508fe085c843a9353ef9c"
+    },
+    "before-zig-js-i18n": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 69440,
+      "memory_limit_mb": 3072,
+      "seconds": 0.191,
+      "log": "before-zig-js-i18n.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/after-zig-js/bin/home-tool",
+        "run",
+        "src/index.ts"
+      ],
+      "log_sha256": "b6b11454b77ce06afe858f3b4b8ac46899432cba372443877455944a13961934",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 69440 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+      "runtime_home": "1fb5c7d2b15f82c1455ed16dfed6d80ebaccad76"
+    },
+    "before-zig-js-named-live-gap": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 4896,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "before-zig-js-named-live-gap.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/entry.mjs"
+      ],
+      "log_sha256": "c44365206773a70d4df190724e8dd95e9c7f6a296bebe7756d2c99abf8efd4c6",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/entry.mjs\"]\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 4896 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "runtime_home": "9172e5a67a43610844d508fe085c843a9353ef9c"
+    },
+    "before-zig-js-realtime": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 8336,
+      "memory_limit_mb": 3072,
+      "seconds": 0.127,
+      "log": "before-zig-js-realtime.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/after-zig-js/bin/home-tool",
+        "run",
+        "src/index.ts"
+      ],
+      "log_sha256": "a685f6192e8c7138cf16e6f6ca7397f9665e2d3332fc7a39e487b536231e0bdb",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 8336 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+      "runtime_home": "1fb5c7d2b15f82c1455ed16dfed6d80ebaccad76"
+    },
+    "build-jsc": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1440880,
+      "memory_limit_mb": 3072,
+      "seconds": 31.556,
+      "log": "build-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-jsc",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "log_sha256": "143446bc118e329e7ac1a4461d13b45aebbef5b0075b254456c2b5ff73887c20",
+      "log_excerpt": "OK home-tool import.meta\nOK home-tool exact package imports\nOK home-tool module interop\nOK home-tool runtime transpilation\nBuild Summary: 176/176 steps succeeded\nECOSYSTEM PEAK SAMPLED RSS: 1440880 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0",
+      "runtime_home": null
+    },
+    "build-zig-js": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1460976,
+      "memory_limit_mb": 3072,
+      "seconds": 36.709,
+      "log": "build-zig-js.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/engine-cache-final",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "log_sha256": "533c7de6d068c778981353ebee779d11135bf6d5504f3dfc0c40056fad040d46",
+      "log_excerpt": "OK home-tool exact package imports\nOK home-tool module interop\nOK home-tool runtime transpilation\nOK home-tool import.meta\nBuild Summary: 197/197 steps succeeded\nECOSYSTEM PEAK SAMPLED RSS: 1460976 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0",
+      "runtime_home": null
+    },
+    "bun-fixture": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2336,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "bun-fixture.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/export_precedence/entry.mjs"
+      ],
+      "log_sha256": "a4a2ed002d73fe57b0ac53159729942c4b958dcb442774ef9a73e145b7556068",
+      "log_excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/export_precedence/entry.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 2336 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+      "runtime_home": null
+    },
+    "bun-named-live-gap": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2256,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "bun-named-live-gap.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/entry.mjs"
+      ],
+      "log_sha256": "b8021bf082835971a910a099af04d24077bf3e4f774fa3bd829c68a1c2f869d8",
+      "log_excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/entry.mjs\"]\nOK explicit and star export remains live\n\nECOSYSTEM PEAK SAMPLED RSS: 2256 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+      "runtime_home": null
+    },
+    "emitter-tests-validated": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2620512,
+      "memory_limit_mb": 3072,
+      "seconds": 107.881,
+      "log": "emitter-tests-validated.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "test",
+        "-Dfilter=ts_emit",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "log_sha256": "12eeb5433531a58c23f86cbed8a845b799c28fceb19341fd959dda4fca15c8f4",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"test\", \"-Dfilter=ts_emit\", \"-Doptimize=ReleaseSafe\", \"-Denable_jsc=false\", \"-j1\", \"--summary\", \"all\"]\nBuild Summary: 3/3 steps succeeded; 521/522 tests passed (1 skipped)\ntest success\n+- run test 521 pass, 1 skip (522 total) 283ms MaxRSS:25M\n   +- compile test safe native success 1m MaxRSS:2G\n\n\nECOSYSTEM PEAK SAMPLED RSS: 2620512 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+      "runtime_home": null
+    },
+    "node-fixture": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 39712,
+      "memory_limit_mb": 3072,
+      "seconds": 0.181,
+      "log": "node-fixture.log",
+      "command": [
+        "node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/export_precedence/entry.mjs"
+      ],
+      "log_sha256": "5ec1d78cc1e8c54a0e40bdd9e66623eab6b9ac4ee77dc5f1b2771c886105b1be",
+      "log_excerpt": "$ [\"node\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/export_precedence/entry.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 39712 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+      "runtime_home": null
+    },
+    "node-named-live-gap": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 816,
+      "memory_limit_mb": 3072,
+      "seconds": 0.059,
+      "log": "node-named-live-gap.log",
+      "command": [
+        "node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/entry.mjs"
+      ],
+      "log_sha256": "b15e3e09c013190d8818d3d4284fab6c68f907e71cbc8862ee20cb41e4b53740",
+      "log_excerpt": "$ [\"node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/entry.mjs\"]\nOK explicit and star export remains live\n\nECOSYSTEM PEAK SAMPLED RSS: 816 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+      "runtime_home": null
+    },
+    "pickier": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1632,
+      "memory_limit_mb": 3072,
+      "seconds": 0.059,
+      "log": "pickier.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "node_modules/.bin/pickier",
+        "packages/runtime/test/tool_modules/export_precedence/after.mjs",
+        "packages/runtime/test/tool_modules/export_precedence/alias.mjs",
+        "packages/runtime/test/tool_modules/export_precedence/before.mjs",
+        "packages/runtime/test/tool_modules/export_precedence/entry.mjs",
+        "packages/runtime/test/tool_modules/export_precedence/local.mjs",
+        "packages/runtime/test/tool_modules/export_precedence/namespace.mjs",
+        "packages/runtime/test/tool_modules/export_precedence/override.mjs",
+        "packages/runtime/test/tool_modules/export_precedence/source.mjs",
+        "packages/runtime/test/tool_modules/main.ts"
+      ],
+      "log_sha256": "5f4a60c003b80b7aecbb78881575974184dcfad54d3c6ffa26c2db2dd36391c9",
+      "log_excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"node_modules/.bin/pickier\", \"packages/runtime/test/tool_modules/export_precedence/after.mjs\", \"packages/runtime/test/tool_modules/export_precedence/alias.mjs\", \"packages/runtime/test/tool_modules/export_precedence/before.mjs\", \"packages/runtime/test/tool_modules/export_precedence/entry.mjs\", \"packages/runtime/test/tool_modules/export_precedence/local.mjs\", \"packages/runtime/test/tool_modules/export_precedence/namespace.mjs\", \"packages/runtime/test/tool_modules/export_precedence/override.mjs\", \"packages/runtime/test/tool_modules/export_precedence/source.mjs\", \"packages/runtime/test/tool_modules/main.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 1632 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+      "runtime_home": null
+    }
+  },
+  "real_stacks_module_initialization_comparison": {
+    "consumer_sha": "8b9e1572fee6a8345213159d892fd82d91604927",
+    "selection": "40 previously passing source initializations plus2 new readonly failures;17 prior passing typechecks and all remaining consumer checks are outside this focused comparison.",
+    "before_passed": 40,
+    "before_failed": 2,
+    "after_passed": 42,
+    "after_failed": 0,
+    "gains": [
+      "storage/framework/core/i18n: module initialization src/index.ts",
+      "storage/framework/core/realtime: module initialization src/index.ts"
+    ],
+    "regressions": [],
+    "checks": [
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.094,
+        "log": "before-consumer-0.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/action-runner: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "7da4a2979f2ead4a09f6ca100e1acd22f4baa5ef2b0ddb96b87a1fe8421e679d",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6544,
+        "memory_limit_mb": 3072,
+        "seconds": 0.04,
+        "log": "before-consumer-1.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/alias: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "81e185fd5d87cf7af2eb737f1695b1d9bc048191817510030298cec1e9f95955",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6544 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 7744,
+        "memory_limit_mb": 3072,
+        "seconds": 0.039,
+        "log": "before-consumer-2.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/api: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "9c7d7c4e051bbcf89d8e81304bbd0bca8f5af7561c521d4a0625cf74dd1ffa5a",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 7744 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6480,
+        "memory_limit_mb": 3072,
+        "seconds": 0.022,
+        "log": "before-consumer-3.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/arrays: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "c0d474730516e9c72bad1a1a45647f08b93c8dff9078d0637b1e3c0d5ad6156b",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6480 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 5584,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "before-consumer-4.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/audio: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "7c9dc7622ef87baef12c4043ffd3d0dce149e54c721d4d5eaadcb0b4e223adef",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 5584 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 40640,
+        "memory_limit_mb": 3072,
+        "seconds": 0.218,
+        "log": "before-consumer-5.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/build: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "84d0fd66b1b78bd56d5d094b606294b97aab81cf32091012ffc992dcd3a95ed1",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 40640 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 9072,
+        "memory_limit_mb": 3072,
+        "seconds": 0.021,
+        "log": "before-consumer-6.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/calendar-api: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "8c27f01f383ceee0e464b3b18b913aa4089731d07bdada559b3456c9126682d8",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 9072 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6080,
+        "memory_limit_mb": 3072,
+        "seconds": 0.059,
+        "log": "before-consumer-7.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/charts: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "9b5ddc64610e476ca2677b2c17c052ec1c94bf87e04cce305400f6e2d996d026",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6080 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6432,
+        "memory_limit_mb": 3072,
+        "seconds": 0.122,
+        "log": "before-consumer-8.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/cli: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "7cfa3cf6857036e41f1207656e4acc454dc916b4f574119934853145da9a2f7c",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6576,
+        "memory_limit_mb": 3072,
+        "seconds": 0.024,
+        "log": "before-consumer-9.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/collections: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "22280a0d9eac5ee5e51609b48b63aeb179b33866be3eab7ce858e436353b02e1",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6576 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6560,
+        "memory_limit_mb": 3072,
+        "seconds": 0.059,
+        "log": "before-consumer-10.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/config: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "e84c9d475f15b0623954280339c16fe646d6b70c8fd2cca2ddac025ed9336a74",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6560 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6416,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "before-consumer-11.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/cron: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "0a24efd882dcba34b768cdcd40e60f767db5b29abc732c8f14c38906d999d11e",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6416 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6528,
+        "memory_limit_mb": 3072,
+        "seconds": 0.021,
+        "log": "before-consumer-12.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/datetime: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "36251871a68ef1f11d9c44da353bfc4ea0c0fb85eb1c50ac16744a7ad4df4a4f",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6528 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6512,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "before-consumer-13.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "index.ts"
+        ],
+        "label": "storage/framework/core/development: module initialization index.ts",
+        "provider": "before",
+        "log_sha256": "853020159c64c0ea6de2adea1f94acf56a60eba4f50ac7277975695ae37b6638",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6512 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6432,
+        "memory_limit_mb": 3072,
+        "seconds": 0.059,
+        "log": "before-consumer-14.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/docs: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "7cfa3cf6857036e41f1207656e4acc454dc916b4f574119934853145da9a2f7c",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6544,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "before-consumer-15.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/enums: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "81e185fd5d87cf7af2eb737f1695b1d9bc048191817510030298cec1e9f95955",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6544 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6432,
+        "memory_limit_mb": 3072,
+        "seconds": 0.041,
+        "log": "before-consumer-16.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/env: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "7cfa3cf6857036e41f1207656e4acc454dc916b4f574119934853145da9a2f7c",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 7920,
+        "memory_limit_mb": 3072,
+        "seconds": 0.04,
+        "log": "before-consumer-17.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/error-handling: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "b9b41d020e7a60f49209a821129fcfb92d16f722ce795df89cef540f976223d7",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 7920 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6560,
+        "memory_limit_mb": 3072,
+        "seconds": 0.021,
+        "log": "before-consumer-18.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/events: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "e84c9d475f15b0623954280339c16fe646d6b70c8fd2cca2ddac025ed9336a74",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6560 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6592,
+        "memory_limit_mb": 3072,
+        "seconds": 0.096,
+        "log": "before-consumer-19.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/faker: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "4efa3c93d0e7a0a7e519db1c284d5764340335eb3e9b033a1978cac6f539f460",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6592 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6560,
+        "memory_limit_mb": 3072,
+        "seconds": 0.023,
+        "log": "before-consumer-20.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/feature-flags: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "e84c9d475f15b0623954280339c16fe646d6b70c8fd2cca2ddac025ed9336a74",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6560 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6432,
+        "memory_limit_mb": 3072,
+        "seconds": 0.021,
+        "log": "before-consumer-21.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/features: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "7cfa3cf6857036e41f1207656e4acc454dc916b4f574119934853145da9a2f7c",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6560,
+        "memory_limit_mb": 3072,
+        "seconds": 0.021,
+        "log": "before-consumer-22.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/git: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "e84c9d475f15b0623954280339c16fe646d6b70c8fd2cca2ddac025ed9336a74",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6560 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6576,
+        "memory_limit_mb": 3072,
+        "seconds": 0.022,
+        "log": "before-consumer-23.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/github: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "22280a0d9eac5ee5e51609b48b63aeb179b33866be3eab7ce858e436353b02e1",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6576 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6576,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "before-consumer-24.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/health: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "22280a0d9eac5ee5e51609b48b63aeb179b33866be3eab7ce858e436353b02e1",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6576 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6688,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "before-consumer-25.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/http: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "014f1e398ecff581ff3bae8507ce4bf71606ca2b1435518301df9591f43010a1",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6688 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 6592,
+        "memory_limit_mb": 3072,
+        "seconds": 0.095,
+        "log": "before-consumer-26.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/i18n: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "f87b3448ab08b030d9670b84f9e41e772aeb5a317ef32554ee65bbc40ebb7ea7",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 6592 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 396816,
+        "memory_limit_mb": 3072,
+        "seconds": 0.373,
+        "log": "before-consumer-27.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/image: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "8fae20989ae85d7b267f70ce026276e5cf169b2d7e7d25e6b418a3585f633d73",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 396816 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1536,
+        "memory_limit_mb": 3072,
+        "seconds": 0.038,
+        "log": "before-consumer-28.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/logging: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "643e807f83ff40052e14a510f0ac88413602d34bedbf6e47465f883a0f892b55",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 1536 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6544,
+        "memory_limit_mb": 3072,
+        "seconds": 0.059,
+        "log": "before-consumer-29.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/mobile: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "81e185fd5d87cf7af2eb737f1695b1d9bc048191817510030298cec1e9f95955",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6544 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 9024,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "before-consumer-30.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/pagination: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "c4a82abd46a8241f71d19bc2fa3525aee5f1d44c9cfb53a4290680e3ec9bcab1",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 9024 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 7232,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "before-consumer-31.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/path: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "fc746f56abac9f4274575310b16b66d37c2179b6aed47a6ed2a60bb424802e8a",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 7232 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 6528,
+        "memory_limit_mb": 3072,
+        "seconds": 0.096,
+        "log": "before-consumer-32.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/realtime: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "1ff740bcc95fd9fac26bc55bd5b43fffac3f8ff50038fb8291417e9dfd7c7db5",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 6528 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6400,
+        "memory_limit_mb": 3072,
+        "seconds": 0.059,
+        "log": "before-consumer-33.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/registry: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "0ca24bd88fa1ae65ceeb619913be982faea2298264a7907caf0d26579ecf67cf",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6400 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 5984,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "before-consumer-34.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/repl: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "7aee7a265f704baa6f89f3327b53bea85b0462258ba9c5f7d08c39c0d425571a",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 5984 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6592,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "before-consumer-35.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/shell: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "4efa3c93d0e7a0a7e519db1c284d5764340335eb3e9b033a1978cac6f539f460",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6592 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6432,
+        "memory_limit_mb": 3072,
+        "seconds": 0.021,
+        "log": "before-consumer-36.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/skills: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "7cfa3cf6857036e41f1207656e4acc454dc916b4f574119934853145da9a2f7c",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 119168,
+        "memory_limit_mb": 3072,
+        "seconds": 0.184,
+        "log": "before-consumer-37.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/storage: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "f34bd059d82670964f5a06b99b1c36398437e8a40f01b7f8de3f56d1a1806d5a",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 119168 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6240,
+        "memory_limit_mb": 3072,
+        "seconds": 0.024,
+        "log": "before-consumer-38.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/strings: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "e00b9a690edb93169592253aac6a31b0ec0062091f6248915e303afc9a374199",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6240 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6128,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "before-consumer-39.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/tinker: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "025937f2a4aedb4ae34404b7ee99af700c59547c8380d687b30d9d08acef8c0e",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6128 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6480,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "before-consumer-40.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/tunnel: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "c0d474730516e9c72bad1a1a45647f08b93c8dff9078d0637b1e3c0d5ad6156b",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6480 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6544,
+        "memory_limit_mb": 3072,
+        "seconds": 0.059,
+        "log": "before-consumer-41.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/types: module initialization src/index.ts",
+        "provider": "before",
+        "log_sha256": "81e185fd5d87cf7af2eb737f1695b1d9bc048191817510030298cec1e9f95955",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/inflate-output-limit/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6544 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6544,
+        "memory_limit_mb": 3072,
+        "seconds": 0.021,
+        "log": "after-consumer-0.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/action-runner: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "2eb21a9b2461a4a61c75337c54249e443e7737d38bbf136ebb548cdcba6709be",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6544 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 7904,
+        "memory_limit_mb": 3072,
+        "seconds": 0.038,
+        "log": "after-consumer-1.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/alias: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "256846e400a167a310a528f37466430074fb860fd27074fac22991a4792cac40",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 7904 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6544,
+        "memory_limit_mb": 3072,
+        "seconds": 0.029,
+        "log": "after-consumer-2.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/api: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "2eb21a9b2461a4a61c75337c54249e443e7737d38bbf136ebb548cdcba6709be",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6544 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6416,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "after-consumer-3.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/arrays: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "2f8047b8970a4b929214268467a82ae8dd3998d38fe77f66b56fae25f010b088",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6416 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6240,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "after-consumer-4.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/audio: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "4cdb0de4cb02bb4eeffb16bd0e841d2581d1a4f7e8a9085cb5de9774078caf39",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6240 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 118640,
+        "memory_limit_mb": 3072,
+        "seconds": 0.183,
+        "log": "after-consumer-5.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/build: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "fcf5141ed311be0fa46c6958371301d7cf4f458c1dcb545d6bc296a6ec10c5c1",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 118640 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6176,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "after-consumer-6.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/calendar-api: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "06142cf625e24fb6bf8de58c492a6ed5473dd49bea39ad4803d3ab1fa7432056",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6176 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 5632,
+        "memory_limit_mb": 3072,
+        "seconds": 0.039,
+        "log": "after-consumer-7.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/charts: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "0736fd79f54f999635dca019c352feaf06acecd1c30b3c8497a7ea46ca10e8bf",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 5632 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6560,
+        "memory_limit_mb": 3072,
+        "seconds": 0.126,
+        "log": "after-consumer-8.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/cli: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "9da6bd8506fbe9ebb80d071f7c4c66c0a56f1340c3f41c46ef008b9dbea861c5",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6560 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6544,
+        "memory_limit_mb": 3072,
+        "seconds": 0.024,
+        "log": "after-consumer-9.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/collections: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "2eb21a9b2461a4a61c75337c54249e443e7737d38bbf136ebb548cdcba6709be",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6544 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6144,
+        "memory_limit_mb": 3072,
+        "seconds": 0.055,
+        "log": "after-consumer-10.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/config: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "9f86dac44bed90aa48124ea50981fbf824a70005409820eb6c3d70560b088826",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6144 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6528,
+        "memory_limit_mb": 3072,
+        "seconds": 0.021,
+        "log": "after-consumer-11.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/cron: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "819b4db24d1246c5ed35c356015978ad7781fc15c30c71bc34862398a9c90f91",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6528 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 7504,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "after-consumer-12.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/datetime: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "5773a3f9b9cf8389aa7303c34a166967a216e332038e01c991a0a94e1e54436f",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 7504 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6544,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "after-consumer-13.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "index.ts"
+        ],
+        "label": "storage/framework/core/development: module initialization index.ts",
+        "provider": "after",
+        "log_sha256": "28d1fbb9d9217fab273a9706d30cfc389c233a4f0ab48164a1952d15897cedb1",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6544 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6528,
+        "memory_limit_mb": 3072,
+        "seconds": 0.059,
+        "log": "after-consumer-14.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/docs: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "819b4db24d1246c5ed35c356015978ad7781fc15c30c71bc34862398a9c90f91",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6528 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6432,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "after-consumer-15.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/enums: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "870528afaf383b5998c415aee67096d45290cc417d87629f5f1aee85ec7c7dc6",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 5920,
+        "memory_limit_mb": 3072,
+        "seconds": 0.039,
+        "log": "after-consumer-16.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/env: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "1c31d4d5d24c58ff67a36671d41be794fc94f9b574e5152b4b919107c63c0c50",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 5920 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6208,
+        "memory_limit_mb": 3072,
+        "seconds": 0.039,
+        "log": "after-consumer-17.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/error-handling: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "590ce41fa7af8f5d8090632028c1f2e51b9211d3f37c82845094b4dd3b6fe5c7",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6208 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 5472,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "after-consumer-18.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/events: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "8848e0883dbbc0ec74f4b0348c9ca84552d225f9588a7dab4910ae619face759",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 5472 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 5248,
+        "memory_limit_mb": 3072,
+        "seconds": 0.058,
+        "log": "after-consumer-19.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/faker: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "e0781ba4e6788e448dccb9bf24fc5d0d7366d66d5bb5bf118b4d80331a1c4990",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 5248 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6528,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "after-consumer-20.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/feature-flags: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "819b4db24d1246c5ed35c356015978ad7781fc15c30c71bc34862398a9c90f91",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6528 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6560,
+        "memory_limit_mb": 3072,
+        "seconds": 0.021,
+        "log": "after-consumer-21.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/features: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "9da6bd8506fbe9ebb80d071f7c4c66c0a56f1340c3f41c46ef008b9dbea861c5",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6560 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 5280,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "after-consumer-22.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/git: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "df88b5c943da982e80650155633abf647f8b2666190c80d70e420047ea7b9c24",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 5280 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 5904,
+        "memory_limit_mb": 3072,
+        "seconds": 0.021,
+        "log": "after-consumer-23.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/github: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "9bd4e6497e77e519fa99c275e99d7d01477edf5ba0a2adb4d25ddb8b0ed0fad2",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 5904 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 5728,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "after-consumer-24.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/health: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "f461736a3e7bb14b59b596bd012e70b37d43a79023286ce0886dbb3342a2e9f9",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 5728 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 5584,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "after-consumer-25.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/http: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "7f3edcdb91816016683a5e31955f91dc62d2b4e768be59f2ea19788a9a6bef9d",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 5584 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6816,
+        "memory_limit_mb": 3072,
+        "seconds": 0.097,
+        "log": "after-consumer-26.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/i18n: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "63dbdebb7edd3e4708cb1e98a833dc88e2913ead751c0e6d15a22fb68944552c",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6816 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 406800,
+        "memory_limit_mb": 3072,
+        "seconds": 0.344,
+        "log": "after-consumer-27.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/image: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "0b04e77baed4373383f4a822a0a406ed67cc4670ccd02d607c8cab3035f86a8c",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 406800 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6432,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "after-consumer-28.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/logging: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "870528afaf383b5998c415aee67096d45290cc417d87629f5f1aee85ec7c7dc6",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6448,
+        "memory_limit_mb": 3072,
+        "seconds": 0.059,
+        "log": "after-consumer-29.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/mobile: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "97ed8bbae2e34f3b637d0b533350cb65c2dbe97b33b6f17510a7eb0f6f70fc03",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6448 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6816,
+        "memory_limit_mb": 3072,
+        "seconds": 0.021,
+        "log": "after-consumer-30.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/pagination: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "63dbdebb7edd3e4708cb1e98a833dc88e2913ead751c0e6d15a22fb68944552c",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6816 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 8480,
+        "memory_limit_mb": 3072,
+        "seconds": 0.021,
+        "log": "after-consumer-31.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/path: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "be93a9307d6c6d224a9ba3b6a0accf9fd1abc12c3742a99f372a77d66be47bab",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 8480 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6528,
+        "memory_limit_mb": 3072,
+        "seconds": 0.092,
+        "log": "after-consumer-32.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/realtime: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "819b4db24d1246c5ed35c356015978ad7781fc15c30c71bc34862398a9c90f91",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6528 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6576,
+        "memory_limit_mb": 3072,
+        "seconds": 0.059,
+        "log": "after-consumer-33.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/registry: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "1efabba7ed4d53bef0f1c9f9b838752e5270f188921b1b56d31872761dae6d41",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6576 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6432,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "after-consumer-34.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/repl: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "870528afaf383b5998c415aee67096d45290cc417d87629f5f1aee85ec7c7dc6",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6576,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "after-consumer-35.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/shell: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "1efabba7ed4d53bef0f1c9f9b838752e5270f188921b1b56d31872761dae6d41",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6576 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6544,
+        "memory_limit_mb": 3072,
+        "seconds": 0.022,
+        "log": "after-consumer-36.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/skills: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "2eb21a9b2461a4a61c75337c54249e443e7737d38bbf136ebb548cdcba6709be",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6544 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 101120,
+        "memory_limit_mb": 3072,
+        "seconds": 0.174,
+        "log": "after-consumer-37.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/storage: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "2d59d0fb64a245011012e228aebf66b8159ed4dbea7c71cf1e962b8cd55b6ac2",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 101120 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 8176,
+        "memory_limit_mb": 3072,
+        "seconds": 0.03,
+        "log": "after-consumer-38.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/strings: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "16cfc4dff088e8e1f1d2603b92f3d07e405700b29599f050e46d22f2f52c111b",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 8176 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6432,
+        "memory_limit_mb": 3072,
+        "seconds": 0.021,
+        "log": "after-consumer-39.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/tinker: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "870528afaf383b5998c415aee67096d45290cc417d87629f5f1aee85ec7c7dc6",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6432,
+        "memory_limit_mb": 3072,
+        "seconds": 0.02,
+        "log": "after-consumer-40.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/tunnel: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "870528afaf383b5998c415aee67096d45290cc417d87629f5f1aee85ec7c7dc6",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6432,
+        "memory_limit_mb": 3072,
+        "seconds": 0.053,
+        "log": "after-consumer-41.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+          "run",
+          "src/index.ts"
+        ],
+        "label": "storage/framework/core/types: module initialization src/index.ts",
+        "provider": "after",
+        "log_sha256": "870528afaf383b5998c415aee67096d45290cc417d87629f5f1aee85ec7c7dc6",
+        "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      }
+    ]
+  },
+  "known_remaining_named_import_gap": {
+    "sources": {
+      "source.mjs": "export let value = 1; export function bump(){ value++; }\n",
+      "barrel.mjs": "export * from './source.mjs'; export {value} from './source.mjs';\n",
+      "entry.mjs": "import {value,bump} from './barrel.mjs';if(value!==1)throw new Error('initial');bump();if(value!==2)throw new Error('live');console.log('OK explicit and star export remains live');\n"
+    },
+    "status": "Node/Bun pass; before Home throws readonly assignment, after both Home providers still fail live because named imports are destructured snapshots. Kept as actual failing probes, not a skip or compatibility pass."
+  },
+  "specification": "https://tc39.es/ecma262/2025/multipage/ecmascript-language-scripts-and-modules.html#sec-resolveexport",
+  "limits": [
+    "Correct explicit/local/namespace export precedence and live reads via namespaces; no complete ESM namespace, ambiguous-star or named-import-live semantics claim.",
+    "JSC actual Stacks i18n/realtime probes reach missing node:async_hooks; their success is not claimed. Actual42module comparison uses zig-js only.",
+    "Full root Stacks step budget, Home docs memory, unsupported test schedulers and other missing host APIs remain open.",
+    "No engine source or test262 corpus change; no caps/skip/fake API/native Bun fallback."
+  ],
+  "suite_validation": {
+    "suite-python": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 127872,
+      "memory_limit_mb": 3072,
+      "seconds": 3.588,
+      "log": "suite-python.log",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "log_sha256": "00d9c4084b637ba07660683d96e228a3c1d7a0d00e152d5e92468ae9662e050b",
+      "log_excerpt": "ome (test_suite.RuntimeRoutingTests.test_installed_package_binary_routes_to_home) ... ok\ntest_nested_script_routes_to_engine_and_propagates_failure (test_suite.RuntimeRoutingTests.test_nested_script_routes_to_engine_and_propagates_failure) ... ok\ntest_scoped_package_bin_uses_installed_manifest_and_keeps_exit_status (test_suite.RuntimeRoutingTests.test_scoped_package_bin_uses_installed_manifest_and_keeps_exit_status) ... ok\ntest_shell_scripts_preserve_no_argument_syntax_status_and_literal_arguments (test_suite.RuntimeRoutingTests.test_shell_scripts_preserve_no_argument_syntax_status_and_literal_arguments) ... ok\ntest_test_scheduler_and_native_build_cannot_be_false_passes (test_suite.RuntimeRoutingTests.test_test_scheduler_and_native_build_cannot_be_false_passes) ... ECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\nECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\nECOSYSTEM UNSUPPORTED: bun build requires a host API absent from Home's repository-tool runtime\nECOSYSTEM UNSUPPORTED: bun install requires a host API absent from Home's repository-tool runtime\nok\n\n----------------------------------------------------------------------\nRan 36 tests in 3.439s\n\nOK\n\nECOSYSTEM PEAK SAMPLED RSS: 127872 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "suite-actionlint": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.246,
+      "log": "suite-actionlint.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint"
+      ],
+      "log_sha256": "2d83d05058d9a5a71a9f35ce1058cfbba75d86aafa904bc66054d98660f1e0d2",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "suite-diff": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.151,
+      "log": "suite-diff.log",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "log_sha256": "2b21cecfab1e7b0cb2cfccb328b10b86af533d80395171c28f709bb4c41c5814",
+      "log_excerpt": "$ [\"git\", \"diff\", \"--check\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "suite-compile": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1552,
+      "memory_limit_mb": 3072,
+      "seconds": 0.233,
+      "log": "suite-compile.log",
+      "command": [
+        "python3",
+        "-m",
+        "compileall",
+        "-q",
+        "scripts",
+        "tests"
+      ],
+      "log_sha256": "45d0d15139eb408a0d88f3b3c20af179132dde733fca413e1e79379912bfab3e",
+      "log_excerpt": "$ [\"python3\", \"-m\", \"compileall\", \"-q\", \"scripts\", \"tests\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 1552 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "suite-dependencies": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 26848,
+      "memory_limit_mb": 3072,
+      "seconds": 0.442,
+      "log": "suite-dependencies.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "tests/dependencies.test.mjs"
+      ],
+      "log_sha256": "a7cbf3b4722bf1245f4c2ac5f77615808076513c7f80db2cc2face171df2e9f8",
+      "log_excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"test\", \"tests/dependencies.test.mjs\"]\nbun test v1.4.4 (38afee6c8)\n\ntests/dependencies.test.mjs:\n(pass) nested install reproduces workspace failure; ancestor setup runs real dependency code [296.70ms]\n(pass) unreferenced isolated workspace is not an installed ancestor dependency [13.28ms]\n(pass) a registry-shaped provider cannot impersonate a declared workspace [2.62ms]\n(pass) wrong external and explicit workspace versions are rejected [11.94ms]\n(pass) workspace wildcard allows prereleases; a child lockfile prevents reuse [13.07ms]\n(pass) excluded members and outside-checkout symlinks do not satisfy workspace references [4.37ms]\n(pass) independent apps still perform real installs with lifecycle scripts disabled [21.19ms]\n\n 7 pass\n 0 fail\n 26 expect() calls\nRan 7 tests across 1 file. [417.00ms]\n\nECOSYSTEM PEAK SAMPLED RSS: 26848 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "run": 42777217015,
+  "suite_ref": "aeea21987512dae3436d2ba29a1ea54e210667dd",
+  "engine_sha": "8002da3b38aef1c2e4975910475bbde1a9292035",
+  "runtime_home": "8a25794c8e26ed926052d74c7d747b099ab5aab9",
+  "consumer_sha": "8a25794c8e26ed926052d74c7d747b099ab5aab9",
+  "scopes": 46,
+  "reported_checks": 234,
+  "candidate_statuses": {
+    "failed": 42,
+    "unsupported": 38,
+    "passed": 7
+  },
+  "reference_statuses": {
+    "passed": 1,
+    "timed-out": 1,
+    "not-run": 48
+  },
+  "artifact": {
+    "id": 13746645335,
+    "sha256": "e2d557fb45d9071cd70ead4ca128ea4e44e346d2b8943cf23a69f91bb130f857",
+    "bytes": 164368
+  },
+  "report_sha256": "43f58cd13b63ac85dee7fffaa563913abd160f0f061211cef20b7127794c9a72",
+  "logs": [
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": -9,
+        "peak_sampled_rss_kib": 3150144,
+        "memory_limit_mb": 3072,
+        "seconds": 36.384,
+        "log": "0052.log",
+        "reason": "sampled command tree RSS exceeded 3072 MiB",
+        "label": ".: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bunx bunpress build"
+        ],
+        "engine_invocations": 1
+      },
+      "sha256": "7f66f474b38e6ea0c1f0c5f6be8bae11816446660707d89dcbc1bdb9b9b76ee5",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 3150144 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+    },
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 629804,
+        "memory_limit_mb": 3072,
+        "seconds": 1.304,
+        "log": "0054.log",
+        "label": ".: typecheck",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun --bun tsc --noEmit"
+        ],
+        "engine_invocations": 1
+      },
+      "sha256": "c845e745e25c409e6c9946157522fbb2032bd2b90fc2e301fa37051523cee20e",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun --bun tsc --noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 629804 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 270904,
+        "memory_limit_mb": 3072,
+        "seconds": 4.509,
+        "log": "0185.log",
+        "label": ".: build",
+        "lane": "reference",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bunx bunpress build"
+        ],
+        "engine_invocations": 0
+      },
+      "sha256": "8c44244e8042bec2023e41d098e58423ea31cd458e4944d91975a4654506a0b7",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\u001b[32m\u2713\u001b[0m Built 159 pages to HTML in 4.40s\n\nECOSYSTEM PEAK SAMPLED RSS: 270904 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "check": {
+        "status": "timed-out",
+        "exit_code": 124,
+        "peak_sampled_rss_kib": 2437576,
+        "memory_limit_mb": 3072,
+        "seconds": 193.91,
+        "log": "0186.log",
+        "reason": "command time budget exhausted",
+        "label": ".: test",
+        "lane": "reference",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun test"
+        ],
+        "engine_invocations": 0
+      },
+      "sha256": "b2ab044fea77c7a73d4773c5876af0e24353286bb36254f6fe6b2fa2929376a0",
+      "excerpt": "finalizer.node\n  SOLINK_MODULE(target) Debug/obj.target/test_reference_unref_in_finalizer_experimental.node\n  SOLINK_MODULE(target) Debug/obj.target/test_wrap_cleanup_order.node\n  SOLINK_MODULE(target) Debug/obj.target/throw_addon.node\n  SOLINK_MODULE(target) Debug/obj.target/undefined_addon.node\n  COPY Debug/async_finalize_addon.node\n  COPY Debug/constructor_order_addon.node\n  COPY Debug/ffi_addon_1.node\n  COPY Debug/ffi_addon_2.node\n  COPY Debug/isolate_finalizer_addon.node\n  COPY Debug/napitests.node\n  COPY Debug/null_addon.node\n  COPY Debug/nullptr_addon.node\n  COPY Debug/reentrant_register_addon.node\n  COPY Debug/second_addon.node\n  COPY Debug/test_async_cleanup_hook_remove_nonexistent.node\n  COPY Debug/test_cleanup_hook_duplicates.node\n  COPY Debug/test_cleanup_hook_duplicates_release.node\n  COPY Debug/test_cleanup_hook_mixed_order.node\n  COPY Debug/test_cleanup_hook_modification_during_iteration.node\n  COPY Debug/test_cleanup_hook_order.node\n  COPY Debug/test_cleanup_hook_remove_nonexistent.node\n  COPY Debug/test_finalizer_iterator_invalidation.node\n  COPY Debug/test_reference_unref_in_finalizer.node\n  COPY Debug/test_reference_unref_in_finalizer_experimental.node\n  COPY Debug/test_wrap_cleanup_order.node\n  COPY Debug/throw_addon.node\n  COPY Debug/undefined_addon.node\nmake: Leaving directory '/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/test/napi/napi-app/build'\ngyp info ok \n[Scripts] Finished scripts for \"napi-buffer-bug\"\n\nChecked 109 installs across 95 packages (no changes) [69.59s]\n[69.60s] Building node-gyp\nBundled 14 modules in 1036ms\n\n  main.js                                                         30.29 KB  (entry point)\n  napitests-te86yqas.node                                         2.14 MB   (asset)\n  second_addon-01q4pz1v.node                                      20.99 KB  (asset)\n  async_finalize_addon-4bxep3k3.node                              21.82 KB  (asset)\n  test_reference_unref_in_finalizer-0chn1h8p.node                 30.55 KB  (asset)\n  test_reference_unref_in_finalizer_experimental-21sbeba3.node    24.18 KB  (asset)\n  constructor_order_addon-e0j0kb7q.node                           19.49 KB  (asset)\n  test_cleanup_hook_order-2mth7hgz.node                           20.0 KB   (asset)\n  test_cleanup_hook_remove_nonexistent-j36eafnt.node              19.59 KB  (asset)\n  test_async_cleanup_hook_remove_nonexistent-9ynxnrsx.node        19.55 KB  (asset)\n  test_cleanup_hook_duplicates-jym9w79v.node                      19.66 KB  (asset)\n  test_cleanup_hook_mixed_order-ze4qjjv7.node                     20.65 KB  (asset)\n  test_cleanup_hook_modification_during_iteration-g6w40azd.node   20.61 KB  (asset)\n\n(pass) napi > bundle .node files to esm via > target node > Bun.build [2169.07ms]\nBundled 14 modules in 108ms\n\n  main.js                                                         30.25 KB  (entry point)\n  napitests-te86yqas.node                                         2.14 MB   (asset)\n  second_addon-01q4pz1v.node                                      20.99 KB  (asset)\n  async_finalize_addon-4bxep3k3.node                              21.82 KB  (asset)\n  test_reference_unref_in_finalizer-0chn1h8p.node                 30.55 KB  (asset)\n  test_reference_unref_in_finalizer_experimental-21sbeba3.node    24.18 KB  (asset)\n  constructor_order_addon-e0j0kb7q.node                           19.49 KB  (asset)\n  test_cleanup_hook_order-2mth7hgz.node                           20.0 KB   (asset)\n  test_cleanup_hook_remove_nonexistent-j36eafnt.node              19.59 KB  (asset)\n  test_async_cleanup_hook_remove_nonexistent-9ynxnrsx.node        19.55 KB  (asset)\n  test_cleanup_hook_duplicates-jym9w79v.node                      19.66 KB  (asset)\n  test_cleanup_hook_mixed_order-ze4qjjv7.node                     20.65 KB  (asset)\n  test_cleanup_hook_modification_during_iteration-g6w40azd.node   20.61 KB  (asset)\n\n(pass) napi > bundle .node files to esm via > target bun > Bun.build [131.84ms]\n  [13ms]  bundle  14 modules\n\nECOSYSTEM PEAK SAMPLED RSS: 2437576 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: command time budget exhausted\n\nECOSYSTEM RESULT: timed-out, exit 124\n"
+    }
+  ],
+  "interpretation": [
+    "All234checks are reported, not all executed:48reference checks are not-run because the repository budget expires. Candidate7pass/42fail/38unsupported;46scopes retained.",
+    "Root docs exceeds3072MiB; native Home root typecheck passes. Reference root docs passes, then the root reference test command times out; no later reference pass or package-test execution inferred.",
+    "No orchestrator cleanup exception in this run; this does not prove the earlier Linux SIGKILL survival fault is fixed.",
+    "This consumer uses Home8a/engine800 and predates export-precedencef80."
+  ]
+}
