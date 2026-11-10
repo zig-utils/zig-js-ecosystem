@@ -1,0 +1,424 @@
+{
+  "schema_version": 1,
+  "run_id": 42721958424,
+  "run_url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42721958424",
+  "suite_ref": "94373e10a88fbcaa9fa8155a691d390947cd8807",
+  "engine_sha": "58cef91b45cc3f30f32accd61f572ecbde2228da",
+  "artifact_id": 13721977868,
+  "artifact_name": "ecosystem-report",
+  "artifact_zip_sha256": "6c2f8dc0cd9b0cfc545e0d87ce41a04f6ebb815dd39de58d064b10c3bd3084c6",
+  "digest_verified_against_download": true,
+  "consumers": [
+    {
+      "repository": "stacksjs/stacks",
+      "sha": "ec12d68abea59b1de25592e59bb02cd915557209",
+      "report_sha256": "1364ada9084d57cdab44b1692bc099102e2e0342e3d90fcc778ab4ea3ce36fd6",
+      "scope_count": 99,
+      "check_count": 927,
+      "statuses": {
+        "passed": 110,
+        "unsupported": 355,
+        "failed": 227,
+        "timed-out": 1,
+        "not-run": 234
+      },
+      "lanes": {
+        "candidate": {
+          "unsupported": 355,
+          "failed": 211,
+          "passed": 59
+        },
+        "engine": {
+          "passed": 1
+        },
+        "reference": {
+          "passed": 24,
+          "failed": 16,
+          "timed-out": 1,
+          "not-run": 234
+        },
+        "reference-setup": {
+          "passed": 10
+        },
+        "setup": {
+          "passed": 16
+        }
+      },
+      "selected_actual_checks": [
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 1677964,
+          "memory_limit_mb": 3072,
+          "seconds": 10.454,
+          "log": "0016.log",
+          "label": ".: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "./buddy build"
+          ],
+          "engine_invocations": 3,
+          "log_sha256": "2b15151b52d40b36533f5b7eee94675cf2d8d961f2b95f52996281c08d204dba",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-09T23:48:49.624Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 1677964 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 1723552,
+          "memory_limit_mb": 3072,
+          "seconds": 11.432,
+          "log": "0018.log",
+          "label": ".: typecheck",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)"
+          ],
+          "engine_invocations": 3,
+          "log_sha256": "83e0de4c8961e52b47d346e5c1a5fee9976002de790c053a7d4d2a2c105933b9",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\n[2026-11-09T23:49:11.897Z] local.INFO: Building @stacksjs/validation...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 1723552 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ],
+      "failed_setup": []
+    },
+    {
+      "repository": "home-lang/home",
+      "sha": "1a1fa2dac95c46530e009d325cdf055713d9627c",
+      "report_sha256": "c5855b541be70800570574c3e6ea993049ab229ad23dc4dd853fc996c7c39805",
+      "scope_count": 46,
+      "check_count": 234,
+      "statuses": {
+        "passed": 96,
+        "failed": 51,
+        "timed-out": 3,
+        "unsupported": 38,
+        "not-run": 46
+      },
+      "lanes": {
+        "candidate": {
+          "failed": 42,
+          "unsupported": 38,
+          "passed": 7
+        },
+        "direct-consumer": {
+          "passed": 4
+        },
+        "engine": {
+          "passed": 1
+        },
+        "reference": {
+          "passed": 2,
+          "failed": 1,
+          "timed-out": 1,
+          "not-run": 46
+        },
+        "reference-setup": {
+          "passed": 38,
+          "failed": 4,
+          "timed-out": 1
+        },
+        "setup": {
+          "passed": 44,
+          "failed": 4,
+          "timed-out": 1
+        }
+      },
+      "selected_actual_checks": [
+        {
+          "status": "failed",
+          "exit_code": -9,
+          "peak_sampled_rss_kib": 3156204,
+          "memory_limit_mb": 3072,
+          "seconds": 36.141,
+          "log": "0052.log",
+          "reason": "sampled command tree RSS exceeded 3072 MiB",
+          "label": ".: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bunx bunpress build"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "8d60dd4d51688d1e804ebd5706a90a561c41cc5e95bd0fa0c776c57d5fc11f38",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 3156204 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+        },
+        {
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 625600,
+          "memory_limit_mb": 3072,
+          "seconds": 1.301,
+          "log": "0054.log",
+          "label": ".: typecheck",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun --bun tsc --noEmit"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "e50e15b186afe84ab972921a631ff77b039ad7142e45b6634e9fa79e7985a374",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun --bun tsc --noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 625600 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        },
+        {
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 273556,
+          "memory_limit_mb": 3072,
+          "seconds": 4.683,
+          "log": "0185.log",
+          "label": ".: build",
+          "lane": "reference",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bunx bunpress build"
+          ],
+          "engine_invocations": 0,
+          "log_sha256": "d0a32302e44f3f3e11baa5e724688588852069d02381424b5e5959a86ae98aaa",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\u001b[32m\u2713\u001b[0m Built 159 pages to HTML in 4.59s\n\nECOSYSTEM PEAK SAMPLED RSS: 273556 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 2700220,
+          "memory_limit_mb": 3072,
+          "seconds": 176.647,
+          "log": "0186.log",
+          "label": ".: test",
+          "lane": "reference",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun test"
+          ],
+          "engine_invocations": 0,
+          "log_sha256": "f28431e450d692e419636297377b24df4bfa587f8ed18071ae28d77723f19e00",
+          "log_excerpt": "yncContextFrame in napi_make_callback [105.16ms]\n(pass) cleanup hooks > napi_typeof > should accept AsyncContextFrame in napi_create_threadsafe_function with null call_js_cb [184.14ms]\n(pass) cleanup hooks > napi_typeof > should return napi_object for boxed primitives (String, Number, Boolean) [54.72ms]\n(pass) cleanup hooks > napi_object_freeze and napi_object_seal > should handle arrays with indexed properties [53.23ms]\n(pass) cleanup hooks > error handling > removing non-existent env cleanup hook should not crash [58.33ms]\n(pass) cleanup hooks > error handling > removing non-existent async cleanup hook should not crash [56.31ms]\n(pass) cleanup hooks > duplicate prevention > should crash on duplicate hooks [1654.31ms]\n\n::endgroup::\n\n::group::packages/runtime/upstream/test/v8/v8.test.ts:\nbun install v1.4.4 (38afee6c8)\nSaved lockfile\n\n+ node-gyp@11.2.0\n\n90 packages installed [1152.00ms]\nbun install v1.4.4 (38afee6c8)\nSaved lockfile\n\n+ node-gyp@11.2.0\n\n90 packages installed [642.00ms]\nbun install v1.4.4 (38afee6c8)\nSaved lockfile\n\n+ node-gyp@11.2.0\n\n90 packages installed [1352.00ms]\nbun install v1.4.4 (38afee6c8)\nSaved lockfile\n\n+ node-gyp@11.2.0\n\n90 packages installed [395.00ms]\nkilled 1 dangling process\n::error title=error: Test \"(unnamed)\" timed out after 5000ms::\n(fail) node:v8 > (unnamed) [5000.12ms]\n  ^ a beforeEach/afterEach hook timed out for this test.\n\n::endgroup::\n\n::group::packages/runtime/upstream/test/internal/powershell-escape.test.ts:\n\n# Unhandled error between tests\n-------------------------------\n-------------------------------\n\n\n::group::packages/runtime/upstream/test/internal/fifo.test.ts:\n\n# Unhandled error between tests\n-------------------------------\n-------------------------------\n\n\n::group::packages/runtime/upstream/test/internal/sigaction-layout.test.ts:\n15 | \n16 | test.skipIf(!isPosix)(\"bun.sys.Sigaction matches the host libc's struct sigaction\", () => {\n17 |   // Resolve lazily so a build without the binding fails this test rather\n18 |   // than erroring at module load (which the junit reporter counts as 0\n19 |   // failures).\n20 |   const { sigactionLayout } = require(\"bun:internal-for-testing\") as typeof import(\"bun:internal-for-testing\");\n                                   ^\nBuildMessage: ENOENT reading \"bun:internal-for-testing\"\n      at <anonymous> (/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/test/internal/sigaction-layout.test.ts:20:31)\n\n::error file=.work/home-lang--home/reference/packages/runtime/upstream/test/internal/sigaction-layout.test.ts,line=20,col=31,title=BuildMessage: ENOENT reading \"bun%3Ainternal-for-testing\"::%0A      at <anonymous> (/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/test/internal/sigaction-layout.test.ts:20:31)\n(fail) bun.sys.Sigaction matches the host libc's struct sigaction [0.27ms]\n\n::endgroup::\n\n::group::packages/runtime/upstream/test/internal/int_from_float.test.ts:\ngyp info it worked if it ends with ok\ngyp info using node-gyp@11.2.0\ngyp info using node@26.3.0 | linux | x64\ngyp info find Python using Python version 3.12.3 found at \"/usr/bin/python3\"\nerror: Failed to run \"node-gyp\" due to signal SIGTERM (Polite quit request)\n\n\n\nbuild failed: 143, bailing out\n\nECOSYSTEM PEAK SAMPLED RSS: 2700220 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 127512,
+          "memory_limit_mb": 3072,
+          "seconds": 1.903,
+          "log": "0187.log",
+          "label": ".: typecheck",
+          "lane": "reference",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun --bun tsc --noEmit"
+          ],
+          "engine_invocations": 0,
+          "log_sha256": "c547d2efa7eb9a5bde2df7df084077a62bd42a19694fc3339a0b3273204c8d96",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun --bun tsc --noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 127512 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        }
+      ],
+      "failed_setup": [
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 74088,
+          "memory_limit_mb": 3072,
+          "seconds": 0.329,
+          "log": "0016.log",
+          "label": "packages/runtime/src/runtime/cli/init/react-shadcn: dependencies",
+          "lane": "setup",
+          "command": [
+            "/home/runner/.bun/bin/bun",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate",
+            "--frozen-lockfile"
+          ],
+          "engine_invocations": 0,
+          "log_sha256": "2053ac479e34a452fee02b8af80e983392278f72966f5dddf00e38a4b195a369",
+          "log_excerpt": "$ [\"/home/runner/.bun/bin/bun\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate\", \"--frozen-lockfile\"]\n{\n  \"dependency_setup\": {\n    \"reused\": false,\n    \"reason\": \"independent install or locked scope\",\n    \"dependencies\": []\n  }\n}\nbun install v1.4.4 (38afee6c8)\nResolving dependencies\nResolved, downloaded and extracted [8]\nerror: lockfile had changes, but lockfile is frozen\nnote: dependencies in package.json changed since bun.lock was saved: tw-animate-css is in different dependency groups\nnote: try re-running without --frozen-lockfile and commit the updated lockfile\n\nECOSYSTEM PEAK SAMPLED RSS: 74088 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 21380,
+          "memory_limit_mb": 3072,
+          "seconds": 0.026,
+          "log": "0017.log",
+          "label": "packages/runtime/src/runtime/cli/init/react-tailwind: dependencies",
+          "lane": "setup",
+          "command": [
+            "/home/runner/.bun/bin/bun",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate",
+            "--frozen-lockfile"
+          ],
+          "engine_invocations": 0,
+          "log_sha256": "ca382915ceffba7e3c7d8073b6f27f90a53cdbd44c2a0da148f5461edb435a26",
+          "log_excerpt": "$ [\"/home/runner/.bun/bin/bun\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate\", \"--frozen-lockfile\"]\n{\n  \"dependency_setup\": {\n    \"reused\": false,\n    \"reason\": \"independent install or locked scope\",\n    \"dependencies\": []\n  }\n}\nbun install v1.4.4 (38afee6c8)\nerror: lockfile had changes, but lockfile is frozen\nnote: dependencies in package.json changed since bun.lock was saved: bun-plugin-tailwind changed from ^0.0.15 to ^0.1.2\nnote: try re-running without --frozen-lockfile and commit the updated lockfile\n\nECOSYSTEM PEAK SAMPLED RSS: 21380 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "timed-out",
+          "exit_code": 124,
+          "peak_sampled_rss_kib": 135544,
+          "memory_limit_mb": 3072,
+          "seconds": 300.021,
+          "log": "0019.log",
+          "reason": "command time budget exhausted",
+          "label": "packages/runtime/upstream/bench: dependencies",
+          "lane": "setup",
+          "command": [
+            "/home/runner/.bun/bin/bun",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate",
+            "--frozen-lockfile"
+          ],
+          "engine_invocations": 0,
+          "log_sha256": "43a96ff0d89082e8fb0f437a5b073fc15116e3970696b8dc510126a660c42e08",
+          "log_excerpt": "$ [\"/home/runner/.bun/bin/bun\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate\", \"--frozen-lockfile\"]\n{\n  \"dependency_setup\": {\n    \"reused\": false,\n    \"reason\": \"independent install or locked scope\",\n    \"dependencies\": []\n  }\n}\n[0.02ms] \".env\"\nbun install v1.4.4 (38afee6c8)\n\nECOSYSTEM PEAK SAMPLED RSS: 135544 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: command time budget exhausted\n\nECOSYSTEM RESULT: timed-out, exit 124\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 21388,
+          "memory_limit_mb": 3072,
+          "seconds": 0.076,
+          "log": "0050.log",
+          "label": "packages/runtime/upstream/src/runtime/cli/init/react-shadcn: dependencies",
+          "lane": "setup",
+          "command": [
+            "/home/runner/.bun/bin/bun",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate",
+            "--frozen-lockfile"
+          ],
+          "engine_invocations": 0,
+          "log_sha256": "b2fd723e521d10471cb6b10c3f040563533a616bd41d2fe3095cd8d3cc600506",
+          "log_excerpt": "$ [\"/home/runner/.bun/bin/bun\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate\", \"--frozen-lockfile\"]\n{\n  \"dependency_setup\": {\n    \"reused\": false,\n    \"reason\": \"independent install or locked scope\",\n    \"dependencies\": []\n  }\n}\nbun install v1.4.4 (38afee6c8)\nResolving dependencies\nResolved, downloaded and extracted [3]\nerror: lockfile had changes, but lockfile is frozen\nnote: dependencies in package.json changed since bun.lock was saved: tw-animate-css is in different dependency groups\nnote: try re-running without --frozen-lockfile and commit the updated lockfile\n\nECOSYSTEM PEAK SAMPLED RSS: 21388 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 20132,
+          "memory_limit_mb": 3072,
+          "seconds": 0.026,
+          "log": "0051.log",
+          "label": "packages/runtime/upstream/src/runtime/cli/init/react-tailwind: dependencies",
+          "lane": "setup",
+          "command": [
+            "/home/runner/.bun/bin/bun",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate",
+            "--frozen-lockfile"
+          ],
+          "engine_invocations": 0,
+          "log_sha256": "0bb512a35affac9c783b60b21340ae6573533a6975200f5339329ddcfa44a9a5",
+          "log_excerpt": "$ [\"/home/runner/.bun/bin/bun\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate\", \"--frozen-lockfile\"]\n{\n  \"dependency_setup\": {\n    \"reused\": false,\n    \"reason\": \"independent install or locked scope\",\n    \"dependencies\": []\n  }\n}\nbun install v1.4.4 (38afee6c8)\nerror: lockfile had changes, but lockfile is frozen\nnote: dependencies in package.json changed since bun.lock was saved: bun-plugin-tailwind changed from ^0.0.15 to ^0.1.2\nnote: try re-running without --frozen-lockfile and commit the updated lockfile\n\nECOSYSTEM PEAK SAMPLED RSS: 20132 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 80552,
+          "memory_limit_mb": 3072,
+          "seconds": 0.331,
+          "log": "0149.log",
+          "label": "packages/runtime/src/runtime/cli/init/react-shadcn: reference dependencies",
+          "lane": "reference-setup",
+          "command": [
+            "/home/runner/.bun/bin/bun",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference",
+            "--frozen-lockfile"
+          ],
+          "engine_invocations": 0,
+          "log_sha256": "32f6505d4dd5e5d1981f5186ffbf145a3360277e7528409097a90be478911e97",
+          "log_excerpt": "$ [\"/home/runner/.bun/bin/bun\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference\", \"--frozen-lockfile\"]\n{\n  \"dependency_setup\": {\n    \"reused\": false,\n    \"reason\": \"independent install or locked scope\",\n    \"dependencies\": []\n  }\n}\nbun install v1.4.4 (38afee6c8)\nResolving dependencies\nResolved, downloaded and extracted [8]\nerror: lockfile had changes, but lockfile is frozen\nnote: dependencies in package.json changed since bun.lock was saved: tw-animate-css is in different dependency groups\nnote: try re-running without --frozen-lockfile and commit the updated lockfile\n\nECOSYSTEM PEAK SAMPLED RSS: 80552 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 20160,
+          "memory_limit_mb": 3072,
+          "seconds": 0.027,
+          "log": "0150.log",
+          "label": "packages/runtime/src/runtime/cli/init/react-tailwind: reference dependencies",
+          "lane": "reference-setup",
+          "command": [
+            "/home/runner/.bun/bin/bun",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference",
+            "--frozen-lockfile"
+          ],
+          "engine_invocations": 0,
+          "log_sha256": "6cdc04a76dcdcb93490968c06577aad0f7b299b48246e27ec112e6f6d1ba2361",
+          "log_excerpt": "$ [\"/home/runner/.bun/bin/bun\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference\", \"--frozen-lockfile\"]\n{\n  \"dependency_setup\": {\n    \"reused\": false,\n    \"reason\": \"independent install or locked scope\",\n    \"dependencies\": []\n  }\n}\nbun install v1.4.4 (38afee6c8)\nerror: lockfile had changes, but lockfile is frozen\nnote: dependencies in package.json changed since bun.lock was saved: bun-plugin-tailwind changed from ^0.0.15 to ^0.1.2\nnote: try re-running without --frozen-lockfile and commit the updated lockfile\n\nECOSYSTEM PEAK SAMPLED RSS: 20160 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "timed-out",
+          "exit_code": 124,
+          "peak_sampled_rss_kib": 126512,
+          "memory_limit_mb": 3072,
+          "seconds": 300.021,
+          "log": "0152.log",
+          "reason": "command time budget exhausted",
+          "label": "packages/runtime/upstream/bench: reference dependencies",
+          "lane": "reference-setup",
+          "command": [
+            "/home/runner/.bun/bin/bun",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference",
+            "--frozen-lockfile"
+          ],
+          "engine_invocations": 0,
+          "log_sha256": "e9fae6e1c92f4e77f96da627d98ac68247b7ea31acd76758eca8429419f77dbe",
+          "log_excerpt": "$ [\"/home/runner/.bun/bin/bun\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference\", \"--frozen-lockfile\"]\n{\n  \"dependency_setup\": {\n    \"reused\": false,\n    \"reason\": \"independent install or locked scope\",\n    \"dependencies\": []\n  }\n}\n[0.02ms] \".env\"\nbun install v1.4.4 (38afee6c8)\n\nECOSYSTEM PEAK SAMPLED RSS: 126512 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: command time budget exhausted\n\nECOSYSTEM RESULT: timed-out, exit 124\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 21676,
+          "memory_limit_mb": 3072,
+          "seconds": 0.076,
+          "log": "0183.log",
+          "label": "packages/runtime/upstream/src/runtime/cli/init/react-shadcn: reference dependencies",
+          "lane": "reference-setup",
+          "command": [
+            "/home/runner/.bun/bin/bun",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference",
+            "--frozen-lockfile"
+          ],
+          "engine_invocations": 0,
+          "log_sha256": "ecd59fdf686b4c7287a0bba60993896de0d8ca64701301fe3f916b216300162a",
+          "log_excerpt": "$ [\"/home/runner/.bun/bin/bun\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference\", \"--frozen-lockfile\"]\n{\n  \"dependency_setup\": {\n    \"reused\": false,\n    \"reason\": \"independent install or locked scope\",\n    \"dependencies\": []\n  }\n}\nbun install v1.4.4 (38afee6c8)\nResolving dependencies\nResolved, downloaded and extracted [3]\nerror: lockfile had changes, but lockfile is frozen\nnote: dependencies in package.json changed since bun.lock was saved: tw-animate-css is in different dependency groups\nnote: try re-running without --frozen-lockfile and commit the updated lockfile\n\nECOSYSTEM PEAK SAMPLED RSS: 21676 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 20944,
+          "memory_limit_mb": 3072,
+          "seconds": 0.027,
+          "log": "0184.log",
+          "label": "packages/runtime/upstream/src/runtime/cli/init/react-tailwind: reference dependencies",
+          "lane": "reference-setup",
+          "command": [
+            "/home/runner/.bun/bin/bun",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+            "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference",
+            "--frozen-lockfile"
+          ],
+          "engine_invocations": 0,
+          "log_sha256": "2acd1e1eebc8eb7038ee3252eb7eabdae6633348ce766f56fde964227ac6ad30",
+          "log_excerpt": "$ [\"/home/runner/.bun/bin/bun\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference\", \"--frozen-lockfile\"]\n{\n  \"dependency_setup\": {\n    \"reused\": false,\n    \"reason\": \"independent install or locked scope\",\n    \"dependencies\": []\n  }\n}\nbun install v1.4.4 (38afee6c8)\nerror: lockfile had changes, but lockfile is frozen\nnote: dependencies in package.json changed since bun.lock was saved: bun-plugin-tailwind changed from ^0.0.15 to ^0.1.2\nnote: try re-running without --frozen-lockfile and commit the updated lockfile\n\nECOSYSTEM PEAK SAMPLED RSS: 20944 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Both jobs failed real package checks after successful provenance/CPU preflights; qualifying the shared runtime does not mark these packages green.",
+    "Stacks artifact cohort is ec12d68a; Home source/runtime is 1a1fa2dac. Do not attribute differences from older consumer revisions solely to Buffer changes.",
+    "Next inflate suite uses Home11fa96dad and newer engined68f804e; these are prior-run observations, not new-suite results.",
+    "Home template frozen-lockfile failures affect both candidate/reference setup; no lockfiles or mirrored upstream templates were silently changed."
+  ]
+}
