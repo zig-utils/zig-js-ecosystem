@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "functional_suite_sha": "2468713d58d2bcc4985a06bfa1e7d23a4536f41a",
+  "home_sha": "848e5cf076601fefea75e76ad2ad07aff5a5d54a",
+  "engine_sha": "8a77be3eac722dba4a0ef47909b56e9c1b409732",
+  "qualification_run": 42897247481,
+  "runtime_job": 130113888442,
+  "validation": {
+    "run": 42897196302,
+    "job": 130113316012,
+    "conclusion": "success",
+    "python_tests": 42,
+    "dependency_tests": 7,
+    "dependency_assertions": 26
+  },
+  "runtime_artifact": {
+    "artifact_id": 13801821311,
+    "zip_bytes": 39212882,
+    "zip_sha256": "e97e8ab1359d3f9b429e1419cff5079b721cb233773ae53d892e71e632267239",
+    "provenance": {
+      "engine_sha": "8a77be3eac722dba4a0ef47909b56e9c1b409732",
+      "suite_ref": "2468713d58d2bcc4985a06bfa1e7d23a4536f41a",
+      "home_repository": "home-lang/home",
+      "home_ref": "848e5cf076601fefea75e76ad2ad07aff5a5d54a",
+      "zig_version": "0.18.0-dev.146+35accc06e",
+      "build_cpu": "baseline",
+      "build_optimize": "ReleaseSafe",
+      "sha256": {
+        "home-tool": "2f46253f09b1b02bed7d13c5995d3e68d9be25be123110d256c565c4af032bb6",
+        "engine/zig-out/lib/libzig-js.a": "fd1a630609db4fd71dd49660e0e528bd2b37dac32e5e19d5fd2a2e3d322c1831"
+      }
+    },
+    "files": {
+      "engine/zig-out/lib/libzig-js.a": "fd1a630609db4fd71dd49660e0e528bd2b37dac32e5e19d5fd2a2e3d322c1831",
+      "home-tool": "2f46253f09b1b02bed7d13c5995d3e68d9be25be123110d256c565c4af032bb6"
+    }
+  },
+  "runtime_log": {
+    "sha256": "d2fad8f02daefacf3c629c991c0d17998f3afa6d89b6b6cbbd5aadf1dbc4d7b1",
+    "signals": [
+      "2026-11-10T20:44:39.3632841Z NODE CRYPTO UUID 23 CHECKS OK",
+      "2026-11-10T20:44:39.3692521Z NODE AVAILABLE PARALLELISM 12 CHECKS OK; native estimate 4",
+      "2026-11-10T20:44:39.3802571Z NODE RMDIR 11 CHECKS OK",
+      "2026-11-10T20:44:39.3852271Z NODE SYNC FS 18 CHECKS OK",
+      "2026-11-10T20:44:39.3903033Z NODE MKDTEMP 13 CHECKS OK",
+      "2026-11-10T20:45:26.8836122Z 1/5 tool_cpu.test.CPU quota parsing preserves unlimited, malformed and fractional cases...OK",
+      "2026-11-10T20:45:26.8843975Z 2/5 tool_cpu.test.cgroup v2 reads actual hierarchical quota files without caching...OK",
+      "2026-11-10T20:45:26.8851099Z 3/5 tool_cpu.test.cgroup v1 reads controller membership and real quota period pairs...OK",
+      "2026-11-10T20:45:26.8854617Z 4/5 tool_cpu.test.available parallelism queries this native operating system...OK",
+      "2026-11-10T20:45:26.8855362Z 5/5 tool_cpu_affinity_linux_test.test.native availability follows changed Linux affinity and restores it...OK",
+      "2026-11-10T20:45:26.8855921Z All 5 tests passed."
+    ]
+  },
+  "copy_gate_evidence": {
+    "mechanism": "Mandatory uncached fresh-checkout Zig Run step invokes tracked Python driver with actual home-tool and both JS fixtures; expectStdOutEqual compares the exact three output lines and fails build on a mismatch or nonzero child status. Successful stdout is captured by Zig, so this is an expected-output gate pass, not a claim those lines appear in raw CI logs.",
+    "expected_stdout": "NODE CP 49 CHECKS OK\nNODE CP UNSUPPORTED 12 CHECKS OK\nHOST CP INDEPENDENT 9 MiB FILE HASHES OK\n",
+    "immutable_home_source_evidence": "2026-11-10-home-native-copy.json",
+    "runtime_step_9": "success; original host/module gates and new copy gate all passed",
+    "compatibility_groups": 126,
+    "explicit_unsupported_profile_checks": 12,
+    "native_cpu_tests": 5
+  },
+  "actual_priority_preflights": {
+    "home-lang/home": {
+      "job": 130117580768,
+      "provenance_step_7": "success",
+      "cpu_step_8": "success",
+      "package_step_9": "in_progress"
+    },
+    "stacksjs/stacks": {
+      "job": 130117580948,
+      "provenance_step_7": "success",
+      "cpu_step_8": "success",
+      "package_step_9": "in_progress"
+    }
+  },
+  "caller_commit": "7caf047cf0eeba2dbe57aad89b0bec68115631fd",
+  "caller_pin": "both uses and suite_ref exactly2468713d58d2bcc4985a06bfa1e7d23a4536f41a",
+  "every_push_run": 42898669951,
+  "all_selected_coverage": "224 selected consumers retained; older all-selected runs not cancelled",
+  "local_actual_stacks_output": "All3031files/32848313bytes equal reference hashes and modes through both providers; no fresh full Linux consumer success claimed",
+  "preserved": "Chris configured Git identities, no trailers, explicit paths; foreign GC/threadfuzz commits and untracked zig-pkg preserved; limits unchanged",
+  "public_site": {
+    "url": "https://zig-utils.github.io/zig-js-ecosystem/",
+    "verified_http": {
+      "index": {
+        "status": 200,
+        "bytes": 515958,
+        "sha256": "228959633d31acb0730f1361c6b04b1b7a8dabbd67cd85ebbf1a228e651797e4"
+      },
+      "snapshot.json": {
+        "status": 200,
+        "bytes": 3098385,
+        "sha256": "aaf1b6aa4f6b7c9dcfc8a91d23ca76e499c835cf5bd1b1052c0a2b37d7dd5be4"
+      }
+    },
+    "snapshot_generated_at": "2026-11-10T19:57:06+00:00",
+    "records": 224,
+    "warnings": [],
+    "priority_measured_run": 42884375355,
+    "note": "Dashboard truthfully shows older measured CPU consumer results while new copy consumers execute; no fabricated copy pass."
+  }
+}

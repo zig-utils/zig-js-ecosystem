@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "status": "reproduced, not fixed",
+  "home_sha": "848e5cf076601fefea75e76ad2ad07aff5a5d54a",
+  "local_engine_sha": "73ee013e8451aaadeb0402ab894cf2e24b2ede46",
+  "consumer_sha": "8b9e1572fee6a8345213159d892fd82d91604927",
+  "actual_package_commands": {
+    "next-blockers-before.json": {
+      "api": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 286064,
+        "memory_limit_mb": 3072,
+        "seconds": 1.866,
+        "log": "next-api-before.log",
+        "log_sha256": "5bdbc57c2de48947c3cdcfbc91ba0c5266f85d8758c14738cc09a143f4969f1b",
+        "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-copy/after-zig-js/bin/home-tool\", \"run\", \"build.ts\"]\n[2026-11-10T20:40:04.063Z] local.INFO: Building @stacksjs/api...\nhome-tool (zig-js): Error: Home node:fs currently supports string paths only\n\nECOSYSTEM PEAK SAMPLED RSS: 286064 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1"
+      },
+      "objects": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 285136,
+        "memory_limit_mb": 3072,
+        "seconds": 1.445,
+        "log": "next-objects-before.log",
+        "log_sha256": "3ad3f6a738f4d30c42bad549dcd252ef665c53669469852241ef8c43920d5a3c",
+        "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-copy/after-zig-js/bin/home-tool\", \"run\", \"build.ts\"]\n[2026-11-10T20:40:05.619Z] local.INFO: Building @stacksjs/objects...\nhome-tool (zig-js): Error: Home node:fs currently supports string paths only\n\nECOSYSTEM PEAK SAMPLED RSS: 285136 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1"
+      }
+    },
+    "next-blockers-reference.json": {
+      "api": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 87712,
+        "memory_limit_mb": 3072,
+        "seconds": 0.153,
+        "log": "next-api-reference.log",
+        "log_sha256": "b55b019ccd8b1ce0f98b881e4f95be86f537e331aa0acec82c1b51d476ffdbc0",
+        "excerpt": "[0.18kb] dist/index.d.ts\n[2.77kb] dist/generate-types.d.ts\n[3.69kb] dist/generate-openapi.d.ts\n[0.39kb] dist/digest.d.ts\n[74ms] Built @stacksjs/api\n\nECOSYSTEM PEAK SAMPLED RSS: 87712 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "objects": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 256,
+        "memory_limit_mb": 3072,
+        "seconds": 0.111,
+        "log": "next-objects-reference.log",
+        "log_sha256": "df845f6030fe7eaf7282553856381422a57fb65c5393aefeb7515f18620b993d",
+        "excerpt": "[0.05kb] dist/tsconfig.json\n[8.14kb] dist/transform.d.ts\n[2.91kb] dist/index.d.ts\n[1.98kb] dist/transform.js\n[45ms] Built @stacksjs/objects\n\nECOSYSTEM PEAK SAMPLED RSS: 256 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0"
+      }
+    }
+  },
+  "url_receiver_diagnostic": {
+    "source": "const get = Object.getOwnPropertyDescriptor(URL.prototype, 'href').get;\nif (get.call(new URL('file:///tmp/real%20file')) !== 'file:///tmp/real%20file') throw new Error('actual URL href differs');\nlet checks = 1;\nfor (const value of [{}, Object.create(URL.prototype)]) {\n  let caught;\n  try { get.call(value); } catch (error) { caught = error; }\n  if (!(caught instanceof TypeError)) throw new Error('URL href getter accepted an object without URL state');\n  checks++;\n}\nconsole.log('URL RECEIVER ' + checks + ' CHECKS OK');\n",
+    "results": {
+      "node": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 33024,
+        "memory_limit_mb": 3072,
+        "seconds": 0.24,
+        "log": "url-receiver-node.log",
+        "log_sha256": "e77a06b8708426b65d6eab16330c35fd0f07477d8d816bd7e1416e8d7993bd7c",
+        "excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-copy/url-receiver-probe.mjs\"]\nURL RECEIVER 3 CHECKS OK\n\nECOSYSTEM PEAK SAMPLED RSS: 33024 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "bun": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 320,
+        "memory_limit_mb": 3072,
+        "seconds": 0.107,
+        "log": "url-receiver-bun.log",
+        "log_sha256": "8b25c3d5ca2ae8eb6cd55e22a3fd6285dfe71c6f70fda236903f1b277610d7c0",
+        "excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-copy/url-receiver-probe.mjs\"]\nURL RECEIVER 3 CHECKS OK\n\nECOSYSTEM PEAK SAMPLED RSS: 320 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "zig-js": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 19456,
+        "memory_limit_mb": 3072,
+        "seconds": 0.235,
+        "log": "url-receiver-zig-js.log",
+        "log_sha256": "3a25d419ec2cea1c4e51895c949f5bf59a4bb7d3ebd8245e52030ccf7b3c45a8",
+        "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-copy/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-copy/url-receiver-probe.mjs\"]\nhome-tool (zig-js): Error: URL href getter accepted an object without URL state\n\nECOSYSTEM PEAK SAMPLED RSS: 19456 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1"
+      },
+      "jsc": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 4688,
+        "memory_limit_mb": 3072,
+        "seconds": 0.042,
+        "log": "url-receiver-jsc.log",
+        "log_sha256": "95774daaf9df8f62a6ba0ad7eb2e6ab9e505dfebe34e51d76712bd435efab8b3",
+        "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-copy/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-copy/url-receiver-probe.mjs\"]\nhome-tool (jsc): ReferenceError: Can't find variable: URL\n\nECOSYSTEM PEAK SAMPLED RSS: 4688 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1"
+      }
+    }
+  },
+  "limits": [
+    "Next Stacks API/objects builds pass new URL(file:) objects to fs.promises.rm; current string-only adapter refuses them before Bun.build",
+    "Do not accept arbitrary href/toString duck objects as branded URLs",
+    "Diagnostic is against exact local pushed73ee Debug archive, not a newly measured Linux8a77 URL conformance claim",
+    "Node/Bun run all3receiver checks; local zig-js fails actual URL receiver validation; JSC has no URL global and fails before those3checks",
+    "No behavior change, fallback or compatibility pass claimed"
+  ]
+}
