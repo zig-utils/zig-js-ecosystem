@@ -1,0 +1,151 @@
+{
+  "observed_at": "2026-11-10 16:08:02 UTC",
+  "jobs": [
+    {
+      "id": 129941884870,
+      "name": "discover",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": []
+    },
+    {
+      "id": 129942908349,
+      "name": "runtime",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Build exact pushed engine archive",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Build Home against this engine",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Verify engine identity and Home host/module/TypeScript integration",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        }
+      ]
+    },
+    {
+      "id": 129948427008,
+      "name": "Consumers home-lang/home",
+      "status": "in_progress",
+      "conclusion": null,
+      "steps": [
+        {
+          "name": "Unpack and verify runtime provenance",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Verify shared runtime executes on this consumer CPU",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Check every selected package, library, CLI and app",
+          "status": "in_progress",
+          "conclusion": null,
+          "number": 9
+        }
+      ]
+    },
+    {
+      "id": 129948428595,
+      "name": "Consumers stacksjs/stacks",
+      "status": "in_progress",
+      "conclusion": null,
+      "steps": [
+        {
+          "name": "Unpack and verify runtime provenance",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Verify shared runtime executes on this consumer CPU",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Check every selected package, library, CLI and app",
+          "status": "in_progress",
+          "conclusion": null,
+          "number": 9
+        }
+      ]
+    }
+  ],
+  "schema_version": 1,
+  "functional_suite_ref": "c104b322b7c410d549c768d33f9ed05b9562fc48",
+  "home_ref": "0785dda1fc55af1034392c5543458034852c6c3b",
+  "baseline_engine_sha": "73ee013e8451aaadeb0402ab894cf2e24b2ede46",
+  "qualification_run": 42848355019,
+  "validation_run": 42848309717,
+  "caller_commit": "3c9955eca5f3e2a5dc42e59d631b74c89ec6990e",
+  "every_push_all_selected_run": 42851406404,
+  "verified_runtime": {
+    "artifact_id": 13780925283,
+    "zip_sha256": "1ad0c346f0087fdd6d04265e120a21c302b1ffb76786d74f6c305f520b9cd087",
+    "zip_bytes": 39074487,
+    "files": {
+      "engine/zig-out/lib/libzig-js.a": "fd24fb01dcd8c7dcc99158eebe34ccb604e2bf2c062f5ce12113471ed2aab83f",
+      "home-tool": "87ae60520b43a9a55ef81da413aa97b89596c82a78c9fad4515480fe24c4a967"
+    },
+    "provenance": {
+      "engine_sha": "73ee013e8451aaadeb0402ab894cf2e24b2ede46",
+      "suite_ref": "c104b322b7c410d549c768d33f9ed05b9562fc48",
+      "home_repository": "home-lang/home",
+      "home_ref": "0785dda1fc55af1034392c5543458034852c6c3b",
+      "zig_version": "0.18.0-dev.146+35accc06e",
+      "build_cpu": "baseline",
+      "build_optimize": "ReleaseSafe",
+      "sha256": {
+        "home-tool": "87ae60520b43a9a55ef81da413aa97b89596c82a78c9fad4515480fe24c4a967",
+        "engine/zig-out/lib/libzig-js.a": "fd24fb01dcd8c7dcc99158eebe34ccb604e2bf2c062f5ce12113471ed2aab83f"
+      }
+    }
+  },
+  "runtime_log_sha256": "0499596e33fb048504649887b757ce299136e069687d0dab57d57b17f47e8c4d",
+  "runtime_signals": [
+    "2026-11-10T15:58:47.8718989Z ##[group]Run zig-out/bin/home-tool eval 'if (Home.engine !== \"zig-js\") throw new Error(\"Wrong engine\"); console.log(\"ECOSYSTEM ENGINE zig-js\");'",
+    "2026-11-10T15:58:47.8719980Z \u001b[36;1mzig-out/bin/home-tool eval 'if (Home.engine !== \"zig-js\") throw new Error(\"Wrong engine\"); console.log(\"ECOSYSTEM ENGINE zig-js\");'\u001b[0m",
+    "2026-11-10T15:58:47.9062524Z ECOSYSTEM ENGINE zig-js",
+    "2026-11-10T15:59:04.4342631Z OK home-tool module interop",
+    "2026-11-10T15:59:09.0223296Z MODULE STACK ORIGINS 4 OK"
+  ],
+  "linux_validation": {
+    "job": 129941715965,
+    "log_sha256": "6172da6b5f93ebbf5b00058e4a29b98875a8600361a9be7dc2eeeb9ad39089d7",
+    "signals": [
+      "validate\tRun python3 -m unittest discover -s tests -v\t2026-11-10T15:50:55.8444018Z Ran 39 tests in 2.304s",
+      "validate\tVerify real workspace dependency setup\t2026-11-10T15:50:58.2879012Z  7 pass",
+      "validate\tVerify real workspace dependency setup\t2026-11-10T15:50:58.2879330Z  0 fail",
+      "validate\tVerify real workspace dependency setup\t2026-11-10T15:50:58.2879634Z  26 expect() calls"
+    ]
+  },
+  "preflight_log_availability": {
+    "home": "gh: HTTP 404\n",
+    "stacks": "gh: HTTP 404\n",
+    "interpretation": "Consumer package jobs remain running; raw job log endpoints return404 until completion. Official actual job metadata confirms both provenance/CPU steps7/8 passed. No downloaded consumer-log claim for this new qualification; prior complete73ee consumer artifacts/logs are retained separately."
+  },
+  "source_check": "git diff --quiet 73ee..3c9955ec -- src include build.zig build.zig.zon exits0; concurrent6212c55 audit-only commit preserved. Both caller fields pin exactly functionalc104b32, not an evidence-only descendant.",
+  "deployment_refresh_run": 42851624906,
+  "interpretation": [
+    "Fresh Linux baseline ReleaseSafe engine/Home0785 runtime gates pass including4 mandatory module source-origin operations; downloaded ZIP, both streamed files and provenance verified.",
+    "39Python tests and7real dependency tests/26assertions pass in immutable suite validation. Both actual priority consumer jobs pass provenance and CPU preflights; package checks9 remain in progress at qualification.",
+    "Caller actionlint/diff checks pass. Every new engine push still covers all selected consumers; older pushes were never cancelled. No whole-consumer/full-ecosystem pass claimed.",
+    "Keep genuine JPEG pixel-budget, v8/Bun.build, memory and unexecuted evidence. This promotion is diagnostic correctness and mandatory runtime coverage, not a template/root build fix."
+  ]
+}
