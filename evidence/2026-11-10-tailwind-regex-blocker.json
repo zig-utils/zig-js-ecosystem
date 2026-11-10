@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "home_ref": "26a474c6806acc7305fa4b3b905bda53d0d6814e",
+  "engine_local_archive_commit": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+  "engine_local_archive_sha256": "e141e082ae57b0d62f16d445291eb73f15332689daf47a6b7c1d36086bafb613",
+  "current_parser_source_ref": "7f333c08f2b3b7fe85184c8bc205d6199105f218",
+  "regex_source_ref": "16df9870ca4a4ec8d0b932e90a62a8b3fb9af563",
+  "emitted_factory": {
+    "bytes": 1418578,
+    "sha256": "15e778876d7fd97c006a1375fe56432188c4f803c1e93e7303e3a690d98ba199",
+    "capture": "Temporary local writeFileSync instrumentation immediately before factory eval, guarded home-tool build only, source restored byte-for-byte and git clean. No production debug hook added.",
+    "node_check": "passed; entire emitted factory syntax-valid"
+  },
+  "probe": {
+    "path": "evidence/probes/tailwind-comment-regex.js",
+    "sha256": "069a9870ce03f23dc08b1b8006c3d688a641a65d0408f0d082d4b09d74313b0e",
+    "source": "var r = /(?:\\s|\\/\\/.*|\\/\\*[^]*?\\*\\/)*/g;\nvar input = \" /*comment*/ //line\\n \";\nvar match = r.exec(input);\nif (match[0] !== input || r.lastIndex !== input.length) throw new Error(\"comment scan mismatch\");\nconsole.log(\"COMMENT REGEX OK\");\n"
+  },
+  "results": {
+    "node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 832,
+      "memory_limit_mb": 3072,
+      "seconds": 0.044,
+      "log": "node.log",
+      "command": [
+        "node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-engine-parser/comment-regex-runtime.js"
+      ],
+      "log_sha256": "225d97ee1fba93762b2cbce1975d25cb3619c37ea74926acbb47d63af5eacb18",
+      "output": "$ [\"node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-engine-parser/comment-regex-runtime.js\"]\nCOMMENT REGEX OK\n\nECOSYSTEM PEAK SAMPLED RSS: 832 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2144,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-engine-parser/comment-regex-runtime.js"
+      ],
+      "log_sha256": "86dc981fa4c3ff0497cd1eb6d7cbd09d06f34ff76643dbb835e861e8cee35aa9",
+      "output": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-engine-parser/comment-regex-runtime.js\"]\nCOMMENT REGEX OK\n\nECOSYSTEM PEAK SAMPLED RSS: 2144 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "home-zig-js": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.067,
+      "log": "home-zig-js.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/forof-sequence/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-engine-parser/comment-regex-runtime.js"
+      ],
+      "log_sha256": "63dfffd2bf0ed24c01c05172cbc61008fdeb3f389f50cd3cc7fa7dabe1010b5d",
+      "output": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/forof-sequence/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-engine-parser/comment-regex-runtime.js\"]\nhome-tool (zig-js): SyntaxError: Unexpected token\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "home-jsc": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.063,
+      "log": "home-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/forof-sequence/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-engine-parser/comment-regex-runtime.js"
+      ],
+      "log_sha256": "282261d1705eda3c34d6383eb88fce95a102310696fe064878c3a1aa1ca155e6",
+      "output": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/forof-sequence/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-engine-parser/comment-regex-runtime.js\"]\nCOMMENT REGEX OK\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "node-factory-check": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 816,
+      "memory_limit_mb": 3072,
+      "seconds": 0.043,
+      "log": "node-factory-check.log",
+      "command": [
+        "node",
+        "--check",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-engine-parser/tailwind-emitted-factory.js"
+      ],
+      "log_sha256": "cf020b686878411a0abd5fd60ebe194235e7022835812dae3b67f2b634adfe58",
+      "output": "$ [\"node\", \"--check\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-engine-parser/tailwind-emitted-factory.js\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 816 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "before-engine-factory": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6160,
+      "memory_limit_mb": 3072,
+      "seconds": 0.031,
+      "log": "before-engine-factory.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/engine-final/bin/test262",
+        "--eval",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-engine-parser/tailwind-emitted-factory.js"
+      ],
+      "log_sha256": "0164d1a60023cc96ce75cad5433a338dc3bd0a4b51c24e4b93c34f63c2233a0c",
+      "output": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/engine-final/bin/test262\", \"--eval\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-engine-parser/tailwind-emitted-factory.js\"]\nERR UnexpectedToken\n\nECOSYSTEM PEAK SAMPLED RSS: 6160 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+      "semantic_result": "failed: ERR UnexpectedToken; --eval exits0 for evaluation errors, so process status is not a JS pass"
+    }
+  },
+  "parser_diagnostic": {
+    "method": "Standalone Zig parser test with actual src/parser.zig; regex16df987 exactly matches current immutable dependency pin, no source edits. One test executed and failed.",
+    "source_sha256": "78229bcfa3860a19858fe208a6fbae76b2c9eb7f664735b97f8698cb0fb8a475",
+    "log_sha256": "ed419c23fab27dacaa81dc3608164d32c39384d86fe0617e91e4a34ffc710d54",
+    "location": {
+      "byte_offset": 193227,
+      "line": 4731,
+      "column": 47
+    },
+    "stack_signals": [
+      "1/1 parse_probe.test.tailwind emitted factory syntax...PARSE offset=193227 line=4731 column=47 error=UnexpectedToken message=Unexpected token",
+      "/Users/chris/Code/Libraries/zig-js/../zig-regex/src/pattern_analyzer.zig:607:9: 0x10499a1a3 in analyzeAndValidate (root)",
+      "        return RegexError.PatternTooComplex;",
+      "/Users/chris/Code/Libraries/zig-js/../zig-regex/src/regex.zig:187:13: 0x10499bd4f in compileWithFlagsInner (root)",
+      "/Users/chris/Code/Libraries/zig-js/src/parser.zig:7511:17: 0x10499d16b in compileRegexLiteralForValidation (root)"
+    ]
+  },
+  "restored_home_modules_sha256": "cff24b4a0a2609d3d296e9a3afec23a2cbc1322999de9d3e0bf13d660ed4dfd1",
+  "interpretation": [
+    "The actual Tailwind emitted factory passes Node syntax validation but is rejected by zig-js. The isolated comment scanner passes actual matching/lastIndex assertions on Node, Bun and Home/JSC; Home/zig-js fails before execution.",
+    "Current standalone engine parser reaches regex PatternTooComplex, mapped to UnexpectedToken during eager literal validation. This is a regex execution/admission blocker rather than invalid emitted JavaScript.",
+    "No regex thresholds, security guards or fallback engines changed. Arbitrary nested/lazy patterns may backtrack; do not call this scanner linear without measured evidence. Next work is a bounded, semantics-preserving regex execution path with adversarial rejection/capture/lastIndex controls.",
+    "The full JSC template still fails missingv8. Its linkage error alone did not prove entire factory syntax validity; separate Node --check supplies that evidence. No template build pass, corpus flips or new CI consumer gains claimed."
+  ]
+}
