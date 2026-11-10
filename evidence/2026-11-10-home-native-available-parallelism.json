@@ -1,0 +1,572 @@
+{
+  "schema_version": 1,
+  "home_commit": "9f9d2bb39a70ef9270ae93f0631724873e87f2c8",
+  "parent": "9acc4db22fc8c4f681b27966273f01c54b33c45a",
+  "local_engine_sha": "73ee013e8451aaadeb0402ab894cf2e24b2ede46",
+  "engine_mode": "Exact pushed Debug public-C archive, ReleaseSafe Home; fresh Linux baseline qualification still required",
+  "source_sha256": {
+    "build.zig": "90607577cc5f45ba29ef2aba6cea39781ad9cf754fddca37ac8af15b3f7ad433",
+    "packages/runtime/src/jsc/tool_os.zig": "3e486bdc26eb2d57ef8ce2bbe949f80339c1c7d8f9217c78a23ea794b94937e9",
+    "packages/runtime/src/jsc/tool_cpu.zig": "c7ad83c61b3f6eedf516342aeba72b89d4d5c5e094a32b96fa1f9a7933e82996",
+    "packages/runtime/src/jsc/tool_cpu_affinity_linux_test.zig": "2ab5c6c7e796ad3c2675cb307c9bfb93f5b7f61014c7a122e845193889f16d46",
+    "packages/runtime/src/jsc/tool_builtins.js": "32d7b989cfdd3568099179d09075d279e2720c929f0529f6330a584bcd590050",
+    "packages/runtime/test/tool_modules/main.ts": "c19df3f89b7396ad3ca28e4615bd8677294937bae6b657564534201cf85560c9",
+    "packages/runtime/test/tool_modules/node_available_parallelism.mjs": "e37abd1c6469445907a5a0465c4777c83f982617fd615a327399d20a753dd0ba"
+  },
+  "official_contract": "https://nodejs.org/api/os.html#osavailableparallelism",
+  "policy_reference": {
+    "repository": "libuv/libuv",
+    "sha": "ac325226bd37e9ca978694dd01b7cf600f05a339",
+    "core": "https://github.com/libuv/libuv/blob/ac325226bd37e9ca978694dd01b7cf600f05a339/src/unix/core.c",
+    "linux": "https://github.com/libuv/libuv/blob/ac325226bd37e9ca978694dd01b7cf600f05a339/src/unix/linux.c"
+  },
+  "results": {
+    "before.json": {
+      "node": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 23616,
+        "memory_limit_mb": 3072,
+        "seconds": 0.226,
+        "log": "node.log",
+        "log_sha256": "1a001eb97dbf39338450a264ff075e600f9d1010d500dcc6d72c98083747c55c",
+        "excerpt": "AVAILABLE PARALLELISM 11\nECOSYSTEM PEAK SAMPLED RSS: 23616 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "bun": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 2128,
+        "memory_limit_mb": 3072,
+        "seconds": 0.091,
+        "log": "bun.log",
+        "log_sha256": "bba4b02cefafac53fce5fc917cdee3e0c55435f5c8c7aa90743da4ecc612c47e",
+        "excerpt": "AVAILABLE PARALLELISM 11\nECOSYSTEM PEAK SAMPLED RSS: 2128 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "home": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 26432,
+        "memory_limit_mb": 3072,
+        "seconds": 0.221,
+        "log": "home.log",
+        "log_sha256": "168ea03f85e47c1f7ef93703e911b690e5c5505b25890a5f1e2103992365d7fd",
+        "excerpt": "home-tool (zig-js): TypeError: availableParallelism is not a function. (In 'availableParallelism()', 'availableParallelism' is undefined)\nECOSYSTEM PEAK SAMPLED RSS: 26432 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+      }
+    },
+    "contract-before.json": {
+      "node": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32592,
+        "memory_limit_mb": 3072,
+        "seconds": 0.202,
+        "log": "contract-node.log",
+        "log_sha256": "14f4b13d0f80e21c32ccdd2e781b1489f51c350e2ac6e2cc0281497a1a3c6412",
+        "excerpt": "NODE AVAILABLE PARALLELISM 12 CHECKS OK; native estimate 11\nECOSYSTEM PEAK SAMPLED RSS: 32592 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "bun": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 304,
+        "memory_limit_mb": 3072,
+        "seconds": 0.097,
+        "log": "contract-bun.log",
+        "log_sha256": "07ac4de058468cb0875ae57c5d9f1c4a565bd843bf138a686e1b89660846bd45",
+        "excerpt": "NODE AVAILABLE PARALLELISM 12 CHECKS OK; native estimate 11\nECOSYSTEM PEAK SAMPLED RSS: 304 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "before-zig-js": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32144,
+        "memory_limit_mb": 3072,
+        "seconds": 0.188,
+        "log": "contract-before-zig-js.log",
+        "log_sha256": "3da6e8e6e5f4076f4f1b05e3b32d6a95a2d0aa1610f57d72801d40d11c249867",
+        "excerpt": "home-tool (zig-js): Error: named native CPU query exists\nECOSYSTEM PEAK SAMPLED RSS: 32144 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+      },
+      "before-jsc": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.096,
+        "log": "contract-before-jsc.log",
+        "log_sha256": "09c9b2e84552ecab59a4976d8313eff445f7430b504bd368f8ff5851b2adfa72",
+        "excerpt": "home-tool (jsc): Error: named native CPU query exists\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+      }
+    },
+    "pickier-before.json": {
+      "before": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 93856,
+        "memory_limit_mb": 3072,
+        "seconds": 0.385,
+        "log": "pickier-before.log",
+        "log_sha256": "b8555d06f02748885e3182f69b473309a6cac1bd50a11eed06da944134557fee",
+        "excerpt": "home-tool (zig-js): TypeError: No is not a function. (In 'No()', 'No' is undefined)\nECOSYSTEM PEAK SAMPLED RSS: 93856 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+      },
+      "reference": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1488,
+        "memory_limit_mb": 3072,
+        "seconds": 0.06,
+        "log": "pickier-reference.log",
+        "log_sha256": "970dc4a7d85c2aa41581af371cb3a397e0d7072aec9e9cc829d0cb2e123c6cd8",
+        "excerpt": "ECOSYSTEM PEAK SAMPLED RSS: 1488 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      }
+    },
+    "gates.json": {
+      "zig-js": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1381312,
+        "memory_limit_mb": 3072,
+        "seconds": 66.78,
+        "log": "zig-js-gates.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "home-tool",
+          "home-tool-smoke",
+          "home-tool-rejections-smoke",
+          "home-tool-async-context-smoke",
+          "home-tool-file-url-smoke",
+          "-Doptimize=ReleaseSafe",
+          "-Denable_jsc=false",
+          "-Dtool-js-engine=zig-js",
+          "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/engine-root",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/os-parallelism/after-zig-js",
+          "-j1",
+          "--summary",
+          "all"
+        ],
+        "log_sha256": "b7141f4f7424757cfff2ab621dd2b360316a0cb2eea30768326658a1f7b7dc11",
+        "excerpt": "home-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nhome-tool (zig-js): SyntaxError: Unexpected identifier 'Promise'\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nhome-tool (zig-js): Error: Cannot resolve @home/exports/directory from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs: ExportedFileNotFound\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nhome-tool (zig-js): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/dynamic_import/pending-entry.mjs\nhome-tool (zig-js): Error: Cannot resolve @home/exports/missing-array from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs: ExportedFileNotFound\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async_property_newline.cjs\nhome-tool (zig-js): Error: exit listener witness\nhome-tool (zig-js): Error: Cannot resolve @home/exports/blocked from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs: PackagePathNotExported\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nhome-tool (zig-js): undefined\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_stream_pending.mjs\nhome-tool (zig-js): undefined\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nhome-tool (zig-js): AssertionError [ERR_ASSERTION]: actual assertion failure\nhome-tool (zig-js): Error: async rejection witness\nhome-tool (zig-js): Error: Cannot resolve @home/exports/extensionless from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs: ExportedFileNotFound\nhome-tool (zig-js): Error: Cannot resolve @home/exports/require-only from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs: PackagePathNotExported\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nNODE AVAILABLE PARALLELISM 12 CHECKS OK; native estimate 11\nhome-tool (zig-js): Error: async rejection witness\nBuild Summary: 199/199 steps succeeded; 4/4 tests passed\nECOSYSTEM PEAK SAMPLED RSS: 1381312 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "jsc": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1431680,
+        "memory_limit_mb": 3072,
+        "seconds": 35.209,
+        "log": "jsc-gates.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "home-tool",
+          "home-tool-smoke",
+          "-Doptimize=ReleaseSafe",
+          "-Denable_jsc=false",
+          "-Dtool-js-engine=jsc",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/os-parallelism/after-jsc",
+          "-j1",
+          "--summary",
+          "all"
+        ],
+        "log_sha256": "8d60a3b359bfc396c6d580defb47d4cc86a6b26f7166c2d3634eee4292059c13",
+        "excerpt": "home-tool (jsc): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async_property_newline.cjs\nhome-tool (jsc): Error: exit listener witness\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nhome-tool (jsc): Error: async rejection witness\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_stream_pending.mjs\nhome-tool (jsc): undefined\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nhome-tool (jsc): Error: Cannot resolve @home/exports/require-only from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs: PackagePathNotExported\nhome-tool (jsc): AssertionError [ERR_ASSERTION]: actual assertion failure\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nhome-tool (jsc): SyntaxError: Unexpected identifier 'Promise'\nhome-tool (jsc): Error: Cannot resolve @home/exports/extensionless from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs: ExportedFileNotFound\nhome-tool (jsc): Error: async rejection witness\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nhome-tool (jsc): undefined\nNODE AVAILABLE PARALLELISM 12 CHECKS OK; native estimate 11\nhome-tool (jsc): Error: Cannot resolve @home/exports/missing-array from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs: ExportedFileNotFound\nhome-tool (jsc): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/dynamic_import/pending-entry.mjs\nhome-tool (jsc): Error: Cannot resolve @home/exports/directory from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs: ExportedFileNotFound\nhome-tool (jsc): Error: Cannot resolve @home/exports/blocked from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs: PackagePathNotExported\nBuild Summary: 178/178 steps succeeded\nECOSYSTEM PEAK SAMPLED RSS: 1431680 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      }
+    },
+    "after.json": {
+      "zig-js": {
+        "contract": {
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 23296,
+          "memory_limit_mb": 3072,
+          "seconds": 0.22,
+          "log": "contract-after-zig-js.log",
+          "command": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/os-parallelism/after-zig-js/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_available_parallelism.mjs"
+          ],
+          "binary_sha256": "795eff3b097c02ac4f285e3d881e7bba16ab016a0dc27b3bed4eb1f647d60682",
+          "log_sha256": "d2843bd6490dcaa612ee27dbac7a1d27cdec03fd87d966fdf3433348e599712a",
+          "excerpt": "NODE AVAILABLE PARALLELISM 12 CHECKS OK; native estimate 11\nECOSYSTEM PEAK SAMPLED RSS: 23296 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+        },
+        "pickier": {
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 94144,
+          "memory_limit_mb": 3072,
+          "seconds": 0.34,
+          "log": "pickier-after-zig-js.log",
+          "command": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/os-parallelism/after-zig-js/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/core/lint/src/index.ts"
+          ],
+          "binary_sha256": "795eff3b097c02ac4f285e3d881e7bba16ab016a0dc27b3bed4eb1f647d60682",
+          "log_sha256": "9689cc124ae22b6900ec9021345f015986ddfae3aae9a377631da2d46e03f279",
+          "excerpt": "ECOSYSTEM PEAK SAMPLED RSS: 94144 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+        }
+      },
+      "jsc": {
+        "contract": {
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 224,
+          "memory_limit_mb": 3072,
+          "seconds": 0.039,
+          "log": "contract-after-jsc.log",
+          "command": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/os-parallelism/after-jsc/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_available_parallelism.mjs"
+          ],
+          "binary_sha256": "cbc7da35c2f7b910143bfdcdfdf450468cb328d2681f475fa31d567b7e196136",
+          "log_sha256": "deeb6085fb5a513cc96b4b964f2145ec16ac484231dad752464a7b4e3f24df1c",
+          "excerpt": "NODE AVAILABLE PARALLELISM 12 CHECKS OK; native estimate 11\nECOSYSTEM PEAK SAMPLED RSS: 224 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+        },
+        "pickier": {
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 5296,
+          "memory_limit_mb": 3072,
+          "seconds": 0.059,
+          "log": "pickier-after-jsc.log",
+          "command": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/os-parallelism/after-jsc/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/core/lint/src/index.ts"
+          ],
+          "binary_sha256": "cbc7da35c2f7b910143bfdcdfdf450468cb328d2681f475fa31d567b7e196136",
+          "log_sha256": "ed5276ec3f91144234403cfca31a94629a8e2099a4b779333f476970b1ac1b68",
+          "excerpt": "ECOSYSTEM PEAK SAMPLED RSS: 5296 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+        }
+      }
+    }
+  },
+  "native_tests": {
+    "macos_actual_log_sha256": "5ba0538fc6c2f5bef863a702e5aa7fe6207c1d35eb1988dab39d9d0f2c343834",
+    "macos_actual_log": "1/4 tool_cpu.test.CPU quota parsing preserves unlimited, malformed and fractional cases...OK\n2/4 tool_cpu.test.cgroup v2 reads actual hierarchical quota files without caching...OK\n3/4 tool_cpu.test.cgroup v1 reads controller membership and real quota period pairs...OK\n4/4 tool_cpu.test.available parallelism queries this native operating system...OK\nAll 4 tests passed.\n",
+    "linux_cross_compile_exit_code": 0,
+    "linux_compiled_artifact_sha256": "1a8dfb6f8901b62341b8881e58bff8ef3cf135d6ed0cca1f4cd80801c23b0941",
+    "linux_status": "Compiled only locally; fifth actual affinity-change test must execute on Linux CI before promotion"
+  },
+  "pickier_lint": {
+    "exit_code": 0,
+    "errors": 0,
+    "preexisting_warnings": 2,
+    "log_sha256": "17909e79d215b5219bb147b0a3f5a28af868dc5f759d10353e477e37df3a7399"
+  },
+  "actual_latest_stacks_lint_log": {
+    "check": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 36324,
+      "memory_limit_mb": 3072,
+      "seconds": 0.217,
+      "log": "0310.log",
+      "label": "storage/framework/core/lint: module initialization src/index.ts",
+      "lane": "candidate",
+      "command": [
+        "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+        "src/index.ts"
+      ],
+      "engine_invocations": 1
+    },
+    "member": "stacksjs--stacks/0310.log",
+    "log_sha256": "b47128bad059849f478b1da8fd9af480b5c81a633a6e8c5379ea27577b390555",
+    "excerpt": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): TypeError: No is not a function. (In 'No()', 'No' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 36324 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+  },
+  "latest_completed_every_push": {
+    "run": 42873855820,
+    "engine_sha": "1b46fd171a1d06e273d9dfcfb568ae8135b58c90",
+    "results": [
+      {
+        "repository": "home-lang/home",
+        "consumer_sha": "a20f225bd7038b09b524434e5b5be98aa95c9dad",
+        "runtime": {
+          "engine_sha": "1b46fd171a1d06e273d9dfcfb568ae8135b58c90",
+          "suite_ref": "2e2acbab15325a7b2e79a92303fa511bc73cea48",
+          "home_repository": "home-lang/home",
+          "home_ref": "a20f225bd7038b09b524434e5b5be98aa95c9dad",
+          "zig_version": "0.18.0-dev.146+35accc06e",
+          "build_cpu": "baseline",
+          "build_optimize": "ReleaseSafe",
+          "sha256": {
+            "home-tool": "93e4214f4b521d924b380fc4d19b726b172c79faf0bac113726cb42bbf954680",
+            "engine/zig-out/lib/libzig-js.a": "c88d963a73fb0a5f587624c195d3fda4aaf88d5250a4703f665506f2af47c1e9"
+          }
+        },
+        "candidate": {
+          "failed": 42,
+          "unsupported": 38,
+          "passed": 7
+        },
+        "artifact": {
+          "id": 13793217565,
+          "name": "ecosystem-results-1",
+          "digest": "sha256:18f571c17faf980be69d135b0bcdbbafc008ed299cc3c98a22331ed8c6c990e9",
+          "size_in_bytes": 163175
+        },
+        "logs": [
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": -9,
+              "peak_sampled_rss_kib": 3158204,
+              "memory_limit_mb": 3072,
+              "seconds": 36.578,
+              "log": "0052.log",
+              "reason": "sampled command tree RSS exceeded 3072 MiB",
+              "label": ".: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bunx bunpress build"
+              ],
+              "engine_invocations": 1
+            },
+            "member": "home-lang--home/0052.log",
+            "sha256": "481a1cfe92dc13d6fb09945a1e38ca1125051e84639adcdc578ac884cca63b43",
+            "excerpt": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 3158204 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+          },
+          {
+            "check": {
+              "status": "passed",
+              "exit_code": 0,
+              "peak_sampled_rss_kib": 637172,
+              "memory_limit_mb": 3072,
+              "seconds": 1.299,
+              "log": "0054.log",
+              "label": ".: typecheck",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun --bun tsc --noEmit"
+              ],
+              "engine_invocations": 1
+            },
+            "member": "home-lang--home/0054.log",
+            "sha256": "cab328ffcbe305a7262ee49d66e59f4f2217185bffc2be0c6de56e1104a93bfd",
+            "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun --bun tsc --noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 637172 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+          },
+          {
+            "check": {
+              "status": "unsupported",
+              "exit_code": 78,
+              "peak_sampled_rss_kib": 10372,
+              "memory_limit_mb": 3072,
+              "seconds": 0.072,
+              "log": "0067.log",
+              "label": "packages/runtime/src/runtime/cli/init/react-app: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'"
+              ],
+              "engine_invocations": 0,
+              "unsupported_reasons": [
+                "bun build requires a host API absent from Home's repository-tool runtime"
+              ],
+              "reason": "bun build requires a host API absent from Home's repository-tool runtime"
+            },
+            "member": "home-lang--home/0067.log",
+            "sha256": "0810f9f583bec58317e71a85470570ef5e9c7f1a907bd6f0338eaa9e2ba05062",
+            "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\\\"production\\\"' --env='BUN_PUBLIC_*'\"]\nECOSYSTEM UNSUPPORTED: bun build requires a host API absent from Home's repository-tool runtime\n\nECOSYSTEM PEAK SAMPLED RSS: 10372 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+          },
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 227168,
+              "memory_limit_mb": 3072,
+              "seconds": 0.542,
+              "log": "0069.log",
+              "label": "packages/runtime/src/runtime/cli/init/react-shadcn: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun run build.ts"
+              ],
+              "engine_invocations": 1
+            },
+            "member": "home-lang--home/0069.log",
+            "sha256": "32383236f4c436c263208f080907918c47fd4ae22d0cd4bbb21ff1438399ca89",
+            "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 227168 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          },
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 224224,
+              "memory_limit_mb": 3072,
+              "seconds": 0.541,
+              "log": "0071.log",
+              "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun run build.ts"
+              ],
+              "engine_invocations": 1
+            },
+            "member": "home-lang--home/0071.log",
+            "sha256": "ed3e09f17782a3113831e05614fe054133559eeb43496eaec673c0dc1e046f11",
+            "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 224224 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        ]
+      },
+      {
+        "repository": "stacksjs/stacks",
+        "consumer_sha": "eca57895283c8f69ae4bd5b0ed128783577b38c2",
+        "runtime": {
+          "engine_sha": "1b46fd171a1d06e273d9dfcfb568ae8135b58c90",
+          "suite_ref": "2e2acbab15325a7b2e79a92303fa511bc73cea48",
+          "home_repository": "home-lang/home",
+          "home_ref": "a20f225bd7038b09b524434e5b5be98aa95c9dad",
+          "zig_version": "0.18.0-dev.146+35accc06e",
+          "build_cpu": "baseline",
+          "build_optimize": "ReleaseSafe",
+          "sha256": {
+            "home-tool": "93e4214f4b521d924b380fc4d19b726b172c79faf0bac113726cb42bbf954680",
+            "engine/zig-out/lib/libzig-js.a": "c88d963a73fb0a5f587624c195d3fda4aaf88d5250a4703f665506f2af47c1e9"
+          }
+        },
+        "candidate": {
+          "unsupported": 355,
+          "failed": 210,
+          "passed": 60
+        },
+        "artifact": {
+          "id": 13791979921,
+          "name": "ecosystem-results-0",
+          "digest": "sha256:817f36e183fa2b8ccd7c60f8f283eb781df02172dda55edda90fa10dd6a6b8cd",
+          "size_in_bytes": 1420825
+        },
+        "logs": [
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 1856800,
+              "memory_limit_mb": 3072,
+              "seconds": 11.286,
+              "log": "0016.log",
+              "label": ".: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "./buddy build"
+              ],
+              "engine_invocations": 3
+            },
+            "member": "stacksjs--stacks/0016.log",
+            "sha256": "cd2ceed2a59b702f8a0c779cfe26c2019728a1ae0fba329b5d8b38a27601edfd",
+            "excerpt": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-10T18:28:37.180Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 1856800 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          },
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 1665800,
+              "memory_limit_mb": 3072,
+              "seconds": 10.012,
+              "log": "0018.log",
+              "label": ".: typecheck",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)"
+              ],
+              "engine_invocations": 3
+            },
+            "member": "stacksjs--stacks/0018.log",
+            "sha256": "4ae8b7afed2199d1c9316eed97253f11f32ff8065e81ae8c383a72ff871574d5",
+            "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\n[2026-11-10T18:28:58.902Z] local.INFO: Building @stacksjs/validation...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 1665800 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          },
+          {
+            "check": {
+              "status": "passed",
+              "exit_code": 0,
+              "peak_sampled_rss_kib": 69260,
+              "memory_limit_mb": 3072,
+              "seconds": 0.258,
+              "log": "0038.log",
+              "label": "storage/framework/core/ai: module initialization src/index.ts",
+              "lane": "candidate",
+              "command": [
+                "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+                "src/index.ts"
+              ],
+              "engine_invocations": 1
+            },
+            "member": "stacksjs--stacks/0038.log",
+            "sha256": "50fee5a64abe2e415eb1a9b352921ab5452c75cb2f2a23a4a86dc481caeb11b7",
+            "excerpt": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 69260 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+          },
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 10408,
+              "memory_limit_mb": 3072,
+              "seconds": 0.072,
+              "log": "0194.log",
+              "label": "storage/framework/core/defaults: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun build.ts"
+              ],
+              "engine_invocations": 1
+            },
+            "member": "stacksjs--stacks/0194.log",
+            "sha256": "1a4d2fb597657eea810e152b294853b949fe17ae00776f220939b43df94e150c",
+            "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun build.ts\"]\nhome-tool (zig-js): TypeError: cp is not a function. (In 'cp(source, dest, { recursive: true, filter: shipsToApps })', 'cp' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 10408 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          },
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 136064,
+              "memory_limit_mb": 3072,
+              "seconds": 0.398,
+              "log": "0623.log",
+              "label": "storage/framework/docs: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bunpress build"
+              ],
+              "engine_invocations": 1
+            },
+            "member": "stacksjs--stacks/0623.log",
+            "sha256": "fd24ff70bab8c9f42044a49a5800449477caa8aede85c9a866c736812da2220b",
+            "excerpt": "$ [\"/bin/sh\", \"-c\", \"bunpress build\"]\n  Building documentation...\n\u001b[31m\u2717\u001b[0m Build failed\nError during build: Error: Glob: FileNotFound\n\nECOSYSTEM PEAK SAMPLED RSS: 136064 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        ]
+      }
+    ]
+  },
+  "frozen_diagnostic": {
+    "stacks_consumer_sha": "8b9e1572fee6a8345213159d892fd82d91604927",
+    "pickier_version": "0.1.88",
+    "bundle_sha256": "da7772ab33216396d910ba79915aa43bb010727fc3eccfee7295194feb839701",
+    "binding": "import{availableParallelism as No}from\"os\"; No() executes at module initialization"
+  },
+  "interpretation": [
+    "Fresh native OS query supplies availableParallelism; Darwin active/logical CPU state, Linux scheduler affinity plus visible hierarchical v2/v1 quota constraints are read per call. No fixed CPU count, cached estimate, fake Worker or native Bun candidate fallback. A genuine native query failure raises a JS error.",
+    "The mandatory12group API fixture passes Node/Bun and both fixed Home providers, with native estimate11 on this host. Previous providers fail immediately on the missing function; not all12old assertions execute. Bare/node/CommonJS aliases, detached calls and ignored extra arguments are checked.",
+    "Four native macOS tests actually execute positive host query and real temporary cgroup quota/period files, including ancestors, unlimited/malformed/fractional policies, changing limits, v1 controller order and hybrid membership. Linux fifth test changes native calling-thread affinity, verifies uncached observations and restores it; cross-compilation is not execution.",
+    "Full local199zig-js/178JSC gates pass with the existing3072MiB cap. Actual frozen Stacks core/lint re-export of installed Pickier0.1.88 fails No() before and initializes successfully on both fixed providers; Bun reference also actually passes. Frozen diagnostic cohort is distinct from latest Linux consumer.",
+    "Latest completed every-push1b46/oldHomea20 actually retains Stacks60/210/355 and Home7/42/38 plus missing lint CPU query, cp/Bun.build/JPEG budget/v8/docs memory evidence. Current foreign GC1d5 runtime is healthy and priority jobs are still running, no measured memory recovery claim.",
+    "Preserved concurrent Home native-TypeScript union-order commits2529/9acc by fast-forward before changes. Suite pins the exact pushed native CPU fix; keep caller validated2e2acba until immutable fresh Linux all77new host groups,5native CPU tests and both priority provenance/CPU preflights pass. No test262 run or conformance flip claim."
+  ]
+}
