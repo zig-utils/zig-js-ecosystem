@@ -1,0 +1,944 @@
+{
+  "baseline_engine": "d4d181b218c5d121bbdc6b07eb7cb7c460d630b4",
+  "regex_before": "da4d2a6aa51bf9de3a0665d577eaced0657db606",
+  "regex_first_fix": "8eb34dfef1957d319b113160206f962fb0829e0c",
+  "regex_final": "732424d1c38197501d9e64c5d4c1dbe7d1a97742",
+  "home_ref": "2b2a78cc9bf64c278f3c3b84ae8c6bf5cfff1b8b",
+  "test262_ref": "4249661388e5d3f92a85186213da140a6481490f",
+  "production_source_hashes": {
+    "build.zig.zon": "b5830a7f1102751c6e7ff89d99baf7284e6305f18def2f3bfa34541eefcdb8e1",
+    "tools/focused_engine_tests.zig": "0345bb1c7377a834878c416bdb64ce97b1854f39986bccac1bdc40ed04d96c09",
+    "tools/regexp_language_tag_probe.js": "845ddf96d78fe29a5b2e66b64b1e474d60755e3d79b02b36d90f37836bf17036"
+  },
+  "diagnosis": {
+    "error": "PatternTooComplex (no syntax diagnostic)",
+    "captures": 59,
+    "false_hypothesis_rejected": "All reduced hyphen-class examples match Node; only the complete grammar failed. Capturing (-|_) separator prefix was classified differently from [-_].",
+    "unicode_followup": "Unicode ignoreCase parses punctuation literals as singleton class sets; conservative ASCII fold masks retain a|A overlap rejection.",
+    "limits": "No change to evaluator, memory, static rejection threshold or match step budget."
+  },
+  "local_reproduction": "Frozen Stacks 8b9e157 package sources and installed @stacksjs/ts-validation 0.5.7; separate latest CI consumer897486d observed with the same initialization error, not presented as an identical source revision.",
+  "engine_commit": "60fdd42fe6713a2703fcc426c9d571dbf9a64852",
+  "guard_results": {
+    "engine-frontend-all": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1352544,
+      "memory_limit_mb": 3072,
+      "seconds": 43.026,
+      "log": "engine-frontend-all.log"
+    },
+    "regex-all-unicode": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 421712,
+      "memory_limit_mb": 3072,
+      "seconds": 49.711,
+      "log": "regex-all-unicode.log"
+    },
+    "home-before-build": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1335056,
+      "memory_limit_mb": 3072,
+      "seconds": 37.146,
+      "log": "home-before-build.log"
+    },
+    "test262-comparison": {
+      "completed": {
+        "regexp-prototype": {
+          "before": {
+            "subtree": "test/built-ins/RegExp/prototype",
+            "fail": 0,
+            "pass": 487
+          },
+          "after": {
+            "subtree": "test/built-ins/RegExp/prototype",
+            "fail": 0,
+            "pass": 487
+          }
+        },
+        "string-prototype": {
+          "before": {
+            "subtree": "test/built-ins/String/prototype",
+            "fail": 0,
+            "pass": 1073
+          },
+          "after": {
+            "subtree": "test/built-ins/String/prototype",
+            "fail": 0,
+            "pass": 1073
+          }
+        },
+        "class-escapes": {
+          "before": {
+            "subtree": "test/built-ins/RegExp/CharacterClassEscapes",
+            "fail": 0,
+            "pass": 12
+          },
+          "after": {
+            "subtree": "test/built-ins/RegExp/CharacterClassEscapes",
+            "fail": 0,
+            "pass": 12
+          }
+        },
+        "literals": {
+          "before": {
+            "subtree": "test/language/literals/regexp",
+            "fail": 0,
+            "pass": 238
+          },
+          "after": {
+            "subtree": "test/language/literals/regexp",
+            "fail": 0,
+            "pass": 238
+          }
+        }
+      },
+      "identical_zero_failure_cases": 1810
+    },
+    "native-build-validation": {
+      "frontend-before-tree": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 1965696,
+        "memory_limit_mb": 3072,
+        "seconds": 32.594,
+        "log": "frontend-before-tree.log"
+      },
+      "frontend-before-generator": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 256944,
+        "memory_limit_mb": 3072,
+        "seconds": 2.635,
+        "log": "frontend-before-generator.log"
+      },
+      "after-test262-build": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1781088,
+        "memory_limit_mb": 3072,
+        "seconds": 27.275,
+        "log": "after-test262-build.log"
+      }
+    },
+    "test262-after-focused": {
+      "regexp-prototype": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 79040,
+        "memory_limit_mb": 3072,
+        "seconds": 17.137,
+        "log": "test262-regexp-prototype-after.log"
+      },
+      "string-prototype": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 85648,
+        "memory_limit_mb": 3072,
+        "seconds": 28.341,
+        "log": "test262-string-prototype-after.log"
+      },
+      "literals": {
+        "status": "timed-out",
+        "exit_code": 124,
+        "peak_sampled_rss_kib": 292800,
+        "memory_limit_mb": 3072,
+        "seconds": 300.079,
+        "log": "test262-literals-after.log",
+        "reason": "command time budget exhausted"
+      },
+      "class-escapes": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 571104,
+        "memory_limit_mb": 3072,
+        "seconds": 44.895,
+        "log": "test262-class-escapes-after.log"
+      }
+    },
+    "home-after-gates": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1188592,
+      "memory_limit_mb": 3072,
+      "seconds": 84.331,
+      "log": "home-after-gates.log"
+    },
+    "qualification-dispatch": {
+      "engine_sha": "60fdd42fe6713a2703fcc426c9d571dbf9a64852",
+      "suite_sha": "f64846de2ebb3473082560f0226ea49cbd360906",
+      "home_sha": "2b2a78cc9bf64c278f3c3b84ae8c6bf5cfff1b8b",
+      "dispatch_ref": "main",
+      "workflow_source_sha": "13a313a82b0342ad320b57a28aeaf85094172d80",
+      "workflow_config_script_diff_from_functional_suite": "empty",
+      "returncode": 0,
+      "stdout": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42918611833\n",
+      "stderr": ""
+    },
+    "regex-all-final": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 451296,
+      "memory_limit_mb": 3072,
+      "seconds": 50.011,
+      "log": "regex-all-final.log"
+    },
+    "contract-before": {
+      "node": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 832,
+        "memory_limit_mb": 3072,
+        "seconds": 0.09,
+        "log": "contract-node.log"
+      },
+      "bun": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 2368,
+        "memory_limit_mb": 3072,
+        "seconds": 0.096,
+        "log": "contract-bun.log"
+      },
+      "home-before": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 29248,
+        "memory_limit_mb": 3072,
+        "seconds": 0.632,
+        "log": "contract-home-before.log"
+      }
+    },
+    "actual-consumers-after": {
+      "validation": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 160080,
+        "memory_limit_mb": 3072,
+        "seconds": 0.753,
+        "log": "actual-validation-after.log"
+      },
+      "model-meta": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 313792,
+        "memory_limit_mb": 3072,
+        "seconds": 1.646,
+        "log": "actual-model-meta-after.log"
+      },
+      "contract": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 5648,
+        "memory_limit_mb": 3072,
+        "seconds": 0.129,
+        "log": "contract-home-after.log"
+      },
+      "matrix": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6512,
+        "memory_limit_mb": 3072,
+        "seconds": 0.096,
+        "log": "matrix-home-after.log"
+      }
+    },
+    "engine-before-build": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1879632,
+      "memory_limit_mb": 3072,
+      "seconds": 30.428,
+      "log": "engine-before-build.log"
+    },
+    "qualification-dispatch-sha-ref-rejected": {
+      "engine_sha": "60fdd42fe6713a2703fcc426c9d571dbf9a64852",
+      "suite_sha": "f64846de2ebb3473082560f0226ea49cbd360906",
+      "home_sha": "2b2a78cc9bf64c278f3c3b84ae8c6bf5cfff1b8b",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "could not create workflow dispatch event: HTTP 422: No ref found for: f64846de2ebb3473082560f0226ea49cbd360906 (https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/workflows/410724586/dispatches)\n"
+    },
+    "engine-after-build": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1993456,
+      "memory_limit_mb": 3072,
+      "seconds": 32.183,
+      "log": "engine-after-build.log"
+    },
+    "actual-consumers-before": {
+      "validation": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 135600,
+        "memory_limit_mb": 3072,
+        "seconds": 0.916,
+        "log": "actual-validation-before.log"
+      },
+      "model-meta": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 301168,
+        "memory_limit_mb": 3072,
+        "seconds": 1.742,
+        "log": "actual-model-meta-before.log"
+      }
+    },
+    "test262-before-focused": {
+      "regexp-prototype": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 66672,
+        "memory_limit_mb": 3072,
+        "seconds": 13.697,
+        "log": "test262-regexp-prototype-before.log"
+      },
+      "string-prototype": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 93392,
+        "memory_limit_mb": 3072,
+        "seconds": 25.662,
+        "log": "test262-string-prototype-before.log"
+      },
+      "literals": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 288992,
+        "memory_limit_mb": 3072,
+        "seconds": 281.748,
+        "log": "test262-literals-before.log"
+      },
+      "class-escapes": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 570992,
+        "memory_limit_mb": 3072,
+        "seconds": 47.409,
+        "log": "test262-class-escapes-before.log"
+      }
+    },
+    "literal_after_extended_diagnostic": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 479568,
+      "memory_limit_mb": 3072,
+      "seconds": 280.213,
+      "log": "test262-literals-after-extended-diagnostic.log"
+    }
+  },
+  "binary_sha256": {
+    "before_archive": "dbf0189ce9bfc41826e30f27d8c82590d7f4720871d4a6029ecefc9331ba1b8c",
+    "after_archive": "53c494d6dbe364a464131b42584cb341eb252fd30578d0c646eb64139041235c",
+    "before_home": "bd9f441a65fc33bef5fcecf4861184665c50fbb1565d7b71cd7153141e9cb3ec",
+    "after_home": "20a064bc5574054fc9d2f4ae799a9b810c545aa86a836e0982c2aa2b56640625"
+  },
+  "syntax_matrix": {
+    "patterns": 12,
+    "flags": [
+      "",
+      "u",
+      "v"
+    ],
+    "records": 36,
+    "before_differences": 2,
+    "after_differences": 0,
+    "differences": [
+      {
+        "pattern": "(^(x(-[A-Za-z0-9]{1,8})+)$)|(^(((en-GB-oed)|(i-ami)|(i-bnn)|(i-default)|(i-enochian)|(i-hak)|(i-klingon)|(i-lux)|(i-mingo)|(i-navajo)|(i-pwn)|(i-tao)|(i-tay)|(i-tsu)|(sgn-BE-FR)|(sgn-BE-NL)|(sgn-CH-DE))|((art-lojban)|(cel-gaulish)|(no-bok)|(no-nyn)|(zh-guoyu)|(zh-hakka)|(zh-min)|(zh-min-nan)|(zh-xiang)))$)|(^(([a-zA-Z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|([a-zA-Z]{5,8}))((-|_)([A-Za-z]{4}))?((-|_)([A-Za-z]{2}|\\d{3}))?((-|_)([A-Za-z0-9]{5,8}|(\\d[A-Z-a-z0-9]{3})))*((-|_)((\\d|[A-W]|[Y-Z]|[a-w]|[y-z])(-[A-Za-z0-9]{2,8})+))*((-|_)(x(-[A-Za-z0-9]{1,8})+))?$)",
+        "flags": "",
+        "node": {
+          "pattern": "(^(x(-[A-Za-z0-9]{1,8})+)$)|(^(((en-GB-oed)|(i-ami)|(i-bnn)|(i-default)|(i-enochian)|(i-hak)|(i-klingon)|(i-lux)|(i-mingo)|(i-navajo)|(i-pwn)|(i-tao)|(i-tay)|(i-tsu)|(sgn-BE-FR)|(sgn-BE-NL)|(sgn-CH-DE))|((art-lojban)|(cel-gaulish)|(no-bok)|(no-nyn)|(zh-guoyu)|(zh-hakka)|(zh-min)|(zh-min-nan)|(zh-xiang)))$)|(^(([a-zA-Z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|([a-zA-Z]{5,8}))((-|_)([A-Za-z]{4}))?((-|_)([A-Za-z]{2}|\\d{3}))?((-|_)([A-Za-z0-9]{5,8}|(\\d[A-Z-a-z0-9]{3})))*((-|_)((\\d|[A-W]|[Y-Z]|[a-w]|[y-z])(-[A-Za-z0-9]{2,8})+))*((-|_)(x(-[A-Za-z0-9]{1,8})+))?$)",
+          "flags": "",
+          "matched": [
+            "en-US",
+            "en-GB-oed",
+            "x-private"
+          ]
+        },
+        "before": {
+          "pattern": "(^(x(-[A-Za-z0-9]{1,8})+)$)|(^(((en-GB-oed)|(i-ami)|(i-bnn)|(i-default)|(i-enochian)|(i-hak)|(i-klingon)|(i-lux)|(i-mingo)|(i-navajo)|(i-pwn)|(i-tao)|(i-tay)|(i-tsu)|(sgn-BE-FR)|(sgn-BE-NL)|(sgn-CH-DE))|((art-lojban)|(cel-gaulish)|(no-bok)|(no-nyn)|(zh-guoyu)|(zh-hakka)|(zh-min)|(zh-min-nan)|(zh-xiang)))$)|(^(([a-zA-Z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|([a-zA-Z]{5,8}))((-|_)([A-Za-z]{4}))?((-|_)([A-Za-z]{2}|\\d{3}))?((-|_)([A-Za-z0-9]{5,8}|(\\d[A-Z-a-z0-9]{3})))*((-|_)((\\d|[A-W]|[Y-Z]|[a-w]|[y-z])(-[A-Za-z0-9]{2,8})+))*((-|_)(x(-[A-Za-z0-9]{1,8})+))?$)",
+          "flags": "",
+          "error": "SyntaxError"
+        },
+        "after": {
+          "pattern": "(^(x(-[A-Za-z0-9]{1,8})+)$)|(^(((en-GB-oed)|(i-ami)|(i-bnn)|(i-default)|(i-enochian)|(i-hak)|(i-klingon)|(i-lux)|(i-mingo)|(i-navajo)|(i-pwn)|(i-tao)|(i-tay)|(i-tsu)|(sgn-BE-FR)|(sgn-BE-NL)|(sgn-CH-DE))|((art-lojban)|(cel-gaulish)|(no-bok)|(no-nyn)|(zh-guoyu)|(zh-hakka)|(zh-min)|(zh-min-nan)|(zh-xiang)))$)|(^(([a-zA-Z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|([a-zA-Z]{5,8}))((-|_)([A-Za-z]{4}))?((-|_)([A-Za-z]{2}|\\d{3}))?((-|_)([A-Za-z0-9]{5,8}|(\\d[A-Z-a-z0-9]{3})))*((-|_)((\\d|[A-W]|[Y-Z]|[a-w]|[y-z])(-[A-Za-z0-9]{2,8})+))*((-|_)(x(-[A-Za-z0-9]{1,8})+))?$)",
+          "flags": "",
+          "matched": [
+            "en-US",
+            "en-GB-oed",
+            "x-private"
+          ]
+        }
+      },
+      {
+        "pattern": "(^(x(-[A-Za-z0-9]{1,8})+)$)|(^(((en-GB-oed)|(i-ami)|(i-bnn)|(i-default)|(i-enochian)|(i-hak)|(i-klingon)|(i-lux)|(i-mingo)|(i-navajo)|(i-pwn)|(i-tao)|(i-tay)|(i-tsu)|(sgn-BE-FR)|(sgn-BE-NL)|(sgn-CH-DE))|((art-lojban)|(cel-gaulish)|(no-bok)|(no-nyn)|(zh-guoyu)|(zh-hakka)|(zh-min)|(zh-min-nan)|(zh-xiang)))$)|(^(([a-zA-Z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|([a-zA-Z]{5,8}))((-|_)([A-Za-z]{4}))?((-|_)([A-Za-z]{2}|\\d{3}))?((-|_)([A-Za-z0-9]{5,8}|(\\d[A-Z-a-z0-9]{3})))*((-|_)((\\d|[A-W]|[Y-Z]|[a-w]|[y-z])(-[A-Za-z0-9]{2,8})+))*((-|_)(x(-[A-Za-z0-9]{1,8})+))?$)",
+        "flags": "u",
+        "node": {
+          "pattern": "(^(x(-[A-Za-z0-9]{1,8})+)$)|(^(((en-GB-oed)|(i-ami)|(i-bnn)|(i-default)|(i-enochian)|(i-hak)|(i-klingon)|(i-lux)|(i-mingo)|(i-navajo)|(i-pwn)|(i-tao)|(i-tay)|(i-tsu)|(sgn-BE-FR)|(sgn-BE-NL)|(sgn-CH-DE))|((art-lojban)|(cel-gaulish)|(no-bok)|(no-nyn)|(zh-guoyu)|(zh-hakka)|(zh-min)|(zh-min-nan)|(zh-xiang)))$)|(^(([a-zA-Z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|([a-zA-Z]{5,8}))((-|_)([A-Za-z]{4}))?((-|_)([A-Za-z]{2}|\\d{3}))?((-|_)([A-Za-z0-9]{5,8}|(\\d[A-Z-a-z0-9]{3})))*((-|_)((\\d|[A-W]|[Y-Z]|[a-w]|[y-z])(-[A-Za-z0-9]{2,8})+))*((-|_)(x(-[A-Za-z0-9]{1,8})+))?$)",
+          "flags": "u",
+          "matched": [
+            "en-US",
+            "en-GB-oed",
+            "x-private"
+          ]
+        },
+        "before": {
+          "pattern": "(^(x(-[A-Za-z0-9]{1,8})+)$)|(^(((en-GB-oed)|(i-ami)|(i-bnn)|(i-default)|(i-enochian)|(i-hak)|(i-klingon)|(i-lux)|(i-mingo)|(i-navajo)|(i-pwn)|(i-tao)|(i-tay)|(i-tsu)|(sgn-BE-FR)|(sgn-BE-NL)|(sgn-CH-DE))|((art-lojban)|(cel-gaulish)|(no-bok)|(no-nyn)|(zh-guoyu)|(zh-hakka)|(zh-min)|(zh-min-nan)|(zh-xiang)))$)|(^(([a-zA-Z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|([a-zA-Z]{5,8}))((-|_)([A-Za-z]{4}))?((-|_)([A-Za-z]{2}|\\d{3}))?((-|_)([A-Za-z0-9]{5,8}|(\\d[A-Z-a-z0-9]{3})))*((-|_)((\\d|[A-W]|[Y-Z]|[a-w]|[y-z])(-[A-Za-z0-9]{2,8})+))*((-|_)(x(-[A-Za-z0-9]{1,8})+))?$)",
+          "flags": "u",
+          "error": "SyntaxError"
+        },
+        "after": {
+          "pattern": "(^(x(-[A-Za-z0-9]{1,8})+)$)|(^(((en-GB-oed)|(i-ami)|(i-bnn)|(i-default)|(i-enochian)|(i-hak)|(i-klingon)|(i-lux)|(i-mingo)|(i-navajo)|(i-pwn)|(i-tao)|(i-tay)|(i-tsu)|(sgn-BE-FR)|(sgn-BE-NL)|(sgn-CH-DE))|((art-lojban)|(cel-gaulish)|(no-bok)|(no-nyn)|(zh-guoyu)|(zh-hakka)|(zh-min)|(zh-min-nan)|(zh-xiang)))$)|(^(([a-zA-Z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|([a-zA-Z]{5,8}))((-|_)([A-Za-z]{4}))?((-|_)([A-Za-z]{2}|\\d{3}))?((-|_)([A-Za-z0-9]{5,8}|(\\d[A-Z-a-z0-9]{3})))*((-|_)((\\d|[A-W]|[Y-Z]|[a-w]|[y-z])(-[A-Za-z0-9]{2,8})+))*((-|_)(x(-[A-Za-z0-9]{1,8})+))?$)",
+          "flags": "u",
+          "matched": [
+            "en-US",
+            "en-GB-oed",
+            "x-private"
+          ]
+        }
+      }
+    ]
+  },
+  "local_linkage": {
+    "engine_archive": "Debug built from git archive exact pushed60f under3072MiB",
+    "home": "ReleaseSafe Home2b against that exact archive",
+    "test262": "Debug exact pushed60f vsd4, immutable corpus4249661",
+    "production_limits": "unchanged; pending Linux baseline ReleaseSafe qualification is separate"
+  },
+  "actual_imports": {
+    "scope": "Frozen8b9e157 package sources, no RegExp instrumentation or loader override",
+    "before": {
+      "validation": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 135600,
+        "memory_limit_mb": 3072,
+        "seconds": 0.916,
+        "log": "actual-validation-before.log"
+      },
+      "model-meta": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 301168,
+        "memory_limit_mb": 3072,
+        "seconds": 1.742,
+        "log": "actual-model-meta-before.log"
+      }
+    },
+    "after": {
+      "validation": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 160080,
+        "memory_limit_mb": 3072,
+        "seconds": 0.753,
+        "log": "actual-validation-after.log"
+      },
+      "model-meta": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 313792,
+        "memory_limit_mb": 3072,
+        "seconds": 1.646,
+        "log": "actual-model-meta-after.log"
+      },
+      "contract": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 5648,
+        "memory_limit_mb": 3072,
+        "seconds": 0.129,
+        "log": "contract-home-after.log"
+      },
+      "matrix": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6512,
+        "memory_limit_mb": 3072,
+        "seconds": 0.096,
+        "log": "matrix-home-after.log"
+      }
+    },
+    "claims": "Source initialization only. No library build, test scheduler, Linux package status or 224-repository success inferred."
+  },
+  "all_selected_run": 42918365900,
+  "focused_run": 42918611833,
+  "caller_suite": "f64846de2ebb3473082560f0226ea49cbd360906",
+  "caller_change": "none; functional suite already validated, no evidence-only descendant promoted",
+  "actual_logs": {
+    "actual-validation-before.log": {
+      "sha256": "59165be47dc126b0a9725597d76afad11591251692897e116863ee8e260c6a5a",
+      "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/validation-regexp/home-before/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/core/validation/src/index.ts\"]\nhome-tool (zig-js): SyntaxError: invalid regular expression\n\nECOSYSTEM PEAK SAMPLED RSS: 135600 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "actual-model-meta-before.log": {
+      "sha256": "f8a9c06277f9b3d42b5e2c6302b9ae47ebaad94e842eca11bc7b1404c4bfcd4b",
+      "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/validation-regexp/home-before/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/core/model-meta/src/index.ts\"]\nhome-tool (zig-js): SyntaxError: invalid regular expression\n\nECOSYSTEM PEAK SAMPLED RSS: 301168 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "actual-validation-after.log": {
+      "sha256": "c79713d2b10c0133794f34ffd17f5dd77e28d6357a2652bfd583c9e381321198",
+      "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/validation-regexp/home-after/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/core/validation/src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 160080 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "actual-model-meta-after.log": {
+      "sha256": "922238749ce3218ba971dbdb658b43593739b2be0e6840ad74552e0f7ab569a5",
+      "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/validation-regexp/home-after/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/core/model-meta/src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 313792 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "contract-node.log": {
+      "sha256": "da024c4ebe52935af805e41a4ea58de77d0546c0e560d0e4726cf3bd4ea8e33f",
+      "text": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/validation-regexp/contract.mjs\"]\nREGEXP LANGUAGE TAG 860 CHECKS OK\n\nECOSYSTEM PEAK SAMPLED RSS: 832 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "contract-bun.log": {
+      "sha256": "76f6db52fca9ce93949643f61c18d64d21192a87f750d21852e3cee52499a415",
+      "text": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/validation-regexp/contract.mjs\"]\nREGEXP LANGUAGE TAG 860 CHECKS OK\n\nECOSYSTEM PEAK SAMPLED RSS: 2368 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "contract-home-before.log": {
+      "sha256": "84b42324c15c60faf0e52cdee5e701a389db76487a06cd0700ef6cfb14881b6d",
+      "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/validation-regexp/home-before/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/validation-regexp/contract.mjs\"]\nhome-tool (zig-js): SyntaxError: invalid regular expression\n\nECOSYSTEM PEAK SAMPLED RSS: 29248 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "contract-home-after.log": {
+      "sha256": "8717ecffa87ae50ccbd9a4f834db18a257ad6083c36db2f3db8ff1cd5b383b23",
+      "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/validation-regexp/home-after/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/validation-regexp/contract.mjs\"]\nREGEXP LANGUAGE TAG 860 CHECKS OK\n\nECOSYSTEM PEAK SAMPLED RSS: 5648 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "engine-frontend-all.log": {
+      "sha256": "f9102e57c5b9f3e66341d10e7ebaa5d5bb2ec909c2b9eaf6da2ed424b2fabd99",
+      "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"test-frontend\", \"-j1\", \"--summary\", \"all\"]\nfocused engine frontend: 96 cases passed\nBuild Summary: 4/4 steps succeeded\ntest-frontend success\n+- run exe focused-engine-tests success 4s\n   +- compile exe focused-engine-tests debug native success 34s MaxRSS:1G\n      +- options cached\n\n\nECOSYSTEM PEAK SAMPLED RSS: 1352544 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "test262-regexp-before.log": {
+      "sha256": "2aadcb6984505ca0e05fa401128a03916098af5e68cc34ce5dc0006a336c4779",
+      "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/validation-regexp/engine-before/zig-out/bin/test262\", \"--diag\", \"test/built-ins/RegExp\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 586864 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: command time budget exhausted\n\nECOSYSTEM RESULT: timed-out, exit 124\n"
+    },
+    "test262-literals-after.log": {
+      "sha256": "32f9c993460bf0ac6071f98f104f7b3bd7baa15aa8bfe2c1ff852232621c8123",
+      "text": "$ [\"/Users/chris/Code/Libraries/zig-js/zig-out/bin/test262\", \"--diag\", \"test/language/literals/regexp\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 292800 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: command time budget exhausted\n\nECOSYSTEM RESULT: timed-out, exit 124\n"
+    },
+    "regex-final-fetch.log": {
+      "sha256": "0e54d3974272e79edcb326edea60a203e3045eaa88eec94abbae265c78004571",
+      "text": "zig_regex-0.2.1-omky0cHKGwBbh2FCJcgVBCKWHwrfqw4AFk8smB6Qj03k\n"
+    },
+    "literal_followup": {
+      "sha256": "0986bc4f99638312afee9f628e76a2f42d3dff888ca832c5c8c6eb5fc6bed2c4",
+      "text": "$ [\"/Users/chris/Code/Libraries/zig-js/zig-out/bin/test262\", \"--diag\", \"test/language/literals/regexp\"]\n# test/language/literals/regexp: 0 fail, 238 pass\n\nECOSYSTEM PEAK SAMPLED RSS: 479568 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "log_inventory": {
+    "engine-frontend-all.log": {
+      "sha256": "f9102e57c5b9f3e66341d10e7ebaa5d5bb2ec909c2b9eaf6da2ed424b2fabd99",
+      "bytes": 467
+    },
+    "matrix-node.log": {
+      "sha256": "9b6b835b8b0a20d42f3873314959d630b6ca90e4024fcb299eebacb218494ae1",
+      "bytes": 4911
+    },
+    "actual-validation-after.log": {
+      "sha256": "c79713d2b10c0133794f34ffd17f5dd77e28d6357a2652bfd583c9e381321198",
+      "bytes": 348
+    },
+    "test262-literals-before.log": {
+      "sha256": "7dee40f9da6398ac8bb24ff7ce343e85978196348d417ca348d9955a9d9e7d18",
+      "bytes": 300
+    },
+    "regex-all.log": {
+      "sha256": "15909ea0ec84a5b93295dec594b6c016939256f04bb5728d80c84374a098857e",
+      "bytes": 13814
+    },
+    "matrix-home-d59.log": {
+      "sha256": "c4bd4317aade57e99b7941409436722b160ad8b9a6ed879d7d7661fc93fac4dc",
+      "bytes": 4922
+    },
+    "matrix-d4-before.log": {
+      "sha256": "d7b537bd91cc70875ead885c8dcf9eb5a1dc2c86dbf1fa23c5603ed8b0173de5",
+      "bytes": 4927
+    },
+    "engine-before-build.log": {
+      "sha256": "c869aef2f0b2f8b8ab9bf74dd78a6f552ccc50071e9d499e3c6cb0b1615a483d",
+      "bytes": 428
+    },
+    "before-test262-build.log": {
+      "sha256": "1b09c8fbcbf086d52d25ed4a21161a24850fcf7f557a1b0cdb8af3fd58b68654",
+      "bytes": 536
+    },
+    "probe-d4-before.log": {
+      "sha256": "8749f9918e5c7619b98cde8337a407b8c78943c0f3f1964603ec694c26bdc234",
+      "bytes": 2588
+    },
+    "engine-after-build.log": {
+      "sha256": "3261b9eacbd93ff6864662b6567a2ffc4284b7b30743300445287d7b194115a6",
+      "bytes": 428
+    },
+    "frontend-before-generator.log": {
+      "sha256": "61853cec6f3496daf1c80fbd761697d04af8c67b48a7db32de3fec5b924342fc",
+      "bytes": 4874
+    },
+    "reduced-d4-before.log": {
+      "sha256": "0ef800804b8219dc36c371f12b2fc9a7a5f626282122f2c3e7b1e568c1866093",
+      "bytes": 527
+    },
+    "contract-bun.log": {
+      "sha256": "76f6db52fca9ce93949643f61c18d64d21192a87f750d21852e3cee52499a415",
+      "bytes": 276
+    },
+    "test262-regexp-prototype-before.log": {
+      "sha256": "655612875ee29d550c470214894e9848352fc269e23a10ea492a0431fa809ea5",
+      "bytes": 303
+    },
+    "engine-focused-final.log": {
+      "sha256": "37821a09a4e491d75de45ac31d44580fd1c24b88706cbcdb5aef7a3c2a0cc43d",
+      "bytes": 7442
+    },
+    "actual-model-meta-after.log": {
+      "sha256": "922238749ce3218ba971dbdb658b43593739b2be0e6840ad74552e0f7ab569a5",
+      "bytes": 348
+    },
+    "after-test262-build.log": {
+      "sha256": "c5b827c213142685c378195ae0e92b19276996b8018e109d13172437cbb6fedb",
+      "bytes": 532
+    },
+    "test262-regexp-before.log": {
+      "sha256": "2aadcb6984505ca0e05fa401128a03916098af5e68cc34ce5dc0006a336c4779",
+      "bytes": 294
+    },
+    "contract-node.log": {
+      "sha256": "da024c4ebe52935af805e41a4ea58de77d0546c0e560d0e4726cf3bd4ea8e33f",
+      "bytes": 269
+    },
+    "test262-literals-after.log": {
+      "sha256": "32f9c993460bf0ac6071f98f104f7b3bd7baa15aa8bfe2c1ff852232621c8123",
+      "bytes": 246
+    },
+    "engine-focused.log": {
+      "sha256": "427aa00e989b25ab125795a3ecd516dfa037358f8e1cae0fca9286372f26036e",
+      "bytes": 616
+    },
+    "test262-class-escapes-before.log": {
+      "sha256": "804c717f4ecbe5f1de9b46972c17daed07ea1303fb74eb2597eb063ca07c3b13",
+      "bytes": 327
+    },
+    "frontend-before-tree.log": {
+      "sha256": "bd0bd3bbdb7311636ad18c71fed385803074ffc114ec46478d19bb55d5f3c13e",
+      "bytes": 9300
+    },
+    "test262-class-escapes-after.log": {
+      "sha256": "7b35807c45b5878585f15099442c241b4e0f76dacc0a5480b67fe9168281fb3e",
+      "bytes": 271
+    },
+    "compile-before.log": {
+      "sha256": "843db06443377e863a37c9e057879918eb7e4d68af88f0e07d94489bf342b23d",
+      "bytes": 549
+    },
+    "contract-home-after.log": {
+      "sha256": "8717ecffa87ae50ccbd9a4f834db18a257ad6083c36db2f3db8ff1cd5b383b23",
+      "bytes": 330
+    },
+    "regex-all-final.log": {
+      "sha256": "31b0d6fea55cb8a6623bde2aaba4a6c568e689884e8239a19b36200105461064",
+      "bytes": 13814
+    },
+    "reduced-bun.log": {
+      "sha256": "f4acb9f889db1fc5604a88dc7457a0078e097906d43f36a6015f89ab32887fb7",
+      "bytes": 495
+    },
+    "regex-all-unicode.log": {
+      "sha256": "1cf3c8966a3cb3224c3712535d2f4e557cec081cb21e32ea36f43cb58ba7023a",
+      "bytes": 13814
+    },
+    "test262-string-prototype-after.log": {
+      "sha256": "8c46199aac05ec253e37d60cb28a039376e1d56d4d29b2fd821718643d29cdde",
+      "bytes": 248
+    },
+    "actual-validation-before.log": {
+      "sha256": "59165be47dc126b0a9725597d76afad11591251692897e116863ee8e260c6a5a",
+      "bytes": 409
+    },
+    "home-after-gates.log": {
+      "sha256": "618b27d0bda5ab1896c181106d29ea438c7902f6f2fd56f6532aa76c1c6571d5",
+      "bytes": 35272
+    },
+    "home-d59.log": {
+      "sha256": "eb0ea12bae1f85d6b12e0842ed47dff5059c290146064c353b36be6dbd98b4d1",
+      "bytes": 2582
+    },
+    "test262-string-prototype-before.log": {
+      "sha256": "8b3d67e24666cd7d3039dc9d38bbe92cfd0e66afd9a0e9f1440bb72770f1b225",
+      "bytes": 304
+    },
+    "actual-model-meta-before.log": {
+      "sha256": "f8a9c06277f9b3d42b5e2c6302b9ae47ebaad94e842eca11bc7b1404c4bfcd4b",
+      "bytes": 409
+    },
+    "regex-final-fetch.log": {
+      "sha256": "0e54d3974272e79edcb326edea60a203e3045eaa88eec94abbae265c78004571",
+      "bytes": 61
+    },
+    "bun.log": {
+      "sha256": "f0cf9598124a3ec0940c77cf4bf8dd99cf6ac7ad29d6011c304c8e417b8827d8",
+      "bytes": 275
+    },
+    "regex-focused.log": {
+      "sha256": "b2dd50d395bff45241f5e4c687a81c3b6203e52ceec3e3fe58394865abc17a61",
+      "bytes": 457
+    },
+    "test262-literals-after-extended-diagnostic.log": {
+      "sha256": "0986bc4f99638312afee9f628e76a2f42d3dff888ca832c5c8c6eb5fc6bed2c4",
+      "bytes": 244
+    },
+    "matrix-home-after.log": {
+      "sha256": "93aa6a9c90c8c01036aef72e2c443d332fa7cd039fbaf86eff49eb4f299be65e",
+      "bytes": 4970
+    },
+    "test262-regexp-prototype-after.log": {
+      "sha256": "b4acdb8cecdd86159d4a57e33ca4b7050f613b1341deceecd6a44c225a29053e",
+      "bytes": 247
+    },
+    "compile-after.log": {
+      "sha256": "1ecce83ffac6788732c89433b50fc42265a715a2f99d6bd83cdcf13efa48f443",
+      "bytes": 144
+    },
+    "matrix-bun.log": {
+      "sha256": "04f8f5391850e266a32c495e6327f6ec6cbead5911943f70376b582882f9fb62",
+      "bytes": 4909
+    },
+    "contract-home-before.log": {
+      "sha256": "84b42324c15c60faf0e52cdee5e701a389db76487a06cd0700ef6cfb14881b6d",
+      "bytes": 358
+    },
+    "reduced-home-d59.log": {
+      "sha256": "356b0fe902e7aacb050d89a3d5380c82a51979530739e98197fe374acac74891",
+      "bytes": 522
+    },
+    "home-before-build.log": {
+      "sha256": "6141702c0aae20ebe749dfd8f4ab11c5a54dd10da51cf015397ff1b454792c05",
+      "bytes": 679
+    },
+    "reduced-node.log": {
+      "sha256": "fe38b99829b3ef5ce752c40ffa5de58631554c68df667b23b58dac70c4bb6ef4",
+      "bytes": 489
+    }
+  },
+  "incomplete_diagnostics": {
+    "broad_regexp_before_300_seconds": {
+      "regexp": {
+        "status": "timed-out",
+        "exit_code": 124,
+        "peak_sampled_rss_kib": 586864,
+        "memory_limit_mb": 3072,
+        "seconds": 300.078,
+        "log": "test262-regexp-before.log",
+        "reason": "command time budget exhausted"
+      }
+    },
+    "literal_after_300_seconds": {
+      "status": "timed-out",
+      "exit_code": 124,
+      "peak_sampled_rss_kib": 292800,
+      "memory_limit_mb": 3072,
+      "seconds": 300.079,
+      "log": "test262-literals-after.log",
+      "reason": "command time budget exhausted"
+    },
+    "literal_followup": "Completed238cases/0failures in280.213seconds with a separate600second diagnostic watchdog; the initial300second timeout is retained. No production consumer/evaluator/memory limit was changed, and no pipeline timing pass or throughput claim is inferred."
+  },
+  "reference_versions": {
+    "node": "v26.10.0",
+    "bun": "1.4.4",
+    "zig": "0.18.0-dev.146+35accc06e"
+  },
+  "local_results": {
+    "forced_tree": {
+      "before": "fails constructor",
+      "after": 860,
+      "total": 860
+    },
+    "required_generator_vm": {
+      "before": "fails constructor",
+      "after": 860,
+      "total": 860
+    },
+    "frontend_cases": 96,
+    "regex_library_tests": 201,
+    "Home_host_module_steps": 202,
+    "actual_frozen_Stacks_source_initializations": {
+      "validation": "failed -> passed",
+      "model-meta": "failed -> passed"
+    },
+    "test262": {
+      "before_failures": 0,
+      "after_failures": 0,
+      "executed_cases": 1810,
+      "flips": 0
+    },
+    "Node_contract": {
+      "passed": 860,
+      "total": 860
+    },
+    "Bun_contract": {
+      "passed": 860,
+      "total": 860
+    },
+    "Home_contract": {
+      "passed": 860,
+      "total": 860
+    }
+  },
+  "next_failure_clusters": {
+    "stacks": {
+      "counts": {
+        "home-tool (zig-js): TypeError: Bun.build is not a function.": 88,
+        "home-tool (zig-js): Error: cannot resolve module bun:sqlite": 24,
+        "home-tool (zig-js): Error: cannot resolve module node:https": 1,
+        "home-tool (zig-js): SyntaxError: Unexpected token": 6,
+        "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/f": 2,
+        "home-tool (zig-js): Error: cannot resolve module node:tls": 2,
+        "home-tool (zig-js): SyntaxError: invalid regular expression": 2,
+        "home-tool (zig-js): Error: cannot resolve module node:http2": 1,
+        "home-tool (zig-js): Error: cannot resolve module net": 4,
+        "home-tool (zig-js): Error: cannot resolve module node:dns/promises": 1,
+        "home-tool (zig-js): Error: cannot resolve module bun:test": 1,
+        "home-tool (zig-js): SyntaxError: Unexpected token ':'": 1,
+        "home-tool (zig-js): Error: Async module cycles are not implemented: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stac": 1,
+        "home-tool (zig-js): Error: cannot resolve module node:net": 1
+      },
+      "examples": {
+        "home-tool (zig-js): TypeError: Bun.build is not a function.": [
+          ".: typecheck",
+          "storage/framework/api: build"
+        ],
+        "home-tool (zig-js): Error: cannot resolve module bun:sqlite": [
+          "storage/framework/core/actions: module initialization src/index.ts",
+          "storage/framework/core/analytics: module initialization src/index.ts"
+        ],
+        "home-tool (zig-js): Error: cannot resolve module node:https": [
+          "storage/framework/core/browser-extension: module initialization src/index.ts"
+        ],
+        "home-tool (zig-js): SyntaxError: Unexpected token": [
+          "storage/framework/core/browser: module initialization src/index.ts",
+          "storage/framework/core/composables: module initialization src/index.ts"
+        ],
+        "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/f": [
+          "storage/framework/core/chat: module initialization src/index.ts",
+          "storage/framework/core/desktop: module initialization src/index.ts"
+        ],
+        "home-tool (zig-js): Error: cannot resolve module node:tls": [
+          "storage/framework/core/email: module initialization src/index.ts",
+          "storage/framework/core/notifications: module initialization src/index.ts"
+        ],
+        "home-tool (zig-js): SyntaxError: invalid regular expression": [
+          "storage/framework/core/model-meta: module initialization src/index.ts",
+          "storage/framework/core/validation: module initialization src/index.ts"
+        ],
+        "home-tool (zig-js): Error: cannot resolve module node:http2": [
+          "storage/framework/core/push: module initialization src/index.ts"
+        ],
+        "home-tool (zig-js): Error: cannot resolve module net": [
+          "storage/framework/core/router: module initialization src/index.ts",
+          "storage/framework/core/server: module initialization src/index.ts"
+        ],
+        "home-tool (zig-js): Error: cannot resolve module node:dns/promises": [
+          "storage/framework/core/security: module initialization src/index.ts"
+        ],
+        "home-tool (zig-js): Error: cannot resolve module bun:test": [
+          "storage/framework/core/testing: module initialization src/index.ts"
+        ],
+        "home-tool (zig-js): SyntaxError: Unexpected token ':'": [
+          "storage/framework/core/ui: module initialization src/index.ts"
+        ],
+        "home-tool (zig-js): Error: Async module cycles are not implemented: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stac": [
+          "storage/framework/core/video: module initialization src/index.ts"
+        ],
+        "home-tool (zig-js): Error: cannot resolve module node:net": [
+          "storage/framework/core/whois: module initialization src/index.ts"
+        ]
+      }
+    },
+    "home": {
+      "counts": {
+        "home-tool (zig-js): Error: cannot resolve module https": 2,
+        "home-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind": 4,
+        "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/r": 9,
+        "home-tool (zig-js): Error: cannot resolve module v8": 2,
+        "home-tool (zig-js): Error: cannot resolve module tls": 1,
+        "home-tool (zig-js): TypeError: undefined is not an object (evaluating 'mod.prototype.require')": 1,
+        "home-tool (zig-js): Error: cannot resolve module ./build/ci.ts": 1,
+        "home-tool (zig-js): Error: cannot resolve module node:net": 3,
+        "home-tool (zig-js): Error: cannot resolve module node:v8": 1,
+        "home-tool (zig-js): SyntaxError: invalid regular expression": 2,
+        "home-tool (zig-js): TypeError: undefined is not an object (evaluating '(process.env.BUN_VERSION || Bun.version || process.versions.bun).repl": 1,
+        "home-tool (zig-js): TypeError: process.chdir is not a function.": 2,
+        "home-tool (zig-js): Error: cannot resolve module ./schema.js": 1,
+        "home-tool (zig-js): TypeError: Spread syntax requires ...iterable not be null or undefined": 1,
+        "home-tool (zig-js): Error: cannot resolve module vscode": 1
+      },
+      "examples": {
+        "home-tool (zig-js): Error: cannot resolve module https": [
+          "packages/action: module initialization src/index.ts",
+          "packages/action: module initialization dist/index.js"
+        ],
+        "home-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind": [
+          "packages/runtime/src/runtime/cli/create/projects/react-shadcn-spa: build",
+          "packages/runtime/upstream/src/runtime/cli/create/projects/react-shadcn-spa: build"
+        ],
+        "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/r": [
+          "packages/runtime/src/runtime/cli/init/react-app: module initialization src/index.ts",
+          "packages/runtime/src/runtime/cli/init/react-shadcn: module initialization src/index.ts"
+        ],
+        "home-tool (zig-js): Error: cannot resolve module v8": [
+          "packages/runtime/src/runtime/cli/init/react-shadcn: build",
+          "packages/runtime/src/runtime/cli/init/react-tailwind: build"
+        ],
+        "home-tool (zig-js): Error: cannot resolve module tls": [
+          "packages/runtime/upstream/bench/grpc-server: module initialization index.js"
+        ],
+        "home-tool (zig-js): TypeError: undefined is not an object (evaluating 'mod.prototype.require')": [
+          "packages/runtime/upstream/bench/install: build"
+        ],
+        "home-tool (zig-js): Error: cannot resolve module ./build/ci.ts": [
+          "packages/runtime/upstream: build"
+        ],
+        "home-tool (zig-js): Error: cannot resolve module node:net": [
+          "packages/runtime/upstream: test",
+          "packages/runtime/upstream/packages/bun-debug-adapter-protocol: module initialization index.ts"
+        ],
+        "home-tool (zig-js): Error: cannot resolve module node:v8": [
+          "packages/runtime/upstream/packages/bun-build-mdx-rs: test"
+        ],
+        "home-tool (zig-js): SyntaxError: invalid regular expression": [
+          "packages/runtime/upstream/packages/bun-plugin-svelte: module initialization src/index.ts",
+          "packages/runtime/upstream/packages/bun-plugin-svelte: module initialization ./src/index.ts"
+        ],
+        "home-tool (zig-js): TypeError: undefined is not an object (evaluating '(process.env.BUN_VERSION || Bun.version || process.versions.bun).repl": [
+          "packages/runtime/upstream/packages/bun-types: build"
+        ],
+        "home-tool (zig-js): TypeError: process.chdir is not a function.": [
+          "packages/runtime/upstream/packages/bun-vscode: build",
+          "packages/runtime/upstream/packages/bun-vscode: test"
+        ],
+        "home-tool (zig-js): Error: cannot resolve module ./schema.js": [
+          "packages/runtime/upstream/packages/bun-wasm: module initialization index.ts"
+        ],
+        "home-tool (zig-js): TypeError: Spread syntax requires ...iterable not be null or undefined": [
+          "packages/runtime/upstream/src/node-fallbacks: build"
+        ],
+        "home-tool (zig-js): Error: cannot resolve module vscode": [
+          "packages/vscode-home: module initialization ./out/extension.js"
+        ]
+      }
+    }
+  },
+  "next_work": "Actual latest Stacks reports88candidate failures reaching missingBun.build and24missingbun:sqlite; those need real capabilities. Home maintained React still needs realv8 integration, docs still needs a measured memory fix. Additional Home node:module Module.prototype.require and process.chdir failures need reproduction before changes. No constant snapshot answer, stub bundler, test scheduler, skip or native Bun fallback.",
+  "reproduction": [
+    "Build exact pushed engine60fdd42f Debug C archive with the pinned compiler; build pushed Home2b ReleaseSafe with tool-js-engine=zig-js and enable_jsc=false against that archive. Baseline is the same Home2b against exactd4 Debug C archive.",
+    "Run the exact engine tools/regexp_language_tag_probe.js body inside a function, printing its return count; canonical wrapper and all raw guard logs are retained in the verification directory. All860checks must execute, rather than interpreting constructor-error matrix output as a passing contract.",
+    "Run Home directly on actual frozen Stacks core/validation/src/index.ts and core/model-meta/src/index.ts with their installed dependencies; no instrumentation, loader override or native Bun fallback. These are initialization checks, not full builds or tests.",
+    "For test262, use the unchanged pinned4249661 corpus with each before/after native runner; verify nonzero summaries and complete exact failure sets. Partial diagnostic runs cannot establish passes."
+  ],
+  "ci_observation": {
+    "focused_run": 42918611833,
+    "runtime_job": 130188028504,
+    "state": "in_progress at latest observation: engine archive build passed; Home build running",
+    "all_selected_run": 42918365900,
+    "caller_suite": "f64846de2ebb3473082560f0226ea49cbd360906",
+    "suite_promotion": "No functional suite change; retain existing validated immutable pin. This new evidence descendant is not a promotion."
+  }
+}
