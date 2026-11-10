@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "run": 42778535141,
+  "url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42778535141",
+  "suite_ref": "8a8ee70fd572b9dd3b9625bbd6fdd12e940e27cd",
+  "engine_sha": "8002da3b38aef1c2e4975910475bbde1a9292035",
+  "runtime_home": "9172e5a67a43610844d508fe085c843a9353ef9c",
+  "consumers": {
+    "stacksjs--stacks": {
+      "consumer_sha": "8b9e1572fee6a8345213159d892fd82d91604927",
+      "artifact": {
+        "id": 13747440326,
+        "sha256": "4cc54b0956b978bebc8533438554a83cd394a14fb51fa63118ff375f960066b2",
+        "bytes": 1923840
+      },
+      "report_sha256": "9db767eb64871d5e71bd35f076e956c93de83f4ae8005c7f2c822a27758946ae",
+      "scopes": 99,
+      "reported_checks": 927,
+      "candidate_statuses": {
+        "unsupported": 355,
+        "failed": 213,
+        "passed": 57
+      },
+      "reference_statuses": {
+        "passed": 110,
+        "failed": 54,
+        "timed-out": 1,
+        "not-run": 110
+      },
+      "checks": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 1798160,
+            "memory_limit_mb": 3072,
+            "seconds": 7.423,
+            "log": "0016.log",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "./buddy build"
+            ],
+            "engine_invocations": 3
+          },
+          "log_sha256": "76d888db87caf3a3e8d3addcfd42569f5732a5119564f6fb2c97bf07ef0c9da6",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-10T08:07:41.741Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 1798160 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 59820,
+            "memory_limit_mb": 3072,
+            "seconds": 0.215,
+            "log": "0299.log",
+            "label": "storage/framework/core/i18n: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+              "src/index.ts"
+            ],
+            "engine_invocations": 1
+          },
+          "log_sha256": "a0f7244d8119fde6538d9df58f95ce811b4cf3a578de9b84c73ffc8c5dd42ad9",
+          "log_excerpt": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 59820 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 77824,
+            "memory_limit_mb": 3072,
+            "seconds": 0.214,
+            "log": "0464.log",
+            "label": "storage/framework/core/realtime: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+              "src/index.ts"
+            ],
+            "engine_invocations": 1
+          },
+          "log_sha256": "1a7dab95bd3b31afa99f2067558947686b0868d3e7239de27e9d5fd2b5c4c852",
+          "log_excerpt": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 77824 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ]
+    },
+    "home-lang--home": {
+      "consumer_sha": "9172e5a67a43610844d508fe085c843a9353ef9c",
+      "artifact": {
+        "id": 13747336287,
+        "sha256": "92db0d64e67d2ff42acdb0000be19c442cb380c9b785debe8c97c6da98b13ff3",
+        "bytes": 174201
+      },
+      "report_sha256": "0b16f350ca6f4e3ba9ccd4f9f89056b4b188d0e11e9535f245f886fbdc463895",
+      "scopes": 46,
+      "reported_checks": 201,
+      "candidate_statuses": {
+        "failed": 42,
+        "unsupported": 38,
+        "passed": 7
+      },
+      "reference_statuses": {
+        "passed": 9,
+        "failed": 7
+      },
+      "checks": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": -9,
+            "peak_sampled_rss_kib": 3154756,
+            "memory_limit_mb": 3072,
+            "seconds": 30.988,
+            "log": "0052.log",
+            "reason": "sampled command tree RSS exceeded 3072 MiB",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bunx bunpress build"
+            ],
+            "engine_invocations": 1
+          },
+          "log_sha256": "d7a0afe8590e4544496607ceec7bcacafdda47e5a000bda904597a24e8803fb1",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 3154756 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+        },
+        {
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 596684,
+            "memory_limit_mb": 3072,
+            "seconds": 1.08,
+            "log": "0054.log",
+            "label": ".: typecheck",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun --bun tsc --noEmit"
+            ],
+            "engine_invocations": 1
+          },
+          "log_sha256": "ecb67c97d5a9af7e4b8fd4d1b449a00022c832e9dc509e3f92c3f1414893a114",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun --bun tsc --noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 596684 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 127,
+            "peak_sampled_rss_kib": 10544,
+            "memory_limit_mb": 3072,
+            "seconds": 0.07,
+            "log": "0078.log",
+            "label": "packages/runtime/upstream/bench/ffi: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "cd src && bun run build"
+            ],
+            "engine_invocations": 0
+          },
+          "log_sha256": "74b37fb158d0c2ada6fc18ec711cde07535f2405ef9bd1d3dcff916e4a49180e",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"cd src && bun run build\"]\necosystem-script: 1: napi: not found\n\nECOSYSTEM PEAK SAMPLED RSS: 10544 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 127\n"
+        },
+        {
+          "check": {
+            "label": "packages/runtime/upstream/bench/ffi: build",
+            "lane": "reference",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "cd src && bun run build"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/bench/ffi",
+            "status": "failed",
+            "reason": "command monitoring or cleanup failed: RuntimeError('command process group 18032 did not stop after SIGKILL')",
+            "log": "0200.log"
+          },
+          "log_sha256": "2d14e816b136c1ddd3dc402debb0e37bbb4789761b3db4f47e10f2646e388586",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"cd src && bun run build\"]\n$ bun run build:napi && bun run build:ffi\n$ napi build --release --platform --no-dts-header --features enable-napi && bun run cleanup\n\nECOSYSTEM LIMIT: command time budget exhausted\n"
+        },
+        {
+          "check": {
+            "label": "orchestrator",
+            "status": "failed",
+            "reason": "RuntimeError('command process group 18032 did not stop after SIGKILL')"
+          }
+        }
+      ]
+    }
+  },
+  "interpretation": [
+    "Stacks99scopes/927checks retains57 candidate pass/213fail/355unsupported; readonly i18n/realtime persist on Home9172 and are the reproduced failures addressed by laterf80, not this run.",
+    "Home46scopes/201partial checks retains7pass/42fail/38unsupported; root docs still exceeds3072MiB and root typecheck passes.",
+    "The exact reference FFI0200 command times out and group18032 survives cleanup observation; command/cwd/log retained and orchestrator failed, not a234-check completed execution claim. No process-state witness exists yet; do not infer a kernel state or claim the cleanup fault fixed.",
+    "Reference failures/unsupported/unexecuted entries remain outside candidate runtime passes. No PNG root build compatibility gain claimed."
+  ]
+}
