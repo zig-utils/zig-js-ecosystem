@@ -1,0 +1,742 @@
+{
+  "run": 42886935379,
+  "results": [
+    {
+      "artifact": {
+        "id": 13800345300,
+        "name": "ecosystem-results-0",
+        "digest": "sha256:f37e8340480b88324934ddc7aa8dcd1706655fb32ee2fffa5def89d1a5443c49",
+        "size_in_bytes": 1457351
+      },
+      "repository": "stacksjs/stacks",
+      "sha": "1036281492e73aadda1607c5e0d1c56e2de07fca",
+      "engine_sha": "8a77be3eac722dba4a0ef47909b56e9c1b409732",
+      "runtime_provenance": {
+        "engine_sha": "8a77be3eac722dba4a0ef47909b56e9c1b409732",
+        "suite_ref": "0bd9515ec25ad715cb0d419a4888e0518e16c5bf",
+        "home_repository": "home-lang/home",
+        "home_ref": "9f9d2bb39a70ef9270ae93f0631724873e87f2c8",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "1d3a758492a97b8c3b24e8f5117f8992b066383f48cbe6e35f8d4c5c90d0b3d9",
+          "engine/zig-out/lib/libzig-js.a": "3c8bda561f7f0523a49d0f1a4b9216560075de40b066af2f736882768329004e"
+        }
+      },
+      "scopes": 99,
+      "checks": 927,
+      "lanes": {
+        "candidate": {
+          "unsupported": 355,
+          "failed": 209,
+          "passed": 61
+        },
+        "engine": {
+          "passed": 1
+        },
+        "reference": {
+          "passed": 37,
+          "failed": 27,
+          "timed-out": 2,
+          "not-run": 209
+        },
+        "reference-setup": {
+          "passed": 10
+        },
+        "setup": {
+          "passed": 16
+        }
+      },
+      "selected_actual_checks": [
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 1864736,
+          "memory_limit_mb": 3072,
+          "seconds": 6.937,
+          "log": "0016.log",
+          "label": ".: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "./buddy build"
+          ],
+          "engine_invocations": 3,
+          "log_sha256": "4e7b1b51f597fe9d0b2f3da1512efa33f9cca14aa8c844a0c6e96811d0d77a21",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-10T19:54:23.193Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 1864736 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "unsupported",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 741956,
+          "memory_limit_mb": 3072,
+          "seconds": 1.75,
+          "log": "0017.log",
+          "label": ".: test",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "./buddy test"
+          ],
+          "engine_invocations": 2,
+          "unsupported_reasons": [
+            "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+          ],
+          "reason": "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed",
+          "log_sha256": "2a48c3077838b45b6a43b76bba39b3d95a320ddc0d8830c0bb4fa46abe5ff627",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"./buddy test\"]\n[2026-11-10T19:54:30.120Z] local.INFO: Running   buddy test \nECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\n[2026-11-10T19:54:30.475Z] local.ERROR: Tests failed\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/test/index.ts --interaction --emoji --cache --verbose --cwd /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/test/index.ts --interaction --emoji --cache --verbose --cwd /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 741956 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 1657640,
+          "memory_limit_mb": 3072,
+          "seconds": 6.666,
+          "log": "0018.log",
+          "label": ".: typecheck",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)"
+          ],
+          "engine_invocations": 3,
+          "log_sha256": "781ab0f93d30d5a1f3079c1fd26433c90117421cb9621155107a1aa81810e6f6",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\n[2026-11-10T19:54:37.089Z] local.INFO: Building @stacksjs/validation...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 1657640 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 10036,
+          "memory_limit_mb": 3072,
+          "seconds": 0.068,
+          "log": "0194.log",
+          "label": "storage/framework/core/defaults: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun build.ts"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "e2140806f2f98ae691203c879c5d8bb8389615257c323294d31d4a819d0a9d12",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun build.ts\"]\nhome-tool (zig-js): TypeError: cp is not a function. (In 'cp(source, dest, { recursive: true, filter: shipsToApps })', 'cp' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 10036 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "unsupported",
+          "exit_code": 78,
+          "peak_sampled_rss_kib": 10204,
+          "memory_limit_mb": 3072,
+          "seconds": 0.036,
+          "log": "0195.log",
+          "label": "storage/framework/core/defaults: test",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun test"
+          ],
+          "engine_invocations": 0,
+          "unsupported_reasons": [
+            "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+          ],
+          "reason": "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed",
+          "log_sha256": "93b0df664c2d61d26b9928d740f799ffaa50730ac1e924b2ce7dcb3e644bb46a",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun test\"]\nECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\n\nECOSYSTEM PEAK SAMPLED RSS: 10204 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "status": "unsupported",
+          "exit_code": 78,
+          "peak_sampled_rss_kib": 8212,
+          "memory_limit_mb": 3072,
+          "seconds": 0.036,
+          "log": "0196.log",
+          "label": "storage/framework/core/defaults: module initialization ./resources/plugins/preloader.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+            "./resources/plugins/preloader.ts"
+          ],
+          "engine_invocations": 0,
+          "unsupported_reasons": [
+            "No script or installed binary: ./resources/plugins/preloader.ts"
+          ],
+          "reason": "No script or installed binary: ./resources/plugins/preloader.ts",
+          "log_sha256": "64bca18f99bfc67ec3c87c4e0f10353f01e557d0720802fe5bf7968be69c5822",
+          "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"./resources/plugins/preloader.ts\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: ./resources/plugins/preloader.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 8212 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 404172,
+          "memory_limit_mb": 3072,
+          "seconds": 0.697,
+          "log": "0307.log",
+          "label": "storage/framework/core/lint: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun build.ts"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "5ef1a7327366bf57463712aebb2de3ac66e83d570655fe603b5b8a19e25c5230",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun build.ts\"]\n[2026-11-10T19:57:23.777Z] local.INFO: Building @stacksjs/lint...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 404172 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 101596,
+          "memory_limit_mb": 3072,
+          "seconds": 0.13,
+          "log": "0308.log",
+          "label": "storage/framework/core/lint: typecheck",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun tsc --noEmit"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "cf7ff7c80580f67e120c855ca6d4bc2e0c9b47288e272e3d81fc87e5098eec4e",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun tsc --noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 101596 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        },
+        {
+          "status": "unsupported",
+          "exit_code": 78,
+          "peak_sampled_rss_kib": 10052,
+          "memory_limit_mb": 3072,
+          "seconds": 0.036,
+          "log": "0309.log",
+          "label": "storage/framework/core/lint: test",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun test"
+          ],
+          "engine_invocations": 0,
+          "unsupported_reasons": [
+            "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+          ],
+          "reason": "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed",
+          "log_sha256": "54fd7ea2173451d7423e4044752cbc581d56a8f24b19bec278b0b9de5762f8fd",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun test\"]\nECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\n\nECOSYSTEM PEAK SAMPLED RSS: 10052 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 76600,
+          "memory_limit_mb": 3072,
+          "seconds": 0.173,
+          "log": "0310.log",
+          "label": "storage/framework/core/lint: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+            "src/index.ts"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "89b5e5c775799923d29abe63566e45eac785ef6b5e5df6b8d4fd56093c958885",
+          "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 76600 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        },
+        {
+          "status": "unsupported",
+          "exit_code": 78,
+          "peak_sampled_rss_kib": 8204,
+          "memory_limit_mb": 3072,
+          "seconds": 0.036,
+          "log": "0311.log",
+          "label": "storage/framework/core/lint: module initialization dist/index.js",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+            "dist/index.js"
+          ],
+          "engine_invocations": 0,
+          "unsupported_reasons": [
+            "No script or installed binary: dist/index.js"
+          ],
+          "reason": "No script or installed binary: dist/index.js",
+          "log_sha256": "73841629a958832dcada021c5fcb33d9d0d83fbfeddadac758f641eb8cedb266",
+          "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"dist/index.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8204 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "status": "unsupported",
+          "exit_code": 78,
+          "peak_sampled_rss_kib": 8304,
+          "memory_limit_mb": 3072,
+          "seconds": 0.036,
+          "log": "0312.log",
+          "label": "storage/framework/core/lint: module initialization ./dist/index.js",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+            "./dist/index.js"
+          ],
+          "engine_invocations": 0,
+          "unsupported_reasons": [
+            "No script or installed binary: ./dist/index.js"
+          ],
+          "reason": "No script or installed binary: ./dist/index.js",
+          "log_sha256": "eb7f2f310600eaa8616028239d934cfb592e2fa25841392e1726c558a6db0f8c",
+          "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"./dist/index.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: ./dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8304 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        }
+      ],
+      "orchestrator": []
+    },
+    {
+      "artifact": {
+        "id": 13799417272,
+        "name": "ecosystem-results-1",
+        "digest": "sha256:cbdc30027620f6f8005d1548e5799a123374e8eb17d96360bc5b75ce2b8d0a6b",
+        "size_in_bytes": 172904
+      },
+      "repository": "home-lang/home",
+      "sha": "d63b544e20ea6b36eb4ec33ac6cecc2d7c0f56dc",
+      "engine_sha": "8a77be3eac722dba4a0ef47909b56e9c1b409732",
+      "runtime_provenance": {
+        "engine_sha": "8a77be3eac722dba4a0ef47909b56e9c1b409732",
+        "suite_ref": "0bd9515ec25ad715cb0d419a4888e0518e16c5bf",
+        "home_repository": "home-lang/home",
+        "home_ref": "9f9d2bb39a70ef9270ae93f0631724873e87f2c8",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "1d3a758492a97b8c3b24e8f5117f8992b066383f48cbe6e35f8d4c5c90d0b3d9",
+          "engine/zig-out/lib/libzig-js.a": "3c8bda561f7f0523a49d0f1a4b9216560075de40b066af2f736882768329004e"
+        }
+      },
+      "scopes": 46,
+      "checks": 234,
+      "lanes": {
+        "candidate": {
+          "failed": 42,
+          "unsupported": 38,
+          "passed": 7
+        },
+        "direct-consumer": {
+          "passed": 4
+        },
+        "engine": {
+          "passed": 1
+        },
+        "reference": {
+          "passed": 11,
+          "failed": 4,
+          "timed-out": 1,
+          "not-run": 34
+        },
+        "reference-setup": {
+          "passed": 40,
+          "timed-out": 1,
+          "failed": 2
+        },
+        "setup": {
+          "passed": 46,
+          "timed-out": 1,
+          "failed": 2
+        }
+      },
+      "selected_actual_checks": [
+        {
+          "status": "failed",
+          "exit_code": -9,
+          "peak_sampled_rss_kib": 3163608,
+          "memory_limit_mb": 3072,
+          "seconds": 22.028,
+          "log": "0052.log",
+          "reason": "sampled command tree RSS exceeded 3072 MiB",
+          "label": ".: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bunx bunpress build"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "2532b7fdf4c1528ac8627d8bb166dbcc0affff7f93a804d60d1008fe88b2cd8a",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 3163608 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+        },
+        {
+          "status": "unsupported",
+          "exit_code": 78,
+          "peak_sampled_rss_kib": 10468,
+          "memory_limit_mb": 3072,
+          "seconds": 0.037,
+          "log": "0053.log",
+          "label": ".: test",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun test"
+          ],
+          "engine_invocations": 0,
+          "unsupported_reasons": [
+            "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+          ],
+          "reason": "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed",
+          "log_sha256": "a5eba595d572fea70228ce29456ebccfe8a853a68397eae365666f4629b2ecf9",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun test\"]\nECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\n\nECOSYSTEM PEAK SAMPLED RSS: 10468 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 600560,
+          "memory_limit_mb": 3072,
+          "seconds": 0.855,
+          "log": "0054.log",
+          "label": ".: typecheck",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun --bun tsc --noEmit"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "62544eeef295f9619812c93c5b344e63f1d8140fa5d7628cd0616815c24a79bb",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun --bun tsc --noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 600560 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 10700,
+          "memory_limit_mb": 3072,
+          "seconds": 0.069,
+          "log": "0065.log",
+          "label": "packages/runtime/src/runtime/cli/create/projects/react-shadcn-spa: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun 'REPLACE_ME_WITH_YOUR_APP_FILE_NAME.build.ts'"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "494f12730e57b075cd1265b8e22a343a457463942300b1183cbbca1de71cfec9",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun 'REPLACE_ME_WITH_YOUR_APP_FILE_NAME.build.ts'\"]\nhome-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/create/projects/react-shadcn-spa/REPLACE_ME_WITH_YOUR_APP_FILE_NAME.build.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 10700 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "unsupported",
+          "exit_code": 78,
+          "peak_sampled_rss_kib": 10752,
+          "memory_limit_mb": 3072,
+          "seconds": 0.037,
+          "log": "0066.log",
+          "label": "packages/runtime/src/runtime/cli/create/projects/react-spa: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun build --target=browser REPLACE_ME_WITH_YOUR_APP_FILE_NAME.html --outdir dist"
+          ],
+          "engine_invocations": 0,
+          "unsupported_reasons": [
+            "bun build requires a host API absent from Home's repository-tool runtime"
+          ],
+          "reason": "bun build requires a host API absent from Home's repository-tool runtime",
+          "log_sha256": "fd990a16404b28b7cdd6b19ec94c78632eca2b07d978f4a3211411150da2c891",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun build --target=browser REPLACE_ME_WITH_YOUR_APP_FILE_NAME.html --outdir dist\"]\nECOSYSTEM UNSUPPORTED: bun build requires a host API absent from Home's repository-tool runtime\n\nECOSYSTEM PEAK SAMPLED RSS: 10752 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "status": "unsupported",
+          "exit_code": 78,
+          "peak_sampled_rss_kib": 10708,
+          "memory_limit_mb": 3072,
+          "seconds": 0.037,
+          "log": "0067.log",
+          "label": "packages/runtime/src/runtime/cli/init/react-app: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'"
+          ],
+          "engine_invocations": 0,
+          "unsupported_reasons": [
+            "bun build requires a host API absent from Home's repository-tool runtime"
+          ],
+          "reason": "bun build requires a host API absent from Home's repository-tool runtime",
+          "log_sha256": "7ce53adff94c14987f9094f8d5ccc20dee16ee4dcb4b5e8eb72acc95c0efa9bf",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\\\"production\\\"' --env='BUN_PUBLIC_*'\"]\nECOSYSTEM UNSUPPORTED: bun build requires a host API absent from Home's repository-tool runtime\n\nECOSYSTEM PEAK SAMPLED RSS: 10708 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 8796,
+          "memory_limit_mb": 3072,
+          "seconds": 0.07,
+          "log": "0068.log",
+          "label": "packages/runtime/src/runtime/cli/init/react-app: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/home-lang--home/shims/bun",
+            "src/index.ts"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "7ad3a0845ce4f80d2309c684f08c23f68ade5ab06ee5e71dc34a95cb8a9c4c41",
+          "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/home-lang--home/shims/bun\", \"src/index.ts\"]\n/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-app/src/index.html:1: '!' at the start of a type is not valid TypeScript syntax. Did you mean to write 'doctype'? (TS17020)\nhome-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-app/src/index.html\n\nECOSYSTEM PEAK SAMPLED RSS: 8796 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 165840,
+          "memory_limit_mb": 3072,
+          "seconds": 0.34,
+          "log": "0069.log",
+          "label": "packages/runtime/src/runtime/cli/init/react-shadcn: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun run build.ts"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "f04c11317bea267d0008c7ef66514709f52324d139fc75d5a3c3a35b63cb7bf4",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 165840 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 8728,
+          "memory_limit_mb": 3072,
+          "seconds": 0.069,
+          "log": "0070.log",
+          "label": "packages/runtime/src/runtime/cli/init/react-shadcn: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/home-lang--home/shims/bun",
+            "src/index.ts"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "b3ff98efc98cdb12a3025b64acd0a8486a8eb8bac25a856d1b6eae20e83feec8",
+          "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/home-lang--home/shims/bun\", \"src/index.ts\"]\n/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn/src/index.html:1: '!' at the start of a type is not valid TypeScript syntax. Did you mean to write 'doctype'? (TS17020)\nhome-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn/src/index.html\n\nECOSYSTEM PEAK SAMPLED RSS: 8728 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 152444,
+          "memory_limit_mb": 3072,
+          "seconds": 0.332,
+          "log": "0071.log",
+          "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun run build.ts"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "8ea14c826a4c91f79a29513734c5b5deafc5f08d54ee51a94ab7b78ec60bc27d",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 152444 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 8736,
+          "memory_limit_mb": 3072,
+          "seconds": 0.069,
+          "log": "0072.log",
+          "label": "packages/runtime/src/runtime/cli/init/react-tailwind: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/home-lang--home/shims/bun",
+            "src/index.ts"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "09e7cc40808a1942dec2a3e395706717d74b75929eb68a383eca2717eb509337",
+          "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/home-lang--home/shims/bun\", \"src/index.ts\"]\n/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/src/index.html:1: '!' at the start of a type is not valid TypeScript syntax. Did you mean to write 'doctype'? (TS17020)\nhome-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/src/index.html\n\nECOSYSTEM PEAK SAMPLED RSS: 8736 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 0,
+          "memory_limit_mb": 3072,
+          "seconds": 0.005,
+          "log": "0089.log",
+          "label": "packages/runtime/upstream/bench/react-hello-world: test",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "echo \"Error: no test specified\" && exit 1"
+          ],
+          "engine_invocations": 0,
+          "log_sha256": "87f387c9c2d09f51fd608ee94e605783d808fe873645b8902a46d07e4d77ff24",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"echo \\\"Error: no test specified\\\" && exit 1\"]\nError: no test specified\n\nECOSYSTEM PEAK SAMPLED RSS: 0 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 8704,
+          "memory_limit_mb": 3072,
+          "seconds": 0.105,
+          "log": "0090.log",
+          "label": "packages/runtime/upstream/bench/react-hello-world: module initialization react-hello-world.node.js",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/home-lang--home/shims/bun",
+            "react-hello-world.node.js"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "5f6eb47521a74c2dbfc8b519ac4d155b0c62c2bd5e3aa89690d354f4cb049158",
+          "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/home-lang--home/shims/bun\", \"react-hello-world.node.js\"]\nhome-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/bench/react-hello-world/react-hello-world.node.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8704 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 10548,
+          "memory_limit_mb": 3072,
+          "seconds": 0.069,
+          "log": "0130.log",
+          "label": "packages/runtime/upstream/src/runtime/cli/create/projects/react-shadcn-spa: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun 'REPLACE_ME_WITH_YOUR_APP_FILE_NAME.build.ts'"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "c2e85843bcde15a6be1ace4fed9143ffdc6bdd1b6fba3bf8778005721bc1f3cf",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun 'REPLACE_ME_WITH_YOUR_APP_FILE_NAME.build.ts'\"]\nhome-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/create/projects/react-shadcn-spa/REPLACE_ME_WITH_YOUR_APP_FILE_NAME.build.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 10548 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "unsupported",
+          "exit_code": 78,
+          "peak_sampled_rss_kib": 10696,
+          "memory_limit_mb": 3072,
+          "seconds": 0.037,
+          "log": "0131.log",
+          "label": "packages/runtime/upstream/src/runtime/cli/create/projects/react-spa: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun build --target=browser REPLACE_ME_WITH_YOUR_APP_FILE_NAME.html --outdir dist"
+          ],
+          "engine_invocations": 0,
+          "unsupported_reasons": [
+            "bun build requires a host API absent from Home's repository-tool runtime"
+          ],
+          "reason": "bun build requires a host API absent from Home's repository-tool runtime",
+          "log_sha256": "5e158539560c118d7ed16b09ce1b7f1c6d272048a5156aca6bbe366dd9c85ad3",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun build --target=browser REPLACE_ME_WITH_YOUR_APP_FILE_NAME.html --outdir dist\"]\nECOSYSTEM UNSUPPORTED: bun build requires a host API absent from Home's repository-tool runtime\n\nECOSYSTEM PEAK SAMPLED RSS: 10696 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "status": "unsupported",
+          "exit_code": 78,
+          "peak_sampled_rss_kib": 10508,
+          "memory_limit_mb": 3072,
+          "seconds": 0.037,
+          "log": "0132.log",
+          "label": "packages/runtime/upstream/src/runtime/cli/init/react-app: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'"
+          ],
+          "engine_invocations": 0,
+          "unsupported_reasons": [
+            "bun build requires a host API absent from Home's repository-tool runtime"
+          ],
+          "reason": "bun build requires a host API absent from Home's repository-tool runtime",
+          "log_sha256": "23121daccfe8d2991794711c93452144c16854dfb683a126b024b374e15dc1ac",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\\\"production\\\"' --env='BUN_PUBLIC_*'\"]\nECOSYSTEM UNSUPPORTED: bun build requires a host API absent from Home's repository-tool runtime\n\nECOSYSTEM PEAK SAMPLED RSS: 10508 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 8740,
+          "memory_limit_mb": 3072,
+          "seconds": 0.069,
+          "log": "0133.log",
+          "label": "packages/runtime/upstream/src/runtime/cli/init/react-app: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/home-lang--home/shims/bun",
+            "src/index.ts"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "4fe6733871798eee1c6738fbabc0f773a66cd7beb8c17cb8d6f20b391a68275d",
+          "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/home-lang--home/shims/bun\", \"src/index.ts\"]\n/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-app/src/index.html:1: '!' at the start of a type is not valid TypeScript syntax. Did you mean to write 'doctype'? (TS17020)\nhome-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-app/src/index.html\n\nECOSYSTEM PEAK SAMPLED RSS: 8740 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 10656,
+          "memory_limit_mb": 3072,
+          "seconds": 0.069,
+          "log": "0134.log",
+          "label": "packages/runtime/upstream/src/runtime/cli/init/react-shadcn: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun run build.ts"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "e89903f0dde36149c3d6c993f0f42032c3ad46c94f4180351b16229f1381803e",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-shadcn/build.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 10656 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 8776,
+          "memory_limit_mb": 3072,
+          "seconds": 0.069,
+          "log": "0135.log",
+          "label": "packages/runtime/upstream/src/runtime/cli/init/react-shadcn: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/home-lang--home/shims/bun",
+            "src/index.ts"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "ebfeee9563af1ce02249790627d5534edda31eb57d948762b44589c4b1bdafd9",
+          "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/home-lang--home/shims/bun\", \"src/index.ts\"]\n/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-shadcn/src/index.html:1: '!' at the start of a type is not valid TypeScript syntax. Did you mean to write 'doctype'? (TS17020)\nhome-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-shadcn/src/index.html\n\nECOSYSTEM PEAK SAMPLED RSS: 8776 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 10640,
+          "memory_limit_mb": 3072,
+          "seconds": 0.069,
+          "log": "0136.log",
+          "label": "packages/runtime/upstream/src/runtime/cli/init/react-tailwind: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun run build.ts"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "2f235cfbb5d28a51c9e3d8cd2be64de4cd53f37e8300983060f8a0363f5f2682",
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind/build.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 10640 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 8700,
+          "memory_limit_mb": 3072,
+          "seconds": 0.069,
+          "log": "0137.log",
+          "label": "packages/runtime/upstream/src/runtime/cli/init/react-tailwind: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/home-lang--home/shims/bun",
+            "src/index.ts"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "c64ce02382bd6f8a7cf4729292a38d13397441d2eb83d75928441dee4b76138d",
+          "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/home-lang--home/shims/bun\", \"src/index.ts\"]\n/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind/src/index.html:1: '!' at the start of a type is not valid TypeScript syntax. Did you mean to write 'doctype'? (TS17020)\nhome-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind/src/index.html\n\nECOSYSTEM PEAK SAMPLED RSS: 8700 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ],
+      "orchestrator": []
+    }
+  ]
+}
