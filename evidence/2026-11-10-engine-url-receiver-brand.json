@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "engine_commit": "d59e081a4e4f217d98cf5100ddcc7d4d0c66f228",
+  "parent": "7caf047cf0eeba2dbe57aad89b0bec68115631fd",
+  "source_sha256": {
+    "src/interpreter.zig": "d59a2439dae17efc0cacf2be99ebeeb8644ea17d881e12cab066f903313c1efc",
+    "tools/focused_engine_tests.zig": "73d4d6932daf9c53642f55f000052cb272d12d4ae02e92ee09736ee9495337f5",
+    "tools/url_receiver_probe.js": "1b0286296bf699d18af60efb3c14e7bc9e787dab8314fbc7f1e5ea97b27cc2bd"
+  },
+  "mechanism": "Unforgeable private URL receiver brand on normal and native DOM URL constructors; getters, setters, toString and toJSON validate before Web IDL conversion. Existing Object.property_lock protects metadata; no new mutable process-global state or object layout/exported ABI change.",
+  "specs": [
+    "https://webidl.spec.whatwg.org/#es-attributes",
+    "https://webidl.spec.whatwg.org/#es-operations",
+    "https://url.spec.whatwg.org/#api"
+  ],
+  "before": {
+    "engine": "Exact parent7caf source snapshot; final identical test body and harness",
+    "forced_tree": {
+      "passed": 96,
+      "total": 296
+    },
+    "required_generator_vm": {
+      "passed": 96,
+      "total": 296
+    }
+  },
+  "after": {
+    "forced_tree": {
+      "passed": 296,
+      "total": 296
+    },
+    "required_generator_vm": {
+      "passed": 296,
+      "total": 296
+    },
+    "full_frontend_cases": 94
+  },
+  "guards": {
+    "before-final": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 2174752,
+      "memory_limit_mb": 3072,
+      "seconds": 23.617,
+      "log": "frontend-before-final.log"
+    },
+    "generator-before-final": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 252832,
+      "memory_limit_mb": 3072,
+      "seconds": 1.737,
+      "log": "generator-before-final.log"
+    },
+    "after-final": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1965360,
+      "memory_limit_mb": 3072,
+      "seconds": 21.161,
+      "log": "frontend-after-final.log"
+    }
+  },
+  "full_frontend_guard": {
+    "status": "passed",
+    "exit_code": 0,
+    "peak_sampled_rss_kib": 50304,
+    "memory_limit_mb": 3072,
+    "seconds": 1.661,
+    "log": "frontend-full-after.log"
+  },
+  "oracles": {
+    "body_sha256": "1b0286296bf699d18af60efb3c14e7bc9e787dab8314fbc7f1e5ea97b27cc2bd",
+    "results": {
+      "tree-node": {
+        "exit_code": 0,
+        "output": "URL RECEIVER 288/296 CHECKS\n",
+        "checks": 296,
+        "assertions_passed": 288,
+        "assertions_failed": 8,
+        "note": "Diagnostic score; exit0 does not mean all296 normative assertions passed"
+      },
+      "tree-bun": {
+        "exit_code": 0,
+        "output": "URL RECEIVER 296/296 CHECKS\n",
+        "checks": 296,
+        "assertions_passed": 296,
+        "assertions_failed": 0,
+        "note": "Diagnostic score; exit0 does not mean all296 normative assertions passed"
+      },
+      "generator-node": {
+        "exit_code": 0,
+        "output": "URL RECEIVER 288/296 CHECKS\n",
+        "checks": 296,
+        "assertions_passed": 288,
+        "assertions_failed": 8,
+        "note": "Diagnostic score; exit0 does not mean all296 normative assertions passed"
+      },
+      "generator-bun": {
+        "exit_code": 0,
+        "output": "URL RECEIVER 296/296 CHECKS\n",
+        "checks": 296,
+        "assertions_passed": 296,
+        "assertions_failed": 0,
+        "note": "Diagnostic score; exit0 does not mean all296 normative assertions passed"
+      }
+    }
+  },
+  "oracle_difference": "All296 assertions execute on each reference. Node26.10 converts href setter arguments before rejecting each of8 invalid receivers, yielding288/296; Bun1.4.4 follows Web IDL receiver-before-conversion and yields296/296. A diagnostic exit0 is not reported as all296 passing for Node.",
+  "logs": {
+    "frontend-before-final.log": {
+      "sha256": "e45ff4eb31897756e79be35b48c9f7b6d3d819b9f8b722adb5bb73bbcd78be99",
+      "signals": [
+        "focused engine test 'URL receiver brands tree semantics': got 96, expected 296",
+        "Build Summary: 2/4 steps succeeded (1 failed)",
+        "ECOSYSTEM PEAK SAMPLED RSS: 2174752 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "generator-before-final.log": {
+      "sha256": "1a86e58a2b9f40d1263fd15020f2f0e70333c053f338fee79fdf352f8b45b0cd",
+      "signals": [
+        "focused engine test 'URL receiver brands generator semantics': got 96, expected 296",
+        "ECOSYSTEM PEAK SAMPLED RSS: 252832 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "frontend-after-final.log": {
+      "sha256": "01dc56500292ddcb29a2a86c0ac0544c1cffed4d9466b9b9351368f578af4778",
+      "signals": [
+        "focused engine frontend: 2 cases passed",
+        "Build Summary: 4/4 steps succeeded",
+        "ECOSYSTEM PEAK SAMPLED RSS: 1965360 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "frontend-full-after.log": {
+      "sha256": "d90ad3074448c3185c0c8de454bbb1abbd1333d21fb8c20ee86ad5f808b903ac",
+      "signals": [
+        "focused engine frontend: 94 cases passed",
+        "Build Summary: 4/4 steps succeeded",
+        "ECOSYSTEM PEAK SAMPLED RSS: 50304 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    }
+  },
+  "verification": {
+    "zig_fmt": "passed",
+    "pickier": "0 errors/0 warnings",
+    "diff": "passed"
+  },
+  "evidence_limits": [
+    "Native engine focused probes, not consumer/package compatibility passes",
+    "No test262 run, corpus total or flip claim; URL is a web interface",
+    "No Home filesystem URL support added yet; actual API/objects and shared JSC URL integration remain open",
+    "No unexecuted consumer checks, fake URL duck-object acceptance, native Bun fallback or budget increase"
+  ],
+  "caller": {
+    "suite_ref": "2468713d58d2bcc4985a06bfa1e7d23a4536f41a",
+    "home_ref": "848e5cf076601fefea75e76ad2ad07aff5a5d54a",
+    "changed": false
+  },
+  "every_push_run": 42901169711,
+  "ci_status": "queued when recorded; no Linux URL fix qualification claimed",
+  "preserved": [
+    "foreign zig-pkg",
+    "previous engine GC/threadfuzz work",
+    "all224selected consumers and old all-selected runs"
+  ]
+}
