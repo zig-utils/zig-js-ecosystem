@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "functional_suite_ref": "0bd9515ec25ad715cb0d419a4888e0518e16c5bf",
+  "engine_sha": "1d5f0588b96b445f2fa667498b14392f86bd36d7",
+  "home_ref": "9f9d2bb39a70ef9270ae93f0631724873e87f2c8",
+  "qualification_run": 42884375355,
+  "validation_run": 42884237005,
+  "repositories": [
+    "stacksjs/stacks",
+    "home-lang/home"
+  ],
+  "caller_remains": "2e2acbab15325a7b2e79a92303fa511bc73cea48",
+  "local_checks": {
+    "python_tests": 42,
+    "real_dependency_tests": 7,
+    "dependency_assertions": 26,
+    "actionlint": "passed",
+    "compileall": "passed",
+    "diff_check": "passed",
+    "native_baseline_release_safe_macos_tests": 4,
+    "native_log_sha256": "5ba0538fc6c2f5bef863a702e5aa7fe6207c1d35eb1988dab39d9d0f2c343834"
+  },
+  "promotion_requirements": [
+    "Exact immutable suite validation passes42Python tests and7real dependency tests/26assertions on Linux.",
+    "Exact1d5 baseline CPU/ReleaseSafe archive and Home9f9 runtime/all host gates pass, including77mandatory actual JS API groups.",
+    "The explicit nativeCPU command executes all5Linux cases, including actual thread affinity changes and restoration; cross-compilation or a skipped case cannot qualify.",
+    "Both actual priority jobs verify immutable runtime provenance and execute shared runtime on their CPU.",
+    "Promote both caller fields to exact functional0bd9515 only; never pin this evidence descendant. Keep all-selected every-push coverage and older runs."
+  ],
+  "status_at_dispatch": "queued; new Linux native affinity execution is still pending, not claimed as a pass"
+}
