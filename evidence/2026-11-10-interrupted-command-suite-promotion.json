@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "qualification_run": 42762474473,
+  "qualification_url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42762474473",
+  "functional_suite_ref": "bd990bb2236f72a705dc3188bbf05228e1e49ce3",
+  "engine_sha": "62f752a67e471b55194223ff9987637c0503a857",
+  "home_ref": "14c9459a9d14698dfa5759241029cc85ae3722f3",
+  "validation": {
+    "run_id": 42762443612,
+    "conclusion": "success",
+    "python_tests": 36,
+    "real_dependency_tests": 7,
+    "dependency_assertions": 26
+  },
+  "runtime_job": {
+    "id": 129651351863,
+    "name": "runtime",
+    "status": "completed",
+    "conclusion": "success",
+    "run_id": 42762474473,
+    "logs_url": null,
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1
+      },
+      {
+        "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2
+      },
+      {
+        "name": "Read toolchain pins",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3
+      },
+      {
+        "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4
+      },
+      {
+        "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 5
+      },
+      {
+        "name": "Run pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 6
+      },
+      {
+        "name": "Build exact pushed engine archive",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 7
+      },
+      {
+        "name": "Build Home against this engine",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 8
+      },
+      {
+        "name": "Verify engine identity and Home host/module/TypeScript integration",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 9
+      },
+      {
+        "name": "Package runtime and immutable provenance",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 10
+      },
+      {
+        "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 11
+      },
+      {
+        "name": "Post Run pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 19
+      },
+      {
+        "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 20
+      },
+      {
+        "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 21
+      },
+      {
+        "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 22
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 23
+      }
+    ]
+  },
+  "priority_jobs": [
+    {
+      "id": 129653059411,
+      "name": "Consumers home-lang/home",
+      "status": "in_progress",
+      "conclusion": null,
+      "steps": [
+        {
+          "name": "Unpack and verify runtime provenance",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Verify shared runtime executes on this consumer CPU",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Check every selected package, library, CLI and app",
+          "status": "in_progress",
+          "conclusion": null,
+          "number": 9
+        }
+      ]
+    },
+    {
+      "id": 129653059597,
+      "name": "Consumers stacksjs/stacks",
+      "status": "in_progress",
+      "conclusion": null,
+      "steps": [
+        {
+          "name": "Unpack and verify runtime provenance",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Verify shared runtime executes on this consumer CPU",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Check every selected package, library, CLI and app",
+          "status": "in_progress",
+          "conclusion": null,
+          "number": 9
+        }
+      ]
+    }
+  ],
+  "runtime_log_excerpt": [
+    "2026-11-10T05:30:20.1782160Z   ref: bd990bb2236f72a705dc3188bbf05228e1e49ce3",
+    "2026-11-10T05:30:22.2114949Z HEAD is now at bd990bb fix(runner): retain interrupted command evidence before aborting",
+    "2026-11-10T05:30:22.3710562Z   ref: 62f752a67e471b55194223ff9987637c0503a857",
+    "2026-11-10T05:30:24.8481204Z HEAD is now at 62f752a chore(ecosystem): promote validated streaming SHA-256 suite",
+    "2026-11-10T05:30:24.9671260Z   ref: 14c9459a9d14698dfa5759241029cc85ae3722f3",
+    "2026-11-10T05:30:44.4268004Z HEAD is now at 14c9459a9 feat(crypto): implement native streaming SHA-256 hashes",
+    "2026-11-10T05:34:32.2050630Z ##[group]Run zig-out/bin/home-tool eval 'if (Home.engine !== \"zig-js\") throw new Error(\"Wrong engine\"); console.log(\"ECOSYSTEM ENGINE zig-js\");'",
+    "2026-11-10T05:34:32.2051449Z \u001b[36;1mzig-out/bin/home-tool eval 'if (Home.engine !== \"zig-js\") throw new Error(\"Wrong engine\"); console.log(\"ECOSYSTEM ENGINE zig-js\");'\u001b[0m",
+    "2026-11-10T05:34:32.2052488Z \u001b[36;1mzig build home-tool-smoke home-tool-rejections-smoke home-tool-async-context-smoke home-tool-file-url-smoke -Dcpu=baseline -Doptimize=\"ReleaseSafe\" -Dtool-js-engine=zig-js -Dzig-js-root=\"$GITHUB_WORKSPACE/engine\"\u001b[0m",
+    "2026-11-10T05:34:32.2290346Z ECOSYSTEM ENGINE zig-js",
+    "2026-11-10T05:35:05.4516521Z   ENGINE_SHA: 62f752a67e471b55194223ff9987637c0503a857",
+    "2026-11-10T05:35:05.4516827Z   SUITE_REF: bd990bb2236f72a705dc3188bbf05228e1e49ce3"
+  ],
+  "runtime_artifact_metadata": {
+    "id": 13738855431,
+    "name": "ecosystem-runtime",
+    "size_in_bytes": 38950250,
+    "url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13738855431",
+    "archive_download_url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13738855431/zip",
+    "expired": false,
+    "created_at": "2026-11-10T05:35:11Z",
+    "expires_at": "2026-11-17T05:35:09Z",
+    "updated_at": "2026-11-10T05:35:11Z",
+    "digest": "sha256:f162dcd3dfbff57fbe18abc717099375b3f9daf8d3c28799bc175f25f40598dd",
+    "workflow_run": {
+      "id": 42762474473,
+      "repository_id": 1449802195,
+      "head_repository_id": 1449802195,
+      "head_branch": "main",
+      "head_sha": "bd990bb2236f72a705dc3188bbf05228e1e49ce3"
+    }
+  },
+  "runtime_zip_downloaded_locally": false,
+  "promotion": {
+    "engine_commit": "93b7cc498ffa1f84134e456bdf4c0075dff2abbd",
+    "uses_ref": "bd990bb2236f72a705dc3188bbf05228e1e49ce3",
+    "suite_ref": "bd990bb2236f72a705dc3188bbf05228e1e49ce3",
+    "actionlint": "passed",
+    "diff_check": "passed",
+    "unfiltered_all_selected_run": 42763304123
+  },
+  "notes": [
+    "Both actual priority provenance and CPU steps7/8 pass. Package steps9 remain in progress, not compatibility passes.",
+    "Remote artifact digest is metadata only; no locally verified runtime ZIP claim.",
+    "Only caller YAML changes, configured Chris identity/no trailers, foreign zig-pkg preserved. No older push cancelled or repository filtered.",
+    "Runner still aborts with failure when cleanup confirmation fails. Only command context preservation is fixed; underlying Linux survivor cause remains open.",
+    "Promote functionalbd990bb only, never this evidence-only descendant."
+  ]
+}
