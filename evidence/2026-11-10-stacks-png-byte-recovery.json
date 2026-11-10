@@ -1,0 +1,736 @@
+{
+  "schema_version": 1,
+  "stacks_commit": "8b9e1572fee6a8345213159d892fd82d91604927",
+  "before_source": "ec12d68abea59b1de25592e59bb02cd915557209",
+  "files_repaired": 2,
+  "bytes_restored": 3,
+  "recovery_proofs": [
+    {
+      "source": "ec12d68abea59b1de25592e59bb02cd915557209",
+      "damagedBytes": 47937,
+      "recoveredBytes": 47939,
+      "originalAdvertisedIDATLength": 47120,
+      "missingBytes": 2,
+      "newlinePositions": 649,
+      "candidatePairs": 210276,
+      "uniqueCRCMatchingPair": [
+        43952,
+        46078
+      ],
+      "file": "atomic-fx-diagram.png",
+      "absoluteOffsets": [
+        44755,
+        46882
+      ],
+      "preservedIDATCRC": "7d237f7",
+      "chunks": [
+        "IHDR",
+        "PLTE",
+        "IDAT",
+        "IEND"
+      ],
+      "decodedScanlineBytes": 4356148,
+      "width": 2208,
+      "height": 1972,
+      "damagedSHA256": "54e28ace83c682da25a07decd1aa0e4048ef44321f6e73462b16ea7e6dc5a037",
+      "recoveredSHA256": "b61167e622fa590c4e52238ca284a8b683bd3ea0f905fe355589a73f8f9ebb05",
+      "rawScanlineSHA256": "5a3345a8a8e6094b196e75b2f7b5ec105d1bc3190349b4d4ef27935f1fc71956"
+    },
+    {
+      "source": "ec12d68abea59b1de25592e59bb02cd915557209",
+      "damagedBytes": 235307,
+      "recoveredBytes": 235308,
+      "originalAdvertisedIDATLength": 235251,
+      "missingBytes": 1,
+      "newlinePositions": 654,
+      "candidatePairs": 654,
+      "uniqueCRCMatchingPair": [
+        173414
+      ],
+      "file": "diagram.png",
+      "absoluteOffsets": [
+        173455
+      ],
+      "preservedIDATCRC": "6a066adb",
+      "chunks": [
+        "IHDR",
+        "IDAT",
+        "IEND"
+      ],
+      "decodedScanlineBytes": 29865700,
+      "width": 4928,
+      "height": 2020,
+      "damagedSHA256": "e30f694049f131389ec5b13dab0ce17529df6bfc9c5ad3a7fc3bc557699e9704",
+      "recoveredSHA256": "be1a759c84302d89eb8865162e75f6cc378f72637af2c6f78cdea74397f52dd2",
+      "rawScanlineSHA256": "bd9c5b267207da71cb9b38327e6f69f4a9c16598c7ab71d5940b5dae7bde04ff"
+    }
+  ],
+  "recovery_program": {
+    "path": "evidence/2026-11-10-png-byte-recovery.cjs",
+    "sha256": "113f50310c5e55db08b919bbda9b1da00ab7c4ea4f294fc9d4be82ed5d3d4fa1",
+    "usage": "node evidence/2026-11-10-png-byte-recovery.cjs FILE /path/to/ec12/public/images /tmp/recovery",
+    "scope": "Forensic artifact only; not called by CI. Requires recorded pre-repair inputs, one/two-byte deficit and unique existing CRC match."
+  },
+  "all_public_png_before": {
+    "png_files": 14,
+    "failed": 2,
+    "results": [
+      {
+        "file": "images/atomic-fx-diagram.png",
+        "bytes": 47937,
+        "inflated_bytes": null,
+        "errors": [
+          "CRC IDAT",
+          "missing aligned IEND",
+          "trailing/misaligned bytes 10",
+          "Error -3 while decompressing data: incorrect data check"
+        ]
+      },
+      {
+        "file": "images/atomic-ui-diagram.png",
+        "bytes": 107744,
+        "inflated_bytes": 13577132,
+        "errors": []
+      },
+      {
+        "file": "images/avatars/avatar-1.png",
+        "bytes": 11474,
+        "inflated_bytes": 65664,
+        "errors": []
+      },
+      {
+        "file": "images/avatars/avatar-2.png",
+        "bytes": 12110,
+        "inflated_bytes": 65664,
+        "errors": []
+      },
+      {
+        "file": "images/avatars/avatar-3.png",
+        "bytes": 13375,
+        "inflated_bytes": 65664,
+        "errors": []
+      },
+      {
+        "file": "images/avatars/avatar-4.png",
+        "bytes": 11509,
+        "inflated_bytes": 65664,
+        "errors": []
+      },
+      {
+        "file": "images/avatars/avatar-5.png",
+        "bytes": 11623,
+        "inflated_bytes": 65664,
+        "errors": []
+      },
+      {
+        "file": "images/diagram.png",
+        "bytes": 235307,
+        "inflated_bytes": null,
+        "errors": [
+          "CRC IDAT",
+          "missing aligned IEND",
+          "trailing/misaligned bytes 11",
+          "Error -3 while decompressing data: incorrect data check"
+        ]
+      },
+      {
+        "file": "images/logos/logo-white.png",
+        "bytes": 7215,
+        "inflated_bytes": 1049088,
+        "errors": []
+      },
+      {
+        "file": "images/logos/logo.png",
+        "bytes": 89269,
+        "inflated_bytes": 2560800,
+        "errors": []
+      },
+      {
+        "file": "images/logos/visa.png",
+        "bytes": 16052,
+        "inflated_bytes": 1296324,
+        "errors": []
+      },
+      {
+        "file": "images/og-image.png",
+        "bytes": 127073,
+        "inflated_bytes": 2880600,
+        "errors": []
+      },
+      {
+        "file": "images/screenshots/dashboard.png",
+        "bytes": 188733,
+        "inflated_bytes": 11232694,
+        "errors": []
+      },
+      {
+        "file": "images/social.png",
+        "bytes": 47760,
+        "inflated_bytes": 1222843,
+        "errors": []
+      }
+    ]
+  },
+  "all_public_png_after": {
+    "png_files": 14,
+    "failed": 0,
+    "results": [
+      {
+        "file": "images/atomic-fx-diagram.png",
+        "bytes": 47939,
+        "inflated_bytes": 4356148,
+        "sha256": "b61167e622fa590c4e52238ca284a8b683bd3ea0f905fe355589a73f8f9ebb05",
+        "status": "passed"
+      },
+      {
+        "file": "images/atomic-ui-diagram.png",
+        "bytes": 107744,
+        "inflated_bytes": 13577132,
+        "sha256": "da37bd2988caa3510a0e82a9a90aaadeb9d35b9571011ff1dfa72ee1b42d0cd5",
+        "status": "passed"
+      },
+      {
+        "file": "images/avatars/avatar-1.png",
+        "bytes": 11474,
+        "inflated_bytes": 65664,
+        "sha256": "5ae8b9048981aba56f93c33358ca3aadafc59bce3a9ab344397288fd48603096",
+        "status": "passed"
+      },
+      {
+        "file": "images/avatars/avatar-2.png",
+        "bytes": 12110,
+        "inflated_bytes": 65664,
+        "sha256": "18319fc373183cc998b196ff1e4f0b957b8c79c27e4f6cd38360efb21e51fde9",
+        "status": "passed"
+      },
+      {
+        "file": "images/avatars/avatar-3.png",
+        "bytes": 13375,
+        "inflated_bytes": 65664,
+        "sha256": "36af75766c020904aca3080bff02049f505cf180538302a8fe9c39f024f49109",
+        "status": "passed"
+      },
+      {
+        "file": "images/avatars/avatar-4.png",
+        "bytes": 11509,
+        "inflated_bytes": 65664,
+        "sha256": "5ffbc5422e281953d187debe04169c4f8048ac57388a53c1e835178f623fd575",
+        "status": "passed"
+      },
+      {
+        "file": "images/avatars/avatar-5.png",
+        "bytes": 11623,
+        "inflated_bytes": 65664,
+        "sha256": "5e8a907b58169dd3671199b4e682fccf4cef0116b129bc2bce4ee337b35b6b98",
+        "status": "passed"
+      },
+      {
+        "file": "images/diagram.png",
+        "bytes": 235308,
+        "inflated_bytes": 29865700,
+        "sha256": "be1a759c84302d89eb8865162e75f6cc378f72637af2c6f78cdea74397f52dd2",
+        "status": "passed"
+      },
+      {
+        "file": "images/logos/logo-white.png",
+        "bytes": 7215,
+        "inflated_bytes": 1049088,
+        "sha256": "153ab2fc36bd3153eb7cc64fd7ca71610722a6cf6929285f914208554ee044e4",
+        "status": "passed"
+      },
+      {
+        "file": "images/logos/logo.png",
+        "bytes": 89269,
+        "inflated_bytes": 2560800,
+        "sha256": "e8eaad875f7c0353d5b4f5fd39f0d127a958ec0717f53d081e201f256c1632eb",
+        "status": "passed"
+      },
+      {
+        "file": "images/logos/visa.png",
+        "bytes": 16052,
+        "inflated_bytes": 1296324,
+        "sha256": "f52dab94dba43b9306fc18a5c5b8db7a358dd1cd041f88c398bcf63d1bbb7bf3",
+        "status": "passed"
+      },
+      {
+        "file": "images/og-image.png",
+        "bytes": 127073,
+        "inflated_bytes": 2880600,
+        "sha256": "632ca7aabe47012a23c10510770e708c7e9abcaf23fe2dc665a1a8ce6980da11",
+        "status": "passed"
+      },
+      {
+        "file": "images/screenshots/dashboard.png",
+        "bytes": 188733,
+        "inflated_bytes": 11232694,
+        "sha256": "129a78c9d998051f8789f3d3013a9a8ab4b1f1f66798b2903eda9ed40bb9d7d6",
+        "status": "passed"
+      },
+      {
+        "file": "images/social.png",
+        "bytes": 47760,
+        "inflated_bytes": 1222843,
+        "sha256": "e1ef632f9cb29c7c7d5baad12c93087eb62385a19e4e6a2f5252aad862b0b481",
+        "status": "passed"
+      }
+    ]
+  },
+  "native_decoded_pixels": {
+    "atomic-fx-diagram": {
+      "width": 2208,
+      "height": 1972,
+      "bytes": 17416704,
+      "rgbaSHA256": "340294defb670353d7b48ddf91fa9185f1e8156b632364d00c91209e5a8ced95"
+    },
+    "diagram": {
+      "width": 4928,
+      "height": 2020,
+      "bytes": 39818240,
+      "rgbaSHA256": "5d9ebc29c43e04ab9988624e4bee9ad190685ac991a634471e01d7c099419a3c"
+    }
+  },
+  "results": {
+    "before-node": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 36096,
+      "memory_limit_mb": 3072,
+      "seconds": 0.246,
+      "log": "before-node.log",
+      "command": [
+        "node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/decode.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/public/images/atomic-fx-diagram.png"
+      ],
+      "log_sha256": "fd4ab6145d2307779bf70f1ea1d6a3d7343c7b9985515bc057eb0b29ad826783",
+      "log_excerpt": "$ [\"node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/decode.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/public/images/atomic-fx-diagram.png\"]\nfile:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/@stacksjs/ts-png/dist/index.js:1578\n      throw new Error(\"Unrecognized content at end of stream\");\n            ^\n\nError: Unrecognized content at end of stream\n    at SyncReader.process (file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/@stacksjs/ts-png/dist/index.js:1578:13)\n    at parseSync (file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/@stacksjs/ts-png/dist/index.js:1648:10)\n    at Object.read (file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/@stacksjs/ts-png/dist/index.js:1678:18)\n    at file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/decode.mjs:1:214\n    at ModuleJob.run (node:internal/modules/esm/module_job:569:25)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async node:internal/modules/esm/loader:650:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:105:5)\n\nNode.js v26.10.0\n\nECOSYSTEM PEAK SAMPLED RSS: 36096 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "before-bun": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 142432,
+      "memory_limit_mb": 3072,
+      "seconds": 0.635,
+      "log": "before-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/decode.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/public/images/atomic-fx-diagram.png"
+      ],
+      "log_sha256": "41072183409df68f17dc887a2b86638a3501c228c9105742f59a8a9a1a9d4e0d",
+      "log_excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/decode.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/public/images/atomic-fx-diagram.png\"]\n[env] warning: skipped 42 encrypted value(s) in .env.development (DOTENV_PRIVATE_KEY_DEVELOPMENT not set; existing plaintext or defaults apply): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\n[env] loaded 0/1 variables from .env.development\n[env] warning: skipped 42 encrypted value(s) in .env.development (DOTENV_PRIVATE_KEY_DEVELOPMENT not set; existing plaintext or defaults apply): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\n1573 |     }\n1574 |     if (this._reads.length > 0) {\n1575 |       throw new Error(\"There are some read requests waiting on finished stream\");\n1576 |     }\n1577 |     if (this._buffer.length > 0) {\n1578 |       throw new Error(\"Unrecognized content at end of stream\");\n                       ^\nerror: Unrecognized content at end of stream\n      at process (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/@stacksjs/ts-png/dist/index.js:1578:17)\n      at parseSync (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/@stacksjs/ts-png/dist/index.js:1648:10)\n      at read (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/@stacksjs/ts-png/dist/index.js:1678:18)\n      at /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/decode.mjs:1:214\n\nBun v1.4.4 (macOS arm64)\n\nECOSYSTEM PEAK SAMPLED RSS: 142432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "atomic-fx-diagram-node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 92752,
+      "memory_limit_mb": 3072,
+      "seconds": 0.439,
+      "log": "atomic-fx-diagram-node.log",
+      "command": [
+        "node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/decode.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/atomic-fx-diagram-recovered.png"
+      ],
+      "log_sha256": "e335d8d1368af01d1f087e6b8e18f0aa1571e566d6644b46dbd40c31295fb626",
+      "log_excerpt": "$ [\"node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/decode.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/atomic-fx-diagram-recovered.png\"]\n{\"width\":2208,\"height\":1972,\"bytes\":17416704,\"rgbaSHA256\":\"340294defb670353d7b48ddf91fa9185f1e8156b632364d00c91209e5a8ced95\"}\n\nECOSYSTEM PEAK SAMPLED RSS: 92752 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "atomic-fx-diagram-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 160464,
+      "memory_limit_mb": 3072,
+      "seconds": 0.693,
+      "log": "atomic-fx-diagram-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/decode.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/atomic-fx-diagram-recovered.png"
+      ],
+      "log_sha256": "cae97d7cc6c601fca6981d637dc2ffa03f80e3b7334dc91f62726d34834ded1a",
+      "log_excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/decode.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/atomic-fx-diagram-recovered.png\"]\n[env] warning: skipped 42 encrypted value(s) in .env.development (DOTENV_PRIVATE_KEY_DEVELOPMENT not set; existing plaintext or defaults apply): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\n[env] loaded 0/1 variables from .env.development\n[env] warning: skipped 42 encrypted value(s) in .env.development (DOTENV_PRIVATE_KEY_DEVELOPMENT not set; existing plaintext or defaults apply): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\n{\"width\":2208,\"height\":1972,\"bytes\":17416704,\"rgbaSHA256\":\"340294defb670353d7b48ddf91fa9185f1e8156b632364d00c91209e5a8ced95\"}\n\nECOSYSTEM PEAK SAMPLED RSS: 160464 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "diagram-node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 223904,
+      "memory_limit_mb": 3072,
+      "seconds": 0.316,
+      "log": "diagram-node.log",
+      "command": [
+        "node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/decode.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/diagram-recovered.png"
+      ],
+      "log_sha256": "dd6623245995615ea1a2fdfb319a86ca32f09ae785e5b596a7698d038863ef81",
+      "log_excerpt": "$ [\"node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/decode.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/diagram-recovered.png\"]\n{\"width\":4928,\"height\":2020,\"bytes\":39818240,\"rgbaSHA256\":\"5d9ebc29c43e04ab9988624e4bee9ad190685ac991a634471e01d7c099419a3c\"}\n\nECOSYSTEM PEAK SAMPLED RSS: 223904 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "diagram-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 194640,
+      "memory_limit_mb": 3072,
+      "seconds": 0.486,
+      "log": "diagram-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/decode.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/diagram-recovered.png"
+      ],
+      "log_sha256": "f99eaadd1bfbbd07524a4c2d44451222dd6695d7f22602a471adc74a46fef469",
+      "log_excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/decode.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/diagram-recovered.png\"]\n[env] warning: skipped 42 encrypted value(s) in .env.development (DOTENV_PRIVATE_KEY_DEVELOPMENT not set; existing plaintext or defaults apply): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\n[env] loaded 0/1 variables from .env.development\n[env] warning: skipped 42 encrypted value(s) in .env.development (DOTENV_PRIVATE_KEY_DEVELOPMENT not set; existing plaintext or defaults apply): APP_NAME, APP_ENV, APP_URL, APP_MAINTENANCE, APP_MAINTENANCE_SECRET, \u2026 +37 more\n{\"width\":4928,\"height\":2020,\"bytes\":39818240,\"rgbaSHA256\":\"5d9ebc29c43e04ab9988624e4bee9ad190685ac991a634471e01d7c099419a3c\"}\n\nECOSYSTEM PEAK SAMPLED RSS: 194640 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "recovered-zig-js": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 43584,
+      "memory_limit_mb": 3072,
+      "seconds": 0.152,
+      "log": "recovered-zig-js.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-sha256/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/decode.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/atomic-fx-diagram-recovered.png"
+      ],
+      "log_sha256": "4641250e0899c4eb915f27d39ccc00cd813783a4d08988c01674fbdc507f6e95",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-sha256/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/decode.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/atomic-fx-diagram-recovered.png\"]\nhome-tool (zig-js): TypeError: undefined is not an object (evaluating 'constants.MAX_LENGTH')\n\nECOSYSTEM PEAK SAMPLED RSS: 43584 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "recovered-jsc": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.107,
+      "log": "recovered-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-sha256/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/decode.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/atomic-fx-diagram-recovered.png"
+      ],
+      "log_sha256": "b6255e299b5c0822c11b59ad7f175f780314affa4a7e65aba320da3d806949b9",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-sha256/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/decode.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/atomic-fx-diagram-recovered.png\"]\nhome-tool (jsc): TypeError: undefined is not an object (evaluating 'constants.MAX_LENGTH')\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "bundled-zig-js-code": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 298160,
+      "memory_limit_mb": 3072,
+      "seconds": 0.442,
+      "log": "bundled-zig-js-code.log",
+      "log_sha256": "d93097590a41aaec3f2e50e1a2c3d2849dd3367561b209f6c940dbcadfd60541",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-sha256/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/bundled-decode-code.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/png-integrity/atomic-fx-diagram-recovered.png\"]\n{\"code\":\"ERR_BUFFER_TOO_LARGE\",\"message\":\"Home inflate operation failed\"}\nhome-tool (zig-js): Error: Home inflate operation failed\n\nECOSYSTEM PEAK SAMPLED RSS: 298160 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "root-after": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1021232,
+      "memory_limit_mb": 3072,
+      "seconds": 5.365,
+      "log": "root-after.log",
+      "runtime_events": [
+        {
+          "kind": "zig-js",
+          "file": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/core/buddy/src/cli.ts",
+          "arguments": [
+            "build"
+          ],
+          "conditions": [
+            "development"
+          ]
+        },
+        {
+          "kind": "zig-js",
+          "file": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/core/actions/src/build/views.ts",
+          "arguments": [
+            "--interaction",
+            "--emoji",
+            "--cache",
+            "--views"
+          ],
+          "conditions": [
+            "development"
+          ]
+        },
+        {
+          "kind": "zig-js",
+          "file": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/@stacksjs/stx/dist/cli.js",
+          "arguments": [
+            "build",
+            "--pages",
+            "resources/views",
+            "--out",
+            "dist"
+          ],
+          "conditions": []
+        }
+      ],
+      "log_sha256": "6644f79fe6ac835d961b70780d11ca832c8f1b3824d7b5d5b44b4eeb687474aa",
+      "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-10T01:37:12.854Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 1021232 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "stacks-lint": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 846528,
+      "memory_limit_mb": 3072,
+      "seconds": 2.992,
+      "log": "stacks-lint.log",
+      "log_sha256": "bf1f4a9b690bdb6cbe7f770f7f6238902e842a37a8c8cf6290cb65836d5f4926",
+      "log_excerpt": "vironment; falling back to its default. Set DOTENV_PRIVATE_KEY_DEVELOPMENT or ship .env.keys.\n[env] warning: \"APP_NAME\" is encrypted but no usable private key was found for the \"development\" environment; falling back to its default. Set DOTENV_PRIVATE_KEY_DEVELOPMENT or ship .env.keys.\n[env] warning: \"APP_NAME\" is encrypted but no usable private key was found for the \"development\" environment; falling back to its default. Set DOTENV_PRIVATE_KEY_DEVELOPMENT or ship .env.keys.\n[env] warning: \"APP_NAME\" is encrypted but no usable private key was found for the \"development\" environment; falling back to its default. Set DOTENV_PRIVATE_KEY_DEVELOPMENT or ship .env.keys.\n[env] warning: \"APP_NAME\" is encrypted but no usable private key was found for the \"development\" environment; falling back to its default. Set DOTENV_PRIVATE_KEY_DEVELOPMENT or ship .env.keys.\n[env] warning: \"APP_NAME\" is encrypted but no usable private key was found for the \"development\" environment; falling back to its default. Set DOTENV_PRIVATE_KEY_DEVELOPMENT or ship .env.keys.\n[env] warning: \"APP_NAME\" is encrypted but no usable private key was found for the \"development\" environment; falling back to its default. Set DOTENV_PRIVATE_KEY_DEVELOPMENT or ship .env.keys.\n[env] warning: \"APP_NAME\" is encrypted but no usable private key was found for the \"development\" environment; falling back to its default. Set DOTENV_PRIVATE_KEY_DEVELOPMENT or ship .env.keys.\n[env] warning: \"APP_NAME\" is encrypted but no usable private key was found for the \"development\" environment; falling back to its default. Set DOTENV_PRIVATE_KEY_DEVELOPMENT or ship .env.keys.\n[env] warning: \"APP_NAME\" is encrypted but no usable private key was found for the \"development\" environment; falling back to its default. Set DOTENV_PRIVATE_KEY_DEVELOPMENT or ship .env.keys.\n\u001b[90mScanned 5658 files, found 0 errors and 0 warnings.\u001b[0m\n[2026-11-10T01:36:41.192Z] local.SUCCESS: Linted\n[2026-11-10T01:36:41.192Z] local.SUCCESS: [2.48s] Linted your project\n\nECOSYSTEM PEAK SAMPLED RSS: 846528 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "source_ci": {
+    "run_id": 42737101000,
+    "attempt1": [
+      {
+        "id": 129568881763,
+        "name": "Release evidence (ubuntu-latest)",
+        "status": "completed",
+        "conclusion": "success",
+        "failed_steps": []
+      },
+      {
+        "id": 129568882095,
+        "name": "Release evidence (macos-arm64)",
+        "status": "completed",
+        "conclusion": "success",
+        "failed_steps": []
+      },
+      {
+        "id": 129568882148,
+        "name": "artifact-freshness",
+        "status": "completed",
+        "conclusion": "success",
+        "failed_steps": []
+      },
+      {
+        "id": 129568882154,
+        "name": "test (auth-3)",
+        "status": "completed",
+        "conclusion": "failure",
+        "failed_steps": [
+          {
+            "name": "Setup Pantry",
+            "status": "completed",
+            "conclusion": "failure",
+            "number": 3
+          }
+        ]
+      },
+      {
+        "id": 129568882169,
+        "name": "browser-device-scale",
+        "status": "completed",
+        "conclusion": "success",
+        "failed_steps": []
+      },
+      {
+        "id": 129568882183,
+        "name": "typecheck",
+        "status": "completed",
+        "conclusion": "success",
+        "failed_steps": []
+      },
+      {
+        "id": 129568882198,
+        "name": "compile",
+        "status": "completed",
+        "conclusion": "success",
+        "failed_steps": []
+      },
+      {
+        "id": 129568882223,
+        "name": "deployment-target",
+        "status": "completed",
+        "conclusion": "success",
+        "failed_steps": []
+      },
+      {
+        "id": 129568882225,
+        "name": "Release evidence (windows-latest)",
+        "status": "completed",
+        "conclusion": "success",
+        "failed_steps": []
+      },
+      {
+        "id": 129568882227,
+        "name": "lint",
+        "status": "completed",
+        "conclusion": "success",
+        "failed_steps": []
+      },
+      {
+        "id": 129568882274,
+        "name": "test (core-2)",
+        "status": "completed",
+        "conclusion": "success",
+        "failed_steps": []
+      },
+      {
+        "id": 129568882326,
+        "name": "scaffold-smoke",
+        "status": "completed",
+        "conclusion": "success",
+        "failed_steps": []
+      },
+      {
+        "id": 129568882379,
+        "name": "scaffold-smoke-desktop",
+        "status": "completed",
+        "conclusion": "success",
+        "failed_steps": []
+      },
+      {
+        "id": 129568882385,
+        "name": "test (buddy)",
+        "status": "completed",
+        "conclusion": "failure",
+        "failed_steps": [
+          {
+            "name": "Setup Pantry",
+            "status": "completed",
+            "conclusion": "failure",
+            "number": 3
+          }
+        ]
+      },
+      {
+        "id": 129568882390,
+        "name": "test (auth-4)",
+        "status": "completed",
+        "conclusion": "success",
+        "failed_steps": []
+      },
+      {
+        "id": 129568882457,
+        "name": "test (auth-1)",
+        "status": "completed",
+        "conclusion": "failure",
+        "failed_steps": [
+          {
+            "name": "Setup Pantry",
+            "status": "completed",
+            "conclusion": "failure",
+            "number": 3
+          }
+        ]
+      },
+      {
+        "id": 129568882510,
+        "name": "test (core-1)",
+        "status": "completed",
+        "conclusion": "failure",
+        "failed_steps": [
+          {
+            "name": "Setup Pantry",
+            "status": "completed",
+            "conclusion": "failure",
+            "number": 3
+          }
+        ]
+      },
+      {
+        "id": 129568882537,
+        "name": "test (auth-2)",
+        "status": "completed",
+        "conclusion": "success",
+        "failed_steps": []
+      },
+      {
+        "id": 129568883929,
+        "name": "Release evidence (macos PR)",
+        "status": "completed",
+        "conclusion": "skipped"
+      },
+      {
+        "id": 129568884000,
+        "name": "dependency-locks",
+        "status": "completed",
+        "conclusion": "skipped"
+      },
+      {
+        "id": 129579995172,
+        "name": "deploy",
+        "status": "completed",
+        "conclusion": "skipped"
+      },
+      {
+        "id": 129579995776,
+        "name": "publish-commit",
+        "status": "completed",
+        "conclusion": "skipped"
+      }
+    ],
+    "failed_setup_logs": [
+      {
+        "id": 129568882154,
+        "signals": [
+          "2026-11-10T01:37:45.9747369Z ##[warning]Native artifact identity unavailable; installing without a dependency cache: Error: python.org@3.15.2: missing artifact digest",
+          "2026-11-10T01:43:49.8956048Z   ! mysql.com@26.7.0: timed out (transient); retrying once in 10s",
+          "2026-11-10T01:49:00.5040457Z   > mysql.com@26.7.0...- mysql.com@26.7.0 (timed out; failed again after one retry)",
+          "2026-11-10T01:50:42.2549799Z error: 1 package failed to install:",
+          "2026-11-10T01:50:42.2550381Z   mysql.com@26.7.0: timed out; failed again after one retry [transient: network, timeout or registry outage; a rerun may pass]",
+          "2026-11-10T01:50:42.2553162Z ##[error]mysql.com@26.7.0: timed out; failed again after one retry (transient)",
+          "2026-11-10T01:50:42.2563715Z ##[error]The process '/opt/hostedtoolcache/pantry-cli/0.11.184/x64/pantry' failed with exit code 1"
+        ]
+      },
+      {
+        "id": 129568882385,
+        "signals": [
+          "2026-11-10T01:37:44.5180409Z ##[warning]Native artifact identity unavailable; installing without a dependency cache: Error: python.org@3.15.2: missing artifact digest",
+          "2026-11-10T01:43:47.1599576Z   ! mysql.com@26.7.0: timed out (transient); retrying once in 10s",
+          "2026-11-10T01:56:24.4211248Z   ! ffmpeg.org@9.0.2: timed out (transient); retrying once in 10s",
+          "2026-11-10T02:01:35.3437663Z   > ffmpeg.org@9.0.2...- ffmpeg.org@9.0.2 (timed out; failed again after one retry)",
+          "2026-11-10T02:06:52.8617810Z error: 1 package failed to install:",
+          "2026-11-10T02:06:52.8619161Z   ffmpeg.org@9.0.2: timed out; failed again after one retry [transient: network, timeout or registry outage; a rerun may pass]",
+          "2026-11-10T02:06:52.8640291Z ##[error]ffmpeg.org@9.0.2: timed out; failed again after one retry (transient)",
+          "2026-11-10T02:06:52.8645599Z ##[error]Required system packages bun.com@1.4.4, git-scm.org, curl.se, sqlite.org, ffmpeg.org@9.0.2 failed to install: The process '/opt/hostedtoolcache/pantry-cli/0.11.184/x64/pantry' failed with exit code 1"
+        ]
+      },
+      {
+        "id": 129568882457,
+        "signals": [
+          "2026-11-10T01:37:44.0452513Z ##[warning]Native artifact identity unavailable; installing without a dependency cache: Error: python.org@3.15.2: missing artifact digest",
+          "2026-11-10T01:43:42.5053104Z   ! mysql.com@26.7.0: timed out (transient); retrying once in 10s",
+          "2026-11-10T01:48:53.1752970Z   > mysql.com@26.7.0...- mysql.com@26.7.0 (timed out; failed again after one retry)",
+          "2026-11-10T01:50:14.2199616Z error: 1 package failed to install:",
+          "2026-11-10T01:50:14.2200827Z   mysql.com@26.7.0: timed out; failed again after one retry [transient: network, timeout or registry outage; a rerun may pass]",
+          "2026-11-10T01:50:14.2205608Z ##[error]mysql.com@26.7.0: timed out; failed again after one retry (transient)",
+          "2026-11-10T01:50:14.2222600Z ##[error]The process '/opt/hostedtoolcache/pantry-cli/0.11.184/x64/pantry' failed with exit code 1"
+        ]
+      },
+      {
+        "id": 129568882510,
+        "signals": [
+          "2026-11-10T01:37:43.9768171Z ##[warning]Native artifact identity unavailable; installing without a dependency cache: Error: python.org@3.15.2: missing artifact digest",
+          "2026-11-10T01:43:59.9991825Z   ! mysql.com@26.7.0: timed out (transient); retrying once in 10s",
+          "2026-11-10T01:58:26.7313642Z   ! ffmpeg.org@9.0.2: timed out (transient); retrying once in 10s",
+          "2026-11-10T02:03:37.6698215Z   > ffmpeg.org@9.0.2...- ffmpeg.org@9.0.2 (timed out; failed again after one retry)",
+          "2026-11-10T02:05:19.2174913Z error: 1 package failed to install:",
+          "2026-11-10T02:05:19.2175412Z   ffmpeg.org@9.0.2: timed out; failed again after one retry [transient: network, timeout or registry outage; a rerun may pass]",
+          "2026-11-10T02:05:19.2180861Z ##[error]ffmpeg.org@9.0.2: timed out; failed again after one retry (transient)",
+          "2026-11-10T02:05:19.2189616Z ##[error]Required system packages bun.com@1.4.4, git-scm.org, curl.se, sqlite.org, ffmpeg.org@9.0.2 failed to install: The process '/opt/hostedtoolcache/pantry-cli/0.11.184/x64/pantry' failed with exit code 1"
+        ]
+      }
+    ],
+    "rerun_failed_jobs_request": {
+      "success": true
+    },
+    "notes": [
+      "Four legs failed in Pantry setup: MySQL26.7.0 or FFmpeg9.0.2 timed out after internal retries. Tests did not execute in those legs.",
+      "One rerun of failed jobs/dependents accepted. No repeated rerun loop, source-auth change, prerequisite removal or passing test claim.",
+      "Other source legs (release evidence across platforms, typecheck, compile, lint, browser, artifact freshness) pass; this is native source CI, not zig-js compatibility."
+    ]
+  },
+  "notes": [
+    "Original Atomic FX fails actual public ts-png decode on Node and native Bun with Unrecognized content at end of stream. Independent CRC/zlib scan finds2broken files among14public PNGs.",
+    "Restore only CR before LF: unique matching original CRC among210276pairs and654single positions. Preserve all lengths/metadata/stored CRCs; zlib validates Adler32 and exact scanline lengths. Every chunk/IEND validates.",
+    "Pattern and original2024signature missing CR are consistent with newline conversion; historical responsible tool unknown. Signature-only74fdeedc leaves all post-signature bytes identical to970bd55b, verified.",
+    "No image synthesis/re-encoding, changed checksum, disabled validation or skipped asset. Both diagrams visually render; Node/Bun public decoders agree on17416704/39818240RGBAbytes and SHA256 values.",
+    "Native buddy lint5658files has0errors/0warnings. Binary-only change touches no TypeScript; no unrelated typecheck/full native test-suite pass claimed.",
+    "Latest standalone ts-png import still fails on both Home providers because buffer.constants.MAX_LENGTH is absent. Actual installed ts-images bundle reaches native inflate and reports ERR_BUFFER_TOO_LARGE for4356148scanline bytes under existing2MiBprofile. No pass is claimed.",
+    "Corrected clean candidate matches pushed8b9e1572 bytes and all3CLIevents are zig-js, but root still fails unchanged step budget at1021232KiB. No full build gain.",
+    "Local probes use Home14c9459a9 with exact pushed9b0b3b90 archive. New Linux focus below uses62f752a6/qualified40e0b89."
+  ]
+}

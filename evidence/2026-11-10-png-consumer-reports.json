@@ -1,0 +1,371 @@
+{
+  "schema_version": 1,
+  "request": {
+    "ref": "main",
+    "inputs": {
+      "engine_sha": "62f752a67e471b55194223ff9987637c0503a857",
+      "suite_ref": "40e0b896c8924f83e73a9f429884946b6fdb94f5",
+      "reference": true,
+      "repositories": "stacksjs/stacks,home-lang/home"
+    }
+  },
+  "workflow_ref_head": "5cd9df07e04a46e37fbe0ce6d7e98f4181f5b896",
+  "executed_functional_suite_ref": "40e0b896c8924f83e73a9f429884946b6fdb94f5",
+  "consumer_reports": [
+    {
+      "run_id": 42733898644,
+      "artifact_id": 13727258952,
+      "zip_sha256": "388ada557c3e3452064db6c3215e66208e8b55eff57a540ea247f01c39c45961",
+      "local_digest_verified": true,
+      "consumers": [
+        {
+          "repository": "stacksjs/stacks",
+          "sha": "ec12d68abea59b1de25592e59bb02cd915557209",
+          "engine_sha": "56ca62cf9967320091343bd73108852ff5edbb5f",
+          "report_sha256": "edf203e7fc82ff327b04948128b53c4165db21167cd0ce491847ec076d98ecce",
+          "scope_count": 99,
+          "check_count": 927,
+          "statuses": {
+            "passed": 110,
+            "unsupported": 355,
+            "failed": 227,
+            "timed-out": 1,
+            "not-run": 234
+          },
+          "lanes": {
+            "candidate": {
+              "unsupported": 355,
+              "failed": 211,
+              "passed": 59
+            },
+            "engine": {
+              "passed": 1
+            },
+            "reference": {
+              "passed": 24,
+              "failed": 16,
+              "timed-out": 1,
+              "not-run": 234
+            },
+            "reference-setup": {
+              "passed": 10
+            },
+            "setup": {
+              "passed": 16
+            }
+          },
+          "selected_checks": [
+            {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 1816520,
+              "memory_limit_mb": 3072,
+              "seconds": 10.881,
+              "log": "0016.log",
+              "label": ".: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "./buddy build"
+              ],
+              "engine_invocations": 3,
+              "log_sha256": "872305c5a77be6df46cff5ab1e343b9ee6bb00e890f0b75634570a93a4c59198",
+              "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-10T01:29:57.712Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 1816520 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+            },
+            {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 1803176,
+              "memory_limit_mb": 3072,
+              "seconds": 11.374,
+              "log": "0018.log",
+              "label": ".: typecheck",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)"
+              ],
+              "engine_invocations": 3,
+              "log_sha256": "ebe79d9753d9763f045b031e1b142b3c40a9a6e21e7173be89c4e4b158173f6d",
+              "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\n[2026-11-10T01:30:20.409Z] local.INFO: Building @stacksjs/validation...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 1803176 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+            }
+          ],
+          "orchestrator_failures": []
+        },
+        {
+          "repository": "home-lang/home",
+          "sha": "14c9459a9d14698dfa5759241029cc85ae3722f3",
+          "engine_sha": "56ca62cf9967320091343bd73108852ff5edbb5f",
+          "report_sha256": "b72f4d2d122b614e64b01ee797fe1ee85078535cb7385341303724a2800f34cf",
+          "scope_count": 46,
+          "check_count": 234,
+          "statuses": {
+            "passed": 103,
+            "failed": 56,
+            "timed-out": 3,
+            "unsupported": 38,
+            "not-run": 34
+          },
+          "lanes": {
+            "candidate": {
+              "failed": 42,
+              "unsupported": 38,
+              "passed": 7
+            },
+            "direct-consumer": {
+              "passed": 4
+            },
+            "engine": {
+              "passed": 1
+            },
+            "reference": {
+              "passed": 9,
+              "failed": 6,
+              "timed-out": 1,
+              "not-run": 34
+            },
+            "reference-setup": {
+              "passed": 38,
+              "failed": 4,
+              "timed-out": 1
+            },
+            "setup": {
+              "passed": 44,
+              "failed": 4,
+              "timed-out": 1
+            }
+          },
+          "selected_checks": [
+            {
+              "status": "failed",
+              "exit_code": -9,
+              "peak_sampled_rss_kib": 3159976,
+              "memory_limit_mb": 3072,
+              "seconds": 34.058,
+              "log": "0052.log",
+              "reason": "sampled command tree RSS exceeded 3072 MiB",
+              "label": ".: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bunx bunpress build"
+              ],
+              "engine_invocations": 1,
+              "log_sha256": "f72830679e43dcc04bc0383360553492dce5ab6f44570bb048dff64837f290af",
+              "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 3159976 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+            },
+            {
+              "status": "passed",
+              "exit_code": 0,
+              "peak_sampled_rss_kib": 633780,
+              "memory_limit_mb": 3072,
+              "seconds": 1.239,
+              "log": "0054.log",
+              "label": ".: typecheck",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun --bun tsc --noEmit"
+              ],
+              "engine_invocations": 1,
+              "log_sha256": "c9b55bea6022a8260363cbf0ce010229471a71d4c7a402196f4ad005e15a5db0",
+              "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun --bun tsc --noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 633780 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+            }
+          ],
+          "orchestrator_failures": []
+        }
+      ]
+    },
+    {
+      "run_id": 42737177738,
+      "artifact_id": 13729098126,
+      "zip_sha256": "46188567033a1634c70066a9533211bb014c807418c0bf381b0128f9e9b420a6",
+      "local_digest_verified": true,
+      "consumers": [
+        {
+          "repository": "stacksjs/stacks",
+          "sha": "8b9e1572fee6a8345213159d892fd82d91604927",
+          "engine_sha": "62f752a67e471b55194223ff9987637c0503a857",
+          "report_sha256": "11f5884c24c34a0a19b29ad3606de6a60ac09661c9c2a9bfb444db4330e4ac41",
+          "scope_count": 99,
+          "check_count": 927,
+          "statuses": {
+            "passed": 110,
+            "unsupported": 355,
+            "failed": 227,
+            "timed-out": 1,
+            "not-run": 234
+          },
+          "lanes": {
+            "candidate": {
+              "unsupported": 355,
+              "failed": 211,
+              "passed": 59
+            },
+            "engine": {
+              "passed": 1
+            },
+            "reference": {
+              "passed": 24,
+              "failed": 16,
+              "timed-out": 1,
+              "not-run": 234
+            },
+            "reference-setup": {
+              "passed": 10
+            },
+            "setup": {
+              "passed": 16
+            }
+          },
+          "selected_checks": [
+            {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 1818008,
+              "memory_limit_mb": 3072,
+              "seconds": 10.139,
+              "log": "0016.log",
+              "label": ".: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "./buddy build"
+              ],
+              "engine_invocations": 3,
+              "log_sha256": "2326a696c427f690ac3bd48efe9e90b045335e0adbf1c1ff58320d84242cef62",
+              "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-10T01:52:03.407Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 1818008 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+            },
+            {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 1656984,
+              "memory_limit_mb": 3072,
+              "seconds": 10.108,
+              "log": "0018.log",
+              "label": ".: typecheck",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)"
+              ],
+              "engine_invocations": 3,
+              "log_sha256": "d8488922c8e31f1dd12c91dadb050bb135bdb50c0517d9d9dad050756caf958f",
+              "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\n[2026-11-10T01:52:23.944Z] local.INFO: Building @stacksjs/validation...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 1656984 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+            }
+          ],
+          "orchestrator_failures": []
+        },
+        {
+          "repository": "home-lang/home",
+          "sha": "14c9459a9d14698dfa5759241029cc85ae3722f3",
+          "engine_sha": "62f752a67e471b55194223ff9987637c0503a857",
+          "report_sha256": "6c186a0c39ad8580ab239eb96294222f92be13a55a49b1080dc98fc866df5098",
+          "scope_count": 46,
+          "check_count": 200,
+          "statuses": {
+            "passed": 103,
+            "failed": 57,
+            "timed-out": 2,
+            "unsupported": 38
+          },
+          "lanes": {
+            "candidate": {
+              "failed": 42,
+              "unsupported": 38,
+              "passed": 7
+            },
+            "direct-consumer": {
+              "passed": 4
+            },
+            "engine": {
+              "passed": 1
+            },
+            "missing-lane": {
+              "failed": 1
+            },
+            "reference": {
+              "passed": 9,
+              "failed": 6
+            },
+            "reference-setup": {
+              "passed": 38,
+              "failed": 4,
+              "timed-out": 1
+            },
+            "setup": {
+              "passed": 44,
+              "failed": 4,
+              "timed-out": 1
+            }
+          },
+          "selected_checks": [
+            {
+              "status": "failed",
+              "exit_code": -9,
+              "peak_sampled_rss_kib": 3159104,
+              "memory_limit_mb": 3072,
+              "seconds": 30.416,
+              "log": "0052.log",
+              "reason": "sampled command tree RSS exceeded 3072 MiB",
+              "label": ".: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bunx bunpress build"
+              ],
+              "engine_invocations": 1,
+              "log_sha256": "18a6da229a372a8b996c15ab8e781ebd54489f1b1e2d6d5c7fed3e7a2d25cf6e",
+              "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 3159104 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+            },
+            {
+              "status": "passed",
+              "exit_code": 0,
+              "peak_sampled_rss_kib": 593876,
+              "memory_limit_mb": 3072,
+              "seconds": 1.079,
+              "log": "0054.log",
+              "label": ".: typecheck",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun --bun tsc --noEmit"
+              ],
+              "engine_invocations": 1,
+              "log_sha256": "f4f880b37f9db0cd870bf83657bbbe9b63801ab16318e9da8a2a11addaf2e23c",
+              "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun --bun tsc --noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 593876 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+            }
+          ],
+          "orchestrator_failures": [
+            {
+              "label": "orchestrator",
+              "status": "failed",
+              "reason": "RuntimeError('command process group 18074 did not stop after SIGKILL')"
+            }
+          ],
+          "last_log": {
+            "path": "0200.log",
+            "sha256": "2d14e816b136c1ddd3dc402debb0e37bbb4789761b3db4f47e10f2646e388586",
+            "excerpt": "$ [\"/bin/sh\", \"-c\", \"cd src && bun run build\"]\n$ bun run build:napi && bun run build:ffi\n$ napi build --release --platform --no-dts-header --features enable-napi && bun run cleanup\n\nECOSYSTEM LIMIT: command time budget exhausted\n"
+          }
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Both completed runs have real package/report failures after successful runtime/preflights. Every candidate result remains truthful.",
+    "Fresh42737177738 freezes actual Stacks8b9e1572 and Home14c9459a9. Workflow dispatch head5cd9df0 is evidence-only; executed suite/caller stays validated40e0b89.",
+    "Stacks candidate remains59passed/211failed/355unsupported over99scopes/927checks; root still step-limited at1818008KiB and typecheck reaches absent Bun.build.",
+    "Earlier SHA qualification Home has234checks/46scopes and candidate7passed/42failed/38unsupported. Docs exceeds3072MiB at3159976KiB; root tsc passes.",
+    "Fresh Home report is partial:200checks include terminal orchestrator RuntimeError(command process group18074 did not stop after SIGKILL) during later reference checks. Preserve this incomplete/failure evidence; do not infer success for missing tail checks or treat it as a package pass. Reproduce and inspect live-versus-zombie process-group cleanup before changing behavior.",
+    "All-selected every-push42736664836 remains independent of these focused runs; no selected repository was filtered or cancelled."
+  ]
+}
