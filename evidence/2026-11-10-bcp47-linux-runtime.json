@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "run": 42918611833,
+  "runtime_job": 130188028504,
+  "requested_provenance": {
+    "engine": "60fdd42fe6713a2703fcc426c9d571dbf9a64852",
+    "suite": "f64846de2ebb3473082560f0226ea49cbd360906",
+    "home": "2b2a78cc9bf64c278f3c3b84ae8c6bf5cfff1b8b",
+    "zig": "0.18.0-dev.146+35accc06e",
+    "cpu": "baseline",
+    "optimize": "ReleaseSafe"
+  },
+  "runtime_conclusion": "success",
+  "actual_runtime_log": {
+    "bytes": 84191,
+    "sha256": "030d81bfd5571e49507e16ed48089210277143aed5c022ec4e71b981f0b2062d",
+    "signals": [
+      "2026-11-10T23:01:13.9880665Z NODE MODULE URL 27 CHECKS OK",
+      "2026-11-10T23:01:14.2531026Z NODE FILE URL FS 40 CHECKS OK",
+      "2026-11-10T23:01:19.2820485Z NODE CRYPTO UUID 23 CHECKS OK",
+      "2026-11-10T23:01:19.2880270Z NODE AVAILABLE PARALLELISM 12 CHECKS OK; native estimate 4",
+      "2026-11-10T23:01:19.2999984Z NODE RMDIR 11 CHECKS OK",
+      "2026-11-10T23:01:19.3039975Z NODE SYNC FS 18 CHECKS OK",
+      "2026-11-10T23:01:19.3099833Z NODE MKDTEMP 13 CHECKS OK",
+      "2026-11-10T23:02:19.0332052Z 1/5 tool_cpu.test.CPU quota parsing preserves unlimited, malformed and fractional cases...OK",
+      "2026-11-10T23:02:19.0345512Z 2/5 tool_cpu.test.cgroup v2 reads actual hierarchical quota files without caching...OK",
+      "2026-11-10T23:02:19.0352198Z 3/5 tool_cpu.test.cgroup v1 reads controller membership and real quota period pairs...OK",
+      "2026-11-10T23:02:19.0353013Z 4/5 tool_cpu.test.available parallelism queries this native operating system...OK",
+      "2026-11-10T23:02:19.0354844Z 5/5 tool_cpu_affinity_linux_test.test.native availability follows changed Linux affinity and restores it...OK",
+      "2026-11-10T23:02:19.0355542Z All 5 tests passed."
+    ]
+  },
+  "consumer_preflights": [
+    {
+      "id": 130191908000,
+      "name": "Consumers stacksjs/stacks",
+      "state": "in_progress",
+      "preflights": [
+        {
+          "number": 7,
+          "name": "Unpack and verify runtime provenance",
+          "conclusion": "success"
+        },
+        {
+          "number": 8,
+          "name": "Verify shared runtime executes on this consumer CPU",
+          "conclusion": "success"
+        }
+      ],
+      "package_step": {
+        "completedAt": "0001-01-01T00:00:00Z",
+        "conclusion": "",
+        "name": "Check every selected package, library, CLI and app",
+        "number": 9,
+        "startedAt": "2026-11-10T23:04:50Z",
+        "status": "in_progress"
+      }
+    },
+    {
+      "id": 130191908288,
+      "name": "Consumers home-lang/home",
+      "state": "in_progress",
+      "preflights": [
+        {
+          "number": 7,
+          "name": "Unpack and verify runtime provenance",
+          "conclusion": "success"
+        },
+        {
+          "number": 8,
+          "name": "Verify shared runtime executes on this consumer CPU",
+          "conclusion": "success"
+        }
+      ],
+      "package_step": {
+        "completedAt": "0001-01-01T00:00:00Z",
+        "conclusion": "",
+        "name": "Check every selected package, library, CLI and app",
+        "number": 9,
+        "startedAt": "2026-11-10T23:04:56Z",
+        "status": "in_progress"
+      }
+    }
+  ],
+  "official_artifact_metadata": {
+    "digest": "sha256:31903a10298229d8d2b660d7aa3ff5291948eca5e8741496f7e9c607f1e90863",
+    "expired": false,
+    "id": 13810059842,
+    "name": "ecosystem-runtime",
+    "size_in_bytes": 39211330
+  },
+  "local_zip_verification": {
+    "complete": false,
+    "reason": "Local gh archive read stalled beyond120seconds and was stopped; authenticated in-memory HTTP retry also stalled beyond120seconds and was stopped. No ZIP or binary hash verification is claimed; official artifact metadata and downstream provenance/CPU preflights are distinct evidence.",
+    "artifact_files_executed": false,
+    "credentials_persisted": false,
+    "prior_local_artifact": "Original13807567653ZIP/proof preserved; SHA256db24a65584a3d7ccafa8cd689e833347edbc2298ddfab6eccef4f680c0a7f8b8rechecked."
+  },
+  "caller": "No functional suite change; exact already validatedf648 remains. No evidence-only suite revision promoted.",
+  "limitations": "Both actual package steps9 are still running at observation; no Linux package recovery, full ecosystem success or new binary-download proof claimed. Full per-consumer reports remain required.",
+  "all_selected_run": 42918365900
+}
