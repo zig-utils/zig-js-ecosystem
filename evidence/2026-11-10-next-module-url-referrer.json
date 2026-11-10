@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "reproduced, not fixed",
+  "engine_sha": "d59e081a4e4f217d98cf5100ddcc7d4d0c66f228",
+  "home_sha": "a3e3b9276d34114b00a3d377a0a2b31440a13140",
+  "probe_source": "import fs from 'node:fs';\nimport { tmpdir } from 'node:os';\nimport { join } from 'node:path';\nimport { pathToFileURL } from 'node:url';\nimport { createRequire } from 'node:module';\nconst root = fs.realpathSync(fs.mkdtempSync(join(tmpdir(), 'home-module-url-')));\ntry {\n  fs.writeFileSync(join(root, 'dependency.cjs'), 'module.exports = { value: 42 };\\n');\n  const require = createRequire(pathToFileURL(join(root, 'entry.cjs')));\n  if (require('./dependency.cjs').value !== 42 || require.resolve('./dependency.cjs') !== join(root, 'dependency.cjs')) throw new Error('Native URL referrer did not load the actual relative dependency');\n  console.log('NATIVE URL CREATEREQUIRE ACTUAL DEPENDENCY OK');\n} finally { fs.rmSync(root, { recursive: true, force: true }); }\n",
+  "results": {
+    "node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 832,
+      "memory_limit_mb": 3072,
+      "seconds": 0.056,
+      "log": "next-module-url-node.log",
+      "log_sha256": "bd4a6bf8b0bb9fa64e9b0311583b4f7e209a8ebe107d767c07691b7abd1fa780",
+      "excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/file-url-fs/next-module-url.mjs\"]\nNATIVE URL CREATEREQUIRE ACTUAL DEPENDENCY OK\n\nECOSYSTEM PEAK SAMPLED RSS: 832 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0"
+    },
+    "bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1280,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "next-module-url-bun.log",
+      "log_sha256": "873bb92ca49af0e459a52e35d8ab1b37dcc694fd7d2998979610d6d18b8c2dde",
+      "excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/file-url-fs/next-module-url.mjs\"]\nNATIVE URL CREATEREQUIRE ACTUAL DEPENDENCY OK\n\nECOSYSTEM PEAK SAMPLED RSS: 1280 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0"
+    },
+    "home-a3": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 36016,
+      "memory_limit_mb": 3072,
+      "seconds": 0.15,
+      "log": "next-module-url-home-a3.log",
+      "log_sha256": "3dd8fe1f40b5fe6db526ba122ea19eece60031c7681339a73595630cdd0decfe",
+      "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/file-url-fs/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/file-url-fs/next-module-url.mjs\"]\nhome-tool (zig-js): Error: Home createRequire URL objects require a shared URL implementation\n\nECOSYSTEM PEAK SAMPLED RSS: 36016 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1"
+    }
+  },
+  "initial_fixture_correction": "First reference probes compared an uncanonicalized temporary dirname with the native resolver result and failed. Final probe obtains actual realpathSync root before comparing. The final Node/Bun probes pass; no software failure attributed to that initial setup.",
+  "evidence_limit": "Home fails explicitly at createRequire(URL) before loading dependency; no module-load pass claimed. Node and Bun actually load the written CJS dependency and resolve its real filename."
+}
