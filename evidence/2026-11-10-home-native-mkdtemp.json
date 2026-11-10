@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "home_commit": "b4c4d81bff51176be372d7fa6d844f3b8881c970",
+  "parent": "5ff96f3832c00c101f9fb17b555d848afafe22bb",
+  "local_engine_sha": "73ee013e8451aaadeb0402ab894cf2e24b2ede46",
+  "engine_mode": "Exact pushed Debug archive; ReleaseSafe Home; fresh Linux baseline qualification pending",
+  "official_contract": "https://nodejs.org/api/fs.html#fspromisesmkdtempprefix-options",
+  "source_sha256": {
+    "packages/runtime/src/jsc/tool_fs.zig": "c604d937a18815790cdfe9dba45c5973692d1a3932543ad954c6df4c61d56e63",
+    "packages/runtime/src/jsc/tool_builtins.js": "9c6f67bcbafc06d5a43e1749f3d6347ee3949bf090b732ff9ebd73b2aed53a7e",
+    "packages/runtime/test/tool_modules/node_mkdtemp.mjs": "a89959fb9a91160012082d7c03923cb5b841da0b8eddc8b4b724c77adbc38f6e",
+    "packages/runtime/test/tool_modules/main.ts": "77e86116020761238394958d140600a857bde30d6cd59b6033fd23f969c06878"
+  },
+  "results": {
+    "final-before.json": {
+      "node": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1424,
+        "memory_limit_mb": 3072,
+        "seconds": 0.108,
+        "log": "final-node.log",
+        "command": [
+          "node",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_mkdtemp.mjs"
+        ],
+        "log_sha256": "e25c9e584af047afa6884110a8d404afe5cf5f720ea05b18f1a84ee5ab20d6e6",
+        "excerpt": "NODE MKDTEMP ENCODING READS 3\nNODE MKDTEMP 13 CHECKS OK\nECOSYSTEM PEAK SAMPLED RSS: 1424 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "bun": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 112,
+        "memory_limit_mb": 3072,
+        "seconds": 0.075,
+        "log": "final-bun.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_mkdtemp.mjs"
+        ],
+        "log_sha256": "6d0e2eadaa4ba6745a4774d17eb9166de60bc346835bb9ba130940436a33b6fd",
+        "excerpt": "NODE MKDTEMP ENCODING READS 1\nNODE MKDTEMP 13 CHECKS OK\nECOSYSTEM PEAK SAMPLED RSS: 112 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "before-zig-js": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32704,
+        "memory_limit_mb": 3072,
+        "seconds": 0.215,
+        "log": "final-before-zig-js.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rmdir-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_mkdtemp.mjs"
+        ],
+        "log_sha256": "46b87f9f2e530ae8969f0045337c984c13d6610398fff82bf8550298c57628cd",
+        "excerpt": "home-tool (zig-js): Error: NODE MKDTEMP 13 checks; failures: promise default: fsp.mkdtemp is not a function. (In 'fsp.mkdtemp(prefix, options)', 'fsp.mkdtemp' is undefined); promise utf8: fsp.mkdtemp is not a function. (In 'fsp.mkdtemp(prefix, options)', 'fsp.mkdtemp' is undefined); promise object: fsp.mkdtemp is not a function. (In 'fsp.mkdtemp(prefix, options)', 'fsp.mkdtemp' is undefined); promise buffer: fsp.mkdtemp is not a function. (In 'fsp.mkdtemp(prefix, options)', 'fsp.mkdtemp' is undefined); promise missing parent: propagate missing parent; sync default: fs.mkdtempSync is not a function. (In 'fs.mkdtempSync(prefix, options)', 'fs.mkdtempSync' is undefined); sync utf8: fs.mkdtempSync is not a function. (In 'fs.mkdtempSync(prefix, options)', 'fs.mkdtempSync' is undefined); sync object: fs.mkdtempSync is not a function. (In 'fs.mkdtempSync(prefix, options)', 'fs.mkdtempSync' is undefined); sync buffer: fs.mkdtempSync is not a function. (In 'fs.mkdtempSync(prefix, options)', 'fs.mkdtempSync' is undefined); sync missing parent: propagate missing parent; distinct real directories: fsp.mkdtemp is not a function. (In 'fsp.mkdtemp(join(base, \"distinct-\"))', 'fsp.mkdtemp' is undefined); encoding getter supplies result: fsp.mkdtemp is not a function. (In 'fsp.mkdtemp(join(base, \"getter-\"), { get encoding() {\nECOSYSTEM PEAK SAMPLED RSS: 32704 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+      },
+      "before-jsc": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 5920,
+        "memory_limit_mb": 3072,
+        "seconds": 0.049,
+        "log": "final-before-jsc.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rmdir-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_mkdtemp.mjs"
+        ],
+        "log_sha256": "a0700e8aca959b6cb887dbfbd8e03f69c47d0626adae0a747dd51fcc91109b17",
+        "excerpt": "home-tool (jsc): Error: NODE MKDTEMP 13 checks; failures: promise default: fsp.mkdtemp is not a function. (In 'fsp.mkdtemp(prefix, options)', 'fsp.mkdtemp' is undefined); promise utf8: fsp.mkdtemp is not a function. (In 'fsp.mkdtemp(prefix, options)', 'fsp.mkdtemp' is undefined); promise object: fsp.mkdtemp is not a function. (In 'fsp.mkdtemp(prefix, options)', 'fsp.mkdtemp' is undefined); promise buffer: fsp.mkdtemp is not a function. (In 'fsp.mkdtemp(prefix, options)', 'fsp.mkdtemp' is undefined); promise missing parent: propagate missing parent; sync default: fs.mkdtempSync is not a function. (In 'fs.mkdtempSync(prefix, options)', 'fs.mkdtempSync' is undefined); sync utf8: fs.mkdtempSync is not a function. (In 'fs.mkdtempSync(prefix, options)', 'fs.mkdtempSync' is undefined); sync object: fs.mkdtempSync is not a function. (In 'fs.mkdtempSync(prefix, options)', 'fs.mkdtempSync' is undefined); sync buffer: fs.mkdtempSync is not a function. (In 'fs.mkdtempSync(prefix, options)', 'fs.mkdtempSync' is undefined); sync missing parent: propagate missing parent; distinct real directories: fsp.mkdtemp is not a function. (In 'fsp.mkdtemp(join(base, \"distinct-\"))', 'fsp.mkdtemp' is undefined); encoding getter supplies result: fsp.mkdtemp is not a function. (In 'fsp.mkdtemp(join(base, \"getter-\"), { get encoding() {\nECOSYSTEM PEAK SAMPLED RSS: 5920 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+      }
+    },
+    "after.json": {
+      "zig-js": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 40576,
+        "memory_limit_mb": 3072,
+        "seconds": 0.204,
+        "log": "after-zig-js.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-mkdtemp/after-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_mkdtemp.mjs"
+        ],
+        "binary_sha256": "9f89685d18571901a22ff936f5a19dbc7e448d05fe62be47fb8f8020b80b2fde",
+        "log_sha256": "b9e78d49e0eeecdc7967b337d114552600cdd8a44d250e1435ec736669bd2580",
+        "excerpt": "NODE MKDTEMP ENCODING READS 1\nNODE MKDTEMP 13 CHECKS OK\nECOSYSTEM PEAK SAMPLED RSS: 40576 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "jsc": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 13280,
+        "memory_limit_mb": 3072,
+        "seconds": 0.034,
+        "log": "after-jsc.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-mkdtemp/after-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_mkdtemp.mjs"
+        ],
+        "binary_sha256": "137b29b275fb6631dd1042de9893e2437222b0178db7199e66d902c2f8f5ed01",
+        "log_sha256": "26e1d04625d3b93f101132e43f3d84f94ed48d5a2b3fb3bb6bab13ea9c19bc81",
+        "excerpt": "NODE MKDTEMP ENCODING READS 1\nNODE MKDTEMP 13 CHECKS OK\nECOSYSTEM PEAK SAMPLED RSS: 13280 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      }
+    },
+    "gates.json": {
+      "zig-js": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1306688,
+        "memory_limit_mb": 3072,
+        "seconds": 88.002,
+        "log": "zig-js-gates.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "home-tool",
+          "home-tool-smoke",
+          "home-tool-rejections-smoke",
+          "home-tool-async-context-smoke",
+          "home-tool-file-url-smoke",
+          "-Doptimize=ReleaseSafe",
+          "-Denable_jsc=false",
+          "-Dtool-js-engine=zig-js",
+          "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/engine-root",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-mkdtemp/after-zig-js",
+          "-j1",
+          "--summary",
+          "all"
+        ],
+        "log_sha256": "273556faace4beae165310ff9d149f5bf28f2549b5467110fcd748c69759da16",
+        "excerpt": "NODE MKDTEMP ENCODING READS 1\nNODE MKDTEMP 13 CHECKS OK\nBuild Summary: 197/197 steps succeeded; 6/6 tests passed\nECOSYSTEM PEAK SAMPLED RSS: 1306688 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "jsc": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1269616,
+        "memory_limit_mb": 3072,
+        "seconds": 54.595,
+        "log": "jsc-gates.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "home-tool",
+          "home-tool-smoke",
+          "-Doptimize=ReleaseSafe",
+          "-Denable_jsc=false",
+          "-Dtool-js-engine=jsc",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-mkdtemp/after-jsc",
+          "-j1",
+          "--summary",
+          "all"
+        ],
+        "log_sha256": "a0d7aab559c964ce63a6e764b17ef03a480c1e6e8ecd562651684ae7d44fb89a",
+        "excerpt": "NODE MKDTEMP ENCODING READS 1\nNODE MKDTEMP 13 CHECKS OK\nBuild Summary: 176/176 steps succeeded\nECOSYSTEM PEAK SAMPLED RSS: 1269616 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      }
+    },
+    "docs-after.json": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 153488,
+      "memory_limit_mb": 3072,
+      "seconds": 1.71,
+      "log": "docs-after.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-mkdtemp/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/@stacksjs/bunpress/dist/bin/cli.js",
+        "build",
+        "--outdir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-mkdtemp/docs-after"
+      ],
+      "log_sha256": "5bc6cb629290498b44bbc67380c59ea3fa7db359070befd213e4b526f25863bd",
+      "excerpt": "Error during build: Error: Glob: FileNotFound\nECOSYSTEM PEAK SAMPLED RSS: 153488 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+    },
+    "docs-reference.json": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 2240,
+      "memory_limit_mb": 3072,
+      "seconds": 0.108,
+      "log": "docs-reference.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/@stacksjs/bunpress/dist/bin/cli.js",
+        "build",
+        "--outdir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-mkdtemp/docs-reference"
+      ],
+      "log_sha256": "f368c3fa8a4fe081d452e75c498b767c6e35773da5400296b941194908845790",
+      "excerpt": "Error during build: ENOENT: no such file or directory, open 'docs'\n    code: \"ENOENT\"\nECOSYSTEM PEAK SAMPLED RSS: 2240 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+    },
+    "reference.json": {
+      "node": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 1712,
+        "memory_limit_mb": 3072,
+        "seconds": 0.089,
+        "log": "contract-node.log",
+        "command": [
+          "node",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_mkdtemp.mjs"
+        ],
+        "log_sha256": "752d3887f0ec3f15ac29e544dd83f4df70625a54ca93adf206ddcd64949ecdab",
+        "excerpt": "if (failures.length) throw new Error('NODE MKDTEMP ' + operations + ' checks; failures: ' + failures.join('; '));\nError: NODE MKDTEMP 13 checks; failures: encoding getter once: observe encoding once\nECOSYSTEM PEAK SAMPLED RSS: 1712 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+      },
+      "bun": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 112,
+        "memory_limit_mb": 3072,
+        "seconds": 0.125,
+        "log": "contract-bun.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_mkdtemp.mjs"
+        ],
+        "log_sha256": "4f9fd745503b3d6b6bbd2276d47ae8858522cbd32dc396f06aefd9d70d67d8d5",
+        "excerpt": "NODE MKDTEMP 13 CHECKS OK\nECOSYSTEM PEAK SAMPLED RSS: 112 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      }
+    }
+  },
+  "pickier": {
+    "exit_code": 0,
+    "errors": 0,
+    "warnings": 2,
+    "interpretation": "The same two old prefer-template warnings, shifted by inserted code",
+    "log_sha256": "4de5e9c74320c892663be5b23f42a65bba14d2378bd048f4994ff6041efc5ce7"
+  },
+  "interpretation": [
+    "Native atomic exclusive mkdir uses OS secure entropy, unbiased six-character suffixes, collision retries and owner-only mode0700. Missing parents are not created. Supported string prefixes/UTF-8 or Buffer results; other options remain explicit refusals.",
+    "Mandatory13actual filesystem contract groups fail on both previous Home binaries and pass on Node26/Bun1.4.4/both fixed Home providers. Full197zig-js/176JSC common gates and6native tests pass locally, without changing the3072MiB cap.",
+    "An initial assertion of exactly one encoding getter read was rejected by actual Node26, which reads3times; Bun and Home read1. Final portable fixture records this difference and verifies real directory creation/encoding/exception identity, without claiming identical undocumented getter counts. Initial failing reference retained.",
+    "Actual installed BunPress0.2.31 on frozen Stacks8b9e1572 advances beyond missing UUID/rmdir/mkdtemp to Glob:FileNotFound. Reference Bun separately fails ENOENT opening docs in the same framework/docs cwd; no full docs pass or candidate Glob-specific regression is claimed. This frozen diagnostic cohort differs from latest Linux consumer1cecaf6a.",
+    "Suite now pins all three real fixes at this exact Home commit. Caller stays validatedc104b32 pending exact pushed-engine Linux baseline ReleaseSafe runtime/all mandatory groups and both actual consumer provenance/CPU preflights. No unsupported tests become passes, no API fallback, no limit relaxation, no test262 flip measurement."
+  ]
+}
