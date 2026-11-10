@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "home_commit": "a20f225bd7038b09b524434e5b5be98aa95c9dad",
+  "parent": "b4c4d81bff51176be372d7fa6d844f3b8881c970",
+  "local_engine_sha": "73ee013e8451aaadeb0402ab894cf2e24b2ede46",
+  "engine_mode": "Exact pushed Debug archive; ReleaseSafe host; fresh Linux baseline qualification required",
+  "source_sha256": {
+    "packages/runtime/src/jsc/tool_builtins.js": "dd92a80e7267146fbe8071da69e16e03127f28460460e8f20f4edb2c3c91dee3",
+    "packages/runtime/test/tool_modules/main.ts": "6e5aa1f192a2e1d6e97b7669b3e0b4a25436874e9a76661efcb8a219d313a6ac",
+    "packages/runtime/test/tool_modules/node_sync_fs.mjs": "a2848b18369043108f5638966a2d92c1f6cf44d2e583023373d2bf2cf6a1a840"
+  },
+  "official_contracts": [
+    "https://nodejs.org/api/fs.html#fsmkdirsyncpath-options",
+    "https://nodejs.org/api/fs.html#fsrmsyncpath-options"
+  ],
+  "results": {
+    "before.json": {
+      "node": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 49264,
+        "memory_limit_mb": 3072,
+        "seconds": 0.168,
+        "log": "node.log",
+        "log_sha256": "4644a6ae1092c4989d63d2ea608f4d2c492bcc7122e9a62a6fe9d8fac2ac4353",
+        "excerpt": "NODE SYNC FS 18 CHECKS OK\nECOSYSTEM PEAK SAMPLED RSS: 49264 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "bun": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 112,
+        "memory_limit_mb": 3072,
+        "seconds": 0.039,
+        "log": "bun.log",
+        "log_sha256": "844ea9ecaf02e2b387cec1c867a2c68cc148599fe0bcfdee8dd3aec8e4cf6cb3",
+        "excerpt": "NODE SYNC FS 18 CHECKS OK\nECOSYSTEM PEAK SAMPLED RSS: 112 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "before-zig-js": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32864,
+        "memory_limit_mb": 3072,
+        "seconds": 0.191,
+        "log": "before-zig-js.log",
+        "log_sha256": "eda4663cc6ec3d810f2a4d329e3a4df8ebbc289817c60d114337f2d71203757b",
+        "excerpt": "home-tool (zig-js): Error: NODE SYNC FS 18 checks; failures: sync mkdir private unicode: fs.mkdirSync is not a function. (In 'fs.mkdirSync(p, o)', 'fs.mkdirSync' is undefined); sync mkdir recursive first ancestor: fs.mkdirSync is not a function. (In 'fs.mkdirSync(p, o)', 'fs.mkdirSync' is undefined); sync mkdir existing error: expected EEXIST and original path; sync mkdir missing parent: expected ENOENT and original path; sync mkdir file preserved: expected EEXIST and original path; sync rm actual file: fs.rmSync is not a function. (In 'fs.rmSync(p, o)', 'fs.rmSync' is undefined); sync rm directory guard: expected ERR_FS_EISDIR and original path; sync rm recursive tree: fs.rmSync is not a function. (In 'fs.rmSync(p, o)', 'fs.rmSync' is undefined); sync rm missing force: fs.rmSync is not a function. (In 'fs.rmSync(p, o)', 'fs.rmSync' is undefined)\nECOSYSTEM PEAK SAMPLED RSS: 32864 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+      },
+      "before-jsc": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.059,
+        "log": "before-jsc.log",
+        "log_sha256": "21f80425f46d890c228b41edf624bae100d294049017409d90f2f4c312492e37",
+        "excerpt": "home-tool (jsc): Error: NODE SYNC FS 18 checks; failures: sync mkdir private unicode: fs.mkdirSync is not a function. (In 'fs.mkdirSync(p, o)', 'fs.mkdirSync' is undefined); sync mkdir recursive first ancestor: fs.mkdirSync is not a function. (In 'fs.mkdirSync(p, o)', 'fs.mkdirSync' is undefined); sync mkdir existing error: expected EEXIST and original path; sync mkdir missing parent: expected ENOENT and original path; sync mkdir file preserved: expected EEXIST and original path; sync rm actual file: fs.rmSync is not a function. (In 'fs.rmSync(p, o)', 'fs.rmSync' is undefined); sync rm directory guard: expected ERR_FS_EISDIR and original path; sync rm recursive tree: fs.rmSync is not a function. (In 'fs.rmSync(p, o)', 'fs.rmSync' is undefined); sync rm missing force: fs.rmSync is not a function. (In 'fs.rmSync(p, o)', 'fs.rmSync' is undefined)\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+      }
+    },
+    "gates.json": {
+      "zig-js": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1288224,
+        "memory_limit_mb": 3072,
+        "seconds": 56.442,
+        "log": "zig-js-gates.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "home-tool",
+          "home-tool-smoke",
+          "home-tool-rejections-smoke",
+          "home-tool-async-context-smoke",
+          "home-tool-file-url-smoke",
+          "-Doptimize=ReleaseSafe",
+          "-Denable_jsc=false",
+          "-Dtool-js-engine=zig-js",
+          "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/engine-root",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-sync-fs/after-zig-js",
+          "-j1",
+          "--summary",
+          "all"
+        ],
+        "log_sha256": "642c0657acc1411da827f144997aab09627b5884cf78697939b77676c9128b39",
+        "excerpt": "home-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nhome-tool (zig-js): AssertionError [ERR_ASSERTION]: actual assertion failure\nhome-tool (zig-js): SyntaxError: Unexpected identifier 'Promise'\nhome-tool (zig-js): undefined\nhome-tool (zig-js): Error: async rejection witness\nhome-tool (zig-js): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nNODE SYNC FS 18 CHECKS OK\nhome-tool (zig-js): Error: Cannot resolve @home/exports/directory from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs: ExportedFileNotFound\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async_property_newline.cjs\nhome-tool (zig-js): Error: async rejection witness\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_stream_pending.mjs\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/dynamic_import/pending-entry.mjs\nhome-tool (zig-js): Error: Cannot resolve @home/exports/require-only from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs: PackagePathNotExported\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nhome-tool (zig-js): undefined\nhome-tool (zig-js): Error: exit listener witness\nhome-tool (zig-js): Error: Cannot resolve @home/exports/extensionless from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs: ExportedFileNotFound\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nhome-tool (zig-js): Error: Cannot resolve @home/exports/blocked from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs: PackagePathNotExported\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nhome-tool (zig-js): Error: Cannot resolve @home/exports/missing-array from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs: ExportedFileNotFound\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nBuild Summary: 197/197 steps succeeded\nECOSYSTEM PEAK SAMPLED RSS: 1288224 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "jsc": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1307328,
+        "memory_limit_mb": 3072,
+        "seconds": 34.459,
+        "log": "jsc-gates.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "home-tool",
+          "home-tool-smoke",
+          "-Doptimize=ReleaseSafe",
+          "-Denable_jsc=false",
+          "-Dtool-js-engine=jsc",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-sync-fs/after-jsc",
+          "-j1",
+          "--summary",
+          "all"
+        ],
+        "log_sha256": "bfc73813b00ae17f6b05586885b40f1bc23faa29138756a6e853d5574dc9e4ab",
+        "excerpt": "home-tool (jsc): SyntaxError: Unexpected identifier 'Promise'\nhome-tool (jsc): Error: exit listener witness\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/dynamic_import/pending-entry.mjs\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nhome-tool (jsc): Error: Cannot resolve @home/exports/blocked from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs: PackagePathNotExported\nhome-tool (jsc): Error: Cannot resolve @home/exports/missing-array from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs: ExportedFileNotFound\nhome-tool (jsc): AssertionError [ERR_ASSERTION]: actual assertion failure\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_stream_pending.mjs\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nhome-tool (jsc): Error: Cannot resolve @home/exports/require-only from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs: PackagePathNotExported\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async_property_newline.cjs\nhome-tool (jsc): undefined\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nNODE SYNC FS 18 CHECKS OK\nhome-tool (jsc): Error: Cannot resolve @home/exports/extensionless from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs: ExportedFileNotFound\nhome-tool (jsc): Error: async rejection witness\nhome-tool (jsc): Error: Cannot resolve @home/exports/directory from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs: ExportedFileNotFound\nhome-tool (jsc): Error: async rejection witness\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nhome-tool (jsc): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nhome-tool (jsc): undefined\nBuild Summary: 176/176 steps succeeded\nECOSYSTEM PEAK SAMPLED RSS: 1307328 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      }
+    },
+    "after-zig-js.json": {
+      "fixture": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 33712,
+        "memory_limit_mb": 3072,
+        "seconds": 0.184,
+        "log": "after-zig-js.log",
+        "binary_sha256": "74781855dc0876f40ea973af95b87b55296924ad722839171e6d36c79e0001e8",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-sync-fs/after-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_sync_fs.mjs"
+        ],
+        "log_sha256": "a5c12ee4bfedcca209e1a00704aecfc44de48e1cb458abdf857024edade58cc0",
+        "excerpt": "NODE SYNC FS 18 CHECKS OK\nECOSYSTEM PEAK SAMPLED RSS: 33712 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "vscode": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 6736,
+        "memory_limit_mb": 3072,
+        "seconds": 0.103,
+        "log": "vscode-after.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-sync-fs/after-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/defaults/ide/vscode/build.ts"
+        ],
+        "log_sha256": "2d11675a66a14a99741e891a9f961c7c361e9026e766888584328cdd9f70f2d3",
+        "excerpt": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [join(here, \"src/extension.ts\")], outdir: dist, target: \"node\", format: \"cjs\", external: [\"vscode\", \"bunfig\"], minify: true })', 'Bun.build' is undefined)\nECOSYSTEM PEAK SAMPLED RSS: 6736 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+      }
+    },
+    "after-jsc.json": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 432,
+      "memory_limit_mb": 3072,
+      "seconds": 0.029,
+      "log": "after-jsc.log",
+      "binary_sha256": "c3a805a7a7fa5d55bd2e0c8e5b6212659798e2d6b96cc4bd069091a35c40b573",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-sync-fs/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_sync_fs.mjs"
+      ],
+      "log_sha256": "11012852dd6da28bd0aa2fb0b418b042512c752d9ec0cf9758dad372d6a0f57b",
+      "excerpt": "NODE SYNC FS 18 CHECKS OK\nECOSYSTEM PEAK SAMPLED RSS: 432 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+    },
+    "vscode-before-reference.json": {
+      "before": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32112,
+        "memory_limit_mb": 3072,
+        "seconds": 0.188,
+        "log": "vscode-before.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-mkdtemp/after-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/defaults/ide/vscode/build.ts"
+        ],
+        "log_sha256": "9273cc0443bb86b8a2aeae42a36c1c5ab60c84de5f74c95342e5f3f6e580fcf1",
+        "excerpt": "home-tool (zig-js): TypeError: rmSync is not a function. (In 'rmSync(dist, { recursive: true, force: true })', 'rmSync' is undefined)\nECOSYSTEM PEAK SAMPLED RSS: 32112 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+      },
+      "reference": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 1648,
+        "memory_limit_mb": 3072,
+        "seconds": 0.044,
+        "log": "vscode-reference.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/defaults/ide/vscode/build.ts"
+        ],
+        "log_sha256": "ace33a79fecc5dbaa7f243d0163b0cf1b1f797c7882563072c59eac9ff28a4f1",
+        "excerpt": "error: Could not resolve: \"@stacksjs/stx-vscode\". Maybe you need to \"bun install\"?\nECOSYSTEM PEAK SAMPLED RSS: 1648 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+      }
+    }
+  },
+  "pickier": {
+    "exit_code": 0,
+    "errors": 0,
+    "preexisting_warnings": 2,
+    "log_sha256": "17909e79d215b5219bb147b0a3f5a28af868dc5f759d10353e477e37df3a7399"
+  },
+  "interpretation": [
+    "Real existing native mkdir/rm are now exposed synchronously, shared with unchanged promise behavior. Recursive mkdir returns the first created ancestor, existing directories yield undefined, mode is applied, nonrecursive removal never deletes a directory, force ignores a missing path only. Supported string paths/object options profile remains explicit, not full Node fs support.",
+    "18mandatory actual filesystem contract groups run sync and promise behavior. All18 pass Node/Bun/both fixed Home providers; previous providers fail9sync groups while promise controls pass. All197zig-js/176JSC common gate steps pass locally within the unchanged3072MiB bound.",
+    "Actual frozen Stacks8b9e1572 VS Code build advances from missing rmSync through cleanup and mkdir to missing Bun.build. Reference Bun actually runs its build and fails resolving absent @stacksjs/stx-vscode. No full candidate/reference build pass, no unexecuted test or unsupported API turned green.",
+    "Exact combined Home now includes all65new UUID/directory contract groups, including preserved foreign TS checker work. New immutable Linux baseline qualification is required before caller promotion; old qualification28680c0 remains separate and is never cancelled. No test262 run or measured corpus flips."
+  ]
+}
