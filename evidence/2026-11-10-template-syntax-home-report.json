@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "run": 42795037041,
+  "suite_ref": "929019440832421b90e1c687a687da1b466baad0",
+  "engine_sha": "b4ed04b8d98b2eb85ff85504189cba3ddaf3349e",
+  "home_ref": "26a474c6806acc7305fa4b3b905bda53d0d6814e",
+  "artifact": {
+    "id": 13755880036,
+    "bytes": 173023,
+    "sha256": "7142a9571965b576fd54fda6f67c44e5019924e08b6e8e5e06a275027a0ca90d"
+  },
+  "report_sha256": "eb9e9061caa256998510ae8c2e9734d4495973b7c4e990e0e64b3d0cc781e3b5",
+  "scopes": 46,
+  "reported_checks": 234,
+  "candidate": {
+    "failed": 42,
+    "unsupported": 38,
+    "passed": 7
+  },
+  "reference": {
+    "passed": 11,
+    "failed": 4,
+    "timed-out": 1,
+    "not-run": 34
+  },
+  "selected_checks": [
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 83704,
+        "memory_limit_mb": 3072,
+        "seconds": 0.333,
+        "log": "0016.log",
+        "label": "packages/runtime/src/runtime/cli/init/react-shadcn: dependencies",
+        "lane": "setup",
+        "command": [
+          "/home/runner/.bun/bin/bun",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate",
+          "--frozen-lockfile"
+        ],
+        "engine_invocations": 0
+      },
+      "before_status": "failed",
+      "log_sha256": "350f8542b7b86e6cd3d5fb3416da50825d77aaa71631cdb9f2ea418784573547",
+      "excerpt": "$ [\"/home/runner/.bun/bin/bun\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate\", \"--frozen-lockfile\"]\n{\n  \"dependency_setup\": {\n    \"reused\": false,\n    \"reason\": \"independent install or locked scope\",\n    \"dependencies\": []\n  }\n}\nbun install v1.4.4 (38afee6c8)\n\n+ @types/bun@1.2.23\n+ @types/react@19.2.2\n+ @types/react-dom@19.2.1\n+ tailwindcss@4.1.14\n+ @radix-ui/react-label@2.1.7\n+ @radix-ui/react-select@2.2.6\n+ @radix-ui/react-slot@1.2.3\n+ bun-plugin-tailwind@0.1.2\n+ class-variance-authority@0.7.1\n+ clsx@2.1.1\n+ lucide-react@1.71.0\n+ react@19.2.0\n+ react-dom@19.2.0\n+ tailwind-merge@3.3.1\n+ tw-animate-css@1.4.0\n\n57 packages installed [309.00ms]\n\nECOSYSTEM PEAK SAMPLED RSS: 83704 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 65916,
+        "memory_limit_mb": 3072,
+        "seconds": 0.128,
+        "log": "0017.log",
+        "label": "packages/runtime/src/runtime/cli/init/react-tailwind: dependencies",
+        "lane": "setup",
+        "command": [
+          "/home/runner/.bun/bin/bun",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate",
+          "--frozen-lockfile"
+        ],
+        "engine_invocations": 0
+      },
+      "before_status": "failed",
+      "log_sha256": "383eb8fcb8827d4cd77b6d4015568ec1d0047565489e1ae1aacf9ccedda9a1ec",
+      "excerpt": "$ [\"/home/runner/.bun/bin/bun\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate\", \"--frozen-lockfile\"]\n{\n  \"dependency_setup\": {\n    \"reused\": false,\n    \"reason\": \"independent install or locked scope\",\n    \"dependencies\": []\n  }\n}\nbun install v1.4.4 (38afee6c8)\n\n+ @types/bun@1.2.18\n+ @types/react@19.1.8\n+ @types/react-dom@19.1.6\n+ bun-plugin-tailwind@0.1.2\n+ react@19.1.0\n+ react-dom@19.1.0\n+ tailwindcss@4.1.11\n\n12 packages installed [102.00ms]\n\nECOSYSTEM PEAK SAMPLED RSS: 65916 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": -9,
+        "peak_sampled_rss_kib": 3158752,
+        "memory_limit_mb": 3072,
+        "seconds": 34.585,
+        "log": "0052.log",
+        "reason": "sampled command tree RSS exceeded 3072 MiB",
+        "label": ".: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bunx bunpress build"
+        ],
+        "engine_invocations": 1
+      },
+      "before_status": "failed",
+      "log_sha256": "38f2845e12e265bdaa11f61f89aa10c99620c397cbce54fff102b8b44a0b2e8d",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 3158752 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+    },
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 607024,
+        "memory_limit_mb": 3072,
+        "seconds": 1.28,
+        "log": "0054.log",
+        "label": ".: typecheck",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun --bun tsc --noEmit"
+        ],
+        "engine_invocations": 1
+      },
+      "before_status": "passed",
+      "log_sha256": "d0ef18fe0720bafe579268841be57e6e4efa409d813f4f7091bebf3fcea43812",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun --bun tsc --noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 607024 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 143772,
+        "memory_limit_mb": 3072,
+        "seconds": 0.342,
+        "log": "0069.log",
+        "label": "packages/runtime/src/runtime/cli/init/react-shadcn: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun run build.ts"
+        ],
+        "engine_invocations": 1
+      },
+      "before_status": "failed",
+      "log_sha256": "7f9f730a49a0ea782b04675dbfa24905830bd17357fd0433cc583f577d9e6f03",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): SyntaxError: Unexpected token\n\nECOSYSTEM PEAK SAMPLED RSS: 143772 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 8144,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0070.log",
+        "label": "packages/runtime/src/runtime/cli/init/react-shadcn: module initialization src/index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+          "src/index.ts"
+        ],
+        "engine_invocations": 1
+      },
+      "before_status": "failed",
+      "log_sha256": "4786e291d587f18ebd50d4392951a39078f2d6530b307010d0314984b08df94d",
+      "excerpt": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun\", \"src/index.ts\"]\n/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn/src/index.html:1: '!' at the start of a type is not valid TypeScript syntax. Did you mean to write 'doctype'? (TS17020)\nhome-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn/src/index.html\n\nECOSYSTEM PEAK SAMPLED RSS: 8144 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 143760,
+        "memory_limit_mb": 3072,
+        "seconds": 0.362,
+        "log": "0071.log",
+        "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun run build.ts"
+        ],
+        "engine_invocations": 1
+      },
+      "before_status": "failed",
+      "log_sha256": "3b255fad9dfb52575176a9af3bb3ba7c63408ec21b25427a5ce3f64a370f9e0c",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): SyntaxError: Unexpected token\n\nECOSYSTEM PEAK SAMPLED RSS: 143760 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 8220,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0072.log",
+        "label": "packages/runtime/src/runtime/cli/init/react-tailwind: module initialization src/index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+          "src/index.ts"
+        ],
+        "engine_invocations": 1
+      },
+      "before_status": "failed",
+      "log_sha256": "52e8a716878f4db4464bda9d103609baa7d882f6f1312842cdd30f4ada9c1330",
+      "excerpt": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun\", \"src/index.ts\"]\n/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/src/index.html:1: '!' at the start of a type is not valid TypeScript syntax. Did you mean to write 'doctype'? (TS17020)\nhome-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/src/index.html\n\nECOSYSTEM PEAK SAMPLED RSS: 8220 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 86236,
+        "memory_limit_mb": 3072,
+        "seconds": 0.329,
+        "log": "0149.log",
+        "label": "packages/runtime/src/runtime/cli/init/react-shadcn: reference dependencies",
+        "lane": "reference-setup",
+        "command": [
+          "/home/runner/.bun/bin/bun",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference",
+          "--frozen-lockfile"
+        ],
+        "engine_invocations": 0
+      },
+      "before_status": "failed",
+      "log_sha256": "fe99fb35d87d4bb0d8f2c8f066222e164674b8f1f1a5a2c6ba87bfc7480c58f2",
+      "excerpt": "$ [\"/home/runner/.bun/bin/bun\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference\", \"--frozen-lockfile\"]\n{\n  \"dependency_setup\": {\n    \"reused\": false,\n    \"reason\": \"independent install or locked scope\",\n    \"dependencies\": []\n  }\n}\nbun install v1.4.4 (38afee6c8)\n\n+ @types/bun@1.2.23\n+ @types/react@19.2.2\n+ @types/react-dom@19.2.1\n+ tailwindcss@4.1.14\n+ @radix-ui/react-label@2.1.7\n+ @radix-ui/react-select@2.2.6\n+ @radix-ui/react-slot@1.2.3\n+ bun-plugin-tailwind@0.1.2\n+ class-variance-authority@0.7.1\n+ clsx@2.1.1\n+ lucide-react@1.71.0\n+ react@19.2.0\n+ react-dom@19.2.0\n+ tailwind-merge@3.3.1\n+ tw-animate-css@1.4.0\n\n57 packages installed [309.00ms]\n\nECOSYSTEM PEAK SAMPLED RSS: 86236 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 20788,
+        "memory_limit_mb": 3072,
+        "seconds": 0.118,
+        "log": "0150.log",
+        "label": "packages/runtime/src/runtime/cli/init/react-tailwind: reference dependencies",
+        "lane": "reference-setup",
+        "command": [
+          "/home/runner/.bun/bin/bun",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs",
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference",
+          "--frozen-lockfile"
+        ],
+        "engine_invocations": 0
+      },
+      "before_status": "failed",
+      "log_sha256": "342b780c105a6d63c6e1803ccad27446f371385340b972c784e656354715e3a1",
+      "excerpt": "$ [\"/home/runner/.bun/bin/bun\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/scripts/dependencies.mjs\", \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference\", \"--frozen-lockfile\"]\n{\n  \"dependency_setup\": {\n    \"reused\": false,\n    \"reason\": \"independent install or locked scope\",\n    \"dependencies\": []\n  }\n}\nbun install v1.4.4 (38afee6c8)\n\n+ @types/bun@1.2.18\n+ @types/react@19.1.8\n+ @types/react-dom@19.1.6\n+ bun-plugin-tailwind@0.1.2\n+ react@19.1.0\n+ react-dom@19.1.0\n+ tailwindcss@4.1.11\n\n12 packages installed [100.00ms]\n\nECOSYSTEM PEAK SAMPLED RSS: 20788 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 123536,
+        "memory_limit_mb": 3072,
+        "seconds": 6.262,
+        "log": "0196.log",
+        "label": "packages/runtime/src/runtime/cli/init/react-shadcn: build",
+        "lane": "reference",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun run build.ts"
+        ],
+        "engine_invocations": 0
+      },
+      "before_status": "failed",
+      "log_sha256": "2389b7eb4c02e0d2edcfba2c679f9539231282255f9a9347d246a8e82eee3ad6",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\n dist/chunk-fcmhp7yv.js  293.2 KB\n dist/index.html  0.4 KB\n dist/chunk-aavn711n.css  61.7 KB\n dist/chunk-fcmhp7yv.js.map  1333.0 KB\n dist/logo-ah670jad.svg  3.8 KB\n dist/react-c5c0zhye.svg  0.3 KB\n\nECOSYSTEM PEAK SAMPLED RSS: 123536 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 72632,
+        "memory_limit_mb": 3072,
+        "seconds": 0.931,
+        "log": "0197.log",
+        "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+        "lane": "reference",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun run build.ts"
+        ],
+        "engine_invocations": 0
+      },
+      "before_status": "failed",
+      "log_sha256": "326c9a159edabbfb6267899ba688449625b8337657b4f9d54ea944a84b015e65",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\n dist/chunk-7t3eq04g.js  173.8 KB\n dist/index.html  0.4 KB\n dist/chunk-68gyd4ye.css  19.2 KB\n dist/chunk-7t3eq04g.js.map  780.8 KB\n dist/logo-ah670jad.svg  3.8 KB\n dist/react-c5c0zhye.svg  0.3 KB\n\nECOSYSTEM PEAK SAMPLED RSS: 72632 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "check": {
+        "status": "timed-out",
+        "exit_code": 124,
+        "peak_sampled_rss_kib": 22368,
+        "memory_limit_mb": 3072,
+        "seconds": 0.18,
+        "log": "0200.log",
+        "reason": "command time budget exhausted",
+        "label": "packages/runtime/upstream/bench/ffi: build",
+        "lane": "reference",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "cd src && bun run build"
+        ],
+        "engine_invocations": 0
+      },
+      "before_status": "failed",
+      "log_sha256": "346fa2389c7301bc22ac40dc8f1e507a5e5fe127f0b0988945efb0f87d6cf23c",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"cd src && bun run build\"]\n$ bun run build:napi && bun run build:ffi\n\nECOSYSTEM PEAK SAMPLED RSS: 22368 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: command time budget exhausted\n\nECOSYSTEM RESULT: timed-out, exit 124\n"
+    }
+  ],
+  "candidate_status_changes": [],
+  "interpretation": [
+    "Four maintained frozen installs and both actual native reference builds recover failed to passed in Linux CI. Candidate7pass/42fail/38unsupported unchanged; actual Tailwind builds fail SyntaxError.",
+    "46scopes/234reported checks are not234executed tests: reference34not-run after FFI timeout and repository budget. Earlier kernel cleanup fault is not declared fixed.",
+    "Original upstream template copies remain selected, frozen installs still fail truthfully. Stacks consumer is still in progress at this report snapshot."
+  ]
+}

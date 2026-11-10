@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "run": 42795037041,
+  "suite_ref": "929019440832421b90e1c687a687da1b466baad0",
+  "engine_sha": "b4ed04b8d98b2eb85ff85504189cba3ddaf3349e",
+  "consumer_ref": "8b9e1572fee6a8345213159d892fd82d91604927",
+  "home_ref": "26a474c6806acc7305fa4b3b905bda53d0d6814e",
+  "artifact": {
+    "id": 13756265787,
+    "bytes": 2068190,
+    "sha256": "b16a072f9568b8b40943a17004c627c040b8b07bd8cf0f3cfd6655500ef01198"
+  },
+  "report_sha256": "7dc9d1d746d8019e73df512ab37705936837ffaa5bd05e846d0ce738ed6b6526",
+  "scopes": 99,
+  "reported_checks": 927,
+  "candidate": {
+    "unsupported": 355,
+    "failed": 211,
+    "passed": 59
+  },
+  "candidate_label_status_multiset_matches_prior_42786838700": true,
+  "selected_checks": [
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 1833360,
+        "memory_limit_mb": 3072,
+        "seconds": 6.202,
+        "log": "0016.log",
+        "label": ".: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "./buddy build"
+        ],
+        "engine_invocations": 3
+      },
+      "log_sha256": "af7ae80c8869f745ba04aabfd0102dc3f7f99cf14565891099ee89e4c17ed6a5",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-10T10:15:48.372Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 1833360 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 1767784,
+        "memory_limit_mb": 3072,
+        "seconds": 6.336,
+        "log": "0018.log",
+        "label": ".: typecheck",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)"
+        ],
+        "engine_invocations": 3
+      },
+      "log_sha256": "51c9e2ba597205e33353513587297163816e1b8454013328d0c7543ade14efa5",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\n[2026-11-10T10:16:00.925Z] local.INFO: Building @stacksjs/validation...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 1767784 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 65132,
+        "memory_limit_mb": 3072,
+        "seconds": 0.176,
+        "log": "0299.log",
+        "label": "storage/framework/core/i18n: module initialization src/index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+          "src/index.ts"
+        ],
+        "engine_invocations": 1
+      },
+      "log_sha256": "709ae319aec7bf58257b3606a549a8dfdde76770fca553fa9608ca16ab302231",
+      "excerpt": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 65132 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 83076,
+        "memory_limit_mb": 3072,
+        "seconds": 0.214,
+        "log": "0464.log",
+        "label": "storage/framework/core/realtime: module initialization src/index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+          "src/index.ts"
+        ],
+        "engine_invocations": 1
+      },
+      "log_sha256": "a2bbc84a3d2fc479869597fb7bf63b052233301a36ab366072791e38ea97f0ea",
+      "excerpt": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 83076 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  ],
+  "interpretation": [
+    "99scopes/927reported checks;59candidate passes/211failures/355unsupported unchanged. i18n and realtime source initializations still execute/pass.",
+    "Root build still fails unchanged evaluation budget;3actual engine invocations and1833360KiB sampledRSS. Root typecheck reaches missingBun.build after3actual engine invocations. No whole-consumer pass or unsupported execution claimed."
+  ]
+}
