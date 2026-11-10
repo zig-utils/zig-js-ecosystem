@@ -1,0 +1,319 @@
+{
+  "schema_version": 1,
+  "run": 42910204499,
+  "suite_ref": "f64846de2ebb3473082560f0226ea49cbd360906",
+  "home_ref": "2b2a78cc9bf64c278f3c3b84ae8c6bf5cfff1b8b",
+  "engine_sha": "f9cd1a1e9b394e91baa2fe2a9991b5e7f327c5ab",
+  "method": "Read actual candidate command logs from digest-verified individual consumer artifacts; never execute artifact files.",
+  "consumer_reports": {
+    "stacks": {
+      "run": 42910204499,
+      "artifact": {
+        "id": 13808419145,
+        "digest": "sha256:03b56b2b729854b0737d752b9a015faf64821d0c6184f97071e57d0e9b22b596",
+        "size_in_bytes": 1515108
+      },
+      "records": [
+        {
+          "repository": "stacksjs/stacks",
+          "consumer_sha": "897486d74b9973b9296b34211fe6cc26b9f89b9a",
+          "engine_sha": "f9cd1a1e9b394e91baa2fe2a9991b5e7f327c5ab",
+          "runtime_provenance": {
+            "engine_sha": "f9cd1a1e9b394e91baa2fe2a9991b5e7f327c5ab",
+            "suite_ref": "f64846de2ebb3473082560f0226ea49cbd360906",
+            "home_repository": "home-lang/home",
+            "home_ref": "2b2a78cc9bf64c278f3c3b84ae8c6bf5cfff1b8b",
+            "zig_version": "0.18.0-dev.146+35accc06e",
+            "build_cpu": "baseline",
+            "build_optimize": "ReleaseSafe",
+            "sha256": {
+              "home-tool": "285debf254b8de21239faff614073bb16063348b229261df3ad1a215107ca5c0",
+              "engine/zig-out/lib/libzig-js.a": "8e7221741bbcebb8a8f75de99865cbae808024239ebdbe973d881d31e5508df8"
+            }
+          },
+          "scopes": 99,
+          "checks": 927,
+          "lanes": {
+            "candidate": {
+              "unsupported": 354,
+              "failed": 208,
+              "passed": 63
+            },
+            "engine": {
+              "passed": 1
+            },
+            "reference": {
+              "passed": 52,
+              "failed": 30,
+              "timed-out": 2,
+              "not-run": 191
+            },
+            "reference-setup": {
+              "passed": 10
+            },
+            "setup": {
+              "passed": 16
+            }
+          },
+          "selected_actual_checks": [
+            {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 257840,
+              "memory_limit_mb": 3072,
+              "seconds": 0.497,
+              "log": "0330.log",
+              "label": "storage/framework/core/model-meta: module initialization src/index.ts",
+              "lane": "candidate",
+              "command": [
+                "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+                "src/index.ts"
+              ],
+              "engine_invocations": 1,
+              "actual_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): SyntaxError: invalid regular expression\n\nECOSYSTEM PEAK SAMPLED RSS: 257840 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+              "log_sha256": "d468886c97a4079b051a699cf3322bc15c4bc72b59ea58cf908eb0143cb177b9"
+            },
+            {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 404180,
+              "memory_limit_mb": 3072,
+              "seconds": 0.71,
+              "log": "0601.log",
+              "label": "storage/framework/core/validation: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun build.ts"
+              ],
+              "engine_invocations": 1,
+              "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun build.ts\"]\n[2026-11-10T22:20:03.379Z] local.INFO: Building @stacksjs/validation...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 404180 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+              "log_sha256": "627ae4885cd91c39d203caf65cd2df2690f5c99ccd63d6e9ce67d43a0dfd70f2"
+            },
+            {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 64256,
+              "memory_limit_mb": 3072,
+              "seconds": 0.214,
+              "log": "0604.log",
+              "label": "storage/framework/core/validation: module initialization src/index.ts",
+              "lane": "candidate",
+              "command": [
+                "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+                "src/index.ts"
+              ],
+              "engine_invocations": 1,
+              "actual_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): SyntaxError: invalid regular expression\n\nECOSYSTEM PEAK SAMPLED RSS: 64256 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+              "log_sha256": "8ab686c956d8e8e7272d5683f21b998378a5b961c7263eb6f37f1ecc8eeb32bb"
+            }
+          ]
+        }
+      ]
+    },
+    "home": {
+      "run": 42910204499,
+      "artifact": {
+        "id": 13809886039,
+        "digest": "sha256:a10486a5d11af308279b979ad21bcde6e2da43cca19b6004576146d228e8c913",
+        "size_in_bytes": 174465
+      },
+      "records": [
+        {
+          "repository": "home-lang/home",
+          "consumer_sha": "2b2a78cc9bf64c278f3c3b84ae8c6bf5cfff1b8b",
+          "engine_sha": "f9cd1a1e9b394e91baa2fe2a9991b5e7f327c5ab",
+          "runtime_provenance": {
+            "engine_sha": "f9cd1a1e9b394e91baa2fe2a9991b5e7f327c5ab",
+            "suite_ref": "f64846de2ebb3473082560f0226ea49cbd360906",
+            "home_repository": "home-lang/home",
+            "home_ref": "2b2a78cc9bf64c278f3c3b84ae8c6bf5cfff1b8b",
+            "zig_version": "0.18.0-dev.146+35accc06e",
+            "build_cpu": "baseline",
+            "build_optimize": "ReleaseSafe",
+            "sha256": {
+              "home-tool": "285debf254b8de21239faff614073bb16063348b229261df3ad1a215107ca5c0",
+              "engine/zig-out/lib/libzig-js.a": "8e7221741bbcebb8a8f75de99865cbae808024239ebdbe973d881d31e5508df8"
+            }
+          },
+          "scopes": 46,
+          "checks": 234,
+          "lanes": {
+            "candidate": {
+              "failed": 42,
+              "unsupported": 38,
+              "passed": 7
+            },
+            "direct-consumer": {
+              "passed": 4
+            },
+            "engine": {
+              "passed": 1
+            },
+            "reference": {
+              "passed": 11,
+              "failed": 4,
+              "timed-out": 1,
+              "not-run": 34
+            },
+            "reference-setup": {
+              "passed": 40,
+              "timed-out": 1,
+              "failed": 2
+            },
+            "setup": {
+              "passed": 46,
+              "timed-out": 1,
+              "failed": 2
+            }
+          },
+          "selected_actual_checks": [
+            {
+              "status": "failed",
+              "exit_code": -9,
+              "peak_sampled_rss_kib": 3164224,
+              "memory_limit_mb": 3072,
+              "seconds": 22.859,
+              "log": "0052.log",
+              "reason": "sampled command tree RSS exceeded 3072 MiB",
+              "label": ".: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bunx bunpress build"
+              ],
+              "engine_invocations": 1,
+              "actual_log": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 3164224 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n",
+              "log_sha256": "b012d2aca024a11bac4bd3a59b17787ab729d6b0cc04681ca8e31239d09929eb"
+            },
+            {
+              "status": "passed",
+              "exit_code": 0,
+              "peak_sampled_rss_kib": 605628,
+              "memory_limit_mb": 3072,
+              "seconds": 0.978,
+              "log": "0054.log",
+              "label": ".: typecheck",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun --bun tsc --noEmit"
+              ],
+              "engine_invocations": 1,
+              "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun --bun tsc --noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 605628 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+              "log_sha256": "cd4ef75b6e99536e68246d39fe187876ecf39b2bd5c7646d54e374315d984bc2"
+            },
+            {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 232596,
+              "memory_limit_mb": 3072,
+              "seconds": 0.391,
+              "log": "0069.log",
+              "label": "packages/runtime/src/runtime/cli/init/react-shadcn: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun run build.ts"
+              ],
+              "engine_invocations": 1,
+              "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 232596 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+              "log_sha256": "4fc8abe4516f692c72d70d8a4dc564cdcc403227e0b4faffeecafac947910013"
+            },
+            {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 232720,
+              "memory_limit_mb": 3072,
+              "seconds": 0.392,
+              "log": "0071.log",
+              "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun run build.ts"
+              ],
+              "engine_invocations": 1,
+              "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 232720 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+              "log_sha256": "71439a62a50c092c603926ffd0e1ec5770c8cae398ee2470f501fa6d97a15431"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "interpretation": [
+    "All 99 Stacks scopes and 927 checks retained; 625 candidate labels: 63 passed, 208 failed, 354 unsupported. Consumer has advanced to 897486d; same counts do not establish an isolated engine comparison.",
+    "All 46 Home scopes and 234 checks retained: 7 candidate passed, 42 failed, 38 unsupported. Root docs still exceeds unchanged 3072 MiB; root typecheck passes; both maintained React builds still fail to resolve v8.",
+    "Stacks validation and model-meta actual source initialization still fail invalid regular expression. Their full build remains blocked separately on Bun.build and declaration errors; no package recovery claimed.",
+    "Qualification engine f9 predates foreign 155b lazy matcher headers, so this report does not measure that later memory change.",
+    "Consumer artifacts and complete JSON retained locally with matching official SHA-256 digests. Evidence-only suite descendant must never replace functional f648 caller pin."
+  ],
+  "published_dashboard": {
+    "checked_at": "2026-11-10T22:44:56.293099+00:00",
+    "base": "https://zig-utils.github.io/zig-js-ecosystem/",
+    "deployment_run": 42916157534,
+    "responses": {
+      "html": {
+        "status": 200,
+        "sha256": "53007becd590da876690c0eb1f5157830e55e23ba56b2629c21d1b4c3befca25",
+        "bytes": 515982
+      },
+      "snapshot": {
+        "status": 200,
+        "sha256": "656ebcafaed48a1019fe320983554bef004db822e3537f6ac3660c6c1c33f97b",
+        "bytes": 3105548
+      }
+    },
+    "generated_at": "2026-11-10T22:37:31+00:00",
+    "records": 224,
+    "warnings": [],
+    "priority": [
+      {
+        "name": "home-lang/home",
+        "sha": "2b2a78cc9bf64c278f3c3b84ae8c6bf5cfff1b8b",
+        "source": {
+          "repository": "zig-utils/zig-js-ecosystem",
+          "run_id": 42910204499,
+          "url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42910204499",
+          "run_created_at": "2026-11-10T21:58:52Z",
+          "measured_at": "2026-11-10T22:36:37Z",
+          "artifact_id": 13807839975,
+          "digest": "sha256:6b1d201d963e532f303dcb6dd847a504cb26daa7066fabb948fc81a818eece81",
+          "focused": true,
+          "artifact_url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42910204499/artifacts/13807839975"
+        },
+        "candidate": {
+          "failed": 42,
+          "unsupported": 38,
+          "passed": 7
+        }
+      },
+      {
+        "name": "stacksjs/stacks",
+        "sha": "897486d74b9973b9296b34211fe6cc26b9f89b9a",
+        "source": {
+          "repository": "zig-utils/zig-js-ecosystem",
+          "run_id": 42910204499,
+          "url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42910204499",
+          "run_created_at": "2026-11-10T21:58:52Z",
+          "measured_at": "2026-11-10T22:36:37Z",
+          "artifact_id": 13807839975,
+          "digest": "sha256:6b1d201d963e532f303dcb6dd847a504cb26daa7066fabb948fc81a818eece81",
+          "focused": true,
+          "artifact_url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42910204499/artifacts/13807839975"
+        },
+        "candidate": {
+          "unsupported": 354,
+          "failed": 208,
+          "passed": 63
+        }
+      }
+    ]
+  }
+}
