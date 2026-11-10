@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "regex_fix": "5010174db2cdcebf1057e83fff121d5887917f72",
+  "previous_engine": "7ed857e4a896c14fb30d840934fd0199d5c6c506",
+  "native_scope": "Zero-width positive/negative fixed ASCII predicates up to32bytes. Owned inline NFA payload survives AST teardown. A single spanning capture with boundary predicates may use ordered quantifiers. Folding/Unicode/variable-width predicates and other competing capture histories retain backtracking; state/step limits unchanged.",
+  "core": {
+    "status": "passed",
+    "exit_code": 0,
+    "peak_sampled_rss_kib": 1106528,
+    "memory_limit_mb": 3072,
+    "seconds": 149.534,
+    "log": "core-qualified.log",
+    "command": [
+      "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+      "build",
+      "test-core",
+      "-Doptimize=ReleaseSafe",
+      "-j1",
+      "--summary",
+      "all"
+    ]
+  },
+  "core_log": {
+    "sha256": "e7cb8d946c18198457d99ad8a8373e614caafa42be3a14a545b08a1a4fa7e036",
+    "summary": "29/29steps,378/378tests passed"
+  },
+  "oracle": {
+    "vectors": 720,
+    "patterns": 18,
+    "checked_in_cases": 63,
+    "node_sha256": "3bf9cfe58a189cd120e556af2d052cf4e2c99953905012f948a98b05e17ee24c",
+    "bun_sha256": "3bf9cfe58a189cd120e556af2d052cf4e2c99953905012f948a98b05e17ee24c"
+  },
+  "logs": {
+    "before-native.log": {
+      "sha256": "7f3878c5cb28e4ad816af387cfc5a8fee073afa2d80e0d2980162f917b98a3e5",
+      "excerpt": "1/1 regex.test.ECMAScript literal assertions retain ordered spans and a spanning capture...FAIL (PatternTooComplex)\n/Users/chris/Code/Libraries/zig-regex/src/pattern_analyzer.zig:607:9: 0x100fc0437 in analyzeAndValidate (test)\n        return RegexError.PatternTooComplex;\n        ^\n/Users/chris/Code/Libraries/zig-regex/src/regex.zig:187:13: 0x100fc2027 in compileWithFlagsInner (test)\n            try pattern_analyzer.analyzeAndValidate(allocator, tree.root, .high);\n            ^\n/Users/chris/Code/Libraries/zig-regex/src/regex.zig:103:9: 0x100fc2e7b in compileWithFlags (test)\n        return compileWithFlagsInner(allocator, pattern, flags, null);\n        ^\n/Users/chris/Code/Libraries/zig-regex/src/regex.zig:4065:18: 0x100fceabf in test.ECMAScript literal assertions retain ordered spans and a spanning capture (test)\n        var re = try Regex.compileWithFlags(allocator, c.pattern, .{ .ecmascript = true });\n                 ^\n0 passed; 0 skipped; 1 failed.\nerror: the following test command failed with exit code 1:\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/literal-assertion-nfa/before-native --seed=0x19a83ab1\n"
+    },
+    "after-final.log": {
+      "sha256": "afe07537df6295928c84e4773857b4ca58c80e3cc123be003e3e801df7b1b051",
+      "excerpt": "1/2 regex.test.ECMAScript literal assertions retain ordered spans and a spanning capture...OK\n2/2 regex.test.ECMAScript literal assertions preserve searches and dispatch limits...OK\nAll 2 tests passed.\n"
+    },
+    "full-oracle.log": {
+      "sha256": "afe07537df6295928c84e4773857b4ca58c80e3cc123be003e3e801df7b1b051",
+      "excerpt": "1/2 regex.test.ECMAScript literal assertions retain ordered spans and a spanning capture...OK\n2/2 regex.test.ECMAScript literal assertions preserve searches and dispatch limits...OK\nAll 2 tests passed.\n"
+    },
+    "stress.log": {
+      "sha256": "9b59be50dffc4e44cf689e6b3015968ef3a68c830f46d222d3e4b136930330d9",
+      "excerpt": "1/1 stress.test.literal assertion image-set adversarial input...OK\nAll 1 tests passed.\n"
+    },
+    "full-factory.log": {
+      "sha256": "fb4e55bf37b3f514a6c7038bfba56797379a295578804f8b93e97b6ef3457d3e",
+      "excerpt": "1/1 parse_probe.test.tailwind emitted factory syntax...OK\nAll 1 tests passed.\n"
+    },
+    "bounded-controls.log": {
+      "sha256": "2feaa566e555d0367c528886b5dc263c2c243a3c7b50141757e72a81461d001a",
+      "excerpt": "1/1 regex.test.ECMAScript bounded backtracking repeats retain the last accepted captures...OK\nAll 1 tests passed.\n"
+    }
+  },
+  "engine_reference_probes": [
+    {
+      "kind": "tree",
+      "exe": "node",
+      "exit": 0,
+      "output": "5 assertion groups OK\n"
+    },
+    {
+      "kind": "tree",
+      "exe": "/Users/chris/.local/share/pantry/global/bin/bun",
+      "exit": 0,
+      "output": "5 assertion groups OK\n"
+    },
+    {
+      "kind": "tree",
+      "exe": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/comment-ordered-nfa/home-after/bin/home-tool",
+      "exit": 1,
+      "output": "home-tool (zig-js): SyntaxError: Unexpected token\n"
+    },
+    {
+      "kind": "generator",
+      "exe": "node",
+      "exit": 0,
+      "output": "5 assertion groups OK\n"
+    },
+    {
+      "kind": "generator",
+      "exe": "/Users/chris/.local/share/pantry/global/bin/bun",
+      "exit": 0,
+      "output": "5 assertion groups OK\n"
+    },
+    {
+      "kind": "generator",
+      "exe": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/comment-ordered-nfa/home-after/bin/home-tool",
+      "exit": 1,
+      "output": "home-tool (zig-js): SyntaxError: Unexpected token\n"
+    }
+  ],
+  "limitations": [
+    "Full emitted factory now parses with actual engine parser and new regex; this is not module execution or a complete template build.",
+    "Image-set native16395-byte rejection and accepted capture tests pass; no asymptotic/throughput or test262 corpus claim.",
+    "DFA and reverse accelerators explicitly refuse these new predicates; real matching uses the VM. No missing APIs or unexecuted tests were turned into passes.",
+    "Native core initially exposed an unhandled reverse enum and an old backtracking dispatch assertion. Reverse refusal is tested and the original bounded-capture match expectations remain executed unchanged.",
+    "Exact pushed engine pin abfe uses qualified suite9290194. Fresh every-push42834992849 queued; no new Linux or whole-consumer compatibility claimed.",
+    "Both new JS shapes execute in a small Debug production engine runner (2450512KiB build). The large curated ReleaseSafe build fails RSS at3158736KiB; the small ReleaseSafe runner also fails RSS at3162992KiB. Both failures are retained, and no memory limit was raised.",
+    "Next checkpoint: build the exact pushed public-C archive and Home runtime within the same guard, run the real maintained template builds, inspect the resulting next host failure, and investigate ReleaseSafe compile-memory costs if still reproducible. No native Bun fallback."
+  ],
+  "engine_pin": "abfe1f3c5135d6bfd5d356125cec7ef34db84d90",
+  "engine_every_push_run": 42834992849,
+  "caller_suite_unchanged": "929019440832421b90e1c687a687da1b466baad0",
+  "engine_checks": {
+    "engine-focused": {
+      "status": "failed",
+      "exit_code": -9,
+      "peak_sampled_rss_kib": 3158736,
+      "memory_limit_mb": 3072,
+      "seconds": 64.274,
+      "log": "engine-focused.log",
+      "reason": "sampled command tree RSS exceeded 3072 MiB",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "test-frontend",
+        "-Doptimize=ReleaseSafe",
+        "-Dtest-filter=literal assertion NFA",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "log_sha256": "4e9ce839357fbb80b6a764d38c736080a7970b0ba9a8409e156ee22a467aa989",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"test-frontend\", \"-Doptimize=ReleaseSafe\", \"-Dtest-filter=literal assertion NFA\", \"-j1\", \"--summary\", \"all\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 3158736 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+    },
+    "mini-build": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2450512,
+      "memory_limit_mb": 3072,
+      "seconds": 19.268,
+      "log": "mini-build.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build-exe",
+        "--dep",
+        "js",
+        "-Mroot=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/literal-assertion-nfa/mini.zig",
+        "--dep",
+        "regex",
+        "--dep",
+        "gc",
+        "-Mjs=src/root.zig",
+        "-Mregex=zig-pkg/zig_regex-0.2.1-omky0VazGwD7EzyRBbCcZiJK3tPKgwB-HY8XVDhcpGsG/src/root.zig",
+        "-Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig",
+        "-lc",
+        "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/literal-assertion-nfa/mini-engine"
+      ],
+      "log_sha256": "1120dc0eb8c51219c7a2950046951d7689f5f2500dde0d565e35a8929f96e6ed",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build-exe\", \"--dep\", \"js\", \"-Mroot=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/literal-assertion-nfa/mini.zig\", \"--dep\", \"regex\", \"--dep\", \"gc\", \"-Mjs=src/root.zig\", \"-Mregex=zig-pkg/zig_regex-0.2.1-omky0VazGwD7EzyRBbCcZiJK3tPKgwB-HY8XVDhcpGsG/src/root.zig\", \"-Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig\", \"-lc\", \"-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/literal-assertion-nfa/mini-engine\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 2450512 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "mini-run": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.487,
+      "log": "mini-run.log",
+      "log_sha256": "94b6554762ccc0656ea8a209fa1346ddf5dbd8bf5f346f5e269d15c9658c8380",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/literal-assertion-nfa/mini-engine\"]\nliteral assertion production engine probe OK\nliteral assertion production engine probe OK\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "mini-safe-build": {
+      "status": "failed",
+      "exit_code": -9,
+      "peak_sampled_rss_kib": 3162992,
+      "memory_limit_mb": 3072,
+      "seconds": 69.84,
+      "log": "mini-safe-build.log",
+      "reason": "sampled command tree RSS exceeded 3072 MiB",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build-exe",
+        "--dep",
+        "js",
+        "-OReleaseSafe",
+        "-Mroot=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/literal-assertion-nfa/mini.zig",
+        "--dep",
+        "regex",
+        "--dep",
+        "gc",
+        "-OReleaseSafe",
+        "-Mjs=src/root.zig",
+        "-OReleaseSafe",
+        "-Mregex=zig-pkg/zig_regex-0.2.1-omky0VazGwD7EzyRBbCcZiJK3tPKgwB-HY8XVDhcpGsG/src/root.zig",
+        "-OReleaseSafe",
+        "-Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig",
+        "-lc",
+        "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/literal-assertion-nfa/mini-engine-safe"
+      ],
+      "log_sha256": "06462f50783ba18f90fb10e42ef8d5b3f6d703e94b9ae204731fde9ec4384f0d",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build-exe\", \"--dep\", \"js\", \"-OReleaseSafe\", \"-Mroot=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/literal-assertion-nfa/mini.zig\", \"--dep\", \"regex\", \"--dep\", \"gc\", \"-OReleaseSafe\", \"-Mjs=src/root.zig\", \"-OReleaseSafe\", \"-Mregex=zig-pkg/zig_regex-0.2.1-omky0VazGwD7EzyRBbCcZiJK3tPKgwB-HY8XVDhcpGsG/src/root.zig\", \"-OReleaseSafe\", \"-Mgc=zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig\", \"-lc\", \"-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/literal-assertion-nfa/mini-engine-safe\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 3162992 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+    }
+  },
+  "package_proof": {
+    "ref": "5010174db2cdcebf1057e83fff121d5887917f72",
+    "url": "https://codeload.github.com/zig-utils/zig-regex/tar.gz/5010174db2cdcebf1057e83fff121d5887917f72",
+    "tar_sha256": "d31ef6d3627060c29762ebb984d5ec2dbba53c1afd4c09e2785c80e11a768b2e",
+    "native_package_hash": "zig_regex-0.2.1-omky0VazGwD7EzyRBbCcZiJK3tPKgwB-HY8XVDhcpGsG",
+    "verification": "Immutable tar src files equal pushed Git tree; native Zig hashes extracted source. New task-owned cache seeded for known macOS extraction issue; Linux URL fetch remains CI validation."
+  },
+  "immutable_source_hashes": {
+    "zig-js": {
+      "build.zig.zon": "2eef8c02c43361f60a382fac166cbc00a7ce82012a2ec259a23dbe0f65d37ad8",
+      "tools/focused_engine_tests.zig": "2e8ad9e7999bfd67f49065c0a62fed8ade8390a4db341d5f0175004ba8405d24"
+    },
+    "zig-regex": {
+      "src/compiler.zig": "86a004cd17f727d4c90c8f23774ead8a5655fbfe92f2515ed8bb71155372c062",
+      "src/vm.zig": "5c03a8c4de2ef0dd2a92634a015f8c8a0e6fc572d283e80c8fc76f724a41c602",
+      "src/regex.zig": "09cfba7973c95486c3765c45e41af5ec7b1b825331bc06ebe029e45392ef25f6",
+      "src/dfa.zig": "d121e1c91f67ac11ccf15d8fad296a21f5ce69dd56a2079a691f20da020680bc",
+      "src/reverse.zig": "f3dffcf55235a15875e9c42c2b94f3c9a6412fe836e93481737408bbd7cb9316",
+      "src/nfa_optimizer.zig": "01da463ea9b947759d9e1306603dd5985ba14e74b2c6883eff391dbd331b7003"
+    }
+  }
+}
