@@ -1,0 +1,373 @@
+{
+  "schema_version": 1,
+  "home_commit": "1fb5c7d2b15f82c1455ed16dfed6d80ebaccad76",
+  "before_home": "14c9459a9d14698dfa5759241029cc85ae3722f3",
+  "local_engine_sha": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+  "archive_sha256": "e141e082ae57b0d62f16d445291eb73f15332689daf47a6b7c1d36086bafb613",
+  "next_qualification_engine": "93b7cc498ffa1f84134e456bdf4c0075dff2abbd",
+  "source_hashes": {
+    "packages/runtime/src/jsc/tool_buffer.js": "15d9b985d5b630732f9f32f29016ac60e63f04dfcd5a06ccaa40db4334f9daa6",
+    "packages/runtime/test/tool_modules/main.ts": "7f7e914dc79ce48c333b8c9c2724198cd7b4246fe7bb01272a338d323d97ec02",
+    "packages/runtime/test/tool_modules/buffer_limits.mjs": "2d1b5c9e370f9f6b5bfa9e2b7de5f015388a69bedff9e234732e1a7c6639141f",
+    "packages/runtime/test/tool_modules/buffer_limit_descriptors.mjs": "eb014e502afa79d41f2a07027081a92ddfa5ddd1836a0b63f6422486fe0b5ee0"
+  },
+  "profile_max_length_bytes": 1073741824,
+  "mandatory_operations": {
+    "byte_range_species": 16,
+    "node_readonly_descriptors": 4,
+    "total": 20
+  },
+  "engine_limit_source": {
+    "sha": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+    "path": "src/interpreter.zig",
+    "constant": "max_typed_array_bytes = 1 << 30",
+    "numeric_allocation_guard": "len_idx > typedArrayLengthLimit(size)",
+    "notes": "Read from immutable source; ArrayBuffer constructor has a different2GiB-1 ceiling. Numeric Uint8Array allocation ceiling is1GiB."
+  },
+  "results": {
+    "before-zig-js": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 128,
+      "memory_limit_mb": 3072,
+      "seconds": 0.099,
+      "log": "before-zig-js.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-sha256/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/before.mjs"
+      ],
+      "log_sha256": "2cfd533188d07483ff24d32a012257c93ae3e6519ee998feb48482bfc61c8e6d",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-sha256/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/before.mjs\"]\nhome-tool (zig-js): TypeError: undefined is not an object (evaluating 'buffer.constants.MAX_LENGTH')\n\nECOSYSTEM PEAK SAMPLED RSS: 128 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "before-jsc": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.098,
+      "log": "before-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-sha256/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/before.mjs"
+      ],
+      "log_sha256": "8419651a6abab90af20f829650c8eed60be59ca2a02b92a100657d9410fe00e0",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-sha256/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/before.mjs\"]\nhome-tool (jsc): TypeError: undefined is not an object (evaluating 'buffer.constants.MAX_LENGTH')\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "fixture-node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 40320,
+      "memory_limit_mb": 3072,
+      "seconds": 0.183,
+      "log": "fixture-node.log",
+      "command": [
+        "node",
+        "packages/runtime/test/tool_modules/buffer_limits.mjs"
+      ],
+      "log_sha256": "563db440991f0e97c3d32e64ab609ffb2649506e18900a582f219d636e13b48a",
+      "log_excerpt": "$ [\"node\", \"packages/runtime/test/tool_modules/buffer_limits.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 40320 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "fixture-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1552,
+      "memory_limit_mb": 3072,
+      "seconds": 0.06,
+      "log": "fixture-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "packages/runtime/test/tool_modules/buffer_limits.mjs"
+      ],
+      "log_sha256": "bbafa11ec2d15fce8c1c301355db229df4bfd2799bbf0a3010a2305810accff1",
+      "log_excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"packages/runtime/test/tool_modules/buffer_limits.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 1552 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "descriptors-node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 224,
+      "memory_limit_mb": 3072,
+      "seconds": 0.058,
+      "log": "descriptors-node.log",
+      "command": [
+        "node",
+        "packages/runtime/test/tool_modules/buffer_limit_descriptors.mjs"
+      ],
+      "log_sha256": "d33d4ba6f8440247401b2ca6100b3df37a635e52b185d31e63fcc4f56b53ca6d",
+      "log_excerpt": "$ [\"node\", \"packages/runtime/test/tool_modules/buffer_limit_descriptors.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 224 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "descriptors-bun": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 384,
+      "memory_limit_mb": 3072,
+      "seconds": 0.093,
+      "log": "descriptors-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "packages/runtime/test/tool_modules/buffer_limit_descriptors.mjs"
+      ],
+      "log_sha256": "f786f35d8751e6f124c5f76e6202d898d388541f573d9a861c6a0f65a93e602a",
+      "log_excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"packages/runtime/test/tool_modules/buffer_limit_descriptors.mjs\"]\n1 | import buffer, { Buffer, constants, kMaxLength } from 'node:buffer';\n2 | function check(value, message) { if (!value) throw new Error(message); }\n                                                           ^\nerror: Node MAX_LENGTH descriptor\n      at check (/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/buffer_limit_descriptors.mjs:2:56)\n      at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/buffer_limit_descriptors.mjs:5:1\n\nBun v1.4.4 (macOS arm64)\n\nECOSYSTEM PEAK SAMPLED RSS: 384 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "zig-js-gates-bounded": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1390736,
+      "memory_limit_mb": 3072,
+      "seconds": 40.199,
+      "log": "zig-js-gates-bounded.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/engine-cache-final",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/after-zig-js",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "log_sha256": "4412c3870f37ee9b3ee58e02370c3d566f8577fb3e2fbb7a185bce7f5580771a"
+    },
+    "jsc-gates-bounded": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1175376,
+      "memory_limit_mb": 3072,
+      "seconds": 35.833,
+      "log": "jsc-gates-bounded.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/after-jsc",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "log_sha256": "117610764575db8485b7845cfc41a49808643c1c8a0d8192722b80e232d9e9cc"
+    },
+    "final-profile-zig-js": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.373,
+      "log": "final-profile-zig-js.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/profile-reflect.mjs"
+      ],
+      "log_sha256": "6ee2e66657b459c25e93daef157351a1f6d4471780a09ae2fb85411bab35819b",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/profile-reflect.mjs\"]\n{\"maxLength\":1073741824,\"alias\":1073741824,\"readOnly\":true}\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "final-profile-jsc": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 4144,
+      "memory_limit_mb": 3072,
+      "seconds": 0.021,
+      "log": "final-profile-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/profile-reflect.mjs"
+      ],
+      "log_sha256": "937544c13b2995d9c0a5369665a1d33e5680f02d2e20eec151fed22a20b6303e",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/profile-reflect.mjs\"]\n{\"maxLength\":1073741824,\"alias\":1073741824,\"readOnly\":true}\n\nECOSYSTEM PEAK SAMPLED RSS: 4144 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "png-decode-before-zig-js": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 256,
+      "memory_limit_mb": 3072,
+      "seconds": 0.095,
+      "log": "png-decode-before-zig-js.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-sha256/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/png-decode.mjs"
+      ],
+      "log_sha256": "e3a382f59459aa244c162240271adb19db6e26c0cfc7064965d426d3b54206fb",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-sha256/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/png-decode.mjs\"]\n{\"message\":\"undefined is not an object (evaluating 'constants.MAX_LENGTH')\"}\nhome-tool (zig-js): TypeError: undefined is not an object (evaluating 'constants.MAX_LENGTH')\n\nECOSYSTEM PEAK SAMPLED RSS: 256 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "png-decode-before-jsc": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 4592,
+      "memory_limit_mb": 3072,
+      "seconds": 0.042,
+      "log": "png-decode-before-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-sha256/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/png-decode.mjs"
+      ],
+      "log_sha256": "9abebdd01a4304b685461d002ef01e5b4d95a10bf8cd572b5804742c5bb4eaea",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-sha256/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/png-decode.mjs\"]\n{\"message\":\"undefined is not an object (evaluating 'constants.MAX_LENGTH')\"}\nhome-tool (jsc): TypeError: undefined is not an object (evaluating 'constants.MAX_LENGTH')\n\nECOSYSTEM PEAK SAMPLED RSS: 4592 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "final-png-decode-zig-js": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5200,
+      "memory_limit_mb": 3072,
+      "seconds": 0.039,
+      "log": "final-png-decode-zig-js.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/png-decode.mjs"
+      ],
+      "log_sha256": "214ba00f19b96608c063a7fd7b516615fc359c57933c34eda807c607d0048548",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/png-decode.mjs\"]\n{\"code\":\"ERR_HOME_UNSUPPORTED\",\"message\":\"Home inflate supports default options only\"}\nhome-tool (zig-js): Error: Home inflate supports default options only\n\nECOSYSTEM PEAK SAMPLED RSS: 5200 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "final-png-decode-jsc": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5424,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "final-png-decode-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/png-decode.mjs"
+      ],
+      "log_sha256": "774dfc52953ef847be075af4a7acb8140db8eed1568a1f084a9dca36fac9ef04",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/png-decode.mjs\"]\n{\"code\":\"ERR_HOME_UNSUPPORTED\",\"message\":\"Home inflate supports default options only\"}\nhome-tool (jsc): Error: Home inflate supports default options only\n\nECOSYSTEM PEAK SAMPLED RSS: 5424 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "esm-strict-node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 800,
+      "memory_limit_mb": 3072,
+      "seconds": 0.04,
+      "log": "esm-strict-node.log",
+      "command": [
+        "node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/esm-strict.mjs"
+      ],
+      "log_sha256": "832d34e79a689a513b53a209135d85a5c7cd65da56486b4a5a978951c0729082",
+      "log_excerpt": "$ [\"node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/esm-strict.mjs\"]\nOK implicit ESM strict assignment\n\nECOSYSTEM PEAK SAMPLED RSS: 800 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "esm-strict-before-zig-js": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5040,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "esm-strict-before-zig-js.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-sha256/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/esm-strict.mjs"
+      ],
+      "log_sha256": "4b8cae1acb9dead2c9870e5d06908107bc9661809769d9908cbe46f83e7dc798",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-sha256/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/esm-strict.mjs\"]\nhome-tool (zig-js): Error: implicit ESM strict assignment was not enforced\n\nECOSYSTEM PEAK SAMPLED RSS: 5040 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "esm-strict-before-jsc": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5696,
+      "memory_limit_mb": 3072,
+      "seconds": 0.023,
+      "log": "esm-strict-before-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-sha256/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/esm-strict.mjs"
+      ],
+      "log_sha256": "9f446a4b8640187dce8d4e3f8117338f9317af3cb25270a22180fab7210f726f",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-sha256/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/esm-strict.mjs\"]\nhome-tool (jsc): Error: implicit ESM strict assignment was not enforced\n\nECOSYSTEM PEAK SAMPLED RSS: 5696 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "final-esm-strict-zig-js": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5472,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "final-esm-strict-zig-js.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/esm-strict.mjs"
+      ],
+      "log_sha256": "57445df05da9e4d97b817f492f2c1e14ee81f062cf8d0b96f3723a3f7a7f589d",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/esm-strict.mjs\"]\nhome-tool (zig-js): Error: implicit ESM strict assignment was not enforced\n\nECOSYSTEM PEAK SAMPLED RSS: 5472 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "final-esm-strict-jsc": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5632,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "final-esm-strict-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/esm-strict.mjs"
+      ],
+      "log_sha256": "8c1538dce9333e8d814b76c074be78102b0147c8f4e638a9c7c3833eee080f7a",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-limit/esm-strict.mjs\"]\nhome-tool (jsc): Error: implicit ESM strict assignment was not enforced\n\nECOSYSTEM PEAK SAMPLED RSS: 5632 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "pickier-bounded": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2256,
+      "memory_limit_mb": 3072,
+      "seconds": 0.096,
+      "log": "pickier-bounded.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "node_modules/.bin/pickier",
+        "packages/runtime/src/jsc/tool_buffer.js",
+        "packages/runtime/test/tool_modules/buffer_limits.mjs",
+        "packages/runtime/test/tool_modules/buffer_limit_descriptors.mjs",
+        "packages/runtime/test/tool_modules/main.ts"
+      ],
+      "log_sha256": "f6bd04d3f6c06d97d3b150f5e0abbf2117f8447be6127b5ca7c33aa530ade239",
+      "log_excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"node_modules/.bin/pickier\", \"packages/runtime/src/jsc/tool_buffer.js\", \"packages/runtime/test/tool_modules/buffer_limits.mjs\", \"packages/runtime/test/tool_modules/buffer_limit_descriptors.mjs\", \"packages/runtime/test/tool_modules/main.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 2256 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "references": [
+    "https://nodejs.org/api/buffer.html#bufferconstantsmax_length",
+    "https://nodejs.org/api/buffer.html#bufferkmaxlength"
+  ],
+  "notes": [
+    "Expose constants.MAX_LENGTH and kMaxLength as a real enforced allocation/wrapping profile on both providers, matching existing numeric TypedArray ceiling. JSC repository-tool Buffer allocations now share the explicit1GiB bound; this is not a guarantee the host can allocate that amount. No huge allocation is attempted in guard tests.",
+    "Node supports a platform-dependent maximum; observed local Node maximum9007199254740991, Bun4294967296, Home1073741824. Do not copy a native runtime value into Home without enforcement.",
+    "20mandatory Node-compatible operations execute on Node and both Home providers via required main imports. Native Bun passes the16byte/range fixture but fails the separate Node readonly descriptor fixture at its first check; this observed control difference is retained, not skipped or counted as passing.",
+    "Readonly fields are validated via Reflect.set and descriptors on the final source. Temporary implicit-ESM strict assignment profile fails in both Home providers; a generic readonly-object witness fails both before/after while Node passes. Existing ESM lowering/strictness gap is unresolved and does not become a fake descriptor pass.",
+    "Correction to initial diagnosis: actual published ts-png module import already succeeds before/after. Its synchronous decode first accesses missing constants.MAX_LENGTH. After this fix it reaches ERR_HOME_UNSUPPORTED for inflate options; no PNG decode or root build pass is claimed.",
+    "Do not export an invented MAX_STRING_LENGTH or change the human-blocked global string policy. Only Buffer length metadata/bounds change; codec2MiB and3072MiB RSS guard remain unchanged.",
+    "Earlier local2GiB intermediate diagnostics remain local and are excluded from final qualification. The committed1GiB profile is validated by final gates-bounded and final-profile logs.",
+    "All zig-js common/rejection/context/file-URL gates, JSC common gate and Pickier pass. Source is unchanged after these gates. Linux qualification must use exact latest pushed93b7cc49; caller remains validatedbd990bb until qualified."
+  ],
+  "suite_local_validation": {
+    "python_tests": 36,
+    "failed": 0,
+    "test_log_sha256": "0e7b188fcbfdb66b1e3ce911466d22cbd367556911653fc7bfb2a1b0979f48ef",
+    "real_dependency_tests": 7,
+    "dependency_assertions": 26,
+    "dependency_failures": 0,
+    "actionlint": "passed",
+    "python_compileall": "passed",
+    "diff_check": "passed",
+    "scope": "Orchestration checks only; host runtime evidence is separate above."
+  }
+}
