@@ -1,0 +1,184 @@
+{
+  "run": 42897247481,
+  "artifact": {
+    "id": 13803910051,
+    "digest": "sha256:007835d2aa77af21e1e7f97e139a9a7026841e37428d28df0009d4ad012e9ce0",
+    "size_in_bytes": 1253935
+  },
+  "repository": "stacksjs/stacks",
+  "consumer_sha": "1036281492e73aadda1607c5e0d1c56e2de07fca",
+  "engine_sha": "8a77be3eac722dba4a0ef47909b56e9c1b409732",
+  "runtime_provenance": {
+    "engine_sha": "8a77be3eac722dba4a0ef47909b56e9c1b409732",
+    "suite_ref": "2468713d58d2bcc4985a06bfa1e7d23a4536f41a",
+    "home_repository": "home-lang/home",
+    "home_ref": "848e5cf076601fefea75e76ad2ad07aff5a5d54a",
+    "zig_version": "0.18.0-dev.146+35accc06e",
+    "build_cpu": "baseline",
+    "build_optimize": "ReleaseSafe",
+    "sha256": {
+      "home-tool": "2f46253f09b1b02bed7d13c5995d3e68d9be25be123110d256c565c4af032bb6",
+      "engine/zig-out/lib/libzig-js.a": "fd1a630609db4fd71dd49660e0e528bd2b37dac32e5e19d5fd2a2e3d322c1831"
+    }
+  },
+  "scopes": 99,
+  "checks": 927,
+  "candidate_counts": {
+    "unsupported": 354,
+    "failed": 208,
+    "passed": 63
+  },
+  "selected_actual_checks": [
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1886652,
+      "memory_limit_mb": 3072,
+      "seconds": 11.664,
+      "log": "0016.log",
+      "label": ".: build",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "./buddy build"
+      ],
+      "engine_invocations": 3,
+      "log_sha256": "dd24e7cb9824792a6bf861bf368c45c7bccaac43e7e5f4496368cbc21cfab0b3",
+      "actual_log": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-10T20:46:05.111Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 1886652 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1765852,
+      "memory_limit_mb": 3072,
+      "seconds": 11.402,
+      "log": "0018.log",
+      "label": ".: typecheck",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)"
+      ],
+      "engine_invocations": 3,
+      "log_sha256": "2bc733ed2c55e53fdcc60aa7fd52bea966faff23cc1e3af74c08cef2e293930c",
+      "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\n[2026-11-10T20:46:28.466Z] local.INFO: Building @stacksjs/validation...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 1765852 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 246312,
+      "memory_limit_mb": 3072,
+      "seconds": 0.789,
+      "log": "0053.log",
+      "label": "storage/framework/core/api: build",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun build.ts"
+      ],
+      "engine_invocations": 1,
+      "log_sha256": "5dce5540cc5d9a431896d5d850cddc8b8d88c8a1068fc740f4e393fc9a15f33a",
+      "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun build.ts\"]\n[2026-11-10T20:47:05.976Z] local.INFO: Building @stacksjs/api...\nhome-tool (zig-js): Error: Home node:fs currently supports string paths only\n\nECOSYSTEM PEAK SAMPLED RSS: 246312 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 126108,
+      "memory_limit_mb": 3072,
+      "seconds": 1.423,
+      "log": "0194.log",
+      "label": "storage/framework/core/defaults: build",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun build.ts"
+      ],
+      "engine_invocations": 1,
+      "log_sha256": "37c7a4d5ead247ad3bcb487950d29c63044031ef8ebec89e6620628350708c87",
+      "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun build.ts\"]\n@stacksjs/defaults: copied assets from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/defaults/assets\n@stacksjs/defaults: copied app from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/defaults/app\n@stacksjs/defaults: copied docs from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/defaults/docs\n@stacksjs/defaults: copied .gitkeep from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/defaults/.gitkeep\n@stacksjs/defaults: copied resources from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/defaults/resources\n@stacksjs/defaults: copied functions from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/defaults/functions\n@stacksjs/defaults: copied bootstrap.ts from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/defaults/bootstrap.ts\n@stacksjs/defaults: copied lang from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/defaults/lang\n@stacksjs/defaults: copied vcs from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/defaults/vcs\n@stacksjs/defaults: copied views from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/defaults/views\n@stacksjs/defaults: copied routes from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/defaults/routes\n@stacksjs/defaults: copied TODO.md from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/defaults/TODO.md\n@stacksjs/defaults: copied scaffold from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/defaults/scaffold\n@stacksjs/defaults: copied stores from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/defaults/stores\n@stacksjs/defaults: copied ide from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/defaults/ide\n@stacksjs/defaults: copied stx-components-plugin.ts from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/defaults/stx-components-plugin.ts\n@stacksjs/defaults: copied types from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/defaults/types\n@stacksjs/defaults: copied ai from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/defaults/ai\n@stacksjs/defaults: copied styles from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/defaults/styles\n@stacksjs/defaults: copied project support file /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/buddy\n@stacksjs/defaults: copied project support file /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/bootstrap\n@stacksjs/defaults: copied project support file /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/tsconfig.package-app.json\n@stacksjs/defaults: copied project support file /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/tsconfig.base.json\n@stacksjs/defaults: copied project support file /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/server/tsconfig.docker.json\n@stacksjs/defaults: Bun 1.4.4\n@stacksjs/defaults: copied the framework type declarations\n\nECOSYSTEM PEAK SAMPLED RSS: 126108 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "status": "unsupported",
+      "exit_code": 78,
+      "peak_sampled_rss_kib": 10388,
+      "memory_limit_mb": 3072,
+      "seconds": 0.073,
+      "log": "0195.log",
+      "label": "storage/framework/core/defaults: test",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun test"
+      ],
+      "engine_invocations": 0,
+      "unsupported_reasons": [
+        "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+      ],
+      "reason": "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed",
+      "log_sha256": "c37899ea1f3a0094b4eabdae679438e3928572c5da0d4a3027dc468a015ea93c",
+      "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun test\"]\nECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\n\nECOSYSTEM PEAK SAMPLED RSS: 10388 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+    },
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 691728,
+      "memory_limit_mb": 3072,
+      "seconds": 3.842,
+      "log": "0196.log",
+      "label": "storage/framework/core/defaults: module initialization ./resources/plugins/preloader.ts",
+      "lane": "candidate",
+      "command": [
+        "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+        "./resources/plugins/preloader.ts"
+      ],
+      "engine_invocations": 1,
+      "log_sha256": "f3588c2abcd4033aeba42e5be7285b7dc54da3fb9ef1aa58a714ed3d941d309e",
+      "actual_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"./resources/plugins/preloader.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 691728 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 246732,
+      "memory_limit_mb": 3072,
+      "seconds": 0.787,
+      "log": "0344.log",
+      "label": "storage/framework/core/objects: build",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun build.ts"
+      ],
+      "engine_invocations": 1,
+      "log_sha256": "1ea40c88b811b67062fe51300e755af174d739c32c67dbf0a7d228703182b3ed",
+      "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun build.ts\"]\n[2026-11-10T20:51:52.068Z] local.INFO: Building @stacksjs/objects...\nhome-tool (zig-js): Error: Home node:fs currently supports string paths only\n\nECOSYSTEM PEAK SAMPLED RSS: 246732 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    }
+  ],
+  "candidate_status_comparison": {
+    "before_run": 42886935379,
+    "after_run": 42897247481,
+    "before_candidate_checks": 625,
+    "after_candidate_checks": 625,
+    "same_consumer_sha": true,
+    "source_sha": "1036281492e73aadda1607c5e0d1c56e2de07fca",
+    "same_engine_archive_sha256": false,
+    "changes": [
+      {
+        "label": "storage/framework/core/defaults: build",
+        "before": "failed",
+        "after": "passed"
+      },
+      {
+        "label": "storage/framework/core/defaults: module initialization ./resources/plugins/preloader.ts",
+        "before": "unsupported",
+        "after": "passed"
+      }
+    ]
+  },
+  "qualification_limit": "Home runtime advances9f9 to848 and includes preserved TS checker commits; no blanket engine-only attribution or full-consumer success claim."
+}

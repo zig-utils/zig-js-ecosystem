@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "home_commit": "a3e3b9276d34114b00a3d377a0a2b31440a13140",
+  "parent": "848e5cf076601fefea75e76ad2ad07aff5a5d54a",
+  "engine_sha": "d59e081a4e4f217d98cf5100ddcc7d4d0c66f228",
+  "engine_mode": "Exact pushed Debug public-C archive, native macOS CPU, ReleaseSafe Home; fresh baseline Linux ReleaseSafe qualification required",
+  "engine_archive_sha256": "dee3902fd63d83926aa690f35418844333f8916dda15a342b9264d16c55ffd71",
+  "source_sha256": {
+    "build.zig": "55e998697c147998b9c2a99b6f1ecda1dc49d4cda1dcad144fbdc0a1c5a93b86",
+    "packages/runtime/src/jsc/tool_builtins.js": "bd45d944ab7cb22075bffef95556107f25ccf2095b7f4813c47d292347299708",
+    "packages/runtime/test/tool_modules/node_file_url_fs.mjs": "993e4f4404dd6037cb211173325e41def4b1310b3a63571da4acd2f2fb66345a"
+  },
+  "contracts": [
+    "https://nodejs.org/api/fs.html#file-paths",
+    "https://nodejs.org/api/url.html#urlfileurltopathurl-options"
+  ],
+  "results": {
+    "engine-build.json": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2629456,
+      "memory_limit_mb": 3072,
+      "seconds": 27.632,
+      "log": "engine-build.log",
+      "log_sha256": "35ead8283c288ee52ddaebecd42fa7e26b88635d395c155f429edfbf5e712db4",
+      "excerpt": "Build Summary: 4/4 steps succeeded\nECOSYSTEM PEAK SAMPLED RSS: 2629456 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+    },
+    "home-before-build.json": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1347856,
+      "memory_limit_mb": 3072,
+      "seconds": 36.717,
+      "log": "home-before-build.log",
+      "log_sha256": "3eeeaa8186a1cc29e60f4be8ff54ee03d79e5c7b3682068686d85fd2ec20c139",
+      "excerpt": "Build Summary: 4/4 steps succeeded\nECOSYSTEM PEAK SAMPLED RSS: 1347856 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+    },
+    "contract-before.json": {
+      "node": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 49360,
+        "memory_limit_mb": 3072,
+        "seconds": 0.148,
+        "log": "contract-node.log",
+        "log_sha256": "2bf3564e66c9372cb0faa893b3cdc6d02803c1cc71755f4029f4369b6acaea09",
+        "excerpt": "if (failures.length) throw new Error('NODE FILE URL FS ' + checks + ' checks; failures: ' + failures.join('; '));\nError: NODE FILE URL FS 40 checks; failures: href duck object is refused without reading it: do not invoke arbitrary href getter; genuine URL does not use arbitrary toString: do not call overridden toString\nECOSYSTEM PEAK SAMPLED RSS: 49360 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+      },
+      "bun": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.04,
+        "log": "contract-bun.log",
+        "log_sha256": "c60be0638bd070761c00e8badf90c112851b634d781586eb1d710a998e1ac1fe",
+        "excerpt": "84 | if (failures.length) throw new Error('NODE FILE URL FS ' + checks + ' checks; failures: ' + failures.join('; '));\nerror: NODE FILE URL FS 40 checks; failures: real access URL: check actual access\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+      },
+      "before-zig-js": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 34592,
+        "memory_limit_mb": 3072,
+        "seconds": 0.707,
+        "log": "contract-before-zig-js.log",
+        "log_sha256": "d3449fa3179b207380caeb2bbb8a741551c5b1cbf02f6212738ee9ee4ba086f3",
+        "excerpt": "home-tool (zig-js): Error: NODE FILE URL FS 40 checks; failures: native URL module export: export actual realm constructors; actual path URL preserves filename data: Home fileURLToPath currently supports URL strings only; sync binary read: Home node:fs currently supports string paths only; promise binary read: Home node:fs currently supports string paths only; sync write URL: Home node:fs currently supports string paths only; promise write URL: Home node:fs currently supports string paths only; promise append URL: Home node:fs currently supports string paths only; sync stat and lstat URLs: Home node:fs currently supports string paths only; promise stat URL: Home node:fs currently supports string paths only; real chmod URL: Home node:fs currently supports string paths only; real access URL: Home node:fs currently supports string paths only; exists URL: Home node:fs currently supports string paths only; missing exists URL: Home node:fs currently supports string paths only; missing read propagates native error: expected ENOENT, got ERR_HOME_UNSUPPORTED; recursive mkdir URL: Home node:fs currently supports string paths only; sync copy URL pair: Home node:fs currently supports string paths only; promise recursive copy URL pair: Home node:fs currently supports string paths only; rename URL pair: Home node:fs currently supports string paths only; rm URL tree: Home node:fs currently supports string paths only; rmdir URL: Home node:fs currently supports string paths only; open URL and write actual descriptor: Home node:fs currently supports string paths only; readdir URL: Home node:fs currently supports string paths only; realpath URL: Home node:fs currently supports string paths only; query and hash are URL syntax: Home node:fs currently supports string paths only; relative URL resolves actual file: Home node:fs currently supports string paths only; non-file URL refused: expected ERR_INVALID_URL_SCHEME, got ERR_HOME_UNSUPPORTED; encoded slash refused: expected ERR_INVALID_FILE_URL_PATH, got ERR_HOME_UNSUPPORTED; remote file host refused: expected ERR_INVALID_FILE_URL_HOST, got ERR_HOME_UNSUPPORTED; encoded NUL cannot reach filesystem: expected ERR_INVALID_ARG_VALUE, got ERR_HOME_UNSUPPORTED; pure URL conversion retains NUL: Home fileURLToPath currently supports URL strings only; href duck object is refused without reading it: reject a receiver without native URL state; prototype-only object refused: reject a receiver without native URL state; copied own URL fields refused: reject a receiver without native URL state; URL proxy is not its target: reject a receiver without native URL state; genuine URL does not use arbitrary toString: Home node:fs currently supports string paths only; retain constructor after global replacement: Home node:fs currently supports string paths only; retain apply after Reflect replacement: Home node:fs currently supports string paths only; invalid scheme exists returns false: Home node:fs currently supports string paths only; callback stat URL: Home node:fs currently supports string paths only\nECOSYSTEM PEAK SAMPLED RSS: 34592 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+      }
+    },
+    "gates.json": {
+      "zig-js": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1114176,
+        "memory_limit_mb": 3072,
+        "seconds": 58.616,
+        "log": "zig-js-gates.log",
+        "log_sha256": "203ac6e068c2fbf5350e309f991a7bfb55a8881652b09909745ddca161d7477c",
+        "excerpt": "NODE FILE URL FS 40 CHECKS OK\nhome-tool (zig-js): undefined\nhome-tool (zig-js): Error: Cannot resolve @home/exports/blocked from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs: PackagePathNotExported\nNODE CRYPTO UUID 23 CHECKS OK\nNODE AVAILABLE PARALLELISM 12 CHECKS OK; native estimate 11\nNODE RMDIR 11 CHECKS OK\nNODE SYNC FS 18 CHECKS OK\nNODE MKDTEMP 13 CHECKS OK\nhome-tool (zig-js): Error: Cannot resolve @home/exports/require-only from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs: PackagePathNotExported\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nhome-tool (zig-js): Error: Cannot resolve @home/exports/directory from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs: ExportedFileNotFound\nhome-tool (zig-js): Error: async rejection witness\nhome-tool (zig-js): SyntaxError: Unexpected identifier 'Promise'\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_stream_pending.mjs\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async_property_newline.cjs\nhome-tool (zig-js): Error: exit listener witness\nhome-tool (zig-js): AssertionError [ERR_ASSERTION]: actual assertion failure\nhome-tool (zig-js): Error: async rejection witness\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nhome-tool (zig-js): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nhome-tool (zig-js): Error: Cannot resolve @home/exports/extensionless from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs: ExportedFileNotFound\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/dynamic_import/pending-entry.mjs\nhome-tool (zig-js): Error: Cannot resolve @home/exports/missing-array from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs: ExportedFileNotFound\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nhome-tool (zig-js): undefined\nBuild Summary: 201/201 steps succeeded\nECOSYSTEM PEAK SAMPLED RSS: 1114176 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "jsc": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 938144,
+        "memory_limit_mb": 3072,
+        "seconds": 34.93,
+        "log": "jsc-gates.log",
+        "log_sha256": "c568c56943214401ec529c4060fdd25b73a9e61fc57acd86d15f078b260397e4",
+        "excerpt": "home-tool (jsc): undefined\nhome-tool (jsc): Error: Cannot resolve @home/exports/extensionless from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs: ExportedFileNotFound\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_stream_pending.mjs\nNODE CRYPTO UUID 23 CHECKS OK\nNODE AVAILABLE PARALLELISM 12 CHECKS OK; native estimate 11\nNODE RMDIR 11 CHECKS OK\nNODE SYNC FS 18 CHECKS OK\nNODE MKDTEMP 13 CHECKS OK\nhome-tool (jsc): Error: Cannot resolve @home/exports/directory from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs: ExportedFileNotFound\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/dynamic_import/pending-entry.mjs\nhome-tool (jsc): Error: Cannot resolve @home/exports/require-only from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs: PackagePathNotExported\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nhome-tool (jsc): Error: exit listener witness\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nhome-tool (jsc): Error: async rejection witness\nhome-tool (jsc): Error: Cannot resolve @home/exports/blocked from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs: PackagePathNotExported\nhome-tool (jsc): Error: async rejection witness\nhome-tool (jsc): undefined\nhome-tool (jsc): Error: Cannot resolve @home/exports/missing-array from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs: ExportedFileNotFound\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nhome-tool (jsc): AssertionError [ERR_ASSERTION]: actual assertion failure\nhome-tool (jsc): SyntaxError: Unexpected identifier 'Promise'\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async_property_newline.cjs\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nhome-tool (jsc): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nBuild Summary: 179/179 steps succeeded\nECOSYSTEM PEAK SAMPLED RSS: 938144 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "after-zig-js": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 48528,
+        "memory_limit_mb": 3072,
+        "seconds": 0.279,
+        "log": "contract-after-zig-js.log",
+        "log_sha256": "3ad99637ee9a15411098f500446e6ff76406da7f2a692a69504fb8546946c090",
+        "excerpt": "NODE FILE URL FS 40 CHECKS OK\nECOSYSTEM PEAK SAMPLED RSS: 48528 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "jsc-url-profile": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.156,
+        "log": "contract-jsc-url-profile.log",
+        "log_sha256": "f272735f0b326b3cec53a4ac9cbe61052267b11f6eb6bf7928a5a40ed9415e9c",
+        "excerpt": "home-tool (jsc): Error: File URL filesystem profile requires a native URL implementation\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+      }
+    },
+    "old-provider-refusal.json": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 16848,
+      "memory_limit_mb": 3072,
+      "seconds": 0.705,
+      "log": "old-provider-refusal.log",
+      "log_sha256": "76806052b3018fca8410f06282ad3266467760fccf5e04508194f7197b79bec6",
+      "excerpt": "UNBRANDED URL PROVIDER 3 EXPLICIT REFUSALS OK\nECOSYSTEM PEAK SAMPLED RSS: 16848 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+    },
+    "consumers.json": {
+      "api": {
+        "reference": {
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 50480,
+          "memory_limit_mb": 3072,
+          "seconds": 0.249,
+          "log": "api-reference.log",
+          "actual_dist_files": 23,
+          "actual_dist_bytes": 66825,
+          "log_sha256": "1dd3ee33ffe264cb8aa77a048d39236e8ae0f11818080f053518a83f1f33853b",
+          "excerpt": "ECOSYSTEM PEAK SAMPLED RSS: 50480 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+        },
+        "before": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 289216,
+          "memory_limit_mb": 3072,
+          "seconds": 1.492,
+          "log": "api-before.log",
+          "actual_dist_files": 23,
+          "actual_dist_bytes": 66825,
+          "log_sha256": "1043272baf49a4f16aecb625ee5ff51acb27699347fbc995eb3fa9da465bfc7d",
+          "excerpt": "home-tool (zig-js): Error: Home node:fs currently supports string paths only\nECOSYSTEM PEAK SAMPLED RSS: 289216 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+        },
+        "after": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 438640,
+          "memory_limit_mb": 3072,
+          "seconds": 2.178,
+          "log": "api-after.log",
+          "actual_dist_files": 0,
+          "actual_dist_bytes": 0,
+          "log_sha256": "d194d1e35a9bf2b88f7b76d2663d20734d9aee0dcc603130f83de5b7e183cce3",
+          "excerpt": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\nECOSYSTEM PEAK SAMPLED RSS: 438640 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+        }
+      },
+      "objects": {
+        "reference": {
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 2144,
+          "memory_limit_mb": 3072,
+          "seconds": 0.124,
+          "log": "objects-reference.log",
+          "actual_dist_files": 5,
+          "actual_dist_bytes": 15425,
+          "log_sha256": "debc9a7b649f9f6fbf7ed299b77cf8b0d234f580cd3e1fcabb34ada04bfa7926",
+          "excerpt": "ECOSYSTEM PEAK SAMPLED RSS: 2144 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+        },
+        "before": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 287328,
+          "memory_limit_mb": 3072,
+          "seconds": 1.404,
+          "log": "objects-before.log",
+          "actual_dist_files": 5,
+          "actual_dist_bytes": 15425,
+          "log_sha256": "b5634d067efc32f640aa29e8cf2f60cfa54fbe8f75ac725444c49d09899393dd",
+          "excerpt": "home-tool (zig-js): Error: Home node:fs currently supports string paths only\nECOSYSTEM PEAK SAMPLED RSS: 287328 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+        },
+        "after": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 432768,
+          "memory_limit_mb": 3072,
+          "seconds": 2.052,
+          "log": "objects-after.log",
+          "actual_dist_files": 0,
+          "actual_dist_bytes": 0,
+          "log_sha256": "ad126531d6adf7d712bfe7f754a1f34af030c4fad4d8ca19fa7a33370cb39c39",
+          "excerpt": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\nECOSYSTEM PEAK SAMPLED RSS: 432768 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+        }
+      }
+    }
+  },
+  "oracle_results": {
+    "executed_groups_each": 40,
+    "node_26_10": {
+      "passed": 38,
+      "failed": 2,
+      "differences": [
+        "href getter side effects while rejecting a duck object",
+        "overridden genuine URL.toString side effects"
+      ]
+    },
+    "bun_1_4_4": {
+      "passed": 39,
+      "failed": 1,
+      "differences": [
+        "access success return differs from undefined"
+      ]
+    },
+    "native_home_d59": {
+      "passed": 40,
+      "failed": 0
+    },
+    "note": "All40 groups execute on each oracle and every reference failure remains in saved output. The bounded Home profile intentionally reads captured intrinsic URL state; no complete Node/Bun compatibility or all-oracle-pass claim."
+  },
+  "profile_guards": {
+    "unsafe_old_engine": "Same new Home built against exact73ee archive passes3explicit unsupported-provider refusals, including existsSync throwing instead of manufacturing absence; string-path file content retained",
+    "missing_jsc_url": "Basic179JSC gate steps pass; URL profile actually fails before40groups because URL is absent. Existing URL target has no skip or conditional success",
+    "invalid_inputs": "Non-file schemes, remote file hosts, encoded separators and filesystem NULs rejected; pure URL conversion retains NUL, strings stay literal filenames",
+    "scope": "Node filesystem URL inputs and node:url converters/real constructors only. Bun.write and subprocess string-only boundaries preserved."
+  },
+  "actual_consumers": {
+    "source_sha": "8b9e1572fee6a8345213159d892fd82d91604927",
+    "packages": [
+      "storage/framework/core/api",
+      "storage/framework/core/objects"
+    ],
+    "before": "Both fail at string-only rm(new URL(...)), preserving23/5reference dist files",
+    "after": "Both perform native cleanup leaving0dist files, then fail at actual missing Bun.build; no package pass claimed",
+    "same_engine_archive_before_after": true
+  },
+  "qualification": "Caller2468713 stays until immutable new suite passes42Python/7dependency tests, Linux baseline runtime,40newURL groups, all original gates,5nativeCPU cases and both actual priority preflights",
+  "limits_unchanged": true,
+  "selected_consumers_retained": 224,
+  "test262": "Not run; no corpus flip claim"
+}
