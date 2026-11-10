@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "run": 42851406404,
+  "job": 129957886508,
+  "engine_sha": "3c9955eca5f3e2a5dc42e59d631b74c89ec6990e",
+  "consumer_sha": "1cecaf6a3221d77b624fb9b71b921f6374242328",
+  "runtime_provenance": {
+    "engine_sha": "3c9955eca5f3e2a5dc42e59d631b74c89ec6990e",
+    "suite_ref": "c104b322b7c410d549c768d33f9ed05b9562fc48",
+    "home_repository": "home-lang/home",
+    "home_ref": "0785dda1fc55af1034392c5543458034852c6c3b",
+    "zig_version": "0.18.0-dev.146+35accc06e",
+    "build_cpu": "baseline",
+    "build_optimize": "ReleaseSafe",
+    "sha256": {
+      "home-tool": "575e62937191b9870dc681745284f036bcc77d5bb9743033bcddf11b113ef8b8",
+      "engine/zig-out/lib/libzig-js.a": "e1d1efa65aa059be8bd0489bdff1d925aa1caba77fd8a08c5cbed94552d0ea7c"
+    }
+  },
+  "artifact": {
+    "id": 13783341277,
+    "sha256": "470641cd0667f0fc9c9415de2cd5569f928f0d37ed55c0756e535ea3dc747c66",
+    "bytes": 1411757
+  },
+  "report_sha256": "bead553e01fe4c0b4e192442d796e4b287942e463d511fc1f0620b278ec0bc60",
+  "scopes": 99,
+  "checks": 927,
+  "candidate": {
+    "unsupported": 355,
+    "failed": 211,
+    "passed": 59
+  },
+  "selected_actual_logs": [
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 1856044,
+        "memory_limit_mb": 3072,
+        "seconds": 10.768,
+        "log": "0016.log",
+        "label": ".: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "./buddy build"
+        ],
+        "engine_invocations": 3
+      },
+      "log_sha256": "b30f52c64140aa3d18587f7d83f7a7a6a120031acce825d88337167dd8b19fe9",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-10T16:17:48.105Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 1856044 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 1651324,
+        "memory_limit_mb": 3072,
+        "seconds": 11.375,
+        "log": "0018.log",
+        "label": ".: typecheck",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)"
+        ],
+        "engine_invocations": 3
+      },
+      "log_sha256": "832c392d13d152260e55977e79ef1b0712d42d8edf352d87d759471d4d166242",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\n[2026-11-10T16:18:10.753Z] local.INFO: Building @stacksjs/validation...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 1651324 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    }
+  ],
+  "interpretation": [
+    "Latest caller3c9955 / functionalc104b32 / Home0785 actual Stacks job fails its real package checks. All99scopes/927checks and59candidate passes/211failures/355unsupported remain.",
+    "Root build still exceeds evaluation budget through3real engine invocations; typecheck still reaches missingBun.build. No fake host substitute or new compatibility pass.",
+    "Consumer has its own immutable revision; counts alone do not prove a controlled engine-only comparison. Full report, root logs and downloaded ZIP digest are verified."
+  ]
+}
