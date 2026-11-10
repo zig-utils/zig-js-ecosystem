@@ -272,8 +272,24 @@ def run_repository(repo, args, config, result=None):
             print(f"{name}: {lane}: {label}: starting {json.dumps(argv)} "
                   f"(timeout {budget:.3f}s, sampled RSS limit "
                   f"{config.get('command_memory_limit_mb', 3072)} MiB)", flush=True)
-            record = execute(argv, cwd, run_env, out / f"{counter:04d}.log", budget,
-                             config.get("command_memory_limit_mb", 3072))
+            log = out / f"{counter:04d}.log"
+            try:
+                record = execute(argv, cwd, run_env, log, budget,
+                                 config.get("command_memory_limit_mb", 3072))
+            except Exception as error:
+                # A cleanup/monitoring failure leaves the exit status unknown.
+                # Retain its command boundary before aborting the repository;
+                # continuing could overlap work with an unconfirmed survivor.
+                interrupted = {"label": label, "lane": lane, "command": argv,
+                               "cwd": str(cwd), "status": "failed",
+                               "reason": f"command monitoring or cleanup failed: {error!r}"}
+                if log.is_file():
+                    interrupted["log"] = log.name
+                if event_path.is_file():
+                    interrupted["events_log"] = event_path.name
+                result["checks"].append(interrupted)
+                print(f"{name}: {lane}: {label}: failed (command interrupted)", flush=True)
+                raise
         events = [json.loads(line) for line in event_path.read_text().splitlines()] if event_path.exists() else []
         record.update({"label": label, "lane": lane, "command": argv,
                        "engine_invocations": sum(e["kind"] == "zig-js" for e in events)})

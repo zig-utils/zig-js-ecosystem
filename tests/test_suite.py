@@ -384,6 +384,52 @@ class ResultTests(unittest.TestCase):
                 for timer in pending:
                     timer.join()
 
+    def test_interrupted_command_keeps_context_and_aborts_repository(self):
+        # Replay the CI cleanup exception at the execution boundary. This tests
+        # evidence preservation, not the cause of an unkillable Linux process.
+        for error in (RuntimeError("command process group 18074 did not stop after SIGKILL"),
+                      OSError("ps unavailable")):
+            with self.subTest(error=type(error).__name__), tempfile.TemporaryDirectory() as temp:
+                root = Path(temp)
+                repo = {"full_name": "home-lang/home", "sha": SHA}
+                args = SimpleNamespace(work=root / "work", output=root / "results",
+                                       engine_sha=OTHER_SHA, home_tool=root / "runtime/home-tool")
+                config = {"repository_timeout_seconds": 10, "command_timeout_seconds": 5,
+                          "command_memory_limit_mb": 48}
+
+                def interrupted(argv, cwd, env, log, timeout, memory_limit_mb):
+                    if isinstance(error, RuntimeError):
+                        log.write_text("ECOSYSTEM LIMIT: command time budget exhausted\n")
+                        log.with_suffix(".events.jsonl").write_text('{"kind":"zig-js"}\n')
+                    raise error
+
+                with patch.object(run, "execute", side_effect=interrupted) as execute:
+                    result = run.run_and_save(repo, args, config)
+                self.assertEqual(execute.call_count, 1)
+                self.assertTrue(result["failed"])
+                self.assertEqual(len(result["checks"]), 2)
+                command, orchestration = result["checks"]
+                self.assertEqual(command["label"], "git init")
+                self.assertEqual(command["lane"], "setup")
+                self.assertEqual(command["command"], ["git", "init", "--quiet"])
+                self.assertEqual(command["status"], "failed")
+                self.assertEqual(command["cwd"], str(args.work / "home-lang--home/candidate"))
+                self.assertIn(str(error), command["reason"])
+                self.assertNotIn("exit_code", command)
+                self.assertNotIn("engine_invocations", command)
+                if isinstance(error, RuntimeError):
+                    self.assertEqual(command["log"], "0001.log")
+                    self.assertEqual(command["events_log"], "0001.events.jsonl")
+                    self.assertTrue((args.output / "home-lang--home/0001.log").is_file())
+                    self.assertTrue((args.output / "home-lang--home/0001.events.jsonl").is_file())
+                else:
+                    self.assertNotIn("log", command)
+                    self.assertNotIn("events_log", command)
+                self.assertEqual(orchestration["label"], "orchestrator")
+                self.assertEqual(orchestration["status"], "failed")
+                self.assertEqual(json.loads((args.output / "home-lang--home.json").read_text()), result)
+                self.assertFalse((args.work / "home-lang--home").exists())
+
     def test_monitoring_error_kills_and_reaps_active_command(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

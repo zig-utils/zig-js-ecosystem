@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "before_suite": "d11ae0058f4c9322f07767a38f506f242849b1df",
+  "before_run_py_sha256": "d8fbb65b1bbc8b79cec8a352685e2d02e8246bdf1a228486af5634dfedde274e",
+  "after_run_py_sha256": "29874cc93dd1d98e66225cecbb6f4a2a37ee110409049f6ed74e9845527dd585",
+  "test_suite_py_sha256": "a3166e488a16e7651eff74b453ead0eb64e48474639c4de0be11e1ad690a3bc4",
+  "actual_failure": {
+    "run_id": 42737177738,
+    "artifact_id": 13729098126,
+    "home_sha": "14c9459a9d14698dfa5759241029cc85ae3722f3",
+    "terminal_error": [
+      {
+        "label": "orchestrator",
+        "status": "failed",
+        "reason": "RuntimeError('command process group 18074 did not stop after SIGKILL')"
+      }
+    ],
+    "last_log": {
+      "path": "0200.log",
+      "sha256": "2d14e816b136c1ddd3dc402debb0e37bbb4789761b3db4f47e10f2646e388586",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"cd src && bun run build\"]\n$ bun run build:napi && bun run build:ffi\n$ napi build --release --platform --no-dts-header --features enable-napi && bun run cleanup\n\nECOSYSTEM LIMIT: command time budget exhausted\n"
+    },
+    "context": "Command0200 is a reference NAPI/Rust build. SIGKILL confirmation fails and the prior runner saves only an orchestrator check, losing label/lane/command/log association."
+  },
+  "focused_checks": {
+    "before-final-fixture": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 2048,
+      "memory_limit_mb": 3072,
+      "seconds": 0.1,
+      "log": "before-final-fixture.log",
+      "command": [
+        "python3",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cleanup-context/before-loader.py"
+      ],
+      "log_sha256": "eb7cc6bb6a805e6727ad66e563c09779bc6ef6d4f0d5237872a35a352f6f9b72",
+      "log_excerpt": "$ [\"python3\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cleanup-context/before-loader.py\"]\ntest_interrupted_command_keeps_context_and_aborts_repository (test_suite.ResultTests.test_interrupted_command_keeps_context_and_aborts_repository) ... home-lang/home: setup: git init: starting [\"git\", \"init\", \"--quiet\"] (timeout 5.000s, sampled RSS limit 48 MiB)\n\n  test_interrupted_command_keeps_context_and_aborts_repository (test_suite.ResultTests.test_interrupted_command_keeps_context_and_aborts_repository) (error='RuntimeError') ... FAIL\nhome-lang/home: setup: git init: starting [\"git\", \"init\", \"--quiet\"] (timeout 5.000s, sampled RSS limit 48 MiB)\n  test_interrupted_command_keeps_context_and_aborts_repository (test_suite.ResultTests.test_interrupted_command_keeps_context_and_aborts_repository) (error='OSError') ... FAIL\n\n======================================================================\nFAIL: test_interrupted_command_keeps_context_and_aborts_repository (test_suite.ResultTests.test_interrupted_command_keeps_context_and_aborts_repository) (error='RuntimeError')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/Users/chris/Code/Libraries/zig-js-ecosystem/tests/test_suite.py\", line 410, in test_interrupted_command_keeps_context_and_aborts_repository\n    self.assertEqual(len(result[\"checks\"]), 2)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 1 != 2\n\n======================================================================\nFAIL: test_interrupted_command_keeps_context_and_aborts_repository (test_suite.ResultTests.test_interrupted_command_keeps_context_and_aborts_repository) (error='OSError')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/Users/chris/Code/Libraries/zig-js-ecosystem/tests/test_suite.py\", line 410, in test_interrupted_command_keeps_context_and_aborts_repository\n    self.assertEqual(len(result[\"checks\"]), 2)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 1 != 2\n\n----------------------------------------------------------------------\nRan 1 test in 0.004s\n\nFAILED (failures=2)\n\nECOSYSTEM PEAK SAMPLED RSS: 2048 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "after-final-fixture": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2080,
+      "memory_limit_mb": 3072,
+      "seconds": 0.096,
+      "log": "after-final-fixture.log",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "test_suite.ResultTests.test_interrupted_command_keeps_context_and_aborts_repository",
+        "-v"
+      ],
+      "log_sha256": "2bcd689858fc0666d501cc26542edfcfc7ddf79ca3e331ed2d1b4406a8deb463",
+      "log_excerpt": "$ [\"python3\", \"-m\", \"unittest\", \"test_suite.ResultTests.test_interrupted_command_keeps_context_and_aborts_repository\", \"-v\"]\ntest_interrupted_command_keeps_context_and_aborts_repository (test_suite.ResultTests.test_interrupted_command_keeps_context_and_aborts_repository) ... home-lang/home: setup: git init: starting [\"git\", \"init\", \"--quiet\"] (timeout 5.000s, sampled RSS limit 48 MiB)\nhome-lang/home: setup: git init: failed (command interrupted)\nhome-lang/home: setup: git init: starting [\"git\", \"init\", \"--quiet\"] (timeout 5.000s, sampled RSS limit 48 MiB)\nhome-lang/home: setup: git init: failed (command interrupted)\nok\n\n----------------------------------------------------------------------\nRan 1 test in 0.004s\n\nOK\n\nECOSYSTEM PEAK SAMPLED RSS: 2080 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "validation": {
+    "python_tests": 36,
+    "failed": 0,
+    "full_test_log_sha256": "2ae5e0e9ef3651462f21e83d91c04cb629a54317bad12f265d79e499f9c5b433",
+    "real_dependency_tests": 7,
+    "dependency_assertions": 26,
+    "dependency_failures": 0,
+    "bun_version": "1.4.4",
+    "actionlint": "passed",
+    "python_compileall": "passed",
+    "diff_check": "passed"
+  },
+  "notes": [
+    "Regression replays recorded RuntimeError and monitoring OSError at the execution boundary. Both fail with committed before-run.py and pass after the change, using the same final test fixture. This is orchestration fault injection, not an engine or Linux kernel liveness reproduction.",
+    "Interrupted command is failed with label/lane/argv/cwd/reason and only actually existing log/events paths. Unknown exit code and engine invocation count are omitted, never synthesized.",
+    "Original exception rethrows. run_and_save still adds a failed orchestrator check and aborts/cleans the repository; subsequent commands do not execute. Test asserts one execution call and failed saved JSON.",
+    "terminate_process_group and execute source blocks are byte-identical to the before revision. No cleanup deadline, SIGKILL, RSS/time cap, runtime routing, host API or selected repository changed.",
+    "Underlying live process-group cleanup failure is unresolved; no compatibility improvement or safe-survivor termination claim. Full existing real process-group/monitor/RSS/timeout tests pass within36tests.",
+    "Caller remains immutable validated40e0b89 until this functional suite qualifies against exact pushed engine62f752a6 and both priority preflights."
+  ]
+}
