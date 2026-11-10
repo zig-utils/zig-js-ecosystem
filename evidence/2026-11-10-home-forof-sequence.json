@@ -1,0 +1,348 @@
+{
+  "schema_version": 1,
+  "home_commit": "26a474c6806acc7305fa4b3b905bda53d0d6814e",
+  "before_home": "341d0cd2427e032ff338cef57f3add7baac36183",
+  "local_engine_sha": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+  "local_archive_sha256": "e141e082ae57b0d62f16d445291eb73f15332689daf47a6b7c1d36086bafb613",
+  "next_qualification_engine": "b4ed04b8d98b2eb85ff85504189cba3ddaf3349e",
+  "source_hashes_at_immutable_commit": {
+    "packages/ts_emit/src/js_emit.zig": "79a6d048e18151344c5233599a0319f3178b538b2bebbbde3f13c5c457fcd753",
+    "packages/runtime/test/tool_modules/main.ts": "5638da525573ce7ddcd425e612fb682e17f745e2ae35a99c42961f64fe76ad70",
+    "packages/runtime/test/tool_modules/forof_sequence.mjs": "b51bbbe934edd7254967f61f65483fb52adbeb3e5d5f4277bff77ffbed3c8649"
+  },
+  "results": {
+    "after-zig-js": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5232,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "after-zig-js.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/forof-sequence/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/forof_sequence.mjs"
+      ],
+      "log_sha256": "da595137925d81cac4750bf189d78c17df678073362a5251e236d5685e5556c0",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/forof-sequence/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/forof_sequence.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 5232 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "react-shadcn-zig-js": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 71744,
+      "memory_limit_mb": 3072,
+      "seconds": 0.226,
+      "log": "react-shadcn-zig-js.log",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun run build"
+      ],
+      "log_sha256": "0f9f878b692ba02b4fb7f81a60a98c7edc8b9eeae3cf7d3978f6b1f4f7be29cc",
+      "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build\"]\nhome-tool (zig-js): SyntaxError: Unexpected token\n\nECOSYSTEM PEAK SAMPLED RSS: 71744 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "emitter-tests": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2763200,
+      "memory_limit_mb": 3072,
+      "seconds": 98.474,
+      "log": "emitter-tests.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "test",
+        "-Dfilter=ts_emit",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "log_sha256": "5b9d218f4e4db3be505a6d4484dc9f372de8720845fc856105b61b0a5ecfa552",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"test\", \"-Dfilter=ts_emit\", \"-Doptimize=ReleaseSafe\", \"-Denable_jsc=false\", \"-j1\", \"--summary\", \"all\"]\nBuild Summary: 3/3 steps succeeded; 522/523 tests passed (1 skipped)\ntest success\n+- run test 522 pass, 1 skip (523 total) 301ms MaxRSS:25M\n   +- compile test safe native success 1m MaxRSS:2G\n\n\nECOSYSTEM PEAK SAMPLED RSS: 2763200 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "react-tailwind-jsc": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 56480,
+      "memory_limit_mb": 3072,
+      "seconds": 0.168,
+      "log": "react-tailwind-jsc.log",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun run build"
+      ],
+      "log_sha256": "bf0b3b0221f9b8e508aa9d1e8181897a8feec36336a91cd8fb2db75a7a8ecb34",
+      "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build\"]\nhome-tool (jsc): Error: cannot resolve module v8 from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/template-locks/react-tailwind-candidate/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 56480 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "build-jsc": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1446432,
+      "memory_limit_mb": 3072,
+      "seconds": 30.968,
+      "log": "build-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/forof-sequence/after-jsc",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "log_sha256": "319aec1c60477ab497bf00523da6f68a6971891fda304ee78a537bd885f60e8c",
+      "log_excerpt": "OK home-tool exact package imports\nOK home-tool import.meta\nOK home-tool runtime transpilation\nOK home-tool module interop\nBuild Summary: 176/176 steps succeeded\nECOSYSTEM PEAK SAMPLED RSS: 1446432 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+    },
+    "build-zig-js": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1433792,
+      "memory_limit_mb": 3072,
+      "seconds": 34.603,
+      "log": "build-zig-js.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/engine-cache-final",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/forof-sequence/after-zig-js",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "log_sha256": "4e9ca96e54816cbfda7beee23a45a42a09a4406fcd4aaab1a28bd1a7b1add287",
+      "log_excerpt": "OK home-tool module interop\nOK home-tool exact package imports\nOK home-tool runtime transpilation\nOK home-tool import.meta\nBuild Summary: 197/197 steps succeeded\nECOSYSTEM PEAK SAMPLED RSS: 1433792 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+    },
+    "after-jsc": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 4752,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "after-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/forof-sequence/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/forof_sequence.mjs"
+      ],
+      "log_sha256": "1d03f4f45353e94e7af62db8122461ed4bc32cc2c5ca5d1890dc99d8aa4502c5",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/forof-sequence/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/forof_sequence.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 4752 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2208,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/forof_sequence.mjs"
+      ],
+      "log_sha256": "81662699de29f5a9bc3c9b83a62db0f3c58d770d1cf2ea84c214a1f0990be0c4",
+      "log_excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/forof_sequence.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 2208 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "before-zig-js": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 704,
+      "memory_limit_mb": 3072,
+      "seconds": 0.042,
+      "log": "before-zig-js.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/forof_sequence.mjs"
+      ],
+      "log_sha256": "97c5f8dabd16e92aeb8dca193b7b435af755c6d055d40b5980e890426f2b59a4",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/forof_sequence.mjs\"]\nhome-tool (zig-js): SyntaxError: Unexpected token ','\n\nECOSYSTEM PEAK SAMPLED RSS: 704 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "react-tailwind-zig-js": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 71696,
+      "memory_limit_mb": 3072,
+      "seconds": 0.19,
+      "log": "react-tailwind-zig-js.log",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun run build"
+      ],
+      "log_sha256": "0844304c6d1475c0e1c84816560905177f7545ed06d345d6ef7b48e45905f0b2",
+      "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build\"]\nhome-tool (zig-js): SyntaxError: Unexpected token\n\nECOSYSTEM PEAK SAMPLED RSS: 71696 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "before-jsc": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 3440,
+      "memory_limit_mb": 3072,
+      "seconds": 0.021,
+      "log": "before-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/forof_sequence.mjs"
+      ],
+      "log_sha256": "ccf4ad9974c9ebfd5da63fa558e62fedfe106a554358d6919918d6abfd94620b",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/forof_sequence.mjs\"]\nhome-tool (jsc): SyntaxError: Unexpected token ','. Expected ')' to end a for-of header.\n\nECOSYSTEM PEAK SAMPLED RSS: 3440 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "pickier": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2192,
+      "memory_limit_mb": 3072,
+      "seconds": 0.066,
+      "log": "pickier.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "node_modules/.bin/pickier",
+        "packages/runtime/test/tool_modules/forof_sequence.mjs",
+        "packages/runtime/test/tool_modules/main.ts"
+      ],
+      "log_sha256": "6f626a14806a2d698f370834fa988c7cb9c82e2459b91a25b43e928dfc4d6446",
+      "log_excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"node_modules/.bin/pickier\", \"packages/runtime/test/tool_modules/forof_sequence.mjs\", \"packages/runtime/test/tool_modules/main.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 2192 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 368,
+      "memory_limit_mb": 3072,
+      "seconds": 0.043,
+      "log": "node.log",
+      "command": [
+        "node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/forof_sequence.mjs"
+      ],
+      "log_sha256": "0650daa266144b7c4ef8d141fcef9181455af8660c3d61c55096bf2836fd9e11",
+      "log_excerpt": "$ [\"node\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/forof_sequence.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 368 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "react-shadcn-jsc": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 54480,
+      "memory_limit_mb": 3072,
+      "seconds": 0.166,
+      "log": "react-shadcn-jsc.log",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun run build"
+      ],
+      "log_sha256": "8f889c02e78ac2b8cadcf89ab3804860f9699a0c2724cf84bd008a6fba0e9901",
+      "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build\"]\nhome-tool (jsc): Error: cannot resolve module v8 from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/template-locks/react-shadcn-candidate/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 54480 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    }
+  },
+  "mandatory_runtime_operations": 8,
+  "native_emitter_tests": {
+    "passed": 522,
+    "skipped": 1,
+    "total": 523,
+    "skip": "Existing dtsx-stub content check, no implementation/content pass claim."
+  },
+  "formatting_note": "Zig fmt removed one blank line before the added unit test after validation; executable source unchanged.",
+  "scope": [
+    "Native for-of and for-await source grammar is AssignmentExpression; comma sequences keep parentheses. For-in Expression semantics remain unchanged.",
+    "Actual sequence/order, assignment/conditional/call sources, for-in control, async iteration, generator resume and nested loops match Node/Bun on both providers.",
+    "Actual JSC template builds advance to missing v8; zig-js still reports SyntaxError. Neither build passes and no API fallback is used.",
+    "No ES5 downlevel, named-import snapshot, full-template or test262 compatibility gain claimed."
+  ],
+  "suite_validation": {
+    "suite-actionlint": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 624,
+      "memory_limit_mb": 3072,
+      "seconds": 0.025,
+      "log": "suite-actionlint.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint"
+      ],
+      "log_sha256": "37342e9cccd4d2511142241537dd92e98972eb319ad8722c447780e27d8ae420",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 624 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "suite-compile": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1728,
+      "memory_limit_mb": 3072,
+      "seconds": 0.042,
+      "log": "suite-compile.log",
+      "command": [
+        "python3",
+        "-m",
+        "compileall",
+        "-q",
+        "scripts",
+        "tests"
+      ],
+      "log_sha256": "3c32bc7f6a3a52f5f7b8b36e73b7e2a4d36710dfcbc4fa50e57c4531772459a8",
+      "log_excerpt": "$ [\"python3\", \"-m\", \"compileall\", \"-q\", \"scripts\", \"tests\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 1728 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "suite-dependencies": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 26816,
+      "memory_limit_mb": 3072,
+      "seconds": 0.356,
+      "log": "suite-dependencies.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "tests/dependencies.test.mjs"
+      ],
+      "log_sha256": "afecb45d4f3c6052c32a58a43a4b3dde1c4322a38d46d068171c5ff161de0f09",
+      "log_excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"test\", \"tests/dependencies.test.mjs\"]\nbun test v1.4.4 (38afee6c8)\n\ntests/dependencies.test.mjs:\n(pass) nested install reproduces workspace failure; ancestor setup runs real dependency code [239.78ms]\n(pass) unreferenced isolated workspace is not an installed ancestor dependency [11.42ms]\n(pass) a registry-shaped provider cannot impersonate a declared workspace [3.06ms]\n(pass) wrong external and explicit workspace versions are rejected [9.52ms]\n(pass) workspace wildcard allows prereleases; a child lockfile prevents reuse [10.15ms]\n(pass) excluded members and outside-checkout symlinks do not satisfy workspace references [5.50ms]\n(pass) independent apps still perform real installs with lifecycle scripts disabled [18.48ms]\n\n 7 pass\n 0 fail\n 26 expect() calls\nRan 7 tests across 1 file. [332.00ms]\n\nECOSYSTEM PEAK SAMPLED RSS: 26816 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "suite-diff": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1680,
+      "memory_limit_mb": 3072,
+      "seconds": 0.043,
+      "log": "suite-diff.log",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "log_sha256": "8f334bcbfff5a5477986e5296b04a3a4a7bd34c9af9ea4e6715e8f97d5ff07ae",
+      "log_excerpt": "$ [\"git\", \"diff\", \"--check\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 1680 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "suite-python": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 128416,
+      "memory_limit_mb": 3072,
+      "seconds": 3.385,
+      "log": "suite-python.log",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "log_sha256": "12ca9c8bb6af38863a6ba4efabfba82e926dca17a0079f67f1336cc780144c5d",
+      "log_excerpt": "tions_reach_home_without_consuming_entry_arguments) ... ok\ntest_installed_package_binary_routes_to_home (test_suite.RuntimeRoutingTests.test_installed_package_binary_routes_to_home) ... ok\ntest_nested_script_routes_to_engine_and_propagates_failure (test_suite.RuntimeRoutingTests.test_nested_script_routes_to_engine_and_propagates_failure) ... ok\ntest_scoped_package_bin_uses_installed_manifest_and_keeps_exit_status (test_suite.RuntimeRoutingTests.test_scoped_package_bin_uses_installed_manifest_and_keeps_exit_status) ... ok\ntest_shell_scripts_preserve_no_argument_syntax_status_and_literal_arguments (test_suite.RuntimeRoutingTests.test_shell_scripts_preserve_no_argument_syntax_status_and_literal_arguments) ... ok\ntest_test_scheduler_and_native_build_cannot_be_false_passes (test_suite.RuntimeRoutingTests.test_test_scheduler_and_native_build_cannot_be_false_passes) ... ECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\nECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\nECOSYSTEM UNSUPPORTED: bun build requires a host API absent from Home's repository-tool runtime\nECOSYSTEM UNSUPPORTED: bun install requires a host API absent from Home's repository-tool runtime\nok\n\n----------------------------------------------------------------------\nRan 39 tests in 3.264s\n\nOK\n\nECOSYSTEM PEAK SAMPLED RSS: 128416 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  }
+}

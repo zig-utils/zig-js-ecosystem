@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "run": 42786838700,
+  "suite_ref": "8df114deac63de0ab8eb51bd6ea5ed969eca5af6",
+  "engine_sha": "0f03631002cb250096ffe1f6f016b7a257d22e75",
+  "home_ref": "f80ee42ea6f135cfc5e02159c044aba3a3c79b96",
+  "consumers": {
+    "stacksjs--stacks": {
+      "artifact": {
+        "id": 13751029262,
+        "sha256": "7ec94fe8509ed87a82f63f28dcc6450a9fd7409b3593fdee443a185cd0e8256e",
+        "bytes": 2010055
+      },
+      "report_sha256": "f8b4fade3050d06d94243059a8bff26f24874a301d749f5a0acaa8d611a970d9",
+      "scopes": 99,
+      "reported_checks": 927,
+      "candidate": {
+        "unsupported": 355,
+        "failed": 211,
+        "passed": 59
+      },
+      "reference": {
+        "passed": 112,
+        "failed": 57,
+        "timed-out": 1,
+        "not-run": 105
+      },
+      "selected_checks": [],
+      "cleanup_snapshots": []
+    },
+    "home-lang--home": {
+      "artifact": {
+        "id": 13750994100,
+        "sha256": "840d72d5a6769116510b7255e69e6ddec4d8ffbaf9285369f73a8380140dffbe",
+        "bytes": 237947
+      },
+      "report_sha256": "86a0f30cbe7e890ac6268dfdf067fafbb9424c243e1cf79a4a75c64966f8fa84",
+      "scopes": 46,
+      "reported_checks": 234,
+      "candidate": {
+        "failed": 42,
+        "unsupported": 38,
+        "passed": 7
+      },
+      "reference": {
+        "passed": 24,
+        "failed": 26
+      },
+      "selected_checks": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 1286936,
+            "memory_limit_mb": 3072,
+            "seconds": 146.495,
+            "log": "0200.log",
+            "label": "packages/runtime/upstream/bench/ffi: build",
+            "lane": "reference",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "cd src && bun run build"
+            ],
+            "engine_invocations": 0
+          },
+          "log_sha256": "a3abcb1ed175c3d6f31c4c961d6d8b14949cbbe9f4ffe1768c0ba50e400bc56e",
+          "excerpt": "$ [\"/bin/sh\", \"-c\", \"cd src && bun run build\"]\n$ bun run build:napi && bun run build:ffi\n$ napi build --release --platform --no-dts-header --features enable-napi && bun run cleanup\nType Error: Could not parse the Cargo.toml: Error: Command failed: cargo metadata --format-version 1 --manifest-path \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/bench/ffi/src/Cargo.toml\"\ninfo: syncing channel updates for nightly-2026-05-06-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-05-06 for version 1.97.0-nightly (e95e73209 2026-05-05)\ninfo: downloading 14 components\nwarn: the missing active toolchain `nightly-2026-05-06-x86_64-unknown-linux-gnu` has been auto-installed\nwarn: this might cause rustup commands to take longer time to finish than expected\ninfo: you may opt out with `RUSTUP_AUTO_INSTALL=0` or `rustup set auto-install disable`\nerror: current package believes it's in a workspace when it's not:\ncurrent:   /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/bench/ffi/src/Cargo.toml\nworkspace: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/Cargo.toml\n\nthis may be fixable by adding `bench/ffi/src` to the `workspace.members` array of the manifest located at: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/Cargo.toml\nAlternatively, to keep it out of the workspace, add the package to the `workspace.exclude` array, or add an empty `[workspace]` table to the package's manifest.\n\ninfo: syncing channel updates for nightly-2026-05-06-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-05-06 for version 1.97.0-nightly (e95e73209 2026-05-05)\ninfo: downloading 14 components\nwarn: the missing active toolchain `nightly-2026-05-06-x86_64-unknown-linux-gnu` has been auto-installed\nwarn: this might cause rustup commands to take longer time to finish than expected\ninfo: you may opt out with `RUSTUP_AUTO_INSTALL=0` or `rustup set auto-install disable`\nerror: current package believes it's in a workspace when it's not:\ncurrent:   /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/bench/ffi/src/Cargo.toml\nworkspace: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/Cargo.toml\n\nthis may be fixable by adding `bench/ffi/src` to the `workspace.members` array of the manifest located at: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/Cargo.toml\nAlternatively, to keep it out of the workspace, add the package to the `workspace.exclude` array, or add an empty `[workspace]` table to the package's manifest.\n\n    at BuildCommand.<anonymous> (/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/bench/ffi/src/node_modules/@napi-rs/cli/scripts/index.js:11286:23)\n    at Generator.next (<anonymous>)\n    at /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/bench/ffi/src/node_modules/@napi-rs/cli/scripts/index.js:3512:71\n    at new Promise (<anonymous>)\n    at __awaiter$1 (/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/bench/ffi/src/node_modules/@napi-rs/cli/scripts/index.js:3508:12)\n    at BuildCommand.execute (/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/bench/ffi/src/node_modules/@napi-rs/cli/scripts/index.js:11272:16)\n    at BuildCommand.validateAndExecute (/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/bench/ffi/src/node_modules/@napi-rs/cli/scripts/index.js:2038:37)\n    at /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/bench/ffi/src/node_modules/@napi-rs/cli/scripts/index.js:3095:53\n    at noopCaptureActivator (/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/bench/ffi/src/node_modules/@napi-rs/cli/scripts/index.js:3353:12)\n    at Cli.run (/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/bench/ffi/src/node_modules/@napi-rs/cli/scripts/index.js:3095:30)\nerror: script \"build:napi\" exited with code 1\nerror: script \"build\" exited with code 1\n\nECOSYSTEM PEAK SAMPLED RSS: 1286936 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ],
+      "cleanup_snapshots": []
+    }
+  },
+  "interpretation": [
+    "No cleanup snapshot was emitted: this run encountered no cleanup exception. This does not prove the prior survivor fault fixed.",
+    "Reference FFI0200 exits1 with an actual Cargo workspace-membership error after rustup auto-installs its pinned toolchain. Keep this failure; do not infer that auto-install caused earlier kernel states.",
+    "Both complete reported inventories retain root and unsupported failures; full-report counts do not imply every reference check executed."
+  ]
+}

@@ -1,0 +1,623 @@
+{
+  "schema_version": 1,
+  "home_commit": "341d0cd2427e032ff338cef57f3add7baac36183",
+  "before_home": "bc6bf1aa334c5f332ceac48b78c969aeeac7d087",
+  "local_engine_sha": "9b0b3b90a3dbe1f8fcda43f7fa617902204a3f9a",
+  "local_archive_sha256": "e141e082ae57b0d62f16d445291eb73f15332689daf47a6b7c1d36086bafb613",
+  "next_qualification_engine": "b4ed04b8d98b2eb85ff85504189cba3ddaf3349e",
+  "source_hashes_at_immutable_commit": {
+    "packages/ts_parser/src/ts_parser.zig": "8b766ba9619d4ba7073e307224b65504959401677d515d7794ec3e713958898b",
+    "packages/runtime/test/tool_modules/main.ts": "91ae518e618be719cc6a4fe6eaeed93df7e2f581d59043e3364c3b1ded20821d",
+    "packages/runtime/test/tool_modules/ternary_compound_heads.mjs": "43353bca39028d5f0a2ce9be33399531cfecff12f8a6819c2c597944a85495b9"
+  },
+  "results": {
+    "after-zig-js-fixture": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.292,
+      "log": "after-zig-js-fixture.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_compound_heads.mjs"
+      ],
+      "log_sha256": "ea7b57adb45be70e7629a866b5950a7b48b515631f2d7ed3b97947ed41cefa7a",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_compound_heads.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "after-zig-js-minimal": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5072,
+      "memory_limit_mb": 3072,
+      "seconds": 0.021,
+      "log": "after-zig-js-minimal.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/minimal.mjs"
+      ],
+      "log_sha256": "7458be81715253c219528d952f87764fef0381a19fe0007abac13f111d6ff150",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/minimal.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 5072 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "after-parser-all": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 584544,
+      "memory_limit_mb": 3072,
+      "seconds": 5.328,
+      "log": "after-parser-all.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "test",
+        "--dep",
+        "ts_lexer",
+        "--dep",
+        "hir",
+        "--dep",
+        "string_interner",
+        "-Mroot=packages/ts_parser/src/ts_parser.zig",
+        "--dep",
+        "string_interner",
+        "-Mhir=packages/hir/src/hir.zig",
+        "-Mts_lexer=packages/ts_lexer/src/ts_lexer.zig",
+        "-Mstring_interner=packages/string_interner/src/string_interner.zig",
+        "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/after-parser"
+      ],
+      "log_sha256": "74838bf3f1f725efb1d68d2dad8c32717aef459c286ee870a6c2fa6152f73b93",
+      "log_excerpt": "All 941 tests passed.\nECOSYSTEM PEAK SAMPLED RSS: 584544 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+    },
+    "after-parser-filtered": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 459808,
+      "memory_limit_mb": 3072,
+      "seconds": 2.947,
+      "log": "after-parser-filtered.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "test",
+        "--dep",
+        "ts_lexer",
+        "--dep",
+        "hir",
+        "--dep",
+        "string_interner",
+        "-Mroot=packages/ts_parser/src/ts_parser.zig",
+        "--dep",
+        "string_interner",
+        "-Mhir=packages/hir/src/hir.zig",
+        "-Mts_lexer=packages/ts_lexer/src/ts_lexer.zig",
+        "-Mstring_interner=packages/string_interner/src/string_interner.zig",
+        "--test-filter",
+        "compound assignment"
+      ],
+      "log_sha256": "e706a307a72dd412a0a2682ebd9ba938b58fcf5129e70289d26e431c5c4769c1",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"test\", \"--dep\", \"ts_lexer\", \"--dep\", \"hir\", \"--dep\", \"string_interner\", \"-Mroot=packages/ts_parser/src/ts_parser.zig\", \"--dep\", \"string_interner\", \"-Mhir=packages/hir/src/hir.zig\", \"-Mts_lexer=packages/ts_lexer/src/ts_lexer.zig\", \"-Mstring_interner=packages/string_interner/src/string_interner.zig\", \"--test-filter\", \"compound assignment\"]\n1/6 ts_parser.test_0...OK\n2/6 ts_parser.test.parser: compound assignment...OK\n3/6 ts_parser.test.parser: prefix and postfix update expressions lower to compound assignment...OK\n4/6 ts_parser.test.parser: nullish prototype method compound assignment parses...OK\n5/6 ts_parser.test.parser: compound assignment ternary heads stay expressions...OK\n6/6 ts_parser.test.parser: compound assignments in typed arrow defaults remain valid...OK\nAll 6 tests passed.\n\nECOSYSTEM PEAK SAMPLED RSS: 459808 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "minimal-before-jsc": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.031,
+      "log": "minimal-before-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/minimal.mjs"
+      ],
+      "log_sha256": "bc28eb0539c139d0a844a623047c4a5876fb45cfcd0907048f827270cb3f4958",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/minimal.mjs\"]\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/minimal.mjs:45: ')' expected. (TS1005)\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/minimal.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "home-run": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 448,
+      "memory_limit_mb": 3072,
+      "seconds": 0.031,
+      "log": "home-run.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/small.mjs"
+      ],
+      "log_sha256": "36260476c9e2436f558c97f357a5161e3950838a6fd94a4127b3aeadea9ed72c",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/small.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 448 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "forof-node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 192,
+      "memory_limit_mb": 3072,
+      "seconds": 0.147,
+      "log": "forof-node.log",
+      "command": [
+        "node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/forof-comma.mjs"
+      ],
+      "log_sha256": "af287c571cbfa8c5d637447b49d2b8dc459064f0d7151eb80010c17f518ab39d",
+      "log_excerpt": "$ [\"node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/forof-comma.mjs\"]\nOK actual forof sequence\n\nECOSYSTEM PEAK SAMPLED RSS: 192 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "bun-fixture": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2304,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "bun-fixture.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_compound_heads.mjs"
+      ],
+      "log_sha256": "367a70d3686b3e6647c58c3c4319eae653f9feac9e72b53343d1405b50a33d3f",
+      "log_excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_compound_heads.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 2304 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "forof-before-zig-js": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 3968,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "forof-before-zig-js.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/forof-comma.mjs"
+      ],
+      "log_sha256": "1144d39abb4f6b4d689410bf8bfdac64094475b9b7a59e058d4419409b9d266d",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/forof-comma.mjs\"]\nhome-tool (zig-js): SyntaxError: Unexpected token ','\n\nECOSYSTEM PEAK SAMPLED RSS: 3968 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "body-loop-single": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5248,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "body-loop-single.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/body-loop-single.mjs"
+      ],
+      "log_sha256": "4238e63d209ae7cb7e6200d1939c1bafbd26e60d1fdafac861c3e105716150e1",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/body-loop-single.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 5248 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "build-jsc": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1091792,
+      "memory_limit_mb": 3072,
+      "seconds": 32.325,
+      "log": "build-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/after-jsc",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "log_sha256": "7fe4c0ec636a8a458ed96f598176b378fd0ecfdd7919591f91fc5a894724e5c1",
+      "log_excerpt": "OK home-tool import.meta\nOK home-tool exact package imports\nOK home-tool runtime transpilation\nOK home-tool module interop\nBuild Summary: 176/176 steps succeeded\nECOSYSTEM PEAK SAMPLED RSS: 1091792 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+    },
+    "build-zig-js": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1459648,
+      "memory_limit_mb": 3072,
+      "seconds": 33.059,
+      "log": "build-zig-js.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-docs-regexp/engine-cache-final",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/after-zig-js",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "log_sha256": "a40719d4abbf15a2689ebcb40630a09fd787142952c419fe25a4266f9a48db1c",
+      "log_excerpt": "OK home-tool runtime transpilation\nOK home-tool exact package imports\nOK home-tool import.meta\nOK home-tool module interop\nBuild Summary: 197/197 steps succeeded\nECOSYSTEM PEAK SAMPLED RSS: 1459648 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+    },
+    "react-shadcn-zig-js-build": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 71264,
+      "memory_limit_mb": 3072,
+      "seconds": 0.233,
+      "log": "react-shadcn-zig-js-build.log",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun run build"
+      ],
+      "log_sha256": "7e8a64db29f05ad8c10b535910e1409e504504a25df62e0d5a465b3a64e09405",
+      "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build\"]\nhome-tool (zig-js): SyntaxError: Unexpected token\n\nECOSYSTEM PEAK SAMPLED RSS: 71264 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "minimal-before-zig-js": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 688,
+      "memory_limit_mb": 3072,
+      "seconds": 0.043,
+      "log": "minimal-before-zig-js.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/minimal.mjs"
+      ],
+      "log_sha256": "7ac76f43ae8c041126ab1c7270ff7f3b9b64d96e09f463e25ca1ec199ede6482",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/minimal.mjs\"]\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/minimal.mjs:45: ')' expected. (TS1005)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/minimal.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 688 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "before-jsc-fixture": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 3760,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "before-jsc-fixture.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_compound_heads.mjs"
+      ],
+      "log_sha256": "f14e2052e20ac75d5a51712262ac6fd374ecfbd1be902d1b821083301add6b53",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_compound_heads.mjs\"]\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_compound_heads.mjs:116: ')' expected. (TS1005)\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_compound_heads.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 3760 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "home-eval": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5248,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "home-eval.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+        "eval",
+        "for (const f = function(){ let x=0; true ? (x+=1) : 0; }; false;) {}\n"
+      ],
+      "log_sha256": "b39530785831d77b245e863cb78554b0cbeb017750764b64a4687ec8f32e1fd6",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"eval\", \"for (const f = function(){ let x=0; true ? (x+=1) : 0; }; false;) {}\\n\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 5248 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "only-forinit": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 432,
+      "memory_limit_mb": 3072,
+      "seconds": 0.043,
+      "log": "only-forinit.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/only-forinit.mjs"
+      ],
+      "log_sha256": "41e8ff011a04d16de9d961e0878f2e4e03b3de7512b24e02302135b880c7ac67",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/only-forinit.mjs\"]\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/only-forinit.mjs:336: ')' expected. (TS1005)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/only-forinit.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "react-tailwind-zig-js-build": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 71312,
+      "memory_limit_mb": 3072,
+      "seconds": 0.238,
+      "log": "react-tailwind-zig-js-build.log",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun run build"
+      ],
+      "log_sha256": "a8a5519f2078a15fd1b5c54b8dcbfc4b4242877fa38457c3fec54dd352a31dce",
+      "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build\"]\nhome-tool (zig-js): SyntaxError: Unexpected token\n\nECOSYSTEM PEAK SAMPLED RSS: 71312 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "node-fixture": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 320,
+      "memory_limit_mb": 3072,
+      "seconds": 0.045,
+      "log": "node-fixture.log",
+      "command": [
+        "node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_compound_heads.mjs"
+      ],
+      "log_sha256": "a65eafca19ee5c45a517e12073cd3f35bd3cb1b9936dbf5896fa99f5d0e1fdb8",
+      "log_excerpt": "$ [\"node\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_compound_heads.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 320 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "chain": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6944,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "chain.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/chain.mjs"
+      ],
+      "log_sha256": "8493e4f610ae79db3c98288ec983e58fed4599adf3b6c5a1d99b539f141eaa09",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/chain.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6944 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "wrap": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6528,
+      "memory_limit_mb": 3072,
+      "seconds": 0.022,
+      "log": "wrap.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/wrap.mjs"
+      ],
+      "log_sha256": "3bec190508f5ddf7fcacec33209d36061e48928c0d9b75dfa88a7bb4fe8eb3fa",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/wrap.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 6528 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "nested-loop": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5072,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "nested-loop.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/nested-loop.mjs"
+      ],
+      "log_sha256": "254be1af826b9f52ee15d2fbb74aaa482c3a1e0ea0ce0354fe8278ffcaf879b0",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/nested-loop.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 5072 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "minimal-node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 832,
+      "memory_limit_mb": 3072,
+      "seconds": 0.042,
+      "log": "minimal-node.log",
+      "command": [
+        "node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/minimal.mjs"
+      ],
+      "log_sha256": "14da2f3bb71b0bd38d1709fb8e0d0e228fc7de4050cef331a45d940eb19bcf1a",
+      "log_excerpt": "$ [\"node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/minimal.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 832 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "forof-before-jsc": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5392,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "forof-before-jsc.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/forof-comma.mjs"
+      ],
+      "log_sha256": "bfb5b8e3fb4f0fa9c8c4ac199bdf7b37c2bf1b581823f7825f6537a3c3bc23e5",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/forof-comma.mjs\"]\nhome-tool (jsc): SyntaxError: Unexpected token ','. Expected ')' to end a for-of header.\n\nECOSYSTEM PEAK SAMPLED RSS: 5392 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "after-jsc-fixture": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5456,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "after-jsc-fixture.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_compound_heads.mjs"
+      ],
+      "log_sha256": "4af99b81072bc594c538c80e01519392a6ad148ebdac7317859e24e0913ae035",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_compound_heads.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 5456 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "after-jsc-minimal": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5440,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "after-jsc-minimal.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/after-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/minimal.mjs"
+      ],
+      "log_sha256": "13d2e7a986eaf687f4b3dda87c6252eea3a860b33b4ef8dcf36ed8aa87853c4a",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/minimal.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 5440 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "react-tailwind-jsc-build": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 54560,
+      "memory_limit_mb": 3072,
+      "seconds": 0.158,
+      "log": "react-tailwind-jsc-build.log",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun run build"
+      ],
+      "log_sha256": "aa363fada17dda58418bb40d5d2d236f066d80cb5efaccd992bd104374977c75",
+      "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build\"]\nhome-tool (jsc): SyntaxError: Unexpected token ','. Expected ')' to end a for-of header.\n\nECOSYSTEM PEAK SAMPLED RSS: 54560 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "comma": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 11136,
+      "memory_limit_mb": 3072,
+      "seconds": 0.026,
+      "log": "comma.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/comma.mjs"
+      ],
+      "log_sha256": "f2e00881105f217df7f2e3743254329aff1472b778a2bc597362b0854d470b75",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/comma.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 11136 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "react-shadcn-jsc-build": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 54416,
+      "memory_limit_mb": 3072,
+      "seconds": 0.167,
+      "log": "react-shadcn-jsc-build.log",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun run build"
+      ],
+      "log_sha256": "bbda6c5c069506cfebb0fcf15cac101a693f1d466719fcaca65540722185a8b5",
+      "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build\"]\nhome-tool (jsc): SyntaxError: Unexpected token ','. Expected ')' to end a for-of header.\n\nECOSYSTEM PEAK SAMPLED RSS: 54416 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "before-zig-js-fixture": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 336,
+      "memory_limit_mb": 3072,
+      "seconds": 0.042,
+      "log": "before-zig-js-fixture.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_compound_heads.mjs"
+      ],
+      "log_sha256": "9a1344b2ea166738ac6ef06743c3a36c355e60da88f64feca07e66632b02d7a2",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_compound_heads.mjs\"]\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_compound_heads.mjs:116: ')' expected. (TS1005)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/ternary_compound_heads.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 336 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "pickier": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1600,
+      "memory_limit_mb": 3072,
+      "seconds": 0.061,
+      "log": "pickier.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "node_modules/.bin/pickier",
+        "packages/runtime/test/tool_modules/ternary_compound_heads.mjs",
+        "packages/runtime/test/tool_modules/main.ts"
+      ],
+      "log_sha256": "f81004cb5d51fd7d4b5848852643709890a12adc221dc4f56c95b5c54aeb660a",
+      "log_excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"node_modules/.bin/pickier\", \"packages/runtime/test/tool_modules/ternary_compound_heads.mjs\", \"packages/runtime/test/tool_modules/main.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 1600 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "minimal-bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 736,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "minimal-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/minimal.mjs"
+      ],
+      "log_sha256": "6e82a818601215c7a55884eb4166cc7a8ca5e6ccbc993fd6494830499d691e85",
+      "log_excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/minimal.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 736 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "body-no-loop": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 4672,
+      "memory_limit_mb": 3072,
+      "seconds": 0.018,
+      "log": "body-no-loop.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/body-no-loop.mjs"
+      ],
+      "log_sha256": "873d07587c55132efe6750769b57c61628ff3506eb13eae1cfd054679acf5259",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/body-no-loop.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 4672 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 512,
+      "memory_limit_mb": 3072,
+      "seconds": 0.042,
+      "log": "node.log",
+      "command": [
+        "node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/small.mjs"
+      ],
+      "log_sha256": "6b706a5134da19522f0f32b55004d174f229391d1a561c8e95c5a6b391b83c2b",
+      "log_excerpt": "$ [\"node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/small.mjs\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 512 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "for-init": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 6432,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "for-init.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/for-init.mjs"
+      ],
+      "log_sha256": "5d7ac189352f6cde619e1d111658968b7450143c251c8561909c1226ef32aa0e",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-exports/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/for-init.mjs\"]\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/for-init.mjs:343: ')' expected. (TS1005)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tailwind-parser/for-init.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 6432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "before-parser": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 482432,
+      "memory_limit_mb": 3072,
+      "seconds": 3.203,
+      "log": "before-parser.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "test",
+        "--dep",
+        "ts_lexer",
+        "--dep",
+        "hir",
+        "--dep",
+        "string_interner",
+        "-Mroot=packages/ts_parser/src/ts_parser.zig",
+        "--dep",
+        "string_interner",
+        "-Mhir=packages/hir/src/hir.zig",
+        "-Mts_lexer=packages/ts_lexer/src/ts_lexer.zig",
+        "-Mstring_interner=packages/string_interner/src/string_interner.zig",
+        "--test-filter",
+        "compound assignment"
+      ],
+      "log_sha256": "a2bd7a2c95b1bd8668a63952bd1e13010e59b577eb7c0e2b70ab4d214a5742e7",
+      "log_excerpt": "ECOSYSTEM PEAK SAMPLED RSS: 482432 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+    }
+  },
+  "mandatory_runtime_operations": 17,
+  "native_parser_tests": {
+    "filtered_before": "5pass/1fail, including both new regression/default-control tests",
+    "filtered_after": "6pass",
+    "complete_after": "941pass/0skip/0fail"
+  },
+  "minimal_reproduction": "for (const f = function(){ let x=0; true ? (x+=1) : value<10; }; false;) {}\n",
+  "scope": [
+    "First formal parameter cannot begin with a compound assignment. Only ambiguous colon-headed speculation in ternary then-arms is rejected; typed defaults with an earlier plain = remain accepted.",
+    "All15 compound operators plus actual async and generator execution match Node/Bun on both providers.",
+    "The real1.58MB Tailwind plugin advances from TS1005 to emitted for-of comma syntax failure; template builds are still failed.",
+    "This is Home TS parsing, not engine source/test262 corpus evidence."
+  ]
+}
