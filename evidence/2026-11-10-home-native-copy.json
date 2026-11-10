@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "home_commit": "848e5cf076601fefea75e76ad2ad07aff5a5d54a",
+  "parent": "d63b544e20ea6b36eb4ec33ac6cecc2d7c0f56dc",
+  "source_sha256": {
+    "build.zig": "ce540dedc0162778e32063e5192ac33217d640e3d3aaf2241ee2520eaf56c175",
+    "packages/runtime/src/jsc/tool_builtins.js": "4605fbbc948aa53792b64743ae8af2ffacb6235a6ef815ab2a8a7a8c8d9b81f9",
+    "packages/runtime/src/jsc/tool_fs.zig": "cccd5a30a600931d9b3cf21930f98af5dd968f6c3d6d2c72a36a607001809558",
+    "packages/runtime/test/tool_copy_fixture.py": "687a882e236bf84db86d0b96c87d58687d81b9440eb5938f99d29b77a6af523b",
+    "packages/runtime/test/tool_modules/node_cp.mjs": "b624b10da6bfa96196a4626e2070a91114476479a88a47f06352969f04dd3b2e",
+    "packages/runtime/test/tool_modules/node_cp_unsupported.mjs": "8936a6e5cb7612e21cc19ca160a843a33a9eb4c6f57515df437be4d37cd52068"
+  },
+  "local_engine_sha": "73ee013e8451aaadeb0402ab894cf2e24b2ede46",
+  "engine_mode": "Exact pushed Debug public C archive, ReleaseSafe Home; fresh Linux baseline ReleaseSafe qualification required",
+  "official_contract": "https://nodejs.org/api/fs.html#fscpsyncsrc-dest-options",
+  "results": {
+    "contract-before.json": {
+      "node": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 79648,
+        "memory_limit_mb": 3072,
+        "seconds": 0.299,
+        "log": "contract-node.log",
+        "log_sha256": "8929e9fadc085e9425f2da14497d0e9cb4b42328922f423148281cabf14570ca",
+        "excerpt": "NODE CP 49 CHECKS OK\nHOST CP INDEPENDENT 9 MiB FILE HASHES OK\n\nECOSYSTEM PEAK SAMPLED RSS: 79648 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "bun": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1408,
+        "memory_limit_mb": 3072,
+        "seconds": 0.126,
+        "log": "contract-bun.log",
+        "log_sha256": "59f6537551df3899e5fc1e31ae05c74b16a304b98bc3c286b7795cf671315839",
+        "excerpt": "NODE CP 49 CHECKS OK\nHOST CP INDEPENDENT 9 MiB FILE HASHES OK\n\nECOSYSTEM PEAK SAMPLED RSS: 1408 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "before-zig-js": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 56704,
+        "memory_limit_mb": 3072,
+        "seconds": 0.308,
+        "log": "contract-before-zig-js.log",
+        "log_sha256": "a1e0e911e33c6cdf27faebca1da5b9ab912521ad7ca99519cb3c83312f3ab4de",
+        "excerpt": "    return basename(from) !== \"omit\";\n  } })', 'fsp.cp' is undefined); promised filter rejection identity: preserve rejection without copying; sync refuses async filter: expected ERR_INVALID_RETURN_VALUE, got undefined; real synchronous chmod: fs.chmodSync is not a function. (In 'fs.chmodSync(path, 0o640)', 'fs.chmodSync' is undefined); real promised octal chmod: fsp.chmod is not a function. (In 'fsp.chmod(path, \"600\")', 'fsp.chmod' is undefined); chmod propagates missing path: expected ENOENT, got undefined\n\nECOSYSTEM PEAK SAMPLED RSS: 56704 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1"
+      },
+      "before-jsc": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 992,
+        "memory_limit_mb": 3072,
+        "seconds": 0.097,
+        "log": "contract-before-jsc.log",
+        "log_sha256": "7839cdbc12a65f8892516ca6535c58fbdd91b43a01831af67b80ebe947370511",
+        "excerpt": "    return basename(from) !== \"omit\";\n  } })', 'fsp.cp' is undefined); promised filter rejection identity: preserve rejection without copying; sync refuses async filter: expected ERR_INVALID_RETURN_VALUE, got undefined; real synchronous chmod: fs.chmodSync is not a function. (In 'fs.chmodSync(path, 0o640)', 'fs.chmodSync' is undefined); real promised octal chmod: fsp.chmod is not a function. (In 'fsp.chmod(path, \"600\")', 'fsp.chmod' is undefined); chmod propagates missing path: expected ENOENT, got undefined\n\nECOSYSTEM PEAK SAMPLED RSS: 992 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1"
+      }
+    },
+    "contract-after.json": {
+      "zig-js": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 69312,
+        "memory_limit_mb": 3072,
+        "seconds": 0.568,
+        "log": "contract-after-zig-js.log",
+        "log_sha256": "34fb1cd7b345712cacaf53caad6df965530af649d4195aeb746e5e775675ee36",
+        "excerpt": "NODE CP UNSUPPORTED 12 CHECKS OK\nHOST CP INDEPENDENT 9 MiB FILE HASHES OK\n\nECOSYSTEM PEAK SAMPLED RSS: 69312 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "jsc": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 38400,
+        "memory_limit_mb": 3072,
+        "seconds": 0.353,
+        "log": "contract-after-jsc.log",
+        "log_sha256": "3246abf61d42b7542bbdaefa669678d01518dd92f42e27c304affa64abf417a8",
+        "excerpt": "NODE CP UNSUPPORTED 12 CHECKS OK\nHOST CP INDEPENDENT 9 MiB FILE HASHES OK\n\nECOSYSTEM PEAK SAMPLED RSS: 38400 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0"
+      }
+    },
+    "gates.json": {
+      "zig-js": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 429808,
+        "memory_limit_mb": 3072,
+        "seconds": 6.764,
+        "log": "zig-js-gates.log",
+        "log_sha256": "b9a53fe50f939c980d932a55c353597ac4740ab3c6ac95587fb65dcd7e888c26",
+        "excerpt": "Build Summary: 200/200 steps succeeded"
+      },
+      "jsc": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 35840,
+        "memory_limit_mb": 3072,
+        "seconds": 0.539,
+        "log": "jsc-gates.log",
+        "log_sha256": "af751308b81d57375e29dd064c6ca44ea749520cff1f7ee7673c25bdbfd5bc10",
+        "excerpt": "Build Summary: 179/179 steps succeeded"
+      }
+    },
+    "defaults-before.json": {
+      "before": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 36784,
+        "memory_limit_mb": 3072,
+        "seconds": 0.343,
+        "log": "defaults-before.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/os-parallelism/after-zig-js/bin/home-tool",
+          "run"
+        ],
+        "log_sha256": "8da5a9557635979646c85b482d6fe647291f51744643a9589300d7a1e529516f",
+        "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/os-parallelism/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/core/defaults/build.ts\"]\nhome-tool (zig-js): TypeError: cp is not a function. (In 'cp(source, dest, { recursive: true, filter: shipsToApps })', 'cp' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 36784 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1"
+      },
+      "reference": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32688,
+        "memory_limit_mb": 3072,
+        "seconds": 3.364,
+        "log": "defaults-reference.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/bun"
+        ],
+        "log_sha256": "377e57bc88a488acde7b48d4fc9aee5662757e8ad7ade3f55fe7e8e3494817a8",
+        "excerpt": "@stacksjs/defaults: copied project support file /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/tsconfig.package-app.json\n@stacksjs/defaults: copied project support file /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/tsconfig.base.json\n@stacksjs/defaults: copied project support file /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/server/tsconfig.docker.json\n@stacksjs/defaults: Bun 1.4.4\n@stacksjs/defaults: copied the framework type declarations\n\nECOSYSTEM PEAK SAMPLED RSS: 32688 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0"
+      }
+    },
+    "defaults-after.json": {
+      "zig-js": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 144960,
+        "memory_limit_mb": 3072,
+        "seconds": 4.089,
+        "log": "defaults-after-zig-js.log",
+        "reference_manifest_files": 3031,
+        "actual_files": 3031,
+        "actual_bytes": 32848313,
+        "differences": [],
+        "log_sha256": "a9052c1c6c569273785938c2ae5afc92f2f692c7dac77475149629b76f871943",
+        "excerpt": "@stacksjs/defaults: copied project support file /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/tsconfig.package-app.json\n@stacksjs/defaults: copied project support file /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/tsconfig.base.json\n@stacksjs/defaults: copied project support file /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/server/tsconfig.docker.json\n@stacksjs/defaults: Bun 1.4.4\n@stacksjs/defaults: copied the framework type declarations\n\nECOSYSTEM PEAK SAMPLED RSS: 144960 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "jsc": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 34288,
+        "memory_limit_mb": 3072,
+        "seconds": 0.963,
+        "log": "defaults-after-jsc.log",
+        "reference_manifest_files": 3031,
+        "actual_files": 3031,
+        "actual_bytes": 32848313,
+        "differences": [],
+        "log_sha256": "033a7331c3205feedbc7d5b9071dadb4745a07c1595569cc88177892b57fe6f5",
+        "excerpt": "@stacksjs/defaults: copied project support file /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/tsconfig.package-app.json\n@stacksjs/defaults: copied project support file /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/tsconfig.base.json\n@stacksjs/defaults: copied project support file /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/storage/framework/server/tsconfig.docker.json\n@stacksjs/defaults: Bun 1.4.4\n@stacksjs/defaults: copied the framework type declarations\n\nECOSYSTEM PEAK SAMPLED RSS: 34288 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0"
+      }
+    }
+  },
+  "golden_output": {
+    "consumer_repository": "stacksjs/stacks",
+    "consumer_sha": "8b9e1572fee6a8345213159d892fd82d91604927",
+    "command": "build.ts",
+    "cwd": "storage/framework/core/defaults",
+    "reference_provider": "Bun 1.4.4",
+    "files": 3031,
+    "bytes": 32848313,
+    "manifest_sha256": "cbc3651dc7fa641ef0fe908ba83e38f5828c5f8d7264c08872ecd9c5e9253ced",
+    "comparison": "Every output relative path, SHA256, size and permission mode equals reference for both Home providers"
+  },
+  "profile_limits": [
+    "String paths, regular source files and directories only; source symlinks and special files fail explicitly",
+    "dereference, preserveTimestamps and verbatimSymlinks true and nondefault copy modes fail explicitly",
+    "Callback fs.cp is not implemented; no complete Node fs compatibility claim",
+    "12 mandatory Home-only refusal checks are separate from 49 Node/Bun compatibility groups",
+    "Independent Python SHA256 verifies actual 9 MiB copies for both sync/promise paths, without a JS read-limit increase"
+  ],
+  "validation": {
+    "zig_format": "passed",
+    "pickier": "0 errors; 2 pre-existing prefer-template warnings",
+    "full_local_gates": {
+      "zig-js": 200,
+      "jsc": 179
+    },
+    "test262": "not run; no engine semantics change or corpus flip claim"
+  },
+  "qualification": "Caller remains immutable validated 0bd9515 until exact new suite passes Linux runtime gates, all 5 native CPU cases and actual Stacks/Home provenance and CPU preflights",
+  "preserved": [
+    "Concurrent Home unique-symbol order checker commits 54b388938/d63b544e",
+    "All 224 selected consumers, existing memory/time/step/string limits, genuine unsupported evidence"
+  ]
+}
