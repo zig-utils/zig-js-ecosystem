@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "home_commit": "0785dda1fc55af1034392c5543458034852c6c3b",
+  "home_parent": "8b85c8bd419ba7854f51b32ff96fe817506cdf7a",
+  "before_home_providers": "26a474c6806acc7305fa4b3b905bda53d0d6814e",
+  "local_runtime": {
+    "engine_sha": "73ee013e8451aaadeb0402ab894cf2e24b2ede46",
+    "regex_sha": "da4d2a6aa51bf9de3a0665d577eaced0657db606",
+    "home_ref": "26a474c6806acc7305fa4b3b905bda53d0d6814e",
+    "engine_mode": "Debug",
+    "host_mode": "ReleaseSafe",
+    "cpu": "default native macOS",
+    "archive_sha256": "2c47e7a0444617691edca083e9ad6927c46c48cfbbae82e0970924c3b2b43e25",
+    "archive_bytes": 78976552,
+    "scope": "Local Debug engine integration; not Linux baseline ReleaseSafe qualification."
+  },
+  "source_hashes_at_immutable_commit": {
+    "packages/runtime/src/jsc/tool_modules.js": "0ed81c9855bb840d3c0678dfde1d09521bf98a5d8dcf1cdc1de820ca8c743392",
+    "packages/runtime/src/jsc/tool_modules.zig": "219761fa49cbe2575a7c8dcddb38798956df74c2e14e439625d6dcfc54549764",
+    "packages/runtime/test/tool_modules/main.ts": "25a1251986f32f2a99f5e4a265fab1027e12ca8faafa682cf1e5fd1c55009209",
+    "packages/runtime/test/tool_modules/stack_origins/entry.mjs": "b6ce828e2ce4c57760ec920d193038ce6d27e840df5ec53ca05d920189f811c1",
+    "packages/runtime/test/tool_modules/stack_origins/esm-leaf.mjs": "2660f801eabfdbf18445ea67117cc9def8d27f1e4662c6abd5f34eaf49f859d1",
+    "packages/runtime/test/tool_modules/stack_origins/async-leaf.mjs": "e6b63314e2e924c3941066b39c77221ba841aca824b5f2657a1e523b85c7b52e",
+    "packages/runtime/test/tool_modules/stack_origins/cjs-leaf.cjs": "c50399149e24d82db5c2f8cb8853124205ef89675e0e4ad495cd0694692db94b",
+    "packages/runtime/test/tool_modules/stack_origins/typed-leaf.ts": "348d9bd0754749224e7f8f3513247461dd3038faef4c60f638a8194ee69b39ec"
+  },
+  "results": {
+    "before.json": {
+      "node": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 400,
+        "memory_limit_mb": 3072,
+        "seconds": 0.1,
+        "log": "node.log",
+        "command": [
+          "node",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/stack_origins/entry.mjs"
+        ],
+        "log_sha256": "02ccdd72a7351a216c4d35c7860526019ddae09dc035cfb4db187c36af6bcae5",
+        "signals": [
+          "MODULE STACK ORIGINS 4 OK",
+          "ECOSYSTEM RESULT: passed, exit 0"
+        ]
+      },
+      "bun": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1792,
+        "memory_limit_mb": 3072,
+        "seconds": 0.024,
+        "log": "bun.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/stack_origins/entry.mjs"
+        ],
+        "log_sha256": "b40742a553c73d054c3a923bc73c3d7358d6eb61a40a6ab88e6ddd7b959b906a",
+        "signals": [
+          "MODULE STACK ORIGINS 4 OK",
+          "ECOSYSTEM RESULT: passed, exit 0"
+        ]
+      },
+      "before-zig-js": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 38416,
+        "memory_limit_mb": 3072,
+        "seconds": 0.146,
+        "log": "before-zig-js.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/home/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/stack_origins/entry.mjs"
+        ],
+        "log_sha256": "a1a64a288a494dec424a6a1b8bab552b38846d83c49944a9cbeef1b8236db994",
+        "signals": [
+          "home-tool (zig-js): Error: Module stack origin failures: esm-leaf.mjs,cjs-leaf.cjs,typed-leaf.ts,async-leaf.mjs; operations=4",
+          "ECOSYSTEM RESULT: failed, exit 1"
+        ]
+      },
+      "before-jsc": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.042,
+        "log": "before-jsc.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/forof-sequence/after-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/stack_origins/entry.mjs"
+        ],
+        "log_sha256": "ed259bad9262ba6e4012f39d2219997f4d934bbab07247302d0619d47a683e96",
+        "signals": [
+          "home-tool (jsc): Error: Module stack origin failures: esm-leaf.mjs,cjs-leaf.cjs,typed-leaf.ts,async-leaf.mjs; operations=4",
+          "ECOSYSTEM RESULT: failed, exit 1"
+        ]
+      }
+    },
+    "final-direct.json": {
+      "zig-js": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 38288,
+        "memory_limit_mb": 3072,
+        "seconds": 0.157,
+        "log": "zig-js-direct-final.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/stack_origins/entry.mjs"
+        ],
+        "binary_sha256": "13b2589db6ac81641677729c8d40e41f5e2cd5c0a033d4881af67ecd65f0fcef",
+        "log_sha256": "12991f10896a83532aa13fb603b4efe7d5faa0c71ba37537fc79a934a5bfdd53",
+        "signals": [
+          "MODULE STACK ORIGINS 4 OK",
+          "ECOSYSTEM RESULT: passed, exit 0"
+        ]
+      },
+      "jsc": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.035,
+        "log": "jsc-direct-final.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/stack_origins/entry.mjs"
+        ],
+        "binary_sha256": "86a55dc4d07068749beaeb78d6979ecf62c1f52ac2f49d3ff5dc55f53052df3a",
+        "log_sha256": "fd49b533bee73fc7920e61fe80d49b6eeaec2e22859ff31d01ac82cd25673ca6",
+        "signals": [
+          "MODULE STACK ORIGINS 4 OK",
+          "ECOSYSTEM RESULT: passed, exit 0"
+        ]
+      }
+    },
+    "final-gates.json": {
+      "zig-js": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1185072,
+        "memory_limit_mb": 3072,
+        "seconds": 61.384,
+        "log": "zig-js-final.log",
+        "log_sha256": "621542169c5d6204d32010e714d0e43b9dbcdf18b3458918cbb6566ca4f4fd62",
+        "signals": [
+          "MODULE STACK ORIGINS 4 OK",
+          "Build Summary: 197/197 steps succeeded",
+          "ECOSYSTEM RESULT: passed, exit 0"
+        ]
+      },
+      "jsc": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 838032,
+        "memory_limit_mb": 3072,
+        "seconds": 38.675,
+        "log": "jsc-final.log",
+        "log_sha256": "32b499155e1e2a08357b396a7d27959ac12e364fe6e8d823e36fac7fb4f6d2e3",
+        "signals": [
+          "MODULE STACK ORIGINS 4 OK",
+          "Build Summary: 176/176 steps succeeded",
+          "ECOSYSTEM RESULT: passed, exit 0"
+        ]
+      }
+    },
+    "jsc-gates-final.json": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1152272,
+      "memory_limit_mb": 3072,
+      "seconds": 42.57,
+      "log": "jsc-gates-final.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-jsc",
+        "-j1",
+        "--summary",
+        "all"
+      ]
+    }
+  },
+  "pickier": {
+    "exit_code": 0,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "output": ""
+  },
+  "validation_scope": [
+    "4 actual ESM/CommonJS/TypeScript/async throwing leaf modules: both before providers fail4; Node and Bun pass4; both final providers pass4. Required by existing tool_modules/main.ts smoke graph.",
+    "All197 zig-js integration gate steps and176 JSC common gate steps pass; these include expected negative gates and are not JS test case counts. Local engine archive is exact pushed73ee Debug, host ReleaseSafe. Fresh Linux baseline ReleaseSafe qualification remains required.",
+    "First directive-only JSC attempt fails4 origins; genuine public JSEvaluateScript source URL fixes JSC. Zig-js retains existing indirect eval with encoded sourceURL and unchanged shared budget. No new engine ABI or synthetic host capability.",
+    "Generated positions carry ?home-emitted; no original TypeScript source map claim. Preserve parent8b85c8b and its eight foreign TS checker commits.",
+    "Missing v8/Bun.build/root budget/docs memory remain failures. Do not promote an evidence-only descendant or claim full consumer compatibility."
+  ]
+}
