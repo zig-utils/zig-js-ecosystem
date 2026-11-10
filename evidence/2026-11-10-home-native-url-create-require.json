@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "home_sha": "2b2a78cc9bf64c278f3c3b84ae8c6bf5cfff1b8b",
+  "parent": "a3e3b9276d34114b00a3d377a0a2b31440a13140",
+  "engine_sha": "d59e081a4e4f217d98cf5100ddcc7d4d0c66f228",
+  "engine_archive_sha256": "dee3902fd63d83926aa690f35418844333f8916dda15a342b9264d16c55ffd71",
+  "local_build_mode": "Exact pushed Debug C archive, native macOS CPU, ReleaseSafe Home; fresh Linux baseline ReleaseSafe qualification required",
+  "source_sha256": {
+    "build.zig": "1f471efaab06bc106b11d19d59df253878e5db51b68a80f4745521d91ee483a3",
+    "packages/runtime/src/jsc/tool_builtins.js": "e7479ae14c9d6fce1296963fd4a187d850cff29c0aa41eacae6d82a88e52471b",
+    "packages/runtime/test/tool_modules/node_module_url.mjs": "be61d34c2ece5f8f5f80a730df5e2a89f14ef53bc15b0a020e361dbb2efff42c"
+  },
+  "official_contract": "https://nodejs.org/api/module.html#modulecreaterequirefilename",
+  "results": {
+    "before.json": {
+      "node": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 816,
+        "memory_limit_mb": 3072,
+        "seconds": 0.076,
+        "log": "contract-node.log",
+        "log_sha256": "475085dbd43f711ae608a22ae62bcbfa882cc1afb99948f8be2104d56f2c7cbf",
+        "excerpt": "NODE MODULE URL 27 CHECKS OK\nECOSYSTEM PEAK SAMPLED RSS: 816 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "bun": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 1568,
+        "memory_limit_mb": 3072,
+        "seconds": 0.03,
+        "log": "contract-bun.log",
+        "log_sha256": "def943c8b5d078971e60151df1eb294fe70054a2e44a7ddc01717670ee4c9fa3",
+        "excerpt": "62 | if (failures.length) throw new Error('NODE MODULE URL ' + checks + ' checks; failures: ' + failures.join('; '));\nerror: NODE MODULE URL 27 checks; failures: remote file host rejected: invalid referrer must throw TypeError; encoded separator rejected: invalid referrer must throw TypeError\nECOSYSTEM PEAK SAMPLED RSS: 1568 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+      },
+      "before-zig-js": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 24432,
+        "memory_limit_mb": 3072,
+        "seconds": 0.218,
+        "log": "contract-before-zig-js.log",
+        "log_sha256": "4e15dd032dbd5e2e86f14e4671a4239e0227e8ca6970ea42f8ef865e1feb09ae",
+        "excerpt": "home-tool (zig-js): Error: NODE MODULE URL 27 checks; failures: actual relative CommonJS dependency: Home createRequire URL objects require a shared URL implementation; actual relative resolution: Home createRequire URL objects require a shared URL implementation; referrer filename need not exist: Home createRequire URL objects require a shared URL implementation; native and string URL share module identity: Home createRequire URL objects require a shared URL implementation; native URL and absolute path share module identity: Home createRequire URL objects require a shared URL implementation; JSON from native URL scope: Home createRequire URL objects require a shared URL implementation; builtin module identity: Home createRequire URL objects require a shared URL implementation; builtin resolution: Home createRequire URL objects require a shared URL implementation; root package imports: Home createRequire URL objects require a shared URL implementation; UTF-8 escaped child scope: Home createRequire URL objects require a shared URL implementation; child package imports: Home createRequire URL objects require a shared URL implementation; distinct scopes retain distinct modules: Home createRequire URL objects require a shared URL implementation; cross-scope resolution shares actual module: Home createRequire URL objects require a shared URL implementation; directory URL referrer: Home createRequire URL objects require a shared URL implementation; query and hash ignored as URL syntax: Home createRequire URL objects require a shared URL implementation; relative URL resolution: Home createRequire URL objects require a shared URL implementation; localhost file URL: Home createRequire URL objects require a shared URL implementation; factory snapshots mutable URL referrer: Home createRequire URL objects require a shared URL implementation; resolve does not parse invalid target: Home createRequire URL objects require a shared URL implementation; non-file URL rejected: invalid referrer must throw TypeError; remote file host rejected: invalid referrer must throw TypeError; encoded separator rejected: invalid referrer must throw TypeError; plain object rejected: invalid referrer must throw TypeError; prototype-only URL rejected: invalid referrer must throw TypeError; copied URL fields rejected: invalid referrer must throw TypeError; URL proxy rejected: invalid referrer must throw TypeError; module ID still requires a string: do not coerce arbitrary module IDs\nECOSYSTEM PEAK SAMPLED RSS: 24432 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+      }
+    },
+    "after.json": {
+      "zig-js": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 34272,
+        "memory_limit_mb": 3072,
+        "seconds": 0.212,
+        "log": "contract-after-zig-js.log",
+        "log_sha256": "d3c8378bbc52cc3db312e6353c2738cde9764b2c8479fbaec8c6b7fcd435fbfc",
+        "excerpt": "NODE MODULE URL 27 CHECKS OK\nECOSYSTEM PEAK SAMPLED RSS: 34272 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "jsc-url-profile": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.241,
+        "log": "contract-after-jsc-url-profile.log",
+        "log_sha256": "cc9a2ec4eba7bc77379dfe6e1439d6a6d89d509ef351c0c4588bb292c4a692b2",
+        "excerpt": "home-tool (jsc): Error: Native URL createRequire profile requires a provider URL implementation\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\nECOSYSTEM RESULT: failed, exit 1"
+      }
+    },
+    "gates.json": {
+      "zig-js": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1306720,
+        "memory_limit_mb": 3072,
+        "seconds": 65.95,
+        "log": "zig-js-gates.log",
+        "log_sha256": "92389ace9337b8714c0fac9eec7c266ae87d1c032fc0d8997f54c07663a757b5",
+        "excerpt": "NODE MODULE URL 27 CHECKS OK\nNODE FILE URL FS 40 CHECKS OK\nhome-tool (zig-js): Error: Cannot resolve @home/exports/missing-array from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs: ExportedFileNotFound\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nhome-tool (zig-js): Error: async rejection witness\nNODE CRYPTO UUID 23 CHECKS OK\nNODE AVAILABLE PARALLELISM 12 CHECKS OK; native estimate 11\nNODE RMDIR 11 CHECKS OK\nNODE SYNC FS 18 CHECKS OK\nNODE MKDTEMP 13 CHECKS OK\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nhome-tool (zig-js): Error: exit listener witness\nhome-tool (zig-js): undefined\nhome-tool (zig-js): Error: async rejection witness\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nhome-tool (zig-js): Error: Cannot resolve @home/exports/blocked from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs: PackagePathNotExported\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/dynamic_import/pending-entry.mjs\nhome-tool (zig-js): Error: Cannot resolve @home/exports/directory from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs: ExportedFileNotFound\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async_property_newline.cjs\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nhome-tool (zig-js): Error: Cannot resolve @home/exports/require-only from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs: PackagePathNotExported\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nhome-tool (zig-js): AssertionError [ERR_ASSERTION]: actual assertion failure\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_stream_pending.mjs\nhome-tool (zig-js): undefined\nhome-tool (zig-js): SyntaxError: Unexpected identifier 'Promise'\nhome-tool (zig-js): Error: Cannot resolve @home/exports/extensionless from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs: ExportedFileNotFound\nhome-tool (zig-js): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nBuild Summary: 202/202 steps succeeded\nECOSYSTEM PEAK SAMPLED RSS: 1306720 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      },
+      "jsc": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1252832,
+        "memory_limit_mb": 3072,
+        "seconds": 34.541,
+        "log": "jsc-gates.log",
+        "log_sha256": "b6938988020ba794eaba3513bb5ddf38c26cba6f14922772f700b19f1bf809b4",
+        "excerpt": "home-tool (jsc): Error: async rejection witness\nNODE CRYPTO UUID 23 CHECKS OK\nNODE AVAILABLE PARALLELISM 12 CHECKS OK; native estimate 11\nNODE RMDIR 11 CHECKS OK\nNODE SYNC FS 18 CHECKS OK\nNODE MKDTEMP 13 CHECKS OK\nhome-tool (jsc): Error: Cannot resolve @home/exports/extensionless from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs: ExportedFileNotFound\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async_property_newline.cjs\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nhome-tool (jsc): undefined\nhome-tool (jsc): SyntaxError: Unexpected identifier 'Promise'\nhome-tool (jsc): Error: async rejection witness\nhome-tool (jsc): undefined\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nhome-tool (jsc): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nhome-tool (jsc): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nhome-tool (jsc): Error: Cannot resolve @home/exports/blocked from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs: PackagePathNotExported\nhome-tool (jsc): Error: exit listener witness\nhome-tool (jsc): AssertionError [ERR_ASSERTION]: actual assertion failure\nhome-tool (jsc): Error: Cannot resolve @home/exports/require-only from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs: PackagePathNotExported\nhome-tool (jsc): Error: Cannot resolve @home/exports/directory from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs: ExportedFileNotFound\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/dynamic_import/pending-entry.mjs\nhome-tool (jsc): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_stream_pending.mjs\nhome-tool (jsc): Error: Cannot resolve @home/exports/missing-array from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs: ExportedFileNotFound\nBuild Summary: 179/179 steps succeeded\nECOSYSTEM PEAK SAMPLED RSS: 1252832 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+      }
+    },
+    "old-provider-refusal.json": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.742,
+      "log": "old-provider-refusal.log",
+      "log_sha256": "ce2a78a9c67bb94096e5d8de88c6c6ae9cce67151d80a7b2144b3270a8e5d3f2",
+      "excerpt": "UNBRANDED URL PROVIDER 4 EXPLICIT REFUSALS OK\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\nECOSYSTEM RESULT: passed, exit 0"
+    }
+  },
+  "oracle_summary": {
+    "groups_executed_each": 27,
+    "node_26_10": "27passed/0failed",
+    "bun_1_4_4": "25passed/2failed: remote-host and encoded-separator anchors accepted at factory creation; no assertion they load a target",
+    "before_Home_a3": "27attemptedgroups fail at native URL createRequire unsupported before target loading",
+    "after_Home": "27passed/0failed"
+  },
+  "actual_operations": [
+    "Actual written CommonJS and JSON files, including UTF-8/percent/hash path data",
+    "Canonical module resolution and cache identity across object/string/absolute referrers",
+    "Root/child package imports and distinct scopes",
+    "Directory URLs, URL-relative normalization, query/fragment stripping and localhost",
+    "Resolve without parsing invalid source; referrer snapshot after URL mutation",
+    "Builtin identity and invalid scheme/host/separator/plain/prototype/copied/proxy rejection"
+  ],
+  "error_policy": "Invalid native URL conversion becomes ERR_INVALID_ARG_VALUE like Node; ERR_HOME_UNSUPPORTED is preserved unchanged for missing/unsafe provider capability",
+  "profile_limits": [
+    "JSCstilllacksURL and actuallyfailsURLprofile before27groups; basic179JSC steps pass, no skipped/fake URL pass",
+    "Same new Home against old73ee passes4explicit unsupported-provider refusals, including createRequire and existsSync, retaining real file data",
+    "Initial test assumed filesystem-specific URL error codes; actual Node consistently wraps these in ERR_INVALID_ARG_VALUE. Final code/fixture follows measured Node; Bun differences retained",
+    "No full consumer/package recovery or test262 flip claim; all selected repositories/budgets retained"
+  ],
+  "mandatory_gate": "Existing home-tool-file-url-smoke target directly prints27executedgroups and also retains40fileURLfilesystem groups",
+  "qualification": "Caller remains exact validatedbb9678d/Homea3 until immutable new suite passes Linux runtime/all5nativeCPU cases,42Python/7dependency validation and both actual priority preflights"
+}
