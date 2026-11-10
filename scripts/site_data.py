@@ -25,6 +25,8 @@ NAME = re.compile(r"^[\w.-]+/[\w.-]+$")
 SHA = re.compile(r"^[a-f0-9]{40}$")
 MAX_ARCHIVE = 128 * 1024 * 1024
 MAX_JSON = 64 * 1024 * 1024
+REFRESH_ERRORS = (RuntimeError, ValueError, KeyError, OSError, subprocess.CalledProcessError, zipfile.BadZipFile)
+CONSUMER_JSON = re.compile(r"^[\w.-]+--[\w.-]+\.json$")
 LABELS = {"passed": "Passed", "failed": "Failing", "unsupported": "Unsupported",
           "not-run": "Not executed", "unknown": "Awaiting evidence",
           "native-only": "Native only", "blocked": "Setup blocked", "not-applicable": "Not applicable"}
@@ -80,7 +82,7 @@ def compact_record(record, source, expected):
     }
 
 
-def read_artifact(raw, artifact):
+def read_json_members(raw, artifact, select):
     if len(raw) > MAX_ARCHIVE:
         raise ValueError("Artifact exceeds download limit")
     digest = "sha256:" + hashlib.sha256(raw).hexdigest()
@@ -89,14 +91,32 @@ def read_artifact(raw, artifact):
     with zipfile.ZipFile(io.BytesIO(raw)) as archive:
         files = archive.infolist()
         # Read specific JSON members in memory; no extraction or symlink traversal.
-        selected = [p for p in files if p.filename in ("report/report.json", "report.json", "inventory.json")]
+        selected = [p for p in files if select(p.filename)]
         if sum(p.file_size for p in selected) > MAX_JSON:
             raise ValueError("Report JSON exceeds read limit")
-        reports = [p for p in selected if p.filename.endswith("report.json")]
-        inventories = [p for p in selected if p.filename == "inventory.json"]
-        if len(reports) != 1 or len(inventories) != 1:
-            raise ValueError("Artifact must contain exactly one report and inventory")
-        return json.loads(archive.read(reports[0])), json.loads(archive.read(inventories[0]))
+        if len({p.filename for p in selected}) != len(selected):
+            raise ValueError("Duplicate JSON member")
+        return {p.filename: json.loads(archive.read(p)) for p in selected}
+
+
+def read_artifact(raw, artifact):
+    members = read_json_members(raw, artifact,
+                                lambda name: name in ("report/report.json", "report.json", "inventory.json"))
+    reports = [value for name, value in members.items() if name.endswith("report.json")]
+    if len(reports) != 1 or "inventory.json" not in members:
+        raise ValueError("Artifact must contain exactly one report and inventory")
+    return reports[0], members["inventory.json"]
+
+
+def read_consumer_artifact(raw, artifact):
+    members = read_json_members(raw, artifact, lambda name: bool(CONSUMER_JSON.fullmatch(name)))
+    if not members:
+        raise ValueError("Empty consumer artifact")
+    for name, record in members.items():
+        if not isinstance(record, dict) or name != record.get("repository", "").replace("/", "--") + ".json":
+            raise ValueError("Consumer filename mismatch")
+    results = list(members.values())
+    return {"engine_sha": results[0].get("engine_sha"), "results": results}
 
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):
@@ -173,7 +193,7 @@ def collect(bootstrap):
     live, inventories = {}, []
     for repo in REPOS:
         try:
-            runs = api(f"repos/{repo}/actions/workflows/ecosystem.yml/runs?per_page=3")["workflow_runs"]
+            runs = api(f"repos/{repo}/actions/workflows/ecosystem.yml/runs?per_page=8")["workflow_runs"]
             if not runs:
                 raise ValueError("No ecosystem runs returned")
             jobs = paginate(f"repos/{repo}/actions/runs/{runs[0]['id']}/jobs", "jobs")
@@ -182,23 +202,51 @@ def collect(bootstrap):
             completed = api(f"repos/{repo}/actions/workflows/ecosystem.yml/runs?per_page=2&status=completed")["workflow_runs"]
             candidates = {r["id"]: r for r in [*runs, *completed]}
             for run in candidates.values():
-                artifacts = paginate(f"repos/{repo}/actions/runs/{run['id']}/artifacts", "artifacts")
-                artifact = next((a for a in artifacts if a["name"] == "ecosystem-report" and not a["expired"]), None)
-                if not artifact:
-                    continue
-                if artifact["size_in_bytes"] > MAX_ARCHIVE:
-                    data["warnings"].append(f"{repo} run {run['id']}: report too large; prior evidence retained")
-                    continue
-                raw = api(f"repos/{repo}/actions/artifacts/{artifact['id']}/zip", binary=True)
-                report, inventory = read_artifact(raw, artifact)
-                source = {"repository": repo, "run_id": run["id"], "url": run["html_url"],
-                          "measured_at": run["updated_at"], "artifact_id": artifact["id"],
-                          "digest": artifact["digest"], "focused": bool(inventory.get("focus")),
-                          "artifact_url": f"{run['html_url']}/artifacts/{artifact['id']}"}
-                merge_report(records, report, inventory, source)
-                if not inventory.get("focus"):
-                    inventories.append((run["created_at"], inventory))
-        except (RuntimeError, ValueError, KeyError, OSError, subprocess.CalledProcessError, zipfile.BadZipFile) as error:
+                try:
+                    artifacts = paginate(f"repos/{repo}/actions/runs/{run['id']}/artifacts", "artifacts")
+                    artifact = next((a for a in artifacts if a["name"] == "ecosystem-report" and not a["expired"]), None)
+                    inventory_artifact = next((a for a in artifacts if a["name"] == "ecosystem-inventory" and not a["expired"]), None)
+                    partials = [a for a in artifacts if re.fullmatch(r"ecosystem-results-\d+", a["name"]) and not a["expired"]]
+                    # Consumer jobs publish their completed JSON before the entire
+                    # matrix can produce its aggregate. Keep their frozen inventory
+                    # separate from the latest live job state and from other runs.
+                    if not artifact and partials and not inventory_artifact:
+                        raise ValueError("Frozen inventory artifact missing")
+                    if not artifact and not partials:
+                        continue
+                    chosen = [artifact] if artifact else [inventory_artifact, *partials]
+                    if any(a["size_in_bytes"] > MAX_ARCHIVE for a in chosen):
+                        data["warnings"].append(f"{repo} run {run['id']}: report too large; prior evidence retained")
+                        continue
+                    if artifact:
+                        raw = api(f"repos/{repo}/actions/artifacts/{artifact['id']}/zip", binary=True)
+                        report, inventory = read_artifact(raw, artifact)
+                        reports = [(artifact, report)]
+                    else:
+                        raw = api(f"repos/{repo}/actions/artifacts/{inventory_artifact['id']}/zip", binary=True)
+                        inventory = read_json_members(raw, inventory_artifact, lambda name: name == "inventory.json")["inventory.json"]
+                        reports = []
+                        for partial in partials:
+                            try:
+                                raw = api(f"repos/{repo}/actions/artifacts/{partial['id']}/zip", binary=True)
+                                reports.append((partial, read_consumer_artifact(raw, partial)))
+                            except REFRESH_ERRORS as error:
+                                data["warnings"].append(f"{repo} run {run['id']} artifact {partial['id']}: unavailable ({type(error).__name__}); prior evidence retained")
+                    for measured, report in reports:
+                        source = {"repository": repo, "run_id": run["id"], "url": run["html_url"],
+                                  "measured_at": measured.get("updated_at") or measured.get("created_at") or run["updated_at"],
+                                  "artifact_id": measured["id"], "digest": measured["digest"],
+                                  "focused": bool(inventory.get("focus")),
+                                  "artifact_url": f"{run['html_url']}/artifacts/{measured['id']}"}
+                        if not artifact:
+                            source.update({"partial": True, "inventory_artifact_id": inventory_artifact["id"],
+                                           "inventory_digest": inventory_artifact["digest"]})
+                        merge_report(records, report, inventory, source)
+                    if not inventory.get("focus"):
+                        inventories.append((run["created_at"], inventory))
+                except REFRESH_ERRORS as error:
+                    data["warnings"].append(f"{repo} run {run['id']}: refresh unavailable ({type(error).__name__}); prior evidence retained")
+        except REFRESH_ERRORS as error:
             # Never log response bodies, tokens or signed artifact URLs.
             data["warnings"].append(f"{repo}: refresh unavailable ({type(error).__name__}); dated prior evidence retained")
     data["live"] = live
