@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "run": 42834992849,
+  "engine_sha": "abfe1f3c5135d6bfd5d356125cec7ef34db84d90",
+  "consumer_sha": "2a5dc3e50b568456dc7da31ed76e0c1eea98eff9",
+  "artifact": {
+    "id": 13775831317,
+    "sha256": "4f86cb6c64c6f4f92f1dd05f7e768fe2edfe26d30ad479cc823396329e5ff5c4",
+    "bytes": 1427112
+  },
+  "report_sha256": "c06902d5a582f55c834c89c9d72930c75b48c8f62c0df6d01ca467fc5543baa5",
+  "scopes": 99,
+  "reported_checks": 927,
+  "candidate": {
+    "unsupported": 355,
+    "failed": 211,
+    "passed": 59
+  },
+  "selected_checks": [
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 1832348,
+        "memory_limit_mb": 3072,
+        "seconds": 9.609,
+        "log": "0016.log",
+        "label": ".: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "./buddy build"
+        ],
+        "engine_invocations": 3
+      },
+      "sha256": "050ecd7398084663ae35b636d4b710fe3712969649ab70a4894fe94c179c434e",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-10T14:44:31.245Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 1832348 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 1634320,
+        "memory_limit_mb": 3072,
+        "seconds": 9.257,
+        "log": "0018.log",
+        "label": ".: typecheck",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)"
+        ],
+        "engine_invocations": 3
+      },
+      "sha256": "c2fbc656dab68b31e92d02ad14f29df84e245f87b65941978a5fc6594501112f",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\n[2026-11-10T14:44:50.312Z] local.INFO: Building @stacksjs/validation...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 1634320 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    }
+  ],
+  "interpretation": [
+    "Actual Stacks source advanced8b9e157\u21922a5dc3e50; do not attribute unchanged59/211/355counts to engine changes alone.",
+    "Root still reaches evaluation step budget after3actual engine invocations at1832348KiB; typecheck reaches missingBun.build after3invocations at1634320KiB. No new compatibility or raster decode pass claimed."
+  ]
+}

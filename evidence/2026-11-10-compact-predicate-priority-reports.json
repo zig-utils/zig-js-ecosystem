@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "run": 42838406473,
+  "engine_sha": "73ee013e8451aaadeb0402ab894cf2e24b2ede46",
+  "consumers": [
+    {
+      "repository": "stacksjs/stacks",
+      "consumer_sha": "27ff63ee8866c31abd300431c3ba7441fc2046c3",
+      "report_sha256": "44ef1387147f5a622014031b8fb0d02aecf835cc7c12c10656cb1576ff062bac",
+      "scopes": 99,
+      "reported_checks": 927,
+      "candidate": {
+        "unsupported": 355,
+        "failed": 211,
+        "passed": 59
+      },
+      "all_statuses_by_lane": {
+        "candidate": {
+          "unsupported": 355,
+          "failed": 211,
+          "passed": 59
+        },
+        "engine": {
+          "passed": 1
+        },
+        "reference": {
+          "passed": 24,
+          "failed": 16,
+          "timed-out": 1,
+          "not-run": 234
+        },
+        "reference-setup": {
+          "passed": 10
+        },
+        "setup": {
+          "passed": 16
+        }
+      },
+      "runtime_provenance": {
+        "engine_sha": "73ee013e8451aaadeb0402ab894cf2e24b2ede46",
+        "suite_ref": "929019440832421b90e1c687a687da1b466baad0",
+        "home_repository": "home-lang/home",
+        "home_ref": "26a474c6806acc7305fa4b3b905bda53d0d6814e",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "c91e4d157eb2639b32474cecd367d1516f9883527062808300bd3f1973e3b3c9",
+          "engine/zig-out/lib/libzig-js.a": "e1d1efa65aa059be8bd0489bdff1d925aa1caba77fd8a08c5cbed94552d0ea7c"
+        }
+      },
+      "artifact": {
+        "id": 13777715512,
+        "sha256": "7e07b83252d39ed0740b27d673cc317ee09008fafd0bbb38377be8cb40db4bd4",
+        "bytes": 1412044
+      },
+      "selected_checks": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 1833480,
+            "memory_limit_mb": 3072,
+            "seconds": 11.184,
+            "log": "0016.log",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "./buddy build"
+            ],
+            "engine_invocations": 3
+          },
+          "log_sha256": "3971339ce46a9a8dbeb0688d0ad833963040cc3b578af42cbeff1c9a5af4b5fb",
+          "excerpt": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-10T15:08:42.205Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 1833480 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 1639508,
+            "memory_limit_mb": 3072,
+            "seconds": 11.469,
+            "log": "0018.log",
+            "label": ".: typecheck",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)"
+            ],
+            "engine_invocations": 3
+          },
+          "log_sha256": "37a184946863e22f4df7ce3800657c581d961fcd29f145a0fa9375ed98f20f75",
+          "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\n[2026-11-10T15:09:05.259Z] local.INFO: Building @stacksjs/validation...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 1639508 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ]
+    },
+    {
+      "repository": "home-lang/home",
+      "consumer_sha": "0e5566237d4cb2b0677200b67f9db13c60e41657",
+      "report_sha256": "f44cf6ae2a6207b5bf8815fe1e49bc89ef2f181e1d7a66211c6c9313dca8ec2d",
+      "scopes": 46,
+      "reported_checks": 234,
+      "candidate": {
+        "failed": 42,
+        "unsupported": 38,
+        "passed": 7
+      },
+      "all_statuses_by_lane": {
+        "candidate": {
+          "failed": 42,
+          "unsupported": 38,
+          "passed": 7
+        },
+        "direct-consumer": {
+          "passed": 4
+        },
+        "engine": {
+          "passed": 1
+        },
+        "reference": {
+          "passed": 6,
+          "failed": 1,
+          "timed-out": 1,
+          "not-run": 42
+        },
+        "reference-setup": {
+          "passed": 40,
+          "timed-out": 1,
+          "failed": 2
+        },
+        "setup": {
+          "passed": 46,
+          "timed-out": 1,
+          "failed": 2
+        }
+      },
+      "runtime_provenance": {
+        "engine_sha": "73ee013e8451aaadeb0402ab894cf2e24b2ede46",
+        "suite_ref": "929019440832421b90e1c687a687da1b466baad0",
+        "home_repository": "home-lang/home",
+        "home_ref": "26a474c6806acc7305fa4b3b905bda53d0d6814e",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "c91e4d157eb2639b32474cecd367d1516f9883527062808300bd3f1973e3b3c9",
+          "engine/zig-out/lib/libzig-js.a": "e1d1efa65aa059be8bd0489bdff1d925aa1caba77fd8a08c5cbed94552d0ea7c"
+        }
+      },
+      "artifact": {
+        "id": 13776879545,
+        "sha256": "8d37f599e3f370bc0967df401a4bb02a92d8d760011b4d6ef091793048648c5c",
+        "bytes": 168246
+      },
+      "selected_checks": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 238008,
+            "memory_limit_mb": 3072,
+            "seconds": 0.541,
+            "log": "0069.log",
+            "label": "packages/runtime/src/runtime/cli/init/react-shadcn: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun run build.ts"
+            ],
+            "engine_invocations": 1
+          },
+          "log_sha256": "27ce4376648238b5a3596386fd986de358859b397d9ffaecdf1de2a4934ef956",
+          "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 238008 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 244380,
+            "memory_limit_mb": 3072,
+            "seconds": 0.541,
+            "log": "0071.log",
+            "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun run build.ts"
+            ],
+            "engine_invocations": 1
+          },
+          "log_sha256": "7f3008fcf5e08a11788b4130e00735581fba9dc9b14ce8f8a064dae6027e00c5",
+          "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 244380 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ]
+    }
+  ],
+  "interpretation": [
+    "Both actual priority jobs pass immutable provenance/CPU preflights and fail their real consumer checks. Both downloaded ZIP digests match GitHub metadata.",
+    "Linux maintained React builds now reach missing v8, corroborating local Debug-engine diagnostics; neither build passes. Candidate status counts remain59/211/355 Stacks and7/42/38 Home.",
+    "Consumer revisions advanced independently (Stacks27ff63e; Home0e55662); unchanged label/status totals do not establish a controlled engine-only comparison.",
+    "Stacks root still exceeds the evaluation step budget after3 actual engine invocations. Bun.build, large PNG output limits and Home docs memory remain open. Reference not-run checks stay unexecuted; no fallback or fake APIs."
+  ]
+}

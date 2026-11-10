@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "engine_sha": "73ee013e8451aaadeb0402ab894cf2e24b2ede46",
+  "local_runtime": {
+    "engine_sha": "73ee013e8451aaadeb0402ab894cf2e24b2ede46",
+    "regex_sha": "da4d2a6aa51bf9de3a0665d577eaced0657db606",
+    "home_ref": "26a474c6806acc7305fa4b3b905bda53d0d6814e",
+    "engine_mode": "Debug",
+    "host_mode": "ReleaseSafe",
+    "cpu": "default native macOS",
+    "archive_sha256": "2c47e7a0444617691edca083e9ad6927c46c48cfbbae82e0970924c3b2b43e25",
+    "archive_bytes": 78976552,
+    "scope": "Local Debug engine integration; not Linux baseline ReleaseSafe qualification."
+  },
+  "archive_build": {
+    "status": "passed",
+    "exit_code": 0,
+    "peak_sampled_rss_kib": 2733888,
+    "memory_limit_mb": 3072,
+    "seconds": 24.276,
+    "log": "archive.log",
+    "command": [
+      "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+      "build",
+      "-Doptimize=Debug",
+      "-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/comment-ordered-nfa/home-after/bin/home-tool",
+      "--prefix",
+      "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/engine",
+      "-j1",
+      "--summary",
+      "all"
+    ]
+  },
+  "home_gates": {
+    "status": "passed",
+    "exit_code": 0,
+    "peak_sampled_rss_kib": 1536928,
+    "memory_limit_mb": 3072,
+    "seconds": 51.083,
+    "log": "home-gates.log",
+    "command": [
+      "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+      "build",
+      "home-tool",
+      "home-tool-smoke",
+      "home-tool-rejections-smoke",
+      "home-tool-async-context-smoke",
+      "home-tool-file-url-smoke",
+      "-Doptimize=ReleaseSafe",
+      "-Denable_jsc=false",
+      "-Dtool-js-engine=zig-js",
+      "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/engine-root",
+      "--prefix",
+      "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/home",
+      "-j1",
+      "--summary",
+      "all"
+    ]
+  },
+  "gates_log_sha256": "1ef65a82f7b663644bc2801c78de22cf1f6bf7fb4fa7006bab97bc2308a20577",
+  "gate_summary": "197/197steps succeeded; no fresh32-native-test count claimed from this cached build",
+  "results": {
+    "identity": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6720,
+      "memory_limit_mb": 3072,
+      "seconds": 0.107,
+      "log": "identity.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/home/bin/home-tool",
+        "eval",
+        "if(Home.engine!==\"zig-js\")throw Error(\"wrong engine\");console.log(\"EXACT ENGINE zig-js\");"
+      ],
+      "cwd": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug",
+      "log_sha256": "4ca88f5b823b3bde286bb4f9ae2be79fd330e6c206bf5c78538daf0a4e7f42d3",
+      "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/home/bin/home-tool\", \"eval\", \"if(Home.engine!==\\\"zig-js\\\")throw Error(\\\"wrong engine\\\");console.log(\\\"EXACT ENGINE zig-js\\\");\"]\nEXACT ENGINE zig-js\n\nECOSYSTEM PEAK SAMPLED RSS: 6720 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "probe-tree": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5424,
+      "memory_limit_mb": 3072,
+      "seconds": 0.105,
+      "log": "probe-tree.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/home/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/probe-tree.mjs"
+      ],
+      "cwd": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug",
+      "log_sha256": "3b1a6b55cc2cb3c27424205788276a48b1084e8be57b5d2e1436fa5fa26b2142",
+      "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/home/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/probe-tree.mjs\"]\ntree 5 groups OK\n\nECOSYSTEM PEAK SAMPLED RSS: 5424 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "probe-generator": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6640,
+      "memory_limit_mb": 3072,
+      "seconds": 0.108,
+      "log": "probe-generator.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/home/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/probe-generator.mjs"
+      ],
+      "cwd": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug",
+      "log_sha256": "17a9d5479d79184c9869d4c0bffa6f137032b1182203ade3f496a358800f2829",
+      "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/home/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/probe-generator.mjs\"]\ngenerator 5 groups OK\n\nECOSYSTEM PEAK SAMPLED RSS: 6640 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "react-tailwind": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 259808,
+      "memory_limit_mb": 3072,
+      "seconds": 0.906,
+      "log": "react-tailwind.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/home/bin/home-tool",
+        "run",
+        "build.ts"
+      ],
+      "cwd": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/template-locks/react-tailwind-candidate",
+      "log_sha256": "0c2b8860d6707cab51cdede93aa03f27f67957380a8aa9cda987372a6e439f5d",
+      "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/home/bin/home-tool\", \"run\", \"build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/template-locks/react-tailwind-candidate/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 259808 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "react-shadcn": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 258224,
+      "memory_limit_mb": 3072,
+      "seconds": 0.925,
+      "log": "react-shadcn.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/home/bin/home-tool",
+        "run",
+        "build.ts"
+      ],
+      "cwd": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/template-locks/react-shadcn-candidate",
+      "log_sha256": "718f2a2b5512d192b28c19f490dd8ffce2583dfcb08d7fe1cc965c62ad31ee7c",
+      "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/home/bin/home-tool\", \"run\", \"build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/template-locks/react-shadcn-candidate/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 258224 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "binary_sha256": "e81a10fe2b9f2f0add01edd281c2677e8c1472c767935cc2fea997fb2fab92de"
+  },
+  "package_source_verification": "Both maintained candidate package.json,bun.lock,build.ts are byte-identical to pushed Home26a; public plugin0.1.2 raw SHA96ce6dc7 is unchanged. Reference build outputs were not reused.",
+  "v8_mode_observations": {
+    "node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 256,
+      "memory_limit_mb": 3072,
+      "seconds": 0.066,
+      "log": "v8-node.log",
+      "command": [
+        "node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/v8-status.mjs"
+      ],
+      "output": "$ [\"node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/v8-status.mjs\"]\n{\"startupSnapshot\":\"object\",\"building\":0}\n\nECOSYSTEM PEAK SAMPLED RSS: 256 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.042,
+      "log": "v8-bun.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/v8-status.mjs"
+      ],
+      "output": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/v8-status.mjs\"]\n{\"startupSnapshot\":\"object\",\"building\":false}\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "home": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 6640,
+      "memory_limit_mb": 3072,
+      "seconds": 0.065,
+      "log": "v8-home.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/home/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/v8-status.mjs"
+      ],
+      "output": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/home/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/v8-status.mjs\"]\nhome-tool (zig-js): Error: cannot resolve module node:v8 from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/v8-status.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 6640 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    }
+  },
+  "next_witness": "evidence/probes/home-v8-mode.mjs",
+  "interpretation": [
+    "Exact pushed73ee public-C archive builds in Debug at2733888KiB, unchanged3072MiBguard. HomeReleaseSafe host links that Debug engine and passes197gate steps plus both5-group JS fixtures. This is a local Debug engine diagnostic, not Linux baseline ReleaseSafe evidence.",
+    "Actual maintained React builds progress from regex SyntaxError to missingv8. The missing host module remains a real failed build; no empty module, fake capability or native Bun fallback added.",
+    "Node26.10 observation reports numeric0, while Bun1.4.4 reports booleanfalse for normal startup snapshot mode. This is observation only, not a claim that either runtime supports every v8 API or that Home has snapshot support.",
+    "Keep the earlier local ReleaseSafe compile RSS failures and all unsupported consumer checks. Investigate an authentic host/API integration for the actual v8 use before changing behavior."
+  ],
+  "dashboard_verification": {
+    "run": 42841737410,
+    "conclusion": "success",
+    "url": "https://zig-utils.github.io/zig-js-ecosystem/",
+    "html_status": 200,
+    "html_sha256": "3322c51fef76369422c6908cbabf91300965339a7c2cb00b5f9b258b297d978f",
+    "snapshot_status": 200,
+    "snapshot_sha256": "c7b53b926df11b673ce8afa48220fdb82ff439db9d5f6542c1008ef59a65059c",
+    "generated_at": "2026-11-10T15:11:35+00:00",
+    "records": 224,
+    "warnings": []
+  }
+}
