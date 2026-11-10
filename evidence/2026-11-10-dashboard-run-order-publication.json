@@ -1,0 +1,128 @@
+{
+  "deployment_run": 42876010570,
+  "workflow_head_sha": "737453ddeb3eddff099bac1e3bb080107731ae50",
+  "actual_trusted_main_checkout": "1343006ab8917d517ee5da392a4fa35bf3e70949",
+  "build_job": 130039400381,
+  "deploy_job": 130044065446,
+  "html": {
+    "status": 200,
+    "sha256": "9ba381889a12a5e30828f1c2d5a7947c3a7904be4f88f003841a9fc181ab769b"
+  },
+  "snapshot": {
+    "status": 200,
+    "sha256": "14058f07e4fa31e13c63f7483029cd5a0d91aebebf8dd7699f2b1aae6f1b86c6",
+    "generated_at": "2026-11-10T18:37:02+00:00",
+    "records": 224,
+    "warnings": [],
+    "priorities": [
+      {
+        "name": "home-lang/home",
+        "sha": "a20f225bd7038b09b524434e5b5be98aa95c9dad",
+        "engine_sha": "5cf9846b55169fa894d614c67b2cae8c23cb1b83",
+        "source": {
+          "repository": "zig-utils/zig-js-ecosystem",
+          "run_id": 42871250081,
+          "url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42871250081",
+          "run_created_at": "2026-11-10T18:03:31Z",
+          "measured_at": "2026-11-10T18:38:33Z",
+          "artifact_id": 13792002411,
+          "digest": "sha256:bbea24eb97a4bdabdd169f635a17a58d2b5cfac733a5e9fc3effc27f88337193",
+          "focused": true,
+          "artifact_url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42871250081/artifacts/13792002411"
+        },
+        "status": "failed",
+        "lanes": {
+          "candidate": {
+            "failed": 42,
+            "unsupported": 38,
+            "passed": 7
+          },
+          "direct-consumer": {
+            "passed": 4
+          },
+          "engine": {
+            "passed": 1
+          },
+          "reference": {
+            "passed": 11,
+            "failed": 4,
+            "timed-out": 1,
+            "not-run": 34
+          },
+          "reference-setup": {
+            "passed": 40,
+            "timed-out": 1,
+            "failed": 2
+          },
+          "setup": {
+            "passed": 46,
+            "timed-out": 1,
+            "failed": 2
+          }
+        }
+      },
+      {
+        "name": "stacksjs/stacks",
+        "sha": "761967935e6843c22688e640440942a56ffd3a3b",
+        "engine_sha": "5cf9846b55169fa894d614c67b2cae8c23cb1b83",
+        "source": {
+          "repository": "zig-utils/zig-js-ecosystem",
+          "run_id": 42871250081,
+          "url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42871250081",
+          "run_created_at": "2026-11-10T18:03:31Z",
+          "measured_at": "2026-11-10T18:38:33Z",
+          "artifact_id": 13792002411,
+          "digest": "sha256:bbea24eb97a4bdabdd169f635a17a58d2b5cfac733a5e9fc3effc27f88337193",
+          "focused": true,
+          "artifact_url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42871250081/artifacts/13792002411"
+        },
+        "status": "failed",
+        "lanes": {
+          "candidate": {
+            "unsupported": 355,
+            "failed": 210,
+            "passed": 60
+          },
+          "engine": {
+            "passed": 1
+          },
+          "reference": {
+            "passed": 24,
+            "failed": 16,
+            "timed-out": 1,
+            "not-run": 234
+          },
+          "reference-setup": {
+            "passed": 10
+          },
+          "setup": {
+            "passed": 16
+          }
+        }
+      }
+    ]
+  },
+  "actual_build_log_sha256": "1982fa8d69e0eba4652464bb1f9e8d2a43531be86236cad45c8378bbb66ffd4b",
+  "canonical_snapshot_sha256": "14058f07e4fa31e13c63f7483029cd5a0d91aebebf8dd7699f2b1aae6f1b86c6",
+  "schema_version": 1,
+  "linux_signals": [
+    "2026-11-10T18:36:57.9309469Z 1343006ab8917d517ee5da392a4fa35bf3e70949",
+    "2026-11-10T18:37:02.4087387Z Ran 42 tests in 2.310s",
+    "2026-11-10T18:38:53.7912243Z Dashboard: 224 selected, 224 measured, 0 refresh warnings",
+    "2026-11-10T18:38:55.5297463Z  2 pass",
+    "2026-11-10T18:38:55.5298208Z  9 expect() calls",
+    "2026-11-10T18:39:01.7377419Z Built STX dashboard: 224 repositories, 224 measured; 9007 candidate checks"
+  ],
+  "independent_validation": {
+    "run": 42876121051,
+    "job": 130039753802,
+    "conclusion": "success",
+    "source_sha": "1343006ab8917d517ee5da392a4fa35bf3e70949"
+  },
+  "interpretation": [
+    "Source-order fix1343006 is deployed by the earlier queued workflow42876010570, whose trusted main checkout logs the exact newer1343006 source SHA. Workflow trigger head737453d is explicitly distinguished from the actual built source.",
+    "Actual Linux42Python tests,2STX tests/9assertions, live collection and production build pass. Live HTML, cache-busted snapshot and canonical snapshot returnHTTP200; canonical bytes match, all224records remain, zero current refresh warnings.",
+    "Both public priority records now select actual completed final65group qualification42871250081/functional2e2acba/Homea20f225/engine5cf, not the older late abfe aggregate. Published Stacks60pass/210fail/355unsupported and Home7/42/38 remain red; no full compatibility claim.",
+    "Separate successful post-promotion1b46 runtime/all65gates is retained with ongoing every-push package checks. Engine caller stays functional2e2acba; never promote this evidence-only descendant."
+  ]
+}
