@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "run_id": 42728005552,
+  "run_url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42728005552",
+  "suite_ref": "d1281deaa4676396958adac54eb01bfa1b148b21",
+  "engine_sha": "d68f804e8e8dfe2509baadd7d7cf8cb202a330fd",
+  "artifact_id": 13725341703,
+  "artifact_name": "ecosystem-report",
+  "artifact_zip_sha256": "7ac36727fbdfbbb02bbed5ca77d55e8c72462ce47888df0b18ace362659a6166",
+  "download_digest_verified": true,
+  "consumers": [
+    {
+      "repository": "stacksjs/stacks",
+      "sha": "ec12d68abea59b1de25592e59bb02cd915557209",
+      "report_sha256": "6dd700264cb821917b4546c6bcc5a86b4ab0097bb544a12993e27316a96b8586",
+      "scope_count": 99,
+      "check_count": 927,
+      "statuses": {
+        "passed": 113,
+        "unsupported": 355,
+        "failed": 229,
+        "timed-out": 1,
+        "not-run": 229
+      },
+      "lanes": {
+        "candidate": {
+          "unsupported": 355,
+          "failed": 211,
+          "passed": 59
+        },
+        "engine": {
+          "passed": 1
+        },
+        "reference": {
+          "passed": 27,
+          "failed": 18,
+          "timed-out": 1,
+          "not-run": 229
+        },
+        "reference-setup": {
+          "passed": 10
+        },
+        "setup": {
+          "passed": 16
+        }
+      },
+      "candidate_label_status_multiset_identical_to_previous": true,
+      "selected_actual_checks": [
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 1674088,
+          "memory_limit_mb": 3072,
+          "seconds": 9.703,
+          "log": "0016.log",
+          "label": ".: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "./buddy build"
+          ],
+          "engine_invocations": 3,
+          "log_sha256": "3a9c40a65d88e349940899e462a79194fcbf1c2c320d8923a3b189546ca3d8bc",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-10T00:34:34.407Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 1674088 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 1802520,
+          "memory_limit_mb": 3072,
+          "seconds": 10.346,
+          "log": "0018.log",
+          "label": ".: typecheck",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)"
+          ],
+          "engine_invocations": 3,
+          "log_sha256": "687f1b51354603c9581ab88eb0cded00033b3d412a64b76206014e281b037ffd",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\n[2026-11-10T00:34:54.822Z] local.INFO: Building @stacksjs/validation...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 1802520 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ]
+    },
+    {
+      "repository": "home-lang/home",
+      "sha": "11fa96dad8c965732cc0d43d2a8ba25173075a4f",
+      "report_sha256": "d0882ad6ccffa3959bd59808bc7142d6761a6089b833476369d5a73f1f4817c9",
+      "scope_count": 46,
+      "check_count": 234,
+      "statuses": {
+        "passed": 98,
+        "failed": 51,
+        "timed-out": 3,
+        "unsupported": 38,
+        "not-run": 44
+      },
+      "lanes": {
+        "candidate": {
+          "failed": 42,
+          "unsupported": 38,
+          "passed": 7
+        },
+        "direct-consumer": {
+          "passed": 4
+        },
+        "engine": {
+          "passed": 1
+        },
+        "reference": {
+          "passed": 4,
+          "failed": 1,
+          "timed-out": 1,
+          "not-run": 44
+        },
+        "reference-setup": {
+          "passed": 38,
+          "failed": 4,
+          "timed-out": 1
+        },
+        "setup": {
+          "passed": 44,
+          "failed": 4,
+          "timed-out": 1
+        }
+      },
+      "candidate_label_status_multiset_identical_to_previous": true,
+      "selected_actual_checks": [
+        {
+          "status": "failed",
+          "exit_code": -9,
+          "peak_sampled_rss_kib": 3158008,
+          "memory_limit_mb": 3072,
+          "seconds": 38.843,
+          "log": "0052.log",
+          "reason": "sampled command tree RSS exceeded 3072 MiB",
+          "label": ".: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bunx bunpress build"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "b595c40f08cee62a3578fbb01a1b2bb49d47499f16c980205449651e2408c120",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 3158008 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+        },
+        {
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 632988,
+          "memory_limit_mb": 3072,
+          "seconds": 1.301,
+          "log": "0054.log",
+          "label": ".: typecheck",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun --bun tsc --noEmit"
+          ],
+          "engine_invocations": 1,
+          "log_sha256": "4ba0596cfab7ccb6a3904f43c029d6e78a5e240feb16cf01f71dc9c9fa403165",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun --bun tsc --noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 632988 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        },
+        {
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 311316,
+          "memory_limit_mb": 3072,
+          "seconds": 4.441,
+          "log": "0185.log",
+          "label": ".: build",
+          "lane": "reference",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bunx bunpress build"
+          ],
+          "engine_invocations": 0,
+          "log_sha256": "73faed389f776f9b923baa6b536d63a8e39fdff1d3024fc9397272e4a843cccb",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\u001b[32m\u2713\u001b[0m Built 159 pages to HTML in 4.34s\n\nECOSYSTEM PEAK SAMPLED RSS: 311316 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        },
+        {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 2534896,
+          "memory_limit_mb": 3072,
+          "seconds": 178.995,
+          "log": "0186.log",
+          "label": ".: test",
+          "lane": "reference",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun test"
+          ],
+          "engine_invocations": 0,
+          "log_sha256": "d01403fe9d7447ca01b6771123a9ebadf83ecd8a115fe4dedfec62212306b634",
+          "log_excerpt": "handle AsyncContextFrame in napi_make_callback [105.85ms]\n(pass) cleanup hooks > napi_typeof > should accept AsyncContextFrame in napi_create_threadsafe_function with null call_js_cb [154.10ms]\n(pass) cleanup hooks > napi_typeof > should return napi_object for boxed primitives (String, Number, Boolean) [52.88ms]\n(pass) cleanup hooks > napi_object_freeze and napi_object_seal > should handle arrays with indexed properties [52.74ms]\n(pass) cleanup hooks > error handling > removing non-existent env cleanup hook should not crash [51.71ms]\n(pass) cleanup hooks > error handling > removing non-existent async cleanup hook should not crash [55.28ms]\n(pass) cleanup hooks > duplicate prevention > should crash on duplicate hooks [661.37ms]\n\n::endgroup::\n\n::group::packages/runtime/upstream/test/v8/v8.test.ts:\nbun install v1.4.4 (38afee6c8)\nSaved lockfile\n\n+ node-gyp@11.2.0\n\n90 packages installed [1299.00ms]\nbun install v1.4.4 (38afee6c8)\nSaved lockfile\n\n+ node-gyp@11.2.0\n\n90 packages installed [453.00ms]\nbun install v1.4.4 (38afee6c8)\nSaved lockfile\n\n+ node-gyp@11.2.0\n\n90 packages installed [684.00ms]\nbun install v1.4.4 (38afee6c8)\nSaved lockfile\n\n+ node-gyp@11.2.0\n\n90 packages installed [642.00ms]\nkilled 1 dangling process\n::error title=error: Test \"(unnamed)\" timed out after 5000ms::\n(fail) node:v8 > (unnamed) [5000.81ms]\n  ^ a beforeEach/afterEach hook timed out for this test.\n\n::endgroup::\n\n::group::packages/runtime/upstream/test/internal/powershell-escape.test.ts:\n\n# Unhandled error between tests\n-------------------------------\n-------------------------------\n\n\n::group::packages/runtime/upstream/test/internal/fifo.test.ts:\ngyp info it worked if it ends with ok\ngyp info using node-gyp@11.2.0\ngyp info using node@26.3.0 | linux | x64\ngyp info find Python using Python version 3.12.3 found at \"/usr/bin/python3\"\ngyp http GET https://nodejs.org/download/release/v26.3.0/node-v26.3.0-headers.tar.gz\ngyp http 200 https://nodejs.org/download/release/v26.3.0/node-v26.3.0-headers.tar.gz\nerror: Failed to run \"node-gyp\" due to signal SIGTERM (Polite quit request)\n\n\n\nbuild failed: 143, bailing out\n\nECOSYSTEM PEAK SAMPLED RSS: 2534896 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 134088,
+          "memory_limit_mb": 3072,
+          "seconds": 2.2,
+          "log": "0187.log",
+          "label": ".: typecheck",
+          "lane": "reference",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun --bun tsc --noEmit"
+          ],
+          "engine_invocations": 0,
+          "log_sha256": "bb0c7ddc00764cbf1fc3dc1cfca09b1f4db2d29682294cfe42bbe7cf2f28fab8",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun --bun tsc --noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 134088 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Runtime and both provenance/CPU preflights pass; actual package jobs/report fail. Shared runtime qualification is not full compatibility.",
+    "Candidate label/status multisets compare exactly with prior42721958424; all candidate statuses are unchanged in this comparison, not a claim of unchanged diagnostics or test262 conformance.",
+    "Root Stacks step guard, Bun.build absence, Home docs memory, frozen template locks and unexecuted schedulers remain truthful. No known failure is silently removed."
+  ]
+}
