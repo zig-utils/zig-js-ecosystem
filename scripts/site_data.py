@@ -166,6 +166,12 @@ def run_info(run, jobs):
         "jobs": [{k: job.get(k) for k in ("id", "name", "status", "conclusion", "html_url")} for job in jobs]}
 
 
+def measurement_order(source):
+    # A large older matrix can publish its aggregate after a newer consumer
+    # finishes. Artifact upload time only breaks ties within the same run age.
+    return (source.get("run_created_at") or source["measured_at"], source["measured_at"])
+
+
 def merge_report(records, report, inventory, source):
     expected = {r["full_name"]: r["sha"] for r in inventory["selected"]}
     incoming = {}
@@ -177,7 +183,7 @@ def merge_report(records, report, inventory, source):
             raise ValueError("Duplicate consumer result")
         incoming[compact["name"]] = compact
     for name, compact in incoming.items():
-        if name not in records or records[name]["source"]["measured_at"] < source["measured_at"]:
+        if name not in records or measurement_order(records[name]["source"]) < measurement_order(source):
             records[name] = compact
 
 
@@ -201,6 +207,22 @@ def collect(bootstrap):
             # A completed full report provides the baseline while newer runs execute.
             completed = api(f"repos/{repo}/actions/workflows/ecosystem.yml/runs?per_page=2&status=completed")["workflow_runs"]
             candidates = {r["id"]: r for r in [*runs, *completed]}
+            # Older checked-in snapshots predate run_created_at. Resolve each
+            # distinct source once, so a late legacy aggregate has no advantage.
+            run_dates = {r["id"]: r["created_at"] for r in candidates.values()}
+            for record in records.values():
+                source = record["source"]
+                run_id = source.get("run_id")
+                if source.get("repository") != repo or not run_id or source.get("run_created_at"):
+                    continue
+                if run_id not in run_dates:
+                    try:
+                        run_dates[run_id] = api(f"repos/{repo}/actions/runs/{run_id}")["created_at"]
+                    except REFRESH_ERRORS as error:
+                        run_dates[run_id] = None
+                        data["warnings"].append(f"{repo} run {run_id}: source date unavailable ({type(error).__name__}); dated evidence retained")
+                if run_dates[run_id]:
+                    source["run_created_at"] = run_dates[run_id]
             for run in candidates.values():
                 try:
                     artifacts = paginate(f"repos/{repo}/actions/runs/{run['id']}/artifacts", "artifacts")
@@ -234,6 +256,7 @@ def collect(bootstrap):
                                 data["warnings"].append(f"{repo} run {run['id']} artifact {partial['id']}: unavailable ({type(error).__name__}); prior evidence retained")
                     for measured, report in reports:
                         source = {"repository": repo, "run_id": run["id"], "url": run["html_url"],
+                                  "run_created_at": run["created_at"],
                                   "measured_at": measured.get("updated_at") or measured.get("created_at") or run["updated_at"],
                                   "artifact_id": measured["id"], "digest": measured["digest"],
                                   "focused": bool(inventory.get("focus")),

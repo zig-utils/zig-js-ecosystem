@@ -20,7 +20,7 @@ class DashboardEvidenceTests(unittest.TestCase):
                   'checks': [check], 'runtime_provenance': {'engine_sha': 'b' * 40}}
         bootstrap = {'inventory': inventory, 'records': [
             site.compact_record({**result, 'engine_sha': 'd' * 40, 'runtime_provenance': {}},
-                                {'measured_at': '2026-11-08'}, {'stacksjs/stacks': 'a' * 40}),
+                                {'repository': 'zig-utils/zig-js', 'run_id': 3, 'measured_at': '2026-11-11'}, {'stacksjs/stacks': 'a' * 40}),
             site.compact_record({'repository': 'home-lang/home', 'sha': 'c' * 40,
                                  'engine_sha': 'd' * 40, 'checks': [check]},
                                 {'measured_at': '2026-11-08'}, {'home-lang/home': 'c' * 40})]}
@@ -42,6 +42,8 @@ class DashboardEvidenceTests(unittest.TestCase):
                'updated_at': '2026-11-10T10:00:00Z'}
 
         def api(path, binary=False):
+            if path.endswith('/actions/runs/3'):
+                return {'created_at': '2026-11-08T10:00:00Z'}
             if '/workflows/' in path:
                 return {'workflow_runs': [] if 'status=completed' in path else [run]}
             if '/jobs?' in path:
@@ -80,6 +82,26 @@ class DashboardEvidenceTests(unittest.TestCase):
             rejected = site.collect(bootstrap)
         self.assertEqual(next(r for r in rejected['records'] if r['name'] == 'stacksjs/stacks')['engine_sha'], 'd' * 40)
         self.assertIn('artifact 11: unavailable (ValueError)', rejected['warnings'][0])
+
+    def test_late_older_aggregate_cannot_replace_newer_consumer_measurement(self):
+        inventory = {'selected': [{'full_name': 'stacksjs/stacks', 'sha': 'a' * 40}]}
+        record = {'repository': 'stacksjs/stacks', 'sha': 'a' * 40, 'engine_sha': 'b' * 40,
+                  'checks': [{'lane': 'candidate', 'status': 'failed', 'engine_invocations': 1}]}
+        report = {'engine_sha': 'b' * 40, 'results': [record]}
+        older = {'run_id': 1, 'run_created_at': '2026-11-10T10:00:00Z',
+                 'measured_at': '2026-11-10T18:06:06Z'}
+        newer = {'run_id': 2, 'run_created_at': '2026-11-10T16:58:29Z',
+                 'measured_at': '2026-11-10T17:40:00Z', 'partial': True}
+        for sources in [(older, newer), (newer, older)]:
+            records = {}
+            for source in sources:
+                site.merge_report(records, report, inventory, source)
+            self.assertEqual(records['stacksjs/stacks']['source']['run_id'], 2)
+            self.assertEqual(records['stacksjs/stacks']['status'], 'failed')
+            # A later aggregate from the same run can still replace its partial.
+            later = {**newer, 'measured_at': '2026-11-10T19:00:00Z', 'partial': False}
+            site.merge_report(records, report, inventory, later)
+            self.assertEqual(records['stacksjs/stacks']['source'], later)
 
     def test_consumer_archive_requires_canonical_nonempty_json(self):
         def archive(members):

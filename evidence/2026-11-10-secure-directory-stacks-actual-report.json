@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "run": 42870215100,
+  "job": 130023603569,
+  "artifact": {
+    "id": 13792125560,
+    "name": "ecosystem-results-0",
+    "digest": "sha256:df849341adace145e5daa187d9c74c8a6691a0d32aaa54af8028b3fca2cc0a8b",
+    "size_in_bytes": 1416794
+  },
+  "report_sha256": "c385dfd8a51fb45d9b0ee7c9dca8630a716ae247845c3381f7fca7e57ce36657",
+  "consumer_sha": "1757d2571077941f68df5db00c1a5f061d34058b",
+  "engine_sha": "5cf9846b55169fa894d614c67b2cae8c23cb1b83",
+  "runtime_provenance": {
+    "engine_sha": "5cf9846b55169fa894d614c67b2cae8c23cb1b83",
+    "suite_ref": "28680c038c27386761f2af35a2b4ea1476e57c0f",
+    "home_repository": "home-lang/home",
+    "home_ref": "b4c4d81bff51176be372d7fa6d844f3b8881c970",
+    "zig_version": "0.18.0-dev.146+35accc06e",
+    "build_cpu": "baseline",
+    "build_optimize": "ReleaseSafe",
+    "sha256": {
+      "home-tool": "7eb7eb9cb46d1dc6f0bcd80cfa6f81116d914013aeb1e2da5366463fba55bd32",
+      "engine/zig-out/lib/libzig-js.a": "204143a9da3cdb11e04c32ff7b5231f28a89b1237b5ff3dd7353f4ee4750e2ce"
+    }
+  },
+  "scopes": 99,
+  "checks": 927,
+  "candidate": {
+    "unsupported": 355,
+    "failed": 211,
+    "passed": 59
+  },
+  "actual_logs": [
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 1863732,
+        "memory_limit_mb": 3072,
+        "seconds": 11.018,
+        "log": "0016.log",
+        "label": ".: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "./buddy build"
+        ],
+        "engine_invocations": 3
+      },
+      "member": "stacksjs--stacks/0016.log",
+      "sha256": "c80b04ab20ed04e0b09c12a53d508e467a0c2491d58c91d5fc2d8a0cb7c458cd",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-10T18:05:59.264Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 1863732 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 1717704,
+        "memory_limit_mb": 3072,
+        "seconds": 11.211,
+        "log": "0018.log",
+        "label": ".: typecheck",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)"
+        ],
+        "engine_invocations": 3
+      },
+      "member": "stacksjs--stacks/0018.log",
+      "sha256": "4363b1051f4e7d46275f8aa55631b976b2fab068342b363190ece96f8edca9d4",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\n[2026-11-10T18:06:21.914Z] local.INFO: Building @stacksjs/validation...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 1717704 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 27496,
+        "memory_limit_mb": 3072,
+        "seconds": 0.148,
+        "log": "0038.log",
+        "label": "storage/framework/core/ai: module initialization src/index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+          "src/index.ts"
+        ],
+        "engine_invocations": 1
+      },
+      "member": "stacksjs--stacks/0038.log",
+      "sha256": "7a42481ddf64cb88fdbe3049fba2b8125995c165c6d43471df2f130745cc7979",
+      "excerpt": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): TypeError: mkdirSync is not a function. (In 'mkdirSync(CONFIG.workDir, { recursive: true })', 'mkdirSync' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 27496 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 136816,
+        "memory_limit_mb": 3072,
+        "seconds": 0.396,
+        "log": "0623.log",
+        "label": "storage/framework/docs: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bunpress build"
+        ],
+        "engine_invocations": 1
+      },
+      "member": "stacksjs--stacks/0623.log",
+      "sha256": "c3cf1eb67a1899d2e32ad21dd8a006741471d241bdec2ea697a1be4cbd2d32ef",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bunpress build\"]\n  Building documentation...\n\u001b[31m\u2717\u001b[0m Build failed\nError during build: Error: Glob: FileNotFound\n\nECOSYSTEM PEAK SAMPLED RSS: 136816 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    }
+  ],
+  "interpretation": "Completed first47group qualification, Homeb4c4d81host/functional28680c0, before sync mkdir/rm promotion. Genuine docs advances to missing input scanning; full package still fails. Do not conflate with final65group2e2acba qualification or count unsupported/unexecuted tests as passes."
+}
