@@ -1,0 +1,465 @@
+{
+  "schema_version": 1,
+  "home_commits": [
+    "289f3de7438b6f8603ea5f3423a2fcd973fe674c",
+    "39ff980c72d2ed6cbed9074ff8b3bfc7561beea8"
+  ],
+  "home_before": "2b2a78cc9bf64c278f3c3b84ae8c6bf5cfff1b8b",
+  "engine": "60fdd42fe6713a2703fcc426c9d571dbf9a64852",
+  "engine_archive": "Exact pushed60f Debug archive, SHA25653c494d6dbe364a464131b42584cb341eb252fd30578d0c646eb64139041235c; HomeReleaseSafe. Fresh Linux baseline ReleaseSafe qualification remains separate.",
+  "source_sha256": {
+    "build.zig": "77f013c76716c24d241ce089a5e5518fc776606a178d6037ad3c5a62148deb80",
+    "packages/runtime/src/jsc/tool_modules.js": "a69930aa1acf44e77b92fcba7f486aefecca2a25f9a1dea58331a932efb89c30",
+    "packages/runtime/src/jsc/tool_modules.zig": "e5a44a4cbc167db212de1aef1f978163add2a86fa1ed72aa2f8ff163479fecc0",
+    "packages/runtime/test/tool_modules/node_module_constructor.mjs": "125d6bb8d353757df6204a0d4ae6af5ee63c1850b04e9b7fc4fc2a71dfbcd129",
+    "packages/runtime/test/tool_modules/cjs_dotted_filenames.mjs": "f0da91c3a15a6ec7a3b1858c1c5e382445cbbc25bc8dd8c7b92c92704d94d766"
+  },
+  "mechanism": [
+    "Module is the constructor actually used by loaded CommonJS records and createRequire anchors, with live prototype.require and _resolveFilename dispatch, genuine cache/exports/parent/children behavior and CommonJS receivers. Custom resolution options remain explicitly unsupported rather than silently ignored.",
+    "Cache eviction reads current file contents, including retries after throws. Failed ESM identity and async require rejection remain enforced even after async import or cache hits.",
+    "Supported source suffixes are tried after dotted basenames while retaining exact-file precedence, Home extension priority, directory behavior, lookup-only resolution and canonical cache identity. No native addon, bundler, scheduler or v8 snapshot stub was added."
+  ],
+  "oracles": {
+    "node": {
+      "checks": 42,
+      "passed": 42,
+      "failures": []
+    },
+    "bun": {
+      "checks": 42,
+      "passed": 28,
+      "failures": [
+        "constructor parent children: actual parent linkage",
+        "constructor call requires receiver: must throw",
+        "constructor validates id: must throw",
+        "prototype require is real: shared prototype",
+        "loaded modules are Module instances: cache contains actual instances",
+        "loaded modules inherit require: no own bypass around prototype",
+        "loaded state transition: loaded after evaluation",
+        "manually anchored constructor require: m.require is not a function. (In 'm.require(\"./beta.cjs\")', 'm.require' is undefined)",
+        "module-scope require observes own method: live method dispatch",
+        "prototype hook uses real Module receiver: synthetic anchored Module",
+        "cache replacement changes loader without changing old function cache: real active cache and old reference",
+        "JSON cache contains actual Module: actual JSON loader",
+        "async require rejects before execution: must throw",
+        "async require still rejects after genuine import: must throw"
+      ]
+    },
+    "before": {
+      "checks": 42,
+      "passed": 14,
+      "failures": [
+        "default constructor and aliases: actual constructor aliases",
+        "constructor creates distinct exports: Object is not a constructor (evaluating 'new Module(\"a\")')",
+        "constructor initial state: Object is not a constructor (evaluating 'new Module(\"directory/id\")')",
+        "constructor parent children: Object is not a constructor (evaluating 'new Module(\"parent\")')",
+        "constructor parent setter: Object is not a constructor (evaluating 'new Module(\"child\")')",
+        "prototype require is real: undefined is not an object (evaluating 'Module.prototype.require')",
+        "loaded modules are Module instances: Right-hand side of 'instanceof' is not callable",
+        "loaded modules inherit require: no own bypass around prototype",
+        "CommonJS top-level receiver: CJS this is exports",
+        "module filename path id: canonical filename",
+        "real shared cache identity: same actual cache",
+        "parent and children from actual load: record dependency edge",
+        "cached children have no duplicates: deduplicate actual cache hits",
+        "manually anchored constructor require: Object is not a constructor (evaluating 'new Module(\"manual\")')",
+        "module-scope require observes own method: live method dispatch",
+        "prototype hook sees createRequire and nested require: undefined is not an object (evaluating 'Module.prototype.require')",
+        "prototype hook sees cached require: undefined is not an object (evaluating 'Module.prototype.require')",
+        "prototype hook uses real Module receiver: undefined is not an object (evaluating 'Module.prototype.require')",
+        "live resolution hook aliases real source: real filename resolver",
+        "direct filename resolution: Object is not a constructor (evaluating 'new Module(\"probe\")')",
+        "builtin resolution keeps prefix: Module._resolveFilename is not a function. (In 'Module._resolveFilename(\"node:fs\")', 'Module._resolveFilename' is undefined)",
+        "cache entry replacement: replacement is authoritative",
+        "cache replacement changes loader without changing old function cache: real active cache and old reference",
+        "cycle exposes actual partial exports: cycle and dependency edges",
+        "failed CJS evicts cache and failed child: undefined is not an object (evaluating 'Module.prototype.require')",
+        "JSON cache contains actual Module: Right-hand side of 'instanceof' is not callable",
+        "invalid numeric request: expected ERR_INVALID_ARG_TYPE, got undefined",
+        "empty request: expected ERR_INVALID_ARG_VALUE, got MODULE_NOT_FOUND"
+      ]
+    }
+  },
+  "after": {
+    "module_groups": 42,
+    "module_passed": 42,
+    "dotted_checks": 7,
+    "full_zig_js_steps": 204,
+    "basic_jsc_steps": 181,
+    "jsc_module_groups": 42,
+    "actual_next_hook_checks": 3
+  },
+  "guards": {
+    "contract-before-final.json": {
+      "node": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 816,
+        "memory_limit_mb": 3072,
+        "seconds": 0.058,
+        "log": "contract-node-final.log"
+      },
+      "bun": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 2048,
+        "memory_limit_mb": 3072,
+        "seconds": 0.03,
+        "log": "contract-bun-final.log"
+      },
+      "before": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 45536,
+        "memory_limit_mb": 3072,
+        "seconds": 0.377,
+        "log": "contract-before-final.log"
+      }
+    },
+    "gates-final.json": {
+      "zig-js": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1323376,
+        "memory_limit_mb": 3072,
+        "seconds": 58.644,
+        "log": "gates-zig-js-final.log"
+      },
+      "jsc": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 31488,
+        "memory_limit_mb": 3072,
+        "seconds": 0.337,
+        "log": "gates-jsc-final.log"
+      }
+    },
+    "gates-jsc-correct-tool-config.json": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1053728,
+      "memory_limit_mb": 3072,
+      "seconds": 38.49,
+      "log": "gates-jsc-correct-tool-config.log"
+    },
+    "gates-jsc-basic-final.json": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 30800,
+      "memory_limit_mb": 3072,
+      "seconds": 0.813,
+      "log": "gates-jsc-basic-final.log"
+    },
+    "dotted-before.json": {
+      "node": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 28784,
+        "memory_limit_mb": 3072,
+        "seconds": 0.322,
+        "log": "dotted-node-before.log"
+      },
+      "bun": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 144,
+        "memory_limit_mb": 3072,
+        "seconds": 0.074,
+        "log": "dotted-bun-before.log"
+      },
+      "before": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 37712,
+        "memory_limit_mb": 3072,
+        "seconds": 0.41,
+        "log": "dotted-before-before.log"
+      }
+    },
+    "dotted-gates.json": {
+      "zig-js": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 849024,
+        "memory_limit_mb": 3072,
+        "seconds": 71.661,
+        "log": "dotted-gates-zig-js.log"
+      },
+      "jsc": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1082752,
+        "memory_limit_mb": 3072,
+        "seconds": 41.807,
+        "log": "dotted-gates-jsc.log"
+      }
+    },
+    "next-after-final.json": {
+      "install": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 9248,
+        "memory_limit_mb": 3072,
+        "seconds": 0.472,
+        "log": "next-dependencies-after.log"
+      },
+      "next-hook": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 43136,
+        "memory_limit_mb": 3072,
+        "seconds": 0.414,
+        "log": "next-hook-after-final.log"
+      },
+      "next-build": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 51264,
+        "memory_limit_mb": 3072,
+        "seconds": 0.319,
+        "log": "next-build-after-final.log"
+      }
+    },
+    "next-dotted-final.json": {
+      "hook": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 138688,
+        "memory_limit_mb": 3072,
+        "seconds": 0.992,
+        "log": "next-dotted-hook.log"
+      },
+      "build": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 56416,
+        "memory_limit_mb": 3072,
+        "seconds": 0.245,
+        "log": "next-dotted-build.log"
+      }
+    }
+  },
+  "actual_consumer": {
+    "repository": "home-lang/home",
+    "source": "git archive exactHome2b packages/runtime/upstream/bench/install into separate clean before/after roots, independently frozen-lockfile installed",
+    "next_version": "16.1.6",
+    "reference_next_hook": "Node26.10/Bun1.4.4 both execute actual styled-jsx module, physical JSON alias and Next shared-runtime React context",
+    "before_build": "mod.prototype.require undefined",
+    "after_module_build": "native os.cpus absent",
+    "intermediate_shared_hook": "native dotted basename ../../module.compiled unresolved",
+    "final_shared_hook": "3actual checks pass after resolver fix",
+    "final_build": "still missing native os.cpus; no full build recovery claim"
+  },
+  "reference_limits": [
+    "Bun executes all42 Node-contract groups with28passes/14observed differences; no Bun parity or full Node compatibility claim.",
+    "The expanded JSC rejection/context invocation fails14unsupported cases; actual common181steps and new42/7groups pass. No nativeJSCfallback for candidate commands, skips or broad JSC success claim.",
+    "The first private-runtime-default JSC invocation needs unrelated legacy lolhtml assets; corrected public-C tool configuration disables legacy runtime while explicitly selecting real system JSC. Initial install-time strict/default-parameter syntax error and intermediate stale-source retry failure were caught before push and remain retained.",
+    "No engine language change or new test262 result claimed; all consumer step/evaluator/memory limits and selected repositories remain."
+  ],
+  "normative_sources": [
+    "https://nodejs.org/api/module.html#class-module",
+    "https://nodejs.org/api/modules.html#all-together",
+    "https://github.com/nodejs/node/blob/v26.10.0/lib/internal/modules/cjs/loader.js"
+  ],
+  "actual_logs": {
+    "contract-node-final.log": {
+      "sha256": "ad936eb76112e21a954c3ec78a8124062d18728cce7dd4664dc8336a99fd3724",
+      "text": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_module_constructor.mjs\"]\nNODE MODULE CONSTRUCTOR RESULTS {\"checks\":42,\"passed\":42,\"failures\":[]}\nNODE MODULE CONSTRUCTOR 42 CHECKS OK\n\nECOSYSTEM PEAK SAMPLED RSS: 816 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "contract-bun-final.log": {
+      "sha256": "e346cbe992fc27beb244e9fa3e705595499e54b11bf7ab15ce246302775c1f29",
+      "text": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_module_constructor.mjs\"]\nNODE MODULE CONSTRUCTOR RESULTS {\"checks\":42,\"passed\":28,\"failures\":[\"constructor parent children: actual parent linkage\",\"constructor call requires receiver: must throw\",\"constructor validates id: must throw\",\"prototype require is real: shared prototype\",\"loaded modules are Module instances: cache contains actual instances\",\"loaded modules inherit require: no own bypass around prototype\",\"loaded state transition: loaded after evaluation\",\"manually anchored constructor require: m.require is not a function. (In 'm.require(\\\"./beta.cjs\\\")', 'm.require' is undefined)\",\"module-scope require observes own method: live method dispatch\",\"prototype hook uses real Module receiver: synthetic anchored Module\",\"cache replacement changes loader without changing old function cache: real active cache and old reference\",\"JSON cache contains actual Module: actual JSON loader\",\"async require rejects before execution: must throw\",\"async require still rejects after genuine import: must throw\"]}\n77 |   delete globalThis.__moduleContractEsmLoads;\n78 |   fs.rmSync(root, { recursive: true, force: true });\n79 | }\n80 | console.log('NODE MODULE CONSTRUCTOR RESULTS', JSON.stringify({ checks: checks, passed: checks - failures.length, failures: failures }));\n81 | if (checks !== 42) throw new Error('Module constructor inventory changed: ' + checks);\n82 | if (failures.length) throw new Error('NODE MODULE CONSTRUCTOR ' + checks + ' checks; failures: ' + failures.join('; '));\n                                    ^\nerror: NODE MODULE CONSTRUCTOR 42 checks; failures: constructor parent children: actual parent linkage; constructor call requires receiver: must throw; constructor validates id: must throw; prototype require is real: shared prototype; loaded modules are Module instances: cache contains actual instances; loaded modules inherit require: no own bypass around prototype; loaded state transition: loaded after evaluation; manually anchored constructor require: m.require is not a function. (In 'm.require(\"./beta.cjs\")', 'm.require' is undefined); module-scope require observes own method: live method dispatch; prototype hook uses real Module receiver: synthetic anchored Module; cache replacement changes loader without changing old function cache: real active cache and old reference; JSON cache contains actual Module: actual JSON loader; async require rejects before execution: must throw; async require still rejects after genuine import: must throw\n      at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_module_constructor.mjs:82:32\n\nBun v1.4.4 (macOS arm64)\n\nECOSYSTEM PEAK SAMPLED RSS: 2048 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "contract-before-final.log": {
+      "sha256": "56c40d5fd2c22331e22be28e4fa6345d77cceeb2399ee6653a7b905938dbd69f",
+      "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/validation-regexp/home-after/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_module_constructor.mjs\"]\nNODE MODULE CONSTRUCTOR RESULTS {\"checks\":42,\"passed\":14,\"failures\":[\"default constructor and aliases: actual constructor aliases\",\"constructor creates distinct exports: Object is not a constructor (evaluating 'new Module(\\\"a\\\")')\",\"constructor initial state: Object is not a constructor (evaluating 'new Module(\\\"directory/id\\\")')\",\"constructor parent children: Object is not a constructor (evaluating 'new Module(\\\"parent\\\")')\",\"constructor parent setter: Object is not a constructor (evaluating 'new Module(\\\"child\\\")')\",\"prototype require is real: undefined is not an object (evaluating 'Module.prototype.require')\",\"loaded modules are Module instances: Right-hand side of 'instanceof' is not callable\",\"loaded modules inherit require: no own bypass around prototype\",\"CommonJS top-level receiver: CJS this is exports\",\"module filename path id: canonical filename\",\"real shared cache identity: same actual cache\",\"parent and children from actual load: record dependency edge\",\"cached children have no duplicates: deduplicate actual cache hits\",\"manually anchored constructor require: Object is not a constructor (evaluating 'new Module(\\\"manual\\\")')\",\"module-scope require observes own method: live method dispatch\",\"prototype hook sees createRequire and nested require: undefined is not an object (evaluating 'Module.prototype.require')\",\"prototype hook sees cached require: undefined is not an object (evaluating 'Module.prototype.require')\",\"prototype hook uses real Module receiver: undefined is not an object (evaluating 'Module.prototype.require')\",\"live resolution hook aliases real source: real filename resolver\",\"direct filename resolution: Object is not a constructor (evaluating 'new Module(\\\"probe\\\")')\",\"builtin resolution keeps prefix: Module._resolveFilename is not a function. (In 'Module._resolveFilename(\\\"node:fs\\\")', 'Module._resolveFilename' is undefined)\",\"cache entry replacement: replacement is authoritative\",\"cache replacement changes loader without changing old function cache: real active cache and old reference\",\"cycle exposes actual partial exports: cycle and dependency edges\",\"failed CJS evicts cache and failed child: undefined is not an object (evaluating 'Module.prototype.require')\",\"JSON cache contains actual Module: Right-hand side of 'instanceof' is not callable\",\"invalid numeric request: expected ERR_INVALID_ARG_TYPE, got undefined\",\"empty request: expected ERR_INVALID_ARG_VALUE, got MODULE_NOT_FOUND\"]}\nhome-tool (zig-js): Error: NODE MODULE CONSTRUCTOR 42 checks; failures: default constructor and aliases: actual constructor aliases; constructor creates distinct exports: Object is not a constructor (evaluating 'new Module(\"a\")'); constructor initial state: Object is not a constructor (evaluating 'new Module(\"directory/id\")'); constructor parent children: Object is not a constructor (evaluating 'new Module(\"parent\")'); constructor parent setter: Object is not a constructor (evaluating 'new Module(\"child\")'); prototype require is real: undefined is not an object (evaluating 'Module.prototype.require'); loaded modules are Module instances: Right-hand side of 'instanceof' is not callable; loaded modules inherit require: no own bypass around prototype; CommonJS top-level receiver: CJS this is exports; module filename path id: canonical filename; real shared cache identity: same actual cache; parent and children from actual load: record dependency edge; cached children have no duplicates: deduplicate actual cache hits; manually anchored constructor require: Object is not a constructor (evaluating 'new Module(\"manual\")'); module-scope require observes own method: live method dispatch; prototype hook sees createRequire and nested require: undefined is not an object (evaluating 'Module.prototype.require'); prototype hook sees cached require: undefined is not an object (evaluating 'Module.prototype.require'); prototype hook uses real Module receiver: undefined is not an object (evaluating 'Module.prototype.require'); live resolution hook aliases real source: real filename resolver; direct filename resolution: Object is not a constructor (evaluating 'new Module(\"probe\")'); builtin resolution keeps prefix: Module._resolveFilename is not a function. (In 'Module._resolveFilename(\"node:fs\")', 'Module._resolveFilename' is undefined); cache entry replacement: replacement is authoritative; cache replacement changes loader without changing old function cache: real active cache and old reference; cycle exposes actual partial exports: cycle and dependency edges; failed CJS evicts cache and failed child: undefined is not an object (evaluating 'Module.prototype.require'); JSON cache contains actual Module: Right-hand side of 'instanceof' is not callable; invalid numeric request: expected ERR_INVALID_ARG_TYPE, got undefined; empty request: expected ERR_INVALID_ARG_VALUE, got MODULE_NOT_FOUND\n\nECOSYSTEM PEAK SAMPLED RSS: 45536 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "shape-after-first.log": {
+      "sha256": "cd69081d31584b54fbb75d1ed9934bd302efe1280e1c7d8d50fdb074badeac53",
+      "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-constructor/home-after/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-constructor/shape.mjs\"]\nhome-tool (zig-js): TypeError: Home.startModule is not a function. (In 'Home.startModule(process.argv[1])', 'Home.startModule' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 10624 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "contract-after-second.log": {
+      "sha256": "c38430071b36b3f282f6169a5e861ecdff29feaac3002b4905f58b4c440675e2",
+      "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-constructor/home-after/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-constructor/contract.mjs\"]\nhome-tool (zig-js): Error: NODE MODULE CONSTRUCTOR 42 checks; failures: failed CJS evicts cache and failed child: real-cjs-failure\n\nECOSYSTEM PEAK SAMPLED RSS: 32800 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "next-actual-build-before.log": {
+      "sha256": "a52dccb7846a401a4aef4ff4157257d3f280dd0515109e3c725e5bebfcad8d19",
+      "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/validation-regexp/home-after/bin/home-tool\", \"run\", \"node_modules/next/dist/bin/next\", \"build\"]\nhome-tool (zig-js): TypeError: undefined is not an object (evaluating 'mod.prototype.require')\n\nECOSYSTEM PEAK SAMPLED RSS: 25408 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "next-hook-before.log": {
+      "sha256": "b25ce38f2807f836a46328f25b96e1bc883225847a52e54ede69d7d105e7b595",
+      "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/validation-regexp/home-after/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-constructor/next-hook.mjs\"]\nhome-tool (zig-js): TypeError: undefined is not an object (evaluating 'mod.prototype.require')\n\nECOSYSTEM PEAK SAMPLED RSS: 26352 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "next-hook-after-final.log": {
+      "sha256": "d5478ad092c05aeb6e55485d101321a5937148a23dcbcdac386f79de5fec739a",
+      "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-constructor/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-constructor/next-hook.mjs\"]\nhome-tool (zig-js): Error: cannot resolve module ../../module.compiled from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-constructor/consumer-after/packages/runtime/upstream/bench/install/node_modules/next/dist/server/route-modules/pages/vendored/contexts/head-manager-context.js\n\nECOSYSTEM PEAK SAMPLED RSS: 43136 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "next-dotted-hook.log": {
+      "sha256": "4ebebf6cf8112f9db5d2a266ef89a28f68307487ae7b170cea4a424134a30e9a",
+      "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-constructor/dotted-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-constructor/next-hook.mjs\"]\nACTUAL NEXT 16.1.6 REQUIRE HOOK 3 CHECKS OK\n\nECOSYSTEM PEAK SAMPLED RSS: 138688 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "next-dotted-build.log": {
+      "sha256": "7b9f96dc3589bc8c8bc1c1b3f2d98a27f6ecc9702f73ed3535b595714ae200c7",
+      "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-constructor/dotted-zig-js/bin/home-tool\", \"run\", \"node_modules/next/dist/bin/next\", \"build\"]\nhome-tool (zig-js): TypeError: _os.default.cpus is not a function. (In '_os.default.cpus()', '_os.default.cpus' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 56416 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "dotted-before-before.log": {
+      "sha256": "6a52067e33d7a849664c2af401651cc21119bb9b4a14aa64f80b6587bb498ed4",
+      "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-constructor/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/cjs_dotted_filenames.mjs\"]\nhome-tool (zig-js): Error: cannot resolve module ./module.compiled from /private/var/folders/cv/vscx542522j3h3vknn13gbbw0000gn/T/home-cjs-dotted-g5b7a5/anchor.cjs\n\nECOSYSTEM PEAK SAMPLED RSS: 37712 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    }
+  },
+  "log_inventory": {
+    "gates-zig-js-first.log": {
+      "sha256": "46a861abd122f67ad91ce5bfe6a064b945ab6edabc319ad93aec4f56faf601b6",
+      "bytes": 35666
+    },
+    "contract-node-final.log": {
+      "sha256": "ad936eb76112e21a954c3ec78a8124062d18728cce7dd4664dc8336a99fd3724",
+      "bytes": 362
+    },
+    "gates-jsc-basic-final.log": {
+      "sha256": "84465a814fed10847fa21166200ed2bd25e338a86b61c2ff2f9a14a204464525",
+      "bytes": 17689
+    },
+    "next-hook-node.log": {
+      "sha256": "a5c5c134f32f37f4272351d15bd6dc166d1eee496a3413765904a7d38f210611",
+      "bytes": 281
+    },
+    "shape-node.log": {
+      "sha256": "4b0a82d6f4f80a68edd68c7df5b06c23dc0d1c00316ad02ee080d118abb324ef",
+      "bytes": 864
+    },
+    "contract-after-second.log": {
+      "sha256": "c38430071b36b3f282f6169a5e861ecdff29feaac3002b4905f58b4c440675e2",
+      "bytes": 430
+    },
+    "shape-after-second.log": {
+      "sha256": "84d58561358736c8f59d79b0baa05397396f7cc201ac6f1a249bc2a55b2bd0da",
+      "bytes": 925
+    },
+    "gates-jsc-final.log": {
+      "sha256": "87719724e8b928f430f5ac7947c26efd7eff37fc92517ee8b65c09b99777d5a0",
+      "bytes": 863
+    },
+    "next-dependencies-after.log": {
+      "sha256": "80ee37bb8ecc06411ffc6074a82038e80750c77f61c3e9f0560416556bf5cf51",
+      "bytes": 784
+    },
+    "next-hook-before.log": {
+      "sha256": "b25ce38f2807f836a46328f25b96e1bc883225847a52e54ede69d7d105e7b595",
+      "bytes": 394
+    },
+    "next-build-after-second.log": {
+      "sha256": "f7eebdc4ad1dc249372f0929a0185e5dd1eba0b2f653c2aed883fb3d4ceb68a6",
+      "bytes": 375
+    },
+    "next-dependencies-before.log": {
+      "sha256": "42cc2cb2fbe6ab4c9f6edb7bb03da4bcac18fbfe72b7e415f05e087b2ad87ef2",
+      "bytes": 784
+    },
+    "contract-bun.log": {
+      "sha256": "8030faba45f4365916539ee122ce18a2180694f8bef2fc806e59ead368189891",
+      "bytes": 1746
+    },
+    "next-hook-after-final.log": {
+      "sha256": "d5478ad092c05aeb6e55485d101321a5937148a23dcbcdac386f79de5fec739a",
+      "bytes": 602
+    },
+    "next-actual-build-before.log": {
+      "sha256": "a52dccb7846a401a4aef4ff4157257d3f280dd0515109e3c725e5bebfcad8d19",
+      "bytes": 343
+    },
+    "dotted-bun-before.log": {
+      "sha256": "d446b7469c1b426b12c1de5909e4cd892a3627c4c119179e2f1c38182c1f37f3",
+      "bytes": 294
+    },
+    "contract-before.log": {
+      "sha256": "cfefdb53e4b509ef943535ab7e3fe9ad971d9f3fc1ac161137404bce5c32cf29",
+      "bytes": 2660
+    },
+    "contract-before-final.log": {
+      "sha256": "56c40d5fd2c22331e22be28e4fa6345d77cceeb2399ee6653a7b905938dbd69f",
+      "bytes": 5181
+    },
+    "next-dotted-hook.log": {
+      "sha256": "4ebebf6cf8112f9db5d2a266ef89a28f68307487ae7b170cea4a424134a30e9a",
+      "bytes": 348
+    },
+    "extension-node-before.log": {
+      "sha256": "e77d498cef5636d1cc92d41d979d85073714c705bc0f36ce5b31a2dcb05355d8",
+      "bytes": 283
+    },
+    "contract-node.log": {
+      "sha256": "be98cae0d84891d37f747411eb0b11d270eb0648914d1e4bf22cc730b258bd95",
+      "bytes": 275
+    },
+    "extension-bun-before.log": {
+      "sha256": "4ac9cde3700f504e52c1d5083a182e4544dc3533f087c89e7849d0431c0d7463",
+      "bytes": 288
+    },
+    "next-hook-bun.log": {
+      "sha256": "55cdf9a7b70adc23fe75e9fd9b056687fc3b245a171ba8079b16c0f7cc78dbb5",
+      "bytes": 288
+    },
+    "extension-before-before.log": {
+      "sha256": "b3ca570bc38fba5825763a34c71b88eacd0e3c888c6128494e0de2d5474bcad5",
+      "bytes": 467
+    },
+    "dotted-before-before.log": {
+      "sha256": "6a52067e33d7a849664c2af401651cc21119bb9b4a14aa64f80b6587bb498ed4",
+      "bytes": 477
+    },
+    "dotted-gates-zig-js.log": {
+      "sha256": "0dc8c111a6c55a21a6e8eb9fbab01fa9ed93c387f731ea1c0240883bb77d99a7",
+      "bytes": 34605
+    },
+    "shape-after-first.log": {
+      "sha256": "cd69081d31584b54fbb75d1ed9934bd302efe1280e1c7d8d50fdb074badeac53",
+      "bytes": 437
+    },
+    "home-build-second.log": {
+      "sha256": "013e4f71a099e7a6ab57ba8d326f10d092625f21f86da1e7d54c0b21e674bee1",
+      "bytes": 678
+    },
+    "next-build-after-final.log": {
+      "sha256": "1c76c3e71ea79ecadf12c0b557b8d4df1c9d41a55ce437d15f401769c21e2e61",
+      "bytes": 376
+    },
+    "contract-bun-final.log": {
+      "sha256": "e346cbe992fc27beb244e9fa3e705595499e54b11bf7ab15ce246302775c1f29",
+      "bytes": 2866
+    },
+    "shape-bun.log": {
+      "sha256": "a6b27010d3a4d05500a7db2751014fe873ee5482c95360c9e706e0a7d1cfc507",
+      "bytes": 826
+    },
+    "gates-jsc-correct-tool-config.log": {
+      "sha256": "fbaed8b1c38f78ab6709dd47ae3aad5dadb64e23c7634ada4ef99686d4c37cd8",
+      "bytes": 38465
+    },
+    "next-dotted-build.log": {
+      "sha256": "7b9f96dc3589bc8c8bc1c1b3f2d98a27f6ecc9702f73ed3535b595714ae200c7",
+      "bytes": 378
+    },
+    "shape-before.log": {
+      "sha256": "1f5d874aadffa3c11968b1447107807255048ab32fc554fea37e3e67655b9526",
+      "bytes": 441
+    },
+    "gates-zig-js-final.log": {
+      "sha256": "18738f11d5b2cc50b15c4d5b4550d2820f2350c26cb80e588939c786f46c5709",
+      "bytes": 35504
+    },
+    "home-build-first.log": {
+      "sha256": "04208831398f246c2f47976bc8b596bb00f7f1cd084321328b261296a865317e",
+      "bytes": 678
+    },
+    "dotted-gates-jsc.log": {
+      "sha256": "e516aea840852b39e472008555904d256608ef9f9539e2ee8231ec33451516bb",
+      "bytes": 29805
+    },
+    "dotted-node-before.log": {
+      "sha256": "ed3ab10ee40d172358eafe238995d7a7d5e873543e5f50e91ce0c56f4e8c2926",
+      "bytes": 290
+    }
+  },
+  "caller": "Existing validated functionalf648 stays until fresh immutable suite qualification; never promote this evidence alone."
+}
