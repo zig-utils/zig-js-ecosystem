@@ -1,0 +1,627 @@
+{
+  "schema_version": 1,
+  "run": 42918611833,
+  "suite": "f64846de2ebb3473082560f0226ea49cbd360906",
+  "engine": "60fdd42fe6713a2703fcc426c9d571dbf9a64852",
+  "home_runtime": "2b2a78cc9bf64c278f3c3b84ae8c6bf5cfff1b8b",
+  "stacks": {
+    "run": 42918611833,
+    "artifact": {
+      "id": 13812363408,
+      "digest": "sha256:6619bb3ca696886eec2394a778d2f0801f2da280b53addf9edc1482cd6603a37",
+      "size_in_bytes": 1938074
+    },
+    "repository": "stacksjs/stacks",
+    "consumer_sha": "d32f70a77cb156090cb6815a2b1818cffe76eebd",
+    "engine_sha": "60fdd42fe6713a2703fcc426c9d571dbf9a64852",
+    "runtime_provenance": {
+      "engine_sha": "60fdd42fe6713a2703fcc426c9d571dbf9a64852",
+      "suite_ref": "f64846de2ebb3473082560f0226ea49cbd360906",
+      "home_repository": "home-lang/home",
+      "home_ref": "2b2a78cc9bf64c278f3c3b84ae8c6bf5cfff1b8b",
+      "zig_version": "0.18.0-dev.146+35accc06e",
+      "build_cpu": "baseline",
+      "build_optimize": "ReleaseSafe",
+      "sha256": {
+        "home-tool": "2de843acd20f25da46fbaac26b79aa94c99866bcda12f5b76a1deb60288a5093",
+        "engine/zig-out/lib/libzig-js.a": "13b1a4755d042568f5f5acc30447ea2bd8676c03929719492f6677e306ab5a18"
+      }
+    },
+    "scopes": 99,
+    "checks": 927,
+    "lanes": {
+      "candidate": {
+        "unsupported": 354,
+        "failed": 206,
+        "passed": 65
+      },
+      "engine": {
+        "passed": 1
+      },
+      "reference": {
+        "passed": 113,
+        "failed": 57,
+        "timed-out": 1,
+        "not-run": 104
+      },
+      "reference-setup": {
+        "passed": 10
+      },
+      "setup": {
+        "passed": 16
+      }
+    },
+    "selected_actual_checks": [
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 1880780,
+        "memory_limit_mb": 3072,
+        "seconds": 6.856,
+        "log": "0016.log",
+        "label": ".: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "./buddy build"
+        ],
+        "engine_invocations": 3,
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-10T23:05:01.642Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 1880780 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "7d6ed3e5275dc77883620b6b6ae659cadceca63374ee3626c1f86b539fbaa5e0"
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 1660192,
+        "memory_limit_mb": 3072,
+        "seconds": 7.227,
+        "log": "0018.log",
+        "label": ".: typecheck",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)"
+        ],
+        "engine_invocations": 3,
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun x --bun tsc --noEmit -p storage/framework/tsconfig.framework.json --pretty false && bun x --bun tsc --noEmit -p storage/framework/tsconfig.defaults.json --pretty false && (cd storage/framework/core/orm && bun run typecheck:inference) && (cd storage/framework/core/router && bun run typecheck:types) && (cd storage/framework/core/actions && bun run typecheck:types) && (cd storage/framework/core/cli && bun run typecheck:types) && (cd storage/framework/core/env && bun run typecheck:types) && (cd storage/framework/core/events && bun run typecheck:types) && (cd storage/framework/core/auth && bun run typecheck:types) && (cd storage/framework/core/queue && bun run typecheck:types) && (cd storage/framework/core/email && bun run typecheck:types)\"]\n[2026-11-10T23:05:16.182Z] local.INFO: Building @stacksjs/validation...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 1660192 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "3b1ed7566e72582605681d507f1de5a5d78828194c364c66a8cc2da77e5d98a5"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 280928,
+        "memory_limit_mb": 3072,
+        "seconds": 0.461,
+        "log": "0330.log",
+        "label": "storage/framework/core/model-meta: module initialization src/index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+          "src/index.ts"
+        ],
+        "engine_invocations": 1,
+        "actual_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 280928 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+        "log_sha256": "8e68a7b8015064b5c3fbd9fbd3ff26ed94572fa2a09f4fbbc156b384dd51d76f"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 63920,
+        "memory_limit_mb": 3072,
+        "seconds": 0.223,
+        "log": "0604.log",
+        "label": "storage/framework/core/validation: module initialization src/index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+          "src/index.ts"
+        ],
+        "engine_invocations": 1,
+        "actual_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 63920 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+        "log_sha256": "8b83f8f21a287c9fc82bae69226aed0df09789391c5fc37bbb616abe9ad29ce7"
+      }
+    ]
+  },
+  "stacks_candidate_comparison": {
+    "before_consumer": "897486d74b9973b9296b34211fe6cc26b9f89b9a",
+    "after_consumer": "d32f70a77cb156090cb6815a2b1818cffe76eebd",
+    "candidate_labels": 625,
+    "diffs": [
+      {
+        "label": "storage/framework/core/model-meta: module initialization src/index.ts",
+        "before": "failed",
+        "after": "passed"
+      },
+      {
+        "label": "storage/framework/core/validation: module initialization src/index.ts",
+        "before": "failed",
+        "after": "passed"
+      }
+    ]
+  },
+  "home": {
+    "run": 42918611833,
+    "artifact": {
+      "digest": "sha256:c21ba1ebe49e02c7dde879d11ff1bd51b10e0b81dd3ef26756e21da2b6f149ee",
+      "bytes": 173776
+    },
+    "repository": "home-lang/home",
+    "consumer_sha": "2b2a78cc9bf64c278f3c3b84ae8c6bf5cfff1b8b",
+    "engine_sha": "60fdd42fe6713a2703fcc426c9d571dbf9a64852",
+    "runtime_provenance": {
+      "engine_sha": "60fdd42fe6713a2703fcc426c9d571dbf9a64852",
+      "suite_ref": "f64846de2ebb3473082560f0226ea49cbd360906",
+      "home_repository": "home-lang/home",
+      "home_ref": "2b2a78cc9bf64c278f3c3b84ae8c6bf5cfff1b8b",
+      "zig_version": "0.18.0-dev.146+35accc06e",
+      "build_cpu": "baseline",
+      "build_optimize": "ReleaseSafe",
+      "sha256": {
+        "home-tool": "2de843acd20f25da46fbaac26b79aa94c99866bcda12f5b76a1deb60288a5093",
+        "engine/zig-out/lib/libzig-js.a": "13b1a4755d042568f5f5acc30447ea2bd8676c03929719492f6677e306ab5a18"
+      }
+    },
+    "scopes": 46,
+    "checks": 201,
+    "lanes": {
+      "candidate": {
+        "failed": 42,
+        "unsupported": 38,
+        "passed": 7
+      },
+      "direct-consumer": {
+        "passed": 4
+      },
+      "engine": {
+        "passed": 1
+      },
+      "reference": {
+        "passed": 11,
+        "failed": 5
+      },
+      "reference-setup": {
+        "passed": 40,
+        "timed-out": 1,
+        "failed": 2
+      },
+      "setup": {
+        "passed": 46,
+        "timed-out": 1,
+        "failed": 2
+      },
+      "unknown": {
+        "failed": 1
+      }
+    },
+    "selected_actual_checks": [
+      {
+        "status": "failed",
+        "exit_code": -9,
+        "peak_sampled_rss_kib": 3164624,
+        "memory_limit_mb": 3072,
+        "seconds": 27.752,
+        "log": "0052.log",
+        "reason": "sampled command tree RSS exceeded 3072 MiB",
+        "label": ".: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bunx bunpress build"
+        ],
+        "engine_invocations": 1,
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 3164624 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n",
+        "log_sha256": "eb2975937d70f9b650b543216e239390291ee04a23185286d2c0559cd4c75de0"
+      },
+      {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 596992,
+        "memory_limit_mb": 3072,
+        "seconds": 1.111,
+        "log": "0054.log",
+        "label": ".: typecheck",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun --bun tsc --noEmit"
+        ],
+        "engine_invocations": 1,
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun --bun tsc --noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 596992 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+        "log_sha256": "583ae99e3b17560d34a60c590b8a3e42097ba2da0066012b74d9049f92f7ad9d"
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 198912,
+        "memory_limit_mb": 3072,
+        "seconds": 0.429,
+        "log": "0069.log",
+        "label": "packages/runtime/src/runtime/cli/init/react-shadcn: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun run build.ts"
+        ],
+        "engine_invocations": 1,
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 198912 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "582532363f6292af1ce360982fc239ee3c8c0d3629a6c4f031c874de2c1ecc27"
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 196520,
+        "memory_limit_mb": 3072,
+        "seconds": 0.429,
+        "log": "0071.log",
+        "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun run build.ts"
+        ],
+        "engine_invocations": 1,
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 196520 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "399537e45a740126256a20f55afb4fc266e81c0488ad066607cb921a0cd34f37"
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 10236,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0083.log",
+        "label": "packages/runtime/upstream/bench/install: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "next build"
+        ],
+        "engine_invocations": 1,
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"next build\"]\nhome-tool (zig-js): TypeError: undefined is not an object (evaluating 'mod.prototype.require')\n\nECOSYSTEM PEAK SAMPLED RSS: 10236 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "dbfa64a0cb6479ae88023b9fd851e2afd79881f0d92bb09997ca9adc418f8acb"
+      }
+    ],
+    "orchestrator_failures": [
+      {
+        "label": "orchestrator",
+        "status": "failed",
+        "reason": "RuntimeError('command process group 18283 did not stop after SIGKILL')"
+      }
+    ]
+  },
+  "cleanup_raw_logs": [
+    {
+      "name": "home-lang--home/0200.log",
+      "text": "$ [\"/bin/sh\", \"-c\", \"cd src && bun run build\"]\n$ bun run build:napi && bun run build:ffi\n$ napi build --release --platform --no-dts-header --features enable-napi && bun run cleanup\n\nECOSYSTEM LIMIT: command time budget exhausted\nECOSYSTEM CLEANUP SNAPSHOT: {\"pgid\": 18283, \"platform\": \"linux\", \"sampled_at\": \"2026-11-10T23:25:01.921607+00:00\", \"members\": [{\"pid\": 18303, \"ppid\": 1, \"pgid\": 18283, \"state\": \"D\", \"elapsed\": \"01:37\", \"wait_channel\": \"rq_qos\", \"command\": \"cargo\"}]}\n"
+    }
+  ],
+  "home_unreported_reference_labels": {
+    "previous_consumer": "2b2a78cc9bf64c278f3c3b84ae8c6bf5cfff1b8b",
+    "current_consumer": "2b2a78cc9bf64c278f3c3b84ae8c6bf5cfff1b8b",
+    "previous_declared_count": 50,
+    "current_reported_count": 16,
+    "missing_count": 34,
+    "labels": [
+      {
+        "label": "packages/runtime/upstream/bench/ffi/src: build",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "bun run build:napi && bun run build:ffi"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/bench/grpc-server: build",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "exit 0"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/bench/gzip: build",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "exit 0"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/bench/install: build",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "next build"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/bench/install: typecheck",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "tsc --noEmit"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/bench/log: build",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "exit 0"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/bench/modules/node_os: build",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "exit 0"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/bench: test",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "bun test"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/bench/react-hello-world: test",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "echo \"Error: no test specified\" && exit 1"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/bench/sqlite: build",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "exit 0"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream: build",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "bun --silent run build:debug"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream: test",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "node scripts/runner.node.mjs --exec-path ./build/debug/bun-debug"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream: typecheck",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "tsc --noEmit && cd test && bun run typecheck"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/packages/bun-build-mdx-rs: build",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "napi build --platform --release"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/packages/bun-build-mdx-rs: test",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "ava"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/packages/bun-debug-adapter-protocol: test",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "bun test"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/packages/bun-error: build",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "bun build --production --define:process.env.NODE_ENV=\"'production'\"  --minify index.tsx bun-error.css --outdir=dist --target=browser --format=esm"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/packages/bun-inspector-protocol: build",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "bun build --target=node --outfile=index.js --minify-syntax ./index.ts --external=ws"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/packages/bun-inspector-protocol: test",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "bun test"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/packages/bun-plugin-svelte: test",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "bun test"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/packages/bun-plugin-yaml: test",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "bun test"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/packages/bun-types: build",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "bun scripts/build.ts"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/packages/bun-types: test",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "tsc"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/packages/bun-vscode/example: test",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "bun test"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/packages/bun-vscode: build",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "node scripts/build.mjs"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/packages/bun-vscode: test",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "node scripts/test.mjs"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/packages/bun-wasm: build",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "cd ../.. && make wasm"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/src/node-fallbacks: build",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "bun run build-gen"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/src/node-fallbacks: test",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "echo \"Error: no test specified\" && exit 1"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/src/runtime/cli/create/projects/react-shadcn-spa: build",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "bun 'REPLACE_ME_WITH_YOUR_APP_FILE_NAME.build.ts'"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/src/runtime/cli/create/projects/react-spa: build",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "bun build --target=browser REPLACE_ME_WITH_YOUR_APP_FILE_NAME.html --outdir dist"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/src/runtime/cli/init/react-app: build",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/src/runtime/cli/init/react-shadcn: build",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "bun run build.ts"
+        ],
+        "previous_status": "not-run"
+      },
+      {
+        "label": "packages/runtime/upstream/src/runtime/cli/init/react-tailwind: build",
+        "previous_declared_command": [
+          "/bin/sh",
+          "-c",
+          "bun run build.ts"
+        ],
+        "previous_status": "not-run"
+      }
+    ],
+    "interpretation": "These labels have no current emitted result after the fatal cleanup exception. They are not passes. The retained log proves one reference command actually started, timed out and left cargo in D/rq_qos; no blanket claim that every missing label was never started. Runner partial-report normalization remains open."
+  },
+  "limits": [
+    "Exactly2of625Stacks candidate labels change failed->passed: actual validation/model-meta source initialization. All99scopes/927checks remain, and65/206/354are measured.",
+    "Stacks consumer advances897486d->d32f70a; runtime remainsHome2b but engine inherits preserved foreign cache work as well as regex60f. Local exactd4->60f reproduction establishes the regex fix; this whole CI comparison is not isolated to one engine commit.",
+    "Home candidate87labels remain7/42/38, with actual docs memory failure under the unchanged3072MiB cap, passing root typecheck, missingv8 React builds and originalModule.prototype.require Next failure retained. No new Home package pass or cleanup fix claimed.",
+    "All-selected42918365900and earlier runs remain uncancelled. Existing validated functionalf648 caller is unchanged; this evidence-only descendant is not promoted."
+  ]
+}
