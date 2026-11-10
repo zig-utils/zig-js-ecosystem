@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "qualification_run": 42771575966,
+  "qualification_url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/42771575966",
+  "functional_suite_ref": "4f7c991266f2eea5685f64959c13e660e6ae4ce4",
+  "engine_sha": "93b7cc498ffa1f84134e456bdf4c0075dff2abbd",
+  "home_ref": "1fb5c7d2b15f82c1455ed16dfed6d80ebaccad76",
+  "validation": {
+    "run_id": 42771503336,
+    "conclusion": "success",
+    "python_tests": 36,
+    "real_dependency_tests": 7,
+    "dependency_assertions": 26
+  },
+  "mandatory_buffer_operations": {
+    "byte_range_species": 16,
+    "readonly_descriptors": 4,
+    "total": 20,
+    "proof": "Pinned Home main.ts unconditionally imports both committed fixtures; each asserts its exact denominator. Linux runtime step9 passes the common/rejection/context/file-URL gates. No optional skip path."
+  },
+  "runtime_job": {
+    "id": 129680566513,
+    "name": "runtime",
+    "status": "completed",
+    "conclusion": "success",
+    "run_id": 42771575966,
+    "logs_url": null,
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1
+      },
+      {
+        "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2
+      },
+      {
+        "name": "Read toolchain pins",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3
+      },
+      {
+        "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4
+      },
+      {
+        "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 5
+      },
+      {
+        "name": "Run pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 6
+      },
+      {
+        "name": "Build exact pushed engine archive",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 7
+      },
+      {
+        "name": "Build Home against this engine",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 8
+      },
+      {
+        "name": "Verify engine identity and Home host/module/TypeScript integration",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 9
+      },
+      {
+        "name": "Package runtime and immutable provenance",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 10
+      },
+      {
+        "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 11
+      },
+      {
+        "name": "Post Run pantry-pm/pantry/packages/action@4ad0cc7b728ba6dc295fcccf9b88240f9fe610c9",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 19
+      },
+      {
+        "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 20
+      },
+      {
+        "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 21
+      },
+      {
+        "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 22
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 23
+      }
+    ]
+  },
+  "priority_jobs": [
+    {
+      "id": 129682648816,
+      "name": "Consumers stacksjs/stacks",
+      "status": "in_progress",
+      "conclusion": null,
+      "steps": [
+        {
+          "name": "Unpack and verify runtime provenance",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Verify shared runtime executes on this consumer CPU",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Check every selected package, library, CLI and app",
+          "status": "in_progress",
+          "conclusion": null,
+          "number": 9
+        }
+      ]
+    },
+    {
+      "id": 129682649008,
+      "name": "Consumers home-lang/home",
+      "status": "in_progress",
+      "conclusion": null,
+      "steps": [
+        {
+          "name": "Unpack and verify runtime provenance",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Verify shared runtime executes on this consumer CPU",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Check every selected package, library, CLI and app",
+          "status": "in_progress",
+          "conclusion": null,
+          "number": 9
+        }
+      ]
+    }
+  ],
+  "runtime_checkout_and_gate_log_excerpt": [
+    "2026-11-10T06:54:36.3983313Z   ref: 4f7c991266f2eea5685f64959c13e660e6ae4ce4",
+    "2026-11-10T06:54:37.9732756Z HEAD is now at 4f7c991 feat(runtime): qualify enforced Buffer length metadata",
+    "2026-11-10T06:54:38.1669849Z   ref: 93b7cc498ffa1f84134e456bdf4c0075dff2abbd",
+    "2026-11-10T06:54:40.9729879Z HEAD is now at 93b7cc4 chore(ecosystem): promote validated interrupted-command suite",
+    "2026-11-10T06:54:41.1193736Z   ref: 1fb5c7d2b15f82c1455ed16dfed6d80ebaccad76",
+    "2026-11-10T06:54:58.3972172Z HEAD is now at 1fb5c7d2b feat(buffer): expose an enforced maximum length profile",
+    "2026-11-10T06:59:42.2688074Z ##[group]Run zig-out/bin/home-tool eval 'if (Home.engine !== \"zig-js\") throw new Error(\"Wrong engine\"); console.log(\"ECOSYSTEM ENGINE zig-js\");'",
+    "2026-11-10T06:59:42.2688592Z \u001b[36;1mzig-out/bin/home-tool eval 'if (Home.engine !== \"zig-js\") throw new Error(\"Wrong engine\"); console.log(\"ECOSYSTEM ENGINE zig-js\");'\u001b[0m",
+    "2026-11-10T06:59:42.2689258Z \u001b[36;1mzig build home-tool-smoke home-tool-rejections-smoke home-tool-async-context-smoke home-tool-file-url-smoke -Dcpu=baseline -Doptimize=\"ReleaseSafe\" -Dtool-js-engine=zig-js -Dzig-js-root=\"$GITHUB_WORKSPACE/engine\"\u001b[0m",
+    "2026-11-10T06:59:42.2940112Z ECOSYSTEM ENGINE zig-js",
+    "2026-11-10T07:00:23.5030088Z   ENGINE_SHA: 93b7cc498ffa1f84134e456bdf4c0075dff2abbd",
+    "2026-11-10T07:00:23.5030421Z   SUITE_REF: 4f7c991266f2eea5685f64959c13e660e6ae4ce4"
+  ],
+  "runtime_artifact_metadata": {
+    "id": 13742003716,
+    "name": "ecosystem-runtime",
+    "size_in_bytes": 38950857,
+    "url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13742003716",
+    "archive_download_url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13742003716/zip",
+    "expired": false,
+    "created_at": "2026-11-10T07:00:29Z",
+    "expires_at": "2026-11-17T07:00:27Z",
+    "updated_at": "2026-11-10T07:00:29Z",
+    "digest": "sha256:2c96185ded4660f96f04403413fde305f32b47eb0755347520002c1fee14ec78",
+    "workflow_run": {
+      "id": 42771575966,
+      "repository_id": 1449802195,
+      "head_repository_id": 1449802195,
+      "head_branch": "main",
+      "head_sha": "4f7c991266f2eea5685f64959c13e660e6ae4ce4"
+    }
+  },
+  "runtime_zip_downloaded_locally": false,
+  "promotion": {
+    "engine_commit": "84e0c7ccbd99278706fa755907b16f955e7fc607",
+    "uses_ref": "4f7c991266f2eea5685f64959c13e660e6ae4ce4",
+    "suite_ref": "4f7c991266f2eea5685f64959c13e660e6ae4ce4",
+    "actionlint": "passed",
+    "diff_check": "passed",
+    "all_selected_every_push_run": 42773791675
+  },
+  "notes": [
+    "Both actual priority provenance and CPU steps7/8 pass. Package steps9 remain running; no package/build/decode compatibility pass claimed.",
+    "Only caller YAML changed; configured Chris identity/no trailers and foreign zig-pkg preserved. Older pushes are retained, no selected repo filtered.",
+    "MAX_LENGTH profile is1GiB on both Home providers, aligned to numeric TypedArray ceiling. Existing unsupported inflation options, implicit ESM strictness gap, global string policy and RSS/codec caps are not silently changed or passed.",
+    "Remote ZIP digest is metadata only; no local runtime ZIP verification claim.",
+    "Promote only functional4f7c991, never this evidence-only descendant."
+  ],
+  "mandatory_fixture_sha256": {
+    "packages/runtime/test/tool_modules/main.ts": "7f7e914dc79ce48c333b8c9c2724198cd7b4246fe7bb01272a338d323d97ec02",
+    "packages/runtime/test/tool_modules/buffer_limits.mjs": "2d1b5c9e370f9f6b5bfa9e2b7de5f015388a69bedff9e234732e1a7c6639141f",
+    "packages/runtime/test/tool_modules/buffer_limit_descriptors.mjs": "eb014e502afa79d41f2a07027081a92ddfa5ddd1836a0b63f6422486fe0b5ee0"
+  }
+}
