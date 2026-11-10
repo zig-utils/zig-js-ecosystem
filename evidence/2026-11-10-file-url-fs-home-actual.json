@@ -1,0 +1,239 @@
+{
+  "run": 42905247487,
+  "artifact": {
+    "id": 13806986870,
+    "digest": "sha256:28eedb35fce0e62430393e7c03b3acacd58e7ebfa3a60579e15c00577d30a813",
+    "size_in_bytes": 175805
+  },
+  "repository": "home-lang/home",
+  "consumer_sha": "a3e3b9276d34114b00a3d377a0a2b31440a13140",
+  "engine_sha": "d59e081a4e4f217d98cf5100ddcc7d4d0c66f228",
+  "runtime_provenance": {
+    "engine_sha": "d59e081a4e4f217d98cf5100ddcc7d4d0c66f228",
+    "suite_ref": "bb9678d2834c14b4e7ba6ab49a695c31557f3953",
+    "home_repository": "home-lang/home",
+    "home_ref": "a3e3b9276d34114b00a3d377a0a2b31440a13140",
+    "zig_version": "0.18.0-dev.146+35accc06e",
+    "build_cpu": "baseline",
+    "build_optimize": "ReleaseSafe",
+    "sha256": {
+      "home-tool": "4971a15fc2db7049e8a9f54d8926aa501ee52a9aa61db027d7358cffaac426d5",
+      "engine/zig-out/lib/libzig-js.a": "8e7221741bbcebb8a8f75de99865cbae808024239ebdbe973d881d31e5508df8"
+    }
+  },
+  "scopes": 46,
+  "checks": 234,
+  "lanes": {
+    "candidate": {
+      "failed": 42,
+      "unsupported": 38,
+      "passed": 7
+    },
+    "direct-consumer": {
+      "passed": 4
+    },
+    "engine": {
+      "passed": 1
+    },
+    "reference": {
+      "passed": 11,
+      "failed": 4,
+      "timed-out": 1,
+      "not-run": 34
+    },
+    "reference-setup": {
+      "passed": 40,
+      "timed-out": 1,
+      "failed": 2
+    },
+    "setup": {
+      "passed": 46,
+      "timed-out": 1,
+      "failed": 2
+    }
+  },
+  "selected_actual_checks": [
+    {
+      "status": "failed",
+      "exit_code": -9,
+      "peak_sampled_rss_kib": 3163372,
+      "memory_limit_mb": 3072,
+      "seconds": 35.701,
+      "log": "0052.log",
+      "reason": "sampled command tree RSS exceeded 3072 MiB",
+      "label": ".: build",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bunx bunpress build"
+      ],
+      "engine_invocations": 1,
+      "log_sha256": "9f6d42f33b6988a1d305709f01e37e905ca6268e3deb87a6f3edcf9a2c63a9c0",
+      "actual_log": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 3163372 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+    },
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 654056,
+      "memory_limit_mb": 3072,
+      "seconds": 1.303,
+      "log": "0054.log",
+      "label": ".: typecheck",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun --bun tsc --noEmit"
+      ],
+      "engine_invocations": 1,
+      "log_sha256": "13a08cae81ab8440668e7165e8856c1d99ae9521a0ed8ed1c52c97a9c24e0f0e",
+      "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun --bun tsc --noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 654056 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 226772,
+      "memory_limit_mb": 3072,
+      "seconds": 0.528,
+      "log": "0069.log",
+      "label": "packages/runtime/src/runtime/cli/init/react-shadcn: build",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun run build.ts"
+      ],
+      "engine_invocations": 1,
+      "log_sha256": "a93a7c41d4d92d3c661f389d44a2548ea87a59d7183a2d6549350ddae148442c",
+      "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 226772 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 224996,
+      "memory_limit_mb": 3072,
+      "seconds": 0.527,
+      "log": "0071.log",
+      "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun run build.ts"
+      ],
+      "engine_invocations": 1,
+      "log_sha256": "6fb4faae0beb2441740a5731ae61bb3063a2b9df0559084df4ae6699dc6df4d2",
+      "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 224996 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "status": "failed",
+      "exit_code": 127,
+      "peak_sampled_rss_kib": 9940,
+      "memory_limit_mb": 3072,
+      "seconds": 0.106,
+      "log": "0078.log",
+      "label": "packages/runtime/upstream/bench/ffi: build",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "cd src && bun run build"
+      ],
+      "engine_invocations": 0,
+      "log_sha256": "3a1568c934195ade7a130b1a097afa7d1752aa419653c2fab4897e36c4ca4da1",
+      "actual_log": "$ [\"/bin/sh\", \"-c\", \"cd src && bun run build\"]\necosystem-script: 1: napi: not found\n\nECOSYSTEM PEAK SAMPLED RSS: 9940 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 127\n"
+    },
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 259688,
+      "memory_limit_mb": 3072,
+      "seconds": 4.046,
+      "log": "0185.log",
+      "label": ".: build",
+      "lane": "reference",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bunx bunpress build"
+      ],
+      "engine_invocations": 0,
+      "log_sha256": "4ed5d84f1b0f9a680a87408edb15f691bbbd19079fffb5c92398a9f6f6f9fa28",
+      "actual_log": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\u001b[32m\u2713\u001b[0m Built 159 pages to HTML in 3.95s\n\nECOSYSTEM PEAK SAMPLED RSS: 259688 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 127752,
+      "memory_limit_mb": 3072,
+      "seconds": 1.285,
+      "log": "0187.log",
+      "label": ".: typecheck",
+      "lane": "reference",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun --bun tsc --noEmit"
+      ],
+      "engine_invocations": 0,
+      "log_sha256": "b0f608432227adf2c9493519ace9b4ed1a51c2f1264a33bc10ce7a0e69b72c32",
+      "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun --bun tsc --noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 127752 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 127804,
+      "memory_limit_mb": 3072,
+      "seconds": 3.759,
+      "log": "0196.log",
+      "label": "packages/runtime/src/runtime/cli/init/react-shadcn: build",
+      "lane": "reference",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun run build.ts"
+      ],
+      "engine_invocations": 0,
+      "log_sha256": "4f3cb70c0023fb24a7992bbaedacf03b260446dbf7c7ba73ac4f2916852781e3",
+      "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\n dist/chunk-fcmhp7yv.js  293.2 KB\n dist/index.html  0.4 KB\n dist/chunk-aavn711n.css  61.7 KB\n dist/chunk-fcmhp7yv.js.map  1333.0 KB\n dist/logo-ah670jad.svg  3.8 KB\n dist/react-c5c0zhye.svg  0.3 KB\n\nECOSYSTEM PEAK SAMPLED RSS: 127804 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 73132,
+      "memory_limit_mb": 3072,
+      "seconds": 0.607,
+      "log": "0197.log",
+      "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+      "lane": "reference",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun run build.ts"
+      ],
+      "engine_invocations": 0,
+      "log_sha256": "f43a3dc22cbe3fdb73756491397527d213bc04822c4c7957a031e074876c569e",
+      "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\n dist/chunk-7t3eq04g.js  173.8 KB\n dist/index.html  0.4 KB\n dist/chunk-68gyd4ye.css  19.2 KB\n dist/chunk-7t3eq04g.js.map  780.8 KB\n dist/logo-ah670jad.svg  3.8 KB\n dist/react-c5c0zhye.svg  0.3 KB\n\nECOSYSTEM PEAK SAMPLED RSS: 73132 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "status": "timed-out",
+      "exit_code": 124,
+      "peak_sampled_rss_kib": 292584,
+      "memory_limit_mb": 3072,
+      "seconds": 20.019,
+      "log": "0200.log",
+      "reason": "command time budget exhausted",
+      "label": "packages/runtime/upstream/bench/ffi: build",
+      "lane": "reference",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "cd src && bun run build"
+      ],
+      "engine_invocations": 0,
+      "log_sha256": "0a979cafcb4a1c3686706f14a8fc9daabfb54b0a875836ae728a8988840b76a6",
+      "actual_log": "$ [\"/bin/sh\", \"-c\", \"cd src && bun run build\"]\n$ bun run build:napi && bun run build:ffi\n$ napi build --release --platform --no-dts-header --features enable-napi && bun run cleanup\n\nECOSYSTEM PEAK SAMPLED RSS: 292584 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: command time budget exhausted\n\nECOSYSTEM RESULT: timed-out, exit 124\n"
+    }
+  ]
+}

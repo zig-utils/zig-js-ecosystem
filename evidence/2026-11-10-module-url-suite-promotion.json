@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "functional_suite_sha": "f64846de2ebb3473082560f0226ea49cbd360906",
+  "home_sha": "2b2a78cc9bf64c278f3c3b84ae8c6bf5cfff1b8b",
+  "qualified_engine_sha": "f9cd1a1e9b394e91baa2fe2a9991b5e7f327c5ab",
+  "qualification_run": 42910204499,
+  "validation": {
+    "run": 42910145908,
+    "job": 130158369241,
+    "conclusion": "success",
+    "python_tests": 42,
+    "dependency_tests": 7,
+    "dependency_assertions": 26,
+    "log_sha256": "049c50e4796ae9573f2c566ce269dd2f4723a823a70275f827402dcbb625a2e8"
+  },
+  "runtime": {
+    "job": 130160189182,
+    "conclusion": "success",
+    "artifact_proof": {
+      "artifact_id": 13807567653,
+      "zip_bytes": 39212828,
+      "zip_sha256": "db24a65584a3d7ccafa8cd689e833347edbc2298ddfab6eccef4f680c0a7f8b8",
+      "provenance": {
+        "engine_sha": "f9cd1a1e9b394e91baa2fe2a9991b5e7f327c5ab",
+        "suite_ref": "f64846de2ebb3473082560f0226ea49cbd360906",
+        "home_repository": "home-lang/home",
+        "home_ref": "2b2a78cc9bf64c278f3c3b84ae8c6bf5cfff1b8b",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "285debf254b8de21239faff614073bb16063348b229261df3ad1a215107ca5c0",
+          "engine/zig-out/lib/libzig-js.a": "8e7221741bbcebb8a8f75de99865cbae808024239ebdbe973d881d31e5508df8"
+        }
+      },
+      "files": {
+        "engine/zig-out/lib/libzig-js.a": "8e7221741bbcebb8a8f75de99865cbae808024239ebdbe973d881d31e5508df8",
+        "home-tool": "285debf254b8de21239faff614073bb16063348b229261df3ad1a215107ca5c0"
+      }
+    },
+    "log_sha256": "c2936c7237d722f5c7cb6004200541fe39c26d49f51e720f1f7578709d1d898e",
+    "actual_signals": [
+      "2026-11-10T22:10:44.0751778Z NODE MODULE URL 27 CHECKS OK",
+      "2026-11-10T22:10:44.1464954Z NODE FILE URL FS 40 CHECKS OK",
+      "2026-11-10T22:10:56.9647024Z NODE CRYPTO UUID 23 CHECKS OK",
+      "2026-11-10T22:10:56.9727075Z NODE AVAILABLE PARALLELISM 12 CHECKS OK; native estimate 4",
+      "2026-11-10T22:10:56.9856509Z NODE RMDIR 11 CHECKS OK",
+      "2026-11-10T22:10:56.9936523Z NODE SYNC FS 18 CHECKS OK",
+      "2026-11-10T22:10:57.0026348Z NODE MKDTEMP 13 CHECKS OK",
+      "2026-11-10T22:12:04.8250031Z 1/5 tool_cpu.test.CPU quota parsing preserves unlimited, malformed and fractional cases...OK",
+      "2026-11-10T22:12:04.8258455Z 2/5 tool_cpu.test.cgroup v2 reads actual hierarchical quota files without caching...OK",
+      "2026-11-10T22:12:04.8264388Z 3/5 tool_cpu.test.cgroup v1 reads controller membership and real quota period pairs...OK",
+      "2026-11-10T22:12:04.8267294Z 4/5 tool_cpu.test.available parallelism queries this native operating system...OK",
+      "2026-11-10T22:12:04.8268521Z 5/5 tool_cpu_affinity_linux_test.test.native availability follows changed Linux affinity and restores it...OK",
+      "2026-11-10T22:12:04.8274446Z All 5 tests passed."
+    ],
+    "scope": "27actual nativeURLmodule groups,40fileURLfilesystem groups, all original host/module gates and all5namednativeCPU cases passed"
+  },
+  "actual_consumer_preflights": {
+    "stacksjs/stacks": {
+      "job": 130165967582,
+      "artifact_step_7": "success",
+      "cpu_step_8": "success",
+      "package_step_9": "in_progress"
+    },
+    "home-lang/home": {
+      "job": 130165967657,
+      "artifact_step_7": "success",
+      "cpu_step_8": "success",
+      "package_step_9": "in_progress"
+    }
+  },
+  "caller_commit": "d4d181b218c5d121bbdc6b07eb7cb7c460d630b4",
+  "caller_pin": "both fields exactlyf64846de2ebb3473082560f0226ea49cbd360906",
+  "caller_parent": "155bdfd46202a102d8edbbaefc5e8e8c5d733379",
+  "preserved_foreign_engine_commits": [
+    "2e47eb068c9f2c93320750a1e4e59b1eaac7b6c8",
+    "155bdfd46202a102d8edbbaefc5e8e8c5d733379"
+  ],
+  "source_cohort_limit": "Qualification uses exactf9. Caller fast-forward preserves later regexp-cache/threadfuzz commits; no new regexp or docs-memory recovery claimed from those changes. New every-push validates that combined current engine separately.",
+  "every_push_run": 42912919139,
+  "validation_local": "actionlint/diff pass; configured Chris identity/no trailers; explicit workflow path; foreign zig-pkg preserved",
+  "evidence_limits": [
+    "No full consumer/package or corpus success claim; package checks remain running",
+    "Node27/27 versus Bun25/27 invalid anchor behavior remains explicit",
+    "JSC URL profile genuinely fails withoutURL; basic179steps pass, no skip/fake success",
+    "All-selected coverage, prior runs and existing limits retained",
+    "Never promote this evidence-only descendant"
+  ]
+}
