@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "run": 42851406404,
+  "job": 129957886743,
+  "engine_sha": "3c9955eca5f3e2a5dc42e59d631b74c89ec6990e",
+  "consumer_sha": "0785dda1fc55af1034392c5543458034852c6c3b",
+  "runtime_provenance": {
+    "engine_sha": "3c9955eca5f3e2a5dc42e59d631b74c89ec6990e",
+    "suite_ref": "c104b322b7c410d549c768d33f9ed05b9562fc48",
+    "home_repository": "home-lang/home",
+    "home_ref": "0785dda1fc55af1034392c5543458034852c6c3b",
+    "zig_version": "0.18.0-dev.146+35accc06e",
+    "build_cpu": "baseline",
+    "build_optimize": "ReleaseSafe",
+    "sha256": {
+      "home-tool": "575e62937191b9870dc681745284f036bcc77d5bb9743033bcddf11b113ef8b8",
+      "engine/zig-out/lib/libzig-js.a": "e1d1efa65aa059be8bd0489bdff1d925aa1caba77fd8a08c5cbed94552d0ea7c"
+    }
+  },
+  "artifact": {
+    "id": 13782932481,
+    "sha256": "5cdc961af53afe669ae98cd4cf10f4c28c5cd2155d8834cc840bdbf6490e66da",
+    "bytes": 171941
+  },
+  "report_sha256": "46fc63a98db0235b49431f6f8c47921ec71f75e3b48c058c24fad317a119d68a",
+  "scopes": 46,
+  "checks": 234,
+  "candidate": {
+    "failed": 42,
+    "unsupported": 38,
+    "passed": 7
+  },
+  "lanes": {
+    "candidate": {
+      "failed": 42,
+      "unsupported": 38,
+      "passed": 7
+    },
+    "direct-consumer": {
+      "passed": 4
+    },
+    "engine": {
+      "passed": 1
+    },
+    "reference": {
+      "passed": 11,
+      "failed": 4,
+      "timed-out": 1,
+      "not-run": 34
+    },
+    "reference-setup": {
+      "passed": 40,
+      "timed-out": 1,
+      "failed": 2
+    },
+    "setup": {
+      "passed": 46,
+      "timed-out": 1,
+      "failed": 2
+    }
+  },
+  "selected_actual_logs": [
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": -9,
+        "peak_sampled_rss_kib": 3158192,
+        "memory_limit_mb": 3072,
+        "seconds": 34.083,
+        "log": "0052.log",
+        "reason": "sampled command tree RSS exceeded 3072 MiB",
+        "label": ".: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bunx bunpress build"
+        ],
+        "engine_invocations": 1
+      },
+      "log_sha256": "94dde79e3dbcd948d63f8102630f0dedc25507f4f0eef26d39bb4dd03f13db0c",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 3158192 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+    },
+    {
+      "check": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 634444,
+        "memory_limit_mb": 3072,
+        "seconds": 1.275,
+        "log": "0054.log",
+        "label": ".: typecheck",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun --bun tsc --noEmit"
+        ],
+        "engine_invocations": 1
+      },
+      "log_sha256": "1e9cd94580029fd90ba1047bedfc3656a7b96c35a12d7ab530763be268c6642d",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun --bun tsc --noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 634444 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    {
+      "check": {
+        "status": "unsupported",
+        "exit_code": 78,
+        "peak_sampled_rss_kib": 10256,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0067.log",
+        "label": "packages/runtime/src/runtime/cli/init/react-app: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'"
+        ],
+        "engine_invocations": 0,
+        "unsupported_reasons": [
+          "bun build requires a host API absent from Home's repository-tool runtime"
+        ],
+        "reason": "bun build requires a host API absent from Home's repository-tool runtime"
+      },
+      "log_sha256": "4cdef389ccb6b9c23b65c415c2d9125b67b57958b4f87c0c9e23bad063b1f304",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\\\"production\\\"' --env='BUN_PUBLIC_*'\"]\nECOSYSTEM UNSUPPORTED: bun build requires a host API absent from Home's repository-tool runtime\n\nECOSYSTEM PEAK SAMPLED RSS: 10256 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+    },
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 231776,
+        "memory_limit_mb": 3072,
+        "seconds": 0.496,
+        "log": "0069.log",
+        "label": "packages/runtime/src/runtime/cli/init/react-shadcn: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun run build.ts"
+        ],
+        "engine_invocations": 1
+      },
+      "log_sha256": "ec70e6da837551ec2228de29ea7c8aa062893d84ba554fab5d5f77e9c2481080",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 231776 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 231704,
+        "memory_limit_mb": 3072,
+        "seconds": 0.495,
+        "log": "0071.log",
+        "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun run build.ts"
+        ],
+        "engine_invocations": 1
+      },
+      "log_sha256": "691d35732bf4c988ad64c63fe96269812352e66141ca3172bf385a5d0913f91b",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 231704 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "check": {
+        "status": "unsupported",
+        "exit_code": 78,
+        "peak_sampled_rss_kib": 10188,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0132.log",
+        "label": "packages/runtime/upstream/src/runtime/cli/init/react-app: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'"
+        ],
+        "engine_invocations": 0,
+        "unsupported_reasons": [
+          "bun build requires a host API absent from Home's repository-tool runtime"
+        ],
+        "reason": "bun build requires a host API absent from Home's repository-tool runtime"
+      },
+      "log_sha256": "41221410fb7cc4c7e1fdd234bd72ab3781193d277815ad6e73875464c442773b",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\\\"production\\\"' --env='BUN_PUBLIC_*'\"]\nECOSYSTEM UNSUPPORTED: bun build requires a host API absent from Home's repository-tool runtime\n\nECOSYSTEM PEAK SAMPLED RSS: 10188 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+    },
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 10224,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0134.log",
+        "label": "packages/runtime/upstream/src/runtime/cli/init/react-shadcn: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun run build.ts"
+        ],
+        "engine_invocations": 1
+      },
+      "log_sha256": "c68ad569d13c052edfb54f8da323de27875ee1e072e2239d131f004c3710888f",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-shadcn/build.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 10224 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 9952,
+        "memory_limit_mb": 3072,
+        "seconds": 0.069,
+        "log": "0136.log",
+        "label": "packages/runtime/upstream/src/runtime/cli/init/react-tailwind: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun run build.ts"
+        ],
+        "engine_invocations": 1
+      },
+      "log_sha256": "6bfbbaf01a16467dc715fa8f237e3853110adeb0ea2fa55a970a7e97a016cb9f",
+      "excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind/build.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 9952 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    }
+  ],
+  "interpretation": [
+    "Latest exact caller3c9955 / functionalc104b32 / Home0785 runtime consumer job is now complete and failed truthfully. Runtime and preflights passed separately; package success is not inferred from them.",
+    "All46scopes/234reported checks retain7candidate passes/42failures/38unsupported. Both maintained React builds still fail at missingv8, docs still exceeds3072MiB and root typecheck remains a real pass.",
+    "No new candidate outcome recovery is claimed. Consumer may advance independently; immutable revisions and actual logs remain the evidence. Keep engine caller at validatedc104b32, not this evidence-only descendant."
+  ]
+}
