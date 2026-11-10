@@ -56,6 +56,32 @@ def terminate_process_group(process):
         time.sleep(0.01)
 
 
+def process_group_snapshot(pgid):
+    # Observe after cleanup failed; this is evidence, never permission to keep
+    # running. comm excludes argument strings (which may contain credentials).
+    snapshot = {"pgid": pgid, "platform": sys.platform,
+                "sampled_at": dt.datetime.now(dt.timezone.utc).isoformat()}
+    try:
+        rows = subprocess.check_output(
+            ["ps", "-axo", "pid=,ppid=,pgid=,stat=,etime=,wchan=,comm="],
+            text=True, timeout=1)
+        members = []
+        for line in rows.splitlines():
+            if not line.strip():
+                continue
+            pid, parent, group, state, elapsed, wait_channel, command = line.split(None, 6)
+            if int(group) == pgid:
+                members.append({"pid": int(pid), "ppid": int(parent), "pgid": int(group),
+                                "state": state, "elapsed": elapsed,
+                                "wait_channel": wait_channel, "command": Path(command).name})
+        snapshot["members"] = members
+    except Exception as error:
+        # A missing/failed probe is not an empty process group. In particular,
+        # retain the original cleanup exception when ps itself times out.
+        snapshot["error"] = repr(error)
+    return snapshot
+
+
 def execute(argv, cwd, env, log, timeout, memory_limit_mb=3072):
     if not isinstance(memory_limit_mb, int) or isinstance(memory_limit_mb, bool) or memory_limit_mb <= 0:
         raise ValueError("command memory limit must be a positive integer in MiB")
@@ -95,7 +121,9 @@ def execute(argv, cwd, env, log, timeout, memory_limit_mb=3072):
                 except Exception:
                     if reason:
                         stream.write(f"\nECOSYSTEM LIMIT: {reason}\n")
-                        stream.flush()
+                    snapshot = process_group_snapshot(process.pid)
+                    stream.write("ECOSYSTEM CLEANUP SNAPSHOT: " + json.dumps(snapshot) + "\n")
+                    stream.flush()
                     raise
             code = process.wait()
         status = "passed" if code == 0 else "failed"

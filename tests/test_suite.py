@@ -430,6 +430,56 @@ class ResultTests(unittest.TestCase):
                 self.assertEqual(json.loads((args.output / "home-lang--home.json").read_text()), result)
                 self.assertFalse((args.work / "home-lang--home").exists())
 
+    def test_cleanup_snapshot_observes_a_real_owned_process_group(self):
+        process = subprocess.Popen([sys.executable, "-c", "import time; time.sleep(60)"],
+                                   start_new_session=True)
+        try:
+            snapshot = run.process_group_snapshot(process.pid)
+            self.assertNotIn("error", snapshot)
+            self.assertEqual(snapshot["pgid"], process.pid)
+            member = next(row for row in snapshot["members"] if row["pid"] == process.pid)
+            self.assertEqual(member["pgid"], process.pid)
+            self.assertEqual(member["ppid"], os.getpid())
+            self.assertTrue(member["state"])
+            self.assertTrue(member["elapsed"])
+            self.assertTrue(member["command"])
+            self.assertNotIn("/", member["command"])
+        finally:
+            run.terminate_process_group(process)
+
+    def test_cleanup_snapshot_failure_preserves_the_original_error(self):
+        # The injected failure is after real group cleanup. This exercises the
+        # evidence path without claiming to reproduce Linux unkillable tasks.
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            original_cleanup = run.terminate_process_group
+            error = RuntimeError("injected cleanup observation failure")
+            def fail_after_reap(process):
+                original_cleanup(process)
+                raise error
+            with patch.object(run, "terminate_process_group", side_effect=fail_after_reap):
+                with self.assertRaises(RuntimeError) as caught:
+                    run.execute([sys.executable, "-c", "import time; time.sleep(60)"], root,
+                                os.environ.copy(), root / "cleanup.log", 0.1)
+            self.assertIs(caught.exception, error)
+            log = (root / "cleanup.log").read_text()
+            self.assertIn("ECOSYSTEM LIMIT: command time budget exhausted", log)
+            prefix = "ECOSYSTEM CLEANUP SNAPSHOT: "
+            snapshot = json.loads(next(line[len(prefix):] for line in log.splitlines()
+                                       if line.startswith(prefix)))
+            self.assertEqual(snapshot["members"], [])
+            self.assertNotIn("ECOSYSTEM RESULT:", log)
+            self.assertNotIn("ECOSYSTEM PEAK SAMPLED RSS:", log)
+
+    def test_cleanup_snapshot_ps_failure_is_diagnostic_data(self):
+        with patch.object(run.subprocess, "check_output", side_effect=OSError("ps unavailable")) as query:
+            snapshot = run.process_group_snapshot(12345)
+        self.assertEqual(snapshot["pgid"], 12345)
+        self.assertIn("ps unavailable", snapshot["error"])
+        self.assertNotIn("members", snapshot)
+        self.assertEqual(query.call_args.kwargs["timeout"], 1)
+        self.assertNotIn("args=", query.call_args.args[0][-1])
+
     def test_monitoring_error_kills_and_reaps_active_command(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

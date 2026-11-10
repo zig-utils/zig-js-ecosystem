@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "before_suite_ref": "3f205920f2199bf4f5da54b036b03d5814fa22b0",
+  "home_ref": "f80ee42ea6f135cfc5e02159c044aba3a3c79b96",
+  "caller_ref": "3f205920f2199bf4f5da54b036b03d5814fa22b0",
+  "caller_commit": "0f03631002cb250096ffe1f6f016b7a257d22e75",
+  "next_qualification_engine": "0f03631002cb250096ffe1f6f016b7a257d22e75",
+  "source_hashes": {
+    "scripts/run.py": "c0531a758cd129bafb906ace5dccf5335fd0f5a714037915ff6cf793b286646f",
+    "tests/test_suite.py": "061f98d7fc61b93f435dd6707ec6a72f62d7464df25d2ba98b0ff8d41e842ea5"
+  },
+  "byte_identical_enforcement_functions": {
+    "terminate_process_group": "88567c38cdda7b1e5e0735697db5cbd9b32c706695d5d72433d316ac2ee67169",
+    "process_tree_rss_kib": "dd300cece92c3085120422f419bb3cf6172989e9e50467ce3dfa59c0d7587a76"
+  },
+  "real_owned_group_snapshot": {
+    "pgid": 56183,
+    "platform": "darwin",
+    "sampled_at": "2026-11-10T08:57:25.227514+00:00",
+    "members": [
+      {
+        "pid": 56183,
+        "ppid": 56182,
+        "pgid": 56183,
+        "state": "Rs",
+        "elapsed": "00:00",
+        "wait_channel": "-",
+        "command": "python3"
+      }
+    ]
+  },
+  "results": {
+    "before": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32432,
+      "memory_limit_mb": 3072,
+      "seconds": 0.311,
+      "log": "before.log",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_suite.py",
+        "-k",
+        "cleanup_snapshot",
+        "-v"
+      ],
+      "log_sha256": "6d9d3b27dbcc5e94cba9b8df08708b5e443203c0b71404a89a3a0ceec6a2d33f",
+      "log_excerpt": "$ [\"python3\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tests\", \"-p\", \"test_suite.py\", \"-k\", \"cleanup_snapshot\", \"-v\"]\ntest_cleanup_snapshot_failure_preserves_the_original_error (test_suite.ResultTests.test_cleanup_snapshot_failure_preserves_the_original_error) ... ERROR\ntest_cleanup_snapshot_observes_a_real_owned_process_group (test_suite.ResultTests.test_cleanup_snapshot_observes_a_real_owned_process_group) ... ERROR\ntest_cleanup_snapshot_ps_failure_is_diagnostic_data (test_suite.ResultTests.test_cleanup_snapshot_ps_failure_is_diagnostic_data) ... ERROR\n\n======================================================================\nERROR: test_cleanup_snapshot_failure_preserves_the_original_error (test_suite.ResultTests.test_cleanup_snapshot_failure_preserves_the_original_error)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/Users/chris/Code/Libraries/zig-js-ecosystem/tests/test_suite.py\", line 468, in test_cleanup_snapshot_failure_preserves_the_original_error\n    snapshot = json.loads(next(line[len(prefix):] for line in log.splitlines()\n                          ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                               if line.startswith(prefix)))\n                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nStopIteration\n\n======================================================================\nERROR: test_cleanup_snapshot_observes_a_real_owned_process_group (test_suite.ResultTests.test_cleanup_snapshot_observes_a_real_owned_process_group)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/Users/chris/Code/Libraries/zig-js-ecosystem/tests/test_suite.py\", line 437, in test_cleanup_snapshot_observes_a_real_owned_process_group\n    snapshot = run.process_group_snapshot(process.pid)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: module 'run' has no attribute 'process_group_snapshot'\n\n======================================================================\nERROR: test_cleanup_snapshot_ps_failure_is_diagnostic_data (test_suite.ResultTests.test_cleanup_snapshot_ps_failure_is_diagnostic_data)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/Users/chris/Code/Libraries/zig-js-ecosystem/tests/test_suite.py\", line 476, in test_cleanup_snapshot_ps_failure_is_diagnostic_data\n    snapshot = run.process_group_snapshot(12345)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: module 'run' has no attribute 'process_group_snapshot'\n\n----------------------------------------------------------------------\nRan 3 tests in 0.170s\n\nFAILED (errors=3)\n\nECOSYSTEM PEAK SAMPLED RSS: 32432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "after": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 43104,
+      "memory_limit_mb": 3072,
+      "seconds": 0.348,
+      "log": "after.log",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_suite.py",
+        "-k",
+        "cleanup_snapshot",
+        "-v"
+      ],
+      "log_sha256": "fba804e1209b42b78ace78b93e4b8d3ef20c822a603ee43729ccc7d48c018844",
+      "log_excerpt": "$ [\"python3\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tests\", \"-p\", \"test_suite.py\", \"-k\", \"cleanup_snapshot\", \"-v\"]\ntest_cleanup_snapshot_failure_preserves_the_original_error (test_suite.ResultTests.test_cleanup_snapshot_failure_preserves_the_original_error) ... ok\ntest_cleanup_snapshot_observes_a_real_owned_process_group (test_suite.ResultTests.test_cleanup_snapshot_observes_a_real_owned_process_group) ... ok\ntest_cleanup_snapshot_ps_failure_is_diagnostic_data (test_suite.ResultTests.test_cleanup_snapshot_ps_failure_is_diagnostic_data) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.233s\n\nOK\n\nECOSYSTEM PEAK SAMPLED RSS: 43104 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "suite-actionlint": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 400,
+      "memory_limit_mb": 3072,
+      "seconds": 0.021,
+      "log": "suite-actionlint.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint"
+      ],
+      "log_sha256": "d1f86825621b1afcf80ee7f85f9dfde747c21a8330ef1774d0b27d84a6e618bb",
+      "log_excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 400 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "suite-compile": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 3504,
+      "memory_limit_mb": 3072,
+      "seconds": 0.039,
+      "log": "suite-compile.log",
+      "command": [
+        "python3",
+        "-m",
+        "compileall",
+        "-q",
+        "scripts",
+        "tests"
+      ],
+      "log_sha256": "f45b9ef231d86468c3dd5798f4b36da5fbcb0ddeaf57d69b5bb5cbc55128e482",
+      "log_excerpt": "$ [\"python3\", \"-m\", \"compileall\", \"-q\", \"scripts\", \"tests\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 3504 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "suite-dependencies": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 26896,
+      "memory_limit_mb": 3072,
+      "seconds": 0.406,
+      "log": "suite-dependencies.log",
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "tests/dependencies.test.mjs"
+      ],
+      "log_sha256": "92263f55ba940b4d971c8b067990fadf78b503f14338141740bc7a9e5a6c1b91",
+      "log_excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"test\", \"tests/dependencies.test.mjs\"]\nbun test v1.4.4 (38afee6c8)\n\ntests/dependencies.test.mjs:\n(pass) nested install reproduces workspace failure; ancestor setup runs real dependency code [290.13ms]\n(pass) unreferenced isolated workspace is not an installed ancestor dependency [10.13ms]\n(pass) a registry-shaped provider cannot impersonate a declared workspace [2.05ms]\n(pass) wrong external and explicit workspace versions are rejected [8.32ms]\n(pass) workspace wildcard allows prereleases; a child lockfile prevents reuse [8.84ms]\n(pass) excluded members and outside-checkout symlinks do not satisfy workspace references [4.28ms]\n(pass) independent apps still perform real installs with lifecycle scripts disabled [18.23ms]\n\n 7 pass\n 0 fail\n 26 expect() calls\nRan 7 tests across 1 file. [395.00ms]\n\nECOSYSTEM PEAK SAMPLED RSS: 26896 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "suite-diff": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1200,
+      "memory_limit_mb": 3072,
+      "seconds": 0.028,
+      "log": "suite-diff.log",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "log_sha256": "be38061429404ea22098e80e4855338228eac708c7f0bd88667ddc8c6d63c9dc",
+      "log_excerpt": "$ [\"git\", \"diff\", \"--check\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 1200 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "suite-python": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 131568,
+      "memory_limit_mb": 3072,
+      "seconds": 3.362,
+      "log": "suite-python.log",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "log_sha256": "43f6176b693080ad040406f92ec56389c6ed0fa3b318a8ba0ee36a07f4500db7",
+      "log_excerpt": "test_suite.ResultTests.test_cleanup_snapshot_observes_a_real_owned_process_group) ... ok\ntest_cleanup_snapshot_ps_failure_is_diagnostic_data (test_suite.ResultTests.test_cleanup_snapshot_ps_failure_is_diagnostic_data) ... ok\ntest_disk_failure_preserves_prior_evidence_and_cleans_before_saving (test_suite.ResultTests.test_disk_failure_preserves_prior_evidence_and_cleans_before_saving) ... ok\ntest_interrupted_command_keeps_context_and_aborts_repository (test_suite.ResultTests.test_interrupted_command_keeps_context_and_aborts_repository) ... home-lang/home: setup: git init: starting [\"git\", \"init\", \"--quiet\"] (timeout 5.000s, sampled RSS limit 48 MiB)\nhome-lang/home: setup: git init: failed (command interrupted)\nhome-lang/home: setup: git init: starting [\"git\", \"init\", \"--quiet\"] (timeout 5.000s, sampled RSS limit 48 MiB)\nhome-lang/home: setup: git init: failed (command interrupted)\nok\ntest_invalid_repository_never_enters_cleanup (test_suite.ResultTests.test_invalid_repository_never_enters_cleanup) ... ok\ntest_memory_guard_counts_child_and_reaps_its_process_group (test_suite.ResultTests.test_memory_guard_counts_child_and_reaps_its_process_group) ... ok\ntest_memory_guard_retains_actual_success_and_failure (test_suite.ResultTests.test_memory_guard_retains_actual_success_and_failure) ... ok\ntest_memory_guard_waits_for_delayed_group_member_exit (test_suite.ResultTests.test_memory_guard_waits_for_delayed_group_member_exit) ... ok\ntest_missing_and_wrong_commit_results_fail_closed (test_suite.ResultTests.test_missing_and_wrong_commit_results_fail_closed) ... ok\ntest_monitoring_error_kills_and_reaps_active_command (test_suite.ResultTests.test_monitoring_error_kills_and_reaps_active_command) ... ok\ntest_shared_runtime_builds_and_smokes_use_baseline_cpu (test_suite.ResultTests.test_shared_runtime_builds_and_smokes_use_baseline_cpu) ... ok\ntest_timeout_is_recorded_and_subprocess_group_is_reaped (test_suite.ResultTests.test_timeout_is_recorded_and_subprocess_group_is_reaped) ... ok\ntest_unsupported_not_run_timeout_and_reference_failure_are_red (test_suite.ResultTests.test_unsupported_not_run_timeout_and_reference_failure_are_red) ... ok\ntest_workflow_and_checked_inventory_are_consistent (test_suite.ResultTests.test_workflow_and_checked_inventory_are_consistent) ... ok\ntest_conditions_never_disappear_on_unsupported_commands (test_suite.RuntimeRoutingTests.test_conditions_never_disappear_on_unsupported_commands) ... ECOSYSTEM UNSUPPORTED: Runtime --conditions on shell package scripts is unsupported; conditions were not discarded\nECOSYSTEM UNSUPPORTED: Missing value for --conditions\nECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\nECOSYSTEM UNSUPPORTED: bun install requires a host API absent from Home's repository-tool runtime\nECOSYSTEM UNSUPPORTED: Unsupported runtime flag: npm --conditions\nok\ntest_conditions_reach_home_without_consuming_entry_arguments (test_suite.RuntimeRoutingTests.test_conditions_reach_home_without_consuming_entry_arguments) ... ok\ntest_installed_package_binary_routes_to_home (test_suite.RuntimeRoutingTests.test_installed_package_binary_routes_to_home) ... ok\ntest_nested_script_routes_to_engine_and_propagates_failure (test_suite.RuntimeRoutingTests.test_nested_script_routes_to_engine_and_propagates_failure) ... ok\ntest_scoped_package_bin_uses_installed_manifest_and_keeps_exit_status (test_suite.RuntimeRoutingTests.test_scoped_package_bin_uses_installed_manifest_and_keeps_exit_status) ... ok\ntest_shell_scripts_preserve_no_argument_syntax_status_and_literal_arguments (test_suite.RuntimeRoutingTests.test_shell_scripts_preserve_no_argument_syntax_status_and_literal_arguments) ... ok\ntest_test_scheduler_and_native_build_cannot_be_false_passes (test_suite.RuntimeRoutingTests.test_test_scheduler_and_native_build_cannot_be_false_passes) ... ECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\nECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\nECOSYSTEM UNSUPPORTED: bun build requires a host API absent from Home's repository-tool runtime\nECOSYSTEM UNSUPPORTED: bun install requires a host API absent from Home's repository-tool runtime\nok\n\n----------------------------------------------------------------------\nRan 39 tests in 3.276s\n\nOK\n\nECOSYSTEM PEAK SAMPLED RSS: 131568 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "underlying_failure_evidence": [
+    "2026-11-10-inflate-output-consumers.json: reference FFI group18032 cleanup RuntimeError after timeout in42778535141",
+    "2026-11-10-buffer-length-consumers.json: group18019 in42771575966",
+    "2026-11-10-png-consumer-reports.json: group18074 in42737177738"
+  ],
+  "diagnostic_contract": [
+    "Only on cleanup exception, make one ps query bounded at1second; retain PID/PPID/PGID/state/elapsed/wait-channel and command basename, not argument strings.",
+    "Snapshot errors are explicit error data with no members field, never a fabricated empty group. Timestamp is after the cleanup failure, not proof of an earlier state.",
+    "The original exception propagates; repository aborts and unknown command exit/invocation/RSS result metrics remain absent. Signal delivery,5second stop verification, RSS sampling, caps and success criteria are unchanged."
+  ],
+  "validation_limits": [
+    "3new tests: a real owned POSIX group snapshot; fault injection after actual group cleanup verifies evidence and same exception identity; simulated ps failure verifies unavailable data and query bound. Before all3fail; after all3pass.",
+    "39Python tests and7real dependency tests/26assertions pass. No Linux unkillable/D-state reproduction or underlying cleanup fix is claimed.",
+    "A real Linux failure witness still requires the new immutable suite to execute and encounter the fault. No timeout weakening, test skip or native fallback."
+  ]
+}
