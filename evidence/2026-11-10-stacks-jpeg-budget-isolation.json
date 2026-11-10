@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "consumer_basis": "Frozen prior Stacks8b9e1572fee6a8345213159d892fd82d91604927 candidate, installed ts-images0.2.33 / stx0.2.839; not latest27ff CI cohort.",
+  "production_home": "0785dda1fc55af1034392c5543458034852c6c3b",
+  "production_engine": "73ee013e8451aaadeb0402ab894cf2e24b2ede46",
+  "unmodified_engine_probes": {
+    "stx-direct": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 571808,
+      "memory_limit_mb": 3072,
+      "seconds": 57.341,
+      "log": "stx-direct.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/@stacksjs/stx/dist/cli.js",
+        "build",
+        "--pages",
+        "resources/views",
+        "--out",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/stx-direct-dist"
+      ],
+      "consumer_basis": "Frozen prior Stacks8b9e157 candidate, stx0.2.839 installed dist; diagnostic only, not new27ff CI cohort",
+      "log_sha256": "09ae2528783f25beae97d9d9022a7da7e66d5576961cde9e2d30a9019be27114",
+      "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/@stacksjs/stx/dist/cli.js\", \"build\", \"--pages\", \"resources/views\", \"--out\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/stx-direct-dist\"]\n[stx] Plugin loaded: @stacksjs/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\n\nECOSYSTEM PEAK SAMPLED RSS: 571808 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "stx-traced": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 583792,
+      "memory_limit_mb": 3072,
+      "seconds": 47.953,
+      "log": "stx-traced.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/trace-stx.mjs",
+        "build",
+        "--pages",
+        "resources/views",
+        "--out",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/stx-traced-dist"
+      ],
+      "consumer_basis": "Frozen prior Stacks8b9e157 candidate, stx0.2.839 installed dist; diagnostic only, not new27ff CI cohort",
+      "log_sha256": "598d5aa26359e3c80dc7eb2d9d950d94f23c344806fb1ae6ae5c642cc24ec2d8",
+      "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/trace-stx.mjs\", \"build\", \"--pages\", \"resources/views\", \"--out\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/stx-traced-dist\"]\n[stx] Plugin loaded: @stacksjs/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nMODULE ORIGIN DIAGNOSTIC unhandledRejection\nRangeError: evaluation step budget exceeded\n    at <anonymous>\n    at <global>\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\n\nECOSYSTEM PEAK SAMPLED RSS: 583792 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    }
+  },
+  "isolated_debug_instrumentation": {
+    "basis": "73ee immutable git archive; only interpreter field and first-budget diagnostic added in a separate verification tree",
+    "patch": "evidence/probes/first-budget-diagnostic.patch",
+    "patch_sha256": "528b73a198a2623187c09520616a77d2ba316a5c83185f6d365863ac9a3c5fc8",
+    "archive_sha256": "8a40454b9a55e95cb46a901fa19ca9dd8e739cd6352c8e75d1e722ae0910c01f",
+    "home_sha256": "e54e624f9aa202d2a73f03902f69f1384a3d05a7441014592a767240df41217a",
+    "shipped": false,
+    "build_scope": "Debug diagnostic engine and ReleaseSafe Home host; no benchmark or Linux production claim"
+  },
+  "results": {
+    "archive.json": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1754480,
+      "memory_limit_mb": 3072,
+      "seconds": 66.148,
+      "log": "archive.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "-Doptimize=Debug",
+        "-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-zig-js/bin/home-tool",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/engine/zig-out",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "log_sha256": "5a3c34dc89d967af0955ffc7fca07465927089aba21fd7afa5cb49fc07e65e52",
+      "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"-Doptimize=Debug\", \"-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-zig-js/bin/home-tool\", \"--prefix\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/engine/zig-out\", \"-j1\", \"--summary\", \"all\"]\nBuild Summary: 8/8 steps succeeded\ninstall success\n+- install generated to libzig-js.a success\n|  +- run /usr/bin/env (libzig-js.a) success 946ms\n|     +- compile lib zig-js debug native success 55s MaxRSS:1G\n|     |  +- options success\n|     +- run xcrun (objc_bridge.o) success 3s\n|     +- compile obj zig-js-objc-dispatch debug native success 2s MaxRSS:217M\n+- install include/ success\n\n\nECOSYSTEM PEAK SAMPLED RSS: 1754480 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "home-build.json": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1211744,
+      "memory_limit_mb": 3072,
+      "seconds": 65.69,
+      "log": "home-build.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/engine",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/home",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "log_sha256": "a3a683e68f2e885960460f8f5a4fb86d7d8a96b151f29f0b619b65a628a2f94a",
+      "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"home-tool\", \"-Doptimize=ReleaseSafe\", \"-Denable_jsc=false\", \"-Dtool-js-engine=zig-js\", \"-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/engine\", \"--prefix\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/home\", \"-j1\", \"--summary\", \"all\"]\nBuild Summary: 4/4 steps succeeded\nhome-tool success\n+- install home-tool success\n   +- compile exe home-tool safe native success 1m MaxRSS:1G\n      +- options cached\n\n\nECOSYSTEM PEAK SAMPLED RSS: 1211744 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "stx.json": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 987824,
+      "memory_limit_mb": 3072,
+      "seconds": 90.692,
+      "log": "stx.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/home/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/trace-stx.mjs",
+        "build",
+        "--pages",
+        "resources/views",
+        "--out",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/stx-dist"
+      ],
+      "log_sha256": "231a2179c25339962229416c4ab025f99529d3eaa3f4bdc4e90a99ea679e85a2",
+      "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/home/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/trace-stx.mjs\", \"build\", \"--pages\", \"resources/views\", \"--out\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/stx-dist\"]\n[stx] Plugin loaded: @stacksjs/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nFIRST BUDGET steps=500000001 limit=500000000 module=\nBUDGET CURRENT file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/chunk-h2j5vzew.js?home-emitted:1739:9 byte=52244\nBUDGET FRAME 0 a async=false\nBUDGET LOCATION file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/chunk-h2j5vzew.js?home-emitted:1739:9 byte=52244\nBUDGET FRAME 1 buildComponentData async=false\nBUDGET LOCATION file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/chunk-h2j5vzew.js?home-emitted:1751:9 byte=52561\nBUDGET FRAME 2 parse async=false\nBUDGET LOCATION file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/chunk-h2j5vzew.js?home-emitted:1698:7 byte=48957\nBUDGET FRAME 3 Ar async=false\nBUDGET LOCATION file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/chunk-h2j5vzew.js?home-emitted:2143:3 byte=63728\nBUDGET FRAME 4 Hd async=true\nBUDGET FRAME 5  async=false\nMODULE ORIGIN DIAGNOSTIC unhandledRejection\nRangeError: evaluation step budget exceeded\n    at <anonymous>\n    at <global>\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\n\nECOSYSTEM PEAK SAMPLED RSS: 987824 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "thumbhash-final.json": {
+      "node-small-final": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 45184,
+        "memory_limit_mb": 3072,
+        "seconds": 0.271,
+        "log": "node-small-final.log",
+        "command": [
+          "node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/thumbhash-qualified.mjs",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/src/index.js",
+          "/Users/chris/Code/Libraries/ts-images/packages/ts-images/test/fixtures/app-icon.placeholder.jpeg"
+        ],
+        "log_sha256": "5a68f432cf3f0d1c297c44c358dbc5a5d44f40c740dcbf118fc2b3d1726327ce",
+        "excerpt": "$ [\"node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/thumbhash-qualified.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/src/index.js\", \"/Users/chris/Code/Libraries/ts-images/packages/ts-images/test/fixtures/app-icon.placeholder.jpeg\"]\n{\"file\":\"/Users/chris/Code/Libraries/ts-images/packages/ts-images/test/fixtures/app-icon.placeholder.jpeg\",\"hash\":\"000802070000000000000000000000000000000000000000\",\"dataUrlSha256\":\"72d270885fc4a8b79b63514a180b6d8dc61e9d3c7a846f110d37defdb357146c\"}\n\nECOSYSTEM PEAK SAMPLED RSS: 45184 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "node-auth-final": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 157376,
+        "memory_limit_mb": 3072,
+        "seconds": 0.342,
+        "log": "node-auth-final.log",
+        "command": [
+          "node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/thumbhash-qualified.mjs",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/src/index.js",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/public/images/background-auth.jpg"
+        ],
+        "log_sha256": "059aaf0eb602d8075ecca53a84820a693c65cbc013a83737eb88d34f44e3e861",
+        "excerpt": "$ [\"node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/thumbhash-qualified.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/src/index.js\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/public/images/background-auth.jpg\"]\n{\"file\":\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/public/images/background-auth.jpg\",\"hash\":\"2794051e082378288688088986877a8678773474809709\",\"dataUrlSha256\":\"a8b7a75f2083cdc0c948b4b5bcaf19626485134412278c4f21a1161faf5253b9\"}\n\nECOSYSTEM PEAK SAMPLED RSS: 157376 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "bun-small-final": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 46640,
+        "memory_limit_mb": 3072,
+        "seconds": 0.173,
+        "log": "bun-small-final.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/thumbhash-qualified.mjs",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/src/index.js",
+          "/Users/chris/Code/Libraries/ts-images/packages/ts-images/test/fixtures/app-icon.placeholder.jpeg"
+        ],
+        "log_sha256": "4d2a88e8894f5bd8ce08dea86f80570ad2416b0679b14a3763878872981a517a",
+        "excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/thumbhash-qualified.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/src/index.js\", \"/Users/chris/Code/Libraries/ts-images/packages/ts-images/test/fixtures/app-icon.placeholder.jpeg\"]\n{\"file\":\"/Users/chris/Code/Libraries/ts-images/packages/ts-images/test/fixtures/app-icon.placeholder.jpeg\",\"hash\":\"000802070000000000000000000000000000000000000000\",\"dataUrlSha256\":\"72d270885fc4a8b79b63514a180b6d8dc61e9d3c7a846f110d37defdb357146c\"}\n\nECOSYSTEM PEAK SAMPLED RSS: 46640 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "bun-auth-final": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 100976,
+        "memory_limit_mb": 3072,
+        "seconds": 0.25,
+        "log": "bun-auth-final.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/thumbhash-qualified.mjs",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/src/index.js",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/public/images/background-auth.jpg"
+        ],
+        "log_sha256": "80283d71f22426c839322b0096ea00d1b394955ec9605f0e9ffcaf25f756fa62",
+        "excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/thumbhash-qualified.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/src/index.js\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/public/images/background-auth.jpg\"]\n{\"file\":\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/public/images/background-auth.jpg\",\"hash\":\"2794051e082378288688088986877a8678773474809709\",\"dataUrlSha256\":\"a8b7a75f2083cdc0c948b4b5bcaf19626485134412278c4f21a1161faf5253b9\"}\n\nECOSYSTEM PEAK SAMPLED RSS: 100976 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "home-small-final": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 283664,
+        "memory_limit_mb": 3072,
+        "seconds": 2.788,
+        "log": "home-small-final.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/thumbhash-qualified.mjs",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/src/index.js",
+          "/Users/chris/Code/Libraries/ts-images/packages/ts-images/test/fixtures/app-icon.placeholder.jpeg"
+        ],
+        "log_sha256": "72d3263b7f7235428dad7d3dde49231b89bf4bd2a9700c9579f019342d58f380",
+        "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/thumbhash-qualified.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/src/index.js\", \"/Users/chris/Code/Libraries/ts-images/packages/ts-images/test/fixtures/app-icon.placeholder.jpeg\"]\n{\"file\":\"/Users/chris/Code/Libraries/ts-images/packages/ts-images/test/fixtures/app-icon.placeholder.jpeg\",\"hash\":\"000802070000000000000000000000000000000000000000\",\"dataUrlSha256\":\"72d270885fc4a8b79b63514a180b6d8dc61e9d3c7a846f110d37defdb357146c\"}\n\nECOSYSTEM PEAK SAMPLED RSS: 283664 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "home-auth-final": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 375968,
+        "memory_limit_mb": 3072,
+        "seconds": 53.412,
+        "log": "home-auth-final.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/thumbhash-qualified.mjs",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/src/index.js",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/public/images/background-auth.jpg"
+        ],
+        "log_sha256": "92d1a70a6dc81d142a3bf12ca05d66bd7708f9d92b314df4822c2b18930f3144",
+        "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-budget/thumbhash-qualified.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/src/index.js\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/public/images/background-auth.jpg\"]\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\n\nECOSYSTEM PEAK SAMPLED RSS: 375968 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      }
+    }
+  },
+  "inputs": {
+    "small": {
+      "path": "/Users/chris/Code/Libraries/ts-images/packages/ts-images/test/fixtures/app-icon.placeholder.jpeg",
+      "sha256": "3bed810e71abce9ca1f11fffdaefd2d9c50372e7e569c6b50f8b905a396ecf65",
+      "bytes": 271
+    },
+    "auth": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/public/images/background-auth.jpg",
+      "sha256": "5ded728bd90a94c2c6faafa80d6c7424631a453b91eba5413c5a14c9c71e7ee3",
+      "bytes": 17374
+    },
+    "ts_images_manifest": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/package.json",
+      "sha256": "86508dde8fc53a74b9b2822846e0641142015b26d444a8ea5a355cbde302ad01",
+      "bytes": 3970
+    },
+    "jpeg_bundle": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/ts-images/dist/chunk-h2j5vzew.js",
+      "sha256": "d9d0e921c0174c28fe79fec4bffdb3fbdda7a6539f205491cc5e9aaec6a75a96",
+      "bytes": 53445
+    }
+  },
+  "witness": "evidence/probes/image-thumbhash.mjs",
+  "observations": [
+    "An unmodified production Debug engine/Home0785 direct installed STX CLI and monitor wrapper both reproduce the budget failure. Ordinary Error origins now work, but the terminal budget stack remains anonymous after unwinding.",
+    "Isolated diagnostic captures first500000001/500000000 exhaustion in ts-images JPEG inverse-DCT helper a, buildComponentData, parse, Ar, Hd. Emitted location chunk-h2j5vzew.js?home-emitted:1739:9 is generated, not original TS coordinates.",
+    "A single real1664x1866 background-auth.jpg (17374bytes) reproduces the same budget failure on the unmodified production engine; no need to infer an aggregate-only failure. Node/Bun both complete it with identical ThumbHash2794051e082378288688088986877a8678773474809709 and dataUrlSHA256a8b7a75f2083cdc0c948b4b5bcaf19626485134412278c4f21a1161faf5253b9.",
+    "Real20x20 JPEG control completes on all3providers with identical hash/data URL digest. No broad JPEG correctness or absence of an infinite loop claim follows from this control.",
+    "STX preflight really calls generateThumbHash on raster assets. That function decodes full pixels before resizing inside100x100; metadata-only shortcuts do not execute the required pixel operation and are not a fix.",
+    "No production engine/consumer algorithm or budget changed in this diagnostic. Next work is genuine decoder/thumbnail work with output comparisons; retain original failures and missingv8/Bun.build/docs memory evidence. No elapsed-time throughput claim."
+  ]
+}

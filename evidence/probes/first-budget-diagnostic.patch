@@ -1,0 +1,31 @@
+--- a/src/interpreter.zig
++++ b/src/interpreter.zig
+@@ -4746,6 +4746,7 @@
+     /// therefore lifts the ceiling for spawned threads and the host entry keeps
+     /// it.
+     step_budget: u64 = max_steps,
++    diagnostic_budget_reported: bool = false,
+     /// VM call trampoline (see `vm.runDriver`): true while an explicit
+     /// activation-stack driver is running, so the `.call` family pushes a new
+     /// JS-chunk activation instead of recursing natively — lifting deep JS→JS
+@@ -6291,6 +6292,20 @@
+     /// Raise a JS exception of the given error class. Always returns
+     /// `error.Throw` (or `error.OutOfMemory` if the error object can't be built).
+     pub fn throwError(self: *Interpreter, name: []const u8, message: []const u8) EvalError {
++        if (std.mem.eql(u8, message, "evaluation step budget exceeded") and !self.diagnostic_budget_reported) {
++            self.diagnostic_budget_reported = true;
++            self.resolveStackTraceLocations();
++            std.debug.print("FIRST BUDGET steps={d} limit={d} module={s}\n", .{ self.steps, self.step_budget, self.call_state.cur_module });
++            if (self.currentDebugLocation()) |loc| std.debug.print("BUDGET CURRENT {s}:{d}:{d} byte={d}\n", .{ loc.source_url, loc.location.line, loc.location.column, loc.location.byte_offset });
++            var frame_opt = self.stack_trace_call_frame;
++            var count: usize = 0;
++            while (frame_opt) |frame| : (frame_opt = frame.caller) {
++                std.debug.print("BUDGET FRAME {d} {s} async={}\n", .{ count, frame.function_name, frame.is_async });
++                if (frame.location) |loc| std.debug.print("BUDGET LOCATION {s}:{d}:{d} byte={d}\n", .{ loc.source_url, loc.location.line, loc.location.column, loc.location.byte_offset });
++                count += 1;
++                if (count == 40) break;
++            }
++        }
+         self.exception = try self.makeError(name, message);
+         try self.notifyDebuggerException(false);
+         return error.Throw;
