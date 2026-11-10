@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "home_commit": "5ff96f3832c00c101f9fb17b555d848afafe22bb",
+  "parent": "cac698128de386fdb6198d81087dea1c663fe3ce",
+  "local_engine_sha": "73ee013e8451aaadeb0402ab894cf2e24b2ede46",
+  "engine_mode": "Debug exact pushed archive; ReleaseSafe host; fresh Linux baseline qualification pending",
+  "source_hashes_at_immutable_commit": {
+    "packages/runtime/src/jsc/tool_fs.zig": "c67c35fc93d51a35936f3ccbcbf4c5ad1c44823a36ba49a0b534ae8dc0fbc379",
+    "packages/runtime/src/jsc/tool_builtins.js": "db80ed8007b8e7bf9a850b82497373d848b926ac741d3ce5781c3a341bbbf889",
+    "packages/runtime/test/tool_modules/node_rmdir.mjs": "d4405b442807877e217f5c9cd4a3f97cca2a26b79ca1cbfcaca9b81dfafcf013",
+    "packages/runtime/test/tool_modules/main.ts": "18c029677806531642c684294344d1180a09217cab0f2337e57be13213f34542"
+  },
+  "official_contract": "https://nodejs.org/api/fs.html#fspromisesrmdirpath-options",
+  "results": {
+    "rmdir-contract-before.json": {
+      "node": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 816,
+        "memory_limit_mb": 3072,
+        "seconds": 0.06,
+        "log": "rmdir-contract-node.log",
+        "command": [
+          "node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rmdir-probe.mjs"
+        ],
+        "log_sha256": "df9e0df45974eb2746d87f790f58acc336900b7d4c9e943e7aff2c204176d25c",
+        "excerpt": "$ [\"node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rmdir-probe.mjs\"]\nNODE RMDIR 11 CHECKS OK\n\nECOSYSTEM PEAK SAMPLED RSS: 816 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "bun": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 2368,
+        "memory_limit_mb": 3072,
+        "seconds": 0.033,
+        "log": "rmdir-contract-bun.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rmdir-probe.mjs"
+        ],
+        "log_sha256": "13dbc8166fc0854cce7571932f4ef683c5960d542482fef01e9c263f861a5928",
+        "excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rmdir-probe.mjs\"]\nNODE RMDIR 11 CHECKS OK\n\nECOSYSTEM PEAK SAMPLED RSS: 2368 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "before-zig-js": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32736,
+        "memory_limit_mb": 3072,
+        "seconds": 0.177,
+        "log": "rmdir-contract-before-zig-js.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rebased-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rmdir-probe.mjs"
+        ],
+        "log_sha256": "914f097238a5f7c03c9eb1c2e4b9553ca2efda02b6919ff2350141d4dd87066f",
+        "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rebased-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rmdir-probe.mjs\"]\nhome-tool (zig-js): Error: NODE RMDIR 11 checks; failures: promise empty default: fsp.rmdir is not a function. (In 'fsp.rmdir(path, options)', 'fsp.rmdir' is undefined); promise empty options: fsp.rmdir is not a function. (In 'fsp.rmdir(path, options)', 'fsp.rmdir' is undefined); promise missing: expected ENOENT and original path; promise file preserved: expected ENOTDIR and original path; promise nonempty preserved: expected ENOTEMPTY and original path; sync empty default: fs.rmdirSync is not a function. (In 'fs.rmdirSync(path, options)', 'fs.rmdirSync' is undefined); sync empty options: fs.rmdirSync is not a function. (In 'fs.rmdirSync(path, options)', 'fs.rmdirSync' is undefined); sync missing: expected ENOENT and original path; sync file preserved: expected ENOTDIR and original path; sync nonempty preserved: expected ENOTEMPTY and original path; unicode directory: fsp.rmdir is not a function. (In 'fsp.rmdir(path)', 'fsp.rmdir' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 32736 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      },
+      "before-jsc": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.129,
+        "log": "rmdir-contract-before-jsc.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rebased-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rmdir-probe.mjs"
+        ],
+        "log_sha256": "584a2c6d43cf4d80bf0c5692ec30ba8abe6e7ce8ce81925893158e0deef3675b",
+        "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rebased-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rmdir-probe.mjs\"]\nhome-tool (jsc): Error: NODE RMDIR 11 checks; failures: promise empty default: fsp.rmdir is not a function. (In 'fsp.rmdir(path, options)', 'fsp.rmdir' is undefined); promise empty options: fsp.rmdir is not a function. (In 'fsp.rmdir(path, options)', 'fsp.rmdir' is undefined); promise missing: expected ENOENT and original path; promise file preserved: expected ENOTDIR and original path; promise nonempty preserved: expected ENOTEMPTY and original path; sync empty default: fs.rmdirSync is not a function. (In 'fs.rmdirSync(path, options)', 'fs.rmdirSync' is undefined); sync empty options: fs.rmdirSync is not a function. (In 'fs.rmdirSync(path, options)', 'fs.rmdirSync' is undefined); sync missing: expected ENOENT and original path; sync file preserved: expected ENOTDIR and original path; sync nonempty preserved: expected ENOTEMPTY and original path; unicode directory: fsp.rmdir is not a function. (In 'fsp.rmdir(path)', 'fsp.rmdir' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      }
+    },
+    "rmdir-after.json": {
+      "zig-js": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32592,
+        "memory_limit_mb": 3072,
+        "seconds": 0.19,
+        "log": "rmdir-after-zig-js.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rmdir-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_rmdir.mjs"
+        ],
+        "binary_sha256": "1c9cecdccece596037d9833ae0991dac9ac6eafc75ebf2d837967265747f87ed",
+        "log_sha256": "d444a3a862692897ac64a18e8861d26943cc9c03d5e2580de90008e186991f9a",
+        "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rmdir-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_rmdir.mjs\"]\nNODE RMDIR 11 CHECKS OK\n\nECOSYSTEM PEAK SAMPLED RSS: 32592 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "jsc": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.127,
+        "log": "rmdir-after-jsc.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rmdir-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_rmdir.mjs"
+        ],
+        "binary_sha256": "6079370d66469f6d178febc16e5038fec96c4e1272cf94348104144c5e53db2c",
+        "log_sha256": "09535f0d45073cded2cefb3b1f5985be233b201375e75c7bacc4210aac385efc",
+        "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rmdir-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_rmdir.mjs\"]\nNODE RMDIR 11 CHECKS OK\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      }
+    },
+    "rmdir-gates.json": {
+      "zig-js": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1375120,
+        "memory_limit_mb": 3072,
+        "seconds": 64.219,
+        "log": "zig-js-rmdir-gates.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "home-tool",
+          "home-tool-smoke",
+          "home-tool-rejections-smoke",
+          "home-tool-async-context-smoke",
+          "home-tool-file-url-smoke",
+          "-Doptimize=ReleaseSafe",
+          "-Denable_jsc=false",
+          "-Dtool-js-engine=zig-js",
+          "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/engine-root",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rmdir-zig-js",
+          "-j1",
+          "--summary",
+          "all"
+        ],
+        "log_sha256": "6bb7bb107396c7573ae6a1002402602edb5080b82bc15194ab67b75960efd1ae",
+        "excerpt": "tool success 78ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 89ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 83ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 77ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 83ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 78ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 80ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 80ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 78ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 89ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 76ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 83ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 94ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 78ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 78ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 79ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 89ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 81ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 80ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 160ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 152ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 88ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 78ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 98ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 88ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 117ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 76ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 77ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 82ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 76ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 86ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 83ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 86ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 97ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 89ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 84ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 78ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 75ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 77ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 76ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 77ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 73ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 73ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 76ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 76ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 80ms\n   +- compile exe home-tool safe native (+1 more reused dependencies)\nhome-tool success\n+- install home-tool success\n   +- compile exe home-tool safe native (+1 more reused dependencies)\n\n\nECOSYSTEM PEAK SAMPLED RSS: 1375120 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "jsc": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1262080,
+        "memory_limit_mb": 3072,
+        "seconds": 40.357,
+        "log": "jsc-rmdir-gates.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "home-tool",
+          "home-tool-smoke",
+          "-Doptimize=ReleaseSafe",
+          "-Denable_jsc=false",
+          "-Dtool-js-engine=jsc",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rmdir-jsc",
+          "-j1",
+          "--summary",
+          "all"
+        ],
+        "log_sha256": "d461c94ca720531d3387f055934704d898f30582c17b64d3758a11b3d77ef59e",
+        "excerpt": "me-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 14ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 10ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 10ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 14ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 19ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 16ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 10ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 27ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 14ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 14ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 10ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 14ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 10ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 10ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n   +- compile exe home-tool safe native (+1 more reused dependencies)\nhome-tool success\n+- install home-tool success\n   +- compile exe home-tool safe native (+1 more reused dependencies)\n\n\nECOSYSTEM PEAK SAMPLED RSS: 1262080 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      }
+    },
+    "docs-after-rmdir.json": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 152832,
+      "memory_limit_mb": 3072,
+      "seconds": 1.535,
+      "log": "docs-after-rmdir.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rmdir-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/@stacksjs/bunpress/dist/bin/cli.js",
+        "build",
+        "--outdir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/docs-after-rmdir"
+      ],
+      "log_sha256": "26b24d417325044fc520c88179a7b4328e1410334201589dc887c417a312b01c",
+      "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rmdir-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/@stacksjs/bunpress/dist/bin/cli.js\", \"build\", \"--outdir\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/docs-after-rmdir\"]\n\u001b[?25l\n\u001b[K\u001b[?25h\u001b[31m\u2717\u001b[0m Build failed\nError during build: TypeError: K6 is not a function. (In 'K6(`${Y}.tmp-`)', 'K6' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 152832 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    }
+  },
+  "interpretation": [
+    "Real OS deleteDir supplies rmdirSync and promised rmdir for empty directories. It never substitutes recursive rm or unlinks ordinary files. String paths/default and empty options are supported; unknown/legacy recursive options are refused explicitly.",
+    "11mandatory actual filesystem groups pass Node/Bun/both Home providers; both prior providers fail. Missing paths, regular-file preservation, nonempty contents preservation, return values and UTF-8 directory names are checked.",
+    "Both provider gates pass197zig-js/176JSC common steps, with6native tests explicitly emitted by the changed fs test root. Zig formatting/diff pass; Pickier exits0 with two unchanged old warnings.",
+    "An initial exploratory rmdir probe used recursive:false; Node26 rejects that removed option while Bun accepts it. It is outside this supported profile, not a fabricated common passing contract.",
+    "Actual BunPress now reaches missing mkdtemp instead of losing the original failure to an absent rmdir during cleanup. No docs/root build pass or fresh Linux execution claim. Keep caller at validatedc104b32 until the final exact suite qualification."
+  ]
+}
