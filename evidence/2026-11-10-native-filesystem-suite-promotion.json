@@ -1,0 +1,195 @@
+{
+  "observed_at": "2026-11-10T18:17:13.510538+00:00",
+  "jobs": [
+    {
+      "id": 130022799804,
+      "name": "discover",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": []
+    },
+    {
+      "id": 130023949858,
+      "name": "runtime",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Build exact pushed engine archive",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-10T18:06:51Z",
+          "completed_at": "2026-11-10T18:11:07Z"
+        },
+        {
+          "name": "Build Home against this engine",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-10T18:11:07Z",
+          "completed_at": "2026-11-10T18:12:10Z"
+        },
+        {
+          "name": "Verify engine identity and Home host/module/TypeScript integration",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-10T18:12:10Z",
+          "completed_at": "2026-11-10T18:12:56Z"
+        }
+      ]
+    },
+    {
+      "id": 130028586908,
+      "name": "Consumers home-lang/home",
+      "status": "in_progress",
+      "conclusion": null,
+      "steps": [
+        {
+          "name": "Unpack and verify runtime provenance",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-10T18:16:27Z",
+          "completed_at": "2026-11-10T18:16:28Z"
+        },
+        {
+          "name": "Verify shared runtime executes on this consumer CPU",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-10T18:16:28Z",
+          "completed_at": "2026-11-10T18:16:28Z"
+        },
+        {
+          "name": "Check every selected package, library, CLI and app",
+          "status": "in_progress",
+          "conclusion": null,
+          "number": 9,
+          "started_at": "2026-11-10T18:16:28Z",
+          "completed_at": null
+        }
+      ]
+    },
+    {
+      "id": 130028586929,
+      "name": "Consumers stacksjs/stacks",
+      "status": "in_progress",
+      "conclusion": null,
+      "steps": [
+        {
+          "name": "Unpack and verify runtime provenance",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-10T18:14:25Z",
+          "completed_at": "2026-11-10T18:14:27Z"
+        },
+        {
+          "name": "Verify shared runtime executes on this consumer CPU",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-10T18:14:27Z",
+          "completed_at": "2026-11-10T18:14:27Z"
+        },
+        {
+          "name": "Check every selected package, library, CLI and app",
+          "status": "in_progress",
+          "conclusion": null,
+          "number": 9,
+          "started_at": "2026-11-10T18:14:27Z",
+          "completed_at": null
+        }
+      ]
+    }
+  ],
+  "schema_version": 1,
+  "functional_suite_ref": "2e2acbab15325a7b2e79a92303fa511bc73cea48",
+  "home_ref": "a20f225bd7038b09b524434e5b5be98aa95c9dad",
+  "baseline_engine_sha": "5cf9846b55169fa894d614c67b2cae8c23cb1b83",
+  "qualification_run": 42871250081,
+  "validation_run": 42871232199,
+  "caller_commit": "1b46fd171a1d06e273d9dfcfb568ae8135b58c90",
+  "every_push_all_selected_run": 42873855820,
+  "verified_runtime": {
+    "artifact_id": 13789019334,
+    "zip_bytes": 39077234,
+    "zip_sha256": "2d8197e6d40cba29cc73b8e62a1c468674e5572a9c7d337892013c1cf4f2396e",
+    "files": {
+      "home-tool": "6a37b7a092de1e913ca8ee38ba00f4c580f50fcab3949b10ecbba909f28a30cc",
+      "engine/zig-out/lib/libzig-js.a": "204143a9da3cdb11e04c32ff7b5231f28a89b1237b5ff3dd7353f4ee4750e2ce"
+    },
+    "provenance": {
+      "engine_sha": "5cf9846b55169fa894d614c67b2cae8c23cb1b83",
+      "suite_ref": "2e2acbab15325a7b2e79a92303fa511bc73cea48",
+      "home_repository": "home-lang/home",
+      "home_ref": "a20f225bd7038b09b524434e5b5be98aa95c9dad",
+      "zig_version": "0.18.0-dev.146+35accc06e",
+      "build_cpu": "baseline",
+      "build_optimize": "ReleaseSafe",
+      "sha256": {
+        "home-tool": "6a37b7a092de1e913ca8ee38ba00f4c580f50fcab3949b10ecbba909f28a30cc",
+        "engine/zig-out/lib/libzig-js.a": "204143a9da3cdb11e04c32ff7b5231f28a89b1237b5ff3dd7353f4ee4750e2ce"
+      }
+    }
+  },
+  "runtime_gates": {
+    "run": 42871250081,
+    "job": 130023949858,
+    "log_sha256": "af19a716b1e5691561a4931e6d90a6e3ade946eaee0ef55b36b3a18b100a19a3",
+    "signals": [
+      "2026-11-10T18:12:15.9429857Z NODE CRYPTO UUID 23 CHECKS OK",
+      "2026-11-10T18:12:15.9479446Z MODULE STACK ORIGINS 4 OK",
+      "2026-11-10T18:12:15.9539366Z NODE RMDIR 11 CHECKS OK",
+      "2026-11-10T18:12:15.9569462Z NODE SYNC FS 18 CHECKS OK",
+      "2026-11-10T18:12:15.9629386Z NODE MKDTEMP 13 CHECKS OK",
+      "2026-11-10T18:12:22.5509991Z OK home-tool module interop"
+    ]
+  },
+  "linux_validation": {
+    "run": 42871232199,
+    "job": 130022730240,
+    "log_sha256": "d9deb8756cf1edd777a59bb94d67fa722a5cdd38fec49c18c628cd88a17b0957",
+    "signals": [
+      "2026-11-10T18:04:12.0669058Z Ran 41 tests in 2.287s",
+      "2026-11-10T18:04:14.2226180Z  7 pass",
+      "2026-11-10T18:04:14.2226403Z  0 fail",
+      "2026-11-10T18:04:14.2226612Z  26 expect() calls"
+    ]
+  },
+  "earlier_47_group_qualification": {
+    "run": 42870215100,
+    "functional_suite": "28680c038c27386761f2af35a2b4ea1476e57c0f",
+    "verified_runtime": {
+      "artifact_id": 13789737369,
+      "zip_bytes": 39078246,
+      "zip_sha256": "d6cceba5aebde39bab967d1dd00c0df9ba63e2c4a5732e66f2524f37178ff795",
+      "files": {
+        "home-tool": "7eb7eb9cb46d1dc6f0bcd80cfa6f81116d914013aeb1e2da5366463fba55bd32",
+        "engine/zig-out/lib/libzig-js.a": "204143a9da3cdb11e04c32ff7b5231f28a89b1237b5ff3dd7353f4ee4750e2ce"
+      },
+      "provenance": {
+        "engine_sha": "5cf9846b55169fa894d614c67b2cae8c23cb1b83",
+        "suite_ref": "28680c038c27386761f2af35a2b4ea1476e57c0f",
+        "home_repository": "home-lang/home",
+        "home_ref": "b4c4d81bff51176be372d7fa6d844f3b8881c970",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "7eb7eb9cb46d1dc6f0bcd80cfa6f81116d914013aeb1e2da5366463fba55bd32",
+          "engine/zig-out/lib/libzig-js.a": "204143a9da3cdb11e04c32ff7b5231f28a89b1237b5ff3dd7353f4ee4750e2ce"
+        }
+      }
+    }
+  },
+  "source_check": "git diff --quiet5cf..1b46 -- src include build.zig build.zig.zon exits0. Foreign5cf test-only commit preserved by fast-forward; foreign untracked zig-pkg preserved. Caller actionlint/diff pass. Both fields pin exact functional2e2acba, not an evidence-only descendant.",
+  "interpretation": [
+    "Fresh Linux baseline CPU/ReleaseSafe runtime build and all integration gates pass, including65mandatory actual UUID/rmdir/mkdtemp/sync directory contract groups and prior4module origins. Downloaded ZIP, executable, archive and provenance digests verified.",
+    "Exact immutable suite validation passes41Python tests and7real dependency tests/26assertions. Both actual selected consumer provenance/CPU steps7/8 pass; package checks9 remain running at qualification. No new raw per-consumer log download or full package pass is claimed for ongoing jobs; completed5cf package evidence is retained separately.",
+    "Caller promoted directly to main with configured Chris identity/no trailers, all-selected every-push coverage intact and older runs retained. Underlying JPEG budget/Bun.build/v8/memory/unsupported tests remain genuine failures; no limits relaxed and no native Bun candidate fallback.",
+    "Dashboard publication42871488072 succeeds with224records/zero collection warnings, but live verification exposes older late-completing aggregate displacing newer consumer results. Its independent source-order repair is being validated; do not claim the ordering repaired by this promotion."
+  ]
+}
