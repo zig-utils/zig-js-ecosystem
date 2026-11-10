@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "home_commit": "cac698128de386fdb6198d81087dea1c663fe3ce",
+  "parent": "684aa18fc",
+  "previous_home": "0785dda1fc55af1034392c5543458034852c6c3b",
+  "local_engine_sha": "73ee013e8451aaadeb0402ab894cf2e24b2ede46",
+  "local_engine_scope": "Exact pushed Debug public-C archive; ReleaseSafe Home host; fresh Linux baseline qualification remains required",
+  "archive_sha256": "2c47e7a0444617691edca083e9ad6927c46c48cfbbae82e0970924c3b2b43e25",
+  "source_hashes_at_immutable_commit": {
+    "packages/runtime/src/jsc/tool_builtins.js": "a478eb5d9e771f2c800584d5e6ffb50c51030951d4a01668087ad0cfd6499827",
+    "packages/runtime/src/jsc/tool_crypto.zig": "f08d97f45e44593afd30f93f85105fde7929567f26b119fe9e06fed490a0a02e",
+    "packages/runtime/test/tool_modules/node_random_uuid.mjs": "d9d0f6112b0f37abd5d3f64ab21efae7effca5375e6d0beb934838523cc5cf00",
+    "packages/runtime/test/tool_modules/main.ts": "37d50827da9494201b485a6516a1846b8de1aa5317faad3cc3b0c28d2d3c402d"
+  },
+  "results": {
+    "before.json": {
+      "node": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 816,
+        "memory_limit_mb": 3072,
+        "seconds": 0.063,
+        "log": "before-node.log",
+        "command": [
+          "node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/probe.mjs"
+        ],
+        "log_sha256": "2926b7951693bfcae3a6e304c1be17a9455388f8c2c9e17db98184ceceba0d5f",
+        "excerpt": "$ [\"node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/probe.mjs\"]\nNODE CRYPTO UUID OK\n\nECOSYSTEM PEAK SAMPLED RSS: 816 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "bun": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.028,
+        "log": "before-bun.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/probe.mjs"
+        ],
+        "log_sha256": "2645270ec6dc472d73482f37cdd203dbe4881dc33f36740610d0f988e39ec413",
+        "excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/probe.mjs\"]\nNODE CRYPTO UUID OK\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "home": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 28144,
+        "memory_limit_mb": 3072,
+        "seconds": 0.229,
+        "log": "before-home.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/probe.mjs"
+        ],
+        "log_sha256": "c81b075509f4cc39428571656bb59fd87730a53e8e7bfe0f333d96b45d8fd938",
+        "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/probe.mjs\"]\nhome-tool (zig-js): TypeError: randomUUID is not a function. (In 'randomUUID()', 'randomUUID' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 28144 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      }
+    },
+    "fixture-before.json": {
+      "node": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 41856,
+        "memory_limit_mb": 3072,
+        "seconds": 0.18,
+        "log": "fixture-node.log",
+        "command": [
+          "node",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_random_uuid.mjs"
+        ],
+        "log_sha256": "2f38b63867fc77a5b8b2d62ca5f6fac8a4136b147287b443ddbc9fec0ce3cf2f",
+        "excerpt": "$ [\"node\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_random_uuid.mjs\"]\nNODE CRYPTO UUID 23 CHECKS OK\n\nECOSYSTEM PEAK SAMPLED RSS: 41856 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "bun": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 2192,
+        "memory_limit_mb": 3072,
+        "seconds": 0.056,
+        "log": "fixture-bun.log",
+        "command": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_random_uuid.mjs"
+        ],
+        "log_sha256": "fb541824472d824196ae0683900ab05cdda01681aacaef20e4b1b02585f67da7",
+        "excerpt": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_random_uuid.mjs\"]\n61 |   const original = globalThis.Uint8Array;\n62 |   globalThis.Uint8Array = function() { throw new Error('public constructor replaced'); };\n63 |   try { valid(); } finally { globalThis.Uint8Array = original; }\n64 | });\n65 | \n66 | if (failures.length) throw new Error('NODE CRYPTO UUID ' + operations + ' checks; failures: ' + failures.join('; '));\n                                    ^\nerror: NODE CRYPTO UUID 23 checks; failures: function: expected Node argument validation\n      at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_random_uuid.mjs:66:32\n\nBun v1.4.4 (macOS arm64)\n\nECOSYSTEM PEAK SAMPLED RSS: 2192 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      },
+      "before-zig-js": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32816,
+        "memory_limit_mb": 3072,
+        "seconds": 0.158,
+        "log": "fixture-before-zig-js.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_random_uuid.mjs"
+        ],
+        "log_sha256": "de9f4937857f58cf61c129c11ce51b3f71a2ef35c1a4b3cecf46acbd33c51906",
+        "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_random_uuid.mjs\"]\nhome-tool (zig-js): Error: NODE CRYPTO UUID 23 checks; failures: default: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); empty: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); cached: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); uncached: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); unset: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); null prototype: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); inherited: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); null: expected Node argument validation; array: expected Node argument validation; string: expected Node argument validation; number: expected Node argument validation; boolean: expected Node argument validation; function: expected Node argument validation; null cache: expected Node argument validation; number cache: expected Node argument validation; string cache: expected Node argument validation; entropy modes and repeated calls: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); option getter once: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); getter exception identity: propagate getter exception; unknown option not read: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); aliases and detached receiver: undefined is not an object (evaluating 'randomUUID.call'); public randomBytes replacement is isolated: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); public Uint8Array replacement is isolated: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 32816 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      },
+      "before-jsc": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.099,
+        "log": "fixture-before-jsc.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_random_uuid.mjs"
+        ],
+        "log_sha256": "2e64730017b528c0e5a093bc8a9593d8504769170a24f02030bedee86e829d38",
+        "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_random_uuid.mjs\"]\nhome-tool (jsc): Error: NODE CRYPTO UUID 23 checks; failures: default: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); empty: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); cached: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); uncached: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); unset: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); null prototype: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); inherited: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); null: expected Node argument validation; array: expected Node argument validation; string: expected Node argument validation; number: expected Node argument validation; boolean: expected Node argument validation; function: expected Node argument validation; null cache: expected Node argument validation; number cache: expected Node argument validation; string cache: expected Node argument validation; entropy modes and repeated calls: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); option getter once: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); getter exception identity: propagate getter exception; unknown option not read: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); aliases and detached receiver: undefined is not an object (evaluating 'randomUUID.call'); public randomBytes replacement is isolated: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined); public Uint8Array replacement is isolated: randomUUID is not a function. (In 'randomUUID(options)', 'randomUUID' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      }
+    },
+    "fixture-after.json": {
+      "zig-js": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 29040,
+        "memory_limit_mb": 3072,
+        "seconds": 0.229,
+        "log": "fixture-after-zig-js.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/after-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_random_uuid.mjs"
+        ],
+        "binary_sha256": "b7aa1e31bc5e4e9ad91ab636e709fc1d1dade39a1734283a5ec0f411c1bcd4f0",
+        "log_sha256": "5d58c62b2877b32b0d727f29c525627720773434cbc103404bf826851ab9578f",
+        "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_random_uuid.mjs\"]\nNODE CRYPTO UUID 23 CHECKS OK\n\nECOSYSTEM PEAK SAMPLED RSS: 29040 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "jsc": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.174,
+        "log": "fixture-after-jsc.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/after-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_random_uuid.mjs"
+        ],
+        "binary_sha256": "4bb42afabf73e4f9bd63e4d54d36c91915264e2dae6c803980aed1a7e5e98354",
+        "log_sha256": "ab54678f72693c2ebe377c4778e2fe574b4ea829682321d41aef912d30e6f86e",
+        "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/after-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_random_uuid.mjs\"]\nNODE CRYPTO UUID 23 CHECKS OK\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      }
+    },
+    "rebased-gates.json": {
+      "zig-js": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1218400,
+        "memory_limit_mb": 3072,
+        "seconds": 65.586,
+        "log": "zig-js-rebased-gates.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "home-tool",
+          "home-tool-smoke",
+          "home-tool-rejections-smoke",
+          "home-tool-async-context-smoke",
+          "home-tool-file-url-smoke",
+          "-Doptimize=ReleaseSafe",
+          "-Denable_jsc=false",
+          "-Dtool-js-engine=zig-js",
+          "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-literal-debug/engine-root",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rebased-zig-js",
+          "-j1",
+          "--summary",
+          "all"
+        ],
+        "log_sha256": "e2e4e4467564a47ee4751e102f3c8cba8c7f32931f873e5779c67629b6bceb30",
+        "excerpt": "success 79ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 93ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 83ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 94ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 78ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 80ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 90ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 78ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 76ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 77ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 79ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 126ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 82ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 78ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 89ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 89ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 78ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 98ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 91ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 78ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 133ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 83ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 165ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 143ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 105ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 96ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 81ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 116ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 93ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 120ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 83ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 127ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 92ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 90ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 99ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 83ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 99ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 90ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 89ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 86ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 77ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 78ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 80ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 80ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 77ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 77ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 75ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 82ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 78ms\n   +- compile exe home-tool safe native (+1 more reused dependencies)\nhome-tool success\n+- install home-tool success\n   +- compile exe home-tool safe native (+1 more reused dependencies)\n\n\nECOSYSTEM PEAK SAMPLED RSS: 1218400 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "jsc": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1118128,
+        "memory_limit_mb": 3072,
+        "seconds": 41.043,
+        "log": "jsc-rebased-gates.log",
+        "command": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "home-tool",
+          "home-tool-smoke",
+          "-Doptimize=ReleaseSafe",
+          "-Denable_jsc=false",
+          "-Dtool-js-engine=jsc",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/rebased-jsc",
+          "-j1",
+          "--summary",
+          "all"
+        ],
+        "log_sha256": "74ece6234e9c0b3256588bee0c92829d68fcdd8511e2d9a0d2059d1af79c2f54",
+        "excerpt": "me-tool success 10ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 16ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 17ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 14ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 17ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 10ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 10ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 16ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 18ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 21ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 10ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 28ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 15ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 14ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 13ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 12ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 11ms\n|  +- compile exe home-tool safe native (+1 more reused dependencies)\n+- run exe home-tool success 14ms\n   +- compile exe home-tool safe native (+1 more reused dependencies)\nhome-tool success\n+- install home-tool success\n   +- compile exe home-tool safe native (+1 more reused dependencies)\n\n\nECOSYSTEM PEAK SAMPLED RSS: 1118128 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      }
+    },
+    "docs-before.json": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 149920,
+      "memory_limit_mb": 3072,
+      "seconds": 1.023,
+      "log": "docs-before.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/@stacksjs/bunpress/dist/bin/cli.js",
+        "build",
+        "--outdir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/docs-before"
+      ],
+      "log_sha256": "106242e83b78f42c36ca317375baedd78da0c028d20fd039798df4bf91279c82",
+      "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-stack-origins/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/@stacksjs/bunpress/dist/bin/cli.js\", \"build\", \"--outdir\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/docs-before\"]\n\u001b[?25l\n\u001b[K\u001b[?25h\u001b[31m\u2717\u001b[0m Build failed\nError during build: TypeError: e4 is not a function. (In 'e4()', 'e4' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 149920 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "docs-after-zig-js.json": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 152096,
+      "memory_limit_mb": 3072,
+      "seconds": 1.019,
+      "log": "docs-after-zig-js.log",
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/after-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/@stacksjs/bunpress/dist/bin/cli.js",
+        "build",
+        "--outdir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/docs-after-zig-js"
+      ],
+      "log_sha256": "be6f0de39af96ca06a4ab115928b19444cb5c7560a71ac6af27ad742abd37414",
+      "excerpt": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/after-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svg-declarations/stacks-candidate/node_modules/@stacksjs/bunpress/dist/bin/cli.js\", \"build\", \"--outdir\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/crypto-uuid/docs-after-zig-js\"]\n\u001b[?25l\n\u001b[K\u001b[?25h\u001b[31m\u2717\u001b[0m Build failed\nError during build: TypeError: $6 is not a function. (In '$6(X)', '$6' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 152096 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    }
+  },
+  "official_contract": "https://nodejs.org/api/crypto.html#cryptorandomuuidoptions",
+  "interpretation": [
+    "Actual BunPress0.2.31 e4 binding is randomUUID imported from crypto; both the minimal Node/Bun probe and the real installed Stacks docs CLI were executed before changing behavior.",
+    "23 mandatory Node contract groups include128 unique actual v4 strings, option getter/error validation, both entropy modes, aliases/detached calls and isolation from replaced public randomBytes/Uint8Array. Node and both fixed Home providers pass; both previous Home providers fail.",
+    "Bun1.4.4 reference executes all23groups and fails only function-valued options, which Node26.10 rejects. Its divergent result is retained, never rewritten to pass.",
+    "Generation uses the existing native randomSecure callback with16fresh OS bytes per call,122random bits and correct version/variant masks. No Math.random, fixed token, entropy cache or native Bun fallback. Native entropy failure throws.",
+    "Both rebased provider gate sets pass197zig-js /176JSC common steps; foreign TS checker fixes/tests are preserved. Pickier exits0 with the same two baseline prefer-template warnings, and diff checks pass.",
+    "Actual docs CLI advances to missing fs.promises.rmdir; no docs/root build pass claimed. Rmdir work is separate and not included in this immutable crypto commit. Keep caller functionalc104b32 until a fresh combined qualification."
+  ]
+}
