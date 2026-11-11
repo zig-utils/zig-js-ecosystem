@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-11T22:46:18.079846+00:00",
+  "run": 43105176985,
+  "functional_suite": "c8942b45ec2b8bdaf80420e3307c8b4ca5af22b3",
+  "reports": [
+    {
+      "repository": "stacksjs/stacks",
+      "consumer_sha": "3a67d402e250905f9d8d53b2bf168ba29fb44dbc",
+      "previous_consumer_sha": "7b426a177e35947c1b06c3f99d3c1752b78d284c",
+      "scopes": 100,
+      "checks": 936,
+      "candidate": {
+        "unsupported": 357,
+        "failed": 193,
+        "passed": 81
+      },
+      "artifact": {
+        "id": 13896131557,
+        "name": "ecosystem-results-0",
+        "digest": "sha256:3b510bfc3692439fd5df67f43b75f1f469f7c5b804d47b5343d7d82c8e4c0fe1",
+        "size_in_bytes": 1732856
+      },
+      "verified_zip_sha256": "3b510bfc3692439fd5df67f43b75f1f469f7c5b804d47b5343d7d82c8e4c0fe1",
+      "report_sha256": "786e6939b69c9033b466d9268273f6394f4fa1a0eaa977f9aae6e80613c04d14",
+      "runtime_provenance": {
+        "engine_sha": "82921ac54d7a68ef715232b0c0665c4f7a784577",
+        "suite_ref": "c8942b45ec2b8bdaf80420e3307c8b4ca5af22b3",
+        "home_repository": "home-lang/home",
+        "home_ref": "ffa4a6e0c5d25a8f303da23f921bf6dcc5d2a050",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "3027ce8fe71bb328c68ca6977127806a490f1bf7045b975464de099f5d1c5162",
+          "engine/zig-out/lib/libzig-js.a": "ef9ef0b37e36c08c3a21b13393b88024a35ffeebc30b50af2e7d11d41faf1b8d"
+        }
+      },
+      "label_changes": [
+        {
+          "label": "storage/framework/core/hq: build",
+          "before": null,
+          "after": "failed"
+        },
+        {
+          "label": "storage/framework/core/hq: module initialization ./dist/index.js",
+          "before": null,
+          "after": "unsupported"
+        },
+        {
+          "label": "storage/framework/core/hq: module initialization dist/index.js",
+          "before": null,
+          "after": "unsupported"
+        },
+        {
+          "label": "storage/framework/core/hq: module initialization src/index.ts",
+          "before": null,
+          "after": "passed"
+        },
+        {
+          "label": "storage/framework/core/hq: test",
+          "before": null,
+          "after": "unsupported"
+        },
+        {
+          "label": "storage/framework/core/hq: typecheck",
+          "before": null,
+          "after": "passed"
+        },
+        {
+          "label": "storage/framework/core/server: module initialization src/index.ts",
+          "before": "failed",
+          "after": "passed"
+        },
+        {
+          "label": "storage/framework/core/sms: module initialization src/index.ts",
+          "before": "failed",
+          "after": "passed"
+        },
+        {
+          "label": "storage/framework/core/ui: module initialization src/index.ts",
+          "before": "failed",
+          "after": "passed"
+        }
+      ],
+      "diagnostics": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 1914100,
+            "memory_limit_mb": 3072,
+            "seconds": 8.775,
+            "log": "0016.log",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "./buddy build"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate",
+            "engine_invocations": 3
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/arrow-priority-followup/ecosystem-results-0/stacksjs--stacks/0016.log",
+            "sha256": "caef817d43151f455c2f9be440b2108e2e62c8173d9062ea460e7a380b23d4f5",
+            "content": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-11T21:56:52.578Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 1914100 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 8744,
+            "memory_limit_mb": 3072,
+            "seconds": 0.107,
+            "log": "0488.log",
+            "label": "storage/framework/core/router: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+              "src/index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/router",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/arrow-priority-followup/ecosystem-results-0/stacksjs--stacks/0488.log",
+            "sha256": "c66481da7f8368572d1dc4a9c60f6d542e763f40759f811da5202f9669df6c5a",
+            "content": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\n/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/router/src/stacks-router.ts:224374: ')' expected. (TS1005)\nhome-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/router/src/stacks-router.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 8744 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        }
+      ]
+    },
+    {
+      "repository": "home-lang/home",
+      "consumer_sha": "ffa4a6e0c5d25a8f303da23f921bf6dcc5d2a050",
+      "previous_consumer_sha": "1481d69c39c4dc306b294c2cefa978ae0a5d6bcc",
+      "scopes": 46,
+      "checks": 234,
+      "candidate": {
+        "timed-out": 1,
+        "unsupported": 37,
+        "passed": 9,
+        "failed": 40
+      },
+      "artifact": {
+        "id": 13895294004,
+        "name": "ecosystem-results-1",
+        "digest": "sha256:5c3e1e3ad877b6af8c1646760a1b7d07ab7cdd3e64c34f3c4d1c10776689b486",
+        "size_in_bytes": 105629
+      },
+      "verified_zip_sha256": "5c3e1e3ad877b6af8c1646760a1b7d07ab7cdd3e64c34f3c4d1c10776689b486",
+      "report_sha256": "42c54057458711d4ac1d4d960344be83b532f418eabc15cfa8dd16a16370f2c0",
+      "runtime_provenance": {
+        "engine_sha": "82921ac54d7a68ef715232b0c0665c4f7a784577",
+        "suite_ref": "c8942b45ec2b8bdaf80420e3307c8b4ca5af22b3",
+        "home_repository": "home-lang/home",
+        "home_ref": "ffa4a6e0c5d25a8f303da23f921bf6dcc5d2a050",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "3027ce8fe71bb328c68ca6977127806a490f1bf7045b975464de099f5d1c5162",
+          "engine/zig-out/lib/libzig-js.a": "ef9ef0b37e36c08c3a21b13393b88024a35ffeebc30b50af2e7d11d41faf1b8d"
+        }
+      },
+      "label_changes": [
+        {
+          "label": ".: build",
+          "before": "failed",
+          "after": "timed-out"
+        }
+      ],
+      "diagnostics": [
+        {
+          "check": {
+            "status": "timed-out",
+            "exit_code": 124,
+            "peak_sampled_rss_kib": 2021612,
+            "memory_limit_mb": 3072,
+            "seconds": 300.089,
+            "log": "0052.log",
+            "reason": "command time budget exhausted",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bunx bunpress build"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/arrow-priority-followup/ecosystem-results-1/home-lang--home/0052.log",
+            "sha256": "253247c15eade436cfb44ef927a09a36074cf2a4403945b7b3f7b5eb783feabe",
+            "content": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 2021612 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: command time budget exhausted\n\nECOSYSTEM RESULT: timed-out, exit 124\n"
+          }
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 226292,
+            "memory_limit_mb": 3072,
+            "seconds": 0.527,
+            "log": "0071.log",
+            "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun run build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/arrow-priority-followup/ecosystem-results-1/home-lang--home/0071.log",
+            "sha256": "e823dcf5640e9df794535a3d99743ff8f7c9f5f46a05704978ab93b9ab87ee2d",
+            "content": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module vm from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 226292 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 9952,
+            "memory_limit_mb": 3072,
+            "seconds": 0.069,
+            "log": "0136.log",
+            "label": "packages/runtime/upstream/src/runtime/cli/init/react-tailwind: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun run build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/arrow-priority-followup/ecosystem-results-1/home-lang--home/0136.log",
+            "sha256": "7d45451fe537301ceb2ffc4e93e1a6f62a50726db6784b38b0539378f4e30125",
+            "content": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind/build.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 9952 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "Both consumer revisions moved, so these are observed label/count differences, not same-source causal gains or no-regression evidence. Stacks adds HQ scope with two passes and three unsupported checks, and server/SMS/UI initialization labels change failed to passed. Home build changes failed to timed-out; this is not a compatibility gain. All selected scopes/checks and genuine failures remain present. New parser repairs are separately pushed and not retroactively counted as CI passes."
+}

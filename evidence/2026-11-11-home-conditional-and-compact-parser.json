@@ -1,0 +1,856 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-11T22:46:18.861996+00:00",
+  "home_ref": "baabd83f05594c89d5ab932a83a66a37223d165d",
+  "logical_commits": [
+    {
+      "sha": "7c09f4f35458184bffa6c476c24a51d0890936f2",
+      "scope": "Stop missing-arrow recovery borrowing a later block in a conditional true arm."
+    },
+    {
+      "sha": "baabd83f05594c89d5ab932a83a66a37223d165d",
+      "scope": "Retain adjacent arrows after packed generic type closers, virtual lookahead/consumption and line-break flags; preserve assignments and shifts."
+    }
+  ],
+  "source_files": {
+    "build.zig": "6f3638ec0112f7e096f0f955acc0dcc7c2a581e2074c33ffcfb7df137c6c2ae1",
+    "packages/ts_parser/src/ts_parser.zig": "6814a6563d5e951d6f0f1b7340c3480c2566c63b5bebc1fde82b4dc4a9a56656",
+    "packages/runtime/test/tool_modules/conditional_arms.mjs": "0874378258f1d2833245f1002afee084c96473ea079d7ca42e6dc03213a19d37",
+    "packages/runtime/test/tool_modules/conditional_arms.mts": "7e95f86af1c0bfd5c505d92b231b6f829f7f88c5433ee5a73b2cdc0a6a907aab",
+    "packages/runtime/test/tool_modules/compact_type_closers.mts": "76aad817c8816e2f9f1ea24556b10383f613bdc97f6247f621d424145f9086e3"
+  },
+  "local_engine_source_sha": "68be3efbd615607f6727fe96a74e895b4c4efb49",
+  "next_linux_engine_sha": "050b789b9a89d4a7e921e156e13593108332e89c",
+  "engine_scope": "Root050b789b changes only caller workflow pins from68be3efb; native engine source is unchanged. Local Home links that exact pushed-source archive; new immutable Linux baseline/ReleaseSafe archive/provenance remain mandatory.",
+  "actual_consumer": {
+    "source": {
+      "repository": "stacksjs/stacks",
+      "sha": "3a67d402e250905f9d8d53b2bf168ba29fb44dbc",
+      "path": "storage/framework/core/router/src/stacks-router.ts",
+      "bytes": 283692,
+      "sha256": "89c393e75a415b6a56d03cb5f842d1217d2d5ab3d86eb22375bfdd1365f63597",
+      "route": "repos/stacksjs/stacks/contents/storage/framework/core/router/src/stacks-router.ts?ref=3a67d402e250905f9d8d53b2bf168ba29fb44dbc"
+    },
+    "reference_bun_parse": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/reference-parse.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/stacks-router.ts"
+      ],
+      "exit_code": 0,
+      "stdout": "BUN PARSED ACTUAL ROUTER SOURCE 283395 130092\n",
+      "stderr": ""
+    },
+    "before_home": {
+      "zig-js": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/stacks-router.ts"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/stacks-router.ts:224374: ')' expected. (TS1005)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/stacks-router.ts\n"
+      },
+      "jsc": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/stacks-router.ts"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/stacks-router.ts:224374: ')' expected. (TS1005)\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/stacks-router.ts\n"
+      }
+    },
+    "minimal_matrix": [
+      {
+        "case": "member",
+        "provider": "node",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/member.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "CONDITIONAL ARM EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "member",
+        "provider": "bun",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/member.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "CONDITIONAL ARM EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "member",
+        "provider": "zig-js",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/member.mjs"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/member.mjs:115: ')' expected. (TS1005)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/member.mjs\n"
+      },
+      {
+        "case": "member",
+        "provider": "jsc",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/member.mjs"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/member.mjs:115: ')' expected. (TS1005)\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/member.mjs\n"
+      },
+      {
+        "case": "call",
+        "provider": "node",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/call.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "CONDITIONAL ARM EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "call",
+        "provider": "bun",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/call.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "CONDITIONAL ARM EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "call",
+        "provider": "zig-js",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/call.mjs"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/call.mjs:116: ')' expected. (TS1005)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/call.mjs\n"
+      },
+      {
+        "case": "call",
+        "provider": "jsc",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/call.mjs"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/call.mjs:116: ')' expected. (TS1005)\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/call.mjs\n"
+      },
+      {
+        "case": "nested-conditional",
+        "provider": "node",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/nested-conditional.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "CONDITIONAL ARM EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "nested-conditional",
+        "provider": "bun",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/nested-conditional.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "CONDITIONAL ARM EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "nested-conditional",
+        "provider": "zig-js",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/nested-conditional.mjs"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/nested-conditional.mjs:114: ')' expected. (TS1005)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/nested-conditional.mjs\n"
+      },
+      {
+        "case": "nested-conditional",
+        "provider": "jsc",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/nested-conditional.mjs"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/nested-conditional.mjs:114: ')' expected. (TS1005)\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/nested-conditional.mjs\n"
+      },
+      {
+        "case": "arithmetic",
+        "provider": "node",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/arithmetic.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "CONDITIONAL ARM EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "arithmetic",
+        "provider": "bun",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/arithmetic.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "CONDITIONAL ARM EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "arithmetic",
+        "provider": "zig-js",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/arithmetic.mjs"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/arithmetic.mjs:115: ')' expected. (TS1005)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/arithmetic.mjs\n"
+      },
+      {
+        "case": "arithmetic",
+        "provider": "jsc",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/arithmetic.mjs"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/arithmetic.mjs:115: ')' expected. (TS1005)\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/arithmetic.mjs\n"
+      },
+      {
+        "case": "compound",
+        "provider": "node",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/compound.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "CONDITIONAL ARM EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "compound",
+        "provider": "bun",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/compound.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "CONDITIONAL ARM EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "compound",
+        "provider": "zig-js",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/compound.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "CONDITIONAL ARM EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "compound",
+        "provider": "jsc",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/compound.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "CONDITIONAL ARM EXECUTED\n",
+        "stderr": ""
+      }
+    ],
+    "after_source_only": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/stacks-router.ts"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "home-tool (zig-js): Error: cannot resolve module @stacksjs/bun-router/runtime from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/stacks-router-source/stacks-router.ts\n"
+    },
+    "meaning": "Actual source at Stacks3a67d402 is accepted by Bun transpilation but Home fails TS1005 at byte224374. Repaired Home clears that syntax diagnostic and next fails resolving @stacksjs/bun-router/runtime in this single-file reproduction. Dependencies were not stubbed or installed here; this is not a full source-module or package pass."
+  },
+  "conditional_repair": {
+    "before_contract": {
+      "node": {
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/conditional_arms.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "CONDITIONAL ARM 18 CHECKS OK\n",
+        "stderr": ""
+      },
+      "bun": {
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/conditional_arms.mts"
+        ],
+        "exit_code": 0,
+        "stdout": "CONDITIONAL ARM 18 CHECKS OK\nTYPED CONDITIONAL ARROW 4 CHECKS OK\n",
+        "stderr": ""
+      },
+      "zig-js": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/conditional_arms.mts"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/conditional_arms.mts:489: '=>' expected. (TS1005)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/conditional_arms.mts\n"
+      },
+      "jsc": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/conditional_arms.mts"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/conditional_arms.mts:489: '=>' expected. (TS1005)\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/conditional_arms.mts\n"
+      }
+    },
+    "after_contract": {
+      "zig-js": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/conditional-arms/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/conditional_arms.mts"
+        ],
+        "exit_code": 0,
+        "stdout": "CONDITIONAL ARM 18 CHECKS OK\nTYPED CONDITIONAL ARROW 4 CHECKS OK\n",
+        "stderr": ""
+      },
+      "jsc": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/conditional-arms/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/conditional_arms.mts"
+        ],
+        "exit_code": 0,
+        "stdout": "CONDITIONAL ARM 18 CHECKS OK\nTYPED CONDITIONAL ARROW 4 CHECKS OK\n",
+        "stderr": ""
+      }
+    },
+    "javascript_checks": 18,
+    "typed_controls": 4,
+    "native_parser": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "test",
+        "-Dfilter=ts_parser",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 468416,
+      "memory_limit_mb": 3072,
+      "seconds": 54.083,
+      "log": "native-ts-parser.log"
+    },
+    "native_summary": "951/951 tests passed",
+    "full_builds": {
+      "zig-js": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "home-tool",
+          "home-tool-smoke",
+          "home-tool-conditional-arms-smoke",
+          "-Denable_jsc=false",
+          "-Dtool-js-engine=zig-js",
+          "-Doptimize=ReleaseSafe",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/conditional-arms/home-zig-js",
+          "-j1",
+          "--summary",
+          "all",
+          "home-tool-rejections-smoke",
+          "home-tool-async-context-smoke",
+          "home-tool-file-url-smoke",
+          "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/engine-root"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 254416,
+        "memory_limit_mb": 3072,
+        "seconds": 16.27,
+        "log": "build-zig-js.log"
+      },
+      "jsc": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "home-tool",
+          "home-tool-smoke",
+          "home-tool-conditional-arms-smoke",
+          "-Denable_jsc=false",
+          "-Dtool-js-engine=jsc",
+          "-Doptimize=ReleaseSafe",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/conditional-arms/home-jsc",
+          "-j1",
+          "--summary",
+          "all"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 1012736,
+        "memory_limit_mb": 3072,
+        "seconds": 46.688,
+        "log": "build-jsc.log"
+      }
+    },
+    "full_zig_js": "247/247 steps passed",
+    "jsc": "217/219 steps passed (1 failed): existing unhandled DNS rejection hook",
+    "initial_compact_control": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/conditional-arms/typed-initial-compact-closer.mts",
+      "sha256": "7e95f86af1c0bfd5c505d92b231b6f829f7f88c5433ee5a73b2cdc0a6a907aab"
+    },
+    "initial_control_scope": "An initially compact generic-return control exposed a separate failure. That failure and initial build logs remain retained. The first logical commit used ordinary spacing; the second repairs and restores the original compact form."
+  },
+  "compact_repair": {
+    "before_minimal": [
+      {
+        "case": "single",
+        "provider": "node",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/single.mts"
+        ],
+        "exit_code": 0,
+        "stdout": "COMPACT EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "single",
+        "provider": "bun",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/single.mts"
+        ],
+        "exit_code": 0,
+        "stdout": "COMPACT EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "single",
+        "provider": "zig-js",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/conditional-arms/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/single.mts"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/single.mts:9: Expression expected. (TS1109)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/single.mts\n"
+      },
+      {
+        "case": "single",
+        "provider": "jsc",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/conditional-arms/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/single.mts"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/single.mts:9: Expression expected. (TS1109)\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/single.mts\n"
+      },
+      {
+        "case": "nested",
+        "provider": "node",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/nested.mts"
+        ],
+        "exit_code": 0,
+        "stdout": "COMPACT EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "nested",
+        "provider": "bun",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/nested.mts"
+        ],
+        "exit_code": 0,
+        "stdout": "COMPACT EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "nested",
+        "provider": "zig-js",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/conditional-arms/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/nested.mts"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/nested.mts:9: Expression expected. (TS1109)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/nested.mts\n"
+      },
+      {
+        "case": "nested",
+        "provider": "jsc",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/conditional-arms/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/nested.mts"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/nested.mts:9: Expression expected. (TS1109)\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/nested.mts\n"
+      },
+      {
+        "case": "async",
+        "provider": "node",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/async.mts"
+        ],
+        "exit_code": 0,
+        "stdout": "COMPACT EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "async",
+        "provider": "bun",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/async.mts"
+        ],
+        "exit_code": 0,
+        "stdout": "COMPACT EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "async",
+        "provider": "zig-js",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/conditional-arms/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/async.mts"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/async.mts:15: ',' expected. (TS1005)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/async.mts\n"
+      },
+      {
+        "case": "async",
+        "provider": "jsc",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/conditional-arms/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/async.mts"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/async.mts:15: ',' expected. (TS1005)\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/async.mts\n"
+      },
+      {
+        "case": "spaced",
+        "provider": "node",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/spaced.mts"
+        ],
+        "exit_code": 0,
+        "stdout": "SPACED EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "spaced",
+        "provider": "bun",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/spaced.mts"
+        ],
+        "exit_code": 0,
+        "stdout": "SPACED EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "spaced",
+        "provider": "zig-js",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/conditional-arms/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/spaced.mts"
+        ],
+        "exit_code": 0,
+        "stdout": "SPACED EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "spaced",
+        "provider": "jsc",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/conditional-arms/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/spaced.mts"
+        ],
+        "exit_code": 0,
+        "stdout": "SPACED EXECUTED\n",
+        "stderr": ""
+      }
+    ],
+    "before_full_reference": [
+      {
+        "provider": "node",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/compact_type_closers.mts"
+        ],
+        "exit_code": 0,
+        "stdout": "COMPACT TYPE CLOSER 12 CHECKS OK\n",
+        "stderr": ""
+      },
+      {
+        "provider": "bun",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/compact_type_closers.mts"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "11 | >=>[7];check(multiline()[0]===7);\n      ^\nerror: Unexpected newline before \"=>\"\n    at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/compact_type_closers.mts:11:2\n\nBun v1.4.4 (macOS arm64)\n"
+      },
+      {
+        "provider": "zig-js",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/conditional-arms/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/compact_type_closers.mts"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/compact_type_closers.mts:127: Expression expected. (TS1109)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/compact_type_closers.mts\n"
+      },
+      {
+        "provider": "jsc",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/conditional-arms/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/compact_type_closers.mts"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/compact_type_closers.mts:127: Expression expected. (TS1109)\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/compact_type_closers.mts\n"
+      }
+    ],
+    "after_contract": {
+      "zig-js": {
+        "compact": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/compact_type_closers.mts"
+          ],
+          "exit_code": 0,
+          "stdout": "COMPACT TYPE CLOSER 12 CHECKS OK\n",
+          "stderr": ""
+        },
+        "conditional": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/conditional_arms.mts"
+          ],
+          "exit_code": 0,
+          "stdout": "CONDITIONAL ARM 18 CHECKS OK\nTYPED CONDITIONAL ARROW 4 CHECKS OK\n",
+          "stderr": ""
+        }
+      },
+      "jsc": {
+        "compact": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-jsc/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/compact_type_closers.mts"
+          ],
+          "exit_code": 0,
+          "stdout": "COMPACT TYPE CLOSER 12 CHECKS OK\n",
+          "stderr": ""
+        },
+        "conditional": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-jsc/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/conditional_arms.mts"
+          ],
+          "exit_code": 0,
+          "stdout": "CONDITIONAL ARM 18 CHECKS OK\nTYPED CONDITIONAL ARROW 4 CHECKS OK\n",
+          "stderr": ""
+        }
+      }
+    },
+    "checks": 12,
+    "node_reference": "The actual Node run executes all12 checks, including a multiline generic closer immediately followed by the arrow.",
+    "bun_reference": "Bun1.4.4 rejects the full reference program at that multiline case before execution; the earlier independent single/nested/async compact references pass. This difference is retained, not converted into a passing reference or a skipped case.",
+    "native_parser": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "test",
+        "-Dfilter=ts_parser",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 693440,
+      "memory_limit_mb": 3072,
+      "seconds": 28.811,
+      "log": "native-ts-parser.log"
+    },
+    "native_summary": "Current compiled artifact reports945/945 tests passed. Prior conditional artifact reports951/951. Two direct test declarations were added (911 to913); none removed. No claim of identical cross-artifact imported-test inventories or whole-TypeScript-corpus no regressions.",
+    "full_builds": {
+      "zig-js": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "home-tool",
+          "home-tool-smoke",
+          "home-tool-compact-types-smoke",
+          "-Denable_jsc=false",
+          "-Dtool-js-engine=zig-js",
+          "-Doptimize=ReleaseSafe",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js",
+          "-j1",
+          "--summary",
+          "all",
+          "home-tool-rejections-smoke",
+          "home-tool-async-context-smoke",
+          "home-tool-file-url-smoke",
+          "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/engine-root"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1029536,
+        "memory_limit_mb": 3072,
+        "seconds": 60.975,
+        "log": "build-zig-js.log"
+      },
+      "jsc": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "home-tool",
+          "home-tool-smoke",
+          "home-tool-compact-types-smoke",
+          "-Denable_jsc=false",
+          "-Dtool-js-engine=jsc",
+          "-Doptimize=ReleaseSafe",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-jsc",
+          "-j1",
+          "--summary",
+          "all"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 911648,
+        "memory_limit_mb": 3072,
+        "seconds": 40.574,
+        "log": "build-jsc.log"
+      }
+    },
+    "full_zig_js": "248/248 steps passed",
+    "jsc": "218/220 steps passed (1 failed): existing unhandled DNS rejection hook",
+    "lint": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bunx",
+        "--bun",
+        "pickier@0.1.91",
+        "packages/runtime/test/tool_modules/compact_type_closers.mts",
+        "packages/runtime/test/tool_modules/conditional_arms.mts",
+        "packages/runtime/test/tool_modules/conditional_arms.mjs"
+      ],
+      "exit_code": 0
+    }
+  },
+  "raw_logs": {
+    "conditional-arms/native-ts-parser.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/conditional-arms/native-ts-parser.log",
+      "sha256": "0bf9f06993e93cb6f5c86535a13e2d615bbc78f0a90c05c3acbc33ea2237312f"
+    },
+    "conditional-arms/build-initial-zig-js.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/conditional-arms/build-initial-zig-js.log",
+      "sha256": "a9b093085798943b510fa23a8471c954169384b03f701a489a3c0c4c52eba881"
+    },
+    "conditional-arms/build-zig-js.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/conditional-arms/build-zig-js.log",
+      "sha256": "b938cecda44406e05830864e4a2ac11dc2c1ef5f621522f404280883126483d7"
+    },
+    "conditional-arms/build-jsc.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/conditional-arms/build-jsc.log",
+      "sha256": "97786de2db955e2a849a5fe130800eae955af198a0f6d5f2b9e7f78eea56a435"
+    },
+    "compact-type-closers/native-ts-parser.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/native-ts-parser.log",
+      "sha256": "4d6c6be5ec5ea42100d98e2989a5b65bf3a5cd4401c1b8042c46fc0feec20fbc"
+    },
+    "compact-type-closers/build-zig-js.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/build-zig-js.log",
+      "sha256": "997c766ffeb340da611e3e686dd0370995d4729dfba6ea410f4b6e97e6c22dc4"
+    },
+    "compact-type-closers/build-jsc.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/build-jsc.log",
+      "sha256": "5e584c76c012eed373f5bd514f9b79bc083586770f824fb2bfc30f5a293fad7a"
+    },
+    "compact-type-closers/pickier.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/pickier.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "promotion_status": "Caller remains validatedc8942b4. Fresh immutable source validation, actual Linux18JS/4typed conditional checks and12compact checks plus maintained runtime markers, official ZIP/file provenance and both actual priority preflights remain mandatory. No test skips/fake host APIs/native Bun fallback or package-complete claim."
+}
