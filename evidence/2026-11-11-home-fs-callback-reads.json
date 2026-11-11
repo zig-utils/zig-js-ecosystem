@@ -1,0 +1,380 @@
+{
+  "schema_version": 1,
+  "home_ref": "ca3fa1e78159516ffadbe719c3a67c4d3fad67f8",
+  "published": {
+    "url": "https://github.com/home-lang/home/commit/ca3fa1e78159516ffadbe719c3a67c4d3fad67f8",
+    "author": {
+      "name": "Chris Breuer",
+      "email": "chrisbreuer93@gmail.com",
+      "date": "2026-11-11T17:01:55Z"
+    },
+    "configured_identity_matches": true
+  },
+  "parent": "174656aed3d7b4a5bc74e83e8e1db6ccf23f82f4",
+  "preserved_upstream": [
+    "ecadc776b1e932f7369814bbce2474a7bc8eb050",
+    "174656aed3d7b4a5bc74e83e8e1db6ccf23f82f4"
+  ],
+  "engine_archive": {
+    "producer_target": "home-tool-bootstrap",
+    "engine_ref": "07bef5adcf173eab2494c82d009fe3cd6ac9432a",
+    "optimize": "Debug",
+    "sha256": "b17ccf437ecd3912cff9dfddc1242d8e05ce342f17a390bf89cdfe23e94ca2cf",
+    "profile": "Local public bootstrap archive, not a Linux ReleaseSafe artifact or full macOS bridge packaging claim."
+  },
+  "source_sha256": {
+    "build.zig": "9603cc6c97fb5dc3f7cb53dfc83556cc43873c7e911baaca395281f1c7a22408",
+    "packages/runtime/src/jsc/tool_builtins.js": "848d6937c0cc8c0ebfc5f90798efc52e8ef1ff7321f2092a43735c223dc32885",
+    "packages/runtime/test/tool_fs_callback_reads_fixture.py": "cdf6f9ec52312e6de041d05bfd0a1eede7030bd973b73c76d4def285b4bf2546",
+    "packages/runtime/test/tool_modules/fs_callback_read_exit.cjs": "47a861df68a6a558e5b01064362b86ca49001c75aa13c4c2d7f5bd25a3421a08",
+    "packages/runtime/test/tool_modules/fs_callback_read_profile.mjs": "edfc7db83bae55cef4552cece31f3af9a1a9db41beff853df84982a4be122dd0",
+    "packages/runtime/test/tool_modules/node_fs_callback_reads.mjs": "e869d0245fc82b8d2311464233f33f168d40967fed50834787c379a03d593645"
+  },
+  "reference": {
+    "node": {
+      "argv": [
+        "python3",
+        "packages/runtime/test/tool_fs_callback_reads_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "packages/runtime/test/tool_modules",
+        "--reference"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 44368,
+      "memory_limit_mb": 3072,
+      "seconds": 0.433,
+      "log": "reference-node.log",
+      "log_sha256": "d9343113e8b2b008919569b615b6d05c9ce1c4c9ec98704ef34fbbbcd47d96bf",
+      "actual_log": "$ [\"python3\", \"packages/runtime/test/tool_fs_callback_reads_fixture.py\", \"/Users/chris/.local/share/pantry/global/bin/node\", \"packages/runtime/test/tool_modules\", \"--reference\"]\nFS CALLBACK READ RESULTS {\"groups\":21,\"passed\":21,\"failures\":[]}\nFS CALLBACK READ 21 GROUPS OK\nNATIVE CALLBACK READ 65536 PHYSICAL BYTES INDEPENDENTLY VERIFIED\nNATIVE FS CALLBACK 3 FATAL CHILDREN AND REF LIVENESS VERIFIED\n\nECOSYSTEM PEAK SAMPLED RSS: 44368 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "bun": {
+      "argv": [
+        "python3",
+        "packages/runtime/test/tool_fs_callback_reads_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "packages/runtime/test/tool_modules",
+        "--reference"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 36800,
+      "memory_limit_mb": 3072,
+      "seconds": 0.271,
+      "log": "reference-bun.log",
+      "log_sha256": "e99fc3c838f89bc95a7b4dad78a08c2138464962c9f4fda7f9411684fb37641b",
+      "actual_log": "$ [\"python3\", \"packages/runtime/test/tool_fs_callback_reads_fixture.py\", \"/Users/chris/.local/share/pantry/global/bin/bun\", \"packages/runtime/test/tool_modules\", \"--reference\"]\nFS CALLBACK READ RESULTS {\"groups\":21,\"passed\":21,\"failures\":[]}\nFS CALLBACK READ 21 GROUPS OK\nNATIVE CALLBACK READ 65536 PHYSICAL BYTES INDEPENDENTLY VERIFIED\nNATIVE FS CALLBACK 3 FATAL CHILDREN AND REF LIVENESS VERIFIED\n\nECOSYSTEM PEAK SAMPLED RSS: 36800 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "initial_gates": {
+    "zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-fs-callback-reads-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/acorn-atomic/engine-after"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 788576,
+      "memory_limit_mb": 3072,
+      "seconds": 106.228,
+      "log": "build-zig-js.log",
+      "log_sha256": "8fd622cc11629ab5682fd2e3efb53807c0cf6207e57d6f5ec46771de4c4bfb4c",
+      "actual_log": null
+    },
+    "jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-fs-callback-reads-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/home-jsc",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 735104,
+      "memory_limit_mb": 3072,
+      "seconds": 47.489,
+      "log": "build-jsc.log",
+      "log_sha256": "04be31b954cc235596107449327d99a2fd576da787d87a9034be29b6d4ee0ebc",
+      "actual_log": null
+    }
+  },
+  "rebased_gates": {
+    "zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-fs-callback-reads-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/rebased-home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/acorn-atomic/engine-after"
+      ],
+      "home_ref": "ca3fa1e78159516ffadbe719c3a67c4d3fad67f8",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 844976,
+      "memory_limit_mb": 3072,
+      "seconds": 197.905,
+      "log": "rebased-build-zig-js.log",
+      "log_sha256": "6055b193e559e67b09cad94897aabd583d3cb2ee10876216029617db7762d6eb",
+      "actual_log": null
+    },
+    "jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-fs-callback-reads-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/rebased-home-jsc",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "home_ref": "ca3fa1e78159516ffadbe719c3a67c4d3fad67f8",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 972496,
+      "memory_limit_mb": 3072,
+      "seconds": 48.188,
+      "log": "rebased-build-jsc.log",
+      "log_sha256": "f9bcd0f76eb115d741575bfdfd5db8e97435cd4408b9e14d7d9eaeb93101fb31",
+      "actual_log": null
+    }
+  },
+  "actual_frozen_queue_import": {
+    "before-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-base64/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/queue-import.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 113504,
+      "memory_limit_mb": 3072,
+      "seconds": 0.883,
+      "log": "before-zig-js.log",
+      "log_sha256": "1931554124071eac075f61f27bc67a8cdd148aa4e9fcb58fee4b4e6c7fe9c38a",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-base64/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/queue-import.mjs\"]\nACTUAL CALLBACK TYPES undefined undefined\nhome-tool (zig-js): TypeError: promisify original must be a function\n\nECOSYSTEM PEAK SAMPLED RSS: 113504 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "before-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-base64/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/queue-import.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 22368,
+      "memory_limit_mb": 3072,
+      "seconds": 0.202,
+      "log": "before-jsc.log",
+      "log_sha256": "b6f7e1c6cfe1ae42acdff6f6d82593e56e0a67b237d979ab8521afa6c2e1847e",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-base64/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/queue-import.mjs\"]\nACTUAL CALLBACK TYPES undefined undefined\nhome-tool (jsc): TypeError: promisify original must be a function\n\nECOSYSTEM PEAK SAMPLED RSS: 22368 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/queue-import.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1584,
+      "memory_limit_mb": 3072,
+      "seconds": 0.143,
+      "log": "bun.log",
+      "log_sha256": "c9bdcdaaa5cbdbb556338863e37bb62ce7a022c0ff5bd47ab643bbb3592586d8",
+      "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/queue-import.mjs\"]\nACTUAL CALLBACK TYPES function function\nACTUAL QUEUE IMPORT BatchProcessor,Bus,DEFAULT_PRIORITY_LEVEL,DatabaseFailedJobProvider,DeadLetterQueue,DispatchableChain,DistributedLock,FailedJobManager,FailureMiddleware,Job,JobBase,JobBatch,JobEvents,JobMiddlewareStack,JobProcessor,LeaderElection,MAX_PRIORITY_LEVELS,Middleware,PriorityQueue,Queue,QueueGroup,QueueManager,QueueObservable,QueueWorker,RateLimitMiddleware,RateLimited,RateLimiter,RedisFailedJobProvider,SkipIfBatchCancelled,SkipIfMiddleware,ThrottleMiddleware,ThrottlesExceptions,UniqueJobMiddleware,WithoutOverlapping,WithoutOverlappingMiddleware,WorkCoordinator,Worker,WorkerManager,batch,chain,closeQueueManager,config,createJobProcessor,createLogger,dispatch,dispatchAfter,dispatchChain,dispatchFunction,dispatchIf,dispatchSync,dispatchUnless,getGlobalJobProcessor,getManager,getQueueManager,middleware,setGlobalJobProcessor,setQueueManager\n\nECOSYSTEM PEAK SAMPLED RSS: 1584 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "rebased-package-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/rebased-home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/queue-import.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 127600,
+      "memory_limit_mb": 3072,
+      "seconds": 1.439,
+      "log": "rebased-package-zig-js.log",
+      "log_sha256": "5f7176adbaa545c493faf5c89f39babd4f94a4e88497651b963bbbfed046c32f",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/rebased-home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/queue-import.mjs\"]\nACTUAL CALLBACK TYPES function function\nACTUAL QUEUE IMPORT BatchProcessor,Bus,DEFAULT_PRIORITY_LEVEL,DatabaseFailedJobProvider,DeadLetterQueue,DispatchableChain,DistributedLock,FailedJobManager,FailureMiddleware,Job,JobBase,JobBatch,JobEvents,JobMiddlewareStack,JobProcessor,LeaderElection,MAX_PRIORITY_LEVELS,Middleware,PriorityQueue,Queue,QueueGroup,QueueManager,QueueObservable,QueueWorker,RateLimitMiddleware,RateLimited,RateLimiter,RedisFailedJobProvider,SkipIfBatchCancelled,SkipIfMiddleware,ThrottleMiddleware,ThrottlesExceptions,UniqueJobMiddleware,WithoutOverlapping,WithoutOverlappingMiddleware,WorkCoordinator,Worker,WorkerManager,batch,chain,closeQueueManager,config,createJobProcessor,createLogger,dispatch,dispatchAfter,dispatchChain,dispatchFunction,dispatchIf,dispatchSync,dispatchUnless,getGlobalJobProcessor,getManager,getQueueManager,middleware,setGlobalJobProcessor,setQueueManager\n\nECOSYSTEM PEAK SAMPLED RSS: 127600 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "rebased-package-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/rebased-home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/queue-import.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 9376,
+      "memory_limit_mb": 3072,
+      "seconds": 0.399,
+      "log": "rebased-package-jsc.log",
+      "log_sha256": "91bbb40c7138248dfa78c8a229e1c26eb9ab24dde39578b39d05f574173a20a5",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/rebased-home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/queue-import.mjs\"]\nACTUAL CALLBACK TYPES function function\nACTUAL QUEUE IMPORT BatchProcessor,Bus,DEFAULT_PRIORITY_LEVEL,DatabaseFailedJobProvider,DeadLetterQueue,DispatchableChain,DistributedLock,FailedJobManager,FailureMiddleware,Job,JobBase,JobBatch,JobEvents,JobMiddlewareStack,JobProcessor,LeaderElection,MAX_PRIORITY_LEVELS,Middleware,PriorityQueue,Queue,QueueGroup,QueueManager,QueueObservable,QueueWorker,RateLimitMiddleware,RateLimited,RateLimiter,RedisFailedJobProvider,SkipIfBatchCancelled,SkipIfMiddleware,ThrottleMiddleware,ThrottlesExceptions,UniqueJobMiddleware,WithoutOverlapping,WithoutOverlappingMiddleware,WorkCoordinator,Worker,WorkerManager,batch,chain,closeQueueManager,config,createJobProcessor,createLogger,dispatch,dispatchAfter,dispatchChain,dispatchFunction,dispatchIf,dispatchSync,dispatchUnless,getGlobalJobProcessor,getManager,getQueueManager,middleware,setGlobalJobProcessor,setQueueManager\n\nECOSYSTEM PEAK SAMPLED RSS: 9376 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "queue_integrity": {
+    "integrity": "sha512-4nrKGXksRW/57VJqpLQmnX5SI9yE4OsRKp60jE8MoZI4vzH45MJQrBzFgAiGITzmjnbmxHN1c5a9kG+kbp94rw==",
+    "tarball_sha256": "78b3cf60bf1fe30e07f2a669fc01f90eb575b717eea7a67fe64b6d764284c91c",
+    "entry": "dist/index.js",
+    "entry_sha256": "39545e09195edbbced00e77054f3866a892b94427e46e16eab4efa735c7eb6af"
+  },
+  "frozen_stacks_consumer": "dfeae0f650e94b39aecad771f347f24fc3eed2a7",
+  "frozen_stacks_lock_sha256": "341616781b3c1a523fc4f46518e90ce4dd19c7598b34a944612cdb29a42ae684",
+  "probe_sha256": "a1df2ed19244731fd6e58236e17ec4d1c2799605a2e2c94dc60ca3c682a144c9",
+  "option_getter_observations": {
+    "node": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/getter-probe.mjs",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_fs_callback_reads.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 41664,
+      "memory_limit_mb": 3072,
+      "seconds": 0.194,
+      "log": "getters-node.log",
+      "log_sha256": "bc2695a1149025f78cc20f1a4ee05a92ba486b456f67324521f6e3444bb3603d",
+      "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/getter-probe.mjs\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_fs_callback_reads.mjs\"]\n{\"trace\":[\"encoding\",\"encoding\",\"encoding\",\"flag\"],\"type\":\"string\"}\n\nECOSYSTEM PEAK SAMPLED RSS: 41664 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/getter-probe.mjs",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_fs_callback_reads.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 704,
+      "memory_limit_mb": 3072,
+      "seconds": 0.028,
+      "log": "getters-bun.log",
+      "log_sha256": "a03591cc8be6b806ca1c54e148e173fbc09b4aee7780f7d8c25a0e4819110b9a",
+      "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/getter-probe.mjs\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_fs_callback_reads.mjs\"]\n{\"trace\":[\"encoding\",\"flag\"],\"type\":\"string\"}\n\nECOSYSTEM PEAK SAMPLED RSS: 704 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/rebased-home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/getter-probe.mjs",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_fs_callback_reads.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 45040,
+      "memory_limit_mb": 3072,
+      "seconds": 0.546,
+      "log": "getters-zig-js.log",
+      "log_sha256": "966fb7e9948426caed9961d9de1ce4886e33840a5e77dc34d7557b2db7d7dd3c",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/rebased-home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/getter-probe.mjs\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_fs_callback_reads.mjs\"]\n{\"trace\":[\"encoding\",\"flag\"],\"type\":\"string\"}\n\nECOSYSTEM PEAK SAMPLED RSS: 45040 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/rebased-home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/getter-probe.mjs",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_fs_callback_reads.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 240,
+      "memory_limit_mb": 3072,
+      "seconds": 0.097,
+      "log": "getters-jsc.log",
+      "log_sha256": "386eccccfe365292b19d9f192746222b16f2ced2a6c026893277bd572e9250bd",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/rebased-home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/getter-probe.mjs\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_fs_callback_reads.mjs\"]\n{\"trace\":[\"encoding\",\"flag\"],\"type\":\"string\"}\n\nECOSYSTEM PEAK SAMPLED RSS: 240 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "initial_overstrict_node_oracle": {
+    "argv": [
+      "python3",
+      "packages/runtime/test/tool_fs_callback_reads_fixture.py",
+      "/Users/chris/.local/share/pantry/global/bin/node",
+      "packages/runtime/test/tool_modules",
+      "--reference"
+    ],
+    "status": "failed",
+    "exit_code": 1,
+    "peak_sampled_rss_kib": 72032,
+    "memory_limit_mb": 3072,
+    "seconds": 0.303,
+    "log": "initial-node-contract.log",
+    "log_sha256": "34decf92c4959cb45fdc7e4223d1d9d64706e41148b49775f497a017d918b8f0",
+    "actual_log": "$ [\"python3\", \"packages/runtime/test/tool_fs_callback_reads_fixture.py\", \"/Users/chris/.local/share/pantry/global/bin/node\", \"packages/runtime/test/tool_modules\", \"--reference\"]\nTraceback (most recent call last):\n  File \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_fs_callback_reads_fixture.py\", line 24, in <module>\n    assert result.returncode == 0 and result.stderr == b'', result.stdout[:6000] + result.stderr\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: b'FS CALLBACK READ RESULTS {\"groups\":21,\"passed\":20,\"failures\":[{\"name\":\"option-getters-once\",\"error\":\"Error: predicate failed\"}]}\\nFS CALLBACK PHYSICAL {\"bytes\":65536,\"base64\":\"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:///Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_fs_callback_reads.mjs:80\\nif (failures.length) throw new Error(\\'Actual callback filesystem contract failed\\');\\n                           ^\\n\\nError: Actual callback filesystem contract failed\\n    at file:///Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_fs_callback_reads.mjs:80:28\\n\\nNode.js v26.10.0\\n'\n\nECOSYSTEM PEAK SAMPLED RSS: 72032 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+  },
+  "cache_cleanups": [
+    {
+      "timestamp": "2026-11-11T17:03:14.209751+00:00",
+      "path": "/Users/chris/Code/Home/zig-js-ecosystem-home/.zig-cache",
+      "reason": "A followup probe heredoc failed transiently with ENOSPC. The subsequent explicit commit and rebase completed successfully; source and all raw logs/before binaries were preserved. Clear only this isolated task-owned reproducible Home cache before validating the combined source.",
+      "rebased_home": "ca3fa1e78159516ffadbe719c3a67c4d3fad67f8",
+      "free_before": 3000897536,
+      "free_after": 3599659008
+    },
+    {
+      "path": "/Users/chris/Code/Home/zig-js-ecosystem-home/.zig-cache",
+      "reason": "Remote push succeeded but its local remote-tracking ref update hit transient ENOSPC. Clear only the completed isolated build cache; preserve all source, logs and before/after binaries.",
+      "free_before": 4478169088,
+      "free_after": 4677517312
+    }
+  ],
+  "pickier_log_sha256": "9786cb5a071e168309e1bb798138faa538a9c6938a4b8cc3a6bd6bf843cd4cb3",
+  "scope": [
+    "Actual fs.readFile/fs.readdir callbacks schedule kernel reads on the captured owner task queue, return real buffers/UTF8/directory entries, work through real promisify and preserve deferred error/success arity and fatal callback exception policy. No fabricated files, empty directory lists, test scheduler or native Bun execution fallback.",
+    "Both providers pass21 common data groups, independent65536 physical bytes,3 fatal child cases and unawaited ref-liveness. Separate Home profile has5 genuine refusals and one once-only snapshot guard; unsupported features are not implemented-case passes.",
+    "Rebased maintained gates pass239/239 steps with59/59 listed native tests on zig-js and211/211 steps with3/3 on basic JSC. No full engine test262 or full Home unit-suite claim; host-only change flips0 test262 cases.",
+    "The initial reference assumed once-only option getter access. Node26.10 accesses encoding3 times/flag1, Bun1.4.4 and Home snapshot1/1. Final common contract checks actual data; Home snapshot is tested separately and all observations/initial failure are retained. No missing-API test was dropped.",
+    "Exact locked @stacksjs/bun-queue0.1.8 changes undefined callback methods/promisify error to real successful import through both providers with Bun-identical actual namespace names. No Redis connection, job/worker execution, upstream tests or whole Stacks package pass is inferred.",
+    "Supported scope: string/supported file-URL paths, UTF8 or raw-buffer file results, read-only r flag and nonrecursive UTF8 directory names/real directory-entry kinds. File descriptors, AbortSignal, non-UTF8 file strings, byte directory names and recursive enumeration remain explicit refusals. Kernel I/O executes synchronously on the owning scheduled turn; no libuv worker-pool/parallel-I/O guarantee.",
+    "Two transient ENOSPC events affected a probe heredoc and local post-push remote-tracking metadata. The remote push succeeded and was independently verified; the tracking ref was fetched normally after deleting only the completed isolated cache. All source, raw logs and before/after binaries remain; original foreign work and upstream signed-literal commits are preserved.",
+    "Linux qualification and new consumer label gains remain pending. Keep caller validated68b5d47 until exact immutable Linux runtime, official artifact/provenance and both priority preflights pass."
+  ],
+  "reference_sources": [
+    "https://nodejs.org/api/fs.html#fsreadfilepath-options-callback",
+    "https://nodejs.org/api/fs.html#fsreaddirpath-options-callback"
+  ]
+}
