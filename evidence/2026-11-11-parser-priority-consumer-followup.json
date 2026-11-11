@@ -1,0 +1,335 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-11T23:29:56.470362+00:00",
+  "run": 43114809940,
+  "run_url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/43114809940",
+  "functional_suite": "9f6ac1f1109416a183e923f0b58a6c34770ba652",
+  "reports": [
+    {
+      "repository": "stacksjs/stacks",
+      "consumer_sha": "f3f75e9275eeeaa8353511414a3d1b1aa7f72f69",
+      "previous_consumer_sha": "3a67d402e250905f9d8d53b2bf168ba29fb44dbc",
+      "scopes": 100,
+      "checks": 936,
+      "candidate": {
+        "unsupported": 357,
+        "failed": 192,
+        "passed": 82
+      },
+      "artifact": {
+        "id": 13898359795,
+        "name": "ecosystem-results-0",
+        "digest": "sha256:7ba6415ef421237be24af978f24296bb00d5e335e3f34a098160ebcbe6e51fa7",
+        "size_in_bytes": 1951402
+      },
+      "verified_zip_sha256": "7ba6415ef421237be24af978f24296bb00d5e335e3f34a098160ebcbe6e51fa7",
+      "report_sha256": "c5a55e95300c8c2ab7e2aec9883528c3ab35ddd356f384ce3822a773848c829a",
+      "runtime_provenance": {
+        "engine_sha": "050b789b9a89d4a7e921e156e13593108332e89c",
+        "suite_ref": "9f6ac1f1109416a183e923f0b58a6c34770ba652",
+        "home_repository": "home-lang/home",
+        "home_ref": "baabd83f05594c89d5ab932a83a66a37223d165d",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "2de812c44004b6042a9e2ba093e5148a13cb7b33a66d96dc2ec566739bd280ab",
+          "engine/zig-out/lib/libzig-js.a": "ef9ef0b37e36c08c3a21b13393b88024a35ffeebc30b50af2e7d11d41faf1b8d"
+        }
+      },
+      "label_changes": [
+        {
+          "label": "storage/framework/core/router: module initialization src/index.ts",
+          "before": "failed",
+          "after": "passed"
+        }
+      ],
+      "diagnostics": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 383420,
+            "memory_limit_mb": 3072,
+            "seconds": 0.657,
+            "log": "0485.log",
+            "label": "storage/framework/core/router: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/router",
+            "engine_invocations": 1
+          },
+          "log_sha256": "e4c57caa3e6d831742f1d44a6c1a1b0c8651aa1784d222a70bf22e0f4eabb175",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun build.ts\"]\n[2026-11-11T23:00:58.249Z] local.INFO: Building @stacksjs/router...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 383420 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 2,
+            "peak_sampled_rss_kib": 1986852,
+            "memory_limit_mb": 3072,
+            "seconds": 3.29,
+            "log": "0486.log",
+            "label": "storage/framework/core/router: typecheck",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun tsc --noEmit"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/router",
+            "engine_invocations": 1
+          },
+          "log_sha256": "d4cdd53ffff622daacceb4855097cf46cf324bbfbc61444ad15327dd6864e8d2",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun tsc --noEmit\"]\n../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations.\n../actions/src/upgrade/package-project.ts(101,42): error TS9017: Only const arrays can be inferred with --isolatedDeclarations.\n../api/src/resource.ts(33,10): error TS9012: Property must have an explicit type annotation with --isolatedDeclarations.\n../auth/src/email-verification.ts(327,15): error TS9013: Expression type can't be inferred with --isolatedDeclarations.\n../auth/src/email-verification.ts(328,9): error TS9013: Expression type can't be inferred with --isolatedDeclarations.\n../auth/src/email-verification.ts(329,11): error TS9013: Expression type can't be inferred with --isolatedDeclarations.\n../auth/src/email-verification.ts(330,11): error TS9013: Expression type can't be inferred with --isolatedDeclarations.\n../auth/src/gate.ts(792,3): error TS9016: Objects that contain shorthand properties can't be inferred with --isolatedDeclarations.\n../auth/src/gate.ts(793,3): error TS9016: Objects that contain shorthand properties can't be inferred with --isolatedDeclarations.\n../auth/src/gate.ts(794,3): error TS9016: Objects that contain shorthand properties can't be inferred with --isolatedDeclarations.\n../auth/src/gate.ts(795,3): error TS9016: Objects that contain shorthand properties can't be inferred with --isolatedDeclarations.\n../auth/src/gate.ts(796,3): error TS9016: Objects that contain shorthand properties can't be inferred with --isolatedDeclarations.\n../auth/src/gate.ts(797,3): error TS9016: Objects that contain shorthand properties can't be inferred with --isolatedDeclarations.\n../auth/src/gate.ts(798,3): error TS9016: Objects that contain shorthand properties can't be inferred\n[excerpt; full log retained in official artifact]\nTS9013: Expression type can't be inferred with --isolatedDeclarations.\n../../defaults/app/Models/commerce/WaitlistRestaurant.ts(150,15): error TS9013: Expression type can't be inferred with --isolatedDeclarations.\n../../defaults/app/Models/commerce/WaitlistRestaurant.ts(162,15): error TS9013: Expression type can't be inferred with --isolatedDeclarations.\n../../defaults/app/Models/commerce/WaitlistRestaurant.ts(174,15): error TS9013: Expression type can't be inferred with --isolatedDeclarations.\n../../defaults/app/Models/commerce/WaitlistRestaurant.ts(186,15): error TS9013: Expression type can't be inferred with --isolatedDeclarations.\n../../defaults/app/Models/realtime/Websocket.ts(4,16): error TS9037: Default exports can't be inferred with --isolatedDeclarations.\n../../defaults/app/Models/realtime/Websocket.ts(22,15): error TS9017: Only const arrays can be inferred with --isolatedDeclarations.\n../../defaults/app/Models/realtime/Websocket.ts(23,19): error TS9017: Only const arrays can be inferred with --isolatedDeclarations.\n../../defaults/app/Models/realtime/Websocket.ts(34,15): error TS9013: Expression type can't be inferred with --isolatedDeclarations.\n../../defaults/app/Models/realtime/Websocket.ts(47,15): error TS9013: Expression type can't be inferred with --isolatedDeclarations.\n../../defaults/app/Models/realtime/Websocket.ts(61,15): error TS9013: Expression type can't be inferred with --isolatedDeclarations.\n../../defaults/app/Models/realtime/Websocket.ts(78,15): error TS9013: Expression type can't be inferred with --isolatedDeclarations.\n../../defaults/app/password-policy.ts(34,14): error TS9010: Variable must have an explicit type annotation with --isolatedDeclarations.\n\nECOSYSTEM PEAK SAMPLED RSS: 1986852 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 2\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 10692,
+            "memory_limit_mb": 3072,
+            "seconds": 0.038,
+            "log": "0487.log",
+            "label": "storage/framework/core/router: test",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun test"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/router",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+            ],
+            "reason": "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+          },
+          "log_sha256": "4e2afb07244f3d37fa9fda8ed52ba635b4911789d18cc7f404c781d719f676e9",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun test\"]\nECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\n\nECOSYSTEM PEAK SAMPLED RSS: 10692 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 151040,
+            "memory_limit_mb": 3072,
+            "seconds": 0.281,
+            "log": "0488.log",
+            "label": "storage/framework/core/router: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+              "src/index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/router",
+            "engine_invocations": 1
+          },
+          "log_sha256": "a7d88526a1d3906406fbaa21030206808edeff20d8096a1a61a251ac23c1c44b",
+          "log_excerpt": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 151040 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 8820,
+            "memory_limit_mb": 3072,
+            "seconds": 0.037,
+            "log": "0489.log",
+            "label": "storage/framework/core/router: module initialization dist/index.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+              "dist/index.js"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/router",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: dist/index.js"
+            ],
+            "reason": "No script or installed binary: dist/index.js"
+          },
+          "log_sha256": "3f0cfd186bcfde1032493fdf12938c899479b0bfffbb7ebc3c661a953d0d3fb0",
+          "log_excerpt": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"dist/index.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8820 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 8800,
+            "memory_limit_mb": 3072,
+            "seconds": 0.037,
+            "log": "0490.log",
+            "label": "storage/framework/core/router: module initialization ./dist/index.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+              "./dist/index.js"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/router",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: ./dist/index.js"
+            ],
+            "reason": "No script or installed binary: ./dist/index.js"
+          },
+          "log_sha256": "196d599d703a50970caa7c9dd2e350840862214dcd29fa189a375aab996be66f",
+          "log_excerpt": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"./dist/index.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: ./dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8800 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 8796,
+            "memory_limit_mb": 3072,
+            "seconds": 0.037,
+            "log": "0491.log",
+            "label": "storage/framework/core/router: module initialization ./dist/runtime.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+              "./dist/runtime.js"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/router",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: ./dist/runtime.js"
+            ],
+            "reason": "No script or installed binary: ./dist/runtime.js"
+          },
+          "log_sha256": "8c215fe2e85ffbb30992d231e66cdaeb33907c2989f2274aa25dca3965a4b8b4",
+          "log_excerpt": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"./dist/runtime.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: ./dist/runtime.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8796 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        }
+      ]
+    },
+    {
+      "repository": "home-lang/home",
+      "consumer_sha": "baabd83f05594c89d5ab932a83a66a37223d165d",
+      "previous_consumer_sha": "ffa4a6e0c5d25a8f303da23f921bf6dcc5d2a050",
+      "scopes": 46,
+      "checks": 234,
+      "candidate": {
+        "timed-out": 1,
+        "unsupported": 37,
+        "passed": 9,
+        "failed": 40
+      },
+      "artifact": {
+        "id": 13900200267,
+        "name": "ecosystem-results-1",
+        "digest": "sha256:326c8f146b915292da188eeec3574d27090dcf48d27380907b363e77fa6bd612",
+        "size_in_bytes": 105672
+      },
+      "verified_zip_sha256": "326c8f146b915292da188eeec3574d27090dcf48d27380907b363e77fa6bd612",
+      "report_sha256": "adf78c98e825d1f2575a9d6a6f8b574472ccbba538744b6112cc673bac13a9a4",
+      "runtime_provenance": {
+        "engine_sha": "050b789b9a89d4a7e921e156e13593108332e89c",
+        "suite_ref": "9f6ac1f1109416a183e923f0b58a6c34770ba652",
+        "home_repository": "home-lang/home",
+        "home_ref": "baabd83f05594c89d5ab932a83a66a37223d165d",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "2de812c44004b6042a9e2ba093e5148a13cb7b33a66d96dc2ec566739bd280ab",
+          "engine/zig-out/lib/libzig-js.a": "ef9ef0b37e36c08c3a21b13393b88024a35ffeebc30b50af2e7d11d41faf1b8d"
+        }
+      },
+      "label_changes": [],
+      "diagnostics": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 227388,
+            "memory_limit_mb": 3072,
+            "seconds": 0.339,
+            "log": "0071.log",
+            "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun run build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind",
+            "engine_invocations": 1
+          },
+          "log_sha256": "69851e74f0c2a494aa780ba737685a2428ee0336dfa8dac79ede332822bcf636",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module vm from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 227388 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 8764,
+            "memory_limit_mb": 3072,
+            "seconds": 0.069,
+            "log": "0072.log",
+            "label": "packages/runtime/src/runtime/cli/init/react-tailwind: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+              "src/index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind",
+            "engine_invocations": 1
+          },
+          "log_sha256": "6aede1002fddd86a1610a1e1fa479f3636e3137970f7eb0dd68cc628b564b70c",
+          "log_excerpt": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun\", \"src/index.ts\"]\n/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/src/index.html:1: '!' at the start of a type is not valid TypeScript syntax. Did you mean to write 'doctype'? (TS17020)\nhome-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/src/index.html\n\nECOSYSTEM PEAK SAMPLED RSS: 8764 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 10704,
+            "memory_limit_mb": 3072,
+            "seconds": 0.069,
+            "log": "0136.log",
+            "label": "packages/runtime/upstream/src/runtime/cli/init/react-tailwind: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun run build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind",
+            "engine_invocations": 1
+          },
+          "log_sha256": "e06442cea7a4dbcec68a627a989e93223d6533d28f376c71fa943de222fe5957",
+          "log_excerpt": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind/build.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 10704 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 8788,
+            "memory_limit_mb": 3072,
+            "seconds": 0.069,
+            "log": "0137.log",
+            "label": "packages/runtime/upstream/src/runtime/cli/init/react-tailwind: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+              "src/index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind",
+            "engine_invocations": 1
+          },
+          "log_sha256": "f56d488e1fd385ca4b543c9481d316300f9064964f6a54c3c7d7f7d5aedb8e42",
+          "log_excerpt": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun\", \"src/index.ts\"]\n/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind/src/index.html:1: '!' at the start of a type is not valid TypeScript syntax. Did you mean to write 'doctype'? (TS17020)\nhome-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind/src/index.html\n\nECOSYSTEM PEAK SAMPLED RSS: 8788 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ]
+    }
+  ],
+  "scope": [
+    "Stacks router src/index.ts genuinely executed through Home/zig-js once and exited 0. No output assertions or full package test success is inferred from module initialization.",
+    "Stacks consumer changed 3a67d402 to f3f75e92; Home consumer changed ffa4a6e0c to baabd83f0. Label changes are observations, not a same-source causal/no-regressions comparison.",
+    "Stacks remains 192 failed and 357 unsupported; missing built dist entry points remain unsupported. Home remains 40 failed,37 unsupported,1 timed-out; actual Tailwind still cannot resolve vm. All selected repositories remain in uncancelled caller all-selected run43117534873.",
+    "No runtime behavior, selected inventory or caller pin changed. Do not pin this evidence-only descendant."
+  ]
+}
