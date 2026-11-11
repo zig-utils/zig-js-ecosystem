@@ -301,6 +301,9 @@ def run_repository(repo, args, config, result=None):
                   f"(timeout {budget:.3f}s, sampled RSS limit "
                   f"{config.get('command_memory_limit_mb', 3072)} MiB)", flush=True)
             log = out / f"{counter:04d}.log"
+            result.setdefault("_attempted_checks", []).append({
+                "label": label, "lane": lane, "command": argv, "cwd": str(cwd),
+                "log": log.name, "events_log": event_path.name})
             try:
                 record = execute(argv, cwd, run_env, log, budget,
                                  config.get("command_memory_limit_mb", 3072))
@@ -319,7 +322,7 @@ def run_repository(repo, args, config, result=None):
                 print(f"{name}: {lane}: {label}: failed (command interrupted)", flush=True)
                 raise
         events = [json.loads(line) for line in event_path.read_text().splitlines()] if event_path.exists() else []
-        record.update({"label": label, "lane": lane, "command": argv,
+        record.update({"label": label, "lane": lane, "command": argv, "cwd": str(cwd),
                        "engine_invocations": sum(e["kind"] == "zig-js" for e in events)})
         unsupported = [event["reason"] for event in events if event["kind"] == "unsupported"]
         if unsupported:
@@ -429,19 +432,73 @@ def run_repository(repo, args, config, result=None):
     return result
 
 
+def planned_package_checks(result, args):
+    """Known commands from the frozen manifests, without executing or probing."""
+    work = args.work / result["repository"].replace("/", "--")
+    for scope in result.get("scopes", []):
+        directory = scope["directory"]
+        for label, command in scope.get("scripts", {}).items():
+            for lane, tree in (("candidate", "candidate"), ("reference", "reference")):
+                if lane == "reference" and not getattr(args, "reference", False):
+                    continue
+                yield {"label": f"{directory}: {label}", "lane": lane,
+                       "command": ["/bin/sh", "-c", command], "cwd": str(work / tree / directory)}
+        for entry in scope.get("entries", []):
+            yield {"label": f"{directory}: module initialization {entry}", "lane": "candidate",
+                   "command": [str(work / "shims/bun"), entry],
+                   "cwd": str(work / "candidate" / directory)}
+        for binary, entry in scope.get("bins", {}).items():
+            yield {"label": f"{directory}: CLI {binary} --help", "lane": "candidate",
+                   "command": [str(work / "shims/bun"), entry, "--help"],
+                   "cwd": str(work / "candidate" / directory)}
+
+
+def retain_unfinished_checks(result, args, error):
+    # A command can finish execution but fail while parsing its event evidence.
+    # Such an attempted check is failed/unknown, never reported as not started.
+    def boundary(check):
+        return (check.get("lane"), check["label"],
+                json.dumps(check.get("command", []), sort_keys=True, default=str), check.get("cwd"))
+    boundaries = {boundary(c) for c in result["checks"]}
+    for attempted in result.pop("_attempted_checks", []):
+        if boundary(attempted) in boundaries:
+            continue
+        check = {key: value for key, value in attempted.items() if key not in ("log", "events_log")}
+        check.update(status="failed", reason=f"command evidence was interrupted: {error!r}")
+        for key in ("log", "events_log"):
+            filename = attempted.get(key)
+            if filename and (args.output / result["repository"].replace("/", "--") / filename).is_file():
+                check[key] = filename
+        result["checks"].append(check)
+        boundaries.add(boundary(check))
+    represented = {(c.get("lane"), c["label"]) for c in result["checks"]}
+    reason = (f"repository aborted after orchestration failure; command not started: {error!r}" if error
+              else "repository setup did not finish; command not started")
+    for planned in planned_package_checks(result, args):
+        key = (planned["lane"], planned["label"])
+        if key in represented:
+            continue
+        result["checks"].append({**planned, "status": "not-run", "reason": reason, "engine_invocations": 0})
+        represented.add(key)
+
+
 def run_and_save(repo, args, config):
     validate_repository(repo)
     result = {"repository": repo["full_name"], "sha": repo["sha"], "engine_sha": args.engine_sha,
               "checks": [], "scopes": [], "omitted_manifests": []}
+    failure = None
     try:
         run_repository(repo, args, config, result)
     except Exception as error:
+        failure = error
         # Preserve completed command evidence when a later command exhausts disk
         # space or fails in orchestration. The exception remains a red check.
-        result["checks"].append({"label": "orchestrator", "status": "failed", "reason": repr(error)})
+        result["checks"].append({"label": "orchestrator", "lane": "orchestrator",
+                                 "status": "failed", "reason": repr(error)})
     finally:
         # Free this consumer's files BEFORE writing JSON, including on ENOSPC.
         shutil.rmtree(args.work / repo["full_name"].replace("/", "--"), ignore_errors=True)
+    retain_unfinished_checks(result, args, failure)
     result["failed"] = is_failure(result)
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / (repo["full_name"].replace("/", "--") + ".json")).write_text(json.dumps(result, indent=2) + "\n")

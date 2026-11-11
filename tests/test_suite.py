@@ -281,6 +281,104 @@ class ResultTests(unittest.TestCase):
             self.assertEqual(saved["checks"][0]["label"], "candidate build")
             self.assertIn("No space left", saved["checks"][1]["reason"])
 
+    def test_aborted_repository_retains_every_known_package_check(self):
+        # Replay the real CI fatal cleanup boundary, without pretending to
+        # reproduce the Linux D-state kernel wait or executing consumer code.
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            args = SimpleNamespace(work=root / "work", output=root / "results",
+                                   engine_sha=OTHER_SHA, reference=True)
+            repo = {"full_name": "home-lang/home", "sha": SHA}
+            scopes = [{"directory": ".", "scripts": {"build": "build-root", "test": "test-root"},
+                       "entries": ["index.js"], "bins": {"app": "cli.js"}},
+                      {"directory": "pkg", "scripts": {"test": "test-pkg"}, "entries": [], "bins": {}}]
+            completed = {"label": ".: build", "lane": "candidate", "status": "passed",
+                         "command": ["/bin/sh", "-c", "build-root"], "engine_invocations": 1}
+            interrupted = {"label": ".: build", "lane": "reference", "status": "failed",
+                           "command": ["/bin/sh", "-c", "build-root"],
+                           "reason": "command monitoring or cleanup failed", "log": "0009.log"}
+            def fail_late(repo, args, config, result):
+                result["scopes"] = scopes
+                result["checks"].extend([completed.copy(), interrupted.copy()])
+                raise RuntimeError("command process group 18283 did not stop after SIGKILL")
+            with patch.object(run, "run_repository", side_effect=fail_late), patch.object(run, "execute") as execute:
+                result = run.run_and_save(repo, args, {})
+            execute.assert_not_called()
+            expected = {("candidate", ".: build"), ("candidate", ".: test"),
+                        ("candidate", ".: module initialization index.js"),
+                        ("candidate", ".: CLI app --help"), ("candidate", "pkg: test"),
+                        ("reference", ".: build"), ("reference", ".: test"), ("reference", "pkg: test")}
+            package = [c for c in result["checks"] if c.get("lane") in ("candidate", "reference")]
+            self.assertEqual({(c["lane"], c["label"]) for c in package}, expected)
+            self.assertEqual(len(package), len(expected), "do not duplicate finished or interrupted commands")
+            self.assertEqual(package[0], completed)
+            self.assertEqual(package[1], interrupted)
+            remaining = package[2:]
+            self.assertEqual(len(remaining), 6)
+            for check in remaining:
+                self.assertEqual(check["status"], "not-run")
+                self.assertEqual(check["engine_invocations"], 0)
+                self.assertIn("not started", check["reason"])
+                self.assertNotIn("exit_code", check)
+                self.assertNotIn("log", check)
+            self.assertTrue(result["failed"])
+            self.assertEqual(result["checks"][2]["lane"], "orchestrator")
+            self.assertIn("did not stop", result["checks"][2]["reason"])
+            self.assertEqual(json.loads((args.output / "home-lang--home.json").read_text()), result)
+
+    def test_bad_event_evidence_is_failed_not_marked_unstarted(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            repo = {"full_name": "stacksjs/lib", "sha": SHA}
+            args = SimpleNamespace(work=root / "work", output=root / "results", engine_sha=OTHER_SHA,
+                                   home_tool=root / "runtime/home-tool", bun=root / "bun", reference=False)
+            config = {"repository_timeout_seconds": 10, "command_timeout_seconds": 5,
+                      "command_memory_limit_mb": 48, "home_repository": "home-lang/home"}
+            scopes = [{"directory": ".", "scripts": {"build": "build-root", "test": "test-root"},
+                       "entries": [], "bins": {}}]
+            def execute(argv, cwd, env, log, timeout, memory_limit_mb):
+                log.write_text("completed command; parsing evidence follows\n")
+                events = Path(env["ECOSYSTEM_EVENTS"])
+                events.write_text("not JSON\n" if argv == ["/bin/sh", "-c", "build-root"]
+                                  else '{"kind":"zig-js"}\n')
+                return {"status": "passed", "exit_code": 0, "log": log.name}
+            with patch.object(run, "tracked_files", return_value=[]), \
+                 patch.object(run, "package_plan", return_value=(scopes, [])), \
+                 patch.object(run, "dependency_roots", return_value=["."]), \
+                 patch.object(run, "execute", side_effect=execute) as commands:
+                result = run.run_and_save(repo, args, config)
+            self.assertEqual(commands.call_count, 6)
+            package = {(c.get("lane"), c["label"]): c for c in result["checks"]}
+            attempted = package[("candidate", ".: build")]
+            self.assertEqual(attempted["status"], "failed")
+            self.assertIn("evidence", attempted["reason"])
+            self.assertIn("log", attempted)
+            self.assertIn("events_log", attempted)
+            self.assertNotIn("engine_invocations", attempted)
+            unstarted = package[("candidate", ".: test")]
+            self.assertEqual(unstarted["status"], "not-run")
+            self.assertEqual(unstarted["engine_invocations"], 0)
+            self.assertFalse(any(c.get("lane") == "reference" for c in result["checks"]))
+            self.assertNotIn("_attempted_checks", result)
+            self.assertTrue(result["failed"])
+
+    def test_completed_package_plan_is_not_duplicated(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            args = SimpleNamespace(work=root / "work", output=root / "results", engine_sha=SHA,
+                                   reference=False)
+            repo = {"full_name": "stacksjs/lib", "sha": SHA}
+            check = {"label": ".: build", "lane": "candidate", "status": "passed",
+                     "command": ["/bin/sh", "-c", "build-root"], "engine_invocations": 1}
+            def complete(repo, args, config, result):
+                result["scopes"] = [{"directory": ".", "scripts": {"build": "build-root"},
+                                     "entries": [], "bins": {}}]
+                result["checks"] = [check.copy()]
+            with patch.object(run, "run_repository", side_effect=complete):
+                result = run.run_and_save(repo, args, {})
+            self.assertEqual(result["checks"], [check])
+            self.assertFalse(result["failed"])
+
     def inventory(self):
         return {"selected": [{"full_name": "stacksjs/lib", "sha": SHA}]}
 
