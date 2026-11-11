@@ -403,5 +403,439 @@
         "selected_actual_logs": []
       }
     }
+  },
+  "future_dns_reference_only": {
+    "scope": "Exploratory actual Node/Bun lookup contracts only. Home DNS remains absent. Positive local-host and numeric literal answers come from reference runtimes, not a candidate or a stub. No Linux execution inferred.",
+    "script_sha256": "767f35c772c210a4ded146f268e9c6c97cfe6b683b7589738a01d15523426001",
+    "providers": {
+      "node": {
+        "run": {
+          "argv": [
+            "/Users/chris/.local/share/pantry/global/bin/node",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/reference.mjs"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 36256,
+          "memory_limit_mb": 3072,
+          "seconds": 0.249,
+          "log": "lookup-reference-node.log"
+        },
+        "log_sha256": "a9646dcc525302021748ebdf0c916af11d3ce764889837cee941978257238cdf",
+        "actual_versions": {
+          "node": "26.10.0",
+          "acorn": "8.18.0",
+          "ada": "4.0.0",
+          "amaro": "1.1.11",
+          "ares": "1.34.8",
+          "brotli": "1.2.0",
+          "cldr": "43.1",
+          "icu": "73.2",
+          "libffi": "3.8.0",
+          "lief": "0.17.0",
+          "llhttp": "9.4.3",
+          "merve": "1.2.2",
+          "modules": "147",
+          "napi": "10",
+          "nbytes": "0.1.4",
+          "ncrypto": "0.0.1",
+          "nghttp2": "1.70.0",
+          "nghttp3": "",
+          "ngtcp2": "",
+          "openssl": "1.1.1w",
+          "simdjson": "4.6.11",
+          "simdutf": "7.7.0",
+          "sqlite": "3.53.4",
+          "tz": "2023c",
+          "undici": "8.10.2",
+          "unicode": "15.0",
+          "uv": "1.52.1",
+          "uvwasi": "0.0.23",
+          "v8": "14.6.202.34-node.34",
+          "zlib": "1.3.2",
+          "zstd": "1.5.7"
+        },
+        "actual_cases": [
+          {
+            "name": "localhost-all-verbatim",
+            "returnedPromise": true,
+            "answer": [
+              {
+                "address": "::1",
+                "family": 6
+              },
+              {
+                "address": "127.0.0.1",
+                "family": 4
+              }
+            ]
+          },
+          {
+            "name": "localhost-v4",
+            "returnedPromise": true,
+            "answer": [
+              {
+                "address": "127.0.0.1",
+                "family": 4
+              }
+            ]
+          },
+          {
+            "name": "localhost-v6",
+            "returnedPromise": true,
+            "answer": [
+              {
+                "address": "::1",
+                "family": 6
+              }
+            ]
+          },
+          {
+            "name": "literal-v4-all",
+            "returnedPromise": true,
+            "answer": [
+              {
+                "address": "192.0.2.1",
+                "family": 4
+              }
+            ]
+          },
+          {
+            "name": "literal-v6-all",
+            "returnedPromise": true,
+            "answer": [
+              {
+                "address": "2001:db8::1",
+                "family": 6
+              }
+            ]
+          },
+          {
+            "name": "literal-v4-family6",
+            "returnedPromise": true,
+            "answer": [
+              {
+                "address": "192.0.2.1",
+                "family": 4
+              }
+            ]
+          },
+          {
+            "name": "literal-v6-family4",
+            "returnedPromise": true,
+            "answer": [
+              {
+                "address": "2001:db8::1",
+                "family": 6
+              }
+            ]
+          },
+          {
+            "name": "literal-single",
+            "returnedPromise": true,
+            "answer": {
+              "address": "192.0.2.1",
+              "family": 4
+            }
+          },
+          {
+            "name": "invalid-family",
+            "synchronous": {
+              "name": "TypeError",
+              "code": "ERR_INVALID_ARG_VALUE",
+              "message": "The property 'options.family' must be one of: 0, 4, 6. Received 7"
+            }
+          },
+          {
+            "name": "invalid-family-type",
+            "synchronous": {
+              "name": "TypeError",
+              "code": "ERR_INVALID_ARG_VALUE",
+              "message": "The property 'options.family' must be one of: 0, 4, 6. Received 'other'"
+            }
+          },
+          {
+            "name": "invalid-hints-type",
+            "synchronous": {
+              "name": "TypeError",
+              "code": "ERR_INVALID_ARG_TYPE",
+              "message": "The \"options.hints\" property must be of type number. Received type string ('4')"
+            }
+          },
+          {
+            "name": "invalid-all-type",
+            "synchronous": {
+              "name": "TypeError",
+              "code": "ERR_INVALID_ARG_TYPE",
+              "message": "The \"options.all\" property must be of type boolean. Received type number (1)"
+            }
+          },
+          {
+            "name": "invalid-verbatim-type",
+            "synchronous": {
+              "name": "TypeError",
+              "code": "ERR_INVALID_ARG_TYPE",
+              "message": "The \"options.verbatim\" property must be of type boolean. Received type number (1)"
+            }
+          },
+          {
+            "name": "null-options",
+            "returnedPromise": true,
+            "answer": {
+              "address": "::1",
+              "family": 6
+            }
+          },
+          {
+            "name": "numeric-options",
+            "returnedPromise": true,
+            "answer": {
+              "address": "127.0.0.1",
+              "family": 4
+            }
+          },
+          {
+            "name": "nul-hostname",
+            "synchronous": {
+              "name": "TypeError",
+              "code": "ERR_INVALID_ARG_VALUE",
+              "message": "The argument 'hostname' must be a string without null bytes. Received 'localhost\\x00evil'"
+            }
+          },
+          {
+            "name": "object-hostname",
+            "synchronous": {
+              "name": "TypeError",
+              "code": "ERR_INVALID_ARG_TYPE",
+              "message": "The \"hostname\" argument must be of type string. Received an instance of Object"
+            }
+          },
+          {
+            "name": "nonexistent-name",
+            "returnedPromise": true,
+            "rejected": {
+              "name": "Error",
+              "code": "ENOTFOUND",
+              "errno": -3008,
+              "syscall": "getaddrinfo",
+              "hostname": "home-ecosystem-repro.invalid"
+            }
+          }
+        ]
+      },
+      "bun": {
+        "run": {
+          "argv": [
+            "/Users/chris/.local/share/pantry/global/bin/bun",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/reference.mjs"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 16496,
+          "memory_limit_mb": 3072,
+          "seconds": 1.035,
+          "log": "lookup-reference-bun.log"
+        },
+        "log_sha256": "e208fd86fd56ce822ec0560bfd6452abb2feb79cf85cdbd8a2e74c88c552cac5",
+        "actual_versions": {
+          "node": "26.3.0",
+          "bun": "1.4.4",
+          "boringssl": "41bf9b59c2ebf277a7aa427e1ecad5cc80dd4d4f",
+          "openssl": "1.1.0",
+          "llhttp": "9.4.2",
+          "libarchive": "27cbc7827172698143e440801fc0ba39ccb4f1f5",
+          "mimalloc": "92ef6587c57b262f6e6abf513f7776a2f8d12aeb",
+          "picohttpparser": "f4d94b48b31e0abae029ebeafcfd9ca0680ede58",
+          "uwebsockets": "38afee6c84fcf48c0edb2466aa4b27d287a59c30",
+          "webkit": "d6375c72affe0f70222cdcb45012b10f0bf3a9d5",
+          "zig": "04e7f6ac1e009525bc00934f20199c68f04e0a24",
+          "zlib": "12731092979c6d07f42da27da673a9f6c7b13586",
+          "tinycc": "05f0fafaa3be31e31d7b4b5c17dc60f62c991171",
+          "lolhtml": "725ce499aa9b71e38b7a2d0a9fbb6d7294a4079e",
+          "ares": "c7a3138dcfe3bb0eaaf10c0c24c36dc66dc790ab",
+          "libdeflate": "92e6a0db9fa848d742f9eb286c92afc60f2c3dda",
+          "usockets": "38afee6c84fcf48c0edb2466aa4b27d287a59c30",
+          "lshpack": "cf0f70dd10b352194c97448eb5d00b4aa484f531",
+          "zstd": "f8745da6ff1ad1e7bab384bd1f9d742439278e99",
+          "v8": "14.6.202.34-node.20",
+          "uv": "1.48.0",
+          "napi": "10",
+          "icu": "78.1",
+          "unicode": "17.0",
+          "sqlite": "3.54.0",
+          "typescript": "7.0.2",
+          "modules": "147"
+        },
+        "actual_cases": [
+          {
+            "name": "localhost-all-verbatim",
+            "returnedPromise": true,
+            "answer": [
+              {
+                "address": "::1",
+                "family": 6
+              },
+              {
+                "address": "127.0.0.1",
+                "family": 4
+              }
+            ]
+          },
+          {
+            "name": "localhost-v4",
+            "returnedPromise": true,
+            "answer": [
+              {
+                "address": "127.0.0.1",
+                "family": 4
+              }
+            ]
+          },
+          {
+            "name": "localhost-v6",
+            "returnedPromise": true,
+            "answer": [
+              {
+                "address": "::1",
+                "family": 6
+              }
+            ]
+          },
+          {
+            "name": "literal-v4-all",
+            "returnedPromise": true,
+            "answer": [
+              {
+                "address": "192.0.2.1",
+                "family": 4
+              }
+            ]
+          },
+          {
+            "name": "literal-v6-all",
+            "returnedPromise": true,
+            "answer": [
+              {
+                "address": "2001:db8::1",
+                "family": 6
+              }
+            ]
+          },
+          {
+            "name": "literal-v4-family6",
+            "returnedPromise": true,
+            "answer": [
+              {
+                "address": "192.0.2.1",
+                "family": 4
+              }
+            ]
+          },
+          {
+            "name": "literal-v6-family4",
+            "returnedPromise": true,
+            "answer": [
+              {
+                "address": "2001:db8::1",
+                "family": 6
+              }
+            ]
+          },
+          {
+            "name": "literal-single",
+            "returnedPromise": true,
+            "answer": {
+              "address": "192.0.2.1",
+              "family": 4
+            }
+          },
+          {
+            "name": "invalid-family",
+            "synchronous": {
+              "name": "TypeError",
+              "code": "ERR_INVALID_ARG_VALUE",
+              "message": "The argument 'family' must be one of 0, 4 or 6. Received 7"
+            }
+          },
+          {
+            "name": "invalid-family-type",
+            "synchronous": {
+              "name": "TypeError",
+              "code": "ERR_INVALID_ARG_VALUE",
+              "message": "The argument 'family' must be one of 0, 4 or 6. Received 'other'"
+            }
+          },
+          {
+            "name": "invalid-hints-type",
+            "synchronous": {
+              "name": "TypeError",
+              "code": "ERR_INVALID_ARG_TYPE",
+              "message": "The \"options.flags\" property must be of type number. Received type string ('4')"
+            }
+          },
+          {
+            "name": "invalid-all-type",
+            "synchronous": {
+              "name": "TypeError",
+              "code": "ERR_INVALID_ARG_TYPE",
+              "message": "The \"options.all\" property must be of type boolean. Received type number (1)"
+            }
+          },
+          {
+            "name": "invalid-verbatim-type",
+            "synchronous": {
+              "name": "TypeError",
+              "code": "ERR_INVALID_ARG_TYPE",
+              "message": "The \"options.verbatim\" property must be of type boolean. Received type number (1)"
+            }
+          },
+          {
+            "name": "null-options",
+            "returnedPromise": true,
+            "answer": {
+              "address": "::1",
+              "family": 6
+            }
+          },
+          {
+            "name": "numeric-options",
+            "returnedPromise": true,
+            "answer": {
+              "address": "127.0.0.1",
+              "family": 4
+            }
+          },
+          {
+            "name": "nul-hostname",
+            "returnedPromise": true,
+            "rejected": {
+              "name": "DNSException",
+              "code": "ENOTFOUND",
+              "errno": 4,
+              "syscall": "getaddrinfo",
+              "hostname": "localhost\u0000evil"
+            }
+          },
+          {
+            "name": "object-hostname",
+            "synchronous": {
+              "name": "TypeError",
+              "code": "ERR_INVALID_ARG_TYPE",
+              "message": "The \"hostname\" argument must be of type string. Received an instance of Object"
+            }
+          },
+          {
+            "name": "nonexistent-name",
+            "returnedPromise": true,
+            "rejected": {
+              "name": "DNSException",
+              "code": "ENOTFOUND",
+              "errno": 4,
+              "syscall": "getaddrinfo"
+            }
+          }
+        ]
+      }
+    }
   }
 }
