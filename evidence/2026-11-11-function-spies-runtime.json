@@ -1,0 +1,441 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-11T20:53:47.466627+00:00",
+  "engine": {
+    "pushed_sha": "68be3efbd615607f6727fe96a74e895b4c4efb49",
+    "proof": {
+      "before": "ERR Error: function prototype own method check 0",
+      "after": "OK 40",
+      "corpus": {
+        "subtree": "test/built-ins/Function/prototype",
+        "before_pass": 309,
+        "after_pass": 309,
+        "before_fail": 0,
+        "after_fail": 0,
+        "gains": [],
+        "regressions": [],
+        "before_log_sha256": "6d66ed3d299a93dc05cca94bb2c639acc170034c6e78f697491e8178c9190d2f",
+        "after_log_sha256": "6d66ed3d299a93dc05cca94bb2c639acc170034c6e78f697491e8178c9190d2f"
+      },
+      "frontend": {
+        "cases": 2,
+        "checks_per_case": 40,
+        "modes": [
+          "forced tree walker",
+          "required bytecode generator"
+        ]
+      },
+      "archive_sha256": "792d20310d6439c90967385f0a1ff51a6c942678e84d46f54e2ab5cb83036b54",
+      "before_runner_sha256": "1ec0395934816700b5bb693be9ab0c3b3238a4aeb3b375a4de452ab8b51a51eb",
+      "after_runner_sha256": "2d308e7ebcbb8388bc1c83da4961b05614efd92a89eaa9e507294c834ef9f92e",
+      "initial_build_failure": "local default Home executable missing; source/runtime compilation and frontend tests completed, archive merge failed; raw logs retained",
+      "successful_rebuild": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "test262-bin",
+          "-Doptimize=ReleaseSafe",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/engine-after",
+          "-j1",
+          "--summary",
+          "all",
+          "-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-zig-js/bin/home-tool",
+          "install",
+          "test-frontend",
+          "-Dtest-filter=function prototype own method"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 100464,
+        "memory_limit_mb": 3072,
+        "seconds": 1.435,
+        "log": "engine-build-after.log"
+      }
+    },
+    "source_files": {
+      "src/interpreter.zig": "c49f7b5b90909dbb08db9214a7b552b6e98ee48129567f4ea306847978bacf06",
+      "tools/focused_engine_tests.zig": "4ba70b14a3d2cb964f3e757d8989a234dfdb115b8084adfcf05de445f4fc7daa",
+      "tools/function_prototype_own_method_probe.js": "11fd586e9d52adbde94e208369e9b62e93671f36eb7eba79e90787636e4d2fd2"
+    },
+    "diagnostic": "Function.prototype intrinsics incorrectly reused property-call dispatch. Extracted call/apply/bind must ignore same-named own data, wrappers and accessors. The shared native intrinsic serves both the interpreter and VM; both focused modes execute 40 assertions.",
+    "spec": "https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-function.prototype.call",
+    "all_selected_runs": [
+      {
+        "conclusion": "",
+        "databaseId": 43098386605,
+        "headSha": "68be3efbd615607f6727fe96a74e895b4c4efb49",
+        "status": "queued",
+        "url": "https://github.com/zig-utils/zig-js/actions/runs/43098386605"
+      }
+    ]
+  },
+  "home": {
+    "pushed_sha": "1481d69c39c4dc306b294c2cefa978ae0a5d6bcc",
+    "source_files": {
+      "build.zig": "96bca799420c30df8932183fdde9bc024c60ad6dc11ca2552baff05ea7da4352",
+      "packages/runtime/src/jsc/tool_builtins.js": "011c483ccb84f4199d662a8b68a4a53531c244929e45fb526e831d2f75de873d",
+      "packages/runtime/src/jsc/tool_builtins.zig": "de09048d7fc52314e9003ef3b0ffcf4ece3f4a78230812ff6ac63581b1cc3dac",
+      "packages/runtime/src/jsc/tool_function_mocks.js": "aa881b654931ebbcbc98b1550cf7c4e463d9dd00aa727f32cce1ce545b86bde4",
+      "packages/runtime/test/tool_function_mocks_fixture.py": "fffac06da7ba758fda6b58edae12d6941176f676990fbf16948827b9eae995fe",
+      "packages/runtime/test/tool_modules/bun_function_mocks.mjs": "e509f78b2019d02c3665bf6882e5f6768d5ef9136bb2aefb34ce779622d2d849",
+      "packages/runtime/test/tool_modules/function_mocks_profile.mjs": "a260c118ffa160945051e8bbb9be39e21dd72ff15ebeb412bb57dce45c5bb785"
+    },
+    "implemented_exports": [
+      "bun:test.mock",
+      "bun:test.spyOn"
+    ],
+    "scope": "Actual function execution, call arguments/contexts/results/order, throws, queued implementations, Promise identity/values, reset and descriptor-preserving own/inherited method restoration. No test scheduler, assertions, module mocks, constructors, accessor spies or settledResults are advertised.",
+    "before_missing_module": [
+      {
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/python3",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_function_mocks_fixture.py",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-zig-js/bin/home-tool",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 40480,
+        "memory_limit_mb": 3072,
+        "seconds": 0.266,
+        "log": "before-contract-zig-js.log"
+      },
+      {
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/python3",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_function_mocks_fixture.py",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-jsc/bin/home-tool",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 6128,
+        "memory_limit_mb": 3072,
+        "seconds": 0.131,
+        "log": "before-contract-jsc.log"
+      }
+    ],
+    "initial_old_engine": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-function-mocks-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/acorn-atomic/engine-after"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1154912,
+      "memory_limit_mb": 3072,
+      "seconds": 103.775,
+      "log": "build-zig-js.log"
+    },
+    "initial_old_engine_diagnostic": [
+      "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"home-tool\", \"home-tool-smoke\", \"home-tool-function-mocks-smoke\", \"-Denable_jsc=false\", \"-Dtool-js-engine=zig-js\", \"-Doptimize=ReleaseSafe\", \"--prefix\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/home-zig-js\", \"-j1\", \"--summary\", \"all\", \"home-tool-rejections-smoke\", \"home-tool-async-context-smoke\", \"home-tool-file-url-smoke\", \"-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/acorn-atomic/engine-after\"]",
+      "Traceback (most recent call last):",
+      "  File \"/Users/chris/Code/Home/zig-js-ecosystem-home/./packages/runtime/test/tool_function_mocks_fixture.py\", line 26, in <module>",
+      "    main()",
+      "    ~~~~^^",
+      "  File \"/Users/chris/Code/Home/zig-js-ecosystem-home/./packages/runtime/test/tool_function_mocks_fixture.py\", line 13, in main",
+      "    assert child.returncode == 0 and child.stderr == b'', (child.returncode, child.stdout, child.stderr)",
+      "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+      "AssertionError: (1, b'FUNCTION MOCK RESULTS {\"groups\":30,\"passed\":29,\"failures\":[{\"name\":\"function-call-spy\",\"error\":\"Error: predicate failed\"}]}\\n', b'')",
+      "home-tool-function-mocks-smoke"
+    ],
+    "final_provider_gates": {
+      "zig-js": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "home-tool",
+          "home-tool-smoke",
+          "home-tool-function-mocks-smoke",
+          "-Denable_jsc=false",
+          "-Dtool-js-engine=zig-js",
+          "-Doptimize=ReleaseSafe",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/home-zig-js",
+          "-j1",
+          "--summary",
+          "all",
+          "home-tool-rejections-smoke",
+          "home-tool-async-context-smoke",
+          "home-tool-file-url-smoke",
+          "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/engine-root"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1216960,
+        "memory_limit_mb": 3072,
+        "seconds": 45.349,
+        "log": "build-zig-js.log"
+      },
+      "jsc": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "home-tool",
+          "home-tool-smoke",
+          "home-tool-function-mocks-smoke",
+          "-Denable_jsc=false",
+          "-Dtool-js-engine=jsc",
+          "-Doptimize=ReleaseSafe",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/home-jsc",
+          "-j1",
+          "--summary",
+          "all"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 923136,
+        "memory_limit_mb": 3072,
+        "seconds": 45.04,
+        "log": "build-jsc.log"
+      }
+    },
+    "final_summary": {
+      "zig-js": "245/245 steps succeeded",
+      "jsc": "215/217 steps succeeded (1 failed): existing unhandled DNS rejection hook remains red; actual mock contract and explicit profile pass"
+    },
+    "system_python_fixtures": {
+      "zig-js": {
+        "argv": [
+          "/usr/bin/python3",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_function_mocks_fixture.py",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/home-zig-js/bin/home-tool",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 3904,
+        "memory_limit_mb": 3072,
+        "seconds": 0.157,
+        "log": "system-python-zig-js.log"
+      },
+      "jsc": {
+        "argv": [
+          "/usr/bin/python3",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_function_mocks_fixture.py",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/home-jsc/bin/home-tool",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 3744,
+        "memory_limit_mb": 3072,
+        "seconds": 0.098,
+        "log": "system-python-jsc.log"
+      }
+    },
+    "reference_contract": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_function_mocks_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules",
+        "--reference"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 12960,
+      "memory_limit_mb": 3072,
+      "seconds": 0.084,
+      "log": "reference-contract-bun.log"
+    },
+    "contract_groups": 30,
+    "lint": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bunx",
+        "--bun",
+        "pickier@0.1.91",
+        "packages/runtime/src/jsc/tool_function_mocks.js",
+        "packages/runtime/src/jsc/tool_builtins.js",
+        "packages/runtime/test/tool_modules/bun_function_mocks.mjs",
+        "packages/runtime/test/tool_modules/function_mocks_profile.mjs"
+      ],
+      "exit_code": 0
+    },
+    "lint_scope": "Zero errors; two unchanged prefer-template warnings in the facade."
+  },
+  "actual_frozen_router": {
+    "package": "@stacksjs/bun-router@0.1.24",
+    "source_sha256": "fe214f36acbc63f042fc2a32813c26e86713899519b341e76643ed2fc0475889",
+    "witness": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-middleware.mjs",
+      "sha256": "f8876dc073432bbee238a6961dedf11a3109650f3aa91959f3d0114ba814c877",
+      "content": "import { MiddlewareTester } from '../net-addresses/router-0.1.24/package/dist/index.js';\nconst test = new MiddlewareTester(async (_request,next)=>await next());\nconst result=await test.execute();\nif(result.status!==200||await result.text()!=='Next called')throw new Error('Actual router middleware result mismatch');\ntest.expectNextCalled(1);\nif(test.context.next.mock.calls.length!==1)throw new Error('Actual mock call trace missing');\nconsole.log('ACTUAL FROZEN ROUTER MIDDLEWARE AND MOCK CALL TRACE PASSED');\n"
+    },
+    "reference": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-middleware.mjs"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 432,
+        "memory_limit_mb": 3072,
+        "seconds": 0.034,
+        "log": "bun.log"
+      },
+      "log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/bun.log",
+        "sha256": "d807a7049af0c0836af60b7b33784764d1cfafde3c3543d0cc3f1cc368a310ed",
+        "content": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-middleware.mjs\"]\nACTUAL FROZEN ROUTER MIDDLEWARE AND MOCK CALL TRACE PASSED\n\nECOSYSTEM PEAK SAMPLED RSS: 432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      }
+    },
+    "before": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-middleware.mjs"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 29904,
+        "memory_limit_mb": 3072,
+        "seconds": 0.224,
+        "log": "before-zig-js.log"
+      },
+      "log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/before-zig-js.log",
+        "sha256": "596ac161d3609e10ff3d845b8f7c342e83dd2ff113a6eb4167bf8e29afe4e1e6",
+        "content": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-middleware.mjs\"]\nhome-tool (zig-js): Error: cannot resolve module bun:test from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-0.1.24/package/dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 29904 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      }
+    },
+    "after": {
+      "zig-js": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/home-zig-js/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-middleware.mjs"
+          ],
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 1152,
+          "memory_limit_mb": 3072,
+          "seconds": 0.114,
+          "log": "after-router-zig-js.log"
+        },
+        "log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/after-router-zig-js.log",
+          "sha256": "a07f9e95217f753196076b099cf980977abc866a903657ab990c7a10272e7c20",
+          "content": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-middleware.mjs\"]\nhome-tool (zig-js): SyntaxError: Unexpected token ':'\n\nECOSYSTEM PEAK SAMPLED RSS: 1152 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      },
+      "jsc": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/home-jsc/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-middleware.mjs"
+          ],
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 32,
+          "memory_limit_mb": 3072,
+          "seconds": 0.13,
+          "log": "after-router-jsc.log"
+        },
+        "log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/after-router-jsc.log",
+          "sha256": "94b048bfb8be8029b6a4c8bbd92ff81b8cf36532239e9baa5810a65d4a4d0d23",
+          "content": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-middleware.mjs\"]\nhome-tool (jsc): Error: cannot resolve module async_hooks from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-0.1.24/package/dist/chunk-v4qcbjc3.js\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      }
+    },
+    "meaning": "Home no longer lacks the function-mock namespace, but the full frozen router remains failed. Candidate middleware assertions do not execute. zig-js reports an unexpected-colon SyntaxError; basic JSC cannot resolve async_hooks in the bundled chunk. Do not count this as a whole-router, middleware or package pass."
+  },
+  "measured_reference_differences": {
+    "program": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/reference-lifecycle.mjs",
+      "sha256": "4370655c850274a371dc6bfe17b5969cb2fbb15f793b918092c6ab2eeb08f011",
+      "content": "import {mock,spyOn} from 'bun:test';\nconst clearing=mock(()=>{clearing.mockClear();return 4;}),old=clearing.mock;\nconst result=clearing();\nconst proto={method(){return this.value;}},obj=Object.create(proto);obj.value=7;\nconst spy=spyOn(obj,'method'),value=obj.method();spy.mockRestore();\nconsole.log(JSON.stringify({clearDuringCall:{result,oldType:old.results[0].type,oldValue:old.results[0].value,newCalls:clearing.mock.calls.length},inheritedRestore:{value,ownPropertyAfterRestore:Object.hasOwn(obj,'method'),sameMethod:obj.method===proto.method}}));\n"
+    },
+    "bun": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/reference-lifecycle-bun.log",
+      "sha256": "ec6c20073b1d6d731dab674b7db7aaad70fa7ced59d8afd242ebbcbb8ab23fda",
+      "content": "{\"clearDuringCall\":{\"result\":4,\"oldType\":\"incomplete\",\"newCalls\":0},\"inheritedRestore\":{\"value\":7,\"ownPropertyAfterRestore\":true,\"sameMethod\":true}}\n"
+    },
+    "home": {
+      "zig-js": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/after-lifecycle-zig-js.log",
+        "sha256": "8da79eca7289be173163e787ffc29ca88e712209edf2d85ee38e26662bbcfa77",
+        "content": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/reference-lifecycle.mjs\"]\n{\"clearDuringCall\":{\"result\":4,\"oldType\":\"return\",\"oldValue\":4,\"newCalls\":0},\"inheritedRestore\":{\"value\":7,\"ownPropertyAfterRestore\":false,\"sameMethod\":true}}\n\nECOSYSTEM PEAK SAMPLED RSS: 5184 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "jsc": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/after-lifecycle-jsc.log",
+        "sha256": "536ae344a09e1593a03776b8066a45bb98804c3646ca984eb359cc9501732da6",
+        "content": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/reference-lifecycle.mjs\"]\n{\"clearDuringCall\":{\"result\":4,\"oldType\":\"return\",\"oldValue\":4,\"newCalls\":0},\"inheritedRestore\":{\"value\":7,\"ownPropertyAfterRestore\":false,\"sameMethod\":true}}\n\nECOSYSTEM PEAK SAMPLED RSS: 5472 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      }
+    },
+    "scope": "Home preserves actual completion in a detached cleared trace and removes an inherited-method shadow on restore. Observed Bun1.4.4 leaves that detached entry incomplete and retains an own property. These differences are explicit Home profile guards, not hidden failed reference checks. The initial shared clear-during-call expectation failed on Bun; its common fresh-history behavior is checked in all 30-group runs, and the differing old-history outcome is separately executed here."
+  },
+  "raw_logs": {
+    "build-initial-zig-js.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/build-initial-zig-js.log",
+      "sha256": "73268b9208515d73c4432d73d338fd65ec4bf5f65d98e8474236cada695dc634"
+    },
+    "build-initial-jsc.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/build-initial-jsc.log",
+      "sha256": "9f8fbafd0e7115303210944c4a8116d7424cfa49b2db8d936bde1c33c0cbf9ab"
+    },
+    "build-zig-js.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/build-zig-js.log",
+      "sha256": "53159ccc023050d71f00da24141c92e56b648f23a9de83ef2488deb5f80d363b"
+    },
+    "build-jsc.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/build-jsc.log",
+      "sha256": "031ba1300b7cea7b97e4a8fe9051b770e089ddea417c63f924b6bb05f3155c43"
+    },
+    "engine-build-before.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/engine-build-before.log",
+      "sha256": "c6422d6040ca3cf271adb51ba7b4fe054d8f5c7bb6864db6a82d714582a778dc"
+    },
+    "engine-build-after-missing-host-tool.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/engine-build-after-missing-host-tool.log",
+      "sha256": "8f3fde6af866625f428b91d8795143824874d517cac4e67e65cb8eca63ba3738"
+    },
+    "engine-build-after.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/engine-build-after.log",
+      "sha256": "45e5d711e451704dbed93b6c0a6ce50c09d2d1382aa65e7614a54f1e5e0a54d4"
+    },
+    "function-prototype-before.diag": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/function-prototype-before.diag",
+      "sha256": "6d66ed3d299a93dc05cca94bb2c639acc170034c6e78f697491e8178c9190d2f"
+    },
+    "function-prototype-after.diag": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/function-prototype-after.diag",
+      "sha256": "6d66ed3d299a93dc05cca94bb2c639acc170034c6e78f697491e8178c9190d2f"
+    },
+    "prototype-node.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/prototype-node.log",
+      "sha256": "673650f936cb3b0a2f93ce09d81be10748b1b203c19e8176b4eefc1964a0cf3a"
+    },
+    "prototype-bun.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/prototype-bun.log",
+      "sha256": "673650f936cb3b0a2f93ce09d81be10748b1b203c19e8176b4eefc1964a0cf3a"
+    },
+    "pickier.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/pickier.log",
+      "sha256": "4ba241582b10891c8cda8baad67f153dcde21a6446c02aa9151e586bd461e4a1"
+    }
+  },
+  "promotion_status": "Caller stays on previously validated4783f1b. Fresh immutable source validation, actual Linux30-group/profile plus maintained runtime markers, official ZIP digest/file provenance and both actual priority CPU preflights are still required for this new engine/Home pair. Previous Windows qualification has green metadata but GitHub evidence-download HTTP502 remains unresolved; do not substitute metadata for downloaded execution/artifact evidence. No all-package or ecosystem-green claim."
+}
