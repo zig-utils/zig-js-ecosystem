@@ -1,0 +1,292 @@
+{
+  "schema_version": 1,
+  "home_ref": "c9088c9667bf88044357536990479a3b52ac2e39",
+  "published": {
+    "sha": "c9088c9667bf88044357536990479a3b52ac2e39",
+    "url": "https://github.com/home-lang/home/commit/c9088c9667bf88044357536990479a3b52ac2e39",
+    "author": {
+      "name": "Chris Breuer",
+      "email": "chrisbreuer93@gmail.com",
+      "date": "2026-11-11T16:04:59Z"
+    },
+    "configured_identity_matches": true
+  },
+  "parent": "439b65e7a3d68525675388ff056a1a1fe538a9d9",
+  "engine_ref": "07bef5adcf173eab2494c82d009fe3cd6ac9432a",
+  "source_sha256": {
+    "build.zig": "46bb28035d0fab8def930e6bf4496fa5344a3611bda0becf04861c325da711d9",
+    "packages/runtime/src/jsc/tool_buffer.js": "f1d7efb2c9e77985399090c3fb4b4608b5c6031d0de0e190dfa77b6cd0cfa2bf",
+    "packages/runtime/test/tool_buffer_base64_fixture.py": "2af443d3e45ce00eed70589da3f68ae1d6c08edcf083249bd68c6dbd8663ec2f",
+    "packages/runtime/test/tool_modules/buffer_base64_oracles.json": "83513485f2e56a6727d967d5275291b9c9aad48006b312951f03e0e6127960a3",
+    "packages/runtime/test/tool_modules/node_buffer_base64.mjs": "60075a87ddab4642e0aedb4b0910f9a3c3cd72dee2beac75cbe9c623e9b2b125"
+  },
+  "before": {
+    "zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/home-zig-js/bin/home-tool",
+        "eval",
+        "console.log(Buffer.from(\"foo\").toString(\"base64\"));"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 36976,
+      "memory_limit_mb": 3072,
+      "seconds": 0.152,
+      "log": "before-zig-js.log",
+      "log_sha256": "4ec7c3ece7099ed003de61bdfd449bd0109f58b41298137bc5ac304a50d01c72",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/home-zig-js/bin/home-tool\", \"eval\", \"console.log(Buffer.from(\\\"foo\\\").toString(\\\"base64\\\"));\"]\nhome-tool (zig-js): Error: Home Buffer encoding base64 is not implemented\n\nECOSYSTEM PEAK SAMPLED RSS: 36976 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/home-jsc/bin/home-tool",
+        "eval",
+        "console.log(Buffer.from(\"foo\").toString(\"base64\"));"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.254,
+      "log": "before-jsc.log",
+      "log_sha256": "a69627a487713e920d2f9abf8cccb348b94b89c8593439fd5b06b898417bcd16",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/home-jsc/bin/home-tool\", \"eval\", \"console.log(Buffer.from(\\\"foo\\\").toString(\\\"base64\\\"));\"]\nhome-tool (jsc): Error: Home Buffer encoding base64 is not implemented\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    }
+  },
+  "reference": {
+    "node": {
+      "argv": [
+        "python3",
+        "packages/runtime/test/tool_buffer_base64_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "packages/runtime/test/tool_modules/node_buffer_base64.mjs",
+        "--node"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1968,
+      "memory_limit_mb": 3072,
+      "seconds": 0.099,
+      "log": "reference-node.log",
+      "log_sha256": "a31f78925f24cf412408c3cab85e011500c52f2606ec559c4544c5d081a143f9",
+      "actual_log": "$ [\"python3\", \"packages/runtime/test/tool_buffer_base64_fixture.py\", \"/Users/chris/.local/share/pantry/global/bin/node\", \"packages/runtime/test/tool_modules/node_buffer_base64.mjs\", \"--node\"]\nBUFFER BASE64 RESULTS {\"groups\":98,\"passed\":98,\"failures\":[]}\nBUFFER BASE64 98 GROUPS OK\nNATIVE BASE64 65536 PHYSICAL BYTES INDEPENDENTLY VERIFIED\n\nECOSYSTEM PEAK SAMPLED RSS: 1968 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "bun": {
+      "argv": [
+        "python3",
+        "packages/runtime/test/tool_buffer_base64_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "packages/runtime/test/tool_modules/node_buffer_base64.mjs",
+        "--node"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2064,
+      "memory_limit_mb": 3072,
+      "seconds": 0.064,
+      "log": "reference-bun.log",
+      "log_sha256": "53344b399e0d373ebea9ea2ee5ff2630f91e7101ae47d96287fe8abbb945f2e9",
+      "actual_log": "$ [\"python3\", \"packages/runtime/test/tool_buffer_base64_fixture.py\", \"/Users/chris/.local/share/pantry/global/bin/bun\", \"packages/runtime/test/tool_modules/node_buffer_base64.mjs\", \"--node\"]\nBUFFER BASE64 RESULTS {\"groups\":98,\"passed\":98,\"failures\":[]}\nBUFFER BASE64 98 GROUPS OK\nNATIVE BASE64 65536 PHYSICAL BYTES INDEPENDENTLY VERIFIED\n\nECOSYSTEM PEAK SAMPLED RSS: 2064 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "final_gates": {
+    "zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-buffer-base64-smoke",
+        "home-tool-v8-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-base64/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/acorn-atomic/engine-after"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1326352,
+      "memory_limit_mb": 3072,
+      "seconds": 60.043,
+      "log": "final-build-zig-js.log",
+      "log_sha256": "26270bfe93e2022c77df356d7bbb5af8c3e31b323a245a64b733bf6a15e67e51",
+      "actual_log": null
+    },
+    "jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-buffer-base64-smoke",
+        "home-tool-v8-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-base64/home-jsc",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1236944,
+      "memory_limit_mb": 3072,
+      "seconds": 34.687,
+      "log": "final-build-jsc.log",
+      "log_sha256": "7951ae15ed83c56a04aa2622faae1db8b5060eb7e4b8a3bef81104fd8cb55966",
+      "actual_log": null
+    }
+  },
+  "initial_missing_write_gate": {
+    "argv": [
+      "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+      "build",
+      "home-tool",
+      "home-tool-smoke",
+      "home-tool-buffer-base64-smoke",
+      "home-tool-v8-smoke",
+      "-Denable_jsc=false",
+      "-Dtool-js-engine=zig-js",
+      "-Doptimize=ReleaseSafe",
+      "--prefix",
+      "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-base64/home-zig-js",
+      "-j1",
+      "--summary",
+      "all",
+      "home-tool-rejections-smoke",
+      "home-tool-async-context-smoke",
+      "home-tool-file-url-smoke",
+      "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/acorn-atomic/engine-after"
+    ],
+    "status": "failed",
+    "exit_code": 1,
+    "peak_sampled_rss_kib": 1370912,
+    "memory_limit_mb": 3072,
+    "seconds": 64.524,
+    "log": "build-zig-js.log",
+    "log_sha256": "9d5219ff04047f1aae71a8d3b3d0058da40a6c069f7e8520c15d5df342970074",
+    "actual_log": null
+  },
+  "reference_oracles": {
+    "base64_cases": 84,
+    "write_cases": 28,
+    "base64_node_sha256": "e017af983345750f80f5cd15c47958e5496842bc9ea192c7256fbe66b25a607e",
+    "base64_bun_sha256": "e017af983345750f80f5cd15c47958e5496842bc9ea192c7256fbe66b25a607e",
+    "write_node_sha256": "f94bebdbc55bda5ac87d81ea9e5d1354c264bd030579b0d4d64a9c417f52c13e",
+    "write_bun_sha256": "f94bebdbc55bda5ac87d81ea9e5d1354c264bd030579b0d4d64a9c417f52c13e",
+    "base64_match": true,
+    "write_match": true,
+    "generators": {
+      "oracle.mjs": {
+        "sha256": "8e3427bbed47b4f8535be40bbfe09bfab25dd18666f117cc5ecffb842ccf9087",
+        "source": "import {writeFileSync} from 'node:fs';\nconst cases=['','Zg==','Zm8=','Zm9v','_w','/w','-___','+///','Y Q\\n==','Y!Q==','YQ=ignored','Y','YQ','YQ===','====','YW\ud83d\ude03Jj'];\nfor(const c of [0,1,9,10,32,61,65,127,128,255,256,0x141,0x13d,0x3ff,0xd800,0xdc00,0xffff])for(const position of [0,1,2,3])cases.push('YWJj'.slice(0,position)+String.fromCharCode(c)+'YWJj'.slice(position));\nconst result=cases.map(text=>({text,base64:Buffer.from(text,'base64').toString('hex'),base64url:Buffer.from(text,'base64url').toString('hex'),size:Buffer.byteLength(text,'base64'),urlSize:Buffer.byteLength(text,'base64url')}));writeFileSync(process.argv[2],JSON.stringify(result,null,2)+'\\n');console.log(result.length+' ACTUAL BASE64 ORACLES');\n"
+      },
+      "write-oracle.mjs": {
+        "sha256": "646433a4913dea31cb13a6bdb65b8580bcf444c0fccca1070bef2595413685e8",
+        "source": "import {writeFileSync} from 'node:fs';const cases=[['foobar'],['foobar',2],['foobar',2,3],['Zg==','base64'],['Zg==',1,'base64'],['Zm9v',1,2,'base64'],['aabb','hex'],['\u96ea',0,1],['\u96ea',0,2],['\u96ea',0,3],['\ud83d\ude42',0,3],['\ud83d\ude42',0,4],['f',8],['f',9],['',9],['f',-1],['f',1.5],['f',0,-1],['f',0,2.5],['f',null],['f',true],['f',{}],[123],['ab','hex',1],['f',0,99],['f',0,null],['a',0,0,'BOGUS'],['',0,0,'BOGUS']];\nwriteFileSync(process.argv[2],JSON.stringify(cases.map(args=>{const b=Buffer.alloc(8,204);let written,error;try{written=b.write(...args)}catch(e){error=e.code||e.name}return{args,written,error,hex:b.toString('hex')}}),null,2)+'\\n');console.log(cases.length+' ACTUAL BUFFER WRITE ORACLES');\n"
+      }
+    }
+  },
+  "actual_package_sqlite_cache": {
+    "zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-base64/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/query-cache-sqlite.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 211552,
+      "memory_limit_mb": 3072,
+      "seconds": 0.801,
+      "log": "query-cache-zig-js.log",
+      "log_sha256": "6c9782db0daa750d33f8d00220591dafd430eae54e65b9e4b7d13e3dd877b8a9",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-base64/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/query-cache-sqlite.mjs\"]\n{\"changes\":0,\"lastInsertRowid\":0}\n{\"changes\":1,\"lastInsertRowid\":1}\nACTUAL QUERY BUILDER SQLITE ROW AND CACHE HIT OK\n\nECOSYSTEM PEAK SAMPLED RSS: 211552 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-base64/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/query-cache-sqlite.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5424,
+      "memory_limit_mb": 3072,
+      "seconds": 0.068,
+      "log": "query-cache-jsc.log",
+      "log_sha256": "7121118234a149d65237790949af706a6665fc912f916709f2a8431d6d93396e",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/buffer-base64/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/query-cache-sqlite.mjs\"]\n{\"changes\":0,\"lastInsertRowid\":0}\n{\"changes\":1,\"lastInsertRowid\":1}\nACTUAL QUERY BUILDER SQLITE ROW AND CACHE HIT OK\n\nECOSYSTEM PEAK SAMPLED RSS: 5424 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/query-cache-sqlite.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2112,
+      "memory_limit_mb": 3072,
+      "seconds": 0.042,
+      "log": "query-cache-bun.log",
+      "log_sha256": "045962bc80c150cb1867b78488c7ee3f70db2056c2188f84a56ba5506bc15bb3",
+      "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/query-cache-sqlite.mjs\"]\n{\"changes\":0,\"lastInsertRowid\":0}\n{\"changes\":1,\"lastInsertRowid\":1}\nACTUAL QUERY BUILDER SQLITE ROW AND CACHE HIT OK\n\nECOSYSTEM PEAK SAMPLED RSS: 2112 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "actual_cache_source_sha256": "61496262e06490e2d5a53c88963065414deedfa9b4ca6a7cdb32aa8df6416779",
+  "pickier_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": [
+    "Real base64/base64url encoding/forgiving decoding and Node length-estimate semantics over actual managed Buffer bytes; real Buffer.write with bounds, argument validation and complete UTF8 scalar truncation. Other unsupported encodings remain explicit.",
+    "Final126/126 groups run independently through both Home providers; Node/Bun references initially98 groups and final126 groups pass. Both providers retain23 Node-wire decode checks and their explicit V8 capability profiles.",
+    "Python independently verifies all65536 physical payload bytes, both exact encoded alphabets/padding and standard decoding; no roundtrip-only pass claim.",
+    "Maintained final native gates239/239 zig-js and211/211 basic JSC pass under unchanged3072MiB limit. The initial97/98 failure revealed the genuinely missing Buffer.write; it was implemented and all28 Node/Bun write oracles validated rather than dropping that test.",
+    "The actual locked npm package executes real in-memory SQLite DDL/insert, reads its actual row and performs one database query across two cached reads through both Home providers, matching Bun. This is one focused package integration witness, not all query-builder tests or any full Stacks package/build pass.",
+    "Linux ecosystem qualification and consumer label changes remain pending. Caller stays validated functional7b4fb84 until immutable runtime/artifact/provenance and both actual priority CPU preflights pass."
+  ],
+  "reference_source": "https://nodejs.org/api/buffer.html#buffers-and-character-encodings",
+  "final_reference": {
+    "node": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_buffer_base64_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_buffer_base64.mjs",
+        "--node"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1088,
+      "memory_limit_mb": 3072,
+      "seconds": 0.098,
+      "log": "final-reference-node.log",
+      "log_sha256": "0d5de0dc713c44675a33bc2f9f7695a7c6f0bf441cfe0386b1aee22ee0cc1ed0",
+      "actual_log": "$ [\"python3\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_buffer_base64_fixture.py\", \"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_buffer_base64.mjs\", \"--node\"]\nBUFFER BASE64 RESULTS {\"groups\":126,\"passed\":126,\"failures\":[]}\nBUFFER BASE64 126 GROUPS OK\nNATIVE BASE64 65536 PHYSICAL BYTES INDEPENDENTLY VERIFIED\n\nECOSYSTEM PEAK SAMPLED RSS: 1088 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "bun": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_buffer_base64_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_buffer_base64.mjs",
+        "--node"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2400,
+      "memory_limit_mb": 3072,
+      "seconds": 0.067,
+      "log": "final-reference-bun.log",
+      "log_sha256": "2521a3c2b1b68c8c7f0871d56ac24cffe3e1a158a202886c348a872c3cecdb63",
+      "actual_log": "$ [\"python3\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_buffer_base64_fixture.py\", \"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_buffer_base64.mjs\", \"--node\"]\nBUFFER BASE64 RESULTS {\"groups\":126,\"passed\":126,\"failures\":[]}\nBUFFER BASE64 126 GROUPS OK\nNATIVE BASE64 65536 PHYSICAL BYTES INDEPENDENTLY VERIFIED\n\nECOSYSTEM PEAK SAMPLED RSS: 2400 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  }
+}

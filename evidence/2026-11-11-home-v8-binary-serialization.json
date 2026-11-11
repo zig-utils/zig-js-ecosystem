@@ -1,0 +1,438 @@
+{
+  "schema_version": 1,
+  "home_ref": "439b65e7a3d68525675388ff056a1a1fe538a9d9",
+  "published": {
+    "sha": "439b65e7a3d68525675388ff056a1a1fe538a9d9",
+    "url": "https://github.com/home-lang/home/commit/439b65e7a3d68525675388ff056a1a1fe538a9d9",
+    "author": {
+      "name": "Chris Breuer",
+      "email": "chrisbreuer93@gmail.com",
+      "date": "2026-11-11T15:48:53Z"
+    },
+    "configured_identity_matches": true
+  },
+  "engine_ref": "07bef5adcf173eab2494c82d009fe3cd6ac9432a",
+  "before_home": "663f106b3c51e0e56e788b069eb40fb2d5fb0b59",
+  "upstream_parent": "5f7c666a705b70b2d9a2f091e4dc4bf173c59cdb",
+  "preserved_upstream": [
+    "ec431965b409892b2f2108455f9bf51fa3231b07",
+    "5f7c666a705b70b2d9a2f091e4dc4bf173c59cdb"
+  ],
+  "source_sha256": {
+    "build.zig": "1e2454fd049c136a240eb172bcd42f0cc667fd4bf5be2f444039d1e7271ef0eb",
+    "packages/runtime/src/jsc/tool_builtins.js": "3c472d20c17a2e35292ac572885c87e0841ee925f2441f8804fc2b0d61a25149",
+    "packages/runtime/src/jsc/tool_builtins.zig": "e551a9bc0b1fd23195dfc01f985135dfe43807118b9f354ea255ea29e1c33d42",
+    "packages/runtime/src/jsc/tool_v8.js": "bd7843c34dfc49b58401e0ed562ee5d3ab6811c659c94d2f729f7a4a9a381809",
+    "packages/runtime/test/tool_modules/node_v8.mjs": "c454004960ffe713d44e8ba2bc3abda8b5225d46924d8ad4186366f1210194f7",
+    "packages/runtime/test/tool_modules/v8_jsc_profile.mjs": "e3ef295e66510b4c6edb4f667cfbe7050eda122b43a913bd2bc74fa8d57e25e8",
+    "packages/runtime/test/tool_modules/v8_malformed.mjs": "5cc2e282f8b3ff81e12a372fab4e8f2f35df9ad1d70fc3a4aabdd02af37e89d8",
+    "packages/runtime/test/tool_modules/v8_node_wire.mjs": "0f18569227c8ef4dd32bafa78bdffaada9ee3b4e27093a354c6ff58f6f6bd48d",
+    "packages/runtime/test/tool_modules/v8_node_wires.json": "fff03a3e02e32ee4f0ecaee62db6d1903eaee31ff889b747251762de53ca0850",
+    "packages/runtime/test/tool_modules/v8_profile.mjs": "14bbb79ddf9b62dd307820182c97703c4ae2ba378b65b17b424daabcaddfcaad",
+    "packages/runtime/test/tool_modules/v8_values.mjs": "a355f62488624af60cee63ca7511184271aaa7670e66e8f945464452f6c42d82",
+    "packages/runtime/test/tool_v8_fixture.py": "496609db96ef5cf629fe97fe056743a2388d3f253066fa10954f7ee7664a45b1",
+    "packages/runtime/test/tool_v8_generate_node_wires.mjs": "40428ef4ccdab64cecbd06342c39e25fce2a43cc676a6321e26c37e531905b57"
+  },
+  "before": {
+    "zig-js": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 33600,
+      "memory_limit_mb": 3072,
+      "seconds": 0.168,
+      "log": "before-home-zig-js.log",
+      "log_sha256": "d503aeb41ebd777daba8ca3b525eb2d10dbdca440255de9c746fae66e2299dcf",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-assert/rebased-home-zig-js/bin/home-tool\", \"run\", \"packages/runtime/test/tool_modules/node_v8.mjs\"]\nhome-tool (zig-js): Error: cannot resolve module node:v8 from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_v8.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 33600 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "jsc": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.109,
+      "log": "before-home-jsc.log",
+      "log_sha256": "6b89f17b3a603904e146a0e7e1b353a4bfa95807f2536d85755bb8cb72a84316",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-assert/rebased-home-jsc/bin/home-tool\", \"run\", \"packages/runtime/test/tool_modules/node_v8.mjs\"]\nhome-tool (jsc): Error: cannot resolve module node:v8 from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_v8.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    }
+  },
+  "reference_and_target_contracts": {
+    "node": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "packages/runtime/test/tool_modules/node_v8.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 816,
+      "memory_limit_mb": 3072,
+      "seconds": 0.06,
+      "log": "final-contract-node.log",
+      "log_sha256": "a01da3065c6bd096a799891eda494ec97e10fee5cbd06c95357a2eb1ee84e810",
+      "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"packages/runtime/test/tool_modules/node_v8.mjs\"]\nV8 BINARY RESULTS {\"groups\":31,\"passed\":31,\"failures\":[]}\nV8 BINARY 31 GROUPS OK\n\nECOSYSTEM PEAK SAMPLED RSS: 816 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "packages/runtime/test/tool_modules/node_v8.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1664,
+      "memory_limit_mb": 3072,
+      "seconds": 0.024,
+      "log": "final-contract-bun.log",
+      "log_sha256": "fcb42e29a67afead7fff8ae63144df6a68b41231e8fa402d2b1b250be81161d4",
+      "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"packages/runtime/test/tool_modules/node_v8.mjs\"]\nV8 BINARY RESULTS {\"groups\":31,\"passed\":29,\"failures\":[{\"name\":\"map-entry-snapshot\",\"error\":\"Error: structural predicate failed\"},{\"name\":\"proxy-no-traps\",\"error\":\"Error: structural predicate failed\"}]}\n1 | import * as api from 'node:v8';\n2 | import { runValueContract } from './v8_values.mjs';\n3 | const result = runValueContract(api);\n4 | console.log('V8 BINARY RESULTS ' + JSON.stringify(result));\n5 | if (result.failures.length) throw new Error('Real binary serialization contract failed');\n                                          ^\nerror: Real binary serialization contract failed\n      at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_v8.mjs:5:39\n\nBun v1.4.4 (macOS arm64)\n\nECOSYSTEM PEAK SAMPLED RSS: 1664 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/home-zig-js/bin/home-tool",
+        "run",
+        "packages/runtime/test/tool_modules/node_v8.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 50176,
+      "memory_limit_mb": 3072,
+      "seconds": 0.271,
+      "log": "final-contract-zig-js.log",
+      "log_sha256": "288c9e531670b70bf47bb1613d20836f4834d87970fa8ca37f6c6b2538280748",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/home-zig-js/bin/home-tool\", \"run\", \"packages/runtime/test/tool_modules/node_v8.mjs\"]\nV8 BINARY RESULTS {\"groups\":31,\"passed\":31,\"failures\":[]}\nV8 BINARY 31 GROUPS OK\n\nECOSYSTEM PEAK SAMPLED RSS: 50176 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/home-jsc/bin/home-tool",
+        "run",
+        "packages/runtime/test/tool_modules/node_v8.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 4672,
+      "memory_limit_mb": 3072,
+      "seconds": 0.042,
+      "log": "final-contract-jsc.log",
+      "log_sha256": "559c428f7e4b3243f785a44552b67434237bc2a7801493c14d2f6ba03750ca67",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/home-jsc/bin/home-tool\", \"run\", \"packages/runtime/test/tool_modules/node_v8.mjs\"]\nV8 BINARY RESULTS {\"groups\":31,\"passed\":23,\"failures\":[{\"name\":\"primitive-types\",\"error\":\"Error: Home v8 serialization: ordinary containers require native proxy brand inspection\"},{\"name\":\"sparse-array-cycle\",\"error\":\"Error: Home v8 serialization: ordinary containers require native proxy brand inspection\"},{\"name\":\"shared-object-cycle\",\"error\":\"Error: Home v8 serialization: ordinary containers require native proxy brand inspection\"},{\"name\":\"own-proto-data\",\"error\":\"Error: Home v8 serialization: ordinary containers require native proxy brand inspection\"},{\"name\":\"enumerability\",\"error\":\"Error: Home v8 serialization: ordinary containers require native proxy brand inspection\"},{\"name\":\"getters-delete-and-order\",\"error\":\"Error: Home v8 serialization: ordinary containers require native proxy brand inspection\"},{\"name\":\"map-entry-snapshot\",\"error\":\"Error: Home v8 serialization: ordinary containers require native proxy brand inspection\"},{\"name\":\"public-helper-mutation\",\"error\":\"Error: Home v8 serialization: ordinary containers require native proxy brand inspection\"}]}\nhome-tool (jsc): Error: Real binary serialization contract failed\n\nECOSYSTEM PEAK SAMPLED RSS: 4672 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    }
+  },
+  "rebased_gates": {
+    "zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-v8-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/acorn-atomic/engine-after"
+      ],
+      "home_ref": "439b65e7a3d68525675388ff056a1a1fe538a9d9",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1327376,
+      "memory_limit_mb": 3072,
+      "seconds": 60.162,
+      "log": "rebased-build-zig-js.log",
+      "log_sha256": "7436b02efa539b41c9136dc075ae8e9d9e781c8d4fab80b73eecc42c9d38aa68",
+      "actual_log": null
+    },
+    "jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-v8-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/home-jsc",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "home_ref": "439b65e7a3d68525675388ff056a1a1fe538a9d9",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1167856,
+      "memory_limit_mb": 3072,
+      "seconds": 36.17,
+      "log": "rebased-build-jsc.log",
+      "log_sha256": "ca9835ca174f7d38ba29905d98a58e25aac2cce9a00caf3490d7aae5787ed16f",
+      "actual_log": null
+    }
+  },
+  "initial_gates": {
+    "zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-v8-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/acorn-atomic/engine-after",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/home-zig-js",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1378832,
+      "memory_limit_mb": 3072,
+      "seconds": 69.36,
+      "log": "build-zig-js.log",
+      "log_sha256": "9c5b3ae8ad9c3ec7be0b61216d434454f840093bf3870ac0046c9d75e14dfb39",
+      "actual_log": null
+    },
+    "jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-v8-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/home-jsc",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1269136,
+      "memory_limit_mb": 3072,
+      "seconds": 36.472,
+      "log": "build-jsc.log",
+      "log_sha256": "ea3949c12f5675f0724e374e79d7852545516f1d013f2b3d0646abb4c54795d2",
+      "actual_log": null
+    }
+  },
+  "node_wire_interoperability": {
+    "interop-home": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/check-and-emit.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/final-home-wires.json"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 50928,
+      "memory_limit_mb": 3072,
+      "seconds": 0.29,
+      "log": "interop-home.log",
+      "log_sha256": "d0f31b0e38137b346e8fbdef8626aa85095e347c81d415b4b8c6703adfc83692",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/check-and-emit.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/final-home-wires.json\"]\nNODE TO HOME AND HOME EMISSION 23 REAL VALUES OK\n\nECOSYSTEM PEAK SAMPLED RSS: 50928 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "interop-node": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/generate-node-wires.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/final-home-wires.json"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 432,
+      "memory_limit_mb": 3072,
+      "seconds": 0.041,
+      "log": "interop-node.log",
+      "log_sha256": "2b22b70fd9efe471177f670c49e783dcdac290b13de54643a4349babea16c73e",
+      "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/generate-node-wires.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/final-home-wires.json\"]\nINDEPENDENT NODE DECODE 23 ACTUAL HOME WIRES OK\n\nECOSYSTEM PEAK SAMPLED RSS: 432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "node_wire_fixture": {
+    "cases": 23,
+    "sha256": "fff03a3e02e32ee4f0ecaee62db6d1903eaee31ff889b747251762de53ca0850",
+    "node": "v26.10.0",
+    "v8": "14.6.202.34-node.34"
+  },
+  "actual_package": {
+    "before": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-assert/rebased-home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/query-builder-import.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 34080,
+      "memory_limit_mb": 3072,
+      "seconds": 0.231,
+      "log": "query-builder-corrected-before.log",
+      "log_sha256": "69134ebad16355af692a4af1338a8d456a7e0ea274b255c479efb3d1c8cfb216",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-assert/rebased-home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/query-builder-import.mjs\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/query-builder-0.3.44/package/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 34080 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "after": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/query-builder-import.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 206400,
+      "memory_limit_mb": 3072,
+      "seconds": 0.852,
+      "log": "query-builder-corrected-after.log",
+      "log_sha256": "95a669bca098c8271fbd63b654d97df2301f51295d0a1cc1328a9255bf43a478",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/query-builder-import.mjs\"]\nACTUAL QUERY BUILDER IMPORT BelongsToManyRelationBuilder,BrowserQueryBuilder,BrowserQueryError,DEFAULT_SQLITE_PRAGMAS,DynamoDBClient,DynamoDBDriverImpl,DynamoDBItemBuilder,DynamoDBMigrationDriver,DynamoDBMigrationTracker,DynamoDBQueryBuilder,DynamoDBToolingAdapter,EntityQueryBuilder,GENERATED_MARKER,LibSQLError,MIGRATIONS_TABLE,Model,MySQLDriver,PostgresDriver,SQLiteDriver,Seeder,SingleStoreDriver,SingleTableManager,SingleTablePatterns,SingleTableQueryBuilder,SingleTableRepository,UTC_CLOCK_DEFAULT,VitessDriver,applySqliteBootstrapPragmas,auditSchemaDrift,browserAuth,browserQuery,buildDatabaseSchema,buildDynamoDBMigrationPlan,buildMigrationPlan,buildSchemaMeta,cacheClear,cacheConfig,cacheStats,canonicalStorageType,canonicalizeDefault,checkSchema,clearLocalModels,clearModelRegistry,clearQueryCache,config,configureBrowser,configureModels,configureOrm,convertSchemaToDefinition,createBrowserDb,createBrowserModel,createClient,createDynamo,createDynamoDBClient,createDynamoDBDriver,createDynamoDBItemBuilder,createDynamoDBQueryBuilder,createDynamoDBToolingAdapter,createFakerCompatLayer,createLibSQLSQL,createMigrationDriver,createModel,createQueryBuilder,createRepository,createSingleTableManager,createTableFromModel,dbInfo,dbOptimize,dbStats,dbWipe,decodeCursor,decodeLibSQLValue,defaultConfig,defineConfig,defineModel,defineModels,defineSeeder,dumpDatabase,dynamo,encodeCursor,encodeLibSQLValue,escapeStringLiteral,executeMigration,executeMigrationWithReport,explain,explainAllQueries,exportData,extractChanges,extractInsertId,extractModelSchema,extractTableDefinition,familyOfDeclared,familyOfSqlType,file,formatSchemaDrift,freshDatabase,generateAccessPatterns,generateDiagram,generateDiffOperations,generateDiffSql,generateDiffSqlString,generateMigration,generateModelSource,generateSql,generateSqlFiles,generateSqlString,getAllModels,getBrowserConfig,getConfig,getDatabase,getDialectDriver,getModel,getModelRegistry,getPlaceholder,getPlaceholders,hasModel,hashMigrationPlan,hashTableDefinition,importData,inflectSingular,inspectTable,introspect,introspectDatabase,isBrowser,isDefinitionEqual,isGeneratedMigrationSql,isLibSQLConnection,isLibSQLUrl,isLosslessTypeChange,isMysqlLike,isNarrowingChange,iterateAllPivots,lastCreatedMigrationFiles,loadModels,makeModel,makeSeeder,marshallObject,migrateGenerate,migrateList,migrateModels,migrateRollback,migrateStatus,migrationBody,modelNameForTable,modelShow,normalizeDialectName,normalizeIndexPredicate,optimizeDatabase,parseStacksModels,ping,queryExplainAll,quoteColumnForDialect,raw,registerBrowserModels,registerModel,relationDiagram,releaseOrm,resetConnection,resetDatabase,resolveDialect,resolveKeyPattern,resolveLibSQLEndpoint,resolveLibSQLTarget,resolvePivot,resolveSqlitePragmas,runBenchmark,runSeeder,runSeeders,satisfies,saveMigrationSnapshot,seedModel,setConfig,setQueryCacheMaxSize,showModel,singularizerFor,sql,sqlTypeToAttr,stacksModelToEntity,startConsole,stripTrailingS,tableInfo,tableNameFor,temporalLiteral,tinker,toDialectPlaceholders,toDynamoDBItem,toHranaStatement,toLibSQLError,toLibSQLRows,toModelInstance,toTableName,unmarshallItem,unsafe,validateSchema,waitReady,wipeDatabase,writeMigrationFiles\n\nECOSYSTEM PEAK SAMPLED RSS: 206400 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/query-builder-import.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1088,
+      "memory_limit_mb": 3072,
+      "seconds": 0.041,
+      "log": "query-builder-corrected-bun.log",
+      "log_sha256": "3178f05f37a964df11a4a504d93c8a661a15066e8f3d3cfa34b8c7e5b1c23e1b",
+      "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/query-builder-import.mjs\"]\nACTUAL QUERY BUILDER IMPORT BelongsToManyRelationBuilder,BrowserQueryBuilder,BrowserQueryError,DEFAULT_SQLITE_PRAGMAS,DynamoDBClient,DynamoDBDriverImpl,DynamoDBItemBuilder,DynamoDBMigrationDriver,DynamoDBMigrationTracker,DynamoDBQueryBuilder,DynamoDBToolingAdapter,EntityQueryBuilder,GENERATED_MARKER,LibSQLError,MIGRATIONS_TABLE,Model,MySQLDriver,PostgresDriver,SQLiteDriver,Seeder,SingleStoreDriver,SingleTableManager,SingleTablePatterns,SingleTableQueryBuilder,SingleTableRepository,UTC_CLOCK_DEFAULT,VitessDriver,applySqliteBootstrapPragmas,auditSchemaDrift,browserAuth,browserQuery,buildDatabaseSchema,buildDynamoDBMigrationPlan,buildMigrationPlan,buildSchemaMeta,cacheClear,cacheConfig,cacheStats,canonicalStorageType,canonicalizeDefault,checkSchema,clearLocalModels,clearModelRegistry,clearQueryCache,config,configureBrowser,configureModels,configureOrm,convertSchemaToDefinition,createBrowserDb,createBrowserModel,createClient,createDynamo,createDynamoDBClient,createDynamoDBDriver,createDynamoDBItemBuilder,createDynamoDBQueryBuilder,createDynamoDBToolingAdapter,createFakerCompatLayer,createLibSQLSQL,createMigrationDriver,createModel,createQueryBuilder,createRepository,createSingleTableManager,createTableFromModel,dbInfo,dbOptimize,dbStats,dbWipe,decodeCursor,decodeLibSQLValue,defaultConfig,defineConfig,defineModel,defineModels,defineSeeder,dumpDatabase,dynamo,encodeCursor,encodeLibSQLValue,escapeStringLiteral,executeMigration,executeMigrationWithReport,explain,explainAllQueries,exportData,extractChanges,extractInsertId,extractModelSchema,extractTableDefinition,familyOfDeclared,familyOfSqlType,file,formatSchemaDrift,freshDatabase,generateAccessPatterns,generateDiagram,generateDiffOperations,generateDiffSql,generateDiffSqlString,generateMigration,generateModelSource,generateSql,generateSqlFiles,generateSqlString,getAllModels,getBrowserConfig,getConfig,getDatabase,getDialectDriver,getModel,getModelRegistry,getPlaceholder,getPlaceholders,hasModel,hashMigrationPlan,hashTableDefinition,importData,inflectSingular,inspectTable,introspect,introspectDatabase,isBrowser,isDefinitionEqual,isGeneratedMigrationSql,isLibSQLConnection,isLibSQLUrl,isLosslessTypeChange,isMysqlLike,isNarrowingChange,iterateAllPivots,lastCreatedMigrationFiles,loadModels,makeModel,makeSeeder,marshallObject,migrateGenerate,migrateList,migrateModels,migrateRollback,migrateStatus,migrationBody,modelNameForTable,modelShow,normalizeDialectName,normalizeIndexPredicate,optimizeDatabase,parseStacksModels,ping,queryExplainAll,quoteColumnForDialect,raw,registerBrowserModels,registerModel,relationDiagram,releaseOrm,resetConnection,resetDatabase,resolveDialect,resolveKeyPattern,resolveLibSQLEndpoint,resolveLibSQLTarget,resolvePivot,resolveSqlitePragmas,runBenchmark,runSeeder,runSeeders,satisfies,saveMigrationSnapshot,seedModel,setConfig,setQueryCacheMaxSize,showModel,singularizerFor,sql,sqlTypeToAttr,stacksModelToEntity,startConsole,stripTrailingS,tableInfo,tableNameFor,temporalLiteral,tinker,toDialectPlaceholders,toDynamoDBItem,toHranaStatement,toLibSQLError,toLibSQLRows,toModelInstance,toTableName,unmarshallItem,unsafe,validateSchema,waitReady,wipeDatabase,writeMigrationFiles\n\nECOSYSTEM PEAK SAMPLED RSS: 1088 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "package_integrity": {
+    "integrity": "sha512-4H4WQ/iIny1UB66ZGpDG0VQJEYX1cCGrcGDoHQtSnoyjMgpui96bsdSFG8lOkfnAKshjwH0bkthMUDdnFkz4Gw==",
+    "sha256": "7a124d01b0e92e078e4a26ca376f52e7ced7b087758ee598ad7db19097ab3839",
+    "chunk_sha256": "6f0c443e5ab2c6255bdf3bf8b6984f1b076f875e7fd6417605418ea184376514"
+  },
+  "frozen_stacks_lock_sha256": "341616781b3c1a523fc4f46518e90ce4dd19c7598b34a944612cdb29a42ae684",
+  "tailwind_next_blocker": {
+    "before": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-assert/rebased-home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/tailwind-import.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 280368,
+      "memory_limit_mb": 3072,
+      "seconds": 1.116,
+      "log": "tailwind-before.log",
+      "log_sha256": "0740ec0fdf787d897ec8dcf29ae3daa822bb2909254ae9724fca948164c1f850",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-assert/rebased-home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/tailwind-import.mjs\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/template-locks/react-tailwind-candidate/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 280368 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "after": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/tailwind-import.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 275776,
+      "memory_limit_mb": 3072,
+      "seconds": 1.087,
+      "log": "tailwind-after.log",
+      "log_sha256": "e5342798a1906f3e006fa0576c8a8facd1920f5c136de418c7a0e2537cca5bd4",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/tailwind-import.mjs\"]\nhome-tool (zig-js): Error: cannot resolve module vm from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/template-locks/react-tailwind-candidate/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 275776 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/tailwind-import.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 52320,
+      "memory_limit_mb": 3072,
+      "seconds": 0.148,
+      "log": "tailwind-bun.log",
+      "log_sha256": "c7b5ea3132a530aefd00082918eb87efac38d2860167ea0efb77620a39704bcd",
+      "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/tailwind-import.mjs\"]\nACTUAL tailwind IMPORT default,isWindows\n\nECOSYSTEM PEAK SAMPLED RSS: 52320 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "actual_cache_before_base64": {
+    "before": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-assert/rebased-home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/query-cache-sqlite.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 29888,
+      "memory_limit_mb": 3072,
+      "seconds": 0.238,
+      "log": "query-cache-before.log",
+      "log_sha256": "25c6e658bfefc3e3d55b8e30cb2af3f75a677ae36c5790ff4326ec7376d981f8",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-assert/rebased-home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/query-cache-sqlite.mjs\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/query-builder-0.3.44/package/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 29888 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "after": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/query-cache-sqlite.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 213168,
+      "memory_limit_mb": 3072,
+      "seconds": 1.279,
+      "log": "query-cache-after.log",
+      "log_sha256": "daca0d56706ca3646539443c947dcc82cd68cb0cf79b86bdc57ecf6dcec5b30e",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/query-cache-sqlite.mjs\"]\n{\"changes\":0,\"lastInsertRowid\":0}\n{\"changes\":1,\"lastInsertRowid\":1}\nhome-tool (zig-js): Error: Home Buffer encoding base64 is not implemented\n\nECOSYSTEM PEAK SAMPLED RSS: 213168 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/query-cache-sqlite.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2128,
+      "memory_limit_mb": 3072,
+      "seconds": 0.067,
+      "log": "query-cache-bun.log",
+      "log_sha256": "65050518a1be01a4ee99edfe62a075ac43a26b367e9f52b7ecfdc0f0e0bb9f5e",
+      "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/v8-serialization/query-cache-sqlite.mjs\"]\n{\"changes\":0,\"lastInsertRowid\":0}\n{\"changes\":1,\"lastInsertRowid\":1}\nACTUAL QUERY BUILDER SQLITE ROW AND CACHE HIT OK\n\nECOSYSTEM PEAK SAMPLED RSS: 2128 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "pickier_log_sha256": "f2388d97c648a0d25276c60662b4513ba3905989d10ce0e5783f7857dd73c754",
+  "scope": [
+    "Actual version-15 binary serialize/deserialize with cycles, shared object identity, type-preserving scalar/date/map/set/binary values and Node default scoped view payloads; ordinary target containers require native trap-free proxy inspection.",
+    "Limits:16MiB wire,100000 entries/objects/array length,256 nesting levels,4096bit bigint. Resizable/shared buffers, RegExp/Error/boxed/class values, other wire tags/versions and V8-specific heap/snapshot/Serializer surfaces remain unsupported/absent. No complete Node/Bun/V8 compatibility claim.",
+    "Target31/31 and frozen Node23-wire decoding pass. Basic JSC full common ledger remains23/31 with8 actual ordinary-container failures; separate actual JSC8-group primitive/native-brand/refusal profile, malformed17 and decoding23 pass. Bun29/31 retains real map-snapshot/proxy differences. Unsupported checks are not counted as implemented cases.",
+    "Rebased maintained steps237/237 zig-js and209/209 basic JSC pass. Initial JSC gate failed solely because the Node-wire fixture used an absent global URL; reading the fixture through existing node:path/fileURLToPath fixed that test integration. No global URL stub was added.",
+    "Initial malformed oracle assumed20 rejects; real Node accepts3 forms. Its17 genuine rejection cases are pinned; the initial false assumptions/transcript are retained under Verification. No suppressed engine failure.",
+    "Actual npm0.3.44 package import moves missing v8 to success on target and matches Bun. Initial developer probe used a nonexistent dist/index.js and failed on all providers; corrected to the package-declared dist/src/index.js, retaining both probe results. This is import recovery, not package/build/test success.",
+    "Actual SQLite cache execution still failed on missing base64 at this revision; the following separate fix addresses it. Tailwind reaches a genuine missing vm module and remains failed.",
+    "Home host-only change: no engine source changed and no new full test262 run or corpus flip claim. Local candidate uses the exact pushed07bef5ad Debug bootstrap archive through ReleaseSafe Home, separate from Linux qualification."
+  ],
+  "reference_sources": [
+    "https://raw.githubusercontent.com/nodejs/node/v26.10.0/deps/v8/src/objects/value-serializer.cc",
+    "https://raw.githubusercontent.com/nodejs/node/v26.10.0/lib/v8.js",
+    "https://nodejs.org/api/v8.html#serialization-api"
+  ],
+  "engine_archive": {
+    "producer_target": "home-tool-bootstrap",
+    "engine_ref": "07bef5adcf173eab2494c82d009fe3cd6ac9432a",
+    "optimize": "Debug",
+    "sha256": "b17ccf437ecd3912cff9dfddc1242d8e05ce342f17a390bf89cdfe23e94ca2cf",
+    "profile": "Local public bootstrap archive, not a Linux ReleaseSafe artifact or full macOS bridge packaging claim."
+  }
+}
