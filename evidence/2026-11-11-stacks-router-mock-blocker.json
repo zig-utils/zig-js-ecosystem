@@ -1,0 +1,450 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-11T20:33:16.677828+00:00",
+  "status": "reproduced; no mock or test execution implementation changed",
+  "consumer": {
+    "package": "@stacksjs/bun-router",
+    "version": "0.1.24",
+    "frozen_tarball_integrity": "sha512-vXzpmYBe9o0NOVWAZ1kqZJv7VAKTd84rEs3e8e+oEeX3Q4zE078SHTxrYsNcr2n1tb8EwQawaC4YGmFFKrgrzA==",
+    "actual_unmodified_dist_index": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-0.1.24/package/dist/index.js",
+      "sha256": "fe214f36acbc63f042fc2a32813c26e86713899519b341e76643ed2fc0475889"
+    },
+    "static_imports": [
+      "mock as pn",
+      "mock as gr",
+      "mock as vt, spyOn as Ms",
+      "mock as $t",
+      "mock as ks",
+      "mock as yr"
+    ],
+    "reason": "The production bundled index statically imports function mocks and spies used by real middleware testing helpers. No test/describe scheduler import is required by this particular witness."
+  },
+  "witness": {
+    "source": "import { MiddlewareTester } from '../net-addresses/router-0.1.24/package/dist/index.js';\nconst test = new MiddlewareTester(async (_request,next)=>await next());\nconst result=await test.execute();\nif(result.status!==200||await result.text()!=='Next called')throw new Error('Actual router middleware result mismatch');\ntest.expectNextCalled(1);\nif(test.context.next.mock.calls.length!==1)throw new Error('Actual mock call trace missing');\nconsole.log('ACTUAL FROZEN ROUTER MIDDLEWARE AND MOCK CALL TRACE PASSED');\n",
+    "file": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-middleware.mjs",
+      "sha256": "f8876dc073432bbee238a6961dedf11a3109650f3aa91959f3d0114ba814c877"
+    },
+    "reference_bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-middleware.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 432,
+      "memory_limit_mb": 3072,
+      "seconds": 0.034,
+      "log": "bun.log"
+    },
+    "reference_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-middleware.mjs\"]\nACTUAL FROZEN ROUTER MIDDLEWARE AND MOCK CALL TRACE PASSED\n\nECOSYSTEM PEAK SAMPLED RSS: 432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+    "home_before": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-middleware.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 29904,
+      "memory_limit_mb": 3072,
+      "seconds": 0.224,
+      "log": "before-zig-js.log"
+    },
+    "home_before_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-middleware.mjs\"]\nhome-tool (zig-js): Error: cannot resolve module bun:test from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-0.1.24/package/dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 29904 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+    "home_ref": "61d7c22451bd08952b5e1ce7d985aec9dc89950c",
+    "meaning": "Reference Bun actually executes middleware, a response body and a recorded next() call. Home fails at missing bun:test, so none of those assertions execute there."
+  },
+  "reference_api_research": {
+    "docs": "https://bun.sh/docs/test/mocks",
+    "reference": "Bun 1.4.4",
+    "program": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/reference-observations.mjs",
+      "sha256": "a0d6fb3f87d8eb0f3a8b2c60015b10710f023330bbfc844a65d8066c96dd0283"
+    },
+    "source": "import {mock,spyOn} from \"bun:test\";\nconst observations=[];\nconst show=v=>typeof v===\"function\"?{type:\"function\",name:v.name,length:v.length}:v===undefined?{type:\"undefined\"}:v;\nasync function observe(name,fn){try{observations.push({name,value:await fn()});}catch(e){observations.push({name,error:{name:e.name,message:e.message}});}}\nawait observe(\"namespace\",()=>({mock:show(mock),spyOn:show(spyOn),keys:Object.keys(mock),own:Reflect.ownKeys(mock).map(String)}));\nawait observe(\"empty\",()=>{const f=mock();return{fn:show(f),value:show(f()),keys:Reflect.ownKeys(f).map(String),state:f.mock};});\nfor(const x of [null,false,0,\"name\",{},[],undefined])await observe(\"input \"+String(x),()=>show(mock(x)));\nawait observe(\"calls-context-results\",()=>{const receiver={value:4};const f=mock(function sum(a,b){return this.value+a+b;});const value=f.call(receiver,2,3);return{fn:show(f),value,calls:f.mock.calls,contexts:f.mock.contexts,instances:f.mock.instances,results:f.mock.results,lastCall:f.mock.lastCall,name:f.getMockName(),impl:show(f.getMockImplementation())};});\nawait observe(\"nested-incomplete\",()=>{let inside;const f=mock(()=>{inside=f.mock.results.map(x=>({...x}));return 7;});f();return{inside,after:f.mock.results};});\nawait observe(\"throw-identity\",()=>{const reason={marker:7},f=mock(()=>{throw reason;});let same=false;try{f(\"x\");}catch(e){same=e===reason;}return{same,calls:f.mock.calls,results:f.mock.results};});\nawait observe(\"queue-default\",()=>{const f=mock(()=>\"initial\");f.mockImplementationOnce(()=>\"one\").mockReturnValueOnce(\"two\").mockImplementation(()=>\"default\");return[ f(),f(),f(),f() ];});\nawait observe(\"clear-history\",()=>{const f=mock(()=>9);f(1);const state=f.mock,calls=state.calls,results=state.results;const chain=f.mockClear()===f;return{chain,sameState:f.mock===state,sameCalls:f.mock.calls===calls,sameResults:f.mock.results===results,oldCalls:calls,oldResults:results,newState:f.mock,next:f()};});\nawait observe(\"reset-initial\",()=>{const original=()=>7,f=mock(original);f.mockImplementationOnce(()=>2).mockReturnValue(9);f(1);const chain=f.mockReset()===f;return{chain,next:show(f()),sameImplementation:f.getMockImplementation()===original,results:f.mock.results};});\nawait observe(\"restore-plain\",()=>{const original=()=>7,f=mock(original);f.mockReturnValue(9);f(1);const chain=f.mockRestore()===f;return{chain,next:show(f()),sameImplementation:f.getMockImplementation()===original,results:f.mock.results};});\nawait observe(\"async-return-reject\",async()=>{const reason={failure:true},f=mock().mockResolvedValueOnce(7).mockRejectedValueOnce(reason);const p=f(\"ok\"),q=f(\"bad\");const samePromises=f.mock.results[0].value===p&&f.mock.results[1].value===q;const value=await p;let same=false;try{await q;}catch(e){same=e===reason;}return{samePromises,value,same,calls:f.mock.calls,types:f.mock.results.map(x=>x.type),settled:f.mock.settledResults};});\nawait observe(\"constructor-function\",()=>{const f=mock(function C(x){this.x=x;});const obj=new f(7);return{value:obj.x,instance:obj instanceof f,contextsSame:f.mock.contexts[0]===obj,instancesSame:f.mock.instances[0]===obj,resultSame:f.mock.results[0].value===obj,resultType:f.mock.results[0].type};});\nawait observe(\"constructor-class\",()=>{class C{constructor(x){this.x=x;}get(){return this.x;}}const f=mock(C),obj=new f(8);return{value:obj.get(),originalInstance:obj instanceof C,mockInstance:obj instanceof f,instancesSame:f.mock.instances[0]===obj,contextsSame:f.mock.contexts[0]===obj,resultSame:f.mock.results[0].value===obj};});\nawait observe(\"spy-own\",()=>{const obj={n:2,method(x){return this.n+x;}},original=obj.method,desc=Object.getOwnPropertyDescriptor(obj,\"method\"),spy=spyOn(obj,\"method\"),again=spyOn(obj,\"method\");const value=obj.method(3);spy.mockReturnValue(10);const overridden=obj.method(8);const restore=spy.mockRestore()===spy;return{same:obj.method===original,sameRepeated:again===spy,value,overridden,restore,restoredDescriptor:JSON.stringify(Object.getOwnPropertyDescriptor(obj,\"method\"))===JSON.stringify(desc),history:spy.mock.calls,detached:show(spy.call(obj,6))};});\nawait observe(\"spy-inherited\",()=>{const proto={f(){return this.x;}},obj=Object.create(proto);obj.x=7;const spy=spyOn(obj,\"f\"),ownDuring=Object.hasOwn(obj,\"f\"),value=obj.f();spy.mockRestore();return{ownDuring,value,ownAfter:Object.hasOwn(obj,\"f\"),prototypeUnchanged:obj.f===proto.f};});\nawait observe(\"spy-call-property\",()=>{function original(x){return this.n+x;}const spy=spyOn(original,\"call\"),r=original.call({n:3},4);const calls=spy.mock.calls;spy.mockRestore();return{r,calls,ownAfter:Object.hasOwn(original,\"call\")};});\nfor(const key of [\"missing\",\"value\"])await observe(\"spy-invalid-\"+key,()=>show(spyOn({value:4},key)));\nawait observe(\"temporary-throw\",()=>{const f=mock(()=>1);let caught;try{f.withImplementation(()=>2,()=>{if(f()!==2)throw new Error(\"wrong\");throw new Error(\"callback\");});}catch(e){caught=e.message;}return{caught,after:f()};});\nawait observe(\"temporary-async\",async()=>{const f=mock(()=>1);const r=f.withImplementation(()=>2,async()=>{await Promise.resolve();return f();});const result=await r;return{result:show(result),after:f()};});\nconsole.log(JSON.stringify({bun:Bun.version,observations},null,2));\n",
+    "observations": {
+      "bun": "1.4.4",
+      "observations": [
+        {
+          "name": "namespace",
+          "value": {
+            "mock": {
+              "type": "function",
+              "name": "fn",
+              "length": 1
+            },
+            "spyOn": {
+              "type": "function",
+              "name": "spyOn",
+              "length": 2
+            },
+            "keys": [
+              "module",
+              "restore",
+              "clearAllMocks"
+            ],
+            "own": [
+              "length",
+              "name",
+              "module",
+              "restore",
+              "clearAllMocks"
+            ]
+          }
+        },
+        {
+          "name": "empty",
+          "value": {
+            "fn": {
+              "type": "function",
+              "name": "mockConstructor",
+              "length": 0
+            },
+            "value": {
+              "type": "undefined"
+            },
+            "keys": [
+              "name"
+            ],
+            "state": {
+              "calls": [
+                []
+              ],
+              "contexts": [
+                null
+              ],
+              "instances": [],
+              "results": [
+                {
+                  "type": "return"
+                }
+              ],
+              "invocationCallOrder": [
+                1
+              ]
+            }
+          }
+        },
+        {
+          "name": "input null",
+          "value": {
+            "type": "function",
+            "name": "mockConstructor",
+            "length": 0
+          }
+        },
+        {
+          "name": "input false",
+          "value": {
+            "type": "function",
+            "name": "mockConstructor",
+            "length": 0
+          }
+        },
+        {
+          "name": "input 0",
+          "value": {
+            "type": "function",
+            "name": "mockConstructor",
+            "length": 0
+          }
+        },
+        {
+          "name": "input name",
+          "value": {
+            "type": "function",
+            "name": "mockConstructor",
+            "length": 0
+          }
+        },
+        {
+          "name": "input [object Object]",
+          "value": {
+            "type": "function",
+            "name": "mockConstructor",
+            "length": 0
+          }
+        },
+        {
+          "name": "input ",
+          "value": {
+            "type": "function",
+            "name": "mockConstructor",
+            "length": 0
+          }
+        },
+        {
+          "name": "input undefined",
+          "value": {
+            "type": "function",
+            "name": "mockConstructor",
+            "length": 0
+          }
+        },
+        {
+          "name": "calls-context-results",
+          "value": {
+            "fn": {
+              "type": "function",
+              "name": "sum",
+              "length": 2
+            },
+            "value": 9,
+            "calls": [
+              [
+                2,
+                3
+              ]
+            ],
+            "contexts": [
+              {
+                "value": 4
+              }
+            ],
+            "instances": [],
+            "results": [
+              {
+                "type": "return",
+                "value": 9
+              }
+            ],
+            "lastCall": [
+              2,
+              3
+            ],
+            "name": "sum",
+            "impl": {
+              "type": "function",
+              "name": "sum",
+              "length": 2
+            }
+          }
+        },
+        {
+          "name": "nested-incomplete",
+          "value": {
+            "inside": [
+              {
+                "type": "incomplete"
+              }
+            ],
+            "after": [
+              {
+                "type": "return",
+                "value": 7
+              }
+            ]
+          }
+        },
+        {
+          "name": "throw-identity",
+          "value": {
+            "same": true,
+            "calls": [
+              [
+                "x"
+              ]
+            ],
+            "results": [
+              {
+                "type": "throw",
+                "value": {
+                  "marker": 7
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "queue-default",
+          "value": [
+            "one",
+            "two",
+            "default",
+            "default"
+          ]
+        },
+        {
+          "name": "clear-history",
+          "value": {
+            "chain": true,
+            "sameState": false,
+            "sameCalls": false,
+            "sameResults": false,
+            "oldCalls": [
+              [
+                1
+              ]
+            ],
+            "oldResults": [
+              {
+                "type": "return",
+                "value": 9
+              }
+            ],
+            "newState": {
+              "calls": [
+                []
+              ],
+              "contexts": [
+                null
+              ],
+              "instances": [],
+              "results": [
+                {
+                  "type": "return",
+                  "value": 9
+                }
+              ],
+              "invocationCallOrder": [
+                10
+              ]
+            },
+            "next": 9
+          }
+        },
+        {
+          "name": "reset-initial",
+          "value": {
+            "chain": true,
+            "next": {
+              "type": "undefined"
+            },
+            "sameImplementation": false,
+            "results": [
+              {
+                "type": "return"
+              }
+            ]
+          }
+        },
+        {
+          "name": "restore-plain",
+          "value": {
+            "chain": true,
+            "next": {
+              "type": "undefined"
+            },
+            "sameImplementation": false,
+            "results": [
+              {
+                "type": "return"
+              }
+            ]
+          }
+        },
+        {
+          "name": "async-return-reject",
+          "value": {
+            "samePromises": true,
+            "value": 7,
+            "same": true,
+            "calls": [
+              [
+                "ok"
+              ],
+              [
+                "bad"
+              ]
+            ],
+            "types": [
+              "return",
+              "return"
+            ]
+          }
+        },
+        {
+          "name": "constructor-function",
+          "error": {
+            "name": "TypeError",
+            "message": "undefined is not an object (evaluating 'obj.x')"
+          }
+        },
+        {
+          "name": "constructor-class",
+          "error": {
+            "name": "TypeError",
+            "message": "Cannot call a class constructor C without |new|"
+          }
+        },
+        {
+          "name": "spy-own",
+          "value": {
+            "same": true,
+            "sameRepeated": true,
+            "value": 5,
+            "overridden": 10,
+            "restore": true,
+            "restoredDescriptor": true,
+            "history": [
+              [
+                6
+              ]
+            ],
+            "detached": {
+              "type": "undefined"
+            }
+          }
+        },
+        {
+          "name": "spy-inherited",
+          "value": {
+            "ownDuring": true,
+            "value": 7,
+            "ownAfter": true,
+            "prototypeUnchanged": true
+          }
+        },
+        {
+          "name": "spy-call-property",
+          "value": {
+            "r": 7,
+            "calls": [
+              [
+                {
+                  "n": 3
+                },
+                4
+              ]
+            ],
+            "ownAfter": true
+          }
+        },
+        {
+          "name": "spy-invalid-missing",
+          "value": {
+            "type": "function",
+            "name": "",
+            "length": 0
+          }
+        },
+        {
+          "name": "spy-invalid-value",
+          "value": {
+            "type": "function",
+            "name": "",
+            "length": 0
+          }
+        },
+        {
+          "name": "temporary-throw",
+          "value": {
+            "caught": "callback",
+            "after": 2
+          }
+        },
+        {
+          "name": "temporary-async",
+          "value": {
+            "result": 2,
+            "after": 1
+          }
+        }
+      ]
+    },
+    "scope": "These are actual observations, not an implemented Home contract or passing unit tests. The documented constructor behavior and settledResults are not supported by this observed Bun binary; throwing temporary implementation cleanup also differs from expected restoration. Do not erase these differences."
+  },
+  "next_work": "Implement real function invocation traces and spies against measured return/throw/receiver/restore behavior. Unsupported test scheduling, module mocking and other absent APIs must stay explicit; no no-op test/test.each/describe or success for unexecuted callbacks. Run the actual frozen middleware witness and meaningful native/provider gates before a Home fix or suite promotion."
+}
