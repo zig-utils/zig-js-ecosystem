@@ -1,0 +1,535 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-11T21:38:32.563637+00:00",
+  "home_ref": "ffa4a6e0c5d25a8f303da23f921bf6dcc5d2a050",
+  "local_engine_source_sha": "68be3efbd615607f6727fe96a74e895b4c4efb49",
+  "qualified_engine_for_next_linux_run": "82921ac54d7a68ef715232b0c0665c4f7a784577",
+  "engine_scope": "Root82921ac5 changes only the caller workflow from68be3efb; native engine source is unchanged. Local candidate links the exact built/pushed68be3efb source archive retained in the function-spy evidence. A fresh Linux baseline/ReleaseSafe archive and provenance are still required.",
+  "source_files": {
+    "build.zig": "fdb30cc042e9989a35471f13a3aca92442650a31b0d5dfa0105b8c25fe65fe22",
+    "packages/ts_emit/src/js_emit.zig": "7c26f159f6eed601c5eb8302a6958de51241b58953d8726ce873efb6f7483af6",
+    "packages/runtime/test/tool_modules/arrow_object_heads.mjs": "112627c712cb55d73d027da10a2678779ede4875208f16995e413099811b0512",
+    "packages/runtime/test/tool_modules/arrow_object_heads.mts": "c6c9f08e2cdcf72d436b29d85849ad56b6a12bb93c36b522eccdd3a383806cd3"
+  },
+  "problem": "Concise arrow bodies must not begin with an ungrouped object token. Testing only whether the body root is an object misses ({a:1})[key], ({a:1}).a, calls and operators. Erased TS wrappers must propagate the same emitted-head analysis.",
+  "actual_frozen_consumer": {
+    "package": "@stacksjs/bun-router@0.1.24",
+    "raw_chunk": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-next/chunk-df9ec3mx.js",
+      "sha256": "59e55b0ee72f76b79ddfad876c38eb4058cd1193fd184e87c4e5bf441184c5ff",
+      "bytes": 97258
+    },
+    "raw_engine_parse_probe": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "run",
+          "--dep",
+          "parser",
+          "-Mroot=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-next/parse.zig",
+          "--dep",
+          "regex",
+          "--dep",
+          "gc",
+          "-Mparser=/Users/chris/Code/Libraries/zig-js/src/parser.zig",
+          "-Mregex=/Users/chris/Code/Libraries/zig-regex/src/root.zig",
+          "-Mgc=/Users/chris/Code/Libraries/zig-gc/src/root.zig",
+          "-lc"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 356240,
+        "memory_limit_mb": 3072,
+        "seconds": 3.689,
+        "log": "parse.log"
+      },
+      "scope": "Diagnostic parser executable with optional sibling dependencies, not a candidate runtime or full consumer pass. Raw module parses successfully; emitted Home programs fail before the repair."
+    },
+    "declaration_isolation": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-next/declaration-isolation.json",
+      "sha256": "5689c3c6c48e450bf11f1f923fa8cc72414cc65def1975fb7e1919fa2269b038",
+      "declarations": 71,
+      "node_valid_home_failed_declarations": [
+        51,
+        62
+      ]
+    },
+    "minimal_before": [
+      {
+        "case": "arrow-map",
+        "label": "node",
+        "exit_code": 0,
+        "stdout": "EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "arrow-map",
+        "label": "zig-js",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "home-tool (zig-js): SyntaxError: Unexpected token ':'\n"
+      },
+      {
+        "case": "arrow-map",
+        "label": "jsc",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "home-tool (jsc): SyntaxError: Unexpected token ':'\n"
+      },
+      {
+        "case": "arrow-simple-map",
+        "label": "node",
+        "exit_code": 0,
+        "stdout": "EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "arrow-simple-map",
+        "label": "zig-js",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "home-tool (zig-js): SyntaxError: Unexpected token '['. Expected ';' after variable declaration.\n"
+      },
+      {
+        "case": "arrow-simple-map",
+        "label": "jsc",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "home-tool (jsc): SyntaxError: Unexpected token '['. Expected ';' after variable declaration.\n"
+      },
+      {
+        "case": "arrow-index",
+        "label": "node",
+        "exit_code": 0,
+        "stdout": "EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "arrow-index",
+        "label": "zig-js",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "home-tool (zig-js): SyntaxError: Unexpected token '['. Expected ';' after variable declaration.\n"
+      },
+      {
+        "case": "arrow-index",
+        "label": "jsc",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "home-tool (jsc): SyntaxError: Unexpected token '['. Expected ';' after variable declaration.\n"
+      },
+      {
+        "case": "arrow-object",
+        "label": "node",
+        "exit_code": 0,
+        "stdout": "EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "arrow-object",
+        "label": "zig-js",
+        "exit_code": 0,
+        "stdout": "EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "arrow-object",
+        "label": "jsc",
+        "exit_code": 0,
+        "stdout": "EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "arrow-replace",
+        "label": "node",
+        "exit_code": 0,
+        "stdout": "EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "case": "arrow-replace",
+        "label": "zig-js",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "home-tool (zig-js): SyntaxError: Unexpected token ':'\n"
+      },
+      {
+        "case": "arrow-replace",
+        "label": "jsc",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "home-tool (jsc): SyntaxError: Unexpected token ':'\n"
+      }
+    ],
+    "quoted_property_control": [
+      {
+        "label": "node",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-next/quoted-key-repro.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "QUOTED PROPERTY KEYS ACTUALLY EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "label": "bun",
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-next/quoted-key-repro.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "QUOTED PROPERTY KEYS ACTUALLY EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "label": "zig-js",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-next/quoted-key-repro.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "QUOTED PROPERTY KEYS ACTUALLY EXECUTED\n",
+        "stderr": ""
+      },
+      {
+        "label": "jsc",
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-next/quoted-key-repro.mjs"
+        ],
+        "exit_code": 0,
+        "stdout": "QUOTED PROPERTY KEYS ACTUALLY EXECUTED\n",
+        "stderr": ""
+      }
+    ],
+    "middleware": {
+      "program": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/actual-router-after-zig-js.log",
+        "sha256": "a10783078f45efe0e0e4d0e59b2a01480497264ac8d40e7f1b23c490b38fd658",
+        "content": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-middleware.mjs\"]\nACTUAL FROZEN ROUTER MIDDLEWARE AND MOCK CALL TRACE PASSED\n\nECOSYSTEM PEAK SAMPLED RSS: 77440 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "before": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/after-router-zig-js.log",
+        "sha256": "a07f9e95217f753196076b099cf980977abc866a903657ab990c7a10272e7c20",
+        "content": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-middleware.mjs\"]\nhome-tool (zig-js): SyntaxError: Unexpected token ':'\n\nECOSYSTEM PEAK SAMPLED RSS: 1152 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      },
+      "after": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-middleware.mjs"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 5232,
+        "memory_limit_mb": 3072,
+        "seconds": 0.1,
+        "log": "after-router-zig-js.log"
+      }
+    },
+    "actual_sanitizers": {
+      "program": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/actual-router-sanitizers.mjs",
+        "sha256": "879d0fc6ef1c55c56ab94f85164732984a960554b88f2f0c1554f89b124bc984",
+        "content": "import {InputValidation,Security} from '../net-addresses/router-0.1.24/package/dist/index.js';\nconst input=new InputValidation({sanitizeByDefault:true});\nconst security=new Security({inputValidation:{sanitizeInput:true}});\nconst plain='<>\"\\'&';\nconst expected='&lt;&gt;&quot;&#x27;&amp;';\nif(input.sanitizeValue(plain,{})!==expected)throw new Error('Actual InputValidation sanitizer mismatch');\nif(security.sanitizeInput(plain)!==expected)throw new Error('Actual Security sanitizer mismatch');\nconsole.log('ACTUAL FROZEN ROUTER TWO SANITIZER METHODS EXECUTED');\n"
+      },
+      "reference_bun": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/.local/share/pantry/global/bin/bun",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/actual-router-sanitizers.mjs"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 2368,
+          "memory_limit_mb": 3072,
+          "seconds": 0.043,
+          "log": "sanitizers-reference-bun.log"
+        },
+        "log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/sanitizers-reference-bun.log",
+          "sha256": "c6a1b584f0b21d4576030f5e08b8021f0e4cecf037e868063e628b11ef86bc89",
+          "content": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/actual-router-sanitizers.mjs\"]\nACTUAL FROZEN ROUTER TWO SANITIZER METHODS EXECUTED\n\nECOSYSTEM PEAK SAMPLED RSS: 2368 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        }
+      },
+      "before": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/home-zig-js/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/actual-router-sanitizers.mjs"
+          ],
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 32,
+          "memory_limit_mb": 3072,
+          "seconds": 0.105,
+          "log": "sanitizers-before-zig-js.log"
+        },
+        "log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/sanitizers-before-zig-js.log",
+          "sha256": "124e44202a9c87fb546526b4c8b8c2c79b937627c038f1c67f19afee623361aa",
+          "content": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/actual-router-sanitizers.mjs\"]\nhome-tool (zig-js): SyntaxError: Unexpected token ':'\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      },
+      "after": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-zig-js/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/actual-router-sanitizers.mjs"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 304,
+          "memory_limit_mb": 3072,
+          "seconds": 0.182,
+          "log": "sanitizers-after-zig-js.log"
+        },
+        "log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/sanitizers-after-zig-js.log",
+          "sha256": "641b3980c15b0da170c27c0f1ad355b2db4de8b2e54ab658869b3b46b29f2418",
+          "content": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/actual-router-sanitizers.mjs\"]\nACTUAL FROZEN ROUTER TWO SANITIZER METHODS EXECUTED\n\nECOSYSTEM PEAK SAMPLED RSS: 304 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        }
+      },
+      "initial_witness_correction": "Initial extra witness selected SecuritySuite, which has no sanitizeInput method in either reference Bun or Home. Actual export prototypes identify Security as the class containing that sanitizer; initial failed witness and logs remain saved separately. This is a corrected test API assumption, not a product repair."
+    },
+    "scope": "Actual unmodified frozen module imports and real middleware response/next mock trace execute, plus real InputValidation/Security sanitizer methods and encoded outputs. No whole package, HTTP security, unit-test scheduler or complete ecosystem pass is inferred."
+  },
+  "validation": {
+    "javascript_checks": 20,
+    "typescript_checks": 4,
+    "reference_node": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/arrow_object_heads.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "ARROW OBJECT HEAD 20 CHECKS OK\n",
+      "stderr": ""
+    },
+    "reference_bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/arrow_object_heads.mts"
+      ],
+      "exit_code": 0,
+      "stdout": "ARROW OBJECT HEAD 20 CHECKS OK\nTYPED ARROW OBJECT HEAD 4 CHECKS OK\n",
+      "stderr": ""
+    },
+    "before_home": {
+      "zig-js": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/arrow_object_heads.mts"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "home-tool (zig-js): SyntaxError: Unexpected token '.'. Expected ';' after variable declaration.\n"
+      },
+      "jsc": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/arrow_object_heads.mts"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "home-tool (jsc): SyntaxError: Unexpected token '.'. Expected ';' after variable declaration.\n"
+      }
+    },
+    "after_home_contract": {
+      "zig-js": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-zig-js/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/arrow_object_heads.mts"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 1120,
+          "memory_limit_mb": 3072,
+          "seconds": 0.062,
+          "log": "after-contract-zig-js.log"
+        },
+        "log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/after-contract-zig-js.log",
+          "sha256": "64119ab6a6643cc74f5164037d591a76df65ce1669b259c1c8f6631ff6aaa8d1",
+          "content": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/arrow_object_heads.mts\"]\nARROW OBJECT HEAD 20 CHECKS OK\nTYPED ARROW OBJECT HEAD 4 CHECKS OK\n\nECOSYSTEM PEAK SAMPLED RSS: 1120 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        }
+      },
+      "jsc": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-jsc/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/arrow_object_heads.mts"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 2896,
+          "memory_limit_mb": 3072,
+          "seconds": 0.107,
+          "log": "after-contract-jsc.log"
+        },
+        "log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/after-contract-jsc.log",
+          "sha256": "5903c7a0838fa711fb09412604b349962e1b6cf8cfced33ae769c1ab430d7825",
+          "content": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/arrow_object_heads.mts\"]\nARROW OBJECT HEAD 20 CHECKS OK\nTYPED ARROW OBJECT HEAD 4 CHECKS OK\n\nECOSYSTEM PEAK SAMPLED RSS: 2896 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        }
+      }
+    },
+    "native_emitter": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "test",
+        "-Dfilter=ts_emit",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1908400,
+      "memory_limit_mb": 3072,
+      "seconds": 152.256,
+      "log": "native-ts-emit.log"
+    },
+    "native_emitter_summary": "522/523 tests passed; one existing native declaration-output test skipped, not counted as executed. No skip added or changed.",
+    "initial_native_filter_failure": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "test",
+        "-Dtest-filter=ts_emit",
+        "-Doptimize=ReleaseSafe",
+        "-Denable_jsc=false",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 10000,
+      "memory_limit_mb": 3072,
+      "seconds": 0.168,
+      "log": "native-ts-emit.log"
+    },
+    "initial_native_filter_scope": "The Root-style test-filter option is invalid in Home. No tests executed in that attempt; corrected Home -Dfilter=ts_emit run is separate.",
+    "full_builds": {
+      "zig-js": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "home-tool",
+          "home-tool-smoke",
+          "home-tool-arrow-head-smoke",
+          "-Denable_jsc=false",
+          "-Dtool-js-engine=zig-js",
+          "-Doptimize=ReleaseSafe",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-zig-js",
+          "-j1",
+          "--summary",
+          "all",
+          "home-tool-rejections-smoke",
+          "home-tool-async-context-smoke",
+          "home-tool-file-url-smoke",
+          "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/engine-root"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1006720,
+        "memory_limit_mb": 3072,
+        "seconds": 61.799,
+        "log": "build-zig-js.log"
+      },
+      "jsc": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "home-tool",
+          "home-tool-smoke",
+          "home-tool-arrow-head-smoke",
+          "-Denable_jsc=false",
+          "-Dtool-js-engine=jsc",
+          "-Doptimize=ReleaseSafe",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-jsc",
+          "-j1",
+          "--summary",
+          "all"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 1144672,
+        "memory_limit_mb": 3072,
+        "seconds": 43.224,
+        "log": "build-jsc.log"
+      }
+    },
+    "zig_js_summary": "246/246 steps succeeded",
+    "jsc_summary": "216/218 steps succeeded (1 failed): existing missing native unhandled DNS rejection notification remains red; new 24-check fixture passes. Actual full router still lacks async_hooks on basic JSC.",
+    "jsc_router": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-middleware.mjs"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 4592,
+        "memory_limit_mb": 3072,
+        "seconds": 0.075,
+        "log": "after-router-jsc.log"
+      },
+      "log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/after-router-jsc.log",
+        "sha256": "32ea487559c0dcee99cb7d91f4af941c5b53800bbe18853e9b37f5f829db5e7d",
+        "content": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/router-middleware.mjs\"]\nhome-tool (jsc): Error: cannot resolve module async_hooks from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-0.1.24/package/dist/chunk-v4qcbjc3.js\n\nECOSYSTEM PEAK SAMPLED RSS: 4592 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      }
+    },
+    "lint": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bunx",
+        "--bun",
+        "pickier@0.1.91",
+        "packages/runtime/test/tool_modules/arrow_object_heads.mjs",
+        "packages/runtime/test/tool_modules/arrow_object_heads.mts"
+      ],
+      "exit_code": 0
+    }
+  },
+  "raw_logs": {
+    "build-zig-js.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/build-zig-js.log",
+      "sha256": "138942a460a09dc4b35e4cda609c987a0d7835328baea2fda37b94144dd4b325"
+    },
+    "build-jsc.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/build-jsc.log",
+      "sha256": "e57f0d20cbfac8f474a46390664cb478976c14cc340f3f4b2205599d97d68de8"
+    },
+    "native-ts-emit.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/native-ts-emit.log",
+      "sha256": "dfb338f1ef99c2f56ac702e548bcb62a0edd84ae40e76df678bae720c896f141"
+    },
+    "native-ts-emit-initial-filter.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/native-ts-emit-initial-filter.log",
+      "sha256": "927ed6e825a56718cce7d8003269647c2735b178b22152085651f6b9cdb9f01a"
+    },
+    "pickier.log": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/pickier.log",
+      "sha256": "d0f30d3fcce592e767e9b728168294da87df981f9d1d10df7318fd0360e089f2"
+    }
+  },
+  "promotion_status": "Caller remains on validated8755eaf. New Home reference requires fresh immutable source validation, actual Linux24arrow checks and maintained mock/Windows/DNS/native execution markers, official artifact ZIP digest/file provenance and both actual priority provenance/CPU preflights. No Root engine source or test262 claim changes."
+}
