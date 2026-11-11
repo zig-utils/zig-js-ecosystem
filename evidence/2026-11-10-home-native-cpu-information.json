@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "home_ref": "69ffc116a6a65a3f487a950b6b8eea866a0f1edf",
+  "engine_sha": "60fdd42fe6713a2703fcc426c9d571dbf9a64852",
+  "engine_archive_sha256": "53c494d6dbe364a464131b42584cb341eb252fd30578d0c646eb64139041235c",
+  "source_sha256": {
+    "build.zig": "3344dc16f92e70ad1a71a81bae6b028ac2e8640d2e28699527b196ebf869c78b",
+    "packages/runtime/src/jsc/tool_builtins.js": "ae608f377d1492a31436a40555ca09125b5d9d703923413bdb11f6558f7d8227",
+    "packages/runtime/src/jsc/tool_os.zig": "3ec78a56d2a19d59a494464c51b4606407fe4539b820bd1f8483e905dbcf1284",
+    "packages/runtime/src/jsc/tool_cpu_info.zig": "6cc7756b8cdf402c0f00f9bb0d7a3a6cb44e30e01018458488a33ad3ab10ea54",
+    "packages/runtime/src/jsc/tool_cpu_info_linux_test.zig": "da9f14a828a2bfe992ad71e1d3f166b84b12fafc79a23e8f36dd849dd6ab9851",
+    "packages/runtime/test/tool_cpu_info_fixture.py": "20721180662a313396213bec02369d963e248b734a384b2c0e87f37fddf279ad",
+    "packages/runtime/test/tool_modules/node_cpu_information.mjs": "eb706c547086f43f8b9a6061837ffec19e44328087705fe9787aed97ae063e38"
+  },
+  "before": {
+    "node": {
+      "command": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cpu-info/cpus-before.mjs"
+      ],
+      "exit_code": 0,
+      "log": "node-before.log",
+      "log_sha256": "1eecf732a560a4f101d4e85883e17fc813b54a938af266ca22c23e888355aa83",
+      "native_processors": 11
+    },
+    "home-zig-js": {
+      "command": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-constructor/dotted-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cpu-info/cpus-before.mjs"
+      ],
+      "exit_code": 1,
+      "log": "home-zig-js-before.log",
+      "log_sha256": "3374e0adcf591c8b67402f6f0a73de811e2cfac2178d6b477e09c5c4ebc298c7"
+    }
+  },
+  "native_host": {
+    "zig-js": {
+      "binary_sha256": "2242e01bb837e278bfe7d0a54e0755a9b4a46c1062248e4c8da65eb41e9877c9",
+      "cpu_records": 11,
+      "reported_speeds": [
+        0
+      ],
+      "contract_log_sha256": "7835f2f59fc64e906fc21f3d9f16b5384d856890de9ccc1699b8593a8d86f40a",
+      "independent_host_log": "NODE CPU INFORMATION 14 CHECKS OK\nNATIVE CPU SNAPSHOT MATCHES HOST\n",
+      "independent_host_log_sha256": "a5c63c2b28d11ada57cbc5fe5a4699c3f9015af9bfccfe67b6201a0bea10f343"
+    },
+    "jsc": {
+      "binary_sha256": "6135f76c949b7ce07a08f7e1c94afc9449c3b1fec554518799be9a06ee43d143",
+      "cpu_records": 11,
+      "reported_speeds": [
+        0
+      ],
+      "contract_log_sha256": "39b15ac8eb6f071d590477eccc12a9d648219cefeef8394ccc31e87897ad44cc",
+      "independent_host_log": "NODE CPU INFORMATION 14 CHECKS OK\nNATIVE CPU SNAPSHOT MATCHES HOST\n",
+      "independent_host_log_sha256": "a5c63c2b28d11ada57cbc5fe5a4699c3f9015af9bfccfe67b6201a0bea10f343"
+    }
+  },
+  "gates": {
+    "zig-js": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1012576,
+      "memory_limit_mb": 3072,
+      "seconds": 63.387,
+      "log": "home-gates-zig-js.log"
+    },
+    "jsc": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1122016,
+      "memory_limit_mb": 3072,
+      "seconds": 47.465,
+      "log": "home-gates-jsc.log"
+    }
+  },
+  "initial_compile_failure": {
+    "status": "failed",
+    "exit_code": 1,
+    "peak_sampled_rss_kib": 499776,
+    "memory_limit_mb": 3072,
+    "seconds": 10.872,
+    "log": "home-gates-zig-js.log"
+  },
+  "linux_compile_only": {
+    "command": "zig test -target x86_64-linux-gnu -fno-emit-bin packages/runtime/src/jsc/tool_cpu_info_linux_test.zig -lc",
+    "exit_code": 0,
+    "native_execution": "pending immutable suite qualification, not a Linux pass"
+  },
+  "next_after": {
+    "result": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 81904,
+      "memory_limit_mb": 3072,
+      "seconds": 0.533,
+      "log": "next-after.log"
+    },
+    "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cpu-info/home-zig-js/bin/home-tool\", \"run\", \"node_modules/next/dist/bin/next\", \"build\"]\nhome-tool (zig-js): Error: cannot resolve module http from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-constructor/consumer-after/packages/runtime/upstream/bench/install/node_modules/next/dist/server/setup-http-agent-env.js\n\nECOSYSTEM PEAK SAMPLED RSS: 81904 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+  },
+  "next_before": {
+    "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/module-constructor/dotted-zig-js/bin/home-tool\", \"run\", \"node_modules/next/dist/bin/next\", \"build\"]\nhome-tool (zig-js): TypeError: _os.default.cpus is not a function. (In '_os.default.cpus()', '_os.default.cpus' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 56416 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+  },
+  "oracle_contracts": {
+    "node": {
+      "contract_checks": 14,
+      "cpu_records": 11,
+      "reported_speeds": [
+        2400
+      ],
+      "log_sha256": "986563c45e96ad805895e38f5f0109e95da03a4119faf7b3840dc317c3952488",
+      "difference": "Node/Bun report a synthetic 2400 MHz on this Apple Silicon host; Home and native sysctl report unavailable 0. No byte-identical metadata claim."
+    },
+    "bun": {
+      "contract_checks": 14,
+      "cpu_records": 11,
+      "reported_speeds": [
+        2400
+      ],
+      "log_sha256": "96242e2b0e9974bd9f99a48664e967d6d48d19dad7246fc51311cafc89ff26ed",
+      "difference": "Node/Bun report a synthetic 2400 MHz on this Apple Silicon host; Home and native sysctl report unavailable 0. No byte-identical metadata claim."
+    }
+  },
+  "scope": "Per-processor records and counters are native, never manufactured from process parallelism. All snapshot storage is owned per call; Darwin Mach mappings/host rights are released. Missing frequency metadata remains 0; Linux missing model metadata is unknown. No HTTP/network API stub, scheduler, native Bun fallback or limit change. Actual Next remains failed, and full selected consumer outcomes require new CI reports.",
+  "gate_summaries": {
+    "zig-js": "Build Summary: 207/207 steps succeeded",
+    "jsc": "Build Summary: 184/184 steps succeeded"
+  },
+  "suite_validation": {
+    "suite-python.log": {
+      "sha256": "47b6b5cd39ebc422090f750edd2b4725a19601c4256dbc9e04956595714609f3",
+      "tail": [
+        "ECOSYSTEM UNSUPPORTED: bun install requires a host API absent from Home's repository-tool runtime",
+        "ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 45 tests in 3.560s",
+        "",
+        "OK"
+      ]
+    },
+    "suite-dependencies.log": {
+      "sha256": "f88b8874f81af6bde0188558424bf550e54336520f3882dee018ec1dc08cb023",
+      "tail": [
+        "(pass) excluded members and outside-checkout symlinks do not satisfy workspace references [5.22ms]",
+        "(pass) independent apps still perform real installs with lifecycle scripts disabled [21.95ms]",
+        "",
+        " 7 pass",
+        " 0 fail",
+        " 26 expect() calls",
+        "Ran 7 tests across 1 file. [372.00ms]"
+      ]
+    }
+  }
+}
