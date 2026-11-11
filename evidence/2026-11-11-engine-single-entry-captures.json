@@ -1,0 +1,742 @@
+{
+  "schema_version": 1,
+  "published": {
+    "zig-js": {
+      "commit": "34082328bb28d7ddf306d1c0fd160bcde8f7f762",
+      "url": "https://github.com/zig-utils/zig-js/commit/34082328bb28d7ddf306d1c0fd160bcde8f7f762",
+      "configured_identity": {
+        "name": "Chris",
+        "email": "chrisbreuer93@gmail.com"
+      },
+      "published_author_matches": true
+    },
+    "zig-regex": {
+      "commit": "8894d4432edefed00de38f82b1901f3179128688",
+      "url": "https://github.com/zig-utils/zig-regex/commit/8894d4432edefed00de38f82b1901f3179128688",
+      "configured_identity": {
+        "name": "Chris",
+        "email": "chrisbreuer93@gmail.com"
+      },
+      "published_author_matches": true
+    }
+  },
+  "before_engine_head": "0001033cf92285a5a526c3cc237c098a37185c1d",
+  "before_engine_production_source": "60fdd42fe6713a2703fcc426c9d571dbf9a64852",
+  "before_regex": "732424d1c38197501d9e64c5d4c1dbe7d1a97742",
+  "home_ref": "5b89a1a88e405f2711e50661aa99e78e0732862b",
+  "production_dependency": {
+    "url": "https://codeload.github.com/zig-utils/zig-regex/tar.gz/8894d4432edefed00de38f82b1901f3179128688",
+    "compiler_hash": "zig_regex-0.2.1-omky0VYBHABmcjimyKmrLL4IwrVs3COmlNptgdP3WV95",
+    "source_sha256": {
+      "src/regex.zig": "3fe137846a06163ac8823f0b2998a01295114a9469b08df1714c779107cb12ff",
+      "src/utf8_class.zig": "fd2e04cf70c1a65f9c6c69946493e522e9903d99c41921eb708f178f0beb3a09",
+      "src/testdata/single_entry_captures.json": "41f3d7c68865676a85ccae80feae2c3a032c057d83f7f02f17279f5fcaac8c06"
+    }
+  },
+  "engine_source_sha256": {
+    "build.zig.zon": "964bd56b39ece2c35b7cd6c08e9cbf7b5f2858baa31c84aa8e7989378cc0caff",
+    "tools/focused_engine_tests.zig": "f8f8faa42fd8ef8ff64779ab75ca5fb0e59aaa87cc41738648b3103da8059fad",
+    "tools/regexp_single_entry_probe.js": "1708f765e78b833db15416cae4be51645d34d20984cb2bd0cf24ae219db00098"
+  },
+  "native_tests": {
+    "file": "regex-all-after.log",
+    "sha256": "1cb03e57e2cb3bb390af1410c11cedabea7a113e5af35c4cbaa51ebf43c56cfb",
+    "text": "1/205 root.test_0...OK\n2/205 regex.test.compile empty pattern...OK\n3/205 regex.test.compile basic pattern...OK\n4/205 regex.test.match literal...OK\n5/205 regex.test.find literal...OK\n6/205 regex.test.alternation...OK\n7/205 regex.test.star quantifier...OK\n8/205 regex.test.plus quantifier...OK\n9/205 regex.test.optional quantifier...OK\n10/205 regex.test.dot wildcard...OK\n11/205 regex.test.character class \\d...OK\n12/205 regex.test.replace...OK\n13/205 regex.test.replace all...OK\n14/205 regex.test.split...OK\n15/205 regex.test.compile rejects dangerous nested quantifiers...OK\n16/205 regex.test.compile rejects nested stars...OK\n17/205 regex.test.compile accepts safe complex patterns...OK\n18/205 regex.test.out-of-order ASCII character-class range is rejected...OK\n19/205 regex.test.compile diagnostic preserves ECMAScript failure reasons...OK\n20/205 regex.test.unicode surrogate escapes compile to WTF-8 code units...OK\n21/205 regex.test.unicode dot consumes WTF-8 surrogate pairs atomically...OK\n22/205 regex.test.unicode shorthand classes consume code points atomically...OK\n23/205 regex.test.anchored unicode negated shorthand repeats without recursive stack growth...OK\n24/205 regex.test.annex b quantified lookahead remains zero-width...OK\n25/205 regex.test.empty capture backreference repeats remain matchable...OK\n26/205 regex.test.findFrom uses repeated atom fast paths after nonzero start...OK\n27/205 regex.test.matcher findFrom reuses VM scratch and preserves absolute context...OK\n28/205 regex.test.matcher scratch survives recycling the match-result allocator...OK\n29/205 regex.test.capture spans give per-group byte offsets...OK\n30/205 regex.test.capture spans: an unmatched optional group is marked absent...OK\n31/205 regex.test.variable-length lookbehind explores backtracking (constrained match)...OK\n32/205 regex.test.regex compilation is exhaustive-allocation-failure safe...OK\n33/205 regex.test.named capture compilation rolls back every allocation failure...OK\n34/205 regex.test.nested class-set compilation rolls back every allocation failure...OK\n35/205 regex.test.ECMAScript multiline anchors treat CR, U+2028 and U+2029 as line terminators...OK\n36/205 regex.test.non-ECMAScript multiline anchors keep the LF-only rule...OK\n37/205 regex.test.ECMAScript captures and match ends are leftmost-first...OK\n38/205 regex.test.ECMAScript bounded backtracking repeats retain the last accepted captures...OK\n39/205 regex.test.ECMAScript patterns bound for linear engines are not refused as ReDoS risks...OK\n40/205 regex.test.ECMAScript reports JavaScriptCore's reason for assertion and group-start defects...OK\n41/205 regex.test.ECMAScript capture-free ordered quantifiers use the NFA...OK\n42/205 regex.test.ECMAScript capture-free ordered dispatch preserves backtracking guards...OK\n43/205 regex.test.ECMAScript literal assertions retain ordered spans and a spanning capture...OK\n44/205 regex.test.ECMAScript literal assertions preserve searches and dispatch limits...OK\n45/205 regex.test.compile BCP47 grammar with captured separator choices...OK\n46/205 regex.test.ECMAScript single-entry captures preserve actual Svelte ordered matches...OK\n47/205 regex.test.single-entry capture dispatch preserves backtracking and size guards...OK\n48/205 regex.test.single-entry lazy capture retains its empty participating group...OK\n49/205 errors.test.error context formatting...OK\n50/205 errors.test.error helper functions...OK\n51/205 profiling.test.profiler basic operations...OK\n52/205 profiling.test.scoped timer...OK\n53/205 thread_safety.test.thread safety documentation...OK\n54/205 builder.test.builder basic usage...OK\n55/205 builder.test.builder with quantifiers...OK\n56/205 builder.test.escape literal...OK\n57/205 builder.test.composer alternatives...OK\n58/205 lint.test.lint catastrophic backtracking...OK\n59/205 lint.test.complexity analyzer...OK\n60/205 macros.test.macros: basic define and expand...OK\n61/205 macros.test.macros: nested expansion...OK\n62/205 macros.test.macros: common macros...OK\n63/205 macros.test.macros: undefined macro error...OK\n64/205 macros.test.macros: redefine existing...OK\n65/205 ast_optimizer.test.ast optimizer: constant folding...OK\n66/205 ast_optimizer.test.ast optimizer: simplify quantifiers...OK\n67/205 ast_optimizer.test.ast optimizer: remove redundant...OK\n68/205 pretty_print.test.pretty print: tree format...OK\n69/205 pretty_print.test.pretty print: sexpr format...OK\n70/205 pretty_print.test.pretty print: compact format...OK\n71/205 pretty_print.test.AST stats...OK\n72/205 nfa_optimizer.test.nfa_optimizer: remove redundant epsilons...OK\n73/205 nfa_optimizer.test.nfa_optimizer: optimize transitions...OK\n74/205 nfa_optimizer.test.nfa_optimizer: visualizer stats...OK\n75/205 named_captures.test.named_captures: register and lookup...OK\n76/205 named_captures.test.named_captures: duplicate registration...OK\n77/205 named_captures.test.named_captures: NamedMatch get capture...OK\n78/205 named_captures.test.named_captures: empty name...OK\n79/205 named_captures.test.named_captures: special characters in names...OK\n80/205 named_captures.test.named_captures: many captures...OK\n81/205 named_captures.test.named_captures: NamedMatch without registry...OK\n82/205 named_captures.test.named_captures: boundary cases for indices...OK\n83/205 named_captures.test.named_captures: case sensitivity...OK\n84/205 named_captures.test.named_captures: long names...OK\n85/205 named_captures.test.named_captures: hasCapture convenience method...OK\n86/205 named_captures.test.named_captures: stress test - register and lookup 1000 captures...OK\n87/205 named_captures.test.named_captures: memory stress - repeated register/deinit cycles...OK\n88/205 named_captures.test.named_captures: interleaved operations...OK\n89/205 named_captures.test.named_captures: NamedMatch with empty captures array...OK\n90/205 named_captures.test.named_captures: multiple NamedMatch instances with same registry...OK\n91/205 named_captures.test.named_captures: getCaptureByIndex edge cases...OK\n92/205 named_captures.test.named_captures: registration collision - same name multiple times...OK\n93/205 named_captures.test.named_captures: getName with invalid index...OK\n94/205 named_captures.test.named_captures: names with similar prefixes...OK\n95/205 unicode.test.UTF-8 decoding...OK\n96/205 unicode.test.UTF-8 encoding...OK\n97/205 unicode.test.Unicode categories...OK\n98/205 unicode.test.Unicode property matching...OK\n99/205 unicode.test.unicode: invalid UTF-8 sequences...OK\n100/205 unicode.test.unicode: encode buffer too small...OK\n101/205 unicode.test.unicode: invalid codepoints...OK\n102/205 unicode.test.unicode: boundary codepoints...OK\n103/205 unicode.test.unicode: round-trip encoding/decoding...OK\n104/205 unicode.test.unicode: category boundary cases...OK\n105/205 unicode.test.unicode: property matching edge cases...OK\n106/205 unicode.test.unicode: whitespace variations...OK\n107/205 unicode.test.unicode: alphanumeric edge cases...OK\n108/205 unicode.test.unicode: property fromString edge cases...OK\n109/205 unicode.test.unicode: CJK and extended ranges...OK\n110/205 unicode.test.unicode: stress test - encode/decode 10000 random codepoints...OK\n111/205 unicode.test.unicode: all ASCII characters encode/decode correctly...OK\n112/205 unicode.test.unicode: consecutive invalid UTF-8 bytes...OK\n113/205 unicode.test.unicode: overlong encoding rejection...OK\n114/205 unicode.test.unicode: surrogate pair rejection...OK\n115/205 unicode.test.unicode: category consistency across ranges...OK\n116/205 unicode.test.unicode: property matching consistency...OK\n117/205 unicode.test.unicode: encode to exact size buffers...OK\n118/205 unicode.test.unicode: byte sequence length for all UTF-8 lead bytes...OK\n119/205 unicode.test.unicode: whitespace categorization comprehensive...OK\n120/205 unicode.test.unicode: zero codepoint handling...OK\n121/205 advanced_features.test.atomic group creation...OK\n122/205 advanced_features.test.conditional node with group number...OK\n123/205 advanced_features.test.advanced_features: conditional with null no_branch...OK\n124/205 advanced_features.test.advanced_features: conditional with group name...OK\n125/205 advanced_features.test.advanced_features: conditional with assertion...OK\n126/205 advanced_features.test.advanced_features: nested atomic groups...OK\n127/205 advanced_features.test.advanced_features: condition type discriminated union...OK\n128/205 advanced_features.test.advanced_features: possessive quantifier types...OK\n129/205 advanced_features.test.advanced_features: possessive fromGreedy returns null...OK\n130/205 advanced_features.test.advanced_features: conditional with group number zero...OK\n131/205 advanced_features.test.advanced_features: conditional with large group number...OK\n132/205 advanced_features.test.advanced_features: conditional with empty group name...OK\n133/205 advanced_features.test.advanced_features: advanced node type enum...OK\n134/205 advanced_features.test.advanced_features: stress test - create 1000 atomic groups...OK\n135/205 advanced_features.test.advanced_features: stress test - create 1000 conditional nodes...OK\n136/205 advanced_features.test.advanced_features: deeply nested atomic groups...OK\n137/205 advanced_features.test.advanced_features: conditional with all condition types...OK\n138/205 advanced_features.test.advanced_features: complex conditional tree...OK\n139/205 advanced_features.test.advanced_features: memory stress - repeated atomic group creation...OK\n140/205 advanced_features.test.advanced_features: all possessive quantifier variants...OK\n141/205 advanced_features.test.advanced_features: condition type switching...OK\n142/205 advanced_features.test.advanced_features: atomic group with different child types...OK\n143/205 advanced_features.test.advanced_features: conditional branches equality...OK\n144/205 pattern_analyzer.test.analyzer: safe pattern...OK\n145/205 pattern_analyzer.test.analyzer: nested quantifiers (a+)+...OK\n146/205 pattern_analyzer.test.analyzer: nested stars (a*)*...OK\n147/205 pattern_analyzer.test.analyzer: ambiguous alternation (a|a)*...OK\n148/205 pattern_analyzer.test.analyzer: backreference...OK\n149/205 pattern_analyzer.test.analyzer: validation rejects critical risk...OK\n150/205 pattern_analyzer.test.analyzer: validation accepts safe pattern...OK\n151/205 pattern_analyzer.test.analyzer: complex URL pattern - part...OK\n152/205 pattern_analyzer.test.analyzer: bounded outer optional with inner quantifier is not critical (#3)...OK\n153/205 pattern_analyzer.test.analyzer: full URL pattern...OK\n154/205 pattern_analyzer.test.analyzer: class-set delimited quantifier prefix is not critical...OK\n155/205 pattern_analyzer.test.analyzer: unicode-property delimited quantifier is not critical...OK\n156/205 pattern_analyzer.test.analyzer: disjoint literal separator choices match character-class prefixes...OK\n157/205 ast.test.create literal node...OK\n158/205 ast.test.create concat node...OK\n159/205 ast.test.create star node...OK\n160/205 ast.test.repeat bounds...OK\n161/205 ast.test.canonicalizeKey follows ECMAScript Canonicalize with and without u...OK\n162/205 c_api.test.C API header generation...OK\n163/205 common.test.char range contains...OK\n164/205 common.test.char class matches...OK\n165/205 common.test.word char class...OK\n166/205 common.test.whitespace char class...OK\n167/205 parser.test.lexer basic tokens...OK\n168/205 parser.test.lexer escape sequences...OK\n169/205 parser.test.parser simple literal...OK\n170/205 parser.test.parser alternation...OK\n171/205 parser.test.parser star...OK\n172/205 parser.test.parser group...OK\n173/205 parser.test.parser: nesting depth limit...OK\n174/205 parser.test.parser: acceptable nesting depth...OK\n175/205 parser.test.parser tree ownership is exhaustive-allocation-failure safe...OK\n176/205 compiler.test.compile literal...OK\n177/205 compiler.test.compile concatenation...OK\n178/205 compiler.test.compile alternation...OK\n179/205 compiler.test.compile star...OK\n180/205 compiler.test.compiler: repeat expansion limit...OK\n181/205 compiler.test.compiler: acceptable repeat expansion...OK\n182/205 compiler.test.compiler: literal predicates retain compact transitions and free failed allocations...OK\n183/205 utf8_class.test.utf8 sequences cover ascii and multibyte ranges exactly...OK\n184/205 utf8_class.test.complement preserves surrogates and excludes the positive set...OK\n185/205 utf8_class.test.surrogate ranges lower to wtf8 byte sequences...OK\n186/205 utf8_class.test.ranges merge and normalize...OK\n187/205 utf8_class.test.nested complements are unioned after complement and remain allocation safe...OK\n188/205 optimizer.test.optimizer: literal prefix extraction...OK\n189/205 optimizer.test.optimizer: anchored detection...OK\n190/205 optimizer.test.optimizer: min/max length calculation...OK\n191/205 optimizer.test.optimizer analysis ownership is exhaustive-allocation-failure safe...OK\n192/205 reverse.test.reverse NFA: recognizes reversed language (whole-string)...OK\n193/205 reverse.test.reverse NFA: longest match from end locates the start...OK\n194/205 reverse.test.reverse DFA construction refuses literal assertion predicates...OK\n195/205 backtrack.test.backtrack: lazy continuation retires unreachable scan state...OK\n196/205 backtrack.test.backtrack: continuation pool preserves shared tails while recycling dead heads...OK\n197/205 backtrack.test.backtrack: pooled continuations propagate every allocation failure...OK\n198/205 backtrack.test.backtrack: ReDoS protection - nested quantifiers (a+)+b...OK\n199/205 backtrack.test.backtrack: ReDoS protection - nested stars (a*)*b...OK\n200/205 backtrack.test.backtrack: ReDoS protection - ambiguous alternation (a|a)*b...OK\n201/205 backtrack.test.backtrack: configurable step limit...OK\n202/205 backtrack.test.backtrack: step counter increments...OK\n203/205 onepass.test.onepass: differential vs NFA across patterns/inputs/positions...OK\n204/205 vm.test.vm match literal...OK\n205/205 vm.test.vm find in string...OK\nAll 205 tests passed.\n"
+  },
+  "initial_native_structural_expectation_failure": {
+    "file": "regex-initial-structural-guard-failure.log",
+    "sha256": "f45db6a0b1b939bbaff972a54cce84d1462cb5c809dd9fbcdeec74f09c159b5b",
+    "text": "1/203 root.test_0...OK\n2/203 regex.test.compile empty pattern...OK\n3/203 regex.test.compile basic pattern...OK\n4/203 regex.test.match literal...OK\n5/203 regex.test.find literal...OK\n6/203 regex.test.alternation...OK\n7/203 regex.test.star quantifier...OK\n8/203 regex.test.plus quantifier...OK\n9/203 regex.test.optional quantifier...OK\n10/203 regex.test.dot wildcard...OK\n11/203 regex.test.character class \\d...OK\n12/203 regex.test.replace...OK\n13/203 regex.test.replace all...OK\n14/203 regex.test.split...OK\n15/203 regex.test.compile rejects dangerous nested quantifiers...OK\n16/203 regex.test.compile rejects nested stars...OK\n17/203 regex.test.compile accepts safe complex patterns...OK\n18/203 regex.test.out-of-order ASCII character-class range is rejected...OK\n19/203 regex.test.compile diagnostic preserves ECMAScript failure reasons...OK\n20/203 regex.test.unicode surrogate escapes compile to WTF-8 code units...OK\n21/203 regex.test.unicode dot consumes WTF-8 surrogate pairs atomically...OK\n22/203 regex.test.unicode shorthand classes consume code points atomically...OK\n23/203 regex.test.anchored unicode negated shorthand repeats without recursive stack growth...OK\n24/203 regex.test.annex b quantified lookahead remains zero-width...OK\n25/203 regex.test.empty capture backreference repeats remain matchable...OK\n26/203 regex.test.findFrom uses repeated atom fast paths after nonzero start...OK\n27/203 regex.test.matcher findFrom reuses VM scratch and preserves absolute context...OK\n28/203 regex.test.matcher scratch survives recycling the match-result allocator...OK\n29/203 regex.test.capture spans give per-group byte offsets...OK\n30/203 regex.test.capture spans: an unmatched optional group is marked absent...OK\n31/203 regex.test.variable-length lookbehind explores backtracking (constrained match)...OK\n32/203 regex.test.regex compilation is exhaustive-allocation-failure safe...OK\n33/203 regex.test.named capture compilation rolls back every allocation failure...OK\n34/203 regex.test.nested class-set compilation rolls back every allocation failure...OK\n35/203 regex.test.ECMAScript multiline anchors treat CR, U+2028 and U+2029 as line terminators...OK\n36/203 regex.test.non-ECMAScript multiline anchors keep the LF-only rule...OK\n37/203 regex.test.ECMAScript captures and match ends are leftmost-first...OK\n38/203 regex.test.ECMAScript bounded backtracking repeats retain the last accepted captures...OK\n39/203 regex.test.ECMAScript patterns bound for linear engines are not refused as ReDoS risks...OK\n40/203 regex.test.ECMAScript reports JavaScriptCore's reason for assertion and group-start defects...OK\n41/203 regex.test.ECMAScript capture-free ordered quantifiers use the NFA...OK\n42/203 regex.test.ECMAScript capture-free ordered dispatch preserves backtracking guards...expected .backtracking, found .thompson_nfa\nFAIL (TestExpectedEqual)\n43/203 regex.test.ECMAScript literal assertions retain ordered spans and a spanning capture...OK\n44/203 regex.test.ECMAScript literal assertions preserve searches and dispatch limits...OK\n45/203 regex.test.compile BCP47 grammar with captured separator choices...OK\n46/203 regex.test.ECMAScript single-entry captures preserve actual Svelte ordered matches...OK\n47/203 regex.test.single-entry capture dispatch preserves backtracking and size guards...OK\n48/203 errors.test.error context formatting...OK\n49/203 errors.test.error helper functions...OK\n50/203 profiling.test.profiler basic operations...OK\n51/203 profiling.test.scoped timer...OK\n52/203 thread_safety.test.thread safety documentation...OK\n53/203 builder.test.builder basic usage...OK\n54/203 builder.test.builder with quantifiers...OK\n55/203 builder.test.escape literal...OK\n56/203 builder.test.composer alternatives...OK\n57/203 lint.test.lint catastrophic backtracking...OK\n58/203 lint.test.complexity analyzer...OK\n59/203 macros.test.macros: basic define and expand...OK\n60/203 macros.test.macros: nested expansion...OK\n61/203 macros.test.macros: common macros...OK\n62/203 macros.test.macros: undefined macro error...OK\n63/203 macros.test.macros: redefine existing...OK\n64/203 ast_optimizer.test.ast optimizer: constant folding...OK\n65/203 ast_optimizer.test.ast optimizer: simplify quantifiers...OK\n66/203 ast_optimizer.test.ast optimizer: remove redundant...OK\n67/203 pretty_print.test.pretty print: tree format...OK\n68/203 pretty_print.test.pretty print: sexpr format...OK\n69/203 pretty_print.test.pretty print: compact format...OK\n70/203 pretty_print.test.AST stats...OK\n71/203 nfa_optimizer.test.nfa_optimizer: remove redundant epsilons...OK\n72/203 nfa_optimizer.test.nfa_optimizer: optimize transitions...OK\n73/203 nfa_optimizer.test.nfa_optimizer: visualizer stats...OK\n74/203 named_captures.test.named_captures: register and lookup...OK\n75/203 named_captures.test.named_captures: duplicate registration...OK\n76/203 named_captures.test.named_captures: NamedMatch get capture...OK\n77/203 named_captures.test.named_captures: empty name...OK\n78/203 named_captures.test.named_captures: special characters in names...OK\n79/203 named_captures.test.named_captures: many captures...OK\n80/203 named_captures.test.named_captures: NamedMatch without registry...OK\n81/203 named_captures.test.named_captures: boundary cases for indices...OK\n82/203 named_captures.test.named_captures: case sensitivity...OK\n83/203 named_captures.test.named_captures: long names...OK\n84/203 named_captures.test.named_captures: hasCapture convenience method...OK\n85/203 named_captures.test.named_captures: stress test - register and lookup 1000 captures...OK\n86/203 named_captures.test.named_captures: memory stress - repeated register/deinit cycles...OK\n87/203 named_captures.test.named_captures: interleaved operations...OK\n88/203 named_captures.test.named_captures: NamedMatch with empty captures array...OK\n89/203 named_captures.test.named_captures: multiple NamedMatch instances with same registry...OK\n90/203 named_captures.test.named_captures: getCaptureByIndex edge cases...OK\n91/203 named_captures.test.named_captures: registration collision - same name multiple times...OK\n92/203 named_captures.test.named_captures: getName with invalid index...OK\n93/203 named_captures.test.named_captures: names with similar prefixes...OK\n94/203 unicode.test.UTF-8 decoding...OK\n95/203 unicode.test.UTF-8 encoding...OK\n96/203 unicode.test.Unicode categories...OK\n97/203 unicode.test.Unicode property matching...OK\n98/203 unicode.test.unicode: invalid UTF-8 sequences...OK\n99/203 unicode.test.unicode: encode buffer too small...OK\n100/203 unicode.test.unicode: invalid codepoints...OK\n101/203 unicode.test.unicode: boundary codepoints...OK\n102/203 unicode.test.unicode: round-trip encoding/decoding...OK\n103/203 unicode.test.unicode: category boundary cases...OK\n104/203 unicode.test.unicode: property matching edge cases...OK\n105/203 unicode.test.unicode: whitespace variations...OK\n106/203 unicode.test.unicode: alphanumeric edge cases...OK\n107/203 unicode.test.unicode: property fromString edge cases...OK\n108/203 unicode.test.unicode: CJK and extended ranges...OK\n109/203 unicode.test.unicode: stress test - encode/decode 10000 random codepoints...OK\n110/203 unicode.test.unicode: all ASCII characters encode/decode correctly...OK\n111/203 unicode.test.unicode: consecutive invalid UTF-8 bytes...OK\n112/203 unicode.test.unicode: overlong encoding rejection...OK\n113/203 unicode.test.unicode: surrogate pair rejection...OK\n114/203 unicode.test.unicode: category consistency across ranges...OK\n115/203 unicode.test.unicode: property matching consistency...OK\n116/203 unicode.test.unicode: encode to exact size buffers...OK\n117/203 unicode.test.unicode: byte sequence length for all UTF-8 lead bytes...OK\n118/203 unicode.test.unicode: whitespace categorization comprehensive...OK\n119/203 unicode.test.unicode: zero codepoint handling...OK\n120/203 advanced_features.test.atomic group creation...OK\n121/203 advanced_features.test.conditional node with group number...OK\n122/203 advanced_features.test.advanced_features: conditional with null no_branch...OK\n123/203 advanced_features.test.advanced_features: conditional with group name...OK\n124/203 advanced_features.test.advanced_features: conditional with assertion...OK\n125/203 advanced_features.test.advanced_features: nested atomic groups...OK\n126/203 advanced_features.test.advanced_features: condition type discriminated union...OK\n127/203 advanced_features.test.advanced_features: possessive quantifier types...OK\n128/203 advanced_features.test.advanced_features: possessive fromGreedy returns null...OK\n129/203 advanced_features.test.advanced_features: conditional with group number zero...OK\n130/203 advanced_features.test.advanced_features: conditional with large group number...OK\n131/203 advanced_features.test.advanced_features: conditional with empty group name...OK\n132/203 advanced_features.test.advanced_features: advanced node type enum...OK\n133/203 advanced_features.test.advanced_features: stress test - create 1000 atomic groups...OK\n134/203 advanced_features.test.advanced_features: stress test - create 1000 conditional nodes...OK\n135/203 advanced_features.test.advanced_features: deeply nested atomic groups...OK\n136/203 advanced_features.test.advanced_features: conditional with all condition types...OK\n137/203 advanced_features.test.advanced_features: complex conditional tree...OK\n138/203 advanced_features.test.advanced_features: memory stress - repeated atomic group creation...OK\n139/203 advanced_features.test.advanced_features: all possessive quantifier variants...OK\n140/203 advanced_features.test.advanced_features: condition type switching...OK\n141/203 advanced_features.test.advanced_features: atomic group with different child types...OK\n142/203 advanced_features.test.advanced_features: conditional branches equality...OK\n143/203 pattern_analyzer.test.analyzer: safe pattern...OK\n144/203 pattern_analyzer.test.analyzer: nested quantifiers (a+)+...OK\n145/203 pattern_analyzer.test.analyzer: nested stars (a*)*...OK\n146/203 pattern_analyzer.test.analyzer: ambiguous alternation (a|a)*...OK\n147/203 pattern_analyzer.test.analyzer: backreference...OK\n148/203 pattern_analyzer.test.analyzer: validation rejects critical risk...OK\n149/203 pattern_analyzer.test.analyzer: validation accepts safe pattern...OK\n150/203 pattern_analyzer.test.analyzer: complex URL pattern - part...OK\n151/203 pattern_analyzer.test.analyzer: bounded outer optional with inner quantifier is not critical (#3)...OK\n152/203 pattern_analyzer.test.analyzer: full URL pattern...OK\n153/203 pattern_analyzer.test.analyzer: class-set delimited quantifier prefix is not critical...OK\n154/203 pattern_analyzer.test.analyzer: unicode-property delimited quantifier is not critical...OK\n155/203 pattern_analyzer.test.analyzer: disjoint literal separator choices match character-class prefixes...OK\n156/203 ast.test.create literal node...OK\n157/203 ast.test.create concat node...OK\n158/203 ast.test.create star node...OK\n159/203 ast.test.repeat bounds...OK\n160/203 ast.test.canonicalizeKey follows ECMAScript Canonicalize with and without u...OK\n161/203 c_api.test.C API header generation...OK\n162/203 common.test.char range contains...OK\n163/203 common.test.char class matches...OK\n164/203 common.test.word char class...OK\n165/203 common.test.whitespace char class...OK\n166/203 parser.test.lexer basic tokens...OK\n167/203 parser.test.lexer escape sequences...OK\n168/203 parser.test.parser simple literal...OK\n169/203 parser.test.parser alternation...OK\n170/203 parser.test.parser star...OK\n171/203 parser.test.parser group...OK\n172/203 parser.test.parser: nesting depth limit...OK\n173/203 parser.test.parser: acceptable nesting depth...OK\n174/203 parser.test.parser tree ownership is exhaustive-allocation-failure safe...OK\n175/203 compiler.test.compile literal...OK\n176/203 compiler.test.compile concatenation...OK\n177/203 compiler.test.compile alternation...OK\n178/203 compiler.test.compile star...OK\n179/203 compiler.test.compiler: repeat expansion limit...OK\n180/203 compiler.test.compiler: acceptable repeat expansion...OK\n181/203 compiler.test.compiler: literal predicates retain compact transitions and free failed allocations...OK\n182/203 utf8_class.test.utf8 sequences cover ascii and multibyte ranges exactly...OK\n183/203 utf8_class.test.complement preserves surrogates and excludes the positive set...OK\n184/203 utf8_class.test.surrogate ranges lower to wtf8 byte sequences...OK\n185/203 utf8_class.test.ranges merge and normalize...OK\n186/203 optimizer.test.optimizer: literal prefix extraction...OK\n187/203 optimizer.test.optimizer: anchored detection...OK\n188/203 optimizer.test.optimizer: min/max length calculation...OK\n189/203 optimizer.test.optimizer analysis ownership is exhaustive-allocation-failure safe...OK\n190/203 reverse.test.reverse NFA: recognizes reversed language (whole-string)...OK\n191/203 reverse.test.reverse NFA: longest match from end locates the start...OK\n192/203 reverse.test.reverse DFA construction refuses literal assertion predicates...OK\n193/203 backtrack.test.backtrack: lazy continuation retires unreachable scan state...OK\n194/203 backtrack.test.backtrack: continuation pool preserves shared tails while recycling dead heads...OK\n195/203 backtrack.test.backtrack: pooled continuations propagate every allocation failure...OK\n196/203 backtrack.test.backtrack: ReDoS protection - nested quantifiers (a+)+b...OK\n197/203 backtrack.test.backtrack: ReDoS protection - nested stars (a*)*b...OK\n198/203 backtrack.test.backtrack: ReDoS protection - ambiguous alternation (a|a)*b...OK\n199/203 backtrack.test.backtrack: configurable step limit...OK\n200/203 backtrack.test.backtrack: step counter increments...OK\n201/203 onepass.test.onepass: differential vs NFA across patterns/inputs/positions...OK\n202/203 vm.test.vm match literal...OK\n203/203 vm.test.vm find in string...OK\n202 passed; 0 skipped; 1 failed.\nerror: the following test command failed with exit code 1:\n.zig-cache/o/c9646bb7ee2d02f17dc9097f6a22b81e/test --seed=0xdfc17a4c\n"
+  },
+  "native_dispatch": {
+    "compile-after-nested.log": {
+      "file": "compile-after-nested.log",
+      "sha256": "f863d64fa7d8ce7a4a22f0bcbe1e81e2cf25a57691d4e8bb094bd7253fa8bd50",
+      "text": "risk=critical factor=2250000 issues={ { 67, 82, 73, 84, 73, 67, 65, 76, 58, 32, 78, 101, 115, 116, 101, 100, 32, 113, 117, 97, 110, 116, 105, 102, 105, 101, 114, 115, 32, 100, 101, 116, 101, 99, 116, 101, 100, 32, 40, 113, 117, 97, 110, 116, 105, 102, 105, 101, 114, 32, 111, 110, 32, 101, 120, 112, 114, 101, 115, 115, 105, 111, 110, 32, 119, 105, 116, 104, 32, 113, 117, 97, 110, 116, 105, 102, 105, 101, 114, 115, 41 } }\nunicode=false ci=false compiled engine=thompson_nfa captures=2\nunicode=false ci=true compile error=PatternTooComplex diagnostic=null\nunicode=true ci=false compile error=PatternTooComplex diagnostic=null\nunicode=true ci=true compile error=PatternTooComplex diagnostic=null\n"
+    },
+    "compile-style-after.log": {
+      "file": "compile-style-after.log",
+      "sha256": "f863d64fa7d8ce7a4a22f0bcbe1e81e2cf25a57691d4e8bb094bd7253fa8bd50",
+      "text": "risk=critical factor=2250000 issues={ { 67, 82, 73, 84, 73, 67, 65, 76, 58, 32, 78, 101, 115, 116, 101, 100, 32, 113, 117, 97, 110, 116, 105, 102, 105, 101, 114, 115, 32, 100, 101, 116, 101, 99, 116, 101, 100, 32, 40, 113, 117, 97, 110, 116, 105, 102, 105, 101, 114, 32, 111, 110, 32, 101, 120, 112, 114, 101, 115, 115, 105, 111, 110, 32, 119, 105, 116, 104, 32, 113, 117, 97, 110, 116, 105, 102, 105, 101, 114, 115, 41 } }\nunicode=false ci=false compiled engine=thompson_nfa captures=2\nunicode=false ci=true compile error=PatternTooComplex diagnostic=null\nunicode=true ci=false compile error=PatternTooComplex diagnostic=null\nunicode=true ci=true compile error=PatternTooComplex diagnostic=null\n"
+    }
+  },
+  "frontend": {
+    "status": "passed",
+    "exit_code": 0,
+    "peak_sampled_rss_kib": 2328016,
+    "memory_limit_mb": 3072,
+    "seconds": 44.536,
+    "log": "after-engine-focused-build.log",
+    "transcript": {
+      "file": "after-engine-focused-build.log",
+      "sha256": "6af5852e1f5d3e87ea7cf2e1a77ede03e606782b908a3e6ddedd6a1b758bca8f",
+      "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"test262-bin\", \"test-frontend\", \"-j1\", \"--prefix\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svelte-regexp/engine-after\"]\nfocused engine frontend: 98 cases passed\n\nECOSYSTEM PEAK SAMPLED RSS: 2328016 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "reference_contract": {
+    "node": {
+      "file": "contract-node.log",
+      "sha256": "c682e5b8ffac1d1048cf91668d51c8944dc8968645cc3ae7ae81ae886ae76252",
+      "text": "SINGLE ENTRY CONTRACT 170\n"
+    },
+    "bun": {
+      "file": "contract-bun.log",
+      "sha256": "c682e5b8ffac1d1048cf91668d51c8944dc8968645cc3ae7ae81ae886ae76252",
+      "text": "SINGLE ENTRY CONTRACT 170\n"
+    }
+  },
+  "corpus": {
+    "before": {
+      "regexp-prototype": {
+        "subtree": "test/built-ins/RegExp/prototype",
+        "fail": 0,
+        "pass": 487,
+        "log_sha256": "41e5d7eb1bda87cdad54f8d1a21fa0b19e9ff3ce45907725e44bc0ecb3c1f785"
+      },
+      "string-prototype": {
+        "subtree": "test/built-ins/String/prototype",
+        "fail": 0,
+        "pass": 1073,
+        "log_sha256": "d36b0076d4289e5d5edd2605779b0a512129c223765c16d26f77e934a29c53fa"
+      },
+      "class-escapes": {
+        "subtree": "test/built-ins/RegExp/CharacterClassEscapes",
+        "fail": 0,
+        "pass": 12,
+        "log_sha256": "833cb19352eada57aa902194f2a61535a3984fdb2cac076bb6de15f60296401f"
+      },
+      "literals": {
+        "subtree": "test/language/literals/regexp",
+        "fail": 0,
+        "pass": 238,
+        "log_sha256": "23b742d8464f06a3e395ebbeee4375cfa08d903072ae584aa93550388716ff1a"
+      }
+    },
+    "after": {
+      "regexp-prototype": {
+        "subtree": "test/built-ins/RegExp/prototype",
+        "fail": 0,
+        "pass": 487,
+        "log_sha256": "79efec747218a172bbda721bf77c39292534f558a636206518f0c85e3fe204c1"
+      },
+      "string-prototype": {
+        "subtree": "test/built-ins/String/prototype",
+        "fail": 0,
+        "pass": 1073,
+        "log_sha256": "01c82a4c67c88ea24bc8bb467a10b652ca301fdb2cd101ba63166c74f81c0ca3"
+      },
+      "class-escapes": {
+        "subtree": "test/built-ins/RegExp/CharacterClassEscapes",
+        "fail": 0,
+        "pass": 12,
+        "log_sha256": "861d6210b0894236b5a3ef0207d3636debd0413a059ff18c8e904f54f6d5839c"
+      },
+      "literals": {
+        "subtree": "test/language/literals/regexp",
+        "fail": 0,
+        "pass": 238,
+        "log_sha256": "ed846242c4358529f9b004f8db268b4401e7676edca9afc90ea3071ae27f7373"
+      }
+    },
+    "scope": {
+      "cases_per_side": 1810,
+      "gains": 0,
+      "regressions": 0,
+      "flips": 0,
+      "full_corpus": false
+    }
+  },
+  "corpus_commands": {
+    "before": {
+      "regexp-prototype": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 55360,
+        "memory_limit_mb": 3072,
+        "seconds": 12.849,
+        "log": "before-regexp-prototype.log"
+      },
+      "string-prototype": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 120464,
+        "memory_limit_mb": 3072,
+        "seconds": 23.318,
+        "log": "before-string-prototype.log"
+      },
+      "class-escapes": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 578384,
+        "memory_limit_mb": 3072,
+        "seconds": 37.693,
+        "log": "before-class-escapes.log"
+      },
+      "literals": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 660864,
+        "memory_limit_mb": 3072,
+        "seconds": 255.581,
+        "log": "before-literals.log"
+      }
+    },
+    "after": {
+      "regexp-prototype": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 92448,
+        "memory_limit_mb": 3072,
+        "seconds": 12.371,
+        "log": "after-regexp-prototype.log"
+      },
+      "string-prototype": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 159120,
+        "memory_limit_mb": 3072,
+        "seconds": 24.109,
+        "log": "after-string-prototype.log"
+      },
+      "class-escapes": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 578288,
+        "memory_limit_mb": 3072,
+        "seconds": 38.676,
+        "log": "after-class-escapes.log"
+      },
+      "literals": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 698912,
+        "memory_limit_mb": 3072,
+        "seconds": 253.534,
+        "log": "after-literals.log"
+      }
+    }
+  },
+  "corpus_binary_sha256": {
+    "before": "709e3441f57cb4a6c94cbc5056b4a71539dfa220770c28431cae1d0db9879b1f",
+    "after": "52d82296756ffb52cb57e5faf9fdeb6f8bbae0740b13b6e8a7a67d1f216a076e"
+  },
+  "archive": {
+    "result": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 9360,
+      "memory_limit_mb": 3072,
+      "seconds": 0.402,
+      "log": "after-archive-build.log",
+      "transcript": {
+        "file": "after-archive-build.log",
+        "sha256": "ebed4ac67af620d56dff08d05b95c74765afdd2a1009fbe86a86eb5f6240b188",
+        "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"home-tool-bootstrap\", \"-Doptimize=Debug\", \"-j1\", \"--prefix\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svelte-regexp/engine-after/zig-out\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 9360 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      }
+    },
+    "sha256": "71bee7415f6f954e2d8023c0b68c9a4186d65e2f1e08fff2343e3e99893ca647",
+    "profile": "Local Debug public bootstrap archive, not the Linux baseline ReleaseSafe qualification artifact."
+  },
+  "home_binary": {
+    "result": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1413312,
+      "memory_limit_mb": 3072,
+      "seconds": 34.711,
+      "log": "home-after-build.log",
+      "transcript": {
+        "file": "home-after-build.log",
+        "sha256": "106f9e2f3d158e18e2f38320072f3a8b47bae32d424013ab725220cbcdd2f1a0",
+        "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"home-tool\", \"-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svelte-regexp/engine-after\", \"-Denable_jsc=false\", \"-Dtool-js-engine=zig-js\", \"-Doptimize=ReleaseSafe\", \"--prefix\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svelte-regexp/home-after\", \"-j1\", \"--summary\", \"all\"]\nBuild Summary: 5/5 steps succeeded\nhome-tool success\n+- install home-tool success\n   +- compile exe home-tool safe native success 31s MaxRSS:1G\n      +- options success\n      +- translate-c success 102ms MaxRSS:30M\n\n\nECOSYSTEM PEAK SAMPLED RSS: 1413312 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      }
+    },
+    "sha256": "15efd072f1c423a37340b79bfaecac1344d1d043ce5eb043eeee8c4c6322efc0",
+    "profile": "ReleaseSafe Home linked to the exact Debug engine archive above."
+  },
+  "home_maintained_gates": {
+    "status": "passed",
+    "exit_code": 0,
+    "peak_sampled_rss_kib": 470144,
+    "memory_limit_mb": 3072,
+    "seconds": 86.252,
+    "log": "home-after-gates.log",
+    "transcript": {
+      "file": "home-after-gates.log",
+      "sha256": "b94ff7ee599ae423b943804818958aa78c50f5e904c6445c613730d98639e8c3",
+      "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"home-tool\", \"home-tool-smoke\", \"home-tool-rejections-smoke\", \"home-tool-async-context-smoke\", \"home-tool-file-url-smoke\", \"-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svelte-regexp/engine-after\", \"-Denable_jsc=false\", \"-Dtool-js-engine=zig-js\", \"-Doptimize=ReleaseSafe\", \"--prefix\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svelte-regexp/home-after\", \"-j1\", \"--summary\", \"all\"]\nNODE FILE URL FS 40 CHECKS OK\nNODE MODULE URL 27 CHECKS OK\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/pending.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run pending.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: handler failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run next_tick_failure.cjs handler-throw\n\nNODE EXEC SHELL RESULTS {\"checks\":16,\"passed\":16,\"failures\":[]}\nNODE EXEC SHELL 16 CHECKS OK\nNATIVE SHELL RAW STDERR, INHERITED DESCRIPTORS AND PHYSICAL FILE VERIFIED\nHOME EXEC SHELL 8 REFUSALS OK\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: invalid JSONC or runtime path options: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/invalid-options/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run invalid-options/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./bad.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/malformed/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run malformed/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): AssertionError [ERR_ASSERTION]: actual assertion failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run assert_failure.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/extensionless from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-extensionless.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run reject-extensionless.mjs\n\nNODE EXEC CAPTURE RESULTS {\"checks\":14,\"passed\":14,\"failures\":[]}\nNODE EXEC CAPTURE 14 CHECKS OK\nNATIVE CAPTURE RAW STDERR FORWARDING VERIFIED\nHOME EXEC CAPTURE 10 REFUSALS OK\nOK home-tool import.meta\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: extended tsconfig is missing: ./absent.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/missing/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run missing/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: exit listener witness\nfailed command: ./.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool eval \"process.on('exit', function() { throw new Error('exit listener witness'); });\"\n\nNODE UTIL INHERITS RESULTS {\"checks\":18,\"passed\":18,\"failures\":[]}\nNODE UTIL INHERITS 18 CHECKS OK\nBUN SQLITE CORE RESULTS {\"checks\":32,\"passed\":32,\"failures\":[]}\nBUN SQLITE CORE 32 CHECKS OK\nNATIVE SQLITE FILE AND INDEPENDENT ROUNDTRIP OK\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/blocked from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-blocked.mjs: PackagePathNotExported\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run reject-blocked.mjs\n\nOK home-tool exact package imports\nhome-tool-smoke\n+- run exe home-tool w\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async_property_newline.cjs:24: ',' expected. (TS1005)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async_property_newline.cjs\nfailed command: ./.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run packages/runtime/test/tool_modules/async_property_newline.cjs\n\nNODE RAW DEFLATE RESULTS {\"checks\":14,\"passed\":14,\"failures\":[]}\nNODE RAW DEFLATE 14 CHECKS OK\nNATIVE RAW DEFLATE 14 STREAMS INDEPENDENTLY DECODED\nHOME RAW DEFLATE 6 PROFILE GUARDS OK\nNATIVE RAW DEFLATE CALLBACK FATAL POLICY VERIFIED\nNODE BUFFER WRITES RESULTS {\"checks\":18,\"passed\":18,\"failures\":[]}\nNODE BUFFER WRITES 18 CHECKS OK\nNATIVE BUFFER WRITES 10 FORMATS 26 PHYSICAL BYTES VERIFIED\nHOME BUFFER WRITES 5 RECEIVER GUARDS OK\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/declaration/entry.cjs: UnsupportedDeclarationAlias\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run declaration/entry.cjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): undefined\nfailed command: cd packages/runtime/test/tool_modules/dynamic_import && ./../../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run reject-entry.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run dependency-rejected.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run next_tick_failure.cjs error\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: undefined\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run next_tick_failure.cjs undefined\n\nNODE PROCESS CHDIR RESULTS {\"checks\":19,\"passed\":19,\"labels\":[\"aliases use the same function\",\"standard mutable descriptor\",\"absolute change returns undefined\",\"relative Unicode directory\",\"native relative file read\",\"path resolution uses new directory\",\"child inherits real kernel cwd\",\"environment PWD stays independent\",\"kernel symlink parent traversal\",\"detached receiver is accepted\",\"module referrer stays anchored after chdir\",\"ENOENT native error\",\"ENOTDIR native error\",\"ENOTDIR native error\",\"EACCES native error\",\"ELOOP native error\",\"all seven invalid types refused\",\"native callback stays private\",\"original directory restored\"]}\nNODE PROCESS CHDIR 19 CHECKS OK\nHOST CHDIR RELATIVE FILE AND CHILD VERIFIED\nHOME PROCESS CHDIR 2 PATH GUARDS OK\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/directory from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-directory.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run reject-directory.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run next_tick_failure.cjs override\n\nNODE OS ABI RESULTS {\"checks\":5,\"passed\":5,\"arch\":\"arm64\",\"endianness\":\"LE\"}\nNODE OS ABI 5 CHECKS OK\nNATIVE EXECUTABLE ABI HEADER MATCHES RUNTIME\nNODE IMMEDIATE RESULTS {\"checks\":18,\"passed\":18,\"failures\":[]}\nNODE IMMEDIATE 18 CHECKS OK\nNATIVE IMMEDIATE REF LIVENESS AND FATAL POLICY VERIFIED\nHOME IMMEDIATE 2 REFUSALS OK\nOK home-tool runtime transpilation\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run next_tick_failure.cjs monitor\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/require-only from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-require-only.mjs: PackagePathNotExported\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run reject-require-only.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: async rejection witness\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run rejected.mjs\n\nNATIVE BUFFER COPY SHARED 2 CHECKS OK\nNODE MODULE CONSTRUCTOR RESULTS {\"checks\":42,\"passed\":42,\"failures\":[]}\nNODE MODULE CONSTRUCTOR 42 CHECKS OK\nNODE BUFFER UNSAFE RESULTS {\"checks\":14,\"passed\":14,\"failures\":[]}\nNODE BUFFER UNSAFE 14 CHECKS OK\nNATIVE BUFFER UNSAFE PHYSICAL 65536 BYTES VERIFIED\nHOME BUFFER UNSAFE 7 PROFILE GUARDS OK\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_stream_pending.mjs\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run node_stream_pending.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Async module cycles are not implemented: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/async/cycle-a.mjs\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run cycle-a.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: nextTick callback failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run next_tick_failure.cjs exit-throw\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool tsconfig: circular tsconfig extends chain: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @value from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/tsconfig_paths/cycle/entry.cjs: InvalidRuntimeConfig\nfailed command: cd packages/runtime/test/tool_modules/tsconfig_paths && ./../../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run cycle/entry.cjs\n\nOK home-tool module interop\nNODE CRYPTO UUID 23 CHECKS OK\nNODE AVAILABLE PARALLELISM 12 CHECKS OK; native estimate 11\nMODULE STACK ORIGINS 4 OK\nNODE RMDIR 11 CHECKS OK\nNODE SYNC FS 18 CHECKS OK\nNODE MKDTEMP ENCODING READS 1\nNODE MKDTEMP 13 CHECKS OK\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): undefined\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run undefined.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Cannot resolve @home/exports/missing-array from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/package_exports/reject-missing-array.mjs: ExportedFileNotFound\nfailed command: cd packages/runtime/test/tool_modules/package_exports && ./../../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run reject-missing-array.mjs\n\nCOMMONJS DOTTED FILENAMES 7 CHECKS OK\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): SyntaxError: Unexpected identifier 'Promise'\nfailed command: cd packages/runtime/test/tool_modules/async && ./../../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run cjs-await.cjs\n\nNODE BUFFER COPY RESULTS {\"checks\":20,\"passed\":20,\"failures\":[]}\nNODE BUFFER COPY 20 CHECKS OK\nNATIVE BUFFER COPY 65536 PHYSICAL OVERLAPPING BYTES VERIFIED\nHOME BUFFER COPY NATIVE METADATA PROFILE OK\nhome-tool-smoke\n+- run exe home-tool w\n/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js:6: Identifier expected. (TS1003)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/runtime_invalid_syntax.js\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run runtime_invalid_syntax.js\n\nhome-tool-smoke\n+- home-tool-timers-smoke\n   +- run exe home-tool w\nUncaught uncaughtException: Error: handler failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run timers_exit.cjs handler-throw\n\nhome-tool-smoke\n+- home-tool-timers-smoke\n   +- run exe home-tool w\nUncaught uncaughtException: [object Object]\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run timers_exit.cjs fatal\n\nhome-tool-smoke\n+- run exe home-tool w\nhome-tool (zig-js): Error: Module evaluation is still pending: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/dynamic_import/pending-entry.mjs\nfailed command: cd packages/runtime/test/tool_modules/dynamic_import && ./../../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run pending-entry.mjs\n\nhome-tool-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: monitor failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run next_tick_failure.cjs monitor-throw\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run unhandled_rejection.cjs async\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: UnhandledPromiseRejection: Unhandled promise rejection: [object Object]\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run timers_exit.cjs reject\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: UnhandledPromiseRejection: Unhandled promise rejection: immediate rejection witness\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run ./node_immediates.mjs reject\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: uncaught handler failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run unhandled_rejection.cjs handler-throw\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run unhandled_rejection.cjs chain\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught uncaughtException: Error: listener failure\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run unhandled_rejection.cjs listener-throw\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: UnhandledPromiseRejection: Unhandled promise rejection: undefined\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run unhandled_rejection.cjs undefined\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: second rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run unhandled_rejection.cjs second\n\nhome-tool-rejections-smoke\n+- run exe home-tool w\nUncaught unhandledRejection: Error: standalone rejection\nfailed command: cd packages/runtime/test/tool_modules && ./../../../../.zig-cache/o/abaaaf44cf0914de5019078c2b18c8e9/home-tool run unhandled_rejection.cjs error\n\nNODE IMMEDIATE CONTEXT RESULTS {\"groups\":3,\"passed\":3,\"failures\":[]}\nNODE IMMEDIATE CONTEXT 3 GROUPS OK\nBuild Summary: 234/234 steps succeeded; 59/59 tests passed\nhome-tool-file-url-smoke success\n+- run exe home-tool success 166ms\n|  +- compile exe home-tool safe native cached 69ms MaxRSS:30M\n|     +- options cached\n|     +- translate-c cached 50ms MaxRSS:29M\n+- run exe home-tool success 133ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 161ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 402ms\n   +- compile exe home-tool safe native (+2 more reused dependencies)\nhome-tool-async-context-smoke success\n+- run exe home-tool success 154ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run python3 success 113ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 91ms\n   +- compile exe home-tool safe native (+2 more reused dependencies)\nhome-tool-rejections-smoke success\n+- run exe home-tool success 89ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 89ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 89ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 88ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 84ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 86ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 86ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 86ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 86ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 84ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 86ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 84ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 86ms\n   +- compile exe home-tool safe native (+2 more reused dependencies)\nhome-tool-smoke success\n+- home-tool-timers-smoke success\n|  +- run exe home-tool success 294ms\n|  |  +- compile exe home-tool safe native (+2 more reused dependencies)\n|  +- run exe home-tool success 215ms\n|  |  +- compile exe home-tool safe native (+2 more reused dependencies)\n|  +- run exe home-tool success 89ms\n|  |  +- compile exe home-tool safe native (+2 more reused dependencies)\n|  +- run exe home-tool success 85ms\n|  |  +- compile exe home-tool safe native (+2 more reused dependencies)\n|  +- run exe home-tool success 123ms\n|  |  +- compile exe home-tool safe native (+2 more reused dependencies)\n|  +- run exe home-tool success 85ms\n|  |  +- compile exe home-tool safe native (+2 more reused dependencies)\n|  +- run exe home-tool success 112ms\n|  |  +- compile exe home-tool safe native (+2 more reused dependencies)\n|  +- run exe home-tool success 88ms\n|  |  +- compile exe home-tool safe native (+2 more reused dependencies)\n|  +- run exe home-tool success 88ms\n|     +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run python3 success 125ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run python3 success 175ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run python3 success 173ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run python3 success 409ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 88ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run python3 success 125ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run python3 success 166ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run python3 success 514ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 86ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run python3 success 126ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run python3 success 220ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run python3 success 121ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 89ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 92ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 88ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 97ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 88ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 88ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 83ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run test home-tool-file-io-tests 6 pass (6 total) 190ms MaxRSS:32M\n|  +- compile test home-tool-file-io-tests safe native success 6s MaxRSS:409M\n+- run python3 success 507ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- home-tool-exec-capture-test success\n|  +- run test home-tool-exec-capture-tests 4 pass (4 total) 169ms MaxRSS:5M\n|     +- compile test home-tool-exec-capture-tests safe native success 5s MaxRSS:374M\n+- run python3 success 1s\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run python3 success 671ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- home-tool-sqlite-test success\n|  +- run test home-tool-native-sqlite-tests 3 pass (3 total) 119ms MaxRSS:3M\n|     +- compile test home-tool-native-sqlite-tests safe native success 5s MaxRSS:391M\n|        +- translate-c (reused)\n+- run python3 success 275ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 92ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run test home-tool-cpu-availability-tests 5 pass (5 total) 110ms MaxRSS:2M\n|  +- compile test home-tool-cpu-availability-tests safe native success 5s MaxRSS:337M\n+- run test home-tool-cpu-information-tests 5 pass (5 total) 100ms MaxRSS:2M\n|  +- compile test home-tool-cpu-information-tests safe native success 6s MaxRSS:391M\n+- run python3 success 118ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run test home-tool-child-lifecycle-tests 2 pass (2 total) 116ms MaxRSS:2M\n|  +- compile test home-tool-child-lifecycle-tests safe native success 5s MaxRSS:366M\n+- run python3 success 925ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 88ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 2s\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run test home-tool-glob-matcher-tests 13 pass (13 total) 110ms MaxRSS:2M\n|  +- compile test home-tool-glob-matcher-tests safe native success 5s MaxRSS:365M\n+- run test home-tool-glob-walk-tests 1 pass (1 total) 111ms MaxRSS:2M\n|  +- compile test home-tool-glob-walk-tests safe native success 5s MaxRSS:374M\n+- run exe home-tool success 102ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 107ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 91ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run /bin/sh success 94ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 95ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run test 3 pass (3 total) 110ms MaxRSS:2M\n|  +- compile test safe native success 7s MaxRSS:398M\n|     +- options (reused)\n+- run exe home-tool success 543ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 86ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 84ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 88ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 136ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 2s\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 229ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 86ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 95ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 99ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 88ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 86ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 84ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 88ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 86ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 111ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 101ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 94ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 88ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 97ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 89ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 90ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 130ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 102ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 91ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- home-tool-compression-test success\n|  +- run test home-tool-compression-tests 10 pass (10 total) 138ms MaxRSS:9M\n|     +- compile test home-tool-compression-tests safe native success 6s MaxRSS:399M\n+- run python3 success 346ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 772ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run test home-tool-package-exports-tests 7 pass (7 total) 118ms MaxRSS:2M\n|  +- compile test home-tool-package-exports-tests safe native success 5s MaxRSS:394M\n+- run exe home-tool success 107ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 90ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 95ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 91ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 84ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 86ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 84ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 86ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 83ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 109ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 86ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 93ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 86ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 84ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 84ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 84ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 88ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 88ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 86ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 185ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 177ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run python3 success 218ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run python3 success 113ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 91ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 95ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 88ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 92ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 84ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 217ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 84ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 88ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 95ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 88ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 97ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 89ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run python3 success 1s\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run python3 success 243ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run python3 success 1s\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- home-tool-buffer-copy-shared-smoke success\n|  +- run python3 success 119ms\n|     +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run python3 success 500ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 89ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 88ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 205ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 90ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run python3 success 289ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 165ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 299ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 94ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 99ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 88ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 100ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 113ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 93ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 91ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 118ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 91ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 84ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 96ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 93ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 216ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 102ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 98ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 95ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 87ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 83ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 89ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 84ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 84ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 88ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 85ms\n|  +- compile exe home-tool safe native (+2 more reused dependencies)\n+- run exe home-tool success 85ms\n   +- compile exe home-tool safe native (+2 more reused dependencies)\nhome-tool success\n+- install home-tool cached\n   +- compile exe home-tool safe native (+2 more reused dependencies)\n\n\nECOSYSTEM PEAK SAMPLED RSS: 470144 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "actual_consumer": {
+    "before": {
+      "compiler": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 106272,
+        "memory_limit_mb": 3072,
+        "seconds": 0.748,
+        "log": "before-compiler.log",
+        "transcript": {
+          "file": "before-compiler.log",
+          "sha256": "ea02ac4ca39c299f1a2d090d9492c62179f00ce4914802aea1f900b71ab83830",
+          "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/deflate-raw/home-zig-js/bin/home-tool\", \"run\", \"probe.mjs\"]\nhome-tool (zig-js): SyntaxError: invalid regular expression\n\nECOSYSTEM PEAK SAMPLED RSS: 106272 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      },
+      "plugin": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 119824,
+        "memory_limit_mb": 3072,
+        "seconds": 0.556,
+        "log": "before-plugin.log",
+        "transcript": {
+          "file": "before-plugin.log",
+          "sha256": "db08a92de747817b304bb64ed43ebc3bad3445e50d74273bcf59f197a382171b",
+          "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/deflate-raw/home-zig-js/bin/home-tool\", \"run\", \"plugin-probe.mjs\"]\nhome-tool (zig-js): SyntaxError: invalid regular expression\n\nECOSYSTEM PEAK SAMPLED RSS: 119824 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      },
+      "patterns": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 45104,
+        "memory_limit_mb": 3072,
+        "seconds": 0.15,
+        "log": "before-patterns.log",
+        "transcript": {
+          "file": "before-patterns.log",
+          "sha256": "d42b888ec46755d6a44830810f245dd1a80575c6ad89f0f23f256f71d61b630e",
+          "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/deflate-raw/home-zig-js/bin/home-tool\", \"run\", \"patterns.mjs\", \"before-patterns-final.json\"]\nPATTERNS 136 FAILED 2\n\nECOSYSTEM PEAK SAMPLED RSS: 45104 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        }
+      }
+    },
+    "after": {
+      "compiler": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 102912,
+        "memory_limit_mb": 3072,
+        "seconds": 1.171,
+        "log": "after-compiler.log",
+        "transcript": {
+          "file": "after-compiler.log",
+          "sha256": "04478b2f70667e080e9310fa6b3d51d358a104470bf0deda4375e6e509ac617c",
+          "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svelte-regexp/home-after/bin/home-tool\", \"run\", \"probe.mjs\"]\nhome-tool (zig-js): SyntaxError: invalid regular expression\n\nECOSYSTEM PEAK SAMPLED RSS: 102912 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      },
+      "plugin": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 119520,
+        "memory_limit_mb": 3072,
+        "seconds": 0.569,
+        "log": "after-plugin.log",
+        "transcript": {
+          "file": "after-plugin.log",
+          "sha256": "69ce9d93b0ac557d73a0d0f3253675e6c6d000ca4203b8e91c85b8a7a5840573",
+          "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svelte-regexp/home-after/bin/home-tool\", \"run\", \"plugin-probe.mjs\"]\nhome-tool (zig-js): SyntaxError: invalid regular expression\n\nECOSYSTEM PEAK SAMPLED RSS: 119520 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      },
+      "patterns": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 45232,
+        "memory_limit_mb": 3072,
+        "seconds": 0.148,
+        "log": "after-patterns.log",
+        "transcript": {
+          "file": "after-patterns.log",
+          "sha256": "c6bc430023868c0fa52cb0dd6bcd12d080399785cbbeb38e3f41a11dbe0ec6d3",
+          "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svelte-regexp/home-after/bin/home-tool\", \"run\", \"patterns.mjs\", \"after-patterns-final.json\"]\nPATTERNS 136 FAILED 0\n\nECOSYSTEM PEAK SAMPLED RSS: 45232 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        }
+      }
+    }
+  },
+  "construction_inventory": {
+    "before": {
+      "checks": 136,
+      "failures": [
+        {
+          "index": 15,
+          "source": "<!--[^]*?-->|<script((?:\\s+[^=>'\"/\\s]+=(?:\"[^\"]*\"|'[^']*'|[^>\\s]+)|\\s+[^=>'\"/\\s]+)*\\s*)(?:\\/>|>([\\S\\s]*?)<\\/script>)",
+          "flags": "g",
+          "start": 738353,
+          "end": 738472,
+          "error": "SyntaxError: invalid regular expression"
+        },
+        {
+          "index": 16,
+          "source": "<!--[^]*?-->|<style((?:\\s+[^=>'\"/\\s]+=(?:\"[^\"]*\"|'[^']*'|[^>\\s]+)|\\s+[^=>'\"/\\s]+)*\\s*)(?:\\/>|>([\\S\\s]*?)<\\/style>)",
+          "flags": "g",
+          "start": 738232,
+          "end": 738349,
+          "error": "SyntaxError: invalid regular expression"
+        }
+      ]
+    },
+    "after": {
+      "checks": 136,
+      "failures": []
+    }
+  },
+  "remaining_blocker": {
+    "actual_instrumented_constructor": {
+      "source": "(?=((?:[^\\S\\n\\r\\u2028\\u2029]|\\/\\/.*|\\/\\*.*?\\*\\/)*))\\1(?=[\\n\\r\\u2028\\u2029]|\\/\\*(?!.*?\\*\\/)|$)",
+      "flags": "y",
+      "error": "SyntaxError: invalid regular expression",
+      "stack": "SyntaxError: invalid regular expression\n    at Trace (file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svelte-regexp/trace-constructors.mjs?home-emitted:8:5)\n    at <anonymous> (file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svelte-regexp/node_modules/acorn-typescript/lib/index.mjs?home-emitted:104:1)\n    at <anonymous> (home:tool-module-install:255:7)\n    at evaluateSync (home:tool-module-install:272:7)\n    at <anonymous> (home:tool-module-install:270:9)\n    at evaluateSync (home:tool-module-install:269:7)\n    at <anonymous> (home:tool-module-install:270:9)\n    at evaluateSync (home:tool-module-install:269:7)\n    at evaluateAsync (home:tool-module-install:291:49)\n    at <global> (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svelte-regexp/trace-constructors.mjs:1:1)"
+    },
+    "instrumented_failure": {
+      "file": "trace-after.log",
+      "sha256": "98fd3f87f2af6e56ab72ccfc01bb2d0eae27ba3fff386e4a6607cdb41969d005",
+      "text": "home-tool (zig-js): SyntaxError: invalid regular expression\n"
+    },
+    "native_refusal": {
+      "file": "compile-acorn-after.log",
+      "sha256": "4e5a72948c83048b5a9aef05165ec3ecb67e3b3edd2c86690d832cbcb57ab86f",
+      "text": "risk=critical factor=2250000 issues={ { 67, 82, 73, 84, 73, 67, 65, 76, 58, 32, 78, 101, 115, 116, 101, 100, 32, 113, 117, 97, 110, 116, 105, 102, 105, 101, 114, 115, 32, 100, 101, 116, 101, 99, 116, 101, 100, 32, 40, 113, 117, 97, 110, 116, 105, 102, 105, 101, 114, 32, 111, 110, 32, 101, 120, 112, 114, 101, 115, 115, 105, 111, 110, 32, 119, 105, 116, 104, 32, 113, 117, 97, 110, 116, 105, 102, 105, 101, 114, 115, 41 }, { 80, 97, 116, 116, 101, 114, 110, 32, 99, 111, 110, 116, 97, 105, 110, 115, 32, 98, 97, 99, 107, 114, 101, 102, 101, 114, 101, 110, 99, 101, 32, 40, 114, 101, 113, 117, 105, 114, 101, 115, 32, 98, 97, 99, 107, 116, 114, 97, 99, 107, 105, 110, 103, 41 } }\nunicode=false ci=false compile error=PatternTooComplex diagnostic=null\nunicode=false ci=true compile error=PatternTooComplex diagnostic=null\nunicode=true ci=false compile error=PatternTooComplex diagnostic=null\nunicode=true ci=true compile error=PatternTooComplex diagnostic=null\n"
+    },
+    "package": {
+      "name": "acorn-typescript",
+      "version": "1.4.13",
+      "entry_sha256": "cc2b17a8aa137e715fcff80b7a00cac3a66a8aee1318998c002caa10a38eb8ec"
+    },
+    "reference": {
+      "node": {
+        "source": "(?=((?:[^\\S\\n\\r\\u2028\\u2029]|\\/\\/.*|\\/\\*.*?\\*\\/)*))\\1(?=[\\n\\r\\u2028\\u2029]|\\/\\*(?!.*?\\*\\/)|$)",
+        "flags": "y",
+        "checks": 14,
+        "output": [
+          {
+            "input": "",
+            "match": [
+              "",
+              ""
+            ],
+            "index": 0,
+            "lastIndex": 0
+          },
+          {
+            "input": "x",
+            "match": null,
+            "index": null,
+            "lastIndex": 0
+          },
+          {
+            "input": "\n",
+            "match": [
+              "",
+              ""
+            ],
+            "index": 0,
+            "lastIndex": 0
+          },
+          {
+            "input": " \n",
+            "match": [
+              " ",
+              " "
+            ],
+            "index": 0,
+            "lastIndex": 1
+          },
+          {
+            "input": "\r\n",
+            "match": [
+              "",
+              ""
+            ],
+            "index": 0,
+            "lastIndex": 0
+          },
+          {
+            "input": " //x\n",
+            "match": [
+              " //x",
+              " //x"
+            ],
+            "index": 0,
+            "lastIndex": 4
+          },
+          {
+            "input": "/**/",
+            "match": [
+              "/**/",
+              "/**/"
+            ],
+            "index": 0,
+            "lastIndex": 4
+          },
+          {
+            "input": "/**/\n",
+            "match": [
+              "/**/",
+              "/**/"
+            ],
+            "index": 0,
+            "lastIndex": 4
+          },
+          {
+            "input": "/*oops",
+            "match": [
+              "",
+              ""
+            ],
+            "index": 0,
+            "lastIndex": 0
+          },
+          {
+            "input": " a",
+            "match": null,
+            "index": null,
+            "lastIndex": 0
+          },
+          {
+            "input": " \u2003\n",
+            "match": [
+              " \u2003",
+              " \u2003"
+            ],
+            "index": 0,
+            "lastIndex": 2
+          },
+          {
+            "input": "//x\nrest",
+            "match": [
+              "//x",
+              "//x"
+            ],
+            "index": 0,
+            "lastIndex": 3
+          },
+          {
+            "input": "/*a*/ //b\n",
+            "match": [
+              "/*a*/ //b",
+              "/*a*/ //b"
+            ],
+            "index": 0,
+            "lastIndex": 9
+          },
+          {
+            "input": " \u2028",
+            "match": [
+              " ",
+              " "
+            ],
+            "index": 0,
+            "lastIndex": 1
+          }
+        ]
+      },
+      "bun": {
+        "source": "(?=((?:[^\\S\\n\\r\\u2028\\u2029]|\\/\\/.*|\\/\\*.*?\\*\\/)*))\\1(?=[\\n\\r\\u2028\\u2029]|\\/\\*(?!.*?\\*\\/)|$)",
+        "flags": "y",
+        "checks": 14,
+        "output": [
+          {
+            "input": "",
+            "match": [
+              "",
+              ""
+            ],
+            "index": 0,
+            "lastIndex": 0
+          },
+          {
+            "input": "x",
+            "match": null,
+            "index": null,
+            "lastIndex": 0
+          },
+          {
+            "input": "\n",
+            "match": [
+              "",
+              ""
+            ],
+            "index": 0,
+            "lastIndex": 0
+          },
+          {
+            "input": " \n",
+            "match": [
+              " ",
+              " "
+            ],
+            "index": 0,
+            "lastIndex": 1
+          },
+          {
+            "input": "\r\n",
+            "match": [
+              "",
+              ""
+            ],
+            "index": 0,
+            "lastIndex": 0
+          },
+          {
+            "input": " //x\n",
+            "match": [
+              " //x",
+              " //x"
+            ],
+            "index": 0,
+            "lastIndex": 4
+          },
+          {
+            "input": "/**/",
+            "match": [
+              "/**/",
+              "/**/"
+            ],
+            "index": 0,
+            "lastIndex": 4
+          },
+          {
+            "input": "/**/\n",
+            "match": [
+              "/**/",
+              "/**/"
+            ],
+            "index": 0,
+            "lastIndex": 4
+          },
+          {
+            "input": "/*oops",
+            "match": [
+              "",
+              ""
+            ],
+            "index": 0,
+            "lastIndex": 0
+          },
+          {
+            "input": " a",
+            "match": null,
+            "index": null,
+            "lastIndex": 0
+          },
+          {
+            "input": " \u2003\n",
+            "match": [
+              " \u2003",
+              " \u2003"
+            ],
+            "index": 0,
+            "lastIndex": 2
+          },
+          {
+            "input": "//x\nrest",
+            "match": [
+              "//x",
+              "//x"
+            ],
+            "index": 0,
+            "lastIndex": 3
+          },
+          {
+            "input": "/*a*/ //b\n",
+            "match": [
+              "/*a*/ //b",
+              "/*a*/ //b"
+            ],
+            "index": 0,
+            "lastIndex": 9
+          },
+          {
+            "input": " \u2028",
+            "match": [
+              " ",
+              " "
+            ],
+            "index": 0,
+            "lastIndex": 1
+          }
+        ]
+      }
+    },
+    "scope": "Both real Svelte compiler/plugin imports still fail. The original two compiler literals now construct, exposing a separate acorn-typescript lookahead/backreference constructor. Its native critical-risk refusal is preserved;14 Node/Bun reference cases do not count as candidate-executed tests. No full Svelte initialization/build/test recovery is claimed."
+  },
+  "build_failures_retained": {
+    "prefetch_failure": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 9424,
+      "memory_limit_mb": 3072,
+      "seconds": 0.068,
+      "log": "after-engine-focused-build.log",
+      "transcript": {
+        "file": "prefetch-failure-after-engine-focused-build.log",
+        "sha256": "f3a0db1abed2de98ce35a0f3fbaded02326d02bad2469f0eab09585252b8c738",
+        "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"test262-bin\", \"test-frontend\", \"-j1\", \"--prefix\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svelte-regexp/engine-after\"]\n./build.zig.zon:10:21: error: hash mismatch: manifest declares zig_regex-0.2.1-omky0VYBHABmcjimyKmrLL4IwrVs3COmlNptgdP3WV95 but the fetched package has N-V-__8AAFYBHADAu7i2mPjgXrPLBXLVidiz4Ez4xuEkPd_c\n            .hash = \"zig_regex-0.2.1-omky0VYBHABmcjimyKmrLL4IwrVs3COmlNptgdP3WV95\",\n                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nECOSYSTEM PEAK SAMPLED RSS: 9424 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      }
+    },
+    "cache_cleanup": {
+      "path": "/Users/chris/.cache/zig/p/zig_regex-0.2.1-omky0VYBHABmcjimyKmrLL4IwrVs3COmlNptgdP3WV95.tar.gz",
+      "sha256": "da50e36cbf67d9e4a6a03c361eeac76ed9834436b35b01b8ffcdefde1aa7f772",
+      "bytes": 308202,
+      "reason": "Owned archive created by this run zig fetch has an extra codeload directory under the package hash; preserved before removing only that reproducible cache entry. Immutable source/hash unchanged; retry compiler build normal fetch."
+    },
+    "missing_default_home": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 2093504,
+      "memory_limit_mb": 3072,
+      "seconds": 22.515,
+      "log": "after-archive-build.log",
+      "transcript": {
+        "file": "missing-default-home-after-archive-build.log",
+        "sha256": "e11c1fc61a0b08cefcf3623c9ad0bfa2232b0f20dd2e19ae77120d87411efee2",
+        "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"-j1\", \"--prefix\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/svelte-regexp/engine-after\"]\ninstall\n+- install generated to libzig-js.a\n   +- run /usr/bin/env (libzig-js.a) failure\nenv: /Users/chris/Code/Home/lang/zig-out/bin/home-tool: No such file or directory\nerror: process exited with code 127\nfailed command: /usr/bin/env /Users/chris/Code/Home/lang/zig-out/bin/home-tool run tools/merge-static-library.ts ./.zig-cache/o/e96f574b4a8a10880b53b71586ca3c30/libzig-js.a ./.zig-cache/o/951295329ed299dafadedccf7985178e/libzig-js.a ./.zig-cache/o/eea69a6d50c4e693685dcb5595384a4b/objc_bridge.o ./.zig-cache/o/f16e5c84a3eff7826d278402c4b69340/zig-js-objc-dispatch.o\n\nBuild Summary: 5/8 steps succeeded (1 failed)\ninstall transitive failure\n+- install generated to libzig-js.a transitive failure\n   +- run /usr/bin/env (libzig-js.a) failure\n\n\nECOSYSTEM PEAK SAMPLED RSS: 2093504 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      }
+    },
+    "owned_build_cache_cleanup": {
+      "path": "/Users/chris/Code/Home/zig-js-ecosystem-home/.zig-cache",
+      "reason": "Only reproducible build cache of isolated owned Home validation checkout; no Home build active. All tracked files, raw evidence and saved before/candidate binaries retained.",
+      "saved_home_binary_sha256": "1339f2541e0dd70911a0808748b26b83577c90dc2f4224dfb17c218a56b9bf37",
+      "free_before": 959504384,
+      "free_after": 1849516032
+    }
+  },
+  "qualification": {
+    "engine_sha": "34082328bb28d7ddf306d1c0fd160bcde8f7f762",
+    "suite_ref": "a346fd432a54446b00835dd4cccae54e5aac3e28",
+    "home_ref": "5b89a1a88e405f2711e50661aa99e78e0732862b",
+    "argv": [
+      "/Users/chris/.local/share/pantry/global/bin/gh",
+      "workflow",
+      "run",
+      "ecosystem.yml",
+      "-R",
+      "zig-utils/zig-js-ecosystem",
+      "--ref",
+      "main",
+      "-f",
+      "engine_sha=34082328bb28d7ddf306d1c0fd160bcde8f7f762",
+      "-f",
+      "suite_ref=a346fd432a54446b00835dd4cccae54e5aac3e28",
+      "-f",
+      "repositories=stacksjs/stacks,home-lang/home",
+      "-f",
+      "reference=true"
+    ],
+    "stdout": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/43030403253\n",
+    "stderr": ""
+  },
+  "all_selected_run": {
+    "conclusion": "",
+    "databaseId": 43029835111,
+    "headSha": "34082328bb28d7ddf306d1c0fd160bcde8f7f762",
+    "status": "in_progress",
+    "url": "https://github.com/zig-utils/zig-js/actions/runs/43029835111"
+  },
+  "caller_pin": "a346fd432a54446b00835dd4cccae54e5aac3e28",
+  "scope": [
+    "205 native tests,34 pinned capture cases and complete code-point membership/allocator-failure validation pass. Both actual Svelte patterns retain critical base-analysis factor2250000 but use the Thompson NFA in their actual non-Unicode/case-sensitive profile. Unicode/ignore-case variants still refuse PatternTooComplex. No guard, NFA state cap, step/memory/time budget or selected repository was removed/raised.",
+    "All98 frontend cases pass, including170 actual checks in both forced tree-walker and required generator-bytecode paths. The same170-check reference contract passes Node/Bun. Test262 RegExp prototype487,String prototype1073,class escapes12,literals238 each stay0fail\u21920fail:1810 per side,0flips, no regressions in these subtrees; not a full corpus or performance/TSan claim.",
+    "The old(a*?) structural fallback expectation is updated to an actual empty-participating-capture NFA check; repeated(a)*? still verifies backtracking fallback. Initial failed expectation is retained, not represented as a successful run.",
+    "Construction inventory improves134/136\u2192136/136, but its CLI is a reporting probe, not a passing assertion when failures are present. Original compiler/plugin imports remain failed before and after on the separate acorn-typescript constructor; raw failures and reference/capability limits remain explicit.",
+    "The isolated dependency follows the owned Svelte5.20.4 lock; complete resolved CI dependency-tree identity is not assumed. Fresh Linux runtime/official artifact/provenance and real priority consumer results remain pending. Validated suite pin is unchanged; no evidence-only promotion or whole-ecosystem success."
+  ]
+}
