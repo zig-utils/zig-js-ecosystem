@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "functional_suite": "2e42e04203b30bd2b7ada872d9f9683d75277af0",
+  "qualified_runtime": {
+    "run": 42961767073,
+    "runtime_job": 130329999325,
+    "artifact": {
+      "id": 13829948364,
+      "digest": "sha256:dd460a00b580c85bf9380f2103c295dc3afb75a857d1b91f6ca13af8f7c4b3a2",
+      "size_in_bytes": 42457936
+    },
+    "downloaded_zip_sha256": "dd460a00b580c85bf9380f2103c295dc3afb75a857d1b91f6ca13af8f7c4b3a2",
+    "provenance": {
+      "engine_sha": "ede37c5172d1c7e232b31ec4d0e4db11e8baae39",
+      "suite_ref": "2e42e04203b30bd2b7ada872d9f9683d75277af0",
+      "home_repository": "home-lang/home",
+      "home_ref": "31623c06e3c9832627acf5e50e11c143fc746664",
+      "zig_version": "0.18.0-dev.146+35accc06e",
+      "build_cpu": "baseline",
+      "build_optimize": "ReleaseSafe",
+      "sha256": {
+        "home-tool": "0b514706aef6d0faade8fab9421fcd28f1d502ce50abfacee3a3ba82aa2ff8c4",
+        "engine/zig-out/lib/libzig-js.a": "13b1a4755d042568f5f5acc30447ea2bd8676c03929719492f6677e306ab5a18"
+      }
+    },
+    "files": {
+      "engine/zig-out/lib/libzig-js.a": "13b1a4755d042568f5f5acc30447ea2bd8676c03929719492f6677e306ab5a18",
+      "home-tool": "0b514706aef6d0faade8fab9421fcd28f1d502ce50abfacee3a3ba82aa2ff8c4"
+    },
+    "runtime_log_sha256": "2f4e2a6337fe2718a40d9dc28037972f3ca9b37d7cb0b5275aaee0fb02349dc6",
+    "actual_signals": [
+      "2026-11-11T04:51:47.4119003Z All 6 tests passed.",
+      "2026-11-11T04:52:01.2437606Z All 7 tests passed.",
+      "2026-11-11T04:58:38.1228419Z NODE PROCESS CHDIR 19 CHECKS OK",
+      "2026-11-11T04:58:38.1250934Z HOST CHDIR RELATIVE FILE AND CHILD VERIFIED",
+      "2026-11-11T04:58:38.1256904Z HOME PROCESS CHDIR 2 PATH GUARDS OK",
+      "2026-11-11T04:58:46.5349000Z BUN SQLITE CORE RESULTS {\"checks\":32,\"passed\":32,\"failures\":[]}",
+      "2026-11-11T04:58:46.5358753Z BUN SQLITE CORE 32 CHECKS OK",
+      "2026-11-11T04:58:46.5388245Z NATIVE SQLITE FILE AND INDEPENDENT ROUNDTRIP OK",
+      "2026-11-11T04:58:53.5638439Z NODE OS ABI 5 CHECKS OK",
+      "2026-11-11T04:58:53.5659148Z NATIVE EXECUTABLE ABI HEADER MATCHES RUNTIME",
+      "2026-11-11T04:58:54.5388366Z NODE MODULE CONSTRUCTOR 42 CHECKS OK",
+      "2026-11-11T04:59:54.2559724Z NODE CPU INFORMATION 14 CHECKS OK",
+      "2026-11-11T04:59:54.2560158Z NATIVE CPU SNAPSHOT MATCHES HOST"
+    ],
+    "consumer_preflights": [
+      {
+        "id": 130333117276,
+        "name": "Consumers stacksjs/stacks",
+        "preflights": [
+          {
+            "completedAt": "2026-11-11T05:00:21Z",
+            "conclusion": "success",
+            "name": "Unpack and verify runtime provenance",
+            "number": 7,
+            "startedAt": "2026-11-11T05:00:20Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-11T05:00:21Z",
+            "conclusion": "success",
+            "name": "Verify shared runtime executes on this consumer CPU",
+            "number": 8,
+            "startedAt": "2026-11-11T05:00:21Z",
+            "status": "completed"
+          }
+        ],
+        "package_step": {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Check every selected package, library, CLI and app",
+          "number": 9,
+          "startedAt": "2026-11-11T05:00:21Z",
+          "status": "in_progress"
+        }
+      },
+      {
+        "id": 130333117323,
+        "name": "Consumers home-lang/home",
+        "preflights": [
+          {
+            "completedAt": "2026-11-11T05:00:17Z",
+            "conclusion": "success",
+            "name": "Unpack and verify runtime provenance",
+            "number": 7,
+            "startedAt": "2026-11-11T05:00:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-11T05:00:17Z",
+            "conclusion": "success",
+            "name": "Verify shared runtime executes on this consumer CPU",
+            "number": 8,
+            "startedAt": "2026-11-11T05:00:17Z",
+            "status": "completed"
+          }
+        ],
+        "package_step": {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Check every selected package, library, CLI and app",
+          "number": 9,
+          "startedAt": "2026-11-11T05:00:17Z",
+          "status": "in_progress"
+        }
+      }
+    ],
+    "scope": "Actual Linux OS architecture/endianness contract and independent ELF-header match, native directory-change contract, independent relative-file/child checks, path guards, vendored SQLite compilation and the maintained smoke dependency graph pass. Individual successful expectStdOutEqual/native SQLite fixture output is suppressed by Zig; no invented per-case log output or full-package success."
+  },
+  "source_validation": {
+    "run": 42961766115,
+    "job": 130329717836,
+    "conclusion": "success",
+    "log_sha256": "1894ea265eaf5b0ddab80c77272e1f9b700ce3d3803e94dac5af379a5b827709",
+    "python_tests": 45,
+    "dependency_tests": 7,
+    "dependency_assertions": 26
+  },
+  "package_scope": "Priority package checks still run independently; full package compatibility and all-selected results are not prerequisites inferred from this runtime qualification. Retain every actual failure/unsupported result.",
+  "previous_caller_pin": "4806b063beffa43d6283a1a9c062a75f10acebd6",
+  "caller_promotion": {
+    "commit": "a189e200674991b24a9b87d43c7a42cb8ce3768d",
+    "url": "https://github.com/zig-utils/zig-js/commit/a189e200674991b24a9b87d43c7a42cb8ce3768d",
+    "functional_pin": "2e42e04203b30bd2b7ada872d9f9683d75277af0",
+    "checks": [
+      {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint",
+          ".github/workflows/ecosystem.yml"
+        ],
+        "exit_code": 0
+      },
+      {
+        "argv": [
+          "git",
+          "diff",
+          "--check"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "local_suite_tests": 45,
+    "local_suite_test_log_sha256": "b04ae2d3e85a4ec09ea7855beb40ae62e1f94052e836fbcbb3124a7158167f15",
+    "tracked_scope": [
+      ".github/workflows/ecosystem.yml"
+    ],
+    "foreign_untracked_preserved": [
+      "zig-pkg/"
+    ],
+    "git_identity": {
+      "name": "Chris",
+      "email": "chrisbreuer93@gmail.com"
+    },
+    "every_push_all_selected_run": {
+      "conclusion": "",
+      "databaseId": 42963872123,
+      "headSha": "a189e200674991b24a9b87d43c7a42cb8ce3768d",
+      "status": "queued"
+    },
+    "older_runs_cancelled": false,
+    "evidence_only_source_diff": "No workflow/config/scripts/tests differences from the qualified functional suite."
+  }
+}
