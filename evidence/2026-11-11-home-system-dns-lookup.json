@@ -1,0 +1,511 @@
+{
+  "schema_version": 1,
+  "home_ref": "760699b2b0bdcb8ce5cfdfa12eac96c1c9396626",
+  "home_parent": "205cc759be4eb1843193c8bff185ee6948d59703",
+  "git_identity": {
+    "name": "Chris Breuer",
+    "email": "chrisbreuer93@gmail.com"
+  },
+  "source_sha256": {
+    "build.zig": "20d6889b7e4afbca94972bf5d07dbfe19e4e5ca3aebc2f0d03e39c083bc00726",
+    "packages/runtime/src/jsc/tool_builtins.js": "bd24b65ff622f32a2401d45bd3ba95853ab0a02d12aa7c1143adc48ce9436aa2",
+    "packages/runtime/src/jsc/tool_builtins.zig": "4ee20f1e685fe186520b07b9e62b2245f430b4604cfae45a227fd5bc80b56662",
+    "packages/runtime/src/jsc/tool_dns.js": "cc68f300f85549b0faae68413ebbdcbf01723bb7ed2287e0d120e79deb1c51e6",
+    "packages/runtime/src/jsc/tool_dns.zig": "c1caae527f4e06525294d14d9d03ae8a60f12327eb22b3d74c7eef4f1578a04a",
+    "packages/runtime/src/jsc/tool_dns_lookup.zig": "563c340433ef7bc12cd4fd19f07ae4b9fd8f63cf016c288be14407e29f520766",
+    "packages/runtime/src/jsc/tool_main.zig": "50b1f291ec13d056f40a0129e1c039a4f10b1991d3d38dc52dfb05a755f18ca0",
+    "packages/runtime/src/jsc/tool_runtime.zig": "acd6aa47e149fea8204d456a2f89e1a094bda485818ff1b2b03f2a9ee0cfa1af",
+    "packages/runtime/test/tool_dns_fixture.py": "bbae97c2afdf3b0b8eda54dd788fbb02cddffbc44b8cdeb9d4c8108238b61ef0",
+    "packages/runtime/test/tool_modules/dns_lookup_exit.cjs": "78c51a367766a6d9432121709a0d4cf3fa24c36916628d3572096a7fc815497e",
+    "packages/runtime/test/tool_modules/dns_lookup_profile.mjs": "b4c8a48c12ef1dbba5d9ccc9c12c9824ea679b330173132ea25824b814ff41ef",
+    "packages/runtime/test/tool_modules/node_dns_lookup.mjs": "1ca5325e99fee7e879244a7b9174904d6ca45f5e05be2570069a237da82a7f7d"
+  },
+  "native_validation": {
+    "zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-dns-lookup-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/acorn-atomic/engine-after"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 260544,
+      "memory_limit_mb": 3072,
+      "seconds": 58.223,
+      "log": "build-zig-js.log",
+      "log_sha256": "7393546a5ed9bbeb2e4382491ca4fb2a46cf528b881a866757956185a0bb0946",
+      "binary_sha256": "b0c39def55d1eb42df87105c2edd3faca9ac92c8fdff22f7335405f7bdf3001f",
+      "actual_signals": [
+        "DNS LOOKUP RESULTS {\"groups\":28,\"passed\":28,\"failures\":[]}",
+        "NATIVE DNS PHYSICAL HOST ORACLE VERIFIED {\"queries\": 16, \"answers\": 17, \"resolver_failures\": 3, \"hosts_file_sha256\": \"5aee72ab44594b422ce133e34a757e7bdba2b4bfe3a6af6534c89100fc440050\"}",
+        "NATIVE DNS REF LIVENESS AND REAL UNHANDLED RESOLVER FAILURE VERIFIED",
+        "HOME DNS PROFILE ASCII BOUND, PRIVATE BRIDGE, ONCE SNAPSHOT; RECORD RESOLVERS ABSENT",
+        "Build Summary: 243/243 steps succeeded"
+      ]
+    },
+    "jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-dns-lookup-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-jsc",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1148128,
+      "memory_limit_mb": 3072,
+      "seconds": 41.484,
+      "log": "build-jsc.log",
+      "log_sha256": "47e541cd504477ec4f49c79cfb5de77dc78ecb6abfd123a5c705e4dfb88a8d99",
+      "binary_sha256": "50397ae48dc5abd46fddd41901be6d344ce620e52891fd26b9855d7b29810e99",
+      "actual_signals": [
+        "DNS LOOKUP RESULTS {\"groups\":28,\"passed\":28,\"failures\":[]}",
+        "NATIVE DNS PHYSICAL HOST ORACLE VERIFIED {\"queries\": 12, \"answers\": 11, \"resolver_failures\": 3, \"hosts_file_sha256\": \"5aee72ab44594b422ce133e34a757e7bdba2b4bfe3a6af6534c89100fc440050\"}",
+        "AssertionError: (0, b'')",
+        "Build Summary: 212/215 steps succeeded (1 failed); 3/3 tests passed"
+      ]
+    },
+    "initial-build-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-dns-lookup-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/acorn-atomic/engine-after"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1688128,
+      "memory_limit_mb": 3072,
+      "seconds": 90.981,
+      "log": "build-zig-js.log",
+      "log_sha256": "aa9254b2da9eb28ae901d9de8c8d1916d462202687256bef2434ea402f3975c6"
+    },
+    "linux-native-compile": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "test",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/src/jsc/tool_dns_lookup.zig",
+        "-target",
+        "x86_64-linux-gnu",
+        "-lc",
+        "--test-no-exec",
+        "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/linux-native-tests"
+      ],
+      "scope": "Compile-only actual native tests, no Linux execution claimed",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 270608,
+      "memory_limit_mb": 3072,
+      "seconds": 2.429,
+      "log": "linux-native-compile.log",
+      "log_sha256": "734123ac0b613bc29c533a3e25d2e7ae380fb2ee9fcf35d4f8f5d3efdda7a235"
+    }
+  },
+  "focused_validation": {
+    "focused-system-zig-js": {
+      "argv": [
+        "/usr/bin/python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_dns_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 70320,
+      "memory_limit_mb": 3072,
+      "seconds": 0.641,
+      "log": "focused-system-zig-js.log",
+      "log_sha256": "02b457ab7ed3d92e7342c58accffe31d2245b7747389ad49806073756c7bb9c7",
+      "actual_output": "$ [\"/usr/bin/python3\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_dns_fixture.py\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-zig-js/bin/home-tool\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules\"]\nDNS LOOKUP RESULTS {\"groups\":28,\"passed\":28,\"failures\":[]}\nNATIVE DNS PHYSICAL HOST ORACLE VERIFIED {\"queries\": 16, \"answers\": 17, \"resolver_failures\": 3, \"hosts_file_sha256\": \"5aee72ab44594b422ce133e34a757e7bdba2b4bfe3a6af6534c89100fc440050\"}\nNATIVE DNS REF LIVENESS AND REAL UNHANDLED RESOLVER FAILURE VERIFIED\nHOME DNS PROFILE ASCII BOUND, PRIVATE BRIDGE, ONCE SNAPSHOT; RECORD RESOLVERS ABSENT\n\nECOSYSTEM PEAK SAMPLED RSS: 70320 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "focused-system-jsc": {
+      "argv": [
+        "/usr/bin/python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_dns_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 31344,
+      "memory_limit_mb": 3072,
+      "seconds": 0.172,
+      "log": "focused-system-jsc.log",
+      "log_sha256": "670a874d0e289291f73b4e191b5f54460cbed412a7c3a704a000d7eef91f2147",
+      "actual_output": "$ [\"/usr/bin/python3\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_dns_fixture.py\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-jsc/bin/home-tool\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules\"]\nDNS LOOKUP RESULTS {\"groups\":28,\"passed\":28,\"failures\":[]}\nNATIVE DNS PHYSICAL HOST ORACLE VERIFIED {\"queries\": 16, \"answers\": 17, \"resolver_failures\": 3, \"hosts_file_sha256\": \"5aee72ab44594b422ce133e34a757e7bdba2b4bfe3a6af6534c89100fc440050\"}\nTraceback (most recent call last):\n  File \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_dns_fixture.py\", line 69, in <module>\n    assert child.returncode != 0 and b'ENOTFOUND' in child.stderr, (child.returncode, child.stderr)\nAssertionError: (0, b'')\n\nECOSYSTEM PEAK SAMPLED RSS: 31344 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "focused-system-node": {
+      "argv": [
+        "/usr/bin/python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_dns_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules",
+        "--reference"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 15920,
+      "memory_limit_mb": 3072,
+      "seconds": 0.227,
+      "log": "focused-system-node.log",
+      "log_sha256": "21f0a5a2b2664dc633ab90bf5d9c2b0b4d9e599b1ca20a8c723472581924c78b",
+      "actual_output": "$ [\"/usr/bin/python3\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_dns_fixture.py\", \"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules\", \"--reference\"]\nDNS LOOKUP RESULTS {\"groups\":28,\"passed\":28,\"failures\":[]}\nNATIVE DNS PHYSICAL HOST ORACLE VERIFIED {\"queries\": 16, \"answers\": 17, \"resolver_failures\": 3, \"hosts_file_sha256\": \"5aee72ab44594b422ce133e34a757e7bdba2b4bfe3a6af6534c89100fc440050\"}\nNATIVE DNS REF LIVENESS AND REAL UNHANDLED RESOLVER FAILURE VERIFIED\n\nECOSYSTEM PEAK SAMPLED RSS: 15920 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "focused-system-bun": {
+      "argv": [
+        "/usr/bin/python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_dns_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules",
+        "--reference"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 3568,
+      "memory_limit_mb": 3072,
+      "seconds": 0.135,
+      "log": "focused-system-bun.log",
+      "log_sha256": "f962defb3b8904789ea1ae2bd8b9bace89d0b109d9ae85092b45b7acecae748b",
+      "actual_output": "$ [\"/usr/bin/python3\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_dns_fixture.py\", \"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules\", \"--reference\"]\nTraceback (most recent call last):\n  File \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_dns_fixture.py\", line 59, in <module>\n    assert result == {'records': query['records']}, (query, result)\nAssertionError: ({'hostname': 'broadcasthost', 'family': 6, 'hints': 0, 'records': [{'address': '::ffff:255.255.255.255', 'family': 6}], 'failure': None}, {'failure': 'ENOTFOUND'})\n\nECOSYSTEM PEAK SAMPLED RSS: 3568 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "focused-pantry-zig-js": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_dns_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 78624,
+      "memory_limit_mb": 3072,
+      "seconds": 0.751,
+      "log": "focused-pantry-zig-js.log",
+      "log_sha256": "457fe57111bd824b8e5316a50ad1f25a57a5920210d0a19e543f5cc813174c06",
+      "actual_output": "$ [\"/Users/chris/.local/share/pantry/global/bin/python3\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_dns_fixture.py\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-zig-js/bin/home-tool\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules\"]\nDNS LOOKUP RESULTS {\"groups\":28,\"passed\":28,\"failures\":[]}\nNATIVE DNS PHYSICAL HOST ORACLE VERIFIED {\"queries\": 16, \"answers\": 17, \"resolver_failures\": 3, \"hosts_file_sha256\": \"5aee72ab44594b422ce133e34a757e7bdba2b4bfe3a6af6534c89100fc440050\"}\nNATIVE DNS REF LIVENESS AND REAL UNHANDLED RESOLVER FAILURE VERIFIED\nHOME DNS PROFILE ASCII BOUND, PRIVATE BRIDGE, ONCE SNAPSHOT; RECORD RESOLVERS ABSENT\n\nECOSYSTEM PEAK SAMPLED RSS: 78624 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "focused-pantry-jsc": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_dns_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 37008,
+      "memory_limit_mb": 3072,
+      "seconds": 0.258,
+      "log": "focused-pantry-jsc.log",
+      "log_sha256": "3090566b77373c234703a820df8aefd61f7d5cb8bf16e32411bcfda104659a87",
+      "actual_output": "$ [\"/Users/chris/.local/share/pantry/global/bin/python3\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_dns_fixture.py\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-jsc/bin/home-tool\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules\"]\nDNS LOOKUP RESULTS {\"groups\":28,\"passed\":28,\"failures\":[]}\nNATIVE DNS PHYSICAL HOST ORACLE VERIFIED {\"queries\": 16, \"answers\": 17, \"resolver_failures\": 3, \"hosts_file_sha256\": \"5aee72ab44594b422ce133e34a757e7bdba2b4bfe3a6af6534c89100fc440050\"}\nTraceback (most recent call last):\n  File \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_dns_fixture.py\", line 69, in <module>\n    assert child.returncode != 0 and b'ENOTFOUND' in child.stderr, (child.returncode, child.stderr)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: (0, b'')\n\nECOSYSTEM PEAK SAMPLED RSS: 37008 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "focused-pantry-node": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_dns_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules",
+        "--reference"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 47824,
+      "memory_limit_mb": 3072,
+      "seconds": 0.345,
+      "log": "focused-pantry-node.log",
+      "log_sha256": "f2c4c66a3721e9b6b583d9abaf5f5b3b3f7e80f07346074308cc5294d74d7ef5",
+      "actual_output": "$ [\"/Users/chris/.local/share/pantry/global/bin/python3\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_dns_fixture.py\", \"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules\", \"--reference\"]\nDNS LOOKUP RESULTS {\"groups\":28,\"passed\":28,\"failures\":[]}\nNATIVE DNS PHYSICAL HOST ORACLE VERIFIED {\"queries\": 16, \"answers\": 17, \"resolver_failures\": 3, \"hosts_file_sha256\": \"5aee72ab44594b422ce133e34a757e7bdba2b4bfe3a6af6534c89100fc440050\"}\nNATIVE DNS REF LIVENESS AND REAL UNHANDLED RESOLVER FAILURE VERIFIED\n\nECOSYSTEM PEAK SAMPLED RSS: 47824 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "focused-pantry-bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_dns_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules",
+        "--reference"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 41552,
+      "memory_limit_mb": 3072,
+      "seconds": 0.385,
+      "log": "focused-pantry-bun.log",
+      "log_sha256": "ea4c13dc01737e7f8ff568136e0ae8a04423eb8f5a710851088c14d1163202cd",
+      "actual_output": "$ [\"/Users/chris/.local/share/pantry/global/bin/python3\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_dns_fixture.py\", \"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules\", \"--reference\"]\nTraceback (most recent call last):\n  File \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_dns_fixture.py\", line 59, in <module>\n    assert result == {'records': query['records']}, (query, result)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ({'hostname': 'broadcasthost', 'family': 6, 'hints': 0, 'records': [{'address': '::ffff:255.255.255.255', 'family': 6}], 'failure': None}, {'failure': 'ENOTFOUND'})\n\nECOSYSTEM PEAK SAMPLED RSS: 41552 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    }
+  },
+  "actual_stacks": {
+    "outbound-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/stacks-outbound-repro.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 29472,
+      "memory_limit_mb": 3072,
+      "seconds": 0.228,
+      "log": "outbound-zig-js.log",
+      "log_sha256": "97e1e95e87bbc0b79dfe639859c0a699c421b57b7e08a8c17506e92687bf0583",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/stacks-outbound-repro.mjs\"]\nhome-tool (zig-js): Error: cannot resolve module node:dns/promises from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/stacks-outbound.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 29472 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "actual-stacks-after-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/stacks-outbound-repro.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 29024,
+      "memory_limit_mb": 3072,
+      "seconds": 0.253,
+      "log": "actual-stacks-after-zig-js.log",
+      "log_sha256": "33bb97ffae5bcede8248a9853aca56080c931f451dff09d7d7c5dd437ea48b8c",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/stacks-outbound-repro.mjs\"]\nACTUAL STACKS OUTBOUND LITERAL GUARD 15 CHECKS PASSED; DNS LOOKUP NOT EXECUTED\n\nECOSYSTEM PEAK SAMPLED RSS: 29024 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "actual-stacks-system-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/actual-stacks-default-resolve.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 56096,
+      "memory_limit_mb": 3072,
+      "seconds": 0.173,
+      "log": "actual-stacks-system-zig-js.log",
+      "log_sha256": "8ed0f51854f2bc6c435ce829e354cbf7681ec91d54b30c4aaa8d0a2ba21f2e99",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/actual-stacks-default-resolve.mjs\"]\nACTUAL STACKS DEFAULT SYSTEM RESOLVER AND PUBLIC URL GUARD PASSED; NO HTTP REQUEST EXECUTED\n\nECOSYSTEM PEAK SAMPLED RSS: 56096 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "profile-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/dns_lookup_profile.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 8096,
+      "memory_limit_mb": 3072,
+      "seconds": 0.13,
+      "log": "profile-zig-js.log",
+      "log_sha256": "41db61f7662f94db1bdf5542a3767edae26484158f60e96d4348c1476804dc33",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/dns_lookup_profile.mjs\"]\nHOME DNS PROFILE ASCII BOUND, PRIVATE BRIDGE, ONCE SNAPSHOT; RECORD RESOLVERS ABSENT\n\nECOSYSTEM PEAK SAMPLED RSS: 8096 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "outbound-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/stacks-outbound-repro.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 144,
+      "memory_limit_mb": 3072,
+      "seconds": 0.105,
+      "log": "outbound-jsc.log",
+      "log_sha256": "8d9e7b9516bcd648c30383cda0428d47b307bc66a255ca70efb1ab6b1f89ce75",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/stacks-outbound-repro.mjs\"]\nhome-tool (jsc): Error: cannot resolve module node:dns/promises from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/stacks-outbound.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 144 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "actual-stacks-after-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/stacks-outbound-repro.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 9616,
+      "memory_limit_mb": 3072,
+      "seconds": 0.337,
+      "log": "actual-stacks-after-jsc.log",
+      "log_sha256": "bf4ad6300597b0561a443694d4839f4d90b4912a8730f9d570a45fd3114bff4d",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/stacks-outbound-repro.mjs\"]\nhome-tool (jsc): Error: Actual URL guard mismatch: https://127.0.0.1/\n\nECOSYSTEM PEAK SAMPLED RSS: 9616 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "actual-stacks-system-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/actual-stacks-default-resolve.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 6368,
+      "memory_limit_mb": 3072,
+      "seconds": 0.025,
+      "log": "actual-stacks-system-jsc.log",
+      "log_sha256": "d523623a9cca13383cdfb7e0acb2763c4d4d6fce5dd6bd94a97e87261d240eda",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/actual-stacks-default-resolve.mjs\"]\nhome-tool (jsc): OutboundUrlError: Not a valid URL\n\nECOSYSTEM PEAK SAMPLED RSS: 6368 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "profile-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/dns_lookup_profile.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6368,
+      "memory_limit_mb": 3072,
+      "seconds": 0.024,
+      "log": "profile-jsc.log",
+      "log_sha256": "0d3ad1cdb93ba35e37333f7cf1417ec7d4cec2290bbc84ca5ac1ce4c86d50ae5",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/dns_lookup_profile.mjs\"]\nHOME DNS PROFILE ASCII BOUND, PRIVATE BRIDGE, ONCE SNAPSHOT; RECORD RESOLVERS ABSENT\n\nECOSYSTEM PEAK SAMPLED RSS: 6368 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "outbound-node": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/stacks-outbound-repro.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 88208,
+      "memory_limit_mb": 3072,
+      "seconds": 0.308,
+      "log": "outbound-node.log",
+      "log_sha256": "5aaa3ead81e9a6b6b7b2d1dde7cea01f75e812518ad1ade8d2162aa788d31f64",
+      "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/stacks-outbound-repro.mjs\"]\nACTUAL STACKS OUTBOUND LITERAL GUARD 15 CHECKS PASSED; DNS LOOKUP NOT EXECUTED\n\nECOSYSTEM PEAK SAMPLED RSS: 88208 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "actual-stacks-system-node": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/actual-stacks-default-resolve.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 62416,
+      "memory_limit_mb": 3072,
+      "seconds": 0.345,
+      "log": "actual-stacks-system-node.log",
+      "log_sha256": "80f33b5c81c3fa4d68b732b8bcff0974e4e60efd032622545448fc4ed95d2f45",
+      "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/actual-stacks-default-resolve.mjs\"]\nACTUAL STACKS DEFAULT SYSTEM RESOLVER AND PUBLIC URL GUARD PASSED; NO HTTP REQUEST EXECUTED\n\nECOSYSTEM PEAK SAMPLED RSS: 62416 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "outbound-bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/stacks-outbound-repro.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.045,
+      "log": "outbound-bun.log",
+      "log_sha256": "2f0b180d50dec367963e705a5d88e300d8f3f4a888434761847e09445f3d22be",
+      "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/stacks-outbound-repro.mjs\"]\nACTUAL STACKS OUTBOUND LITERAL GUARD 15 CHECKS PASSED; DNS LOOKUP NOT EXECUTED\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "actual-stacks-system-bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/actual-stacks-default-resolve.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.096,
+      "log": "actual-stacks-system-bun.log",
+      "log_sha256": "bbf1c7b5003b6fa2fe9b33079c637ba647637d8f935aae2132a6c910b41187dd",
+      "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/actual-stacks-default-resolve.mjs\"]\nACTUAL STACKS DEFAULT SYSTEM RESOLVER AND PUBLIC URL GUARD PASSED; NO HTTP REQUEST EXECUTED\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "reference_limitations": {
+    "baseline-unhandled-before-zig-js": {
+      "observed_exit_code": 1,
+      "fatal_policy_satisfied": true,
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/home-zig-js/bin/home-tool\", \"eval\", \"setTimeout(() => Promise.reject(new Error('EXISTING_UNHANDLED_REJECTION_WITNESS')), 0);\"]\nUncaught unhandledRejection: Error: EXISTING_UNHANDLED_REJECTION_WITNESS\n\nECOSYSTEM PEAK SAMPLED RSS: 31120 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "log_sha256": "e3ae0356b211e8b876916e6d30fe21a34ed546f76ab1ec8c8c050a8971b7b21d",
+      "scope": "A zero exit is a preexisting missing rejection-notification capability, never a passing fatal-policy check."
+    },
+    "baseline-unhandled-after-zig-js": {
+      "observed_exit_code": 1,
+      "fatal_policy_satisfied": true,
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-zig-js/bin/home-tool\", \"eval\", \"setTimeout(() => Promise.reject(new Error('EXISTING_UNHANDLED_REJECTION_WITNESS')), 0);\"]\nUncaught unhandledRejection: Error: EXISTING_UNHANDLED_REJECTION_WITNESS\n\nECOSYSTEM PEAK SAMPLED RSS: 6976 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "log_sha256": "28a2dfbde597fb451d49be11bf05d4492f38e09daf4eb31f279e81dfac7df481",
+      "scope": "A zero exit is a preexisting missing rejection-notification capability, never a passing fatal-policy check."
+    },
+    "baseline-unhandled-before-jsc": {
+      "observed_exit_code": 0,
+      "fatal_policy_satisfied": false,
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/home-jsc/bin/home-tool\", \"eval\", \"setTimeout(() => Promise.reject(new Error('EXISTING_UNHANDLED_REJECTION_WITNESS')), 0);\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+      "log_sha256": "1793e68f9d80ec3d04df675772525a4c9b39b6cf9fd6d5d736d817f71ffd864e",
+      "scope": "A zero exit is a preexisting missing rejection-notification capability, never a passing fatal-policy check."
+    },
+    "baseline-unhandled-after-jsc": {
+      "observed_exit_code": 0,
+      "fatal_policy_satisfied": false,
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-jsc/bin/home-tool\", \"eval\", \"setTimeout(() => Promise.reject(new Error('EXISTING_UNHANDLED_REJECTION_WITNESS')), 0);\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 7536 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+      "log_sha256": "46e1dbeb2276ec843eb26c28584e7c3ffe64049f426638ed91d0877c6d943919",
+      "scope": "A zero exit is a preexisting missing rejection-notification capability, never a passing fatal-policy check."
+    }
+  },
+  "scope": "Actual system getaddrinfo/getnameinfo on referenced owner tasks, copied bounded records, native errors, family/hint filtering and stable ordering. One exported lookup function only; no record resolvers/custom servers/IDNA/socket API or libuv worker-pool claim. Kernel resolver work may block its owning task.",
+  "limits": [
+    "ASCII hostnames only, 1024 code units,4096 native address records, no truncated success or fabricated/empty DNS answers.",
+    "Basic JSC full gate remains FAILED: unhandled native rejection exits0 before and after, although all28 lookup groups and physical results pass. Native rejection hooks and URL host are not supplied by that reference provider. No skip or substitute passing test.",
+    "Bun reference retains an IPv4-family-string difference and actual broadcast-address IPv6 result difference; its full physical-oracle fixture remains FAILED.",
+    "Actual Stacks source passes15literal guard checks and a real default-system-resolution public URL validation on zig-js. No HTTP request, complete package test, SSRF-safe fetch or full ecosystem success is inferred.",
+    "No Root engine language source changes; test262 was not rerun."
+  ],
+  "sources": [
+    "https://nodejs.org/api/dns.html#dnspromiseslookuphostname-options",
+    "https://raw.githubusercontent.com/nodejs/node/v26.10.0/lib/internal/dns/promises.js",
+    "https://raw.githubusercontent.com/libuv/libuv/v1.x/include/uv/errno.h"
+  ],
+  "local_engine": {
+    "source_ref": "07bef5adcf173eab2494c82d009fe3cd6ac9432a",
+    "archive_sha256": "b17ccf437ecd3912cff9dfddc1242d8e05ce342f17a390bf89cdfe23e94ca2cf",
+    "scope": "Preserved exact pushed Debug source archive; Home is ReleaseSafe on macOS. Fresh exact baseline/ReleaseSafe Linux qualification remains required."
+  },
+  "pickier": {
+    "errors": 0,
+    "existing_warnings": 2,
+    "log_sha256": "0bf997c3d318c0c05392af3afe92a03116987f6de7e6a29b67294bfcaae590b7"
+  },
+  "frozen_consumer_source": {
+    "repository": "stacksjs/stacks",
+    "consumer_ref": "d891bdbe2c0ecbadb3d51481580d55c2605d65c3",
+    "path": "storage/framework/core/security/src/outbound.ts",
+    "source_sha256": "d33d47e0d523747434b277df9c66bc8a4ee37fb335dedf95f2f621a6f49a05ee"
+  }
+}
