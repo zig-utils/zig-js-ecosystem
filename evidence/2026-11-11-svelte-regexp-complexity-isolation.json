@@ -1,0 +1,531 @@
+{
+  "schema_version": 1,
+  "actual_ci_run": 43016566737,
+  "actual_ci_failure": {
+    "check": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 71452,
+      "memory_limit_mb": 3072,
+      "seconds": 0.432,
+      "log": "0110.log",
+      "label": "packages/runtime/upstream/packages/bun-plugin-svelte: module initialization src/index.ts",
+      "lane": "candidate",
+      "command": [
+        "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+        "src/index.ts"
+      ],
+      "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-plugin-svelte",
+      "engine_invocations": 1
+    },
+    "actual_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): SyntaxError: invalid regular expression\n\nECOSYSTEM PEAK SAMPLED RSS: 71452 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+    "sha256": "ced46e525e3dac5715e2068561edba9227f69221eaafff841736af174008c084"
+  },
+  "reproduction": {
+    "node": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 82704,
+      "memory_limit_mb": 3072,
+      "seconds": 0.282,
+      "log": "node.log",
+      "transcript": {
+        "file": "node.log",
+        "sha256": "b958d82a8eb3cdf4fc7a597da378a553fd252e506df1cf4e8d86098350f45e26",
+        "text": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"probe.mjs\"]\nACTUAL SVELTE COMPILER function\n\nECOSYSTEM PEAK SAMPLED RSS: 82704 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      }
+    },
+    "bun": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1184,
+      "memory_limit_mb": 3072,
+      "seconds": 0.072,
+      "log": "bun.log",
+      "transcript": {
+        "file": "bun.log",
+        "sha256": "99f62bae06cb4031e5506cbbc9a47b8d2c322a2eb1732e19f8f51254203be8cd",
+        "text": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"run\", \"probe.mjs\"]\nACTUAL SVELTE COMPILER function\n\nECOSYSTEM PEAK SAMPLED RSS: 1184 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      }
+    },
+    "before": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 104848,
+      "memory_limit_mb": 3072,
+      "seconds": 0.619,
+      "log": "before.log",
+      "transcript": {
+        "file": "before.log",
+        "sha256": "3ba12cf896424c7a3139b4cf46f2ed345b9bb7de3555a5344b03c665a5fb72ce",
+        "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/deflate-raw/home-zig-js/bin/home-tool\", \"run\", \"probe.mjs\"]\nhome-tool (zig-js): SyntaxError: invalid regular expression\n\nECOSYSTEM PEAK SAMPLED RSS: 104848 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      }
+    }
+  },
+  "candidate_binary_sha256": "1339f2541e0dd70911a0808748b26b83577c90dc2f4224dfb17c218a56b9bf37",
+  "local_engine_archive_sha256": "53c494d6dbe364a464131b42584cb341eb252fd30578d0c646eb64139041235c",
+  "candidate_home": "5b89a1a88e405f2711e50661aa99e78e0732862b",
+  "engine_source": "60fdd42fe6713a2703fcc426c9d571dbf9a64852",
+  "regex_source": "732424d1c38197501d9e64c5d4c1dbe7d1a97742",
+  "package": {
+    "name": "svelte",
+    "version": "5.20.4",
+    "manifest_sha256": "b71ef254672e4f8b92c7d0c7b488bb3ed488c40327e70ad0656c985606e5d527",
+    "compiler_entry_sha256": "0100581d2c34e5d1579d4dbf1005359c2ae497cc202fe95fd2603419b78a6c1f",
+    "lock_sha256": "6a33157a25e3fb69971da006d8e5c40a36cc283966072964e4062e08a377fcaa",
+    "installed_with_lifecycle_scripts_disabled": true,
+    "scope": "Controlled isolated reproduction uses Svelte5.20.4 from the owned bun-plugin-svelte lockfile. No claim that the complete resolved CI dependency tree is byte-identical; the original per-consumer failure remains separate evidence."
+  },
+  "literal_construction": {
+    "node": {
+      "checks": 136,
+      "failures": []
+    },
+    "bun": {
+      "checks": 136,
+      "failures": []
+    },
+    "zig_js": {
+      "checks": 136,
+      "failures": [
+        {
+          "index": 15,
+          "source": "<!--[^]*?-->|<script((?:\\s+[^=>'\"/\\s]+=(?:\"[^\"]*\"|'[^']*'|[^>\\s]+)|\\s+[^=>'\"/\\s]+)*\\s*)(?:\\/>|>([\\S\\s]*?)<\\/script>)",
+          "flags": "g",
+          "start": 738353,
+          "end": 738472,
+          "error": "SyntaxError: invalid regular expression"
+        },
+        {
+          "index": 16,
+          "source": "<!--[^]*?-->|<style((?:\\s+[^=>'\"/\\s]+=(?:\"[^\"]*\"|'[^']*'|[^>\\s]+)|\\s+[^=>'\"/\\s]+)*\\s*)(?:\\/>|>([\\S\\s]*?)<\\/style>)",
+          "flags": "g",
+          "start": 738232,
+          "end": 738349,
+          "error": "SyntaxError: invalid regular expression"
+        }
+      ]
+    }
+  },
+  "native_diagnostics": {
+    "compile-before.log": {
+      "file": "compile-before.log",
+      "sha256": "ee387661ce2554577633f295bdd5e21e480dddff35d175ade2a63c74a077a3ad",
+      "text": "risk=critical factor=2250000 issues={ { 67, 82, 73, 84, 73, 67, 65, 76, 58, 32, 78, 101, 115, 116, 101, 100, 32, 113, 117, 97, 110, 116, 105, 102, 105, 101, 114, 115, 32, 100, 101, 116, 101, 99, 116, 101, 100, 32, 40, 113, 117, 97, 110, 116, 105, 102, 105, 101, 114, 32, 111, 110, 32, 101, 120, 112, 114, 101, 115, 115, 105, 111, 110, 32, 119, 105, 116, 104, 32, 113, 117, 97, 110, 116, 105, 102, 105, 101, 114, 115, 41 } }\nunicode=false ci=false compile error=PatternTooComplex diagnostic=null\nunicode=false ci=true compile error=PatternTooComplex diagnostic=null\nunicode=true ci=false compile error=PatternTooComplex diagnostic=null\nunicode=true ci=true compile error=PatternTooComplex diagnostic=null\n"
+    },
+    "compile-style-before.log": {
+      "file": "compile-style-before.log",
+      "sha256": "ee387661ce2554577633f295bdd5e21e480dddff35d175ade2a63c74a077a3ad",
+      "text": "risk=critical factor=2250000 issues={ { 67, 82, 73, 84, 73, 67, 65, 76, 58, 32, 78, 101, 115, 116, 101, 100, 32, 113, 117, 97, 110, 116, 105, 102, 105, 101, 114, 115, 32, 100, 101, 116, 101, 99, 116, 101, 100, 32, 40, 113, 117, 97, 110, 116, 105, 102, 105, 101, 114, 32, 111, 110, 32, 101, 120, 112, 114, 101, 115, 115, 105, 111, 110, 32, 119, 105, 116, 104, 32, 113, 117, 97, 110, 116, 105, 102, 105, 101, 114, 115, 41 } }\nunicode=false ci=false compile error=PatternTooComplex diagnostic=null\nunicode=false ci=true compile error=PatternTooComplex diagnostic=null\nunicode=true ci=false compile error=PatternTooComplex diagnostic=null\nunicode=true ci=true compile error=PatternTooComplex diagnostic=null\n"
+    }
+  },
+  "capture_oracle": {
+    "node": {
+      "checks": 34,
+      "output": [
+        {
+          "pattern": 15,
+          "input": "",
+          "matches": [],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 15,
+          "input": "<!-- comment -->",
+          "matches": [
+            {
+              "index": 0,
+              "groups": [
+                "<!-- comment -->",
+                null,
+                null
+              ],
+              "lastIndex": 16
+            }
+          ],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 15,
+          "input": "<!-- <script>hidden</script> -->",
+          "matches": [
+            {
+              "index": 0,
+              "groups": [
+                "<!-- <script>hidden</script> -->",
+                null,
+                null
+              ],
+              "lastIndex": 32
+            }
+          ],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 15,
+          "input": "<script/>",
+          "matches": [
+            {
+              "index": 0,
+              "groups": [
+                "<script/>",
+                "",
+                null
+              ],
+              "lastIndex": 9
+            }
+          ],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 15,
+          "input": "<style/>",
+          "matches": [],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 15,
+          "input": "<script></script>",
+          "matches": [
+            {
+              "index": 0,
+              "groups": [
+                "<script></script>",
+                "",
+                ""
+              ],
+              "lastIndex": 17
+            }
+          ],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 15,
+          "input": "<style></style>",
+          "matches": [],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 15,
+          "input": "<script lang=\"ts\">let x=1;</script>",
+          "matches": [
+            {
+              "index": 0,
+              "groups": [
+                "<script lang=\"ts\">let x=1;</script>",
+                " lang=\"ts\"",
+                "let x=1;"
+              ],
+              "lastIndex": 35
+            }
+          ],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 15,
+          "input": "<style media=\"screen\">a{color:red}</style>",
+          "matches": [],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 15,
+          "input": "<script\n a='x y' b=unquoted c >one\ntwo</script>",
+          "matches": [
+            {
+              "index": 0,
+              "groups": [
+                "<script\n a='x y' b=unquoted c >one\ntwo</script>",
+                "\n a='x y' b=unquoted c ",
+                "one\ntwo"
+              ],
+              "lastIndex": 47
+            }
+          ],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 15,
+          "input": "<style\n a='x y' b=unquoted c >a{}\nb{}</style>",
+          "matches": [],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 15,
+          "input": "<script type=\"x\" async>first</script><script>second</script>",
+          "matches": [
+            {
+              "index": 0,
+              "groups": [
+                "<script type=\"x\" async>first</script>",
+                " type=\"x\" async",
+                "first"
+              ],
+              "lastIndex": 37
+            },
+            {
+              "index": 37,
+              "groups": [
+                "<script>second</script>",
+                "",
+                "second"
+              ],
+              "lastIndex": 60
+            }
+          ],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 15,
+          "input": "<style x=\"a b\" disabled>first</style><style>second</style>",
+          "matches": [],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 15,
+          "input": "<script no-close>abc",
+          "matches": [],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 15,
+          "input": "<style no-close>abc",
+          "matches": [],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 15,
+          "input": "<script\u2003lang=\"ts\">x</script>",
+          "matches": [
+            {
+              "index": 0,
+              "groups": [
+                "<script\u2003lang=\"ts\">x</script>",
+                "\u2003lang=\"ts\"",
+                "x"
+              ],
+              "lastIndex": 28
+            }
+          ],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 15,
+          "input": "<style\u2003media=\"all\">x</style>",
+          "matches": [],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 16,
+          "input": "",
+          "matches": [],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 16,
+          "input": "<!-- comment -->",
+          "matches": [
+            {
+              "index": 0,
+              "groups": [
+                "<!-- comment -->",
+                null,
+                null
+              ],
+              "lastIndex": 16
+            }
+          ],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 16,
+          "input": "<!-- <script>hidden</script> -->",
+          "matches": [
+            {
+              "index": 0,
+              "groups": [
+                "<!-- <script>hidden</script> -->",
+                null,
+                null
+              ],
+              "lastIndex": 32
+            }
+          ],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 16,
+          "input": "<script/>",
+          "matches": [],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 16,
+          "input": "<style/>",
+          "matches": [
+            {
+              "index": 0,
+              "groups": [
+                "<style/>",
+                "",
+                null
+              ],
+              "lastIndex": 8
+            }
+          ],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 16,
+          "input": "<script></script>",
+          "matches": [],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 16,
+          "input": "<style></style>",
+          "matches": [
+            {
+              "index": 0,
+              "groups": [
+                "<style></style>",
+                "",
+                ""
+              ],
+              "lastIndex": 15
+            }
+          ],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 16,
+          "input": "<script lang=\"ts\">let x=1;</script>",
+          "matches": [],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 16,
+          "input": "<style media=\"screen\">a{color:red}</style>",
+          "matches": [
+            {
+              "index": 0,
+              "groups": [
+                "<style media=\"screen\">a{color:red}</style>",
+                " media=\"screen\"",
+                "a{color:red}"
+              ],
+              "lastIndex": 42
+            }
+          ],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 16,
+          "input": "<script\n a='x y' b=unquoted c >one\ntwo</script>",
+          "matches": [],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 16,
+          "input": "<style\n a='x y' b=unquoted c >a{}\nb{}</style>",
+          "matches": [
+            {
+              "index": 0,
+              "groups": [
+                "<style\n a='x y' b=unquoted c >a{}\nb{}</style>",
+                "\n a='x y' b=unquoted c ",
+                "a{}\nb{}"
+              ],
+              "lastIndex": 45
+            }
+          ],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 16,
+          "input": "<script type=\"x\" async>first</script><script>second</script>",
+          "matches": [],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 16,
+          "input": "<style x=\"a b\" disabled>first</style><style>second</style>",
+          "matches": [
+            {
+              "index": 0,
+              "groups": [
+                "<style x=\"a b\" disabled>first</style>",
+                " x=\"a b\" disabled",
+                "first"
+              ],
+              "lastIndex": 37
+            },
+            {
+              "index": 37,
+              "groups": [
+                "<style>second</style>",
+                "",
+                "second"
+              ],
+              "lastIndex": 58
+            }
+          ],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 16,
+          "input": "<script no-close>abc",
+          "matches": [],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 16,
+          "input": "<style no-close>abc",
+          "matches": [],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 16,
+          "input": "<script\u2003lang=\"ts\">x</script>",
+          "matches": [],
+          "finalLastIndex": 0
+        },
+        {
+          "pattern": 16,
+          "input": "<style\u2003media=\"all\">x</style>",
+          "matches": [
+            {
+              "index": 0,
+              "groups": [
+                "<style\u2003media=\"all\">x</style>",
+                "\u2003media=\"all\"",
+                "x"
+              ],
+              "lastIndex": 28
+            }
+          ],
+          "finalLastIndex": 0
+        }
+      ]
+    },
+    "bun_log": {
+      "file": "capture-bun.log",
+      "sha256": "37d1ac1678bd54a77d383dca762e983a875b1fa44d711f154a0da932aea23512",
+      "text": "ACTUAL SVELTE CAPTURE ORACLE 34\n"
+    },
+    "node_log": {
+      "file": "capture-node.log",
+      "sha256": "37d1ac1678bd54a77d383dca762e983a875b1fa44d711f154a0da932aea23512",
+      "text": "ACTUAL SVELTE CAPTURE ORACLE 34\n"
+    },
+    "equal": true
+  },
+  "probe_hashes": {
+    "probe.mjs": "42ca43f17dc0ae54fe21eac393328422355a884c184ffeda7b4f0b909f9f6c98",
+    "extract.mjs": "726d5267723b6ec429577d97a80df857ee471583f9627bc90e92644e34858263",
+    "patterns.mjs": "2bff78553572b048ec5e5bdeab8ae3dba7a6301b00328401eb91be4815e595af",
+    "capture-oracle.mjs": "60668418668dddc60173995d9e5b1a01be9eb751a64a19a01b083d3a46f39c09",
+    "compile.zig": "222622ceb6304cc20cac1db412f915d89d703b4593e13cb8f1b0a5039c672766",
+    "compile-style.zig": "1e7637562640abe772117fa48252022e32e619fb303f7d7992e1745052babad9"
+  },
+  "status": "Reproduced and isolated, not repaired. Both patterns are valid on Node/Bun, but native compile refuses PatternTooComplex in all probed Unicode/case-fold profiles; each separate base-AST analysis reports critical factor2250000. Capture/lazy-alternation routing chooses the backtracking path, so its critical-risk guard applies. No guard, rejection threshold, budget, selected repository or unsupported outcome was changed. A repair needs proven safe analysis or correct capture-aware linear execution with adversarial and before/after corpus validation; do not merely whitelist these patterns or weaken the guard."
+}
