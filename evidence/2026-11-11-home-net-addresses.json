@@ -1,0 +1,305 @@
+{
+  "schema_version": 1,
+  "home_ref": "2e34b8d6ecec739c0cfbc3b61b61ef8d5cd0e4c2",
+  "home_parent": "b448c34efe22f13065bce17e14a0d8eb6ccb4f76",
+  "home_git_identity": {
+    "name": "Chris Breuer",
+    "email": "chrisbreuer93@gmail.com"
+  },
+  "source_sha256": {
+    "build.zig": "22fd144f30454304441f9195e6101c9fdc39648340e57333bec11b02ec72cef4",
+    "packages/runtime/src/jsc/tool_builtins.js": "57835442965a483812e9476c82b09fe8f10a25fc791ddb3ab06f650e2a13a259",
+    "packages/runtime/src/jsc/tool_builtins.zig": "c33fe0acf277a85208a3818c4effa4641253d66b94126f0d162366140ca6f7f3",
+    "packages/runtime/src/jsc/tool_net.js": "305b1036ab9f93f0a2a393a14f90d8573c8b67dfd61e68de3cebe0d4e036daa1",
+    "packages/runtime/test/tool_modules/net_address_profile.mjs": "e9728bae058c014cf4c78e85709d09fa48fcbf5f114d0d2f70d0ae61710af86a",
+    "packages/runtime/test/tool_modules/node_net_addresses.mjs": "8a7ca6d201bc6acea3df1baff4eff47c187a9272cf56331ed61aaf1561e86fa0",
+    "packages/runtime/test/tool_net_fixture.py": "29147ddb1b64f82aeea2c910b33e68ced8cbfd939945dc3a8714d52ae7156d1f"
+  },
+  "local_engine_archive": {
+    "source_revision": "07bef5adcf173eab2494c82d009fe3cd6ac9432a",
+    "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/acorn-atomic/engine-after/zig-out/lib/libzig-js.a",
+    "sha256": "b17ccf437ecd3912cff9dfddc1242d8e05ce342f17a390bf89cdfe23e94ca2cf",
+    "scope": "Exact pushed source archive from the preserved local Debug engine bootstrap. Home ReleaseSafe/macOS; official baseline-CPU ReleaseSafe Linux qualification remains pending. Caller commits since07bef change workflow pins only."
+  },
+  "toolchain": "0.18.0-dev.146+35accc06e",
+  "native_validation": {
+    "zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-net-addresses-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/acorn-atomic/engine-after"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1185104,
+      "memory_limit_mb": 3072,
+      "seconds": 107.121,
+      "log": "build-zig-js.log",
+      "log_sha256": "1dce239844a2a09c5e84ae8d6b4ce52db8a65c8932059759a29921e520835cc5",
+      "binary_sha256": "c50fb2b0232499ee3507a8681ac9fbd23d2fcef5b59125c72e09fa3f906289c5",
+      "actual_signals": [
+        "NET ADDRESS RESULTS {\"groups\":31,\"passed\":31,\"failures\":[]}",
+        "NET INDEPENDENT ORACLE {\"validators\":896,\"subnets\":162,\"queries\":1466}",
+        "PYTHON IPADDRESS ORACLE VERIFIED",
+        "HOME NET PROFILE 4 REAL EXPORTS; SOCKET AND DNS APIS ABSENT; NUL REFUSED",
+        "Build Summary: 240/240 steps succeeded; 59/59 tests passed"
+      ]
+    },
+    "jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-net-addresses-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/home-jsc",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 818080,
+      "memory_limit_mb": 3072,
+      "seconds": 56.991,
+      "log": "build-jsc.log",
+      "log_sha256": "12f7f133d80f8f2684cdd04e3daddb60a34c268e95e5d6edd0982e930fe9b5f3",
+      "binary_sha256": "1401433e19a277b8d539f715b3c45867455857a84e5a5124cc922bf2054e1921",
+      "actual_signals": [
+        "NET ADDRESS RESULTS {\"groups\":31,\"passed\":31,\"failures\":[]}",
+        "NET INDEPENDENT ORACLE {\"validators\":896,\"subnets\":162,\"queries\":1466}",
+        "PYTHON IPADDRESS ORACLE VERIFIED",
+        "HOME NET PROFILE 4 REAL EXPORTS; SOCKET AND DNS APIS ABSENT; NUL REFUSED",
+        "Build Summary: 212/212 steps succeeded; 3/3 tests passed"
+      ]
+    }
+  },
+  "references": {
+    "node": {
+      "log_sha256": "a80fe8b6ce5841bd80b24aa3499d7d5ca7c012c439ff929119ef2be535ef3e20",
+      "actual_signals": [
+        "NET ADDRESS RESULTS {\"groups\":31,\"passed\":31,\"failures\":[]}",
+        "NET INDEPENDENT ORACLE {\"validators\":896,\"subnets\":162,\"queries\":1466}",
+        "PYTHON IPADDRESS ORACLE VERIFIED"
+      ]
+    },
+    "bun": {
+      "log_sha256": "a80fe8b6ce5841bd80b24aa3499d7d5ca7c012c439ff929119ef2be535ef3e20",
+      "actual_signals": [
+        "NET ADDRESS RESULTS {\"groups\":31,\"passed\":31,\"failures\":[]}",
+        "NET INDEPENDENT ORACLE {\"validators\":896,\"subnets\":162,\"queries\":1466}",
+        "PYTHON IPADDRESS ORACLE VERIFIED"
+      ]
+    }
+  },
+  "actual_frozen_consumer": {
+    "package": "@stacksjs/bun-router@0.1.24",
+    "integrity": {
+      "integrity": "sha512-vXzpmYBe9o0NOVWAZ1kqZJv7VAKTd84rEs3e8e+oEeX3Q4zE078SHTxrYsNcr2n1tb8EwQawaC4YGmFFKrgrzA==",
+      "tarball_sha256": "b5a602f22100fe42d5c93a4f92c462000cd411ea0532878746aed244e1e9039a",
+      "failing_chunk_sha256": "8a72071b43a87fc92e1e2d790e22f3321087dcd65ce8c70542f8feabab77a6a5"
+    },
+    "runs": {
+      "before-zig-js": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/rebased-home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-import.mjs"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 39600,
+        "memory_limit_mb": 3072,
+        "seconds": 0.456,
+        "log": "before-zig-js.log",
+        "log_sha256": "118a6d56166673501db414272f42c45041bb41813d7b92c6717c6511c0767215",
+        "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/rebased-home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-import.mjs\"]\nhome-tool (zig-js): Error: cannot resolve module net from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-0.1.24/package/dist/chunk-zzempx0a.js\n\nECOSYSTEM PEAK SAMPLED RSS: 39600 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      },
+      "before-jsc": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/rebased-home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-import.mjs"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.062,
+        "log": "before-jsc.log",
+        "log_sha256": "18e5910840833e4db3a6e1110dd035c9ac60af5c9f87bf11b72f3da6ac76492d",
+        "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/rebased-home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-import.mjs\"]\nhome-tool (jsc): Error: cannot resolve module net from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-0.1.24/package/dist/chunk-zzempx0a.js\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      },
+      "package-zig-js": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-import.mjs"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 29232,
+        "memory_limit_mb": 3072,
+        "seconds": 0.271,
+        "log": "package-zig-js.log",
+        "log_sha256": "a8610128c6a2e27a33933e92689fae357b31a0487b1e499bbfb99f9b24923ce5",
+        "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-import.mjs\"]\nhome-tool (zig-js): Error: cannot resolve module bun:test from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-0.1.24/package/dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 29232 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      },
+      "package-jsc": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-import.mjs"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 10256,
+        "memory_limit_mb": 3072,
+        "seconds": 0.321,
+        "log": "package-jsc.log",
+        "log_sha256": "333dcd5da1b9020f64e1ca9671a75c21bd023a9946bbdff5fcbba93519f5846c",
+        "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-import.mjs\"]\nhome-tool (jsc): Error: cannot resolve module async_hooks from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-0.1.24/package/dist/chunk-v4qcbjc3.js\n\nECOSYSTEM PEAK SAMPLED RSS: 10256 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      },
+      "bun": {
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-import.mjs"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 2272,
+        "memory_limit_mb": 3072,
+        "seconds": 0.026,
+        "log": "bun.log",
+        "log_sha256": "c7123efd6e53f4d457b750af61eb39f8811637e4268b0df37e93fe7d86964f42",
+        "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-import.mjs\"]\nACTUAL ROUTER IMPORT ApiKeyManager,Auth,AuthTester,BindingBuilder,BuiltInRules,CLOUDFLARE_IP_RANGES,CacheInvalidation,Container,ContentSecurityPolicy,ContextualContainer,Cors,Csrf,DDoSProtection,DEFAULT_COMPRESSION,DatabaseRules,DatabaseSessionStore,DefaultServiceProviderManager,Dependencies,DomainGroup,DomainGroupBuilder,DomainMatcher,ENRICHED_NOT_FOUND_RESPONSE,EnhancementPresets,EnvironmentManager,Errors,FileSecurity,FileSessionStore,FileUpload,FileUploadTester,FileValidationTester,FluentRouteBuilder,FluentRouter,GenericMockModel,Helmet,InMemoryNonceStore,InputValidation,JWT,JWTTester,JsonBody,LoadTester,MemorySessionStore,MiddlewareChainTester,MiddlewareFactory,MiddlewareGroupRegistry,MiddlewareHelpers,MiddlewarePipeline,MiddlewareTester,MockPostClass,MockServerWebSocket,MockUserClass,ModelBindingTester,ModelResolverTester,OAuth2Helper,PRIVATE_NETWORK_RANGES,PerformanceAlerting,PerformanceDashboard,PerformanceMonitor,PerformanceTester,RateLimit,RateLimitRegistry,RateLimitUtils,RateLimiter,RedisSessionStore,RequestId,RequestSigning,RequestTracer,ResponseBuilder,RouteBuilder,RouteCacheFactory,RouteCacheKeyGenerator,RouteCacheManager,RouteFactory,RouteGroupBuilder,RouteHelpers,Router,RouterUtils,Security,SecuritySuite,Session,SessionManager,SessionTester,SignatureError,SkipConditions,SubdomainPatterns,SubdomainRouter,SubdomainUtils,TestClient,TestRequestBuilder,TestResponseWrapper,ThrottleFactory,TypedClientError,ValidationFluentRouter,ValidationHelpers,ValidationMiddlewareBuilder,ValidationRuleBuilder,Validator,WebSocketTester,addressInRanges,apiKeyAuth,appendVary,applyRequestEnhancements,applyResponseCompression,auth,authHelpers,authMocks,basicAuth,bearerAuth,benchmarkMiddleware,benchmarkTests,buildUrlWithPreservedParams,clearNamedRoutes,clientAddress,clientAddressChain,compressResponse,config,constraintHelpers,contentSecurityPolicy,cors,createAuthTester,createContainer,createCookieAccessor,createEnhancementMiddleware,createFileUploadTester,createFluentRouter,createHandlerResolver,createInMemoryCookieAccessor,createJWTTester,createLoadTester,createMiddlewareSpy,createMockRequest,createMockResponse,createMockServerWebSocket,createModelBindingTester,createModelResolverTester,createPathRegex,createPerformanceTester,createRateLimitMiddleware,createRouteCacheMiddleware,createSessionStore,createSessionTester,createSubdomainMiddleware,createTestClient,createTestResponse,createTypedClient,createTypedRouter,createValidationMiddleware,createWebSocketTester,csrf,ddosProtection,decodeParam,defaultConfig,defaultQueryPreservationConfig,defineEndpoint,documentUpload,enableRequestContext,extractApiKey,extractBasicAuth,extractBearerToken,extractParamNames,fileExists,fileUpload,fileUploadAssertions,fileUploadMocks,fileUploadScenarios,generateQueryPreservationScript,generateSessionId,getConfig,getContainer,getCurrentRequest,getNamedRoutePath,getNamedRoutes,globalMiddlewarePipeline,globalValidator,imageUpload,injectQueryPreservationScript,inputValidation,isActionClass,isCompressible,isRouteHandler,isTrustedProxyPeer,joinPaths,jsonBody,jwtAuth,matchPath,memoryTests,middleware,middlewareGroups,mockMiddleware,modelMocks,multipleFileUpload,negotiateEncoding,normalizeAddress,normalizePath,oauth2Auth,parseBearerToken,parseThrottleString,peekBody,peekedStream,peerAddress,performanceAlerting,performanceAssertions,performanceDashboard,performanceMonitor,performanceUtils,processHtmlTemplate,rateLimit,rateLimitRegistry,registerNamedRoute,registerPeerSource,request,requestId,requestSigning,requestTracer,resolveHandler,resolveViewPath,response,responseBuilder,routeCacheManager,routeModelHelpers,router,rule,runWithRequest,runWithRequestArguments,scopedBindingHelpers,security,securitySuite,session,setContainer,setCurrentRequest,shouldCompress,signRequest,singleFileUpload,spyOnMiddleware,stressTests,testClient,testFiles,testMiddleware,testMiddlewareChain,testRequest,toActionPath,url,validate,validatePath,verifySignature,wrapResponse,wsAssertions,wsHandlerMocks,wsPerformance,wsTestScenarios,wsTestUtils\n\nECOSYSTEM PEAK SAMPLED RSS: 2272 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "router-policy-node": {
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-policy.mjs",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-policy-oracle.json"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 27728,
+        "memory_limit_mb": 3072,
+        "seconds": 0.304,
+        "log": "router-policy-node.log",
+        "log_sha256": "1129bd196fe20c1f41b95974d685a9a0e21bd94c74d8175e53058b73a450fffa",
+        "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-policy.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-policy-oracle.json\"]\nACTUAL FROZEN ROUTER ADDRESS POLICY 300 CHECKS PASSED\n\nECOSYSTEM PEAK SAMPLED RSS: 27728 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "router-policy-bun": {
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-policy.mjs",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-policy-oracle.json"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1120,
+        "memory_limit_mb": 3072,
+        "seconds": 0.103,
+        "log": "router-policy-bun.log",
+        "log_sha256": "5a6c4c55c8a4ba26e05c7299edec02d07360d733801791f9a51ec0a30e6ff930",
+        "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-policy.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-policy-oracle.json\"]\nACTUAL FROZEN ROUTER ADDRESS POLICY 300 CHECKS PASSED\n\nECOSYSTEM PEAK SAMPLED RSS: 1120 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "router-policy-before-zig-js": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/rebased-home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-policy.mjs",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-policy-oracle.json"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 35920,
+        "memory_limit_mb": 3072,
+        "seconds": 0.505,
+        "log": "router-policy-before-zig-js.log",
+        "log_sha256": "14dba42f050d7ae6ea981fc7f76b09e18be633d6c2a3963ba4e7cd589c66d2dc",
+        "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/fs-callback-reads/rebased-home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-policy.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-policy-oracle.json\"]\nhome-tool (zig-js): Error: cannot resolve module net from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-0.1.24/package/dist/chunk-zzempx0a.js\n\nECOSYSTEM PEAK SAMPLED RSS: 35920 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      },
+      "router-policy-after-zig-js": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-policy.mjs",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-policy-oracle.json"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 47696,
+        "memory_limit_mb": 3072,
+        "seconds": 0.435,
+        "log": "router-policy-after-zig-js.log",
+        "log_sha256": "2eaff412fad5d006e366d6276a5bde82f4c96367ecbbc1b97c25f869baca7f0a",
+        "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-policy.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-policy-oracle.json\"]\nACTUAL FROZEN ROUTER ADDRESS POLICY 300 CHECKS PASSED\n\nECOSYSTEM PEAK SAMPLED RSS: 47696 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "router-policy-after-jsc": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-policy.mjs",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-policy-oracle.json"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 5408,
+        "memory_limit_mb": 3072,
+        "seconds": 0.03,
+        "log": "router-policy-after-jsc.log",
+        "log_sha256": "6aae657f7ef2c093a0f5481e1fc0b70fde8b14810464c89f72d5d1cb9e617d68",
+        "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-policy.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/router-policy-oracle.json\"]\nACTUAL FROZEN ROUTER ADDRESS POLICY 300 CHECKS PASSED\n\nECOSYSTEM PEAK SAMPLED RSS: 5408 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      }
+    }
+  },
+  "limitations": [
+    "Exports actual isIP/isIPv4/isIPv6 and BlockList numeric-address methods only. Socket, Server, SocketAddress, connect and DNS remain absent.",
+    "BlockList is per-instance realm-local pure numeric state. IPv4 is normalized to mapped IPv6 for cross-family membership. No network or resolver capability is inferred.",
+    "Validators match strict decimal IPv4, compressed/embedded IPv4 IPv6 and Node zone-name grammar with ToString coercion.",
+    "BlockList refuses embedded NUL with ERR_HOME_UNSUPPORTED instead of Node native SocketAddress truncation.",
+    "Home rules snapshots use reverse insertion order like Bun. Node26 native rules order differs; common tests assert rule contents.",
+    "Home check uses Node26 non-ipv4 string fast-path behavior. Bun returns false for unknown family. Ordinary add methods validate family values.",
+    "The actual router chunk now passes 300 private/Cloudflare CIDR checks against Python ipaddress expectations. Full router public index still fails on absent bun:test; no upstream test suite or full package pass claimed.",
+    "Engine language source unchanged; test262 was not rerun. Native Bun is reference only, never candidate fallback."
+  ],
+  "reference_differences": {
+    "node-rules.log": {
+      "sha256": "b3858d860ee0e44f9a4f8af0ac922e20b0e9c37057dcb27a79caf7d53f2fc711",
+      "actual_output": "before [\"Address: IPv4 1.2.3.4\",\"Subnet: IPv6 ::/0\",\"Range: IPv4 10.0.0.1-10.0.0.2\"] false\nmutated [\"Address: IPv4 1.2.3.4\",\"Subnet: IPv6 ::/0\",\"Range: IPv4 10.0.0.1-10.0.0.2\"]\nafter-add [\"Address: IPv4 1.2.3.4\",\"Address: IPv4 1.2.3.5\",\"Subnet: IPv6 ::/0\",\"Range: IPv4 10.0.0.1-10.0.0.2\"]\ncanonical [\"Address: IPv6 1:2:3:4::\",\"Address: IPv6 ::1\",\"Address: IPv6 ::192.0.2.1\",\"Address: IPv6 ::ffff:192.0.2.1\",\"Address: IPv6 2001:db8::1:0:0:1\",\"Address: IPv6 ::\"]\nfamily IPV6 true\nfamily other true\nfamily ipv4 false\n"
+    },
+    "bun-rules.log": {
+      "sha256": "846345690dc6112f187c845652292a580d6f4254d205aa380e89dfc73d8acc5c",
+      "actual_output": "before [\"Subnet: IPv6 ::/0\",\"Range: IPv4 10.0.0.1-10.0.0.2\",\"Address: IPv4 1.2.3.4\"] false\nmutated [\"Subnet: IPv6 ::/0\",\"Range: IPv4 10.0.0.1-10.0.0.2\",\"Address: IPv4 1.2.3.4\"]\nafter-add [\"Address: IPv4 1.2.3.5\",\"Subnet: IPv6 ::/0\",\"Range: IPv4 10.0.0.1-10.0.0.2\",\"Address: IPv4 1.2.3.4\"]\ncanonical [\"Address: IPv6 ::1\",\"Address: IPv6 ::192.0.2.1\",\"Address: IPv6 ::ffff:192.0.2.1\",\"Address: IPv6 1:2:3:4::\",\"Address: IPv6 2001:db8::1:0:0:1\",\"Address: IPv6 ::\"]\nfamily IPV6 true\nfamily other false\nfamily ipv4 false\n"
+    },
+    "node-edge.jsonl": {
+      "sha256": "3265423d48ac4b98b724ae7a9dd88e1e17927cac0dd19879aa5f179be3f39c21",
+      "actual_output": "{\"s\":\"1.2.3.4\\n\",\"isIP\":0,\"error\":\"ERR_INVALID_ADDRESS\",\"rules\":[]}\n{\"s\":\"::1\\n\",\"isIP\":0,\"error\":\"ERR_INVALID_ADDRESS\",\"rules\":[]}\n{\"s\":\"1.2.3.4\\u0000evil\",\"isIP\":0,\"rules\":[\"Address: IPv4 1.2.3.4\"]}\n{\"s\":\"::1\\u0000evil\",\"isIP\":0,\"rules\":[\"Address: IPv6 ::1\"]}\n{\"s\":\"::1%\",\"isIP\":0,\"rules\":[\"Address: IPv6 ::1\"]}\n{\"s\":\"::1%a_b\",\"isIP\":0,\"rules\":[\"Address: IPv6 ::1\"]}\n{\"s\":\"::1%a:b.c-d\",\"isIP\":6,\"rules\":[\"Address: IPv6 ::1\"]}\n{\"s\":\"::ffff:01.2.3.4\",\"isIP\":0,\"error\":\"ERR_INVALID_ADDRESS\",\"rules\":[]}\n{\"s\":\"1:2:3:4:5:6:7:8::\",\"isIP\":0,\"error\":\"ERR_INVALID_ADDRESS\",\"rules\":[]}\n{\"s\":\"1:2:3:4:5:6:7::8\",\"isIP\":0,\"error\":\"ERR_INVALID_ADDRESS\",\"rules\":[]}\n{\"s\":\"::0.1.0.0\",\"isIP\":6,\"rules\":[\"Address: IPv6 ::0.1.0.0\"]}\n{\"s\":\"::0.0.0.1\",\"isIP\":6,\"rules\":[\"Address: IPv6 ::1\"]}\n{\"s\":\"::ffff:0:1\",\"isIP\":6,\"rules\":[\"Address: IPv6 ::ffff:0.0.0.1\"]}\n{\"family\":\"bad\",\"value\":true}\n{\"family\":\"IPv6\",\"value\":true}\n{\"family\":\"ipv4\",\"value\":false}\n{\"family\":\"IPv4\",\"value\":false}\n{\"family\":\"IPV4\",\"value\":false}\n{\"family\":\"\",\"value\":true}\n"
+    }
+  },
+  "pickier": {
+    "errors": 0,
+    "warnings": 2,
+    "scope": "Both warnings already exist on untouched lines1037 and1040 of tool_builtins.js",
+    "log_sha256": "0bf997c3d318c0c05392af3afe92a03116987f6de7e6a29b67294bfcaae590b7"
+  }
+}
