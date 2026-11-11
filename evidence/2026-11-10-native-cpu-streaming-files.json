@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "home_ref": "d20d8e30eb258a9d81db9d40d0bcc617672258e9",
+  "before_home": "69ffc116a6a65a3f487a950b6b8eea866a0f1edf",
+  "direct_linux_reproduction": {
+    "run": 42936785829,
+    "job": 130249353918,
+    "suite_ref": "600d0798625ae83cc4072930376090839eb60167",
+    "raw_log_sha256": "e2fc3c6f9a1e4a0d2491c8a5119ea64c9a2bb87a400bfa7cb2e203d40d236ce9",
+    "actual_signals": [
+      "2026-11-11T01:12:24.0247591Z All 5 tests passed.",
+      "2026-11-11T01:12:34.3921757Z 1/5 tool_cpu_info_linux_test.test.processor information retains all online CPUs when Linux affinity changes...FAIL (NoCpuInformation)",
+      "2026-11-11T01:12:34.3929270Z 5/5 tool_cpu_info.test.CPU information queries current native processor snapshots with owned storage...FAIL (NoCpuInformation)",
+      "2026-11-11T01:12:34.3929580Z 3 passed; 0 skipped; 2 failed."
+    ]
+  },
+  "local_read_probe": {
+    "source_sha256": "1e84164567f90d3558c30b29efc1109fd7231c9188e4cc7bc06571920a3c7c4a",
+    "kind": "controlled cached-length IO regression, not a native Linux pass",
+    "cached_advertised_zero_length_bytes": 0,
+    "streamed_bytes": 17
+  },
+  "streaming_gates": {
+    "zig-js": {
+      "result": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1236816,
+        "memory_limit_mb": 3072,
+        "seconds": 66.976,
+        "log": "streaming-gates-zig-js.log"
+      },
+      "log_sha256": "45fb815798a1fcac86073c7b0ac7fc67f249f54bc5637549f74246f4cfd3cb80",
+      "build_summary": "Build Summary: 207/207 steps succeeded; 10/10 tests passed",
+      "binary_sha256": "d54d71ba7e65dab43b1b5de91954d67d8e1bc68ad5ebdd2c68772c96a32b4225"
+    },
+    "jsc": {
+      "result": {
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1119776,
+        "memory_limit_mb": 3072,
+        "seconds": 45.595,
+        "log": "streaming-gates-jsc.log"
+      },
+      "log_sha256": "ae427c373faf7cc7f77e5fe4cd27e04d12b9c853215929844a9fd04c9837c62b",
+      "build_summary": "Build Summary: 184/184 steps succeeded",
+      "binary_sha256": "3879096fa0ba325f71ce9450fabdd156db14bb329fbc0336bf79ccf1325f2d20"
+    }
+  },
+  "source_sha256": {
+    "tool_cpu.zig": "aae45bf3830d08ad18d66731b1e81e94b4d1af4ad05d3258bcb8a280dab22c54",
+    "tool_cpu_info.zig": "e9691c45983859cea9983f3201cf5a8ef96aceab7ac0195014e5cc1f5a0fc38c",
+    "tool_cpu_files.zig": "4b113ba9eddb636c9551099b22637b7431411129a290c22b5421ab6b24437339",
+    "tool_cpu_info_linux_test.zig": "53ec4dd2af8d43a34475100fff5e24b93b87aef722bd65aec616b4246a5171fa"
+  },
+  "scope": "Stream CPU/proc/cgroup kernel files using private fresh descriptors and the same byte caps; do not infer empty data from advertised size. All quota policies and resource limits remain unchanged. The new live Linux witness requires real zero-stat procfs data, snapshots and changed-affinity coverage; native execution remains pending this new qualification. No fabricated CPU data or fallback is added."
+}
