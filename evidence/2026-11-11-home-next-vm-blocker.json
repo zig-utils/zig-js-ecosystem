@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-11T23:16:24.160068+00:00",
+  "status": "Reproduced next Home blocker; no VM API implementation added",
+  "package": {
+    "package": "bun-plugin-tailwind",
+    "version": "0.1.2",
+    "url": "https://registry.npmjs.org/bun-plugin-tailwind/-/bun-plugin-tailwind-0.1.2.tgz",
+    "sha512_base64": "41jNC1tZRSK3s1o7pTNrLuQG8kL/0vR/JgiTmZAJ1eHwe0w5j6HFPKeqEk0WAD13jfrUC7+ULuewFBBCoADPpg==",
+    "index_sha256": "96ce6dc7ce5f9b5106d5f79b09065a615f42ae832f9e6200ec747cc7be713e2e",
+    "bytes": 1583926
+  },
+  "lock_source": "home-lang/home packages/runtime/src/runtime/cli/init/react-tailwind/bun.lock at baabd83f05594c89d5ab932a83a66a37223d165d (dependency unchanged from the failing consumer)",
+  "actual_consumer_usage": {
+    "require_excerpt": "let tL = __require(\"perf_hooks\"), tD = __require(\"vm\");\n        var tO = __webpack_require__.n(tD);\n        function jitiRequire(e10, t3, i2) {\n          let s2 = e10.par",
+    "run_excerpt": "Z_dirname(a2), f2.paths = ed.Module._nodeModulePaths(f2.path), h3[a2] = f2, e10.opts.moduleCache && (e10.nativeRequire.cache[a2] = f2);\n          let g2 = wrapModule(t3, { async: i2.async });\n          try {\n            s2 = tO().runInThisContext(g2, { filename: a2, lineOffset: 0, displayErrors: false });\n          } catch (t4) {\n            \"SyntaxError\" === t4.name && i2.async && e10.nativeImport ? (debug(e10, \"[esm]\", \"[import]\", \"[fallback]\", a2), s2 = esmEval(g2, e10.nativeImport)) : (e10.opts.moduleCache && delete e10.nativeRequire.cache[a2], e10.onError(t4));\n          }\n          try {\n            r2 = s2(f2.exports, f2.require, f2, f2.filename, pathe_M_eThtNZ_dirname(f2.filename), m2.import, m2.esmResolve);\n          } catch (t4) {\n            e10.opts.moduleCache && delete e10.nativeRequire.cache[a2], e10.onError(t4);\n          }\n          function",
+    "meaning": "The actual frozen plugin contains jiti require(vm) and runInThisContext(wrapper,{filename,lineOffset:0,displayErrors:false}), followed by a real seven-argument module-wrapper invocation. A fake VM constructor, inert callback or native Bun fallback would not implement it."
+  },
+  "plugin_import": {
+    "program": "import plugin from './package/index.mjs';if(!plugin||plugin.name!=='@tailwindcss/bun'||typeof plugin.setup!=='function')throw new Error('Wrong real Tailwind plugin contract');console.log('ACTUAL TAILWIND PLUGIN IMPORT EXECUTED');\n",
+    "reference_bun": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/plugin-import.mjs"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 36416,
+        "memory_limit_mb": 3072,
+        "seconds": 0.173,
+        "log": "bun-plugin.log"
+      },
+      "log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/bun-plugin.log",
+        "sha256": "b7f94d1731b376271934a3ce663367cfc022d1ee7dc5e63715c8fe9b8f97657b",
+        "content": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/plugin-import.mjs\"]\nACTUAL TAILWIND PLUGIN IMPORT EXECUTED\n\nECOSYSTEM PEAK SAMPLED RSS: 36416 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      }
+    },
+    "home_before": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/plugin-import.mjs"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 248464,
+        "memory_limit_mb": 3072,
+        "seconds": 0.349,
+        "log": "home-plugin.log"
+      },
+      "log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/home-plugin.log",
+        "sha256": "8bdfb4a7930e85cc6884e16e0017ca0821633c781056cbba582685b1739c40d1",
+        "content": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/plugin-import.mjs\"]\nhome-tool (zig-js): Error: cannot resolve module vm from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 248464 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      }
+    },
+    "scope": "Actual plugin import/name/setup contract only; plugin.setup and Tailwind build are not executed. Initial extra witness wrongly assumed a callable default; package exports an object. Original failed reference test is retained locally; the corrected object contract is executed separately."
+  },
+  "vm_call_shape": {
+    "program": "import vm from 'node:vm';\nimport {createRequire} from 'node:module';\nconst require=createRequire(import.meta.url);\nconst lexicalMarker='caller-private';\nconst source='(function(exports, require, module, __filename, __dirname, jitiImport, jitiESMResolve) { exports.kind = typeof lexicalMarker; exports.filename = __filename; exports.joined = require(\"node:path\").join(__dirname, \"tailwind.config.js\"); module.exports.compute = value => value + 7; })';\nconst filename='/actual/config/tailwind.config.js';\nconst wrapper=vm.runInThisContext(source,{filename,lineOffset:0,displayErrors:false});\nconst module={exports:{}};\nwrapper(module.exports,require,module,filename,'/actual/config',undefined,undefined);\nif(module.exports.kind!=='undefined'||module.exports.compute(5)!==12||module.exports.filename!==filename||module.exports.joined!==filename)throw new Error('Real jiti VM invocation mismatch');\nconsole.log('JITI VM GLOBAL SCRIPT, MODULE WRAPPER, REAL REQUIRE AND RETURN EXECUTED');\n",
+    "node": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/vm-call-shape.mjs"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 30800,
+        "memory_limit_mb": 3072,
+        "seconds": 0.293,
+        "log": "node-vm.log"
+      },
+      "log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/node-vm.log",
+        "sha256": "46ae964b8be3122a639d43795a72f61aaa9387ece9424abc2e6954cbf8eac253",
+        "content": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/vm-call-shape.mjs\"]\nJITI VM GLOBAL SCRIPT, MODULE WRAPPER, REAL REQUIRE AND RETURN EXECUTED\n\nECOSYSTEM PEAK SAMPLED RSS: 30800 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      }
+    },
+    "bun": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/vm-call-shape.mjs"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.045,
+        "log": "bun-vm.log"
+      },
+      "log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/bun-vm.log",
+        "sha256": "cce75e1e6bfc13f0b75a0cdc092516706a212518e9b7cd8a484c9ef2e4bfdf3c",
+        "content": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/vm-call-shape.mjs\"]\nJITI VM GLOBAL SCRIPT, MODULE WRAPPER, REAL REQUIRE AND RETURN EXECUTED\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      }
+    },
+    "home_before": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/vm-call-shape.mjs"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.111,
+        "log": "home-vm.log"
+      },
+      "log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/home-vm.log",
+        "sha256": "8f91eb1366d3370516dc299523db68a5ffa5fb8f27d5adf6dc8d6da1d6eb35ed",
+        "content": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/vm-call-shape.mjs\"]\nhome-tool (zig-js): Error: cannot resolve module node:vm from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/vm-call-shape.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      }
+    },
+    "scope": "Reference runtimes actually compile a global Script into a module-wrapper function, hide caller module lexical binding, invoke actual require and return a real computed export. Home fails the module import before those assertions execute. This focused wrapper is modeled on the captured actual call site; it is not the full jiti/Tailwind build."
+  },
+  "required_next_work": "Implement genuine global-Script evaluation on the selected public-C engine, with actual syntax/runtime errors and ownership/budget behavior, before advertising runInThisContext. Keep unavailable contextification, timeouts, module/Script APIs or other options explicit. Re-run the frozen plugin and meaningful backend/native contracts; no missing host API or unexecuted build can be treated as successful."
+}
