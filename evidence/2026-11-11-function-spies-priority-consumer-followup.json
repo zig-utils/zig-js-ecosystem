@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-11T21:42:54.499633+00:00",
+  "run": 43098865994,
+  "functional_suite": "8755eafddd422d6847fa970cc6f3a3829a56c067",
+  "engine_sha": "68be3efbd615607f6727fe96a74e895b4c4efb49",
+  "home_ref": "1481d69c39c4dc306b294c2cefa978ae0a5d6bcc",
+  "reports": [
+    {
+      "repository": "stacksjs/stacks",
+      "consumer_sha": "7b426a177e35947c1b06c3f99d3c1752b78d284c",
+      "scopes": 99,
+      "checks": 927,
+      "candidate": {
+        "unsupported": 354,
+        "failed": 195,
+        "passed": 76
+      },
+      "artifact": {
+        "id": 13893395960,
+        "name": "ecosystem-results-0",
+        "digest": "sha256:ab32541c742853354b306f6c4fd65cb2f31dfb3a056071e2521f348b8c4abf8a",
+        "size_in_bytes": 1322154
+      },
+      "verified_zip_sha256": "ab32541c742853354b306f6c4fd65cb2f31dfb3a056071e2521f348b8c4abf8a",
+      "report_sha256": "15dfaa08762dedc8cf2dfbb950366b25d7d418a8ea0d3994299767abf4f6155e",
+      "runtime_provenance": {
+        "engine_sha": "68be3efbd615607f6727fe96a74e895b4c4efb49",
+        "suite_ref": "8755eafddd422d6847fa970cc6f3a3829a56c067",
+        "home_repository": "home-lang/home",
+        "home_ref": "1481d69c39c4dc306b294c2cefa978ae0a5d6bcc",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "336cebf2facad2e8df7a109b73080159ae528d53eed8049488e6f2161ccf0f9c",
+          "engine/zig-out/lib/libzig-js.a": "ef9ef0b37e36c08c3a21b13393b88024a35ffeebc30b50af2e7d11d41faf1b8d"
+        }
+      },
+      "before_consumer_sha": "7b426a177e35947c1b06c3f99d3c1752b78d284c",
+      "candidate_label_status_changes": [],
+      "candidate_labels": 625,
+      "diagnostic_samples": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 1916128,
+            "memory_limit_mb": 3072,
+            "seconds": 11.138,
+            "log": "0016.log",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "./buddy build"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate",
+            "engine_invocations": 3
+          },
+          "matching_raw_log_files": 1,
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/function-spies-priority-followup/ecosystem-results-0/stacksjs--stacks/0016.log",
+            "sha256": "0824a0b9f63c0fc6147b29673f60c479bb703937a0f748bd81957b924bbde30b",
+            "content": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-11T21:12:04.746Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 1916128 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 32592,
+            "memory_limit_mb": 3072,
+            "seconds": 0.131,
+            "log": "0482.log",
+            "label": "storage/framework/core/router: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+              "src/index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/router",
+            "engine_invocations": 1
+          },
+          "matching_raw_log_files": 1,
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/function-spies-priority-followup/ecosystem-results-0/stacksjs--stacks/0482.log",
+            "sha256": "8629d651c30bac491325aef4ea609925980ee785aa03534182d022b8e410be44",
+            "content": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\n/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/router/src/stacks-router.ts:224374: ')' expected. (TS1005)\nhome-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/router/src/stacks-router.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 32592 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        }
+      ]
+    },
+    {
+      "repository": "home-lang/home",
+      "consumer_sha": "1481d69c39c4dc306b294c2cefa978ae0a5d6bcc",
+      "scopes": 46,
+      "checks": 234,
+      "candidate": {
+        "failed": 41,
+        "unsupported": 37,
+        "passed": 9
+      },
+      "artifact": {
+        "id": 13891838882,
+        "name": "ecosystem-results-1",
+        "digest": "sha256:502f00abdddcc41319831ef99929cd7f853159698a441a79b20972e93fbb2f35",
+        "size_in_bytes": 123265
+      },
+      "verified_zip_sha256": "502f00abdddcc41319831ef99929cd7f853159698a441a79b20972e93fbb2f35",
+      "report_sha256": "cb0c4451257921a059c1a75b9d69cf08751edfd4cfad8ca68454339b69781511",
+      "runtime_provenance": {
+        "engine_sha": "68be3efbd615607f6727fe96a74e895b4c4efb49",
+        "suite_ref": "8755eafddd422d6847fa970cc6f3a3829a56c067",
+        "home_repository": "home-lang/home",
+        "home_ref": "1481d69c39c4dc306b294c2cefa978ae0a5d6bcc",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "336cebf2facad2e8df7a109b73080159ae528d53eed8049488e6f2161ccf0f9c",
+          "engine/zig-out/lib/libzig-js.a": "ef9ef0b37e36c08c3a21b13393b88024a35ffeebc30b50af2e7d11d41faf1b8d"
+        }
+      },
+      "before_consumer_sha": "760699b2b0bdcb8ce5cfdfa12eac96c1c9396626",
+      "candidate_label_status_changes": [],
+      "candidate_labels": 87,
+      "diagnostic_samples": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": -9,
+            "peak_sampled_rss_kib": 3155304,
+            "memory_limit_mb": 3072,
+            "seconds": 32.103,
+            "log": "0052.log",
+            "reason": "sampled command tree RSS exceeded 3072 MiB",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bunx bunpress build"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate",
+            "engine_invocations": 1
+          },
+          "matching_raw_log_files": 1,
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/arrow-object-heads/function-spies-priority-followup/ecosystem-results-1/home-lang--home/0052.log",
+            "sha256": "f7513d2d5c69add08d5bea069abff406b127797bf88474d8e04a8c5fef6ab660",
+            "content": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 3155304 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "Actual completed package reports remain red; real mock/spy support does not execute a test scheduler or repair the old emitted-arrow syntax. Stacks source matches the earlier DNS consumer SHA, with zero changes across625candidate-label statuses. Unsupported status is retained, not treated as execution. Home consumer source changed, so its same counts/zero label-status changes are not a same-source behavioral no-regressions claim. New arrow-fix Homeffa4a6e0c is independently pushed and awaiting fresh qualification; do not infer its package outcomes from this run."
+}
