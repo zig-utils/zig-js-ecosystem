@@ -1,0 +1,663 @@
+{
+  "schema_version": 1,
+  "run": 42948601127,
+  "suite_ref": "bc1fb93ba7377360ef13ba67779af75363f46105",
+  "home_ref": "7fa7e65fd2f48797b6de73b753f6b6ddf8e91556",
+  "scope": "Completed actual per-consumer artifact results, official ZIP digest verified by the bounded site_data reader. Source consumer revisions changed since the baseline, so aggregate differences alone do not isolate runtime causality. Exact frozen Stacks cache before/after behavior remains separately proven.",
+  "consumers": {
+    "stacks": {
+      "artifact": {
+        "id": 13825926744,
+        "node_id": "MDg6QXJ0aWZhY3QxMzgyNTkyNjc0NA==",
+        "name": "ecosystem-results-0",
+        "size_in_bytes": 1900769,
+        "url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13825926744",
+        "archive_download_url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13825926744/zip",
+        "expired": false,
+        "digest": "sha256:c04da35f344f45267e0f2a8b389e9a6bd338e9eeb7551c7c33f619da8aaa5940",
+        "created_at": "2026-11-11T03:32:51Z",
+        "updated_at": "2026-11-11T03:32:51Z",
+        "expires_at": "2026-12-11T03:32:50Z",
+        "workflow_run": {
+          "id": 42948601127,
+          "repository_id": 1449802195,
+          "head_repository_id": 1449802195,
+          "head_branch": "main",
+          "head_sha": "bc1fb93ba7377360ef13ba67779af75363f46105"
+        }
+      },
+      "downloaded_zip_sha256": "c04da35f344f45267e0f2a8b389e9a6bd338e9eeb7551c7c33f619da8aaa5940",
+      "repository": "stacksjs/stacks",
+      "consumer": "ec8104013eb50f32898212726db0beb8408ee3c2",
+      "baseline_consumer": "881685ac3de7469a4fee34d37f076893621e1258",
+      "runtime_provenance": {
+        "engine_sha": "edbf371b897ae22b40b0069ef5653ca55228c3db",
+        "suite_ref": "bc1fb93ba7377360ef13ba67779af75363f46105",
+        "home_repository": "home-lang/home",
+        "home_ref": "7fa7e65fd2f48797b6de73b753f6b6ddf8e91556",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "32c49b0bc5ce8cd33201e2397bb7420c4c9e7d837d29e4febe17202726ce1e16",
+          "engine/zig-out/lib/libzig-js.a": "13b1a4755d042568f5f5acc30447ea2bd8676c03929719492f6677e306ab5a18"
+        }
+      },
+      "checks": 927,
+      "scopes": 99,
+      "candidate": {
+        "unsupported": 354,
+        "failed": 205,
+        "passed": 66
+      },
+      "status_changes": [
+        {
+          "before": "failed",
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 123572,
+            "memory_limit_mb": 3072,
+            "seconds": 0.277,
+            "log": "0111.log",
+            "label": "storage/framework/core/cache: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+              "src/index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/cache",
+            "engine_invocations": 1
+          },
+          "actual_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 123572 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+          "sha256": "1fdd9e4c396bb15ca0bcf249e99bb5694a33716182d5770250382c22496ed830"
+        }
+      ],
+      "errors": [
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)",
+          "count": 47
+        },
+        {
+          "headline": "../../defaults/app/Models/Error.ts(4,16): error TS9037: Default exports can't be inferred with --isolatedDeclarations.",
+          "count": 47
+        },
+        {
+          "headline": "resource/orchestration/other",
+          "count": 21
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js",
+          "count": 19
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)",
+          "count": 17
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)",
+          "count": 8
+        },
+        {
+          "headline": "home-tool (zig-js): SyntaxError: Unexpected token",
+          "count": 6
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/ts-cloud/dist/chunk-gxq281ma.js",
+          "count": 4
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/bun-router/dist/chunk-zzempx0a.js",
+          "count": 4
+        },
+        {
+          "headline": "../ai/tests/speech.test.ts(109,18): error TS2339: Property 'message' does not exist on type 'Error | SpeechResult'.",
+          "count": 2
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:tls from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/email/src/drivers/smtp.ts",
+          "count": 2
+        },
+        {
+          "headline": "Uncaught unhandledRejection: RangeError: evaluation step budget exceeded",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./dev.ts\"], outdir: \"./dist\", format: \"esm\", minify: false, target: \"bun\" })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:https from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/ts-pantry/dist/chunk-5fr3fz5x.js",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, plugins: [dts({ root: \"./src\", outdir: \"./dist\" })], external: [\"bun\", \"@stacksjs/path\", \"@stacksjs/storage\", \"@stacksjs/cli\"] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/key.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, plugins: [dts({ root: \"./src\", outdir: \"./dist\" })], external: frameworkExternal() })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/chat/src/inbox/discord.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/output.ts\", \"./src/process.ts\", \"./src/owned-process.ts\"], outdir: \"./dist\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "$ [\"/bin/sh\", \"-c\", \"echo \\\"Error: no test specified\\\" && exit 1\"]",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/desktop/src/macos-app.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/style-guide.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\", exclude: [\"tests/**\"] })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, plugins: [dts({ root: \"./src\", outdir: \"./dist\", exclude: [\"tests/**\"] })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/names.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, plugins: [dts({ root: \"./src\", outdir: \"./dist\", exclude: [\"tests/**\"] })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"browser\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\", bundle: true })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/templates.ts\", \"./src/sequences.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/project.ts\", \"./src/module-resolution.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:http2 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/push/src/drivers/apns.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\", exclude: [\"tests/**\"] })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/key.ts\", \"./src/scan.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/security/src/outbound.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/database.ts\", \"./src/dynamodb.ts\", \"./src/browser.ts\", \"./src/isolated.ts\", \"./src/disposable-database.ts\", \"./src/schema.ts\", \"./src/service.ts\", \"./src/time.ts\"], root: \"./src\", outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module bun:test from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/testing/src/events.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/exit-code.ts\", \"./src/mobile.ts\"], splitting: true, outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal([\"@stacksjs/ts-css\"]), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): SyntaxError: Unexpected token ':'",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: Async module cycles are not implemented: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/video/src/index.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/whois/src/index.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [join(here, \"src/extension.ts\")], outdir: dist, target: \"node\", format: \"cjs\", external: [\"vscode\", \"bunfig\"], minify: true })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "Error during build: Error: Glob: FileNotFound",
+          "count": 1
+        }
+      ],
+      "actual_priority_logs": []
+    },
+    "home": {
+      "artifact": {
+        "id": 13826206154,
+        "node_id": "MDg6QXJ0aWZhY3QxMzgyNjIwNjE1NA==",
+        "name": "ecosystem-results-1",
+        "size_in_bytes": 159273,
+        "url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13826206154",
+        "archive_download_url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13826206154/zip",
+        "expired": false,
+        "digest": "sha256:d8a14e51cefe364dbaa152c1d2a2d78a4887f83a6876bf4acb1573d659d328a2",
+        "created_at": "2026-11-11T03:33:01Z",
+        "updated_at": "2026-11-11T03:33:01Z",
+        "expires_at": "2026-12-11T03:33:00Z",
+        "workflow_run": {
+          "id": 42948601127,
+          "repository_id": 1449802195,
+          "head_repository_id": 1449802195,
+          "head_branch": "main",
+          "head_sha": "bc1fb93ba7377360ef13ba67779af75363f46105"
+        }
+      },
+      "downloaded_zip_sha256": "d8a14e51cefe364dbaa152c1d2a2d78a4887f83a6876bf4acb1573d659d328a2",
+      "repository": "home-lang/home",
+      "consumer": "7fa7e65fd2f48797b6de73b753f6b6ddf8e91556",
+      "baseline_consumer": "d20d8e30eb258a9d81db9d40d0bcc617672258e9",
+      "runtime_provenance": {
+        "engine_sha": "edbf371b897ae22b40b0069ef5653ca55228c3db",
+        "suite_ref": "bc1fb93ba7377360ef13ba67779af75363f46105",
+        "home_repository": "home-lang/home",
+        "home_ref": "7fa7e65fd2f48797b6de73b753f6b6ddf8e91556",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "32c49b0bc5ce8cd33201e2397bb7420c4c9e7d837d29e4febe17202726ce1e16",
+          "engine/zig-out/lib/libzig-js.a": "13b1a4755d042568f5f5acc30447ea2bd8676c03929719492f6677e306ab5a18"
+        }
+      },
+      "checks": 234,
+      "scopes": 46,
+      "candidate": {
+        "failed": 42,
+        "unsupported": 38,
+        "passed": 7
+      },
+      "status_changes": [],
+      "errors": [
+        {
+          "headline": "resource/orchestration/other",
+          "count": 7
+        },
+        {
+          "headline": "$ [\"/bin/sh\", \"-c\", \"echo \\\"Error: no test specified\\\" && exit 1\"]",
+          "count": 2
+        },
+        {
+          "headline": "home-tool (zig-js): SyntaxError: invalid regular expression",
+          "count": 2
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: process.chdir is not a function. (In 'process.chdir(dirname(__home_import_meta_0.dirname))', 'process.chdir' is undefined)",
+          "count": 2
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module https from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/action/src/index.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module https from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/action/dist/index.js",
+          "count": 1
+        },
+        {
+          "headline": "SyntaxError: Unexpected token",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/create/projects/react-shadcn-spa/REPLACE_ME_WITH_YOUR_APP_FILE_NAME.build.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-app/src/index.html",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn/node_modules/bun-plugin-tailwind/index.mjs",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn/src/index.html",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/node_modules/bun-plugin-tailwind/index.mjs",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/src/index.html",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/ffi/src/node_modules/@napi-rs/cli/scripts/index.js",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module tls from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/grpc-server/node_modules/@grpc/grpc-js/build/src/channel-credentials.js",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module http from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/install/node_modules/next/dist/server/setup-http-agent-env.js",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/react-hello-world/react-hello-world.node.js",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module ./build/ci.ts from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/scripts/build.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/scripts/utils.mjs",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/@napi-rs/cli/scripts/index.js",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/ava/lib/cli.js",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-debug-adapter-protocol/src/debugger/adapter.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-inspector-protocol/src/inspector/node-socket.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: undefined is not an object (evaluating '(process.env.BUN_VERSION || Bun.version || process.versions.bun).replace')",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module ./schema.js from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-wasm/index.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Spread syntax requires ...iterable not be null or undefined",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/create/projects/react-shadcn-spa/REPLACE_ME_WITH_YOUR_APP_FILE_NAME.build.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-app/src/index.html",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-shadcn/build.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-shadcn/src/index.html",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind/build.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind/src/index.html",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module vscode from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/vscode-home/out/extension.js",
+          "count": 1
+        }
+      ],
+      "actual_priority_logs": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 52704,
+            "memory_limit_mb": 3072,
+            "seconds": 0.179,
+            "log": "0083.log",
+            "label": "packages/runtime/upstream/bench/install: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "next build"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/install",
+            "engine_invocations": 1
+          },
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"next build\"]\nhome-tool (zig-js): Error: cannot resolve module http from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/install/node_modules/next/dist/server/setup-http-agent-env.js\n\nECOSYSTEM PEAK SAMPLED RSS: 52704 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+          "sha256": "5aeae37d84a60b4ac57b003cb5ca1e6d7a040ca2de9448b098103df0ba5e719d"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 10308,
+            "memory_limit_mb": 3072,
+            "seconds": 0.108,
+            "log": "0119.log",
+            "label": "packages/runtime/upstream/packages/bun-vscode: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "node scripts/build.mjs"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-vscode",
+            "engine_invocations": 1
+          },
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"node scripts/build.mjs\"]\nhome-tool (zig-js): TypeError: process.chdir is not a function. (In 'process.chdir(dirname(__home_import_meta_0.dirname))', 'process.chdir' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 10308 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+          "sha256": "dd733b5dab69cd966fdf2523daa180e1778ba745c9817bf45116f7105985adce"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 10360,
+            "memory_limit_mb": 3072,
+            "seconds": 0.072,
+            "log": "0120.log",
+            "label": "packages/runtime/upstream/packages/bun-vscode: test",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "node scripts/test.mjs"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-vscode",
+            "engine_invocations": 1
+          },
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"node scripts/test.mjs\"]\nhome-tool (zig-js): TypeError: process.chdir is not a function. (In 'process.chdir(dirname(__home_import_meta_0.dirname))', 'process.chdir' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 10360 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+          "sha256": "c30eab060358ff4a568dd4626f86d8f74ecb929ef4918651d65bd4f2e1353eb9"
+        }
+      ]
+    }
+  },
+  "sqlite_label_followup": [
+    {
+      "label": "storage/framework/core/actions: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 43876 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "04e5ac5df5110a35b68328aabf884d826514737caa441eeb2aa3eac7228c7f7c"
+    },
+    {
+      "label": "storage/framework/core/analytics: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8236 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "0cf38c0d299a4ebadc1489fa83602efbe0f8f4d431da26286fa96f3fd17890cc"
+    },
+    {
+      "label": "storage/framework/core/auth: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 31260 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "9b292b66a09112ee3eb701f1a63aad3325ca962eb9092a402fe80ab0b32690de"
+    },
+    {
+      "label": "storage/framework/core/buddy: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 52916 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "d381bfb119fa22e41d0a8e21d574adf621f819e939e58fef7054723d4a7a01de"
+    },
+    {
+      "label": "storage/framework/core/cache: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "passed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 123572 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n",
+      "after_log_sha256": "1fdd9e4c396bb15ca0bcf249e99bb5694a33716182d5770250382c22496ed830"
+    },
+    {
+      "label": "storage/framework/core/cloud: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/ts-cloud/dist/chunk-gxq281ma.js\n\nECOSYSTEM PEAK SAMPLED RSS: 45048 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "4538577efb83c47a937d238671d1202b6a708a18da3d9faf1f2f3e159a4be031"
+    },
+    {
+      "label": "storage/framework/core/cms: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 31136 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "4947d16b9f5364080b0094fe6f5a6e5632570b1ddfdcc02cc86fff2134e5afec"
+    },
+    {
+      "label": "storage/framework/core/commerce: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8384 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "700093c6f3268b32e92598ed73a5b3002e2ae0b7330b3ea41557e2e75bc026aa"
+    },
+    {
+      "label": "storage/framework/core/database: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8236 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "0cf38c0d299a4ebadc1489fa83602efbe0f8f4d431da26286fa96f3fd17890cc"
+    },
+    {
+      "label": "storage/framework/core/deploy: module initialization index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/ts-cloud/dist/chunk-gxq281ma.js\n\nECOSYSTEM PEAK SAMPLED RSS: 38160 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "2ed8bd6b0a336a68d5f320a5cdbe68b6ebe1548be04417425001b44021e4d6e7"
+    },
+    {
+      "label": "storage/framework/core/deploy: module initialization ./index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"./index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/ts-cloud/dist/chunk-gxq281ma.js\n\nECOSYSTEM PEAK SAMPLED RSS: 38184 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "f05c28c256c2c2959f73bad20d2080ed1d36d311ee571a1893a4a5a25e796fa1"
+    },
+    {
+      "label": "storage/framework/core/dns: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/ts-cloud/dist/chunk-gxq281ma.js\n\nECOSYSTEM PEAK SAMPLED RSS: 50684 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "04fe959acba6cc665cedfd1d3c193957615a34b1ebafe57b5d754c0b70176119"
+    },
+    {
+      "label": "storage/framework/core/forms: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8360 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "99da20724c9076abfdc1706b1d230e811851fbffa71d028ac094fe37535f3cd0"
+    },
+    {
+      "label": "storage/framework/core/newsletter: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8244 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "4547b3e44ca4047a842aa803e75d8a2d9fa81d62cd29f7f443356067c451f620"
+    },
+    {
+      "label": "storage/framework/core/orm: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 31804 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "13fbfd4b081a7687a02619dedce75a7bfbe087a36bdcff89ef2b5140f17a592d"
+    },
+    {
+      "label": "storage/framework/core: module initialization index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 48744 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "c9b355cc1bee703e028cf7eca4ab2517f2e74f9a871e50e9c3ee1be641ab0c30"
+    },
+    {
+      "label": "storage/framework/core/payments: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 31020 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "64350b4fb7110d4a4e02d95bed1e635fd096be38516f79a59fb48250b99893f5"
+    },
+    {
+      "label": "storage/framework/core/query-builder: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8132 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "f93c373fb5e3ec75ba86a41b16631b7767a11613e01dd2098c42eeb451299ec4"
+    },
+    {
+      "label": "storage/framework/core/queue: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 33036 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "50237d53d3803436e9139966b9851f7f297b0305488b01296b7dead9c8272764"
+    },
+    {
+      "label": "storage/framework/core/scheduler: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 36848 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "9d9dbe4c4c44924dbb5ff5078354838c264dce519f511822b3cdb5926d4028ad"
+    },
+    {
+      "label": "storage/framework/core/search-engine: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 36064 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "9e8b6264eddec4905d0b0e030df79af8a960a67c2d44359368174f6b586494de"
+    },
+    {
+      "label": "storage/framework/core/slug: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8124 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "7f0b8b33fc32c950fc18fa35493684cfe20f98738f928df9e7e836a59f484a53"
+    },
+    {
+      "label": "storage/framework/core/sms: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8240 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "a54d94c4a17f2fc44435c64931a6adee7498232d38bc46c101c335e04cb917f7"
+    },
+    {
+      "label": "storage/framework/orm: module initialization src/index.ts",
+      "before_status": "failed",
+      "after_status": "failed",
+      "actual_after_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js\n\nECOSYSTEM PEAK SAMPLED RSS: 31164 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "after_log_sha256": "35b1344602e709eda7d131b59e86c319d32adc03ec62f3c2e9589625ffffd954"
+    }
+  ],
+  "remaining": "Both consumers remain failed overall. Missing v8, HTTP/HTTPS, network/DNS/TLS, real bundling, syntax, upstream declaration checks and explicit unsupported test scheduling remain. No stub APIs or package successes are inferred.",
+  "sqlite_summary": {
+    "baseline_missing_module_labels": 24,
+    "same_labels_found": 24,
+    "missing_sqlite_errors_after": 0,
+    "now_passed_labels": 1,
+    "still_failed_on_later_blockers": 23,
+    "new_stacks_missing_v8_imports": 19,
+    "cache_module_label": "storage/framework/core/cache: module initialization src/index.ts"
+  }
+}
