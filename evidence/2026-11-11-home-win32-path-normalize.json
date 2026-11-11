@@ -1,0 +1,565 @@
+{
+  "schema_version": 1,
+  "home_ref": "61d7c22451bd08952b5e1ce7d985aec9dc89950c",
+  "home_parent": "760699b2b0bdcb8ce5cfdfa12eac96c1c9396626",
+  "git_identity": {
+    "name": "Chris Breuer",
+    "email": "chrisbreuer93@gmail.com"
+  },
+  "source_sha256": {
+    "build.zig": "6e384b22e6a20b465ca90521caa7da3eaad7f469c396fc89593600751226611a",
+    "packages/runtime/src/jsc/tool_builtins.js": "184a6a093c4f8d79e2111c9690537e473f28e01f00123e888f53c7edb944e0ce",
+    "packages/runtime/src/jsc/tool_builtins.zig": "7f570ff02517bd1e138920e15ec3f13077d072785234d65ab9fa1727ac6169c4",
+    "packages/runtime/src/jsc/tool_path_win32.js": "bbedb99da0ea4e6d381d0636929189d7fa90b1765f0dce04be80a6367fb068fd",
+    "packages/runtime/test/tool_modules/node_path_win32.mjs": "574347c9d2a150c81ef97c240cf684ca4421edd4a24d3c14a1168aeffb82e252",
+    "packages/runtime/test/tool_modules/win32_path_oracle.json": "8acff03908a7047584c46b6884767875dbef5bd3d187da85f2a2bf0d64093b79",
+    "packages/runtime/test/tool_modules/win32_path_profile.mjs": "dd414ea9bd65c74cdfa20666476763a10efb4f0463def5fab17995e46428b68e",
+    "packages/runtime/test/tool_win32_path_fixture.py": "7da34c61baa88775873ccd06361dfa95812acba66a56a800b1627b1b3657c935"
+  },
+  "oracle": {
+    "source": "Executed Node path/win32; normalizer and absolute predicate",
+    "node_version": "v26.10.0",
+    "cases": 4040,
+    "input_sha256": "7614cd97fdc12c94ae5aea1451a32328df15e364b5adab9edb694583eda684e5",
+    "result_sha256": "562ef5f35c5079100b54a6a5155afc1c701facc5811b09bf74a04f8e97e34b0d"
+  },
+  "scope": "Actual lexical Windows normalize/isAbsolute functions only. Legacy/node aliases and path flavor links refer to the same implementations. No invented resolve, relative, join, filesystem or drive cwd APIs.",
+  "native_validation": {
+    "zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-path-win32-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/acorn-atomic/engine-after"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1256448,
+      "memory_limit_mb": 3072,
+      "seconds": 75.055,
+      "log": "build-zig-js.log",
+      "log_sha256": "95f3c7b3b5a6ed9b7dae1dd5b5188cca59f3f011dad061d219882cd91ccb46da",
+      "binary_sha256": "c7e9d1479beda30b1884301f3c8e9646c7b218d201466490f18a34595ac42aee",
+      "actual_signals": [
+        "WIN32 PATH RESULTS {\"groups\":10,\"passed\":10,\"failures\":[]}",
+        "NATIVE WIN32 PATH ORACLE VERIFIED {\"cases\": 4040, \"node\": \"v26.10.0\", \"result_sha256\": \"562ef5f35c5079100b54a6a5155afc1c701facc5811b09bf74a04f8e97e34b0d\"}",
+        "HOME WIN32 PATH PROFILE TWO LEXICAL METHODS; DRIVE CWD AND FILESYSTEM APIS ABSENT",
+        "Build Summary: 244/244 steps succeeded"
+      ]
+    },
+    "jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-path-win32-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-jsc",
+        "-j1",
+        "--summary",
+        "all"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1314944,
+      "memory_limit_mb": 3072,
+      "seconds": 40.018,
+      "log": "build-jsc.log",
+      "log_sha256": "b7c0f51a5f74199d4a62c03ae12178f8dca383b2f7d5b6a42efa6700ba6dedad",
+      "binary_sha256": "028ef8bf0432af09e5d01c98ce3f84687ef06e38af9d8d74427a5027f11dcfce",
+      "actual_signals": [
+        "WIN32 PATH RESULTS {\"groups\":10,\"passed\":10,\"failures\":[]}",
+        "NATIVE WIN32 PATH ORACLE VERIFIED {\"cases\": 4040, \"node\": \"v26.10.0\", \"result_sha256\": \"562ef5f35c5079100b54a6a5155afc1c701facc5811b09bf74a04f8e97e34b0d\"}",
+        "HOME WIN32 PATH PROFILE TWO LEXICAL METHODS; DRIVE CWD AND FILESYSTEM APIS ABSENT",
+        "AssertionError: (0, b'')",
+        "Build Summary: 214/216 steps succeeded (1 failed)"
+      ]
+    }
+  },
+  "focused_validation": {
+    "focused-system-zig-js": {
+      "argv": [
+        "/usr/bin/python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_win32_path_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 92608,
+      "memory_limit_mb": 3072,
+      "seconds": 1.546,
+      "log": "focused-system-zig-js.log",
+      "log_sha256": "68259f25a75dd264cdef7e3182b5a489110c2bf173f8e4a892923796de2dcacf",
+      "actual_output": "$ [\"/usr/bin/python3\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_win32_path_fixture.py\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-zig-js/bin/home-tool\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules\"]\nWIN32 PATH RESULTS {\"groups\":10,\"passed\":10,\"failures\":[]}\nNATIVE WIN32 PATH ORACLE VERIFIED {\"cases\": 4040, \"node\": \"v26.10.0\", \"result_sha256\": \"562ef5f35c5079100b54a6a5155afc1c701facc5811b09bf74a04f8e97e34b0d\"}\nHOME WIN32 PATH PROFILE TWO LEXICAL METHODS; DRIVE CWD AND FILESYSTEM APIS ABSENT\n\nECOSYSTEM PEAK SAMPLED RSS: 92608 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "focused-system-jsc": {
+      "argv": [
+        "/usr/bin/python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_win32_path_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 4160,
+      "memory_limit_mb": 3072,
+      "seconds": 0.129,
+      "log": "focused-system-jsc.log",
+      "log_sha256": "791813a3b733413d33c80e565caba0bb2515bddc88537a21c7ab2bc2722f3c3a",
+      "actual_output": "$ [\"/usr/bin/python3\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_win32_path_fixture.py\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-jsc/bin/home-tool\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules\"]\nWIN32 PATH RESULTS {\"groups\":10,\"passed\":10,\"failures\":[]}\nNATIVE WIN32 PATH ORACLE VERIFIED {\"cases\": 4040, \"node\": \"v26.10.0\", \"result_sha256\": \"562ef5f35c5079100b54a6a5155afc1c701facc5811b09bf74a04f8e97e34b0d\"}\nHOME WIN32 PATH PROFILE TWO LEXICAL METHODS; DRIVE CWD AND FILESYSTEM APIS ABSENT\n\nECOSYSTEM PEAK SAMPLED RSS: 4160 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "focused-system-node": {
+      "argv": [
+        "/usr/bin/python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_win32_path_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules",
+        "--reference"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 4192,
+      "memory_limit_mb": 3072,
+      "seconds": 0.133,
+      "log": "focused-system-node.log",
+      "log_sha256": "365d16da9e5f0b5a2210da654828a7443fe7bc593704dfc4f356899a1852d35a",
+      "actual_output": "$ [\"/usr/bin/python3\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_win32_path_fixture.py\", \"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules\", \"--reference\"]\nWIN32 PATH RESULTS {\"groups\":10,\"passed\":10,\"failures\":[]}\nNATIVE WIN32 PATH ORACLE VERIFIED {\"cases\": 4040, \"node\": \"v26.10.0\", \"result_sha256\": \"562ef5f35c5079100b54a6a5155afc1c701facc5811b09bf74a04f8e97e34b0d\"}\n\nECOSYSTEM PEAK SAMPLED RSS: 4192 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "focused-system-bun": {
+      "argv": [
+        "/usr/bin/python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_win32_path_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules",
+        "--reference"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 4176,
+      "memory_limit_mb": 3072,
+      "seconds": 0.108,
+      "log": "focused-system-bun.log",
+      "log_sha256": "9613e0cde03ed3f9064ef2fc02061819ed6e4ea4cdb3897657e945e2307eb4a0",
+      "actual_output": "$ [\"/usr/bin/python3\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_win32_path_fixture.py\", \"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules\", \"--reference\"]\nTraceback (most recent call last):\n  File \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_win32_path_fixture.py\", line 59, in <module>\n    main()\n  File \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_win32_path_fixture.py\", line 41, in main\n    assert child.returncode == 0 and child.stderr == b'', (child.returncode, child.stdout.decode().splitlines()[:1], child.stderr.decode())\nAssertionError: (1, ['WIN32 PATH RESULTS {\"groups\":10,\"passed\":9,\"failures\":[{\"name\":\"strict-string-validation\",\"error\":\"Error: predicate failed\"}]}'], '')\n\nECOSYSTEM PEAK SAMPLED RSS: 4176 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "focused-pantry-zig-js": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_win32_path_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 102976,
+      "memory_limit_mb": 3072,
+      "seconds": 1.597,
+      "log": "focused-pantry-zig-js.log",
+      "log_sha256": "9b3b29e86d8bc3c80c04692b1307ad5980e2e358b33606bfc99f47344ab1d1e6",
+      "actual_output": "$ [\"/Users/chris/.local/share/pantry/global/bin/python3\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_win32_path_fixture.py\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-zig-js/bin/home-tool\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules\"]\nWIN32 PATH RESULTS {\"groups\":10,\"passed\":10,\"failures\":[]}\nNATIVE WIN32 PATH ORACLE VERIFIED {\"cases\": 4040, \"node\": \"v26.10.0\", \"result_sha256\": \"562ef5f35c5079100b54a6a5155afc1c701facc5811b09bf74a04f8e97e34b0d\"}\nHOME WIN32 PATH PROFILE TWO LEXICAL METHODS; DRIVE CWD AND FILESYSTEM APIS ABSENT\n\nECOSYSTEM PEAK SAMPLED RSS: 102976 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "focused-pantry-jsc": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_win32_path_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6096,
+      "memory_limit_mb": 3072,
+      "seconds": 0.123,
+      "log": "focused-pantry-jsc.log",
+      "log_sha256": "338f7e02899a506bdbfc3068b8c850b95aa405bf7501fabbc3ce96f360365e03",
+      "actual_output": "$ [\"/Users/chris/.local/share/pantry/global/bin/python3\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_win32_path_fixture.py\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-jsc/bin/home-tool\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules\"]\nWIN32 PATH RESULTS {\"groups\":10,\"passed\":10,\"failures\":[]}\nNATIVE WIN32 PATH ORACLE VERIFIED {\"cases\": 4040, \"node\": \"v26.10.0\", \"result_sha256\": \"562ef5f35c5079100b54a6a5155afc1c701facc5811b09bf74a04f8e97e34b0d\"}\nHOME WIN32 PATH PROFILE TWO LEXICAL METHODS; DRIVE CWD AND FILESYSTEM APIS ABSENT\n\nECOSYSTEM PEAK SAMPLED RSS: 6096 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "focused-pantry-node": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_win32_path_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules",
+        "--reference"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 48288,
+      "memory_limit_mb": 3072,
+      "seconds": 0.294,
+      "log": "focused-pantry-node.log",
+      "log_sha256": "d86441902fd4f95f2a2e30fe7a99a4bd2d3c5849d62b7e75ed049b0dbbb8c3ac",
+      "actual_output": "$ [\"/Users/chris/.local/share/pantry/global/bin/python3\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_win32_path_fixture.py\", \"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules\", \"--reference\"]\nWIN32 PATH RESULTS {\"groups\":10,\"passed\":10,\"failures\":[]}\nNATIVE WIN32 PATH ORACLE VERIFIED {\"cases\": 4040, \"node\": \"v26.10.0\", \"result_sha256\": \"562ef5f35c5079100b54a6a5155afc1c701facc5811b09bf74a04f8e97e34b0d\"}\n\nECOSYSTEM PEAK SAMPLED RSS: 48288 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "focused-pantry-bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_win32_path_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules",
+        "--reference"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 4768,
+      "memory_limit_mb": 3072,
+      "seconds": 0.105,
+      "log": "focused-pantry-bun.log",
+      "log_sha256": "ada70b83b126d52294965489ece46d29316985c6d9799c7184d553ac3037d25b",
+      "actual_output": "$ [\"/Users/chris/.local/share/pantry/global/bin/python3\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_win32_path_fixture.py\", \"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules\", \"--reference\"]\nTraceback (most recent call last):\n  File \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_win32_path_fixture.py\", line 59, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_win32_path_fixture.py\", line 41, in main\n    assert child.returncode == 0 and child.stderr == b'', (child.returncode, child.stdout.decode().splitlines()[:1], child.stderr.decode())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: (1, ['WIN32 PATH RESULTS {\"groups\":10,\"passed\":9,\"failures\":[{\"name\":\"strict-string-validation\",\"error\":\"Error: predicate failed\"}]}'], '')\n\nECOSYSTEM PEAK SAMPLED RSS: 4768 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    }
+  },
+  "actual_consumer": {
+    "repository": "home-lang/home",
+    "source_path": "packages/runtime/upstream/scripts/utils.mjs",
+    "source_sha256": "87f7d94d3617fa431742fd04269cd6098024080d319b15dd411dfa239ef4fae5",
+    "reproducer_sha256": "edf127e819b67968948f6108923908515bfe418d15db7f2c855fbbf480d70bba",
+    "runs": {
+      "before-zig-js": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/repro.mjs"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 30192,
+        "memory_limit_mb": 3072,
+        "seconds": 0.198,
+        "log": "before-zig-js.log",
+        "log_sha256": "ade1843c15c28424835ac65c83bcbf81df6bcde88a16ad52429915de0de95175",
+        "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/repro.mjs\"]\nhome-tool (zig-js): Error: cannot resolve module node:path/win32 from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/repro.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 30192 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      },
+      "before-jsc": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/repro.mjs"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.097,
+        "log": "before-jsc.log",
+        "log_sha256": "c2d67e1bafc4189f1a901c6b4b4e8f28b64e25b8523ce7ea52bfdb2456fddf5c",
+        "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/repro.mjs\"]\nhome-tool (jsc): Error: cannot resolve module node:path/win32 from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/repro.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      },
+      "before-node": {
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/repro.mjs"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 448,
+        "memory_limit_mb": 3072,
+        "seconds": 0.058,
+        "log": "before-node.log",
+        "log_sha256": "300ce90865788bd371876842a0902ea7054c35f74d01cc5f84083ab62f0585b9",
+        "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/repro.mjs\"]\nACTUAL WINDOWS NORMALIZATION C:\\real\\file\\\n\nECOSYSTEM PEAK SAMPLED RSS: 448 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "before-bun": {
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/repro.mjs"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 2368,
+        "memory_limit_mb": 3072,
+        "seconds": 0.024,
+        "log": "before-bun.log",
+        "log_sha256": "545655c4c36ec38646adeb4b7b587d9a8639fa7e82c13cde3aaf8d530604a7aa",
+        "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/repro.mjs\"]\nACTUAL WINDOWS NORMALIZATION C:\\real\\file\\\n\nECOSYSTEM PEAK SAMPLED RSS: 2368 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "after-zig-js": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/repro.mjs"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 8592,
+        "memory_limit_mb": 3072,
+        "seconds": 0.13,
+        "log": "after-zig-js.log",
+        "log_sha256": "0900351ad51b600891029a11b027b456a5a346aa1b9e9475f03a832882ef399d",
+        "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/repro.mjs\"]\nACTUAL WINDOWS NORMALIZATION C:\\real\\file\\\n\nECOSYSTEM PEAK SAMPLED RSS: 8592 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "consumer-before-zig-js": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/consumer-repro.mjs"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 6752,
+        "memory_limit_mb": 3072,
+        "seconds": 0.108,
+        "log": "consumer-before-zig-js.log",
+        "log_sha256": "b66b86b321e4b78137fed86719f9c7ddbdf2883b722171967325ee7e789072ba",
+        "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/consumer-repro.mjs\"]\nhome-tool (zig-js): Error: cannot resolve module node:path/win32 from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/upstream/scripts/utils.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 6752 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      },
+      "consumer-before-jsc": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/consumer-repro.mjs"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 6464,
+        "memory_limit_mb": 3072,
+        "seconds": 0.023,
+        "log": "consumer-before-jsc.log",
+        "log_sha256": "c67123c885191adf594142ebb2802492100d96f3b5d2c432a12a8538fb726f0c",
+        "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/dns-lookup/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/consumer-repro.mjs\"]\nhome-tool (jsc): Error: cannot resolve module node:path/win32 from /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/upstream/scripts/utils.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 6464 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      },
+      "consumer-after-zig-js": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/consumer-repro.mjs"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 30848,
+        "memory_limit_mb": 3072,
+        "seconds": 0.769,
+        "log": "consumer-after-zig-js.log",
+        "log_sha256": "fd0524e8a52d303e2198d436370a27453416faef76544d0d84f5653d0644cf0d",
+        "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/consumer-repro.mjs\"]\nACTUAL UPSTREAM UTILITY IMPORT 121\n\nECOSYSTEM PEAK SAMPLED RSS: 30848 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "consumer-after-jsc": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/consumer-repro.mjs"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 6096,
+        "memory_limit_mb": 3072,
+        "seconds": 0.027,
+        "log": "consumer-after-jsc.log",
+        "log_sha256": "6229b81f56b787a0c482e88995ebed874fb6f120ec6f9e5b4186cefb83dc237e",
+        "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/consumer-repro.mjs\"]\nACTUAL UPSTREAM UTILITY IMPORT 121\n\nECOSYSTEM PEAK SAMPLED RSS: 6096 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "consumer-after-node": {
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/consumer-repro.mjs"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 832,
+        "memory_limit_mb": 3072,
+        "seconds": 0.045,
+        "log": "consumer-after-node.log",
+        "log_sha256": "6d15f11fb6c2cc8b3980e8269ad628e5f5c83d1e22bfe3557d849f9e37dd3932",
+        "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/consumer-repro.mjs\"]\nACTUAL UPSTREAM UTILITY IMPORT 121\n\nECOSYSTEM PEAK SAMPLED RSS: 832 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "consumer-after-bun": {
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/consumer-repro.mjs"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 944,
+        "memory_limit_mb": 3072,
+        "seconds": 0.034,
+        "log": "consumer-after-bun.log",
+        "log_sha256": "211cc1092a0dd58db582e47a0f092da009a4e4a3b5502bf9719a68255d591692",
+        "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/win32-normalize/consumer-repro.mjs\"]\nACTUAL UPSTREAM UTILITY IMPORT 121\n\nECOSYSTEM PEAK SAMPLED RSS: 944 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      }
+    },
+    "scope": "Actual module initialization with121 exported bindings, not121 executed API checks or a complete script/build/test pass. Other unimplemented APIs remain absent and may still fail when invoked."
+  },
+  "reference_differences": {
+    "node": {
+      "version": "v26.10.0",
+      "actual_oracle_sha256": "512e7a8bd8f09cf1b85dad0bc1194122201d34c0ac1aad428fcf304de403bbbe"
+    },
+    "bun": {
+      "actual_oracle_sha256": "29c57a31a1e19ac905c8b4748d5b424f5383f84df74cda0b641ba0f02da2aa36",
+      "cases_differing_from_node": 771,
+      "differences_sha256": "68aecc15eb4664a59dbd671fae50b177b122f2a57fa4b752b25e5ca9850e842a",
+      "sample_actual_differences": [
+        {
+          "input": "//./NUL:",
+          "node": [
+            "\\\\?\\NUL:\\",
+            true
+          ],
+          "bun": [
+            "\\\\.\\NUL:\\",
+            true
+          ]
+        },
+        {
+          "input": "CONX",
+          "node": [
+            ".\\CONX",
+            false
+          ],
+          "bun": [
+            "CONX",
+            false
+          ]
+        },
+        {
+          "input": "CON:",
+          "node": [
+            ".\\CON:.",
+            false
+          ],
+          "bun": [
+            "CON:",
+            false
+          ]
+        },
+        {
+          "input": "con:foo",
+          "node": [
+            ".\\con:foo",
+            false
+          ],
+          "bun": [
+            "con:foo",
+            false
+          ]
+        },
+        {
+          "input": "ab:/x",
+          "node": [
+            ".\\ab:\\x",
+            false
+          ],
+          "bun": [
+            "ab:\\x",
+            false
+          ]
+        },
+        {
+          "input": "a/../C:/x",
+          "node": [
+            ".\\C:\\x",
+            false
+          ],
+          "bun": [
+            "C:\\x",
+            false
+          ]
+        },
+        {
+          "input": "CON/",
+          "node": [
+            ".\\CON\\",
+            false
+          ],
+          "bun": [
+            "CON\\",
+            false
+          ]
+        },
+        {
+          "input": "NUL/",
+          "node": [
+            ".\\NUL\\",
+            false
+          ],
+          "bun": [
+            "NUL\\",
+            false
+          ]
+        },
+        {
+          "input": "COM\u00b9/",
+          "node": [
+            ".\\COM\u00b9\\",
+            false
+          ],
+          "bun": [
+            "COM\u00b9\\",
+            false
+          ]
+        },
+        {
+          "input": "foo:",
+          "node": [
+            ".\\foo:",
+            false
+          ],
+          "bun": [
+            "foo:",
+            false
+          ]
+        },
+        {
+          "input": "foo:/",
+          "node": [
+            ".\\foo:\\",
+            false
+          ],
+          "bun": [
+            "foo:\\",
+            false
+          ]
+        },
+        {
+          "input": "foo:/..",
+          "node": [
+            ".\\.",
+            false
+          ],
+          "bun": [
+            ".",
+            false
+          ]
+        }
+      ],
+      "scope": "Bun reference strict-string group and771observed path cases differ; its fixture remains failed, no skips or forced matching claim."
+    }
+  },
+  "limits": [
+    "Basic JSC standalone Win32 gate passes all4040paths/10groups. Full basic JSC gate remains failed on the preexisting DNS unhandled-rejection capability; it is not called green.",
+    "Golden corpus includes observed Node device/reserved-name/colon behavior, including its missing-colon boundary. Version is pinned; no unmeasured claim of platform-wide Windows filesystem compatibility.",
+    "No Root engine language source changes; test262 was not rerun. No native Bun candidate fallback."
+  ],
+  "local_engine": {
+    "source_ref": "07bef5adcf173eab2494c82d009fe3cd6ac9432a",
+    "archive_sha256": "b17ccf437ecd3912cff9dfddc1242d8e05ce342f17a390bf89cdfe23e94ca2cf",
+    "scope": "Preserved exact pushed Debug archive; Home ReleaseSafe/macOS. Fresh baseline/ReleaseSafe Linux execution remains required."
+  },
+  "pickier": {
+    "errors": 0,
+    "existing_facade_warnings": 2,
+    "log_sha256": "80cda402be223514ea2d820e8502469f022a53bbb73d8c0f50bd3e8f85dbe912"
+  },
+  "primary_sources": [
+    "https://nodejs.org/api/path.html#pathnormalizepath",
+    "https://raw.githubusercontent.com/nodejs/node/v26.10.0/lib/path.js"
+  ]
+}
