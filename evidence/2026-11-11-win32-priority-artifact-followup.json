@@ -1,0 +1,756 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-11T21:20:00.860572+00:00",
+  "run": 43091851854,
+  "functional_suite": "d7175acb4ba270d3c667ebf7af346957bbed9c4d",
+  "home": {
+    "repository": "home-lang/home",
+    "consumer_sha": "61d7c22451bd08952b5e1ce7d985aec9dc89950c",
+    "scopes": 46,
+    "checks": 234,
+    "candidate": {
+      "failed": 41,
+      "unsupported": 37,
+      "passed": 9
+    },
+    "official_artifact": {
+      "id": 13889719362,
+      "node_id": "MDg6QXJ0aWZhY3QxMzg4OTcxOTM2Mg==",
+      "name": "ecosystem-results-1",
+      "size_in_bytes": 176710,
+      "url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13889719362",
+      "archive_download_url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13889719362/zip",
+      "expired": false,
+      "digest": "sha256:49fc0de7980ee1992a42d24561bb21f12d4f7ee8a511ef70da3c8093448a932c",
+      "created_at": "2026-11-11T20:46:56Z",
+      "updated_at": "2026-11-11T20:46:56Z",
+      "expires_at": "2026-12-11T20:38:04Z",
+      "workflow_run": {
+        "id": 43091851854,
+        "repository_id": 1449802195,
+        "head_repository_id": 1449802195,
+        "head_branch": "main",
+        "head_sha": "d7175acb4ba270d3c667ebf7af346957bbed9c4d"
+      }
+    },
+    "verified_zip_sha256": "49fc0de7980ee1992a42d24561bb21f12d4f7ee8a511ef70da3c8093448a932c",
+    "report_sha256": "35a1272a3f423efffeab7ddd011176fe0509364a19a5605296c55d13b0bdeb0b",
+    "candidate_failures": [
+      {
+        "status": "failed",
+        "exit_code": -9,
+        "peak_sampled_rss_kib": 3154252,
+        "memory_limit_mb": 3072,
+        "seconds": 18.761,
+        "log": "0052.log",
+        "reason": "sampled command tree RSS exceeded 3072 MiB",
+        "label": ".: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bunx bunpress build"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": -9,
+        "peak_sampled_rss_kib": 3226436,
+        "memory_limit_mb": 3072,
+        "seconds": 5.364,
+        "log": "0057.log",
+        "reason": "sampled command tree RSS exceeded 3072 MiB",
+        "label": "packages/action: typecheck",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "tsc --noEmit"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/action",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 8748,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0058.log",
+        "label": "packages/action: module initialization src/index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+          "src/index.ts"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/action",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 40440,
+        "memory_limit_mb": 3072,
+        "seconds": 0.144,
+        "log": "0059.log",
+        "label": "packages/action: module initialization dist/index.js",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+          "dist/index.js"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/action",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 108276,
+        "memory_limit_mb": 3072,
+        "seconds": 0.319,
+        "log": "0062.log",
+        "label": "packages/registry: test",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "jest"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/registry",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 10700,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0065.log",
+        "label": "packages/runtime/src/runtime/cli/create/projects/react-shadcn-spa: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun 'REPLACE_ME_WITH_YOUR_APP_FILE_NAME.build.ts'"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/create/projects/react-shadcn-spa",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 8828,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0068.log",
+        "label": "packages/runtime/src/runtime/cli/init/react-app: module initialization src/index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+          "src/index.ts"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-app",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 254920,
+        "memory_limit_mb": 3072,
+        "seconds": 0.358,
+        "log": "0069.log",
+        "label": "packages/runtime/src/runtime/cli/init/react-shadcn: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun run build.ts"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 8840,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0070.log",
+        "label": "packages/runtime/src/runtime/cli/init/react-shadcn: module initialization src/index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+          "src/index.ts"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 257004,
+        "memory_limit_mb": 3072,
+        "seconds": 0.357,
+        "log": "0071.log",
+        "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun run build.ts"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 8800,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0072.log",
+        "label": "packages/runtime/src/runtime/cli/init/react-tailwind: module initialization src/index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+          "src/index.ts"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": -9,
+        "peak_sampled_rss_kib": 3240064,
+        "memory_limit_mb": 3072,
+        "seconds": 12.098,
+        "log": "0074.log",
+        "reason": "sampled command tree RSS exceeded 3072 MiB",
+        "label": "packages/runtime/upstream/bench/bundle: module initialization index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+          "index.ts"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/bundle",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 127,
+        "peak_sampled_rss_kib": 10720,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0078.log",
+        "label": "packages/runtime/upstream/bench/ffi: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "cd src && bun run build"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/ffi",
+        "engine_invocations": 0
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 83144,
+        "memory_limit_mb": 3072,
+        "seconds": 0.32,
+        "log": "0079.log",
+        "label": "packages/runtime/upstream/bench/ffi/src: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun run build:napi && bun run build:ffi"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/ffi/src",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 8816,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0081.log",
+        "label": "packages/runtime/upstream/bench/grpc-server: module initialization index.js",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+          "index.js"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/grpc-server",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 60284,
+        "memory_limit_mb": 3072,
+        "seconds": 0.12,
+        "log": "0083.log",
+        "label": "packages/runtime/upstream/bench/install: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "next build"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/install",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 0,
+        "memory_limit_mb": 3072,
+        "seconds": 0.006,
+        "log": "0089.log",
+        "label": "packages/runtime/upstream/bench/react-hello-world: test",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "echo \"Error: no test specified\" && exit 1"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/react-hello-world",
+        "engine_invocations": 0
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 8784,
+        "memory_limit_mb": 3072,
+        "seconds": 0.106,
+        "log": "0090.log",
+        "label": "packages/runtime/upstream/bench/react-hello-world: module initialization react-hello-world.node.js",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+          "react-hello-world.node.js"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/react-hello-world",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 10652,
+        "memory_limit_mb": 3072,
+        "seconds": 0.107,
+        "log": "0094.log",
+        "label": "packages/runtime/upstream: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun --silent run build:debug"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 10612,
+        "memory_limit_mb": 3072,
+        "seconds": 0.106,
+        "log": "0095.log",
+        "label": "packages/runtime/upstream: test",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "node scripts/runner.node.mjs --exec-path ./build/debug/bun-debug"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 2,
+        "peak_sampled_rss_kib": 741588,
+        "memory_limit_mb": 3072,
+        "seconds": 3.018,
+        "log": "0096.log",
+        "label": "packages/runtime/upstream: typecheck",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "tsc --noEmit && cd test && bun run typecheck"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 53528,
+        "memory_limit_mb": 3072,
+        "seconds": 0.128,
+        "log": "0097.log",
+        "label": "packages/runtime/upstream/packages/bun-build-mdx-rs: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "napi build --platform --release"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 10388,
+        "memory_limit_mb": 3072,
+        "seconds": 0.106,
+        "log": "0098.log",
+        "label": "packages/runtime/upstream/packages/bun-build-mdx-rs: test",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "ava"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 8800,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0101.log",
+        "label": "packages/runtime/upstream/packages/bun-debug-adapter-protocol: module initialization index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+          "index.ts"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-debug-adapter-protocol",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 8780,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0107.log",
+        "label": "packages/runtime/upstream/packages/bun-inspector-protocol: module initialization index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+          "index.ts"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-inspector-protocol",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 10576,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0116.log",
+        "label": "packages/runtime/upstream/packages/bun-types: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun scripts/build.ts"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-types",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": -9,
+        "peak_sampled_rss_kib": 3179692,
+        "memory_limit_mb": 3072,
+        "seconds": 4.161,
+        "log": "0117.log",
+        "reason": "sampled command tree RSS exceeded 3072 MiB",
+        "label": "packages/runtime/upstream/packages/bun-types: test",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "tsc"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-types",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 59632,
+        "memory_limit_mb": 3072,
+        "seconds": 0.213,
+        "log": "0119.log",
+        "label": "packages/runtime/upstream/packages/bun-vscode: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "node scripts/build.mjs"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-vscode",
+        "engine_invocations": 2
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 10720,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0120.log",
+        "label": "packages/runtime/upstream/packages/bun-vscode: test",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "node scripts/test.mjs"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-vscode",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 46160,
+        "memory_limit_mb": 3072,
+        "seconds": 0.144,
+        "log": "0121.log",
+        "label": "packages/runtime/upstream/packages/bun-vscode: module initialization dist/extension.js",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+          "dist/extension.js"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-vscode",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 2,
+        "peak_sampled_rss_kib": 0,
+        "memory_limit_mb": 3072,
+        "seconds": 0.006,
+        "log": "0122.log",
+        "label": "packages/runtime/upstream/packages/bun-wasm: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "cd ../.. && make wasm"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-wasm",
+        "engine_invocations": 0
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 8800,
+        "memory_limit_mb": 3072,
+        "seconds": 0.069,
+        "log": "0123.log",
+        "label": "packages/runtime/upstream/packages/bun-wasm: module initialization index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+          "index.ts"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-wasm",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 10612,
+        "memory_limit_mb": 3072,
+        "seconds": 0.107,
+        "log": "0127.log",
+        "label": "packages/runtime/upstream/src/node-fallbacks: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun run build-gen"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/node-fallbacks",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 0,
+        "memory_limit_mb": 3072,
+        "seconds": 0.006,
+        "log": "0128.log",
+        "label": "packages/runtime/upstream/src/node-fallbacks: test",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "echo \"Error: no test specified\" && exit 1"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/node-fallbacks",
+        "engine_invocations": 0
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 10732,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0130.log",
+        "label": "packages/runtime/upstream/src/runtime/cli/create/projects/react-shadcn-spa: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun 'REPLACE_ME_WITH_YOUR_APP_FILE_NAME.build.ts'"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/create/projects/react-shadcn-spa",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 8816,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0133.log",
+        "label": "packages/runtime/upstream/src/runtime/cli/init/react-app: module initialization src/index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+          "src/index.ts"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-app",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 10728,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0134.log",
+        "label": "packages/runtime/upstream/src/runtime/cli/init/react-shadcn: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun run build.ts"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-shadcn",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 8792,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0135.log",
+        "label": "packages/runtime/upstream/src/runtime/cli/init/react-shadcn: module initialization src/index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+          "src/index.ts"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-shadcn",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 10700,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0136.log",
+        "label": "packages/runtime/upstream/src/runtime/cli/init/react-tailwind: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "bun run build.ts"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 8800,
+        "memory_limit_mb": 3072,
+        "seconds": 0.07,
+        "log": "0137.log",
+        "label": "packages/runtime/upstream/src/runtime/cli/init/react-tailwind: module initialization src/index.ts",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+          "src/index.ts"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind",
+        "engine_invocations": 1
+      },
+      {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 90520,
+        "memory_limit_mb": 3072,
+        "seconds": 0.144,
+        "log": "0138.log",
+        "label": "packages/vscode-home: module initialization ./out/extension.js",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+          "./out/extension.js"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/vscode-home",
+        "engine_invocations": 1
+      }
+    ]
+  },
+  "stacks": {
+    "job": 130781025848,
+    "artifact_status": "Missing, actual upload transport failed; no complete candidate counts inferred",
+    "actual_log_sha256": "31b03aed736c78b05624c41a5bbd2f3a11e94c9ef4cc4b0b8a9079ecf9d5ff44",
+    "upload_diagnostics": [
+      "2026-11-11T20:38:45.8928882Z Attempt 1 of 5 failed with error: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON. Retrying request in 3000 ms...",
+      "2026-11-11T20:40:48.9964723Z Attempt 2 of 5 failed with error: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON. Retrying request in 4910 ms...",
+      "2026-11-11T20:42:54.0049814Z Attempt 3 of 5 failed with error: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON. Retrying request in 8503 ms...",
+      "2026-11-11T20:44:08.5157534Z Attempt 4 of 5 failed with error: Unexpected token 'u', \"upstream c\"... is not valid JSON. Retrying request in 11694 ms...",
+      "2026-11-11T20:46:20.3190953Z ##[error]Failed to CreateArtifact: Failed to make request after 5 attempts: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+    ],
+    "recovery": {
+      "timestamp": "2026-11-11T21:18:55.983263+00:00",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/gh",
+        "run",
+        "rerun",
+        "43091851854",
+        "-R",
+        "zig-utils/zig-js-ecosystem",
+        "--job",
+        "130781025848"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "reason": "One bounded retry of actual Stacks artifact-upload transport failure. Preserve all five original failed CreateArtifact attempts and every consumer failure; no synthetic or empty result artifact. Home artifact remains separately verified. Does not cancel or filter new all-selected coverage."
+    }
+  },
+  "scope": "Only Home report ZIP and actual Stacks upload failure are verified here. Preserve full package/reference failures. One bounded Stacks job retry recovers missing transport evidence; it does not implement or suppress consumer checks, and attempt1 stays explicit. Current promoted functional suite8755eaf contains newer real function mocks; do not infer its pending priority package outcomes from this old Windows run."
+}
