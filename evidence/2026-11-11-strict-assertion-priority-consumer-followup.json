@@ -1,0 +1,2798 @@
+{
+  "schema_version": 1,
+  "run": {
+    "status": "completed",
+    "conclusion": "failure",
+    "url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/43041354116"
+  },
+  "functional_suite": "7b4fb84dc0acc28ab739398124c884491403091c",
+  "engine_ref": "07bef5adcf173eab2494c82d009fe3cd6ac9432a",
+  "home_ref": "663f106b3c51e0e56e788b069eb40fb2d5fb0b59",
+  "consumers": {
+    "stacksjs/stacks": {
+      "artifact": {
+        "id": 13866913725,
+        "node_id": "MDg6QXJ0aWZhY3QxMzg2NjkxMzcyNQ==",
+        "name": "ecosystem-results-0",
+        "size_in_bytes": 1658072,
+        "url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13866913725",
+        "archive_download_url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13866913725/zip",
+        "expired": false,
+        "digest": "sha256:1c45b4b1311bf904d94b10ba3b7808a833191be18b03c29c118f7092f9b96067",
+        "created_at": "2026-11-11T15:12:56Z",
+        "updated_at": "2026-11-11T15:12:56Z",
+        "expires_at": "2026-12-11T15:12:55Z",
+        "workflow_run": {
+          "id": 43041354116,
+          "repository_id": 1449802195,
+          "head_repository_id": 1449802195,
+          "head_branch": "main",
+          "head_sha": "7b4fb84dc0acc28ab739398124c884491403091c"
+        }
+      },
+      "downloaded_zip_sha256": "1c45b4b1311bf904d94b10ba3b7808a833191be18b03c29c118f7092f9b96067",
+      "report_sha256": "35cd9386626d1b2353d7b712b781149ec7615598505dba329b6e973d877e421b",
+      "consumer_ref": "c9f2e1d41bd034c3ece07ecc6ded68a5d7321847",
+      "previous_consumer_ref": "dcbfe2a6a379af666dcb9ff72fb09a999bd85401",
+      "runtime_provenance": {
+        "engine_sha": "07bef5adcf173eab2494c82d009fe3cd6ac9432a",
+        "suite_ref": "7b4fb84dc0acc28ab739398124c884491403091c",
+        "home_repository": "home-lang/home",
+        "home_ref": "663f106b3c51e0e56e788b069eb40fb2d5fb0b59",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "fac5b7f18e1b43abacf840b39275475f849c262a14ccafa2e88cc4591102586a",
+          "engine/zig-out/lib/libzig-js.a": "e51b317530911d8aa4966c8a295f0d003657e8f6a76c73e8124ed675511458c9"
+        }
+      },
+      "scopes": 99,
+      "checks": 927,
+      "candidate": {
+        "unsupported": 354,
+        "failed": 205,
+        "passed": 66
+      },
+      "previous_candidate": {
+        "unsupported": 354,
+        "failed": 205,
+        "passed": 66
+      },
+      "candidate_status_changes": [],
+      "actual_candidate_logs": [
+        {
+          "label": ".: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 3,
+          "log": "0016.log",
+          "log_sha256": "b06a80a7f9abfe27a24be6131817e2ee15cb2dc67c80cd00d7ca78fc6fcb8139",
+          "headline": "Uncaught unhandledRejection: RangeError: evaluation step budget exceeded"
+        },
+        {
+          "label": ".: typecheck",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 3,
+          "log": "0018.log",
+          "log_sha256": "9b69f1116638c7a909fb6a861582ca834fca0d78400266c8a37bfa26aed1bfaf",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/api: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0019.log",
+          "log_sha256": "434a1d0852f195eaa1bc0f0f9e7a664c734d82f9d2b0e2763a651545bb8fba08",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./dev.ts\"], outdir: \"./dist\", format: \"esm\", minify: false, target: \"bun\" })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/action-runner: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0022.log",
+          "log_sha256": "4bffadb9a22ee86aa96e0f85a0ff60b4bd56e76be305d4e63a1d6ef3c9d539ee",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/action-runner: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0023.log",
+          "log_sha256": "caadf0fea201ac25f86f22146bede363ca8365f3fc0fdc7fc7f1282cfde6b1c9",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/actions: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0027.log",
+          "log_sha256": "0115366fdcc938ac9a2e9246c0486241a6c60991fc6f52e2cfd9a1004b1f11ef",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/actions: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0028.log",
+          "log_sha256": "bda7ed252593178b9c124cb7c2d746fb2912c40243c8bb5214eb25425894487a",
+          "headline": "../cms/src/authors/store.ts(3,18): error TS2304: Cannot find name 'NewModelData'."
+        },
+        {
+          "label": "storage/framework/core/actions: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0030.log",
+          "log_sha256": "8b6e6e2efb9724b3d5dee5afd00dc78c865e0423b7b89b70770c7a39762f1873",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js"
+        },
+        {
+          "label": "storage/framework/core/ai: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0035.log",
+          "log_sha256": "e3893417c03eb163ed2fb10271d33fad56626e4397f3fa5ef5f7362c59f47d28",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/ai: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0037.log",
+          "log_sha256": "d27cb3b078088529776c13f2e7a8aae578455d171f19fc0bb6431a8f32202086",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/alias: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0041.log",
+          "log_sha256": "56d570433db7571b2484c836245c64a8973bd26aaf857a5677f2722e7a00688e",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/alias: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0042.log",
+          "log_sha256": "dfa73427657026f077d0ff1803db509dacbbfa4d3546f299339da85229c72182",
+          "headline": "../path/src/index.ts(612,39): error TS9011: Parameter must have an explicit type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/analytics: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0047.log",
+          "log_sha256": "721664ec6a0b3e91264c868365cf741618dcdbf235a86220054abf77f1db1bd0",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/analytics: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0048.log",
+          "log_sha256": "035caed428dc45e0a66c7a0519fd183ad5b04b3c859bfa1835cb54a0765a2195",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/analytics: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0050.log",
+          "log_sha256": "3e9581a15eb811aba2cf6945de4d397dc55e211dbf10ae34300b1ca08a01a3ef",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js"
+        },
+        {
+          "label": "storage/framework/core/api: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0053.log",
+          "log_sha256": "b42fc32ed9d2690db545fa27b783637760f185393179263720d797bc9621f91f",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/api: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0054.log",
+          "log_sha256": "bea5c2576b3ac463c42cd11dc620a08ed778e09c6d5c16569c4349ca3660ea9c",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/arrays: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0059.log",
+          "log_sha256": "4aa676c55d025a1a13fe5cd0b8a7974fe4cc7bca477266a1071cb0bf2f344cb4",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/arrays: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0061.log",
+          "log_sha256": "10391d9c6e05ea873d1bb736e25eacf55a7af69f867423c0c683b7d81402749d",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/audio: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0065.log",
+          "log_sha256": "1857f401a748132d2333a597783a55df72669a5d7c5946cf76adbb0568006173",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/audio: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0066.log",
+          "log_sha256": "5c6c68cc55225b834d6896d7486e280a7a51801a2f88f9fc074718f222fdec98",
+          "headline": "../actions/build.ts(31,3): error TS2353: Object literal may only specify known properties, and 'plugins' does not exist in type '{ dir: string; pkgName?: string | undefined; external?: string[] | undefined; }'."
+        },
+        {
+          "label": "storage/framework/core/auth: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0071.log",
+          "log_sha256": "af83a0940547784ea8bd8c2afc967ee659068b86e83fb9b376c649d0477e9d56",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/auth: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0072.log",
+          "log_sha256": "a34df091f8f63d1471309e3c2bf2c5a4ffb39a367b4e5f25d52f0d8d696c5483",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/auth: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0074.log",
+          "log_sha256": "d41c5d59fae4fbfaa9c87c2436c4c48c227c7f7a9073e8bd3430aa64afbcb941",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js"
+        },
+        {
+          "label": "storage/framework/core/browser-extension: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0077.log",
+          "log_sha256": "129e71d6c009b0508fbaf9cdf164bb67a388eba5a667d48438ae4dcca8c883ea",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/browser-extension: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0078.log",
+          "log_sha256": "55c02c7a2cc6b404a66ae5f425f331c3a7c455bc062ee287ed31c8352ee3dde1",
+          "headline": "../actions/build.ts(31,3): error TS2353: Object literal may only specify known properties, and 'plugins' does not exist in type '{ dir: string; pkgName?: string | undefined; external?: string[] | undefined; }'."
+        },
+        {
+          "label": "storage/framework/core/browser-extension: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0080.log",
+          "log_sha256": "3a40eb74d4f0f59387393a4df0bd8113c5321885d2f23121b940e3a4f50589ab",
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:https from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/ts-pantry/dist/chunk-5fr3fz5x.js"
+        },
+        {
+          "label": "storage/framework/core/browser: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0083.log",
+          "log_sha256": "b37da0a95b6190a7a209bede7e0d02103820a6db2bb22a971cb24cdf0e4527d2",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/browser: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0084.log",
+          "log_sha256": "9f91818d1eae33e473b892becff9e895aea6dab12ae5c1b88d70d73d794b8e42",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/browser: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0086.log",
+          "log_sha256": "7f863615e0895e01ab9b917389642e5023b33d9fd7c596b8870305d20721ba5c",
+          "headline": "home-tool (zig-js): SyntaxError: Unexpected token"
+        },
+        {
+          "label": "storage/framework/core/buddy: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0092.log",
+          "log_sha256": "67700d688b32732a7052bc1cc9ac65a0025b77114635e09e220cb5ee67ab28b9",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/buddy: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0093.log",
+          "log_sha256": "1eca7104bb46b55ef115e00bf19c78d7dfa1a3bd81de2857ac57425ffcdd23f2",
+          "headline": "../cms/src/authors/store.ts(3,18): error TS2304: Cannot find name 'NewModelData'."
+        },
+        {
+          "label": "storage/framework/core/buddy: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0095.log",
+          "log_sha256": "3e439551635d8e86b1bbe055306a4c112170a693ee339ce7539adaf596653bc3",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js"
+        },
+        {
+          "label": "storage/framework/core/build: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0102.log",
+          "log_sha256": "54c5e95a79e242bfca72f40ddcfc1265f83aba8885fc3bad2aae4e598346c180",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, plugins: [dts({ root: \"./src\", outdir: \"./dist\" })], external: [\"bun\", \"@stacksjs/path\", \"@stacksjs/storage\", \"@stacksjs/cli\"] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/build: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0103.log",
+          "log_sha256": "7a53620ed486121550048b70dfc9b84960fd1e18c44ed3ea1c0c7f0c3b2d63a7",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/cache: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0108.log",
+          "log_sha256": "9efdc2a09d4a9b5bb3f672fd52aa7c6a3f6e522bf8a465711774c6cd6b8f0fa3",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/key.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, plugins: [dts({ root: \"./src\", outdir: \"./dist\" })], external: frameworkExternal() })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/cache: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0109.log",
+          "log_sha256": "346a91218dd1e1206127c5c099e131516b9d5d44d47fd0958460e69032cac158",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/calendar-api: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0114.log",
+          "log_sha256": "8e3ea177f2939ce4dd4b38df9dfc3db62b9750787e2d3503618e4930768b1021",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/charts: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0120.log",
+          "log_sha256": "e522550bda5d0b745c9263eca83ee5ad49716eabb5da9ed51b4b24ea473a0c2f",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/chat: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0126.log",
+          "log_sha256": "31ad32fd3e48b6c5370ebf2c449c4b7e1703c025e5edbf7283376b3862ac7bfb",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/chat: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0127.log",
+          "log_sha256": "9efd920e4eb0edace4fb4d3f6d4abc82ad6927a8169fcdc3f0d85e39be138755",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/chat: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0129.log",
+          "log_sha256": "cd43728fdf3327c3071bcc8ab307d7e63adb3abcb3f92112a81366918416deee",
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/chat/src/inbox/discord.ts"
+        },
+        {
+          "label": "storage/framework/core/cli: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0132.log",
+          "log_sha256": "61cc3ffb04f30dded6df843be91336800f43ae5e26b733d6310b96d11bb486e4",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/output.ts\", \"./src/process.ts\", \"./src/owned-process.ts\"], outdir: \"./dist\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/cli: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0134.log",
+          "log_sha256": "db48d2f4ab6b908942c46fcd0ae4c832d60c6e4563812a41debaaa35412410b9",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/cloud: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0138.log",
+          "log_sha256": "14ff55a16e56f54226db93a0826a89d62d6ef2cbc408563a1d1da1522f57db10",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/cloud: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0139.log",
+          "log_sha256": "c8f460eefc8b58710dfb3b968beda523ad238919203dbd31bf6a511e0221740e",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/cloud: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0141.log",
+          "log_sha256": "24a8a953fe956c7b0b67ad07b33d327ea1874e8dcc0b2d92499559d9b80d51ce",
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/ts-cloud/dist/chunk-gxq281ma.js"
+        },
+        {
+          "label": "storage/framework/core/cloud/src/cloud/router-layer/nodejs: test",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 0,
+          "log": "0144.log",
+          "log_sha256": "87f387c9c2d09f51fd608ee94e605783d808fe873645b8902a46d07e4d77ff24",
+          "headline": "Error: no test specified"
+        },
+        {
+          "label": "storage/framework/core/cms: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0146.log",
+          "log_sha256": "0dd46dae9b5d45510d404641a970029f89154114de797cbe57f8aa0c98caee3c",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/cms: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0147.log",
+          "log_sha256": "afd5d8361ff44943e616c431749d65a82bfa796ea7b9916cc51168a7afc0780d",
+          "headline": "src/authors/store.ts(3,18): error TS2304: Cannot find name 'NewModelData'."
+        },
+        {
+          "label": "storage/framework/core/cms: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0149.log",
+          "log_sha256": "74b58f7d68c2c9ad3683a27eeb1521079810de33d7bf7b6293e2e4550dc9ef9b",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js"
+        },
+        {
+          "label": "storage/framework/core/collections: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0152.log",
+          "log_sha256": "e21a50efb16c57d2d4312b59095808c1f0c4d06439c1489b0df13e4798bada66",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/commerce: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0158.log",
+          "log_sha256": "e4ea4c771966d7e80eefa35866bed3d8486f9e2903a050671854de441cad2e13",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/commerce: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0159.log",
+          "log_sha256": "ab30800bcbfe3353319f54164fb1f0c0d16a7385ae7b08d2142cca7a6dd5b0c0",
+          "headline": "src/shippings/delivery-routes/store.ts(4,45): error TS2304: Cannot find name 'DeliveryRoute'."
+        },
+        {
+          "label": "storage/framework/core/commerce: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0161.log",
+          "log_sha256": "a8b07a3cb0c715e3dc577e3d969c4afbb2aa1228942a3e50163ddd181a729cde",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js"
+        },
+        {
+          "label": "storage/framework/core/composables: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0164.log",
+          "log_sha256": "a60d6ba1ea93feda87e534ed22b54269875af2282200d2f4231025591c762df2",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/composables: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0165.log",
+          "log_sha256": "221c427056854ee752cdb43f3b50c72ab286c6aa0d80f156f18c201c8bfea954",
+          "headline": "src/createFetch.ts(26,12): error TS9013: Expression type can't be inferred with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/composables: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0167.log",
+          "log_sha256": "4ac4a3c122fdb0f5ef2e86c91659c8fa239a42afbcf837e6090df4a4c0a45128",
+          "headline": "home-tool (zig-js): SyntaxError: Unexpected token"
+        },
+        {
+          "label": "storage/framework/core/config: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0170.log",
+          "log_sha256": "5b6ce1f6e17559fec3b545b8f4f0888454988ece8b898d17adde4e1fdce25ff5",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/config: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0171.log",
+          "log_sha256": "8bc4f6019a191593670bd6b0273d4e7f338be5078c4c25087faf2d26be437cdc",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/cron: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0175.log",
+          "log_sha256": "d03e3d28802545e79bb57bfabd396ab0847a970fd12995b70ad24b88653b2449",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/database: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0181.log",
+          "log_sha256": "3ca3e8b7c4d2ae62475f8f66c27a020ef608045b7c0a64e22fb4df40a88073ac",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/database: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0182.log",
+          "log_sha256": "f6810885a9debad7883f3f06898529d23a1f6d8d1f87c698d279ecafa4954b3a",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/database: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0184.log",
+          "log_sha256": "e7d5f98f86ad40daa8ed707a3736b210f9933d368ceb60e911747b1189c28a9b",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js"
+        },
+        {
+          "label": "storage/framework/core/datetime: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0188.log",
+          "log_sha256": "4101010bba5a3d63c3ff4193ce60d3050a87ae59758bbfff865c2b3018a274c7",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/deploy: module initialization index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0198.log",
+          "log_sha256": "23506ab4b395d763fd253b2db324483bb617c05f669a972a014b884f9ae0156f",
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/ts-cloud/dist/chunk-gxq281ma.js"
+        },
+        {
+          "label": "storage/framework/core/deploy: module initialization ./index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0199.log",
+          "log_sha256": "2e2133af27a53f552edc3691d86330749e0f19f7edfcab492ee395ba652b0d27",
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/ts-cloud/dist/chunk-gxq281ma.js"
+        },
+        {
+          "label": "storage/framework/core/desktop: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0200.log",
+          "log_sha256": "d28ed69e25c7221636216c41b23eebeaa43e5090a77c5d6c3e93e4b044839268",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/desktop: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0201.log",
+          "log_sha256": "e2a2414a5ea3a37b8e6f8c0af01a7ba9daebe5bb6fd951ef1fa82905171c7ca8",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/desktop: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0203.log",
+          "log_sha256": "68ac7b690241a652ee067268bcd8e22de978df2e720e42e3541e05490b116288",
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/desktop/src/macos-app.ts"
+        },
+        {
+          "label": "storage/framework/core/dns: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0209.log",
+          "log_sha256": "4facebcb70a6802c4b1d1de624350082240aa18f9909951e414cc3040f50eccf",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/dns: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0210.log",
+          "log_sha256": "d4e3304d2e40fcb84cf335628f89eeaaae7379f23c903b78735d6e559837414e",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/dns: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0212.log",
+          "log_sha256": "c708be7c6dae88bf1359ad747095b58153ffb042b9b6cda3cb3c1c3f89c1d4d4",
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/ts-cloud/dist/chunk-gxq281ma.js"
+        },
+        {
+          "label": "storage/framework/core/docs: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0214.log",
+          "log_sha256": "876cfe8e52e6210a9cbc948bb7755d39dac95dc8dc547f0522eb36c299f73c77",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/style-guide.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\", exclude: [\"tests/**\"] })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/docs: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0215.log",
+          "log_sha256": "27d68504434c73be57f3e33c83d3e4f9f0ce9ed0bbb5bb1d60a13b2d309b91d2",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/email: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0220.log",
+          "log_sha256": "3c0685ae4c8d819fef4942eb7713f72656fa3994f92522bee532ca026ead5c97",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/email: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0221.log",
+          "log_sha256": "d920be227b41fed1e1982f33d71c897fc486ae3fe8356b1638c3907026ce4f45",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/email: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0223.log",
+          "log_sha256": "75d74f44b84327323e455e2bbcb3bf56f11fe4debc56f1a0ff6e22a4f097ca69",
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:tls from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/email/src/drivers/smtp.ts"
+        },
+        {
+          "label": "storage/framework/core/enums: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0226.log",
+          "log_sha256": "17d92f774573faae4d13af7ffa540460d1d9bab258192b50fb40ae4eb6abf4d6",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/env: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0231.log",
+          "log_sha256": "be412edb0a40fc7c18a0216189d80fec318166c1b534936207fd1bcbf4b5e2cb",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/env: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0232.log",
+          "log_sha256": "3bffc1d05cb68ca8dd3862a77c76c702b8387125ef852a218778c641dcb18775",
+          "headline": "src/plaintext.ts(62,14): error TS9010: Variable must have an explicit type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/error-handling: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0236.log",
+          "log_sha256": "5dce593bbb1565c15ea5ab8fd51b016909aa06139e4228a77af205b86e94a451",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/error-handling: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0237.log",
+          "log_sha256": "cf67def753e2cf6da7f10e46fc920ba0ff4eec90421df3f3419fe1abd9765cb3",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/events: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0242.log",
+          "log_sha256": "95c12b723530f98322a2d5814a52681530d092fc8ad1003c279825f10ea7c464",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, plugins: [dts({ root: \"./src\", outdir: \"./dist\", exclude: [\"tests/**\"] })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/events: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0244.log",
+          "log_sha256": "b3426747f58c1342fa002107ea7b952df548f274dbf866f7fa3b02e2932e95f4",
+          "headline": "src/index.ts(393,14): error TS9010: Variable must have an explicit type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/faker: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0248.log",
+          "log_sha256": "2b8b3b60e598a1fcee21d231e94c7867f4a9016bd63b8e39e6a0ecdaccf90056",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/feature-flags: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0254.log",
+          "log_sha256": "15a257a7dc35728e5906eeabef5f666a8b8f07532a19067345fddb79fdd0652a",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/feature-flags: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0256.log",
+          "log_sha256": "5543867da3df6e2b60bb8257cadb7c55acc36d6ff8448ef59cc0be29005f7d53",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/features: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0260.log",
+          "log_sha256": "364567998c2bfbd43d9a259129171f7d00f111da151df2a7ca21e8e7d60ce61e",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/names.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/features: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0261.log",
+          "log_sha256": "251a67a43169016d4436b18893b4e89172d4525c07b93bb93b9c1f0bf9acf497",
+          "headline": "../path/src/index.ts(612,39): error TS9011: Parameter must have an explicit type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/forms: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0266.log",
+          "log_sha256": "59ce9eaca71c54721dc85b2ca1265f8074f76c04ec8c27a2e86921e1894217e6",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/forms: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0267.log",
+          "log_sha256": "b6a6b2ead560053b8c9a30cc87ebff43aeef0714a3ae3258353bff2da15d18bc",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/forms: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0269.log",
+          "log_sha256": "07d3cc2f37b5d5426484b6c7c3a64261d24fdd4f3d818f6e640cb826c38902df",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js"
+        },
+        {
+          "label": "storage/framework/core/git: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0272.log",
+          "log_sha256": "7b5c9d71e40e7b0e7dfc3235f06ac30cf275344bb8f44efc9ee9be26cdb00143",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/github: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0278.log",
+          "log_sha256": "32c9acbdeba6ca8f4627a9acb41a5a64f9237c133b698bdd5e82fcc3595dec21",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/github: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0279.log",
+          "log_sha256": "b32521af9948eaecd736b31cb64ca7528f686bc3d7e258738eb2e72dbda67340",
+          "headline": "src/dashboard.ts(184,49): error TS9011: Parameter must have an explicit type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/health: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0284.log",
+          "log_sha256": "ea6151003034fdd666ab66d8875d81c19a6f27742613ad9373a66b02c9fa0825",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/http: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0290.log",
+          "log_sha256": "435f8947e9c5f9f90c03bcc2f118b42a7b81c154c79c1b0ae58e639ad886123d",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, plugins: [dts({ root: \"./src\", outdir: \"./dist\", exclude: [\"tests/**\"] })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/http: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0291.log",
+          "log_sha256": "80e66483c291df295910bc9409f8452a0192300b4d79eea3a29270b77e493188",
+          "headline": "src/retry-after.ts(2,80): error TS9011: Parameter must have an explicit type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/i18n: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0296.log",
+          "log_sha256": "17a03274e702e4836c56b0e5baad775d65ec112b2ea3703e556f88c0617c622f",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/i18n: typecheck",
+          "status": "failed",
+          "exit_code": -9,
+          "engine_invocations": 1,
+          "log": "0297.log",
+          "log_sha256": "f142e07688900f9f0c0f7780e90cea131b2d3b4f8445ac02a42cb402328db062",
+          "headline": "no diagnostic"
+        },
+        {
+          "label": "storage/framework/core/image: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0301.log",
+          "log_sha256": "dd8e9ab906dc0b7964091237a53b370c8e8a4b8c5fc8d1163cada170547a2758",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/image: typecheck",
+          "status": "failed",
+          "exit_code": -9,
+          "engine_invocations": 1,
+          "log": "0302.log",
+          "log_sha256": "24c73182e07f4b76cf6ae7328cd286dbe161df96ae15526562e2a50475482e08",
+          "headline": "no diagnostic"
+        },
+        {
+          "label": "storage/framework/core/lint: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0307.log",
+          "log_sha256": "d4ab8fc827f2fa9e34f0d022138b695aa6f7fc6af13b4e3c475dee34da3e85a2",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/logging: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0313.log",
+          "log_sha256": "f0c5730b3e86ac7a5bc13e6d22ca845071a2f9e115d101e4017816fd4494ce1c",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/logging: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0314.log",
+          "log_sha256": "562bb0f0c7dababecaac74c99ef5e15a81ab325bb25fd153fc41a151933aaa35",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/mobile: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0320.log",
+          "log_sha256": "14d41f869e61f6b14844af5fc438e985c12d3309afe0469698dc6071a0f7dcf2",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"browser\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\", bundle: true })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/mobile: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0322.log",
+          "log_sha256": "973affef49b9af8c10b3f3cf65e415ff05b931a178e6de846abc2c7af26bdc15",
+          "headline": "tests/native.test.ts(60,52): error TS2769: No overload matches this call."
+        },
+        {
+          "label": "storage/framework/core/model-meta: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0327.log",
+          "log_sha256": "f6bac18a6ff0c397c11c8019edb913ab90dea55a9165bb3481604eb1702c7654",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/model-meta: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0328.log",
+          "log_sha256": "3236abd64b30898fe6e660fba2b3cb11deeb81091a982b4522d7131b47d3e10e",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/newsletter: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0332.log",
+          "log_sha256": "987bfd16962149d0901af0f683fefc2984af5bc85c20a4621aabc2011a0bd857",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/newsletter: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0333.log",
+          "log_sha256": "a81c49d72c6eb221fea93ea449e9e84a78252bfe90b270402a2c18b61cc4a779",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/newsletter: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0335.log",
+          "log_sha256": "e77d2cc84df91e25ca6e2965d88cb22e8dc6509c538d84071e3ab8c269ca44dd",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js"
+        },
+        {
+          "label": "storage/framework/core/notifications: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0338.log",
+          "log_sha256": "ba749d155fb05d82e1ed2dac6c2c281fff4631bd42cb0ee08e13271750681199",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/templates.ts\", \"./src/sequences.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/notifications: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0339.log",
+          "log_sha256": "a4432c62bc5df2f988b60772d1f9004e88cd5f8dddc47a769709cbb90e8a67b2",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/notifications: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0341.log",
+          "log_sha256": "94ce3b81f91b11ddfb011a5dfaa0efe5e598fb6609569c600da27d879cdae472",
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:tls from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/email/src/drivers/smtp.ts"
+        },
+        {
+          "label": "storage/framework/core/objects: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0344.log",
+          "log_sha256": "47e5056d33d4f07ddc54c8342c999bc7cb6815c8cdaaaaa638e5224871d0c88b",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/objects: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0345.log",
+          "log_sha256": "555c9ca1395ae1faf7f5dc41b872e4314f251cf4c4e697386e5e8f7bf73eea6d",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/objects: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0347.log",
+          "log_sha256": "6ef22a177b1ae88116ae62ba4e93dd45b4042e497d0eea102af22f99449dda83",
+          "headline": "home-tool (zig-js): SyntaxError: Unexpected token"
+        },
+        {
+          "label": "storage/framework/core/orm: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0350.log",
+          "log_sha256": "22ad60ec35a671976a09c1165065c7ec019e3846735d2a153f714332d254a5bc",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/orm: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0351.log",
+          "log_sha256": "f6925a3b828f87901ca0707103e148c31320c2f4a41160c28f3d82477c00865f",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/orm: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0353.log",
+          "log_sha256": "329d504513ee0f12c9d4d09296cfaa8c1dbdb726acb1f38916ccaa1ddbcc1df6",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js"
+        },
+        {
+          "label": "storage/framework/core: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0356.log",
+          "log_sha256": "eb58a8f3fd579873f74e0fc987f5244c4c1400e00d9d2ed9c6730b70f6a77c69",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core: module initialization index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0358.log",
+          "log_sha256": "5b1b6826b3cfed0c00a6c7a2d23ca174a7a834fd89b67105d4dddddc2f3fb49b",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js"
+        },
+        {
+          "label": "storage/framework/core/pagination: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0424.log",
+          "log_sha256": "cb85e0b24bc038abdf46af8b75ab07c31fd64c93abccafa70c8efb97d8b42e44",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/path: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0429.log",
+          "log_sha256": "596f9818408a780f597127ecf8cb8538a00fca321e9b26e8cd291479edb244dd",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/project.ts\", \"./src/module-resolution.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/path: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0430.log",
+          "log_sha256": "c8d2d8879f44935acf4efbe7401f110a7b0a261b7a82e04ed7fb115f05328416",
+          "headline": "src/index.ts(612,39): error TS9011: Parameter must have an explicit type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/payments: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0437.log",
+          "log_sha256": "4bcfc16609ade458b76b08b06a3ba1f5523a3bf5a4419b91a56f00bfba0512c7",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/payments: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0438.log",
+          "log_sha256": "333f3d8846f9b872d989908239eafa548fa7c19307c07d17f0ef47c2c5e9b791",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/payments: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0440.log",
+          "log_sha256": "c93055da97bdc910e329a0914f3b3829d0f7581f77b7dbf831ed2af645d7cf85",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js"
+        },
+        {
+          "label": "storage/framework/core/push: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0443.log",
+          "log_sha256": "b42244041dd3b8c059303c50ba674e5102160c50c44c59610aec37cdeffe8066",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/push: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0444.log",
+          "log_sha256": "b37b57dd0b0aa657b62e4db0407ccf9a1db6ec37612fa973d415978facb4c45e",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/push: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0446.log",
+          "log_sha256": "46405357af8be88044331f04f6631f28a2531d13c26a333d5eef57b30c22b4b0",
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:http2 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/push/src/drivers/apns.ts"
+        },
+        {
+          "label": "storage/framework/core/query-builder: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0449.log",
+          "log_sha256": "3f8551b52b6c480b923138a9824f5b9013fd8c4fbee2dec55ee102b1da716599",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\", exclude: [\"tests/**\"] })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/query-builder: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0452.log",
+          "log_sha256": "7a97af9d11a1858398a07a501077372d33f744d04530bb67851335523e826ec2",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js"
+        },
+        {
+          "label": "storage/framework/core/queue: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0455.log",
+          "log_sha256": "5233a31b864c45d540a7c9835fb7f711835be5aa66ae7a9da007fa3b9ab8fc62",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/queue: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0456.log",
+          "log_sha256": "123e769f95a45d29cd1216e053a8b898353335ff488b6b3ebf83b37d5fa50a4d",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/queue: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0458.log",
+          "log_sha256": "71b880d16ca7878a45c13a9369aef97a7d15c1c22c78533426207b8ce0c74cd6",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js"
+        },
+        {
+          "label": "storage/framework/core/realtime: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0461.log",
+          "log_sha256": "b7ca6125f6d4f12f988013bccde7cfa6f5df093a8cda6e736a274bf620336b69",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/realtime: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0462.log",
+          "log_sha256": "e069699b28ec6ca8dca004a8aa65614e1b6209daa99f828596142566e5d0dd41",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/registry: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0467.log",
+          "log_sha256": "0f4cc3e335412bfc924a2f8e65429c7d04ac4a274f0d09b4a35ca458f32f0357",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/registry: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0468.log",
+          "log_sha256": "05dcc984ca14cd8898a9acb9c422f3acfb81bbbd9f4c4fc3f551fcd8ff2d38e9",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/repl: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0473.log",
+          "log_sha256": "22e0c0458d20724cd9a1a90bc76580df411020d09d3470a4b1707a134d3b3b49",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/router: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0479.log",
+          "log_sha256": "c10046d2206d250dd445a2c39fe4b8ebf8f9113a87b8cf22019735966905ba32",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/router: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0480.log",
+          "log_sha256": "b73b2345625a38b97a7bed17a87fae587e8568ef851eda03787661aa7007e7ba",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/router: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0482.log",
+          "log_sha256": "b0a04efdd32634518561d4c34874c2a2075e56e01c8181d4003321e6caee0ad5",
+          "headline": "home-tool (zig-js): Error: cannot resolve module net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/bun-router/dist/chunk-zzempx0a.js"
+        },
+        {
+          "label": "storage/framework/core/scheduler: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0486.log",
+          "log_sha256": "a1d24f768ebaf1cdebfdf49b8d47323a35f1f95da4b1ce757c5a73609174e6e4",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/scheduler: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0487.log",
+          "log_sha256": "e69aa73d86612965f41afdac98cee1b8345ae2010e1d3c0a3815e796793c6b25",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/scheduler: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0489.log",
+          "log_sha256": "2c52cd144bcbea6c6920df230c365df75125ffb6b4efe005b1fbfa2d2ef9e23d",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js"
+        },
+        {
+          "label": "storage/framework/core/search-engine: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0492.log",
+          "log_sha256": "20ba9608ae09fa653db5fcc866d5e8f53983c96177e06a2d100105fe34135178",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/search-engine: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0493.log",
+          "log_sha256": "7cac1e39363c1534af4b4d9e5679431504fb0a394c63a4791b9dda9af35c0070",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/search-engine: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0495.log",
+          "log_sha256": "3511b1a4aaa30748026e5c704fdd99fa82a09fe5a26483b1d66e7afc3d01fb7c",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js"
+        },
+        {
+          "label": "storage/framework/core/security: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0498.log",
+          "log_sha256": "b940ec0fcda27c08a79d35682fc440fb5d2a5663988e17e7ca956831bd6f10c3",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/key.ts\", \"./src/scan.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/security: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0499.log",
+          "log_sha256": "14c53caa07e242c439d53807ea1c5abec27e88681c4fd494f9e2fa3557992856",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/security: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0501.log",
+          "log_sha256": "89d74d6ee15cdbb80c15771fe6848af0fa4a361381e439f681580e454de118cf",
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/security/src/outbound.ts"
+        },
+        {
+          "label": "storage/framework/core/server: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0506.log",
+          "log_sha256": "b0c4d1d40a1124d56e68cdeab0d876b7e8c2560ea4979e6c7052d52388f54c15",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/server: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0507.log",
+          "log_sha256": "ab670254f17d520d860c914f985c52bbbd63d76c6ae585e3e57a23c14b103d68",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/server: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0509.log",
+          "log_sha256": "a4c33c25f12e8b6c91f76595fac604bdad36942292b5272791b6d6fa2f8e9d03",
+          "headline": "home-tool (zig-js): Error: cannot resolve module net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/bun-router/dist/chunk-zzempx0a.js"
+        },
+        {
+          "label": "storage/framework/core/shell: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0512.log",
+          "log_sha256": "3b2460f651ef463ee558db07e06b819a7d548d0d0edb5e9280581663a5af7f92",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/sites: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0517.log",
+          "log_sha256": "061169a8eed4d7e65f209dfd4ecfe36295283447b756dd3a88852793de9ef862",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/sites: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0518.log",
+          "log_sha256": "93f0c76a2ec7dd59a12b6f6c99d470894658113b8761c993962eecdc16b5f3d8",
+          "headline": "../cms/src/authors/store.ts(3,18): error TS2304: Cannot find name 'NewModelData'."
+        },
+        {
+          "label": "storage/framework/core/sites: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0520.log",
+          "log_sha256": "238ef294374d0f062ec4d70d887c362deb6eef15650b16a8940655f7ff6e813c",
+          "headline": "home-tool (zig-js): Error: cannot resolve module net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/bun-router/dist/chunk-zzempx0a.js"
+        },
+        {
+          "label": "storage/framework/core/skills: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0523.log",
+          "log_sha256": "e7821b4a217e5b9b3c65cf65057c3d998307cd6b40f2e0270e5a80e70ea86b8e",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/skills: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0524.log",
+          "log_sha256": "07338ce14f04039c8a7dc27f9f6a2947ea82a9ded7c02f2c46f709629f2b6170",
+          "headline": "../path/src/index.ts(612,39): error TS9011: Parameter must have an explicit type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/slug: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0529.log",
+          "log_sha256": "489d0e1f39715f3bcd64e92259cd8265b7f597c2fc23d429434505560d26c644",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/slug: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0530.log",
+          "log_sha256": "e64662ce30763dd217b50136093e8849256a7893792f729ef84e79545f57c243",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/slug: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0532.log",
+          "log_sha256": "5a3e2c1089f0e561368dfbbd7a422d2ffccd9d11cabe9b5a77323c8ddf9bb0b9",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js"
+        },
+        {
+          "label": "storage/framework/core/sms: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0535.log",
+          "log_sha256": "7cd63ecdce1780479b6cf13a727b414e3b0607bc4dc7bb1c85548add20bbfbae",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/sms: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0536.log",
+          "log_sha256": "80c82609012c2a54585076a836801ff29e5c9ece8b3be6ce6819f8cd9230a169",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/sms: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0538.log",
+          "log_sha256": "cbbee256abd455e1a37081ad3060c3da6a87b6daed11df9d2615c6f69d944704",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js"
+        },
+        {
+          "label": "storage/framework/core/socials: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0541.log",
+          "log_sha256": "550ab71f39fea03c6fa1d1053d0eea83869f8822b363ec1892afb70a0af9e385",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/socials: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0542.log",
+          "log_sha256": "1cc422be74fc5449e30249349635edce89abaa920abdcb1545e798e596a7442d",
+          "headline": "../payments/src/connect/index.ts(51,14): error TS2883: The inferred type of 'connect' cannot be named without a reference to 'AccountLink' from '~/node_modules/stripe/cjs/resources/AccountLinks'. This is likely not portable. A type annotation is necessary."
+        },
+        {
+          "label": "storage/framework/core/socials: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0544.log",
+          "log_sha256": "bb2e1d1c8cf9db716477ddae08f679f74483873c57baed0fad2b5134c27c542c",
+          "headline": "home-tool (zig-js): SyntaxError: Unexpected token"
+        },
+        {
+          "label": "storage/framework/core/storage: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0547.log",
+          "log_sha256": "6721391975fb2c2ceee133edebdad3da15daab9c42b05d403f0b2acc8006cca8",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/storage: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0548.log",
+          "log_sha256": "aa9a3b3a95d141d9a21e5beeddf3dc8d6621c794737f013cd5067da58ea1696d",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/strings: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0553.log",
+          "log_sha256": "cfd219010288e86e2569bcc0bd2da45eb1dc8486baaf59355dfa4c8a4f0a4e2b",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/strings: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0555.log",
+          "log_sha256": "eb6c2cdbba337640aadc98302b9e54006d4929ab90dbedbcbefd8246468097f7",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/testing: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0559.log",
+          "log_sha256": "289533bb7c63a484699392090ea1a0b4637050445dd60e492714c3985f25041b",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/database.ts\", \"./src/dynamodb.ts\", \"./src/browser.ts\", \"./src/isolated.ts\", \"./src/disposable-database.ts\", \"./src/schema.ts\", \"./src/service.ts\", \"./src/time.ts\"], root: \"./src\", outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/testing: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0560.log",
+          "log_sha256": "530148231bb64fe3cdbaafffe787662b4e7e313c85d6f7e7495bda99d64c122d",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/testing: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0562.log",
+          "log_sha256": "2083b8e0d1eb90e5da6c0ab3be53a09d7aab03f4af428a16f79422a4e4196a30",
+          "headline": "home-tool (zig-js): Error: cannot resolve module bun:test from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/testing/src/events.ts"
+        },
+        {
+          "label": "storage/framework/core/tinker: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0569.log",
+          "log_sha256": "048986009d421576ff6f5fd80afeb1c566f43eed03d248444234be22fa63c611",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/tunnel: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0575.log",
+          "log_sha256": "e4876dbca388a2c63ebc83e391ce5d57a908fa4f679b54da69c511b5b8e86f62",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/tunnel: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0576.log",
+          "log_sha256": "ef4e4085a51dc8cc0e98b9f9b34c82611bf65ba287bb3c7de23918e3ee26598f",
+          "headline": "src/index.ts(13,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/types: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0581.log",
+          "log_sha256": "ee2f409a30452886d88b9c6ced809c646ebb0a85dcccff2350e0c06871864b6d",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/exit-code.ts\", \"./src/mobile.ts\"], splitting: true, outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal([\"@stacksjs/ts-css\"]), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/types: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0582.log",
+          "log_sha256": "ea1717b46e486d7c212b19bd226ef3a899a36547714117f8188f9e7f14ecb37b",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/ui: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0588.log",
+          "log_sha256": "28259cac5144e2ac2eec683ec074ab6d8f2b0df840ff5b97f72311427e2354f6",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/ui: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0589.log",
+          "log_sha256": "847c4d3135d95a034302361152408aabb74a881a54815d5e419f9f28616ede56",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/ui: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0591.log",
+          "log_sha256": "acef254c71f533e4e75a42ed74ac6c978970b407f1db64c242345811ccb7e8bb",
+          "headline": "home-tool (zig-js): SyntaxError: Unexpected token ':'"
+        },
+        {
+          "label": "storage/framework/core/utils: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0595.log",
+          "log_sha256": "d8ed687c7f4ffae35f2e3a73bd4aa7c9b4ff8f3a535d7a5e42debb27b2a6c1b7",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/utils: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0596.log",
+          "log_sha256": "940a615df37c199c93968ecbf925ba016d4854df108af6a8e8c9656bdcaf418c",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/utils: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0598.log",
+          "log_sha256": "3b95d4f3b303ab9ae8f5afc8d2aeafe90e64b60c68cce90b2d9a8fae9e20a2f2",
+          "headline": "home-tool (zig-js): SyntaxError: Unexpected token"
+        },
+        {
+          "label": "storage/framework/core/validation: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0601.log",
+          "log_sha256": "e0379de8a3ebd6805fd6fa4cf2fabd1a53a1d408616c2e37b1f8754d4a952d30",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/validation: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0602.log",
+          "log_sha256": "b105f0d65d022aa03c66b1eccf0989adad9250b26b22bcc8414cb6dd39220793",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/video: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0608.log",
+          "log_sha256": "fe37f3550c9df76141210b7ba776a8429a797dc8f8ed3177dc7f2c62cbbd5f63",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/video: typecheck",
+          "status": "failed",
+          "exit_code": -9,
+          "engine_invocations": 1,
+          "log": "0609.log",
+          "log_sha256": "f2f5bb6bdff918217e82d61580391446e4263adb3ffd9a0b0bd0a658fbeb073c",
+          "headline": "no diagnostic"
+        },
+        {
+          "label": "storage/framework/core/video: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0611.log",
+          "log_sha256": "afb5734124937c1e8cd6a384a617a1a9d62f15c18e1048e3a6614f0eb72d6d1c",
+          "headline": "home-tool (zig-js): Error: Async module cycles are not implemented: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/video/src/index.ts"
+        },
+        {
+          "label": "storage/framework/core/whois: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0614.log",
+          "log_sha256": "48756c73a5ec5715b6a8813630513a0fe38efb8ae7565908de88dd3a12c26561",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/core/whois: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0616.log",
+          "log_sha256": "05966ba0704423b1742bb953a8d95d9dce46a8f203108eeff0125117a8bf55b5",
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations."
+        },
+        {
+          "label": "storage/framework/core/whois: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0617.log",
+          "log_sha256": "5d88c5c6cce1c1bf1cdcf50026f9f68e356e0dd1de803155c7d7383abe87c9db",
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/whois/src/index.ts"
+        },
+        {
+          "label": "storage/framework/defaults/ide/vscode: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0619.log",
+          "log_sha256": "6737d46f5bdf3568de7e30b9d8460dcb1d60db7f9d76818f4de1ad35d80cff29",
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [join(here, \"src/extension.ts\")], outdir: dist, target: \"node\", format: \"cjs\", external: [\"vscode\", \"bunfig\"], minify: true })', 'Bun.build' is undefined)"
+        },
+        {
+          "label": "storage/framework/docs: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0623.log",
+          "log_sha256": "fbe817dddd48ace044307e4818473e6c14c3eab47ce822e19a57c54086c02a4a",
+          "headline": "  Building documentation..."
+        },
+        {
+          "label": "storage/framework/libs/components/stx: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0624.log",
+          "log_sha256": "0c85c2784423a33cf98d3b5dea1c904d66c6959d6723cbff57afbe164fa4a4bb",
+          "headline": "home-tool (zig-js): SyntaxError: Unexpected token"
+        },
+        {
+          "label": "storage/framework/orm: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0629.log",
+          "log_sha256": "349871cc9fec965d760f6cd523372f9561590e3f62f3b009b1400284680e0a6b",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js"
+        },
+        {
+          "label": "storage/framework/server: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0635.log",
+          "log_sha256": "e6c8dd13e288822c7e09fddac180b59c2ee9576c85b253c6550c286126d67cca",
+          "headline": "no diagnostic"
+        },
+        {
+          "label": "storage/framework/server: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0637.log",
+          "log_sha256": "88783c44618f1edb2997793e283a25b25a47351d4713d02ba28e1a9c5a871afc",
+          "headline": "home-tool (zig-js): Error: cannot resolve module net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/bun-router/dist/chunk-zzempx0a.js"
+        }
+      ],
+      "error_counts": [
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)",
+          "count": 47
+        },
+        {
+          "headline": "../actions/src/publication-preflight.ts(10,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations.",
+          "count": 47
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-fb06zc4c.js",
+          "count": 19
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)",
+          "count": 17
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)",
+          "count": 8
+        },
+        {
+          "headline": "home-tool (zig-js): SyntaxError: Unexpected token",
+          "count": 6
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/ts-cloud/dist/chunk-gxq281ma.js",
+          "count": 4
+        },
+        {
+          "headline": "no diagnostic",
+          "count": 4
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/bun-router/dist/chunk-zzempx0a.js",
+          "count": 4
+        },
+        {
+          "headline": "../cms/src/authors/store.ts(3,18): error TS2304: Cannot find name 'NewModelData'.",
+          "count": 3
+        },
+        {
+          "headline": "../path/src/index.ts(612,39): error TS9011: Parameter must have an explicit type annotation with --isolatedDeclarations.",
+          "count": 3
+        },
+        {
+          "headline": "../actions/build.ts(31,3): error TS2353: Object literal may only specify known properties, and 'plugins' does not exist in type '{ dir: string; pkgName?: string | undefined; external?: string[] | undefined; }'.",
+          "count": 2
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:tls from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/email/src/drivers/smtp.ts",
+          "count": 2
+        },
+        {
+          "headline": "Uncaught unhandledRejection: RangeError: evaluation step budget exceeded",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./dev.ts\"], outdir: \"./dist\", format: \"esm\", minify: false, target: \"bun\" })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:https from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/node_modules/ts-pantry/dist/chunk-5fr3fz5x.js",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, plugins: [dts({ root: \"./src\", outdir: \"./dist\" })], external: [\"bun\", \"@stacksjs/path\", \"@stacksjs/storage\", \"@stacksjs/cli\"] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/key.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, plugins: [dts({ root: \"./src\", outdir: \"./dist\" })], external: frameworkExternal() })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/chat/src/inbox/discord.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/output.ts\", \"./src/process.ts\", \"./src/owned-process.ts\"], outdir: \"./dist\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "Error: no test specified",
+          "count": 1
+        },
+        {
+          "headline": "src/authors/store.ts(3,18): error TS2304: Cannot find name 'NewModelData'.",
+          "count": 1
+        },
+        {
+          "headline": "src/shippings/delivery-routes/store.ts(4,45): error TS2304: Cannot find name 'DeliveryRoute'.",
+          "count": 1
+        },
+        {
+          "headline": "src/createFetch.ts(26,12): error TS9013: Expression type can't be inferred with --isolatedDeclarations.",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/desktop/src/macos-app.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/style-guide.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\", exclude: [\"tests/**\"] })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "src/plaintext.ts(62,14): error TS9010: Variable must have an explicit type annotation with --isolatedDeclarations.",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, plugins: [dts({ root: \"./src\", outdir: \"./dist\", exclude: [\"tests/**\"] })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "src/index.ts(393,14): error TS9010: Variable must have an explicit type annotation with --isolatedDeclarations.",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/names.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "src/dashboard.ts(184,49): error TS9011: Parameter must have an explicit type annotation with --isolatedDeclarations.",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, plugins: [dts({ root: \"./src\", outdir: \"./dist\", exclude: [\"tests/**\"] })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "src/retry-after.ts(2,80): error TS9011: Parameter must have an explicit type annotation with --isolatedDeclarations.",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"browser\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\", bundle: true })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "tests/native.test.ts(60,52): error TS2769: No overload matches this call.",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/templates.ts\", \"./src/sequences.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/project.ts\", \"./src/module-resolution.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "src/index.ts(612,39): error TS9011: Parameter must have an explicit type annotation with --isolatedDeclarations.",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:http2 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/push/src/drivers/apns.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\", exclude: [\"tests/**\"] })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/key.ts\", \"./src/scan.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/security/src/outbound.ts",
+          "count": 1
+        },
+        {
+          "headline": "../payments/src/connect/index.ts(51,14): error TS2883: The inferred type of 'connect' cannot be named without a reference to 'AccountLink' from '~/node_modules/stripe/cjs/resources/AccountLinks'. This is likely not portable. A type annotation is necessary.",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/database.ts\", \"./src/dynamodb.ts\", \"./src/browser.ts\", \"./src/isolated.ts\", \"./src/disposable-database.ts\", \"./src/schema.ts\", \"./src/service.ts\", \"./src/time.ts\"], root: \"./src\", outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module bun:test from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/testing/src/events.ts",
+          "count": 1
+        },
+        {
+          "headline": "src/index.ts(13,23): error TS9007: Function must have an explicit return type annotation with --isolatedDeclarations.",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/exit-code.ts\", \"./src/mobile.ts\"], splitting: true, outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal([\"@stacksjs/ts-css\"]), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): SyntaxError: Unexpected token ':'",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: Async module cycles are not implemented: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/video/src/index.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/whois/src/index.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [join(here, \"src/extension.ts\")], outdir: dist, target: \"node\", format: \"cjs\", external: [\"vscode\", \"bunfig\"], minify: true })', 'Bun.build' is undefined)",
+          "count": 1
+        },
+        {
+          "headline": "  Building documentation...",
+          "count": 1
+        }
+      ]
+    },
+    "home-lang/home": {
+      "artifact": {
+        "id": 13866594776,
+        "node_id": "MDg6QXJ0aWZhY3QxMzg2NjU5NDc3Ng==",
+        "name": "ecosystem-results-1",
+        "size_in_bytes": 176760,
+        "url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13866594776",
+        "archive_download_url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13866594776/zip",
+        "expired": false,
+        "digest": "sha256:68cd3274306d6030f6ed16227d9622baafdb6ad904cfd742d644bcca6aef782e",
+        "created_at": "2026-11-11T15:13:56Z",
+        "updated_at": "2026-11-11T15:13:56Z",
+        "expires_at": "2026-12-11T15:13:52Z",
+        "workflow_run": {
+          "id": 43041354116,
+          "repository_id": 1449802195,
+          "head_repository_id": 1449802195,
+          "head_branch": "main",
+          "head_sha": "7b4fb84dc0acc28ab739398124c884491403091c"
+        }
+      },
+      "downloaded_zip_sha256": "68cd3274306d6030f6ed16227d9622baafdb6ad904cfd742d644bcca6aef782e",
+      "report_sha256": "fd9590a1ab3dddc8d229e41f42efd4dfdfc97fcb5f08281ce007ccc770c4e44b",
+      "consumer_ref": "663f106b3c51e0e56e788b069eb40fb2d5fb0b59",
+      "previous_consumer_ref": "40ce57fb7c46be37ba676e496fb8520e3a76b569",
+      "runtime_provenance": {
+        "engine_sha": "07bef5adcf173eab2494c82d009fe3cd6ac9432a",
+        "suite_ref": "7b4fb84dc0acc28ab739398124c884491403091c",
+        "home_repository": "home-lang/home",
+        "home_ref": "663f106b3c51e0e56e788b069eb40fb2d5fb0b59",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "fac5b7f18e1b43abacf840b39275475f849c262a14ccafa2e88cc4591102586a",
+          "engine/zig-out/lib/libzig-js.a": "e51b317530911d8aa4966c8a295f0d003657e8f6a76c73e8124ed675511458c9"
+        }
+      },
+      "scopes": 46,
+      "checks": 234,
+      "candidate": {
+        "failed": 41,
+        "unsupported": 37,
+        "passed": 9
+      },
+      "previous_candidate": {
+        "failed": 43,
+        "unsupported": 37,
+        "passed": 7
+      },
+      "candidate_status_changes": [
+        {
+          "label": "packages/runtime/upstream/packages/bun-plugin-svelte: module initialization src/index.ts",
+          "before": "failed",
+          "after": "passed"
+        },
+        {
+          "label": "packages/runtime/upstream/packages/bun-plugin-svelte: module initialization ./src/index.ts",
+          "before": "failed",
+          "after": "passed"
+        }
+      ],
+      "actual_candidate_logs": [
+        {
+          "label": ".: build",
+          "status": "failed",
+          "exit_code": -9,
+          "engine_invocations": 1,
+          "log": "0052.log",
+          "log_sha256": "098b02e3533d3225dac9fe42cdcaf98a46c6fa8d0042de89e54abb3eac843b09",
+          "headline": "  Building documentation..."
+        },
+        {
+          "label": "packages/action: typecheck",
+          "status": "failed",
+          "exit_code": -9,
+          "engine_invocations": 1,
+          "log": "0057.log",
+          "log_sha256": "cbe9f2f1528569f78b214af80300675325d3823818ef840c4a0e4de9afda2593",
+          "headline": "no diagnostic"
+        },
+        {
+          "label": "packages/action: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0058.log",
+          "log_sha256": "5ae3748a4b78f1e053f6c1fa7f3f3093ff4f959dd9362d683741e5bf61f5a726",
+          "headline": "home-tool (zig-js): Error: cannot resolve module https from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/action/src/index.ts"
+        },
+        {
+          "label": "packages/action: module initialization dist/index.js",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0059.log",
+          "log_sha256": "9f9340c64baba32d47c3c8ef72267946afa78e06dddba642109bc2ad1255b80d",
+          "headline": "home-tool (zig-js): Error: cannot resolve module https from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/action/dist/index.js"
+        },
+        {
+          "label": "packages/registry: test",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0062.log",
+          "log_sha256": "aefe8b9efb7be4a9b7e3036670ed6911b8c5e8baaf7151eb3bf41b785892bcb6",
+          "headline": "Uncaught unhandledRejection: SyntaxError: Unexpected token"
+        },
+        {
+          "label": "packages/runtime/src/runtime/cli/create/projects/react-shadcn-spa: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0065.log",
+          "log_sha256": "9bd434f35de0fb446160a6dfb79d16bcf31921cef51c357f4717ac47989ef277",
+          "headline": "home-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/create/projects/react-shadcn-spa/REPLACE_ME_WITH_YOUR_APP_FILE_NAME.build.ts"
+        },
+        {
+          "label": "packages/runtime/src/runtime/cli/init/react-app: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0068.log",
+          "log_sha256": "24c7c38a637f34fb98c261c91cb815cfe2e4ea40f3a0c5fe05c6d809a559b61d",
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-app/src/index.html"
+        },
+        {
+          "label": "packages/runtime/src/runtime/cli/init/react-shadcn: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0069.log",
+          "log_sha256": "5809bd66877394b058c4798f63c62426b817411675d01cd55b63ecc6df86a4a0",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn/node_modules/bun-plugin-tailwind/index.mjs"
+        },
+        {
+          "label": "packages/runtime/src/runtime/cli/init/react-shadcn: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0070.log",
+          "log_sha256": "c4cae3d68ab576548227fe32c6ab7864dbd1b3a21474fd2536bdbfb7609cb767",
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn/src/index.html"
+        },
+        {
+          "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0071.log",
+          "log_sha256": "c07f53c88e63639b91e54db8c47c980af986f93a87d6b064cc314ec7e924be9c",
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/node_modules/bun-plugin-tailwind/index.mjs"
+        },
+        {
+          "label": "packages/runtime/src/runtime/cli/init/react-tailwind: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0072.log",
+          "log_sha256": "d20125dccfbe62393e5894624762757f31ba2da007e1a0d812464dd0a96f6344",
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/src/index.html"
+        },
+        {
+          "label": "packages/runtime/upstream/bench/bundle: module initialization index.ts",
+          "status": "failed",
+          "exit_code": -9,
+          "engine_invocations": 1,
+          "log": "0074.log",
+          "log_sha256": "afd36db3d66d968f09156ff8be05ef985e2c9e68fee5c91ea2edde74ae5dc86d",
+          "headline": "no diagnostic"
+        },
+        {
+          "label": "packages/runtime/upstream/bench/ffi: build",
+          "status": "failed",
+          "exit_code": 127,
+          "engine_invocations": 0,
+          "log": "0078.log",
+          "log_sha256": "d2f87351087c5d207781f590ffe74a8e0c27ca7ea0504d6c932fed19a049031b",
+          "headline": "ecosystem-script: 1: napi: not found"
+        },
+        {
+          "label": "packages/runtime/upstream/bench/ffi/src: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0079.log",
+          "log_sha256": "1ff0198542fc0a7256b718169e2bcef23016e74cf24caf2a9840ec0944a20c82",
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/ffi/src/node_modules/@napi-rs/cli/scripts/index.js"
+        },
+        {
+          "label": "packages/runtime/upstream/bench/grpc-server: module initialization index.js",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0081.log",
+          "log_sha256": "911b195329ef0057ab9f591871218fcea8c80eddde37b4778e5a6265b6d355b8",
+          "headline": "home-tool (zig-js): Error: cannot resolve module tls from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/grpc-server/node_modules/@grpc/grpc-js/build/src/channel-credentials.js"
+        },
+        {
+          "label": "packages/runtime/upstream/bench/install: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0083.log",
+          "log_sha256": "0b14381250f718aade0e8075a702fd57c9f21cddc82e6afbc8adf00aa43b32a2",
+          "headline": "home-tool (zig-js): Error: cannot resolve module http from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/install/node_modules/next/dist/server/setup-http-agent-env.js"
+        },
+        {
+          "label": "packages/runtime/upstream/bench/react-hello-world: test",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 0,
+          "log": "0089.log",
+          "log_sha256": "87f387c9c2d09f51fd608ee94e605783d808fe873645b8902a46d07e4d77ff24",
+          "headline": "Error: no test specified"
+        },
+        {
+          "label": "packages/runtime/upstream/bench/react-hello-world: module initialization react-hello-world.node.js",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0090.log",
+          "log_sha256": "eaef08e2ad0f8ef81c10aec4c72bd98843f68acfae8d0371aeeee12870b9b091",
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/react-hello-world/react-hello-world.node.js"
+        },
+        {
+          "label": "packages/runtime/upstream: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0094.log",
+          "log_sha256": "d430c1b3994fc0804ad860e931cf8bd21a8a7172e40539d4bc6aeca072c9aaaa",
+          "headline": "home-tool (zig-js): Error: cannot resolve module ./build/ci.ts from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/scripts/build.ts"
+        },
+        {
+          "label": "packages/runtime/upstream: test",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0095.log",
+          "log_sha256": "1c8f7d6a5af24f2bf611efdd5d80630a5e950cc9b437f816dd1201d98dca4529",
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/scripts/utils.mjs"
+        },
+        {
+          "label": "packages/runtime/upstream: typecheck",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 1,
+          "log": "0096.log",
+          "log_sha256": "92c942386795576f14efc5fd1012687c0b52506418261ed067987256268530ed",
+          "headline": "tsconfig.json(12,5): error TS6053: File '/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/bake' not found."
+        },
+        {
+          "label": "packages/runtime/upstream/packages/bun-build-mdx-rs: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0097.log",
+          "log_sha256": "8931d7b779c2a541bb45feb86ba051d5236ba844ffbe83959a403c535e4c2f0d",
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/@napi-rs/cli/scripts/index.js"
+        },
+        {
+          "label": "packages/runtime/upstream/packages/bun-build-mdx-rs: test",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0098.log",
+          "log_sha256": "1ce9db0553ba562effd3edc8335785a117bd92e22f02dd53738d73f5842445be",
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/ava/lib/cli.js"
+        },
+        {
+          "label": "packages/runtime/upstream/packages/bun-debug-adapter-protocol: module initialization index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0101.log",
+          "log_sha256": "3e7e59e6ef1b7d11c37d7ab35eb48c6a93e9c8802d329f9a592e1f0f8e92baea",
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-debug-adapter-protocol/src/debugger/adapter.ts"
+        },
+        {
+          "label": "packages/runtime/upstream/packages/bun-inspector-protocol: module initialization index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0107.log",
+          "log_sha256": "4e4fb147c935734491b4030895badce78602062d08e1e495ad45f3143e9b4db7",
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-inspector-protocol/src/inspector/node-socket.ts"
+        },
+        {
+          "label": "packages/runtime/upstream/packages/bun-plugin-svelte: module initialization src/index.ts",
+          "status": "passed",
+          "exit_code": 0,
+          "engine_invocations": 1,
+          "log": "0110.log",
+          "log_sha256": "72554f4d9a6d7e845bb031b06f726ec58e54a124de05f03ef746451f87a1e3b9",
+          "headline": "no diagnostic",
+          "actual_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 392276 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        },
+        {
+          "label": "packages/runtime/upstream/packages/bun-plugin-svelte: module initialization ./src/index.ts",
+          "status": "passed",
+          "exit_code": 0,
+          "engine_invocations": 1,
+          "log": "0111.log",
+          "log_sha256": "5351dc9d7c588c122195b4998063006e3e9f79cf3e8fe99fe43f1ad396c23fad",
+          "headline": "no diagnostic",
+          "actual_log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun\", \"./src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 415012 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        },
+        {
+          "label": "packages/runtime/upstream/packages/bun-types: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0116.log",
+          "log_sha256": "946b222e78ce4d7a86e494d2e99e3d5946853aa4dd57d56f9c3045b8d92001c4",
+          "headline": "home-tool (zig-js): TypeError: undefined is not an object (evaluating '(process.env.BUN_VERSION || Bun.version || process.versions.bun).replace')"
+        },
+        {
+          "label": "packages/runtime/upstream/packages/bun-types: test",
+          "status": "failed",
+          "exit_code": -9,
+          "engine_invocations": 1,
+          "log": "0117.log",
+          "log_sha256": "3016d078dd909d4eb7b53e89831b04fe10d085d044858dd92986ffebaaa0453f",
+          "headline": "no diagnostic"
+        },
+        {
+          "label": "packages/runtime/upstream/packages/bun-vscode: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 2,
+          "log": "0119.log",
+          "log_sha256": "7cdc987d48bbc4f5d51407bedce9aa1d5f10c325d85b8985adc3bd537ba50831",
+          "headline": "home-tool (zig-js): Error: cannot resolve module http from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-vscode/node_modules/typed-rest-client/HttpClient.js"
+        },
+        {
+          "label": "packages/runtime/upstream/packages/bun-vscode: test",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0120.log",
+          "log_sha256": "691c614c007b8adc82fd43565ded496fbc987bab1fe11ee3e9d60e30bf9d79dd",
+          "headline": "home-tool (zig-js): Error: No .vsix file found"
+        },
+        {
+          "label": "packages/runtime/upstream/packages/bun-vscode: module initialization dist/extension.js",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0121.log",
+          "log_sha256": "0b35580ea6a882c89aa687ad4826410d9b27ccb9e8bc13d27d5f88b7682b84e9",
+          "headline": "home-tool (zig-js): Error: cannot resolve module vscode from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-vscode/dist/extension.js"
+        },
+        {
+          "label": "packages/runtime/upstream/packages/bun-wasm: build",
+          "status": "failed",
+          "exit_code": 2,
+          "engine_invocations": 0,
+          "log": "0122.log",
+          "log_sha256": "443ecba769df3fed0f5906fcd2a675412f34700f3cd2429948bdc68fdf17378e",
+          "headline": "make: *** No rule to make target 'wasm'.  Stop."
+        },
+        {
+          "label": "packages/runtime/upstream/packages/bun-wasm: module initialization index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0123.log",
+          "log_sha256": "d130749e47bb816fb16d91f8bde72bb44d6fad601838ce5b76d0cbe502e8c1b5",
+          "headline": "home-tool (zig-js): Error: cannot resolve module ./schema.js from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-wasm/index.ts"
+        },
+        {
+          "label": "packages/runtime/upstream/src/node-fallbacks: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0127.log",
+          "log_sha256": "766ab39da7604392900f49b2bee3bd40d4248a35fde8a6aeb1bfd17dff382a33",
+          "headline": "home-tool (zig-js): TypeError: Spread syntax requires ...iterable not be null or undefined"
+        },
+        {
+          "label": "packages/runtime/upstream/src/node-fallbacks: test",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 0,
+          "log": "0128.log",
+          "log_sha256": "87f387c9c2d09f51fd608ee94e605783d808fe873645b8902a46d07e4d77ff24",
+          "headline": "Error: no test specified"
+        },
+        {
+          "label": "packages/runtime/upstream/src/runtime/cli/create/projects/react-shadcn-spa: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0130.log",
+          "log_sha256": "df32ad81bce4f55c499f56cbb9c4340305e3a7ab93ca83383c3cbeddd21fc801",
+          "headline": "home-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/create/projects/react-shadcn-spa/REPLACE_ME_WITH_YOUR_APP_FILE_NAME.build.ts"
+        },
+        {
+          "label": "packages/runtime/upstream/src/runtime/cli/init/react-app: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0133.log",
+          "log_sha256": "580c29f43d17db373192b27f310fe4e7657898d1055ee999159162594545660c",
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-app/src/index.html"
+        },
+        {
+          "label": "packages/runtime/upstream/src/runtime/cli/init/react-shadcn: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0134.log",
+          "log_sha256": "cc36400b9c79b5f91652c9a1be7d03e3f5c59bcd2d4300de97573b5d252c3a0c",
+          "headline": "home-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-shadcn/build.ts"
+        },
+        {
+          "label": "packages/runtime/upstream/src/runtime/cli/init/react-shadcn: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0135.log",
+          "log_sha256": "ec6aad004e446ba2545ab5dbe0214cf31482811ef6c0fe727291738795820bf3",
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-shadcn/src/index.html"
+        },
+        {
+          "label": "packages/runtime/upstream/src/runtime/cli/init/react-tailwind: build",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0136.log",
+          "log_sha256": "089bb43771c0ce826595318f3b12f5dc5519a3840ed10c2454155dc0df0c8a11",
+          "headline": "home-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind/build.ts"
+        },
+        {
+          "label": "packages/runtime/upstream/src/runtime/cli/init/react-tailwind: module initialization src/index.ts",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0137.log",
+          "log_sha256": "fb3ed4729655e62b256464a109b8d305052f96625ab6dd268e564c72d88305cf",
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind/src/index.html"
+        },
+        {
+          "label": "packages/vscode-home: module initialization ./out/extension.js",
+          "status": "failed",
+          "exit_code": 1,
+          "engine_invocations": 1,
+          "log": "0138.log",
+          "log_sha256": "348266ec86865a297b50e26ae155f0113e5e1cc83dd5776c06f1db195b519e6a",
+          "headline": "home-tool (zig-js): Error: cannot resolve module vscode from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/vscode-home/out/extension.js"
+        }
+      ],
+      "error_counts": [
+        {
+          "headline": "no diagnostic",
+          "count": 3
+        },
+        {
+          "headline": "Error: no test specified",
+          "count": 2
+        },
+        {
+          "headline": "  Building documentation...",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module https from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/action/src/index.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module https from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/action/dist/index.js",
+          "count": 1
+        },
+        {
+          "headline": "Uncaught unhandledRejection: SyntaxError: Unexpected token",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/create/projects/react-shadcn-spa/REPLACE_ME_WITH_YOUR_APP_FILE_NAME.build.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-app/src/index.html",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn/node_modules/bun-plugin-tailwind/index.mjs",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn/src/index.html",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/node_modules/bun-plugin-tailwind/index.mjs",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/src/index.html",
+          "count": 1
+        },
+        {
+          "headline": "ecosystem-script: 1: napi: not found",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/ffi/src/node_modules/@napi-rs/cli/scripts/index.js",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module tls from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/grpc-server/node_modules/@grpc/grpc-js/build/src/channel-credentials.js",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module http from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/install/node_modules/next/dist/server/setup-http-agent-env.js",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/react-hello-world/react-hello-world.node.js",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module ./build/ci.ts from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/scripts/build.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/scripts/utils.mjs",
+          "count": 1
+        },
+        {
+          "headline": "tsconfig.json(12,5): error TS6053: File '/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/bake' not found.",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/@napi-rs/cli/scripts/index.js",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/ava/lib/cli.js",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-debug-adapter-protocol/src/debugger/adapter.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module node:net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-inspector-protocol/src/inspector/node-socket.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: undefined is not an object (evaluating '(process.env.BUN_VERSION || Bun.version || process.versions.bun).replace')",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module http from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-vscode/node_modules/typed-rest-client/HttpClient.js",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: No .vsix file found",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module vscode from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-vscode/dist/extension.js",
+          "count": 1
+        },
+        {
+          "headline": "make: *** No rule to make target 'wasm'.  Stop.",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module ./schema.js from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-wasm/index.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): TypeError: Spread syntax requires ...iterable not be null or undefined",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/create/projects/react-shadcn-spa/REPLACE_ME_WITH_YOUR_APP_FILE_NAME.build.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-app/src/index.html",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-shadcn/build.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-shadcn/src/index.html",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind/build.ts",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind/src/index.html",
+          "count": 1
+        },
+        {
+          "headline": "home-tool (zig-js): Error: cannot resolve module vscode from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/vscode-home/out/extension.js",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "comparison_scope": "Per-candidate-label results against preceding34082328/a346fd43/Home5b89a1a88 run43030403253. Consumer revisions changed; label gains are observed real outcomes, not a same-source causal equivalence or whole-package pass. All selected priority inventories/checks remain.",
+  "next_v8_blocker": {
+    "source_sha256": "c9de258f89b2dbd93c800ade526e23c4dea4041f52c8e43a5f3a677a3ea742a0",
+    "scope": "Controlled 11-case serialize/deserialize roundtrip including bigint, Date, binary view and actual cyclic identity; no v8 implementation or recovery. Native Node and Bun emit distinct binary formats, retained verbatim. No cross-engine byte compatibility claim. Both Home providers fail real node:v8 module resolution before executing cases.",
+    "providers": {
+      "node": {
+        "execution": {
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 42528,
+          "memory_limit_mb": 3072,
+          "seconds": 0.165,
+          "log": "node-v8.log"
+        },
+        "log_sha256": "63c50903e154c9dca5d27179e5efa25e76b0a3a407ff15f9983fd537b71b21a1",
+        "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-assert/consumer-followup/v8-serialization-probe.mjs\"]\n{\"groups\":11,\"results\":[{\"index\":0,\"bytes\":\"ff0f5f\",\"valid\":true},{\"index\":1,\"bytes\":\"ff0f30\",\"valid\":true},{\"index\":2,\"bytes\":\"ff0f46\",\"valid\":true},{\"index\":3,\"bytes\":\"ff0f4954\",\"valid\":true},{\"index\":4,\"bytes\":\"ff0f4e0000000000000080\",\"valid\":true},{\"index\":5,\"bytes\":\"ff0f4e000000000000f87f\",\"valid\":true},{\"index\":6,\"bytes\":\"ff0f5a100c00000000000000\",\"valid\":true},{\"index\":7,\"bytes\":\"ff0f630a730071006c0020000326\",\"valid\":true},{\"index\":8,\"bytes\":\"ff0f440000000000000000\",\"valid\":true},{\"index\":9,\"bytes\":\"ff0f5c010200ff\",\"valid\":true},{\"index\":10,\"bytes\":\"ff0f6f22056c6162656c22056379636c65220473656c665e007b02\",\"valid\":true}]}\n\nECOSYSTEM PEAK SAMPLED RSS: 42528 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "bun": {
+        "execution": {
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 2208,
+          "memory_limit_mb": 3072,
+          "seconds": 0.021,
+          "log": "bun-v8.log"
+        },
+        "log_sha256": "a95bfb213ebf057aff1a1022a1cb6a753648f4ee7c7d9a2a7e11d88f382342b7",
+        "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-assert/consumer-followup/v8-serialization-probe.mjs\"]\n{\"groups\":11,\"results\":[{\"index\":0,\"bytes\":\"0e00000003\",\"valid\":true},{\"index\":1,\"bytes\":\"0e00000004\",\"valid\":true},{\"index\":2,\"bytes\":\"0e00000008\",\"valid\":true},{\"index\":3,\"bytes\":\"0e000000052a000000\",\"valid\":true},{\"index\":4,\"bytes\":\"0e0000000a0000000000000080\",\"valid\":true},{\"index\":5,\"bytes\":\"0e0000000a000000000000f87f\",\"valid\":true},{\"index\":6,\"bytes\":\"0e0000002f00010000000c00000000000000\",\"valid\":true},{\"index\":7,\"bytes\":\"0e0000001005000000730071006c0020000326\",\"valid\":true},{\"index\":8,\"bytes\":\"0e0000000b0000000000000000\",\"valid\":true},{\"index\":9,\"bytes\":\"0e00000016020000000000000000020000000000000015020000000000000000ff\",\"valid\":true},{\"index\":10,\"bytes\":\"0e00000002050000806c6162656c10050000806379636c650400008073656c661300ffffffff\",\"valid\":true}]}\n\nECOSYSTEM PEAK SAMPLED RSS: 2208 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "home-zig-js": {
+        "execution": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 33616,
+          "memory_limit_mb": 3072,
+          "seconds": 0.17,
+          "log": "home-zig-js-v8.log"
+        },
+        "log_sha256": "f117c7c41766330e7ac923e4eb1e1a56b96e88941d1188444cec723b7948dc79",
+        "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-assert/rebased-home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-assert/consumer-followup/v8-serialization-probe.mjs\"]\nhome-tool (zig-js): Error: cannot resolve module node:v8 from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-assert/consumer-followup/v8-serialization-probe.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 33616 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      },
+      "home-jsc": {
+        "execution": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 32,
+          "memory_limit_mb": 3072,
+          "seconds": 0.112,
+          "log": "home-jsc-v8.log"
+        },
+        "log_sha256": "c0914295e17213b5341e0a2e2350e2e28d40473c4b525d966c6786e7fdbb2a3c",
+        "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-assert/rebased-home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-assert/consumer-followup/v8-serialization-probe.mjs\"]\nhome-tool (jsc): Error: cannot resolve module node:v8 from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/strict-assert/consumer-followup/v8-serialization-probe.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      }
+    },
+    "home_profile": {
+      "home_ref": "663f106b3c51e0e56e788b069eb40fb2d5fb0b59",
+      "engine_ref": "07bef5adcf173eab2494c82d009fe3cd6ac9432a",
+      "archive_build": "Local Debug engine bootstrap archive via ReleaseSafe Home. Separate Linux official artifact validated above; local binaries are not claimed identical to Linux."
+    },
+    "owned_query_builder_source": {
+      "repo": "stacksjs/bun-query-builder",
+      "checkout_ref": "d4e8ce9fbb1b05bedb9f1b97631a4f4b95beef9f",
+      "path": "packages/bun-query-builder/src/client.ts",
+      "sha256": "cd7ecd4b54c7bcb3b2f453e9cf6c007c09cbf7946982f613c177ad466f358739",
+      "snippet": "function queryCacheKey(connection: DriverConnection, text: string, params: unknown[]): string {\n  let id = queryCacheConnections.get(connection)\n  if (id === undefined) {\n    id = ++nextQueryCacheConnection\n    queryCacheConnections.set(connection, id)\n  }\n  // Preserve binding types (including bigint, Date and binary values). JSON\n  // both rejects valid bigint bindings and conflates distinct driver values.\n  const bindings = params.map(value => ArrayBuffer.isView(value)\n    // Bun's serializer includes bytes OUTSIDE a view. Besides false misses,\n    // that can retain a large backing allocation for a tiny binary binding.\n    ? ['view', Buffer.isBuffer(value) ? 'Buffer' : Object.prototype.toString.call(value),\n        Buffer.from(value.buffer, value.byteOffset, value.byteLength).toString('base64')]\n    : ['value', serialize(value).toString('base64')])\n  return `${id}\\0${text}\\0${JSON.stringify(bindings)}`\n}\n",
+      "scope": "Read-only owned source demonstrates real type-preserving cache serialization requirement; not assumed byte-identical to CI installed distribution."
+    }
+  }
+}
