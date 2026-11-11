@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "run": 42980732900,
+  "attempt": 2,
+  "job": 130408298286,
+  "original_upload_failure": {
+    "run": 42980732900,
+    "run_attempt": 1,
+    "job": 130395481154,
+    "repository": "home-lang/home",
+    "suite_ref": "37795c3bc6d8d690d61904c759dc898aaa3db2ff",
+    "home_ref": "1bac5890fdf4b9c8645459393d7db5d043251f57",
+    "failure": "GitHub ArtifactService CreateArtifact timed out after five upload attempts; ecosystem-results-1 is absent.",
+    "raw_job_log_sha256": "8208e97bc1ca3fb0b96de435aa0998557b50f95608351f9f1b8ff1e1c898dbb5",
+    "actual_failure_lines": [
+      "2026-11-11T08:12:03.2001138Z Attempt 1 of 5 failed with error: Request timeout: /twirp/github.actions.results.api.v1.ArtifactService/CreateArtifact. Retrying request in 3000 ms...",
+      "2026-11-11T08:12:11.2161858Z Attempt 2 of 5 failed with error: Request timeout: /twirp/github.actions.results.api.v1.ArtifactService/CreateArtifact. Retrying request in 6721 ms...",
+      "2026-11-11T08:12:22.9548572Z Attempt 3 of 5 failed with error: Request timeout: /twirp/github.actions.results.api.v1.ArtifactService/CreateArtifact. Retrying request in 8793 ms...",
+      "2026-11-11T08:12:36.7761575Z Attempt 4 of 5 failed with error: Request timeout: /twirp/github.actions.results.api.v1.ArtifactService/CreateArtifact. Retrying request in 14200 ms...",
+      "2026-11-11T08:12:55.9918676Z ##[error]Failed to CreateArtifact: Failed to make request after 5 attempts: Request timeout: /twirp/github.actions.results.api.v1.ArtifactService/CreateArtifact"
+    ],
+    "rerun": "Reran only the Home consumer job and downstream report once against the exact original pinned runtime; original attempt logs are retained.",
+    "scope": "No successful artifact-backed Home per-command result is claimed for attempt1. Do not convert missing evidence to a pass; keep package failures and unexecuted tests truthful."
+  },
+  "recovered_consumer": {
+    "artifact": {
+      "id": 13841240876,
+      "node_id": "MDg6QXJ0aWZhY3QxMzg0MTI0MDg3Ng==",
+      "name": "ecosystem-results-1",
+      "size_in_bytes": 161729,
+      "url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13841240876",
+      "archive_download_url": "https://api.github.com/repos/zig-utils/zig-js-ecosystem/actions/artifacts/13841240876/zip",
+      "expired": false,
+      "digest": "sha256:b28c45ee411b124d9fb668a2cfbf4a6f4b797f7d02daca1fddb109f3243155ac",
+      "created_at": "2026-11-11T08:42:27Z",
+      "updated_at": "2026-11-11T08:42:27Z",
+      "expires_at": "2026-12-11T08:42:26Z",
+      "workflow_run": {
+        "id": 42980732900,
+        "repository_id": 1449802195,
+        "head_repository_id": 1449802195,
+        "head_branch": "main",
+        "head_sha": "37795c3bc6d8d690d61904c759dc898aaa3db2ff"
+      }
+    },
+    "downloaded_zip_sha256": "b28c45ee411b124d9fb668a2cfbf4a6f4b797f7d02daca1fddb109f3243155ac",
+    "repository": "home-lang/home",
+    "consumer": "1bac5890fdf4b9c8645459393d7db5d043251f57",
+    "baseline_consumer": "d7a768ae15ba78abfa2b14f82ab7fd733c0eef58",
+    "runtime_provenance": {
+      "engine_sha": "18e8bcebf7d8044e876c1576128ac0f97cc7e493",
+      "suite_ref": "37795c3bc6d8d690d61904c759dc898aaa3db2ff",
+      "home_repository": "home-lang/home",
+      "home_ref": "1bac5890fdf4b9c8645459393d7db5d043251f57",
+      "zig_version": "0.18.0-dev.146+35accc06e",
+      "build_cpu": "baseline",
+      "build_optimize": "ReleaseSafe",
+      "sha256": {
+        "home-tool": "3ad34a41d44bcde87202ef7f0156516d78a86ebf7189d89dc7322d14aea2dedd",
+        "engine/zig-out/lib/libzig-js.a": "13b1a4755d042568f5f5acc30447ea2bd8676c03929719492f6677e306ab5a18"
+      }
+    },
+    "checks": 234,
+    "scopes": 46,
+    "candidate": {
+      "failed": 43,
+      "unsupported": 37,
+      "passed": 7
+    },
+    "status_changes": []
+  },
+  "error_counts": [
+    {
+      "headline": "resource/orchestration/other",
+      "count": 7
+    },
+    {
+      "headline": "$ [\"/bin/sh\", \"-c\", \"echo \\\"Error: no test specified\\\" && exit 1\"]",
+      "count": 2
+    },
+    {
+      "headline": "home-tool (zig-js): SyntaxError: invalid regular expression",
+      "count": 2
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot resolve module https from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/action/src/index.ts",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot resolve module https from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/action/dist/index.js",
+      "count": 1
+    },
+    {
+      "headline": "SyntaxError: Unexpected token",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/create/projects/react-shadcn-spa/REPLACE_ME_WITH_YOUR_APP_FILE_NAME.build.ts",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-app/src/index.html",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn/node_modules/bun-plugin-tailwind/index.mjs",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn/src/index.html",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot resolve module v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/node_modules/bun-plugin-tailwind/index.mjs",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/src/index.html",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/ffi/src/node_modules/@napi-rs/cli/scripts/index.js",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot resolve module tls from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/grpc-server/node_modules/@grpc/grpc-js/build/src/channel-credentials.js",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot resolve module http from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/install/node_modules/next/dist/server/setup-http-agent-env.js",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/react-hello-world/react-hello-world.node.js",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot resolve module ./build/ci.ts from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/scripts/build.ts",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot resolve module node:net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/scripts/utils.mjs",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/@napi-rs/cli/scripts/index.js",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot resolve module node:v8 from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/ava/lib/cli.js",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot resolve module node:net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-debug-adapter-protocol/src/debugger/adapter.ts",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot resolve module node:net from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-inspector-protocol/src/inspector/node-socket.ts",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): TypeError: undefined is not an object (evaluating '(process.env.BUN_VERSION || Bun.version || process.versions.bun).replace')",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: Home Buffer uses from/alloc; the deprecated constructor is not implemented",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: No .vsix file found",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot resolve module vscode from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-vscode/dist/extension.js",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot resolve module ./schema.js from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-wasm/index.ts",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): TypeError: Spread syntax requires ...iterable not be null or undefined",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/create/projects/react-shadcn-spa/REPLACE_ME_WITH_YOUR_APP_FILE_NAME.build.ts",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-app/src/index.html",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-shadcn/build.ts",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-shadcn/src/index.html",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind/build.ts",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind/src/index.html",
+      "count": 1
+    },
+    {
+      "headline": "home-tool (zig-js): Error: cannot resolve module vscode from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/vscode-home/out/extension.js",
+      "count": 1
+    }
+  ],
+  "job_log_sha256": "28ff3002dab8e94e40e6f9f37c58bdf9a1b5b252f07c5cb75920537a0250295d",
+  "successful_upload_signals": [
+    "2026-11-11T08:42:27.1698452Z SHA256 digest of uploaded artifact zip is b28c45ee411b124d9fb668a2cfbf4a6f4b797f7d02daca1fddb109f3243155ac",
+    "2026-11-11T08:42:27.5537334Z Artifact ecosystem-results-1.zip successfully finalized. Artifact ID 13841240876"
+  ],
+  "actual_packaging_checks": [
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 43304,
+        "memory_limit_mb": 3072,
+        "seconds": 0.217,
+        "log": "0119.log",
+        "label": "packages/runtime/upstream/packages/bun-vscode: build",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "node scripts/build.mjs"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-vscode",
+        "engine_invocations": 2
+      },
+      "log": "$ [\"/bin/sh\", \"-c\", \"node scripts/build.mjs\"]\nhome-tool (zig-js): Error: Home Buffer uses from/alloc; the deprecated constructor is not implemented\nhome-tool (zig-js): Error: Command failed: /bin/sh\n\nECOSYSTEM PEAK SAMPLED RSS: 43304 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "log_sha256": "b81b3291a72492ddf256ac22625a6776209ac5a9985e7fd9a4421d378aa7e083"
+    },
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 10516,
+        "memory_limit_mb": 3072,
+        "seconds": 0.071,
+        "log": "0120.log",
+        "label": "packages/runtime/upstream/packages/bun-vscode: test",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "node scripts/test.mjs"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-vscode",
+        "engine_invocations": 1
+      },
+      "log": "$ [\"/bin/sh\", \"-c\", \"node scripts/test.mjs\"]\nhome-tool (zig-js): Error: No .vsix file found\n\nECOSYSTEM PEAK SAMPLED RSS: 10516 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "log_sha256": "3b982dc35f0618116922dedde7c5514188b1b34ae2f034f4dbbcd18e36cda870"
+    },
+    {
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 33484,
+        "memory_limit_mb": 3072,
+        "seconds": 0.178,
+        "log": "0121.log",
+        "label": "packages/runtime/upstream/packages/bun-vscode: module initialization dist/extension.js",
+        "lane": "candidate",
+        "command": [
+          "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+          "dist/extension.js"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-vscode",
+        "engine_invocations": 1
+      },
+      "log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun\", \"dist/extension.js\"]\nhome-tool (zig-js): Error: cannot resolve module vscode from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-vscode/dist/extension.js\n\nECOSYSTEM PEAK SAMPLED RSS: 33484 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "log_sha256": "67f070991eae7996e6b45b122e7268b8e8cbf3785412490256669ef49bb9ec7d"
+    }
+  ],
+  "scope": "Artifact transport recovery only; all real package failures and unexecuted checks remain. Original five-timeout upload failure is preserved, never rewritten as a success. No full Home packaging or archive pass is inferred. Buffer allocation fix is already pushed separately and awaits Linux qualification."
+}
