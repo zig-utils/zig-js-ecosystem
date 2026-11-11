@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "run": 42934219542,
+  "job": 130240841124,
+  "suite_ref": "dcd0c8b5443b515042ac37d36b1098e9d55348e8",
+  "home_ref": "69ffc116a6a65a3f487a950b6b8eea866a0f1edf",
+  "engine_sha": "2fccbe4fabc4006eda5d4420ab4260d6e527b85e",
+  "runtime_conclusion": "failure",
+  "raw_log_sha256": "7eedfdaec51932682b7260fef57d3790ca15c205f3085c833101a367c2066479",
+  "actual_failure_signals": [
+    "2026-11-11T01:02:06.0999382Z RuntimeError: home-tool (zig-js): Error: Cannot query native CPU information",
+    "2026-11-11T01:02:31.1637317Z +- run test home-tool-cpu-information-tests 3 pass, 1 fail (4 total)",
+    "2026-11-11T01:02:31.1650123Z error: 'tool_cpu_info.test.CPU information queries current native processor snapshots with owned storage' failed without output",
+    "2026-11-11T01:02:47.7666845Z Build Summary: 202/205 steps succeeded (2 failed); 40/41 tests passed (1 failed)",
+    "2026-11-11T01:02:47.7673506Z +- run test home-tool-cpu-information-tests 3 pass, 1 fail (4 total)"
+  ],
+  "interpretation": "Linux mandatory native CPU snapshot fails; the specific native read error is not emitted through the build-server test output. Independent Python fixture also fails because Home throws, not because a host comparison was skipped. The standalone Linux affinity suite and later package checks were not executed. No suite promotion or Linux CPU success is claimed.",
+  "next_action": "Run both standalone native test roots immediately after installing the pinned toolchain, before the cold engine build. Preserve native errors and failed prerequisites."
+}
