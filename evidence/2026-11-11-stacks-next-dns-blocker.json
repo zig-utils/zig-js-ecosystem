@@ -1,0 +1,407 @@
+{
+  "schema_version": 1,
+  "priority": "stacksjs/stacks",
+  "consumer_ref": "d891bdbe2c0ecbadb3d51481580d55c2605d65c3",
+  "actual_source_path": "storage/framework/core/security/src/outbound.ts",
+  "source_sha256": "d33d47e0d523747434b277df9c66bc8a4ee37fb335dedf95f2f621a6f49a05ee",
+  "source_url": "https://github.com/stacksjs/stacks/blob/d891bdbe2c0ecbadb3d51481580d55c2605d65c3/storage/framework/core/security/src/outbound.ts",
+  "observed_ci": "43067848048",
+  "home_ref": "2e34b8d6ecec739c0cfbc3b61b61ef8d5cd0e4c2",
+  "reproducer_sha256": "2978d2df841ca7ac61d23abf469543d2cd5403ba24c392f2f410b3ac645f67e7",
+  "runs": {
+    "node": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/stacks-outbound-repro.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 88208,
+      "memory_limit_mb": 3072,
+      "seconds": 0.308,
+      "log": "outbound-node.log",
+      "log_sha256": "5aaa3ead81e9a6b6b7b2d1dde7cea01f75e812518ad1ade8d2162aa788d31f64",
+      "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/stacks-outbound-repro.mjs\"]\nACTUAL STACKS OUTBOUND LITERAL GUARD 15 CHECKS PASSED; DNS LOOKUP NOT EXECUTED\n\nECOSYSTEM PEAK SAMPLED RSS: 88208 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/stacks-outbound-repro.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.045,
+      "log": "outbound-bun.log",
+      "log_sha256": "2f0b180d50dec367963e705a5d88e300d8f3f4a888434761847e09445f3d22be",
+      "actual_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/stacks-outbound-repro.mjs\"]\nACTUAL STACKS OUTBOUND LITERAL GUARD 15 CHECKS PASSED; DNS LOOKUP NOT EXECUTED\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/stacks-outbound-repro.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 29472,
+      "memory_limit_mb": 3072,
+      "seconds": 0.228,
+      "log": "outbound-zig-js.log",
+      "log_sha256": "97e1e95e87bbc0b79dfe639859c0a699c421b57b7e08a8c17506e92687bf0583",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/stacks-outbound-repro.mjs\"]\nhome-tool (zig-js): Error: cannot resolve module node:dns/promises from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/stacks-outbound.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 29472 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/stacks-outbound-repro.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 144,
+      "memory_limit_mb": 3072,
+      "seconds": 0.105,
+      "log": "outbound-jsc.log",
+      "log_sha256": "8d9e7b9516bcd648c30383cda0428d47b307bc66a255ca70efb1ab6b1f89ce75",
+      "actual_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/stacks-outbound-repro.mjs\"]\nhome-tool (jsc): Error: cannot resolve module node:dns/promises from /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/net-addresses/stacks-outbound.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 144 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    }
+  },
+  "native_design_probe": {
+    "scope": "Standalone libc producer design probe only; no Home DNS implementation, JavaScript DNS execution or Linux runtime pass. No production source changed.",
+    "native_source_sha256": "19bb47bb1f809266f6056b0d9246bfa59a6d450d21d6c8c141ee09b1c6ac5186",
+    "macos_actual_results": [
+      "localhost\t6\t::1",
+      "localhost\t4\t127.0.0.1",
+      "127.0.0.1\t4\t127.0.0.1",
+      "::1\t6\t::1"
+    ],
+    "independent_python_oracle": {
+      "scope": "Standalone native design probe, not a Home runtime implementation or Linux execution claim",
+      "actual": [
+        [
+          "localhost",
+          "6",
+          "::1"
+        ],
+        [
+          "localhost",
+          "4",
+          "127.0.0.1"
+        ],
+        [
+          "127.0.0.1",
+          "4",
+          "127.0.0.1"
+        ],
+        [
+          "::1",
+          "6",
+          "::1"
+        ]
+      ],
+      "independent_python_socket": [
+        [
+          "localhost",
+          "6",
+          "::1"
+        ],
+        [
+          "localhost",
+          "4",
+          "127.0.0.1"
+        ],
+        [
+          "127.0.0.1",
+          "4",
+          "127.0.0.1"
+        ],
+        [
+          "::1",
+          "6",
+          "::1"
+        ]
+      ],
+      "match": true
+    },
+    "linux_declarations_compile_only": {
+      "exit_code": 0,
+      "target": "x86_64-linux-gnu",
+      "argv": [
+        "zig",
+        "build-exe",
+        "native-probe.zig",
+        "-target",
+        "x86_64-linux-gnu",
+        "-lc",
+        "-fno-emit-bin"
+      ],
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "needed_real_contract": "node:dns/promises.lookup(hostname,{all:true,verbatim:true}) returning actual system getaddrinfo addresses and true resolver errors. Candidate must execute real native resolution through Home, with owned deferred tasks/liveness and independent physical host oracle. Host APIs remain absent until implemented; no synthetic address, empty answer or native Bun fallback.",
+  "limits": "Node/Bun pass15 literal guard checks on the actual frozen source without DNS execution. Both Home providers fail before any checks at the real missing DNS import. The standalone native probe is feasibility evidence only, not compatibility evidence.",
+  "latest_all_selected": {
+    "run": 43071310400,
+    "repository": "zig-utils/zig-js",
+    "scope": "Both actual priority jobs completed and failed. All-selected matrix continues independently with no changed filter/omitted checks; older runs uncancelled. Matching labels unchanged versus callback-read qualification; consumers may move.",
+    "consumers": {
+      "stacksjs/stacks": {
+        "artifact": {
+          "id": 13882743079,
+          "node_id": "MDg6QXJ0aWZhY3QxMzg4Mjc0MzA3OQ==",
+          "name": "ecosystem-results-0",
+          "size_in_bytes": 1717696,
+          "url": "https://api.github.com/repos/zig-utils/zig-js/actions/artifacts/13882743079",
+          "archive_download_url": "https://api.github.com/repos/zig-utils/zig-js/actions/artifacts/13882743079/zip",
+          "expired": false,
+          "digest": "sha256:dbf27e334dbcc2a5badc49a2ea903ed9edc5a6658afcf268ef21ec330da29fa6",
+          "created_at": "2026-11-11T18:27:21Z",
+          "updated_at": "2026-11-11T18:27:21Z",
+          "expires_at": "2026-12-11T18:27:20Z",
+          "workflow_run": {
+            "id": 43071310400,
+            "repository_id": 1251434560,
+            "head_repository_id": 1251434560,
+            "head_branch": "main",
+            "head_sha": "cdae9ef4bfaba65c5479973d93c7fb470f2993dc"
+          }
+        },
+        "verified_zip_sha256": "dbf27e334dbcc2a5badc49a2ea903ed9edc5a6658afcf268ef21ec330da29fa6",
+        "report_sha256": "5acc7eab8952de9a12c1534ec97ecf17a6ea69852d04616aa8dfb0e3ee878db2",
+        "consumer_ref": "d891bdbe2c0ecbadb3d51481580d55c2605d65c3",
+        "runtime_provenance": {
+          "engine_sha": "cdae9ef4bfaba65c5479973d93c7fb470f2993dc",
+          "suite_ref": "cc38a0c4fd43658849a0c29705cd2068a5afc4e5",
+          "home_repository": "home-lang/home",
+          "home_ref": "ca3fa1e78159516ffadbe719c3a67c4d3fad67f8",
+          "zig_version": "0.18.0-dev.146+35accc06e",
+          "build_cpu": "baseline",
+          "build_optimize": "ReleaseSafe",
+          "sha256": {
+            "home-tool": "4658732dfc4ae609077e0f8350a73ce17b9e9909352e8758015c4ddc2654c2ce",
+            "engine/zig-out/lib/libzig-js.a": "57993606c089208a993dc6793b695e63b2a8785fdbb42d95a5970c311050da75"
+          }
+        },
+        "scopes": 99,
+        "checks": 927,
+        "candidate": {
+          "unsupported": 354,
+          "failed": 199,
+          "passed": 72
+        },
+        "matching_candidate_changes": [],
+        "selected_actual_logs": [
+          {
+            "label": "storage/framework/core/actions: module initialization src/index.ts",
+            "log": "0030.log",
+            "sha256": "4c86fa2e73bf895198777ac27d7049e0842f160107604ad7e5f20ee85d8a380b",
+            "actual_signals": [
+              "home-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/security/src/outbound.ts"
+            ]
+          },
+          {
+            "label": "storage/framework/core/auth: module initialization src/index.ts",
+            "log": "0074.log",
+            "sha256": "9cd2bd14dc70f237ca4c9d71cde124c1d36d07ad935748489011135b2c822681",
+            "actual_signals": [
+              "home-tool (zig-js): Error: cannot resolve module net from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/bun-router/dist/chunk-zzempx0a.js"
+            ]
+          },
+          {
+            "label": "storage/framework/core/buddy: module initialization src/index.ts",
+            "log": "0095.log",
+            "sha256": "df5fcd1cbe95d100d3de25cd6683f01a4ed530e2af31dd38e6807433f9dff6e4",
+            "actual_signals": [
+              "home-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/security/src/outbound.ts"
+            ]
+          },
+          {
+            "label": "storage/framework/core/cloud: module initialization src/index.ts",
+            "log": "0141.log",
+            "sha256": "ea072195ef62aee94057cb4a4a4ef27e6f0bf0de3d0eeca32e3c7ccf2dfd3009",
+            "actual_signals": [
+              "home-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/ts-cloud/dist/chunk-gxq281ma.js"
+            ]
+          },
+          {
+            "label": "storage/framework/core/cms: module initialization src/index.ts",
+            "log": "0149.log",
+            "sha256": "302142010740020256a1aae9914c55038ee7fbbc1e2a4d738eedc145f35471fd",
+            "actual_signals": [
+              "home-tool (zig-js): Error: cannot resolve module net from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/bun-router/dist/chunk-zzempx0a.js"
+            ]
+          },
+          {
+            "label": "storage/framework/core/commerce: module initialization src/index.ts",
+            "log": "0161.log",
+            "sha256": "b6322955a4869ef288442481878038e046ee0771b7cf535e82eeb9fba04be0fd",
+            "actual_signals": [
+              "home-tool (zig-js): Error: cannot resolve module net from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/bun-router/dist/chunk-zzempx0a.js"
+            ]
+          },
+          {
+            "label": "storage/framework/core/database: module initialization src/index.ts",
+            "log": "0184.log",
+            "sha256": "35503dc18117dcd46610ca9be51d0b07799f06b357caf1e76ac48a8be125558c",
+            "actual_signals": [
+              "home-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/security/src/outbound.ts"
+            ]
+          },
+          {
+            "label": "storage/framework/core/deploy: module initialization index.ts",
+            "log": "0198.log",
+            "sha256": "faf0669c4ce7df6a06f99ce055965d8582f40f3bfd3bda1b1e9fb750953aced7",
+            "actual_signals": [
+              "home-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/ts-cloud/dist/chunk-gxq281ma.js"
+            ]
+          },
+          {
+            "label": "storage/framework/core/deploy: module initialization ./index.ts",
+            "log": "0199.log",
+            "sha256": "b5c00ef456291a058733a7f61cd61990f87442a5c92b3df09b4074277e076ece",
+            "actual_signals": [
+              "home-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/ts-cloud/dist/chunk-gxq281ma.js"
+            ]
+          },
+          {
+            "label": "storage/framework/core/dns: module initialization src/index.ts",
+            "log": "0212.log",
+            "sha256": "172b62675a50fadff81bdcd80091b20d31896594d29eb82c063f5edb2305f6da",
+            "actual_signals": [
+              "home-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/ts-cloud/dist/chunk-gxq281ma.js"
+            ]
+          },
+          {
+            "label": "storage/framework/core/orm: module initialization src/index.ts",
+            "log": "0353.log",
+            "sha256": "0d638a1f23a23da5f0cea0cb91144648390964a522855d19591ec53d9613f67b",
+            "actual_signals": [
+              "home-tool (zig-js): Error: cannot resolve module net from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/bun-router/dist/chunk-zzempx0a.js"
+            ]
+          },
+          {
+            "label": "storage/framework/core: module initialization index.ts",
+            "log": "0358.log",
+            "sha256": "af6ca3e9fddc70249a5bb17b2a03ecf185e9356a1254885af927b881963bd682",
+            "actual_signals": [
+              "home-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/security/src/outbound.ts"
+            ]
+          },
+          {
+            "label": "storage/framework/core/payments: module initialization src/index.ts",
+            "log": "0440.log",
+            "sha256": "0ecd37a5f5f07afe9ca5abfc388d1d63c7d42756cb8f1ab7fb638a38a18091de",
+            "actual_signals": [
+              "home-tool (zig-js): Error: cannot resolve module net from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/bun-router/dist/chunk-zzempx0a.js"
+            ]
+          },
+          {
+            "label": "storage/framework/core/router: module initialization src/index.ts",
+            "log": "0482.log",
+            "sha256": "efb90bf3058d7a8574a78789e78c6c67872d90d2466657ab9102cb1f95d3a21b",
+            "actual_signals": [
+              "home-tool (zig-js): Error: cannot resolve module net from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/bun-router/dist/chunk-zzempx0a.js"
+            ]
+          },
+          {
+            "label": "storage/framework/core/search-engine: module initialization src/index.ts",
+            "log": "0495.log",
+            "sha256": "5bd27f99a657b524e6e741b774ed13e205647eb38546e497dc50d72ce9c04acf",
+            "actual_signals": [
+              "home-tool (zig-js): Error: cannot resolve module net from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/bun-router/dist/chunk-zzempx0a.js"
+            ]
+          },
+          {
+            "label": "storage/framework/core/security: module initialization src/index.ts",
+            "log": "0501.log",
+            "sha256": "182395fd8945081e4d3867fd04c1aaaabe790f075d9dcc6931a357f2eb661039",
+            "actual_signals": [
+              "home-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/security/src/outbound.ts"
+            ]
+          },
+          {
+            "label": "storage/framework/core/server: module initialization src/index.ts",
+            "log": "0509.log",
+            "sha256": "9a5d631f2aa6c232a27acc1d7ffd673e2b9aaf37c3f370600c1bebe78a34d28d",
+            "actual_signals": [
+              "home-tool (zig-js): Error: cannot resolve module net from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/bun-router/dist/chunk-zzempx0a.js"
+            ]
+          },
+          {
+            "label": "storage/framework/core/sites: module initialization src/index.ts",
+            "log": "0520.log",
+            "sha256": "a8c59ee4a3b9c36afbc7787f5bdcfc7819542b5327341bdbcbaa84a316b65e35",
+            "actual_signals": [
+              "home-tool (zig-js): Error: cannot resolve module net from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/bun-router/dist/chunk-zzempx0a.js"
+            ]
+          },
+          {
+            "label": "storage/framework/orm: module initialization src/index.ts",
+            "log": "0629.log",
+            "sha256": "3a8e7f82c3d6d4ff15c39029637552030bdf9a2f73678a0488793238cacd265a",
+            "actual_signals": [
+              "home-tool (zig-js): Error: cannot resolve module node:dns/promises from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/security/src/outbound.ts"
+            ]
+          },
+          {
+            "label": "storage/framework/server: module initialization src/index.ts",
+            "log": "0637.log",
+            "sha256": "a8c59ee4a3b9c36afbc7787f5bdcfc7819542b5327341bdbcbaa84a316b65e35",
+            "actual_signals": [
+              "home-tool (zig-js): Error: cannot resolve module net from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/@stacksjs/bun-router/dist/chunk-zzempx0a.js"
+            ]
+          }
+        ]
+      },
+      "home-lang/home": {
+        "artifact": {
+          "id": 13883600395,
+          "node_id": "MDg6QXJ0aWZhY3QxMzg4MzYwMDM5NQ==",
+          "name": "ecosystem-results-1",
+          "size_in_bytes": 165992,
+          "url": "https://api.github.com/repos/zig-utils/zig-js/actions/artifacts/13883600395",
+          "archive_download_url": "https://api.github.com/repos/zig-utils/zig-js/actions/artifacts/13883600395/zip",
+          "expired": false,
+          "digest": "sha256:6a416402b98c2a58c2e74c1ec89ba4ce7178eb18d16b3d86f38923b843501874",
+          "created_at": "2026-11-11T18:27:24Z",
+          "updated_at": "2026-11-11T18:27:24Z",
+          "expires_at": "2026-12-11T18:27:23Z",
+          "workflow_run": {
+            "id": 43071310400,
+            "repository_id": 1251434560,
+            "head_repository_id": 1251434560,
+            "head_branch": "main",
+            "head_sha": "cdae9ef4bfaba65c5479973d93c7fb470f2993dc"
+          }
+        },
+        "verified_zip_sha256": "6a416402b98c2a58c2e74c1ec89ba4ce7178eb18d16b3d86f38923b843501874",
+        "report_sha256": "5e0df30bc148ef79d229aea6ad81b37fe20dc5ddead582e5320c1258227e351f",
+        "consumer_ref": "6eab68f56892da33f816a74c2a3f4bb468cf77a7",
+        "runtime_provenance": {
+          "engine_sha": "cdae9ef4bfaba65c5479973d93c7fb470f2993dc",
+          "suite_ref": "cc38a0c4fd43658849a0c29705cd2068a5afc4e5",
+          "home_repository": "home-lang/home",
+          "home_ref": "ca3fa1e78159516ffadbe719c3a67c4d3fad67f8",
+          "zig_version": "0.18.0-dev.146+35accc06e",
+          "build_cpu": "baseline",
+          "build_optimize": "ReleaseSafe",
+          "sha256": {
+            "home-tool": "4658732dfc4ae609077e0f8350a73ce17b9e9909352e8758015c4ddc2654c2ce",
+            "engine/zig-out/lib/libzig-js.a": "57993606c089208a993dc6793b695e63b2a8785fdbb42d95a5970c311050da75"
+          }
+        },
+        "scopes": 46,
+        "checks": 234,
+        "candidate": {
+          "failed": 41,
+          "unsupported": 37,
+          "passed": 9
+        },
+        "matching_candidate_changes": [],
+        "selected_actual_logs": []
+      }
+    }
+  }
+}

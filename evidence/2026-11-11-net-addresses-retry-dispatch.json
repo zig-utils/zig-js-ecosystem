@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-11T18:35:24.004950+00:00",
+  "functional_suite": "4bdfef0747759ca26e07ccada277e57ae3334f3d",
+  "home_ref": "205cc759be4eb1843193c8bff185ee6948d59703",
+  "engine_sha": "cdae9ef4bfaba65c5479973d93c7fb470f2993dc",
+  "caller_pin": "cc38a0c4fd43658849a0c29705cd2068a5afc4e5",
+  "argv": [
+    "/Users/chris/.local/share/pantry/global/bin/gh",
+    "workflow",
+    "run",
+    "ecosystem.yml",
+    "--repo",
+    "zig-utils/zig-js-ecosystem",
+    "--ref",
+    "main",
+    "-f",
+    "engine_sha=cdae9ef4bfaba65c5479973d93c7fb470f2993dc",
+    "-f",
+    "suite_ref=4bdfef0747759ca26e07ccada277e57ae3334f3d",
+    "-f",
+    "repositories=stacksjs/stacks,home-lang/home",
+    "-f",
+    "reference=true"
+  ],
+  "exit_code": 0,
+  "stdout": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/43079207996\n",
+  "stderr": "",
+  "prior_failed_run": 43076713501,
+  "prior_failure": "Python class property prevented all Linux numeric-address checks from executing; unchanged checks now pass across both local Python versions/providers. No skip, empty pass or runtime-behavior change.",
+  "local_validation": {
+    "python_tests": 45,
+    "dependency_tests": 7,
+    "dependency_assertions": 26,
+    "log_sha256": {
+      "retry-suite-tests.log": "2d4d628695829ae2d0653a3bf4b83cfe326f025f99dd7ddaa3aedac68cf7d4c0",
+      "retry-suite-deps.log": "9cf51596e4218de4c6e99d0c9755f7b507a26e009c91013d219c8e01ef2eefac",
+      "retry-actionlint.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "promotion_status": "Pending exact source validation, Linux actual31groups/896validator inputs/all162prefixes/1466queries/profile refusals, official artifact digest/provenance and both actual priority CPU preflights. Never promote failed1cf4211 or evidence-only descendants. Full ecosystem remains red.",
+  "older_runs_cancelled": false,
+  "source_validation": {
+    "conclusion": "success",
+    "headSha": "4bdfef0747759ca26e07ccada277e57ae3334f3d",
+    "jobs": [
+      {
+        "completedAt": "2026-11-11T18:35:22Z",
+        "conclusion": "success",
+        "databaseId": 130726842006,
+        "name": "validate",
+        "startedAt": "2026-11-11T18:35:11Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-11-11T18:35:12Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-11-11T18:35:11Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-11T18:35:14Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 2,
+            "startedAt": "2026-11-11T18:35:12Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-11T18:35:16Z",
+            "conclusion": "success",
+            "name": "Run python3 -m unittest discover -s tests -v",
+            "number": 3,
+            "startedAt": "2026-11-11T18:35:14Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-11T18:35:16Z",
+            "conclusion": "success",
+            "name": "Read dependency-test toolchain pin",
+            "number": 4,
+            "startedAt": "2026-11-11T18:35:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-11T18:35:19Z",
+            "conclusion": "success",
+            "name": "Run oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6",
+            "number": 5,
+            "startedAt": "2026-11-11T18:35:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-11T18:35:19Z",
+            "conclusion": "success",
+            "name": "Verify real workspace dependency setup",
+            "number": 6,
+            "startedAt": "2026-11-11T18:35:19Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-11T18:35:19Z",
+            "conclusion": "success",
+            "name": "Check Python syntax",
+            "number": 7,
+            "startedAt": "2026-11-11T18:35:19Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-11T18:35:19Z",
+            "conclusion": "success",
+            "name": "Post Run oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6",
+            "number": 13,
+            "startedAt": "2026-11-11T18:35:19Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-11T18:35:19Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 14,
+            "startedAt": "2026-11-11T18:35:19Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-11T18:35:19Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 15,
+            "startedAt": "2026-11-11T18:35:19Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/43079165284/job/130726842006"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/43079165284"
+  },
+  "source_validation_log_sha256": "16bde990d761e726cdd46bdaff7044fe22c72e5561321cc958c55d3c2f3709b3"
+}
