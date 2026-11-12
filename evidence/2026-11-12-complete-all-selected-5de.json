@@ -1,0 +1,1372 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-12T23:52:28.333965+00:00",
+  "local_evidence_directory": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/latest-caller",
+  "completed_and_priority_receipts": [
+    {
+      "run": 43324779817,
+      "job": 131560375984,
+      "artifact": 13993138947,
+      "official_digest": "sha256:2ccd4f768574b51d9f08a15a031f575363224de4244f89950dabd59aaedb98a9",
+      "zip_sha256": "2ccd4f768574b51d9f08a15a031f575363224de4244f89950dabd59aaedb98a9",
+      "job_log_sha256": "429d8f5cefe5043167e74fd9634c37a9b6fc899d0066fbfdcf9c9c66ea743dc6",
+      "repository": "home-lang/home",
+      "source_sha": "6f69d21bf42fbde16710ee11454c1d86e55762fc",
+      "engine_sha": "094375ef952a3ea6267eacfd76a81952e041af91",
+      "candidate_counts": {
+        "timed-out": 1,
+        "unsupported": 37,
+        "passed": 9,
+        "failed": 40
+      },
+      "suite_ref": "4cf067535ccdb00e8ad0bffd6e0de72f364596c0",
+      "selected_actual_failures": [
+        {
+          "check": {
+            "status": "timed-out",
+            "exit_code": 124,
+            "peak_sampled_rss_kib": 2042836,
+            "memory_limit_mb": 3072,
+            "seconds": 300.179,
+            "log": "0052.log",
+            "reason": "command time budget exhausted",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bunx bunpress build"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate",
+            "engine_invocations": 1
+          },
+          "log_sha256": "3e873ac75472a0ea67849a00fbe36b0a84d6adfb97f8da72f259ede2ae736fc7",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 2042836 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: command time budget exhausted\n\nECOSYSTEM RESULT: timed-out, exit 124\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 918864,
+            "memory_limit_mb": 3072,
+            "seconds": 28.364,
+            "log": "0097.log",
+            "label": "packages/runtime/upstream/packages/bun-build-mdx-rs: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "napi build --platform --release"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs",
+            "engine_invocations": 1
+          },
+          "log_sha256": "1122c68c105c5d4628bb0eeffb368735b415e849bb59f4a82a0f197153804aac",
+          "log": "$ [\"/bin/sh\", \"-c\", \"napi build --platform --release\"]\n\u001b[31m\u001b[1mType Error\u001b[22m\u001b[39m: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\n    at <anonymous> (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:8294:9)\n    at <anonymous> (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:2735:5)\n    at __awaiter$1 (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:2717:3)\n    at validateAndExecute (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:1554:5)\n    at <anonymous>\n    at run (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:2419:7)\n    at <anonymous> (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:29414:1)\n    at <anonymous> (home:tool-module-install:260:7)\n    at evaluateSync (home:tool-module-install:277:7)\n    at <anonymous> (home:tool-module-install:387:7)\n\nECOSYSTEM PEAK SAMPLED RSS: 918864 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ]
+    },
+    {
+      "run": 43324779817,
+      "job": 131560375975,
+      "artifact": 13993628936,
+      "official_digest": "sha256:b5801bce9883d0f9323c3abf4da8eb5ede5d380ca1ed94ae240250bcd3ea34b4",
+      "zip_sha256": "b5801bce9883d0f9323c3abf4da8eb5ede5d380ca1ed94ae240250bcd3ea34b4",
+      "job_log_sha256": "9ed02cffbd74e8870d2c85803105d37673408c5ec8c2df06705c5b0e96903480",
+      "repository": "stacksjs/stacks",
+      "source_sha": "cb63602daaec57c379d0b441c021763fb12b0bcb",
+      "engine_sha": "094375ef952a3ea6267eacfd76a81952e041af91",
+      "candidate_counts": {
+        "unsupported": 355,
+        "failed": 182,
+        "passed": 94
+      },
+      "suite_ref": "4cf067535ccdb00e8ad0bffd6e0de72f364596c0",
+      "selected_actual_failures": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 2565928,
+            "memory_limit_mb": 3072,
+            "seconds": 7.216,
+            "log": "0016.log",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "./buddy build"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate",
+            "engine_invocations": 3
+          },
+          "log_sha256": "1c6e1855327b03d8eb957ce1613d988615e3a4ec1a9772600f71f843814b5083",
+          "log": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-12T23:10:57.979Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 2565928 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ]
+    },
+    {
+      "run": 43316101548,
+      "job": 131576249010,
+      "artifact": 13995147168,
+      "official_digest": "sha256:140b44239ccfe541696b76c0362e3846439cf709c7399a4e64ee96038f5a17c8",
+      "zip_sha256": "140b44239ccfe541696b76c0362e3846439cf709c7399a4e64ee96038f5a17c8",
+      "job_log_sha256": "dbdcd2ad81b2e14831b6e76d2d908b16634f9f8f2cad9120bfe3d34c9061c302",
+      "summary": {
+        "engine_sha": "5de3a079c68fb2aeb7f8bd9a9f55f7e43240b4b0",
+        "selected_repositories": 228,
+        "reported_repositories": 228,
+        "missing": [],
+        "mismatched": [],
+        "failing_repositories": [
+          "bughq/bughq",
+          "bughq/sdk",
+          "chrisbbreuer/bun",
+          "chrisbbreuer/dotfiles",
+          "chrisbbreuer/erbamarkets",
+          "chrisbbreuer/fsevents",
+          "chrisbbreuer/marioadrion",
+          "chrisbbreuer/predicthq",
+          "chrisbbreuer/rolldown-plugin-dts",
+          "chrisbbreuer/rollup-plugin-dts",
+          "chrisbbreuer/site",
+          "chrisbbreuer/tsup",
+          "chrisbbreuer/vcs",
+          "chrisbbreuer/very-good-adblock",
+          "chrisbbreuer/vue-bun-issue",
+          "craft-native/craft",
+          "den-shell/den",
+          "home-lang/ballerburg",
+          "home-lang/generals",
+          "home-lang/home",
+          "home-lang/home-os",
+          "loghqorg/loghq",
+          "loghqorg/loghq-stacks",
+          "mail-os/mail",
+          "national-park-service/fonts",
+          "ow3org/composable-starter",
+          "ow3org/deep-unref-vue",
+          "ow3org/ts-starter",
+          "ow3org/vue-starter",
+          "ow3org/web-components-starter",
+          "pantry-pm/pantry",
+          "pickier/pickier",
+          "ReportsHQ/laravel",
+          "ReviewOS/app",
+          "ReviewOS/reviewos.org",
+          "stacksjs/.github",
+          "stacksjs/action-releaser",
+          "stacksjs/analyticshq",
+          "stacksjs/barista",
+          "stacksjs/bench-review",
+          "stacksjs/besting",
+          "stacksjs/better-dx",
+          "stacksjs/browser",
+          "stacksjs/buddy",
+          "stacksjs/buddy-wheels",
+          "stacksjs/bumpx",
+          "stacksjs/bun-git-hooks",
+          "stacksjs/bun-plugin-auto-imports",
+          "stacksjs/bun-plugin-dotenvx",
+          "stacksjs/bun-plugin-dtsx",
+          "stacksjs/bun-plugin-markdown",
+          "stacksjs/bun-plugin-unocss",
+          "stacksjs/bun-query-builder",
+          "stacksjs/bun-queue",
+          "stacksjs/bun-router",
+          "stacksjs/bun-unocss",
+          "stacksjs/bun-unocss-issue",
+          "stacksjs/bunfig",
+          "stacksjs/bunpress",
+          "stacksjs/calendar",
+          "stacksjs/candle-commerce",
+          "stacksjs/car-rental",
+          "stacksjs/clapp",
+          "stacksjs/clarity",
+          "stacksjs/commshq",
+          "stacksjs/cursio",
+          "stacksjs/date-picker",
+          "stacksjs/devtools",
+          "stacksjs/drone",
+          "stacksjs/dtsx",
+          "stacksjs/dtsx.org",
+          "stacksjs/dynamodb-client",
+          "stacksjs/dynamodb-tooling",
+          "stacksjs/everything",
+          "stacksjs/fonts",
+          "stacksjs/food-market",
+          "stacksjs/GitHarbor",
+          "stacksjs/gitit",
+          "stacksjs/gitlint",
+          "stacksjs/harness",
+          "stacksjs/homebrew-tap",
+          "stacksjs/hoodies",
+          "stacksjs/hush",
+          "stacksjs/image-optimization",
+          "stacksjs/language-tools",
+          "stacksjs/lastsoulultra",
+          "stacksjs/launchpad",
+          "stacksjs/lessonstack",
+          "stacksjs/library",
+          "stacksjs/localtunnels",
+          "stacksjs/logsmith",
+          "stacksjs/paweldregan",
+          "stacksjs/pet-store",
+          "stacksjs/pomodoro",
+          "stacksjs/post",
+          "stacksjs/postline",
+          "stacksjs/projects",
+          "stacksjs/protocol",
+          "stacksjs/rappid",
+          "stacksjs/raycast",
+          "stacksjs/redline",
+          "stacksjs/repo-dashboard",
+          "stacksjs/reportshq",
+          "stacksjs/rfcs",
+          "stacksjs/rpx",
+          "stacksjs/smakelo",
+          "stacksjs/sponsors",
+          "stacksjs/stackblitz",
+          "stacksjs/stacks",
+          "stacksjs/stamped",
+          "stacksjs/stx",
+          "stacksjs/system-cleaner",
+          "stacksjs/table",
+          "stacksjs/the-settlers-iii-remake",
+          "stacksjs/tinkerbelle",
+          "stacksjs/tlsx",
+          "stacksjs/token-marketplace",
+          "stacksjs/trifitla",
+          "stacksjs/ts-aax",
+          "stacksjs/ts-analytics",
+          "stacksjs/ts-audio",
+          "stacksjs/ts-auth",
+          "stacksjs/ts-avif",
+          "stacksjs/ts-backups",
+          "stacksjs/ts-bmp",
+          "stacksjs/ts-broadcasting",
+          "stacksjs/ts-cache",
+          "stacksjs/ts-charts",
+          "stacksjs/ts-clone",
+          "stacksjs/ts-cloud",
+          "stacksjs/ts-collect",
+          "stacksjs/ts-countries",
+          "stacksjs/ts-css",
+          "stacksjs/ts-css-legacy",
+          "stacksjs/ts-datetime",
+          "stacksjs/ts-dns",
+          "stacksjs/ts-error-handling",
+          "stacksjs/ts-faker",
+          "stacksjs/ts-fonts",
+          "stacksjs/ts-gif",
+          "stacksjs/ts-git-lfs",
+          "stacksjs/ts-health",
+          "stacksjs/ts-heic",
+          "stacksjs/ts-http",
+          "stacksjs/ts-i18n",
+          "stacksjs/ts-images",
+          "stacksjs/ts-inputs",
+          "stacksjs/ts-jpeg",
+          "stacksjs/ts-maps",
+          "stacksjs/ts-md",
+          "stacksjs/ts-medium-editor",
+          "stacksjs/ts-ndarray",
+          "stacksjs/ts-numbers",
+          "stacksjs/ts-open-api",
+          "stacksjs/ts-png",
+          "stacksjs/ts-printers",
+          "stacksjs/ts-punycode",
+          "stacksjs/ts-qr-codes",
+          "stacksjs/ts-rate-limiter",
+          "stacksjs/ts-security",
+          "stacksjs/ts-sftp",
+          "stacksjs/ts-slug",
+          "stacksjs/ts-spell-check",
+          "stacksjs/ts-spreadsheets",
+          "stacksjs/ts-ssh",
+          "stacksjs/ts-starter",
+          "stacksjs/ts-starter-monorepo",
+          "stacksjs/ts-svg",
+          "stacksjs/ts-syntax-highlighter",
+          "stacksjs/ts-tokens",
+          "stacksjs/ts-validation",
+          "stacksjs/ts-vat",
+          "stacksjs/ts-video-player",
+          "stacksjs/ts-videos",
+          "stacksjs/ts-watches",
+          "stacksjs/ts-web-scraper",
+          "stacksjs/ts-webp",
+          "stacksjs/ts-whatsapp",
+          "stacksjs/ts-xml",
+          "stacksjs/tuf-js",
+          "stacksjs/uplink",
+          "stacksjs/very-happy-dom",
+          "stacksjs/vite-plugin-dotenvx",
+          "stacksjs/vite-plugin-layouts",
+          "stacksjs/vite-plugin-local",
+          "stacksjs/vite-plugin-routes",
+          "stacksjs/vite-plugin-tauri",
+          "stacksjs/voide",
+          "stacksjs/WebKit",
+          "stacksjs/white-paper",
+          "stacksjs/wildloop",
+          "theopenfarm/openfarm.ing",
+          "zig-utils/.github",
+          "zig-utils/zig-benchmarks",
+          "zig-utils/zig-bump",
+          "zig-utils/zig-camera",
+          "zig-utils/zig-changelog",
+          "zig-utils/zig-css",
+          "zig-utils/zig-faker",
+          "zig-utils/zig-garmin",
+          "zig-utils/zig-oura",
+          "zig-utils/zig-regex",
+          "zig-utils/zig-starter",
+          "zig-utils/zig-waf"
+        ],
+        "check_statuses": {
+          "passed": 5552,
+          "failed": 5354,
+          "not-applicable": 14,
+          "unsupported": 4529,
+          "timed-out": 38,
+          "not-run": 646
+        },
+        "success": false
+      },
+      "candidate_counts": {
+        "failed": 3262,
+        "passed": 1369,
+        "unsupported": 4524,
+        "timed-out": 1
+      },
+      "sources_matched": 228,
+      "stacks_home": 166,
+      "no_candidate_lane": 38
+    }
+  ],
+  "source_comparison": "All 228 aggregate report sources independently match its frozen inventory, including 166 Stacks/Home and 38 repositories without a candidate lane. Candidate counts are checks, not passing applications. Versions and inventory differ; no regression-equivalence claim.",
+  "inventory_changes": {
+    "additional_selected": [
+      "stacksjs/lessonstack"
+    ],
+    "renamed": {
+      "from": "stacksjs/fettler",
+      "to": "stacksjs/tinkerbelle",
+      "github_repository_id": 1455469075,
+      "redirect_api_witness_sha256": "6431602b6f1cf0cd18c5a02d6d09477079b1dd07867f8e94a61ce7b2530bba6b",
+      "note": "Actual GitHub repository API redirects the old name to tinkerbelle. No selection filter changed; historical Fettler evidence remains checked in."
+    }
+  },
+  "new_name_actual_candidate_logs": {
+    "stacksjs/lessonstack": {
+      "sha": "66a7ce153d4d3af5b5fe51230274672af4bca247",
+      "candidate_counts": {
+        "failed": 6,
+        "passed": 3,
+        "unsupported": 12
+      },
+      "checks": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 1100656,
+            "memory_limit_mb": 3072,
+            "seconds": 1.726,
+            "log": "0011.log",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "./buddy build"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate",
+            "engine_invocations": 1
+          },
+          "log_sha256": "3dfa001643c26a665a6a60dbd10e93507a94bc7540c3ee7934569afaddf3451e",
+          "log": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 1100656 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 1108980,
+            "memory_limit_mb": 3072,
+            "seconds": 1.707,
+            "log": "0012.log",
+            "label": ".: test",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "./buddy test"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate",
+            "engine_invocations": 1
+          },
+          "log_sha256": "848e0c4d728f663a137780db6996871c06ac70e62211c2cf9da91f559183007e",
+          "log": "$ [\"/bin/sh\", \"-c\", \"./buddy test\"]\nAction 'test/index' not found in storage/framework/core/actions/src or @stacksjs/actions\n\nECOSYSTEM PEAK SAMPLED RSS: 1108980 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 633156,
+            "memory_limit_mb": 3072,
+            "seconds": 0.863,
+            "log": "0013.log",
+            "label": ".: typecheck",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun run typecheck:app"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate",
+            "engine_invocations": 1
+          },
+          "log_sha256": "4bacf2679129625709a7b866eef6a29786dc0d9eee7136e3338335fd9985ecab",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun run typecheck:app\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 633156 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 10740,
+            "memory_limit_mb": 3072,
+            "seconds": 0.07,
+            "log": "0014.log",
+            "label": "storage/framework/api: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/api",
+            "engine_invocations": 1
+          },
+          "log_sha256": "f6d3520865192e8069361900b2405ecb1084b1fdc1a90364c294d3503d47849c",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module ../core/build/src from /home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/api/build.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 10740 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 8920,
+            "memory_limit_mb": 3072,
+            "seconds": 0.038,
+            "log": "0015.log",
+            "label": "storage/framework/cloud: module initialization dist/index.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun",
+              "dist/index.js"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/cloud",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: dist/index.js"
+            ],
+            "reason": "No script or installed binary: dist/index.js"
+          },
+          "log_sha256": "2a2261c0676497095f395fedc65b61c4e360b5d82e54324823966ba353725e7d",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun\", \"dist/index.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8920 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 8920,
+            "memory_limit_mb": 3072,
+            "seconds": 0.038,
+            "log": "0016.log",
+            "label": "storage/framework/cloud: module initialization ./dist/index.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun",
+              "./dist/index.js"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/cloud",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: ./dist/index.js"
+            ],
+            "reason": "No script or installed binary: ./dist/index.js"
+          },
+          "log_sha256": "123ae0afbcded471b09f9b602f72b22f4971d733f45bc2fb2f4d1989c15bf2d2",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun\", \"./dist/index.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: ./dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8920 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 10752,
+            "memory_limit_mb": 3072,
+            "seconds": 0.07,
+            "log": "0017.log",
+            "label": "storage/framework/libs/components/stx: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/libs/components/stx",
+            "engine_invocations": 1
+          },
+          "log_sha256": "acdf74e1d982634d5ede1b20a2ce7f4e6b0b96bdbf17171e158895fa10fddd33",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module ../../../core/actions/src/build/component-library from /home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/libs/components/stx/build.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 10752 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 8964,
+            "memory_limit_mb": 3072,
+            "seconds": 0.038,
+            "log": "0018.log",
+            "label": "storage/framework/libs/components/stx: module initialization dist/index.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun",
+              "dist/index.js"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/libs/components/stx",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: dist/index.js"
+            ],
+            "reason": "No script or installed binary: dist/index.js"
+          },
+          "log_sha256": "c2f2e4f8f63f955e904449ab3d2633d408b0937e36776795663afee6c2bd3562",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun\", \"dist/index.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8964 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 8920,
+            "memory_limit_mb": 3072,
+            "seconds": 0.038,
+            "log": "0019.log",
+            "label": "storage/framework/libs/components/stx: module initialization ./dist/index.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun",
+              "./dist/index.js"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/libs/components/stx",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: ./dist/index.js"
+            ],
+            "reason": "No script or installed binary: ./dist/index.js"
+          },
+          "log_sha256": "123ae0afbcded471b09f9b602f72b22f4971d733f45bc2fb2f4d1989c15bf2d2",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun\", \"./dist/index.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: ./dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8920 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 10672,
+            "memory_limit_mb": 3072,
+            "seconds": 0.038,
+            "log": "0020.log",
+            "label": "storage/framework/orm: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/orm",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: build.ts"
+            ],
+            "reason": "No script or installed binary: build.ts"
+          },
+          "log_sha256": "7d2d7659963e8edc05d1af76e110274079bf6c223b433b8f17444e49bb56e861",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun build.ts\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: build.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 10672 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 602100,
+            "memory_limit_mb": 3072,
+            "seconds": 0.879,
+            "log": "0021.log",
+            "label": "storage/framework/orm: typecheck",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun tsc --noEmit"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/orm",
+            "engine_invocations": 1
+          },
+          "log_sha256": "8e63d3c847960871eedb3cb1ee1844c7546324ad3e4c9028ed4360e42bea6e3b",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun tsc --noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 602100 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        },
+        {
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 600900,
+            "memory_limit_mb": 3072,
+            "seconds": 0.921,
+            "log": "0022.log",
+            "label": "storage/framework/orm: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun",
+              "src/index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/orm",
+            "engine_invocations": 1
+          },
+          "log_sha256": "af1304150c61a3f47bdfb0cd7b53c37184f64228165d268581c7a8915054d9d2",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 600900 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 9052,
+            "memory_limit_mb": 3072,
+            "seconds": 0.038,
+            "log": "0023.log",
+            "label": "storage/framework/orm: module initialization dist/index.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun",
+              "dist/index.js"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/orm",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: dist/index.js"
+            ],
+            "reason": "No script or installed binary: dist/index.js"
+          },
+          "log_sha256": "fd4a9fcfd731da6e1723b755e5356ff6cdfb59b51e4c733aafd771c27e2bec68",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun\", \"dist/index.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 9052 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 8908,
+            "memory_limit_mb": 3072,
+            "seconds": 0.037,
+            "log": "0024.log",
+            "label": "storage/framework/orm: module initialization dist/index.cjs",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun",
+              "dist/index.cjs"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/orm",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: dist/index.cjs"
+            ],
+            "reason": "No script or installed binary: dist/index.cjs"
+          },
+          "log_sha256": "4356eb2b7dc1deaf3d2b5692da32ec8c1424583e8f5771d9ac2c5b9288fec0ca",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun\", \"dist/index.cjs\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: dist/index.cjs\n\nECOSYSTEM PEAK SAMPLED RSS: 8908 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 8940,
+            "memory_limit_mb": 3072,
+            "seconds": 0.038,
+            "log": "0025.log",
+            "label": "storage/framework/orm: module initialization ./dist/index.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun",
+              "./dist/index.js"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/orm",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: ./dist/index.js"
+            ],
+            "reason": "No script or installed binary: ./dist/index.js"
+          },
+          "log_sha256": "bc44d5fdd23137f9362613bb697a01538d4c4ff036b2dd81752a2f670d6f5af0",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun\", \"./dist/index.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: ./dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8940 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 10752,
+            "memory_limit_mb": 3072,
+            "seconds": 0.038,
+            "log": "0026.log",
+            "label": "storage/framework: test",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun test"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+            ],
+            "reason": "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+          },
+          "log_sha256": "51395239742298c0d549f6cb4b4c5f046b4dec0b57d048effdb5565e05731f02",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun test\"]\nECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\n\nECOSYSTEM PEAK SAMPLED RSS: 10752 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 10736,
+            "memory_limit_mb": 3072,
+            "seconds": 0.07,
+            "log": "0027.log",
+            "label": "storage/framework/server: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/server",
+            "engine_invocations": 1
+          },
+          "log_sha256": "18dc42d90a980bdc7e60cf271516d2dd0a8f0cb5682a9d5e2b259935c9c1a3e7",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun build.ts\"]\nhome-tool tsconfig: extended tsconfig is missing: ../core/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @stacksjs/build from /home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/server/build.ts: InvalidRuntimeConfig\n\nECOSYSTEM PEAK SAMPLED RSS: 10736 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 10704,
+            "memory_limit_mb": 3072,
+            "seconds": 0.038,
+            "log": "0028.log",
+            "label": "storage/framework/server: test",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun test"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/server",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+            ],
+            "reason": "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+          },
+          "log_sha256": "5baca46c7047db2cd528ed9dd3153b21e1f5a4fd6680c675af8575daa5a33fdc",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun test\"]\nECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\n\nECOSYSTEM PEAK SAMPLED RSS: 10704 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 9344,
+            "memory_limit_mb": 3072,
+            "seconds": 0.076,
+            "log": "0029.log",
+            "label": "storage/framework/server: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun",
+              "src/index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/server",
+            "engine_invocations": 1
+          },
+          "log_sha256": "ef5094fe1b7ef09e5ba1762947ebb3a151d51d1a56935383886b1d07d9203b23",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun\", \"src/index.ts\"]\nhome-tool tsconfig: extended tsconfig is missing: ../core/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @stacksjs/logging/runtime from /home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/server/src/index.ts: InvalidRuntimeConfig\n\nECOSYSTEM PEAK SAMPLED RSS: 9344 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 9004,
+            "memory_limit_mb": 3072,
+            "seconds": 0.039,
+            "log": "0030.log",
+            "label": "storage/framework/server: module initialization dist/index.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun",
+              "dist/index.js"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/server",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: dist/index.js"
+            ],
+            "reason": "No script or installed binary: dist/index.js"
+          },
+          "log_sha256": "65f59f4e998bbaa7d420852fa0e210844d220f32e63e840f82fbc53717662ab4",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun\", \"dist/index.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 9004 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 8936,
+            "memory_limit_mb": 3072,
+            "seconds": 0.038,
+            "log": "0031.log",
+            "label": "storage/framework/server: module initialization ./dist/index.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun",
+              "./dist/index.js"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/candidate/storage/framework/server",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: ./dist/index.js"
+            ],
+            "reason": "No script or installed binary: ./dist/index.js"
+          },
+          "log_sha256": "f387b25789de156e382f37ae0652a923a6d44d71c18d2a6bdf96ee0243e07c3f",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--lessonstack/shims/bun\", \"./dist/index.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: ./dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8936 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        }
+      ]
+    },
+    "stacksjs/tinkerbelle": {
+      "sha": "d765765af20535db7c7159a7d2fd2e5099990681",
+      "candidate_counts": {
+        "failed": 6,
+        "passed": 3,
+        "unsupported": 13
+      },
+      "checks": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 1105524,
+            "memory_limit_mb": 3072,
+            "seconds": 2.276,
+            "log": "0011.log",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "./buddy build"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate",
+            "engine_invocations": 1
+          },
+          "log_sha256": "275acfd2bec53b1f367663bd783f923ac99b24083e490b6ecebeb66356494fff",
+          "log": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 1105524 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 1109888,
+            "memory_limit_mb": 3072,
+            "seconds": 2.253,
+            "log": "0012.log",
+            "label": ".: test",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "./buddy test"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate",
+            "engine_invocations": 1
+          },
+          "log_sha256": "a100697bdd565f8ae659bfb67d387e474b66906e83e0f17ad384ef01adfc8547",
+          "log": "$ [\"/bin/sh\", \"-c\", \"./buddy test\"]\nAction 'test/index' not found in storage/framework/core/actions/src or @stacksjs/actions\n\nECOSYSTEM PEAK SAMPLED RSS: 1109888 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 629140,
+            "memory_limit_mb": 3072,
+            "seconds": 1.147,
+            "log": "0013.log",
+            "label": ".: typecheck",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun run typecheck:app"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate",
+            "engine_invocations": 1
+          },
+          "log_sha256": "b759210ea568ee321fa387af7f093148c162bde11ac674213bdaad918a226402",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun run typecheck:app\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 629140 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 8792,
+            "memory_limit_mb": 3072,
+            "seconds": 0.039,
+            "log": "0014.log",
+            "label": ".: CLI tinkerbelle --help",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun",
+              "./bin/tinkerbelle",
+              "--help"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "Cannot execute non-JS package binary through zig-js: /home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/bin/tinkerbelle"
+            ],
+            "reason": "Cannot execute non-JS package binary through zig-js: /home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/bin/tinkerbelle"
+          },
+          "log_sha256": "5ec4e686d534c1422e51ff8f7899456e1b4bcdacc76a384abebdf9d229629975",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun\", \"./bin/tinkerbelle\", \"--help\"]\nECOSYSTEM UNSUPPORTED: Cannot execute non-JS package binary through zig-js: /home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/bin/tinkerbelle\n\nECOSYSTEM PEAK SAMPLED RSS: 8792 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 10520,
+            "memory_limit_mb": 3072,
+            "seconds": 0.071,
+            "log": "0015.log",
+            "label": "storage/framework/api: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/api",
+            "engine_invocations": 1
+          },
+          "log_sha256": "2e2b9c8771291ecc183222cff64103cd1cd27a4897a03cca0170f7a512902045",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module ../core/build/src from /home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/api/build.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 10520 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 8764,
+            "memory_limit_mb": 3072,
+            "seconds": 0.039,
+            "log": "0016.log",
+            "label": "storage/framework/cloud: module initialization dist/index.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun",
+              "dist/index.js"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/cloud",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: dist/index.js"
+            ],
+            "reason": "No script or installed binary: dist/index.js"
+          },
+          "log_sha256": "79bdb0b9d9a03ef4fe62bac5db121f98e99edb3713050fed109ef856fb02675c",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun\", \"dist/index.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8764 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 8736,
+            "memory_limit_mb": 3072,
+            "seconds": 0.039,
+            "log": "0017.log",
+            "label": "storage/framework/cloud: module initialization ./dist/index.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun",
+              "./dist/index.js"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/cloud",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: ./dist/index.js"
+            ],
+            "reason": "No script or installed binary: ./dist/index.js"
+          },
+          "log_sha256": "8f5a07442e1051d3824a460e653d0584bce0854cba08d38d9b9b71a23733f739",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun\", \"./dist/index.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: ./dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8736 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 10512,
+            "memory_limit_mb": 3072,
+            "seconds": 0.071,
+            "log": "0018.log",
+            "label": "storage/framework/libs/components/stx: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/libs/components/stx",
+            "engine_invocations": 1
+          },
+          "log_sha256": "706d7e26f69eb2bb79e50863a017a4da5eb61b9fee850f61a12ce9a5f67dc9b7",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module ../../../core/actions/src/build/component-library from /home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/libs/components/stx/build.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 10512 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 8740,
+            "memory_limit_mb": 3072,
+            "seconds": 0.039,
+            "log": "0019.log",
+            "label": "storage/framework/libs/components/stx: module initialization dist/index.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun",
+              "dist/index.js"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/libs/components/stx",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: dist/index.js"
+            ],
+            "reason": "No script or installed binary: dist/index.js"
+          },
+          "log_sha256": "4a2a6f22b29d26864528aa9fade12092bcb949e148c757bf301d200b6c7caee2",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun\", \"dist/index.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8740 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 8744,
+            "memory_limit_mb": 3072,
+            "seconds": 0.038,
+            "log": "0020.log",
+            "label": "storage/framework/libs/components/stx: module initialization ./dist/index.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun",
+              "./dist/index.js"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/libs/components/stx",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: ./dist/index.js"
+            ],
+            "reason": "No script or installed binary: ./dist/index.js"
+          },
+          "log_sha256": "5765e2fc3ca31e2a8348934838f064f65f66a612d46337e6577cd6cc8a36f5a8",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun\", \"./dist/index.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: ./dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8744 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 10504,
+            "memory_limit_mb": 3072,
+            "seconds": 0.038,
+            "log": "0021.log",
+            "label": "storage/framework/orm: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/orm",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: build.ts"
+            ],
+            "reason": "No script or installed binary: build.ts"
+          },
+          "log_sha256": "2f3114ffbd25ebe57ce56a21f6f3be6b0eb60efaf8ca7e5f189ccfafcb9b5400",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun build.ts\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: build.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 10504 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 612180,
+            "memory_limit_mb": 3072,
+            "seconds": 1.167,
+            "log": "0022.log",
+            "label": "storage/framework/orm: typecheck",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun tsc --noEmit"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/orm",
+            "engine_invocations": 1
+          },
+          "log_sha256": "99cb0fd190ff13262e55d05bbfaffa191458367470526dd65b6abc6b47a0b755",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun tsc --noEmit\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 612180 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        },
+        {
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 582292,
+            "memory_limit_mb": 3072,
+            "seconds": 1.202,
+            "log": "0023.log",
+            "label": "storage/framework/orm: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun",
+              "src/index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/orm",
+            "engine_invocations": 1
+          },
+          "log_sha256": "ddc556f6f464fdf0217ca05cdc8c7446c9ba56b8173fe3350d84e464204d8020",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 582292 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 8648,
+            "memory_limit_mb": 3072,
+            "seconds": 0.039,
+            "log": "0024.log",
+            "label": "storage/framework/orm: module initialization dist/index.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun",
+              "dist/index.js"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/orm",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: dist/index.js"
+            ],
+            "reason": "No script or installed binary: dist/index.js"
+          },
+          "log_sha256": "8c751b67f5d5fb07f468dafa7cbe4d604951567eb97e9e8ee962d757c5568470",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun\", \"dist/index.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8648 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 8776,
+            "memory_limit_mb": 3072,
+            "seconds": 0.039,
+            "log": "0025.log",
+            "label": "storage/framework/orm: module initialization dist/index.cjs",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun",
+              "dist/index.cjs"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/orm",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: dist/index.cjs"
+            ],
+            "reason": "No script or installed binary: dist/index.cjs"
+          },
+          "log_sha256": "4cf100d5be7a4d1bb09f96286492e7b93095ab8f4fc2b63af23f7de2466206fd",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun\", \"dist/index.cjs\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: dist/index.cjs\n\nECOSYSTEM PEAK SAMPLED RSS: 8776 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 8788,
+            "memory_limit_mb": 3072,
+            "seconds": 0.041,
+            "log": "0026.log",
+            "label": "storage/framework/orm: module initialization ./dist/index.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun",
+              "./dist/index.js"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/orm",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: ./dist/index.js"
+            ],
+            "reason": "No script or installed binary: ./dist/index.js"
+          },
+          "log_sha256": "62eef6c96d9c7e3fc7a4d50e330939e8a6f496c30e742abcdaf1c9deb52f6c73",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun\", \"./dist/index.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: ./dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8788 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 10436,
+            "memory_limit_mb": 3072,
+            "seconds": 0.039,
+            "log": "0027.log",
+            "label": "storage/framework: test",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun test"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+            ],
+            "reason": "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+          },
+          "log_sha256": "d17a6cfee9b531b401ea652e3a9166c519d9e2fd18a75f0335393b9562b155b4",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun test\"]\nECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\n\nECOSYSTEM PEAK SAMPLED RSS: 10436 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 10512,
+            "memory_limit_mb": 3072,
+            "seconds": 0.071,
+            "log": "0028.log",
+            "label": "storage/framework/server: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/server",
+            "engine_invocations": 1
+          },
+          "log_sha256": "14ae3ec26901f0d5a4fb2713b10d1f2b6be6cf16d9721c8afe61bae7a90b5336",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun build.ts\"]\nhome-tool tsconfig: extended tsconfig is missing: ../core/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @stacksjs/build from /home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/server/build.ts: InvalidRuntimeConfig\n\nECOSYSTEM PEAK SAMPLED RSS: 10512 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 10504,
+            "memory_limit_mb": 3072,
+            "seconds": 0.039,
+            "log": "0029.log",
+            "label": "storage/framework/server: test",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun test"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/server",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+            ],
+            "reason": "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+          },
+          "log_sha256": "b24a9ea8e9a8d03a2f7ad47ef1ea2218b9038fa88810161451243d7ba2059332",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun test\"]\nECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\n\nECOSYSTEM PEAK SAMPLED RSS: 10504 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 8736,
+            "memory_limit_mb": 3072,
+            "seconds": 0.071,
+            "log": "0030.log",
+            "label": "storage/framework/server: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun",
+              "src/index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/server",
+            "engine_invocations": 1
+          },
+          "log_sha256": "cff1f8b2f968db1065f709c014c2c9897af307c13abf9d9b7450ceb888593651",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun\", \"src/index.ts\"]\nhome-tool tsconfig: extended tsconfig is missing: ../core/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @stacksjs/logging/runtime from /home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/server/src/index.ts: InvalidRuntimeConfig\n\nECOSYSTEM PEAK SAMPLED RSS: 8736 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 8768,
+            "memory_limit_mb": 3072,
+            "seconds": 0.039,
+            "log": "0031.log",
+            "label": "storage/framework/server: module initialization dist/index.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun",
+              "dist/index.js"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/server",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: dist/index.js"
+            ],
+            "reason": "No script or installed binary: dist/index.js"
+          },
+          "log_sha256": "087f312222fb3d0170c8974bf63d499bd6eb387d240da9b3ed8990e1ae310913",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun\", \"dist/index.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8768 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        },
+        {
+          "check": {
+            "status": "unsupported",
+            "exit_code": 78,
+            "peak_sampled_rss_kib": 8760,
+            "memory_limit_mb": 3072,
+            "seconds": 0.039,
+            "log": "0032.log",
+            "label": "storage/framework/server: module initialization ./dist/index.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun",
+              "./dist/index.js"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/candidate/storage/framework/server",
+            "engine_invocations": 0,
+            "unsupported_reasons": [
+              "No script or installed binary: ./dist/index.js"
+            ],
+            "reason": "No script or installed binary: ./dist/index.js"
+          },
+          "log_sha256": "fb0ffc8d362d26fdac7a025dd0e2d07aaa72b9e085db7b4aa5a055a9982566a5",
+          "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--tinkerbelle/shims/bun\", \"./dist/index.js\"]\nECOSYSTEM UNSUPPORTED: No script or installed binary: ./dist/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8760 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+        }
+      ]
+    }
+  },
+  "caller_latest_seen": {
+    "run": 43330375184,
+    "engine": "96bdc767b2e333b623805f1286491aaa57060bd2",
+    "runtime_job": 131575094677,
+    "state_at_check": "in progress; no outcome inferred; independent engine changes not retroactively validated by this host fixture."
+  },
+  "limitations": "Latest 094 priority MDX still reports hidden Cargo failure; Home docs actually times out at 2042836 KiB, not the previous different run RSS failure. Stacks retains evaluation-step budget failure. New consumer build exit 1 has no useful diagnostic; no cause invented. Explicit missing source/config paths, absent output/non-JS binaries and unexecuted scheduler remain failures/unsupported. All selected consumers remain covered."
+}
