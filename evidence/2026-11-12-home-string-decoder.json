@@ -1,0 +1,910 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-12T15:30:46.556740+00:00",
+  "status": "Real incremental StringDecoder implemented, locally verified and pushed; immutable Linux qualification pending",
+  "home_ref": "198c75ae8c3424be778d0649ed8bace93ed62f90",
+  "home_url": "https://github.com/home-lang/home/commit/198c75ae8c3424be778d0649ed8bace93ed62f90",
+  "source_tree": "462d00c533fd3cbab7e6dccf108f5deffefce63f",
+  "before_home_ref": "0c0b9a1bb8c3bfedd274d38e0aa25ba8e4c171b7",
+  "preserved_foreign_parent": "1286a15cdf0373b52a9d1f9a7a4a8efdc47487c7",
+  "foreign_work": "Two independent assignment-narrowing checker/oracle commits preserved before editing. Original Home/lang worktree/index untouched; no whole-checker regression claim.",
+  "source_files": [
+    {
+      "path": "build.zig",
+      "git_blob": "1e8fdac9a299937ed13b8d2a82e16465701d47eb",
+      "sha256": "de446fb9aceb52c920d5a72a1887c309089bbe517f51910f6b6dcfeadf60bbc9"
+    },
+    {
+      "path": "packages/runtime/src/jsc/tool_builtins.js",
+      "git_blob": "6a7affd427261d1ddcadb9af693598875a7ef7ca",
+      "sha256": "ed7301a5c77641760b2f077db73e2305e1d0a3d0c2e457794293130fb998565c"
+    },
+    {
+      "path": "packages/runtime/src/jsc/tool_builtins.zig",
+      "git_blob": "79cc36c0624c22dc1ce234cf2c0f323977e951c5",
+      "sha256": "b2ae99b877d2f51b8695a9b22a6901429974d2b27eafdba62b0f348064364534"
+    },
+    {
+      "path": "packages/runtime/src/jsc/tool_modules.js",
+      "git_blob": "c518c1a532de284df3be03dc48abc22eee70150f",
+      "sha256": "5fd9d7afa837989dc1dde11ca69b0f8212125424eda37d5b6392b25a9d9c397c"
+    },
+    {
+      "path": "packages/runtime/src/jsc/tool_string_decoder.js",
+      "git_blob": "5ff576765623b7d2c1734c4f65be4034bb6dbfbf",
+      "sha256": "67840789cac2c7d5a48319d538a38429163b0f2d72f6ce2ea9f9bd89a2efb6b7"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/node_string_decoder.mjs",
+      "git_blob": "70bd00f2177fc2bd805e10a6eb12300ca96d193e",
+      "sha256": "d3f64a68dd32a3a787868e76adab4f1d4fb66d40e40ca40498f15d81b5a45ed9"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/string_decoder_oracle.json",
+      "git_blob": "22b3c656ed1415a27b94baf590b312a865d3dae1",
+      "sha256": "4e1c72e750ea1899934fd537cbf7eefc7fdaaf1256e9286c32d4fa6aacd65273"
+    },
+    {
+      "path": "packages/runtime/test/tool_string_decoder_fixture.py",
+      "git_blob": "087affa6906c2fa624515720401c12d687e9ce32",
+      "sha256": "797fc0df80e71188d2e1c96d3cf915b87aa39baa8e4d73dcea3ab22f0f0ffa0b"
+    },
+    {
+      "path": "packages/runtime/test/tool_string_decoder_oracle.mjs",
+      "git_blob": "6fa854e897fbabe9bd705b7ca1619da3bad47498",
+      "sha256": "bc04b57ae0b18c96bb78334c74dd6db2e1b1dc499ccd8c41e8726f61bcefd155"
+    }
+  ],
+  "local_engine_sha": "a7b0fdfd2e9caa6a9e822d911dd8a390e21babf1",
+  "local_archive_sha256": "3b182ee48ac27e763c308b16276e5330e552906f82d82336907f7389ce1b03ed",
+  "local_profile": "Darwin ReleaseSafe with the same exact pushed zig-js archive before/after; not Linux72d7 qualification",
+  "preceding_complete_qualification": {
+    "run": 43237521982,
+    "functional_suite": "e8872b095d34115ec2a1424b7130d4d5e14e3dac",
+    "report_job": 131269905157,
+    "actual_summary": "4/4 consumers reported; 4 failing, 0 missing",
+    "report_log_sha256": "0a43917ea90328289f1d65d8518ff82353205daa3dbd2031500249796ce569e9",
+    "consumers": [
+      {
+        "repository": "stacksjs/stacks",
+        "sha": "470f534ea7ada95d59c56fa9ac0c61a9cab80c2a",
+        "engine_sha": "50913c8a9bb2e82341916a7e25a4d300f816d712",
+        "candidate_counts": {
+          "unsupported": 355,
+          "failed": 182,
+          "passed": 94
+        },
+        "artifact": {
+          "id": 13955002927,
+          "digest": "sha256:7b6faf381d2030bdb2ce95c37d9cddad138d56a7fd15899cb639a62f24df6c1b",
+          "size_in_bytes": 1318102
+        },
+        "report_sha256": "d3a89527e149bf033c9f8bea16f25757a4e9defb3d8506977646350cb4523bc0",
+        "actual_logs": [
+          {
+            "label": ".: build",
+            "status": "failed",
+            "log_sha256": "aabc3f29870cea6beb53c44925b40d7a52cc9883919dc69d05424da7701b5d77",
+            "text": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-12T14:42:18.127Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default — ssr is false)\nNo site URL configured — sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 2541332 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        ]
+      },
+      {
+        "repository": "home-lang/home",
+        "sha": "0c0b9a1bb8c3bfedd274d38e0aa25ba8e4c171b7",
+        "engine_sha": "50913c8a9bb2e82341916a7e25a4d300f816d712",
+        "candidate_counts": {
+          "timed-out": 1,
+          "unsupported": 37,
+          "passed": 9,
+          "failed": 40
+        },
+        "artifact": {
+          "id": 13954868246,
+          "digest": "sha256:729481ff26db572098fbab5445e72ee1ca0e3998d63c2115a56035fabb2fe1c9",
+          "size_in_bytes": 106485
+        },
+        "report_sha256": "f5ec979e73d0c09b63cfb0c20fd55450cc729feaa1e70fd13a01234ee8a931c1",
+        "actual_logs": [
+          {
+            "label": ".: build",
+            "status": "timed-out",
+            "log_sha256": "a9e40bdd22c509d4052f928e30399b3bf156264fd3dcdeb1cbffe1c6b4b6fca0",
+            "text": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 2031264 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: command time budget exhausted\n\nECOSYSTEM RESULT: timed-out, exit 124\n"
+          },
+          {
+            "label": "packages/registry: test",
+            "status": "failed",
+            "log_sha256": "c81052c5cb36a0caa566f32b8047a97802bc1e8404a300367f2e4f28787260cc",
+            "text": "$ [\"/bin/sh\", \"-c\", \"jest\"]\nSyntaxError: Unexpected token\n    at <anonymous> (home:tool-module-install:253:7)\n    at evaluateSync (home:tool-module-install:272:7)\n    at load (home:tool-module-install:374:5)\n    at <anonymous> (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/registry/node_modules/%40babel/code-frame/lib/index.js?home-emitted:5:1)\n    at <anonymous> (home:tool-module-install:255:7)\n    at evaluateSync (home:tool-module-install:272:7)\n    at load (home:tool-module-install:374:5)\n    at <anonymous> (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/registry/node_modules/parse-json/index.js?home-emitted:6:1)\n    at <anonymous> (home:tool-module-install:255:7)\n    at evaluateSync (home:tool-module-install:272:7)\nUncaught unhandledRejection: SyntaxError: Unexpected token\n\nECOSYSTEM PEAK SAMPLED RSS: 125444 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          },
+          {
+            "label": "packages/runtime/upstream/bench/ffi/src: build",
+            "status": "failed",
+            "log_sha256": "e66a51ef2439a9c7d1fd8a31ca5ff676ba840b0ab70903df27198e366fbd9c51",
+            "text": "$ [\"/bin/sh\", \"-c\", \"bun run build:napi && bun run build:ffi\"]\nhome-tool (zig-js): Error: cannot resolve module string_decoder from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/ffi/src/node_modules/@napi-rs/cli/scripts/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 286876 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          },
+          {
+            "label": "packages/runtime/upstream/packages/bun-build-mdx-rs: build",
+            "status": "failed",
+            "log_sha256": "cbd4caa67fe3bfd0603da559c77a8c559d376a4f4afb1c2dc5043b89bf4fd426",
+            "text": "$ [\"/bin/sh\", \"-c\", \"napi build --platform --release\"]\nhome-tool (zig-js): Error: cannot resolve module string_decoder from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/@napi-rs/cli/scripts/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 193872 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        ]
+      },
+      {
+        "repository": "stacksjs/bunpress",
+        "sha": "e7b328e3fd3db76ff92ce52649e9f13c6f811fdc",
+        "engine_sha": "50913c8a9bb2e82341916a7e25a4d300f816d712",
+        "candidate_counts": {
+          "failed": 4,
+          "unsupported": 4,
+          "passed": 5
+        },
+        "artifact": {
+          "id": 13953488929,
+          "digest": "sha256:ca3e0da51b58125eb97c0d27bbf591d7311ca2f6912d57c5bea76570784ae532",
+          "size_in_bytes": 335572
+        },
+        "report_sha256": "e86995b97c8f99a20352cd5756639958220af03e885065a90e3329d694a6ba6c",
+        "actual_logs": [
+          {
+            "label": ".: build",
+            "status": "failed",
+            "log_sha256": "113d81b77c33e0426e4f3c47be7a4d3f09fd9d7f43c0ab082b1759909ca82123",
+            "text": "$ [\"/bin/sh\", \"-c\", \"bun run build:bunpress && bun run build:plugin\"]\nBuilding library...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./bin/cli.ts\"], outdir: \"./dist\", plugins: [dts()], minify: true, splitting: true, target: \"bun\", external: [\"@cwcss/crosswind\", \"@stacksjs/clapp\", \"@stacksjs/stx\", \"@stacksjs/ts-cloud\", \"@stacksjs/ts-i18n\", \"@ts-cloud/core\", \"bunfig\", \"ts-syntax-highlighter\"] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 164888 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        ]
+      },
+      {
+        "repository": "stacksjs/clapp",
+        "sha": "2ecc2af97d33f59ad5d22abe399392793d8de63d",
+        "engine_sha": "50913c8a9bb2e82341916a7e25a4d300f816d712",
+        "candidate_counts": {
+          "failed": 2,
+          "unsupported": 4,
+          "passed": 3
+        },
+        "artifact": {
+          "id": 13954416473,
+          "digest": "sha256:210a6fde13c7a6a6e6cdb5deba9bf48b357d257749d3d9277ffe5149b19007e7",
+          "size_in_bytes": 24039
+        },
+        "report_sha256": "b2d1481913d9a842575e408b134d7ad758f6ca65d8f23c5097ed2d25909c492e",
+        "actual_logs": [
+          {
+            "label": ".: build",
+            "status": "failed",
+            "log_sha256": "141800a1cbf6c81ba18b9b8e654d287e56389f30459dca7ad8508cb7fdd4ee73",
+            "text": "$ [\"/bin/sh\", \"-c\", \"bun --bun build.ts\"]\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [join(cwd, \"src/index.ts\"), join(cwd, \"src/telemetry.ts\")], outdir: join(cwd, \"dist\"), format: \"esm\", splitting: true, plugins: [dts({ cwd, root: \"./src\", outdir: \"./dist\", moduleSpecifierMode: \"node\" })], target: \"node\" })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 138320 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        ]
+      }
+    ]
+  },
+  "reproduction": {
+    "actual_trigger": "Both Home @napi-rs CLI build logs advance past euro-key syntax to cannot resolve module string_decoder. A split-euro require reproduces missing module on both before providers; Node and Bun decode the actual bytes.",
+    "before": "The full decoder fixture fails during import on both providers; no decoder groups or oracle cases execute. Never recast that as a test pass.",
+    "after_each_home_provider": "27/27 contract groups,3383/3383 per-write Node output/pending-state cases and independent physical UTF-8 output pass.",
+    "implementation": "Private per-instance copied pending storage; genuine UTF-8, UTF-16LE, base64/base64url, ASCII, Latin1 and hex outputs. Strings pass through without flushing bytes, end flushes/reset state, typed views honor raw byte ranges, lone UTF-16 code units remain real code units.",
+    "module_predicate": "Module.isBuiltin delegates to the actual registered Node namespace map, rejects non-string inputs without coercion and excludes Bun-only namespaces. Unsupported Node modules are absent; this is not a full Node builtin inventory.",
+    "node_oracle": "Pinned v26.10.0 generator produces3383 fixed cases. Regeneration is byte-exact. Each case checks every write, end, pending state and reuse; malformed prefixes and chunk partitioning are observable.",
+    "physical": "A47108-byte file is decoded in73-byte chunks. Actual47113 output bytes match Python UTF-8 replacement decoding and exact SHA256 independently.",
+    "references": "Node passes27/27 plus3383 and physical output. Final Bun retains22/27 contract groups but matches3383/3383 byte-partition cases; no complete Bun fixture or physical pass.",
+    "reference_phase_correction": "Initial Bun23/27 covered the simpler builtin-positive case. The final expanded predicate group adds a fifth difference because Bun calls bun:test a builtin. The pushed Home commit body records the initial23/27 phase; final results here are22/27, with both raw receipts retained.",
+    "retained_prototypes": "Initial Home26/27 after wiring the decoder exposed absent Module.isBuiltin while all3383 codec cases passed. Exposing the genuine host-registry predicate fixed it. Initial JSC fixture reached27/27 but failed using missing global URL to locate data; switch to supported fileURLToPath/path helpers removes that fixture dependency, without weakening decoder checks.",
+    "limits": "No full bundled CLI, N-API/Rust build, stream scheduler, missing host or upstream-test compatibility pass is claimed. Registry tokenizer and SSG resource failures remain separate."
+  },
+  "validation": {
+    "maintained_zig_js": "275/275 steps,4/4 fresh native tests; other native successes cached",
+    "maintained_jsc": "248/273 with21 failures retained; focused decoder27+3383 and physical output pass. No fresh cached-test count invented.",
+    "suite": "45 Python tests,7 dependency tests/26 assertions,actionlint and Python syntax pass",
+    "lint": "Pickier passes with0 errors and2 warnings in unchanged tool_builtins.js lines1041/1044",
+    "guard": "Saved runtime/compiler/reference validation receipts use the3072MiB sampled command-tree cap; no quota increase",
+    "test262_flips": 0,
+    "test262_scope": "No engine/corpus edit; full test262 not run"
+  },
+  "receipts": [
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/actionlint.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5920,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "actionlint.log",
+      "log_sha256": "6c2ac82730e3c1e444e8ee5c23b57330fd233783433749a0fd266b795e01be68",
+      "log_bytes": 185,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 5920 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/bun-before.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/missing.cjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.029,
+      "log": "bun-before.log",
+      "log_sha256": "ffd4267bb3fc7717c1985edb3d47e3a78c0c0bce740d8ca4b89fe5cdc1ad05a3",
+      "log_bytes": 269,
+      "signals": [
+        "REAL STRING DECODER BOUNDARY OK",
+        "ECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/final-physical-jsc.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_string_decoder_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_string_decoder.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 40624,
+      "memory_limit_mb": 3072,
+      "seconds": 0.241,
+      "log": "final-physical-jsc.log",
+      "log_sha256": "a272dc49703e20b79ed716254e7338f50e64f72b0142838744e8eb573fe366be",
+      "log_bytes": 859,
+      "signals": [
+        "STRING DECODER RESULTS {\"groups\":27,\"passed\":27,\"failures\":[]}",
+        "STRING DECODER ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":3383,\"mismatches\":0,\"first\":[]}",
+        "STRING DECODER 27 GROUPS OK",
+        "NATIVE STRING DECODER PHYSICAL UTF8 VERIFIED {\"input_bytes\": 47108, \"output_bytes\": 47113, \"input_sha256\": \"38844dec914be1997979e7e2c6d286d74dcf3841b217bacfe9efda26baf1b7af\", \"output_sha256\": \"14d068e80e5457d8262b13abbe604703b3a431ded60d68182af22383b371776e\"}",
+        "ECOSYSTEM PEAK SAMPLED RSS: 40624 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/final-physical-node.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_string_decoder_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_string_decoder.mjs",
+        "--node"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 46624,
+      "memory_limit_mb": 3072,
+      "seconds": 0.243,
+      "log": "final-physical-node.log",
+      "log_sha256": "4bba676f501c0217a4302e66855a6535b8e8827ca3e9ca76f6a18beec3ad3a3b",
+      "log_bytes": 813,
+      "signals": [
+        "STRING DECODER RESULTS {\"groups\":27,\"passed\":27,\"failures\":[]}",
+        "STRING DECODER ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":3383,\"mismatches\":0,\"first\":[]}",
+        "STRING DECODER 27 GROUPS OK",
+        "NATIVE STRING DECODER PHYSICAL UTF8 VERIFIED {\"input_bytes\": 47108, \"output_bytes\": 47113, \"input_sha256\": \"38844dec914be1997979e7e2c6d286d74dcf3841b217bacfe9efda26baf1b7af\", \"output_sha256\": \"14d068e80e5457d8262b13abbe604703b3a431ded60d68182af22383b371776e\"}",
+        "ECOSYSTEM PEAK SAMPLED RSS: 46624 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/final-physical-zig-js.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_string_decoder_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_string_decoder.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 248992,
+      "memory_limit_mb": 3072,
+      "seconds": 0.583,
+      "log": "final-physical-zig-js.log",
+      "log_sha256": "9c63f5729dee5213a991f5c0196ca835334b095924fdf70a4e97edfb37dbdce8",
+      "log_bytes": 863,
+      "signals": [
+        "STRING DECODER RESULTS {\"groups\":27,\"passed\":27,\"failures\":[]}",
+        "STRING DECODER ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":3383,\"mismatches\":0,\"first\":[]}",
+        "STRING DECODER 27 GROUPS OK",
+        "NATIVE STRING DECODER PHYSICAL UTF8 VERIFIED {\"input_bytes\": 47108, \"output_bytes\": 47113, \"input_sha256\": \"38844dec914be1997979e7e2c6d286d74dcf3841b217bacfe9efda26baf1b7af\", \"output_sha256\": \"14d068e80e5457d8262b13abbe604703b3a431ded60d68182af22383b371776e\"}",
+        "ECOSYSTEM PEAK SAMPLED RSS: 248992 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/final-reference-bun.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_string_decoder.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1840,
+      "memory_limit_mb": 3072,
+      "seconds": 0.04,
+      "log": "final-reference-bun.log",
+      "log_sha256": "8add46ddcfebdd613a10b002a1ccd8f253fed9a7bb09278d677d413164c38ee1",
+      "log_bytes": 1771,
+      "signals": [
+        "STRING DECODER RESULTS {\"groups\":27,\"passed\":22,\"failures\":[{\"name\":\"builtin classification\",\"message\":\"Expected [true,true,true,false,false,false], got [true,true,true,false,false,true]\"},{\"name\":\"encoding property is metadata\",\"message\":\"Attempted to assign to readonly property.\"},{\"name\":\"encoding aliases\",\"message\":\"Unknown encoding: \"},{\"name\":\"text resets pending\",\"message\":\"Expected \\\"A\\\", got \\\"�A\\\"\"},{\"name\":\"end invalid argument\",\"message\":\"Expected \\\"ERR_INVALID_ARG_TYPE\\\", got undefined\"}]}",
+        "STRING DECODER ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":3383,\"mismatches\":0,\"first\":[]}",
+        "52 | console.log('STRING DECODER ORACLE RESULTS '+JSON.stringify({node:oracle.node,cases:oracle.cases.length,mismatches:mismatches.length,first:mismatches.slice(0,4)}));",
+        "error: StringDecoder execution failed",
+        "ECOSYSTEM PEAK SAMPLED RSS: 1840 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/fixture-after-zig-js.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_string_decoder.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 200960,
+      "memory_limit_mb": 3072,
+      "seconds": 0.668,
+      "log": "fixture-after-zig-js.log",
+      "log_sha256": "7023900cc4292df9c7ab1882b3f28ee71b96aedfabfc29f6c20bc58d513ff77a",
+      "log_bytes": 665,
+      "signals": [
+        "STRING DECODER RESULTS {\"groups\":27,\"passed\":26,\"failures\":[{\"name\":\"builtin classification\",\"message\":\"isBuiltin is not a function. (In 'isBuiltin(\\\"string_decoder\\\")', 'isBuiltin' is undefined)\"}]}",
+        "STRING DECODER ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":3383,\"mismatches\":0,\"first\":[]}",
+        "ECOSYSTEM PEAK SAMPLED RSS: 200960 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/fixture-before-bun.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_string_decoder.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.061,
+      "log": "fixture-before-bun.log",
+      "log_sha256": "16a729095c6af29fb3554cf9dd390451939d1795dd7b27e03629795124a05d35",
+      "log_bytes": 1640,
+      "signals": [
+        "STRING DECODER RESULTS {\"groups\":27,\"passed\":23,\"failures\":[{\"name\":\"encoding property is metadata\",\"message\":\"Attempted to assign to readonly property.\"},{\"name\":\"encoding aliases\",\"message\":\"Unknown encoding: \"},{\"name\":\"text resets pending\",\"message\":\"Expected \\\"A\\\", got \\\"�A\\\"\"},{\"name\":\"end invalid argument\",\"message\":\"Expected \\\"ERR_INVALID_ARG_TYPE\\\", got undefined\"}]}",
+        "STRING DECODER ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":3383,\"mismatches\":0,\"first\":[]}",
+        "49 | console.log('STRING DECODER ORACLE RESULTS '+JSON.stringify({node:oracle.node,cases:oracle.cases.length,mismatches:mismatches.length,first:mismatches.slice(0,4)}));",
+        "error: StringDecoder execution failed",
+        "ECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/fixture-before-jsc.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_string_decoder.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 928,
+      "memory_limit_mb": 3072,
+      "seconds": 0.074,
+      "log": "fixture-before-jsc.log",
+      "log_sha256": "199682172489d9adf049051935c4d366fe78fec3f75fd19022dc0a576c1a9b13",
+      "log_bytes": 489,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 928 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/fixture-before-node.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_string_decoder.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 816,
+      "memory_limit_mb": 3072,
+      "seconds": 0.098,
+      "log": "fixture-before-node.log",
+      "log_sha256": "8358f70563b085fe8d4d33abad3691041f6286bf9b8726dc1e46ffa89369dc1f",
+      "log_bytes": 429,
+      "signals": [
+        "STRING DECODER RESULTS {\"groups\":27,\"passed\":27,\"failures\":[]}",
+        "STRING DECODER ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":3383,\"mismatches\":0,\"first\":[]}",
+        "STRING DECODER 27 GROUPS OK",
+        "ECOSYSTEM PEAK SAMPLED RSS: 816 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/fixture-before-zig-js.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_string_decoder.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 512,
+      "memory_limit_mb": 3072,
+      "seconds": 0.128,
+      "log": "fixture-before-zig-js.log",
+      "log_sha256": "ef5befcfcf104547f248a1e05f34703a2d0c545335e326c3356596c247157bf4",
+      "log_bytes": 495,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 512 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/fixture-prototype-zig-js.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_string_decoder.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 200960,
+      "memory_limit_mb": 3072,
+      "seconds": 0.668,
+      "log": "fixture-after-zig-js.log",
+      "log_sha256": "7023900cc4292df9c7ab1882b3f28ee71b96aedfabfc29f6c20bc58d513ff77a",
+      "log_bytes": 665,
+      "signals": [
+        "STRING DECODER RESULTS {\"groups\":27,\"passed\":26,\"failures\":[{\"name\":\"builtin classification\",\"message\":\"isBuiltin is not a function. (In 'isBuiltin(\\\"string_decoder\\\")', 'isBuiltin' is undefined)\"}]}",
+        "STRING DECODER ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":3383,\"mismatches\":0,\"first\":[]}",
+        "ECOSYSTEM PEAK SAMPLED RSS: 200960 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/focused-jsc.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-string-decoder-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 734368,
+      "memory_limit_mb": 3072,
+      "seconds": 43.646,
+      "log": "focused-jsc.log",
+      "log_sha256": "af1918a9737f68117ade9ee13b3baa59231de94f8e7851a93d7aad73d3609f19",
+      "log_bytes": 1731,
+      "signals": [
+        "AssertionError: b'STRING DECODER RESULTS {\"groups\":27,\"passed\":27,\"failures\":[]}\\nhome-tool (jsc): ReferenceError: Can\\'t find variable: URL\\n'",
+        "error: process exited with code 1",
+        "Build Summary: 5/7 steps succeeded (1 failed)",
+        "ECOSYSTEM PEAK SAMPLED RSS: 734368 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/focused-zig-js-final.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 766880,
+      "memory_limit_mb": 3072,
+      "seconds": 42.738,
+      "log": "focused-zig-js-final.log",
+      "log_sha256": "7885f95ff5bb163fd61a7e4caa12e683a20e504a45c0923dd27a330c62659736",
+      "log_bytes": 828,
+      "signals": [
+        "Build Summary: 5/5 steps succeeded",
+        "ECOSYSTEM PEAK SAMPLED RSS: 766880 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/focused-zig-js.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 745296,
+      "memory_limit_mb": 3072,
+      "seconds": 44.347,
+      "log": "focused-zig-js.log",
+      "log_sha256": "472211a7afdcac29076507d14ea2e4fb5acec60f62f28ae778b2a02fb39b0a9d",
+      "log_bytes": 827,
+      "signals": [
+        "Build Summary: 5/5 steps succeeded",
+        "ECOSYSTEM PEAK SAMPLED RSS: 745296 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/full-jsc.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 59024,
+      "memory_limit_mb": 3072,
+      "seconds": 9.685,
+      "log": "full-jsc.log",
+      "log_sha256": "bd8da026910090d6df9904569516552a9e0d85bea86bd6a66487d6cdc1ba2740",
+      "log_bytes": 60530,
+      "signals": [
+        "error: process exited with code 1",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: process exited with code 1",
+        "STRING DECODER RESULTS {\"groups\":27,\"passed\":27,\"failures\":[]}",
+        "STRING DECODER ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":3383,\"mismatches\":0,\"first\":[]}",
+        "STRING DECODER 27 GROUPS OK",
+        "NATIVE STRING DECODER PHYSICAL UTF8 VERIFIED {\"input_bytes\": 47108, \"output_bytes\": 47113, \"input_sha256\": \"38844dec914be1997979e7e2c6d286d74dcf3841b217bacfe9efda26baf1b7af\", \"output_sha256\": \"14d068e80e5457d8262b13abbe604703b3a431ded60d68182af22383b371776e\"}",
+        "error: ========= expected this stdout: =========",
+        "error: process exited with code 1",
+        "error: process exited with code 1",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "Build Summary: 248/273 steps succeeded (21 failed)",
+        "ECOSYSTEM PEAK SAMPLED RSS: 59024 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/full-zig-js.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 617200,
+      "memory_limit_mb": 3072,
+      "seconds": 35.237,
+      "log": "full-zig-js.log",
+      "log_sha256": "898f22df2d5ff724acbe99e115e02da96ddc2e24f94e681be3d679b51346770b",
+      "log_bytes": 54526,
+      "signals": [
+        "STRING DECODER RESULTS {\"groups\":27,\"passed\":27,\"failures\":[]}",
+        "STRING DECODER ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":3383,\"mismatches\":0,\"first\":[]}",
+        "STRING DECODER 27 GROUPS OK",
+        "NATIVE STRING DECODER PHYSICAL UTF8 VERIFIED {\"input_bytes\": 47108, \"output_bytes\": 47113, \"input_sha256\": \"38844dec914be1997979e7e2c6d286d74dcf3841b217bacfe9efda26baf1b7af\", \"output_sha256\": \"14d068e80e5457d8262b13abbe604703b3a431ded60d68182af22383b371776e\"}",
+        "Build Summary: 275/275 steps succeeded; 4/4 tests passed",
+        "ECOSYSTEM PEAK SAMPLED RSS: 617200 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/jsc-before.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/missing.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 112,
+      "memory_limit_mb": 3072,
+      "seconds": 0.044,
+      "log": "jsc-before.log",
+      "log_sha256": "663723f8f0fc600d1e916a3c79e0c0d65150224296d11ac98db5a109e5bf4006",
+      "log_bytes": 464,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 112 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/node-before.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/missing.cjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 27408,
+      "memory_limit_mb": 3072,
+      "seconds": 0.231,
+      "log": "node-before.log",
+      "log_sha256": "0aa8281d939753e6d98ac89b9a234ab0bc17ddf49f209870f2e11ff51ac96263",
+      "log_bytes": 273,
+      "signals": [
+        "REAL STRING DECODER BOUNDARY OK",
+        "ECOSYSTEM PEAK SAMPLED RSS: 27408 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/oracle-regeneration.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "packages/runtime/test/tool_string_decoder_oracle.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 816,
+      "memory_limit_mb": 3072,
+      "seconds": 0.061,
+      "log": "oracle-regeneration.log",
+      "oracle_sha256": "4e1c72e750ea1899934fd537cbf7eefc7fdaaf1256e9286c32d4fa6aacd65273",
+      "byte_exact_regeneration": true,
+      "log_sha256": "cddf5a11de3c0f6755eaab618ddd17a04d1dca0db85501e81523d1e706b6f28c",
+      "log_bytes": 232,
+      "signals": [
+        "PINNED STRING DECODER ORACLE 3383",
+        "ECOSYSTEM PEAK SAMPLED RSS: 816 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/physical-node.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_string_decoder_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_string_decoder.mjs",
+        "--node"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5056,
+      "memory_limit_mb": 3072,
+      "seconds": 0.131,
+      "log": "physical-node.log",
+      "log_sha256": "5308d782b020e1aa66d944226a4e6d102be1147129821b6514f0dc5621fddbcb",
+      "log_bytes": 812,
+      "signals": [
+        "STRING DECODER RESULTS {\"groups\":27,\"passed\":27,\"failures\":[]}",
+        "STRING DECODER ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":3383,\"mismatches\":0,\"first\":[]}",
+        "STRING DECODER 27 GROUPS OK",
+        "NATIVE STRING DECODER PHYSICAL UTF8 VERIFIED {\"input_bytes\": 47108, \"output_bytes\": 47113, \"input_sha256\": \"38844dec914be1997979e7e2c6d286d74dcf3841b217bacfe9efda26baf1b7af\", \"output_sha256\": \"14d068e80e5457d8262b13abbe604703b3a431ded60d68182af22383b371776e\"}",
+        "ECOSYSTEM PEAK SAMPLED RSS: 5056 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/physical-zig-js.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_string_decoder_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_string_decoder.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 249392,
+      "memory_limit_mb": 3072,
+      "seconds": 0.955,
+      "log": "physical-zig-js.log",
+      "log_sha256": "a3884a51fb4e6a82115818b3b8e2358e78bde08336973fd86dd45c784e620056",
+      "log_bytes": 863,
+      "signals": [
+        "STRING DECODER RESULTS {\"groups\":27,\"passed\":27,\"failures\":[]}",
+        "STRING DECODER ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":3383,\"mismatches\":0,\"first\":[]}",
+        "STRING DECODER 27 GROUPS OK",
+        "NATIVE STRING DECODER PHYSICAL UTF8 VERIFIED {\"input_bytes\": 47108, \"output_bytes\": 47113, \"input_sha256\": \"38844dec914be1997979e7e2c6d286d74dcf3841b217bacfe9efda26baf1b7af\", \"output_sha256\": \"14d068e80e5457d8262b13abbe604703b3a431ded60d68182af22383b371776e\"}",
+        "ECOSYSTEM PEAK SAMPLED RSS: 249392 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/pickier.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bunx",
+        "--bun",
+        "pickier",
+        "packages/runtime/src/jsc/tool_string_decoder.js",
+        "packages/runtime/src/jsc/tool_modules.js",
+        "packages/runtime/src/jsc/tool_builtins.js",
+        "packages/runtime/test/tool_modules/node_string_decoder.mjs",
+        "packages/runtime/test/tool_string_decoder_oracle.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 31792,
+      "memory_limit_mb": 3072,
+      "seconds": 0.22,
+      "log": "pickier.log",
+      "scope": "0 errors and2 warnings on unchanged tool_builtins.js lines1041/1044",
+      "log_sha256": "601afe73fe5b6c9ebad4c448ab4dc93d689161b6f36cec488341c0431881c303",
+      "log_bytes": 820,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 31792 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/python-syntax.json",
+      "argv": [
+        "python3",
+        "-m",
+        "compileall",
+        "-q",
+        "scripts",
+        "tests"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1312,
+      "memory_limit_mb": 3072,
+      "seconds": 0.058,
+      "log": "python-syntax.log",
+      "log_sha256": "56daf722e61c02adfc08cbbc33c10f4e021fc1a3dfa07a2df1bb2dc2ada70041",
+      "log_bytes": 148,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 1312 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/suite-dependencies.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "tests/dependencies.test.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 26944,
+      "memory_limit_mb": 3072,
+      "seconds": 0.365,
+      "log": "suite-dependencies.log",
+      "log_sha256": "3fe4be1cea89a131ce33f18b5224b32a78ba358aa467c9261e2b85f690d68e38",
+      "log_bytes": 948,
+      "signals": [
+        " 7 pass",
+        " 26 expect() calls",
+        "ECOSYSTEM PEAK SAMPLED RSS: 26944 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/suite-python.json",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 128272,
+      "memory_limit_mb": 3072,
+      "seconds": 3.47,
+      "log": "suite-python.log",
+      "log_sha256": "c3698a4c82bc2f3aed5414250a809e0ac8f5779ddd8fef6e857ecd438d298306",
+      "log_bytes": 9684,
+      "signals": [
+        "Ran 45 tests in 3.335s",
+        "ECOSYSTEM PEAK SAMPLED RSS: 128272 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/zig-js-before.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/missing.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 272,
+      "memory_limit_mb": 3072,
+      "seconds": 0.147,
+      "log": "zig-js-before.log",
+      "log_sha256": "3fccf17f68863e29959045aceeba9d0dcc2b3897eb12b28c86146fcb85cee57c",
+      "log_bytes": 470,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 272 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    }
+  ],
+  "promotion_policy": "Keep caller on validated functional e8872b0 until exact new suite executes27 decoder groups,3383 Node cases, physical output, all maintained gates/native driver controls, official ZIP/physical baseline+ReleaseSafe provenance and all four actual CPU/provenance preflights. Never promote an evidence-only descendant."
+}
