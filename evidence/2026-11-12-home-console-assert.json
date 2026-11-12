@@ -1,0 +1,1209 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-12T22:35:15.827131+00:00",
+  "status": "Real console assertion diagnostics and UTF16 writer locally validated and pushed; immutable Linux qualification pending",
+  "home_ref": "6f69d21bf42fbde16710ee11454c1d86e55762fc",
+  "home_url": "https://github.com/home-lang/home/commit/6f69d21bf42fbde16710ee11454c1d86e55762fc",
+  "home_tree": "9fa2e9e1478819a132cbbaaccedcb057da046a3e",
+  "before_home_ref": "25947df76590322ef17a89e9c34b1d2a484550b9",
+  "source_files": [
+    {
+      "path": "build.zig",
+      "git_blob": "5beb7258429bb1e34a8a32505d5203c1a29765ae",
+      "sha256": "cf5fa0fbdb1b2918c9b371effca11639b5bd0157f92480861bc507d8822a575f"
+    },
+    {
+      "path": "packages/runtime/src/jsc/console.zig",
+      "git_blob": "6709368c7957a56a957f5691c8391aa4c1c87189",
+      "sha256": "e5e365922975460e535e56282b1d7822235171818e5c4a1d29163e8e9bb5bacc"
+    },
+    {
+      "path": "packages/runtime/src/jsc/tool_console_assert.js",
+      "git_blob": "24c8b15ce4025aa9d4bfabc965c0e07c345b5677",
+      "sha256": "5a2ee9e4d1410e8d08bb025a10661bae988f58845d593fcf7f038fa8a5bc1eaa"
+    },
+    {
+      "path": "packages/runtime/test/CONSOLE_ASSERT_PROFILE.md",
+      "git_blob": "b0a592253519afd4f61df015fe82eb0e26ca4e94",
+      "sha256": "bfc841c16b26c6ae79d58305c42e87320b35456c2ca41dcb34ba05640f8d6bc3"
+    },
+    {
+      "path": "packages/runtime/test/tool_console_assert_fixture.py",
+      "git_blob": "731bdec084675b9b5538a7ffa1e74c11c1d3ab65",
+      "sha256": "cd0a48b752f202dac1c3f682cdf6dac51b5a187e9f3779d7c8de7dedda2fdf5c"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/console_assert.cjs",
+      "git_blob": "997261b79a6a9d4cbb7824c1517ca917ac54d312",
+      "sha256": "65bdf7ccf74b4c91d00f0ee4ef1e3fc960e3423911b14d8bda6554a59dac7885"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/console_assert_oracle.json",
+      "git_blob": "ed452358742403b37777f7263fdb6e56a0e9aba7",
+      "sha256": "1bedd9469ff1e0d46d39f583295b08a55833266a0a71ca924b06531d54d26521"
+    }
+  ],
+  "local_engine_sha": "a7b0fdfd2e9caa6a9e822d911dd8a390e21babf1",
+  "local_archive_sha256": "3b182ee48ac27e763c308b16276e5330e552906f82d82336907f7389ce1b03ed",
+  "local_scope": "Darwin ReleaseSafe with exact pushed archive; distinct from requested Linux5de3a079. Native artifacts were cached; no fresh native-test count is inferred.",
+  "oracle": {
+    "node": "v26.10.0",
+    "cases": 55,
+    "path": "packages/runtime/test/tool_modules/console_assert_oracle.json",
+    "sha256": "1bedd9469ff1e0d46d39f583295b08a55833266a0a71ca924b06531d54d26521",
+    "generation": "Actual Node child processes produce stdout/stderr hex bytes; no hand-authored passing verdict or candidate fallback."
+  },
+  "before_after": "Same55oracle cases: saved zig-js3/55 and JSC1/55; both after Home providers55/55; Node55/55. Bun21/55 remains failed. Actual stderr, stdout, return values, warning dispatch and thrown identities are compared; negative capability tests remain outside implemented-format counts.",
+  "implementation": "True conditions return undefined without message conversion; false ones emit real stderr diagnostics and return undefined as Node. Primitive/JSON printf formatting, bound warning dispatch and captured conversions. Object inspection/%o/%O explicitly unsupported, circular JSON unavailable. No assertion library or test scheduler is supplied.",
+  "utf16_fix": "Actual JSC52/53 prototype dropped the suffix after an unpaired surrogate. Shared native writer now reads complete UTF16 and encodes replacement UTF8, retaining NULs and suffixes. Final55includes direct log/error plus assert byte probes. The52/53 prototype receipts are retained.",
+  "full_local": "zig-js280/280 graph steps; JSC253/278 with21known failures. Both run55physical cases and explicit profile refusals. No new failed-command observations in the bounded saved comparison; no whole-checker/test262 regression claim.",
+  "jsc_failed_command_comparison": {
+    "added": [],
+    "removed": []
+  },
+  "exact_cli": {
+    "version": "2.18.4",
+    "scope": "Unmodified --help only. Both after Home providers actually exit0 with Node-identical nonempty help stdout and empty stderr. Before both fail at missing console.assert. Complete build/test/native-addon/application outcomes remain separate.",
+    "observations": {
+      "node": {
+        "status": "passed",
+        "exit_code": 0,
+        "stdout_bytes": 1359,
+        "stderr_bytes": 0,
+        "stdout_sha256": "697266e6931d3215816724a7eba14a5e4f793a326389ad5bc7b02521d43b43fe",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_exactly_matches_node": true,
+        "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+        "binary_sha256": "600484350350ab7852b577ddf97e7888f498334bef3ca74e73ea3b507a5b6fac",
+        "candidate_argv": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+          "--help"
+        ]
+      },
+      "bun": {
+        "status": "passed",
+        "exit_code": 0,
+        "stdout_bytes": 1359,
+        "stderr_bytes": 0,
+        "stdout_sha256": "697266e6931d3215816724a7eba14a5e4f793a326389ad5bc7b02521d43b43fe",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_exactly_matches_node": true,
+        "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+        "binary_sha256": "6b947fc4b25d640c482e40f253cbb2df692a555ce29c247844b766d8fea16dca",
+        "candidate_argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+          "--help"
+        ]
+      },
+      "before-zig-js": {
+        "status": "failed",
+        "exit_code": 1,
+        "stdout_bytes": 1389,
+        "stderr_bytes": 0,
+        "stdout_sha256": "77ec15d72ab0dfcdf537a7f631520ac0eed27fd9dd75a4505002031e3e2843ef",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_exactly_matches_node": false,
+        "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+        "binary_sha256": "ff2f26401abb07aa3de81299e37f5debd298bdce87b347e628c254f55942a3d1",
+        "candidate_argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-constants-runtime/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+          "--help"
+        ]
+      },
+      "before-jsc": {
+        "status": "failed",
+        "exit_code": 1,
+        "stdout_bytes": 1021,
+        "stderr_bytes": 0,
+        "stdout_sha256": "5133efe7389a1fc9a06e0bfea3336cdc4caf62839921fbc014518841dfba92f9",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_exactly_matches_node": false,
+        "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+        "binary_sha256": "ed2e92f6a18023ffb9e838572b936fd9d0de891193dcdf42a2b45b2461943495",
+        "candidate_argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-constants-runtime/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+          "--help"
+        ]
+      },
+      "zig-js": {
+        "status": "passed",
+        "exit_code": 0,
+        "stdout_bytes": 1359,
+        "stderr_bytes": 0,
+        "stdout_sha256": "697266e6931d3215816724a7eba14a5e4f793a326389ad5bc7b02521d43b43fe",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_exactly_matches_node": true,
+        "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+        "binary_sha256": "dc1a4e95da946bf9cca1097248243257da7320ce740782bb51316538b3efa5fa",
+        "candidate_argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/home-zig-js/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+          "--help"
+        ]
+      },
+      "jsc": {
+        "status": "passed",
+        "exit_code": 0,
+        "stdout_bytes": 1359,
+        "stderr_bytes": 0,
+        "stdout_sha256": "697266e6931d3215816724a7eba14a5e4f793a326389ad5bc7b02521d43b43fe",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_exactly_matches_node": true,
+        "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+        "binary_sha256": "b00f30afa1c5e90da769eacf0f749ecc7fcf9a05dea6f396eaa2863e716cf148",
+        "candidate_argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/home-jsc/bin/home-tool",
+          "run",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+          "--help"
+        ]
+      }
+    }
+  },
+  "preceding_complete_qualification": {
+    "run": 43312894707,
+    "functional_suite": "18655ff6ec393da85b068e33b3e4a5ebc2d965cb",
+    "report_job": 131532328148,
+    "actual_summary": "4/4 consumers reported;4failing,0missing",
+    "report_log_sha256": "c48ea08ad35c4102d8244ca5b7054944a3faebee3ce4216ddd4c3aadd1de7b74",
+    "priority_consumers": [
+      {
+        "repository": "stacksjs/stacks",
+        "source_sha": "4b2e9970dac4eb43b288f615f9beb641867739d1",
+        "engine_sha": "e5baa9bfd65d9c8de96812a94432b4e1331e1a1f",
+        "runtime_provenance": {
+          "engine_sha": "e5baa9bfd65d9c8de96812a94432b4e1331e1a1f",
+          "suite_ref": "18655ff6ec393da85b068e33b3e4a5ebc2d965cb",
+          "home_repository": "home-lang/home",
+          "home_ref": "25947df76590322ef17a89e9c34b1d2a484550b9",
+          "zig_version": "0.18.0-dev.146+35accc06e",
+          "build_cpu": "baseline",
+          "build_optimize": "ReleaseSafe",
+          "sha256": {
+            "home-tool": "f1f23b5bc6deb1969d5f1cced8c0916c36499a2539750e8b1f94e70d82551b5e",
+            "engine/zig-out/lib/libzig-js.a": "46cc42cbc8c7e8794dd7cc84c903c5ed91f87cd0003e2d06a466c6261a9bffca"
+          }
+        },
+        "candidate_counts": {
+          "unsupported": 355,
+          "failed": 182,
+          "passed": 94
+        },
+        "artifact": {
+          "id": 13988978118,
+          "digest": "sha256:d9399f6c893488d8aac2479233fc98ce955a66d6ebb2789773fe2081f94a1b31",
+          "size_in_bytes": 1346012
+        },
+        "report_sha256": "088c2042d5510fe3af6caf9346adf530f4769b8d57a6937f4662c74571cc2e03",
+        "selected_actual_checks": [
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 2574112,
+              "memory_limit_mb": 3072,
+              "seconds": 12.585,
+              "log": "0016.log",
+              "label": ".: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "./buddy build"
+              ],
+              "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate",
+              "engine_invocations": 3
+            },
+            "log_sha256": "333fdc3e5b7fd6820e4dbcf4d7ce2c2e7a16cc10d0e9c62184043caa26f2520c",
+            "actual_log_tail": [
+              "[stx build] Mode: SSG (default \u2014 ssr is false)",
+              "No site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.",
+              "  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,",
+              "  via --domain, or with SITE_URL in the build environment.",
+              "\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts",
+              "[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png",
+              "[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png",
+              "Uncaught unhandledRejection: RangeError: evaluation step budget exceeded",
+              "Failed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate",
+              "",
+              "The frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.",
+              "The error it printed above is the cause - this step only relays its exit status.",
+              "",
+              "Failed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate",
+              "",
+              "ECOSYSTEM PEAK SAMPLED RSS: 2574112 KiB; limit 3072 MiB",
+              "",
+              "ECOSYSTEM RESULT: failed, exit 1"
+            ]
+          },
+          {
+            "check": {
+              "status": "unsupported",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 1455136,
+              "memory_limit_mb": 3072,
+              "seconds": 4.14,
+              "log": "0017.log",
+              "label": ".: test",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "./buddy test"
+              ],
+              "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate",
+              "engine_invocations": 2,
+              "unsupported_reasons": [
+                "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+              ],
+              "reason": "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+            },
+            "log_sha256": "3555e3e1c749630744cdfec26d0787124a5232bd4dfa67e578a38089956177d2",
+            "actual_log_tail": [
+              "$ [\"/bin/sh\", \"-c\", \"./buddy test\"]",
+              "[2026-11-12T21:56:51.472Z] local.INFO: Running   buddy test ",
+              "ECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed",
+              "[2026-11-12T21:56:52.048Z] local.ERROR: Tests failed",
+              "Failed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/test/index.ts --interaction --emoji --cache --verbose --cwd /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate",
+              "Failed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/test/index.ts --interaction --emoji --cache --verbose --cwd /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate",
+              "",
+              "ECOSYSTEM PEAK SAMPLED RSS: 1455136 KiB; limit 3072 MiB",
+              "",
+              "ECOSYSTEM RESULT: failed, exit 1"
+            ]
+          }
+        ]
+      },
+      {
+        "repository": "home-lang/home",
+        "source_sha": "25947df76590322ef17a89e9c34b1d2a484550b9",
+        "engine_sha": "e5baa9bfd65d9c8de96812a94432b4e1331e1a1f",
+        "runtime_provenance": {
+          "engine_sha": "e5baa9bfd65d9c8de96812a94432b4e1331e1a1f",
+          "suite_ref": "18655ff6ec393da85b068e33b3e4a5ebc2d965cb",
+          "home_repository": "home-lang/home",
+          "home_ref": "25947df76590322ef17a89e9c34b1d2a484550b9",
+          "zig_version": "0.18.0-dev.146+35accc06e",
+          "build_cpu": "baseline",
+          "build_optimize": "ReleaseSafe",
+          "sha256": {
+            "home-tool": "f1f23b5bc6deb1969d5f1cced8c0916c36499a2539750e8b1f94e70d82551b5e",
+            "engine/zig-out/lib/libzig-js.a": "46cc42cbc8c7e8794dd7cc84c903c5ed91f87cd0003e2d06a466c6261a9bffca"
+          }
+        },
+        "candidate_counts": {
+          "failed": 41,
+          "unsupported": 37,
+          "passed": 9
+        },
+        "artifact": {
+          "id": 13988448605,
+          "digest": "sha256:5327d2cd3566ca058dab2427110fd9b1ec46ce4b522f39e182f91c088732e0f1",
+          "size_in_bytes": 108176
+        },
+        "report_sha256": "5e58138f5da3d29d1311d17d8a13a7ef23ae366ba47d722d80d1838a1259ba70",
+        "selected_actual_checks": [
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": -9,
+              "peak_sampled_rss_kib": 3154068,
+              "memory_limit_mb": 3072,
+              "seconds": 54.132,
+              "log": "0052.log",
+              "reason": "sampled command tree RSS exceeded 3072 MiB",
+              "label": ".: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bunx bunpress build"
+              ],
+              "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate",
+              "engine_invocations": 1
+            },
+            "log_sha256": "ba7342b575de3ba899a821b9480771b8b3dc745b1e053f861a153cacdea3b54e",
+            "actual_log_tail": [
+              "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]",
+              "  Building documentation...",
+              "",
+              "ECOSYSTEM PEAK SAMPLED RSS: 3154068 KiB; limit 3072 MiB",
+              "ECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB",
+              "",
+              "ECOSYSTEM RESULT: failed, exit -9"
+            ]
+          },
+          {
+            "check": {
+              "status": "unsupported",
+              "exit_code": 78,
+              "peak_sampled_rss_kib": 10292,
+              "memory_limit_mb": 3072,
+              "seconds": 0.071,
+              "log": "0053.log",
+              "label": ".: test",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun test"
+              ],
+              "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate",
+              "engine_invocations": 0,
+              "unsupported_reasons": [
+                "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+              ],
+              "reason": "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+            },
+            "log_sha256": "3c5140d69605a39eb627cc46902f0e005cfa2066eda6dde6d38635b46885621d",
+            "actual_log_tail": [
+              "$ [\"/bin/sh\", \"-c\", \"bun test\"]",
+              "ECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed",
+              "",
+              "ECOSYSTEM PEAK SAMPLED RSS: 10292 KiB; limit 3072 MiB",
+              "",
+              "ECOSYSTEM RESULT: failed, exit 78"
+            ]
+          },
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 136576,
+              "memory_limit_mb": 3072,
+              "seconds": 0.474,
+              "log": "0062.log",
+              "label": "packages/registry: test",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "jest"
+              ],
+              "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/registry",
+              "engine_invocations": 1
+            },
+            "log_sha256": "21b15d51fbe4ca1c3f083b76959bc967a6c0f1f48a93e0a625e9f52ef9a7f0cc",
+            "actual_log_tail": [
+              "$ [\"/bin/sh\", \"-c\", \"jest\"]",
+              "SyntaxError: Unexpected token",
+              "    at <anonymous> (home:tool-module-install:258:7)",
+              "    at evaluateSync (home:tool-module-install:277:7)",
+              "    at load (home:tool-module-install:379:5)",
+              "    at <anonymous> (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/registry/node_modules/%40babel/code-frame/lib/index.js?home-emitted:5:1)",
+              "    at <anonymous> (home:tool-module-install:260:7)",
+              "    at evaluateSync (home:tool-module-install:277:7)",
+              "    at load (home:tool-module-install:379:5)",
+              "    at <anonymous> (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/registry/node_modules/parse-json/index.js?home-emitted:6:1)",
+              "    at <anonymous> (home:tool-module-install:260:7)",
+              "    at evaluateSync (home:tool-module-install:277:7)",
+              "Uncaught unhandledRejection: SyntaxError: Unexpected token",
+              "",
+              "ECOSYSTEM PEAK SAMPLED RSS: 136576 KiB; limit 3072 MiB",
+              "",
+              "ECOSYSTEM RESULT: failed, exit 1"
+            ]
+          },
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 353996,
+              "memory_limit_mb": 3072,
+              "seconds": 0.944,
+              "log": "0079.log",
+              "label": "packages/runtime/upstream/bench/ffi/src: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun run build:napi && bun run build:ffi"
+              ],
+              "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/ffi/src",
+              "engine_invocations": 1
+            },
+            "log_sha256": "cf40f4cf69f8bf2d13bb137d3716f941fc5cec58ebfa2b7af6c2b8837e682db3",
+            "actual_log_tail": [
+              "$ [\"/bin/sh\", \"-c\", \"bun run build:napi && bun run build:ffi\"]",
+              "home-tool (zig-js): Error: cannot resolve module http from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/ffi/src/node_modules/@napi-rs/cli/scripts/index.js",
+              "",
+              "ECOSYSTEM PEAK SAMPLED RSS: 353996 KiB; limit 3072 MiB",
+              "",
+              "ECOSYSTEM RESULT: failed, exit 1"
+            ]
+          },
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 261388,
+              "memory_limit_mb": 3072,
+              "seconds": 0.614,
+              "log": "0097.log",
+              "label": "packages/runtime/upstream/packages/bun-build-mdx-rs: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "napi build --platform --release"
+              ],
+              "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs",
+              "engine_invocations": 1
+            },
+            "log_sha256": "ccc115f3f19426679aa6dc924c9941ad14c1dcfed61fe7f1224d29a0adbc9641",
+            "actual_log_tail": [
+              "$ [\"/bin/sh\", \"-c\", \"napi build --platform --release\"]",
+              "\u001b[31m\u001b[1mType Error\u001b[22m\u001b[39m: console.assert is not a function. (In 'console.assert(nodeDef.shortcuts.length === 0, `Shortcuts should have been eliminated by now`)', 'console.assert' is undefined)",
+              "    at runMachineInternal (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:1667:7)",
+              "    at runMachine (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:1804:3)",
+              "    at process (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:2364:5)",
+              "    at run (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:2404:9)",
+              "    at <anonymous> (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:29414:1)",
+              "    at <anonymous> (home:tool-module-install:260:7)",
+              "    at evaluateSync (home:tool-module-install:277:7)",
+              "    at <anonymous> (home:tool-module-install:387:7)",
+              "    at <global> (/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/@napi-rs/cli/scripts/index.js:1:1)",
+              "",
+              "ECOSYSTEM PEAK SAMPLED RSS: 261388 KiB; limit 3072 MiB",
+              "",
+              "ECOSYSTEM RESULT: failed, exit 1"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "receipts": {
+    "suite-python": {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 130496,
+      "memory_limit_mb": 3072,
+      "seconds": 4.207,
+      "log": "suite-python.log",
+      "log_sha256": "57975347a4463bb95bcbc4fc4241a769cd1c8043a4148a9e32482839b0b1c4dc",
+      "actual_signals": [
+        "Ran 45 tests in 4.033s",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "zig-fmt": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "fmt",
+        "--check",
+        "build.zig",
+        "packages/runtime/src/jsc/console.zig"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 9360,
+      "memory_limit_mb": 3072,
+      "seconds": 0.04,
+      "log": "zig-fmt.log",
+      "log_sha256": "dee6076dc67dbf33150a1c305912daf1000c54351fadba86baa1aa39253ebc5c",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "before-node": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/before.cjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1552,
+      "memory_limit_mb": 3072,
+      "seconds": 0.047,
+      "log": "before-node.log",
+      "log_sha256": "5b4c9ef94b0e1cb1dec8b325d08a26403a452d5bd8283db01d412fdca8c5e3c5",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "prototype-53-full-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1167872,
+      "memory_limit_mb": 3072,
+      "seconds": 59.303,
+      "log": "full-zig-js.log",
+      "log_sha256": "d9df869703f9d4c2c6011ca02490007c14730030a13c5e84f3d204f89a3c4145",
+      "actual_signals": [
+        "CONSOLE ASSERT PHYSICAL RESULTS {\"node\": \"v26.10.0\", \"cases\": 55, \"passed\": 55, \"failures\": []}",
+        "HOME CONSOLE ASSERT PROFILE 6 INSPECTION REFUSALS; CIRCULAR JSON UNAVAILABLE",
+        "NATIVE CONSOLE ASSERT STDERR BYTES, RETURN VALUES AND WARN DISPATCH VERIFIED",
+        "Build Summary: 280/280 steps succeeded",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "prototype-53-full-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1112480,
+      "memory_limit_mb": 3072,
+      "seconds": 44.115,
+      "log": "full-jsc.log",
+      "log_sha256": "8ff8f19c6a2d4c5871bdbfb45a5eb46005259488fd5e59225f6648267b960806",
+      "actual_signals": [
+        "CONSOLE ASSERT PHYSICAL RESULTS {\"node\": \"v26.10.0\", \"cases\": 55, \"passed\": 55, \"failures\": []}",
+        "HOME CONSOLE ASSERT PROFILE 6 INSPECTION REFUSALS; CIRCULAR JSON UNAVAILABLE",
+        "NATIVE CONSOLE ASSERT STDERR BYTES, RETURN VALUES AND WARN DISPATCH VERIFIED",
+        "Build Summary: 253/278 steps succeeded (21 failed)",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "prototype-53-cli-unmodified-jsc": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/cli-capture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/cli-unmodified-jsc",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "candidate_argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "binary_sha256": "ae34b05a5d0dc73168651f02b8f91d11ad7491c071c736700dbcdee0c97ebc1f",
+      "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 37536,
+      "memory_limit_mb": 3072,
+      "seconds": 0.266,
+      "log": "cli-unmodified-jsc.log",
+      "log_sha256": "214301f065156c04c88fae46893a91b646094fab6a2cf1df0bba8b6808401bbd",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "cli-unmodified-bun": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/cli-capture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/cli-unmodified-bun",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "candidate_argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "binary_sha256": "6b947fc4b25d640c482e40f253cbb2df692a555ce29c247844b766d8fea16dca",
+      "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6832,
+      "memory_limit_mb": 3072,
+      "seconds": 0.125,
+      "log": "cli-unmodified-bun.log",
+      "log_sha256": "a940330565a05b696d666ba3e82e6e93b315da21c2aa88a8aac8691a4447301a",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "cli-unmodified-before-jsc": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/cli-capture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/cli-unmodified-before-jsc",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-constants-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "candidate_argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-constants-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "binary_sha256": "ed2e92f6a18023ffb9e838572b936fd9d0de891193dcdf42a2b45b2461943495",
+      "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 56944,
+      "memory_limit_mb": 3072,
+      "seconds": 0.219,
+      "log": "cli-unmodified-before-jsc.log",
+      "log_sha256": "f2926740ef4dbe7138b0ea26494b9271368699bdc5473a24dad27ac5e4a9095a",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "fixture-before-zig-js": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_console_assert_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-constants-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/console_assert.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 50544,
+      "memory_limit_mb": 3072,
+      "seconds": 1.33,
+      "log": "fixture-before-zig-js.log",
+      "log_sha256": "d2b95d5db50e1e127b5f788a1cc0b1b267e4a8707f5927ae50cd986c17d5accb",
+      "actual_signals": [
+        "CONSOLE ASSERT PHYSICAL RESULTS {\"node\": \"v26.10.0\", \"cases\": 55, \"passed\": 3, \"failures\": [{\"name\": \"surface\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a204572726f723a20436f6e736f6c6520617373657274696f6e207769746e657373206661696c65640a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"no_arguments\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"false_value\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"zero\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"negative_zero\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"nan\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"empty_condition\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"null_condition\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"undefined_condition\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"bigint_zero\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"truthy_boolean\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_number\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_string\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_bigint\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_symbol\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_object\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_boxed_false\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"empty_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a200a\"}, {\"name\": \"literal\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206c69746572616c206661696c7572650a\"}, {\"name\": \"unicode\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20e282acf09f98800a\"}, {\"name\": \"nul\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206265666f72650061667465720a\"}, {\"name\": \"unpaired_surrogate\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206265666f7265efbfbd61667465720a\"}, {\"name\": \"multiline\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2066697273740a7365636f6e640d0a74686972640a\"}, {\"name\": \"undefined_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c656420756e646566696e65640a\"}, {\"name\": \"null_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c6564206e756c6c0a\"}, {\"name\": \"boolean_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65642066616c73650a\"}, {\"name\": \"number_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65642034320a\"}, {\"name\": \"negative_zero_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c6564202d300a\"}, {\"name\": \"bigint_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c656420376e0a\"}, {\"name\": \"symbol_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65642053796d626f6c286d657373616765290a\"}, {\"name\": \"extra_primitives\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206d657373616765202d3020376e2053796d626f6c28782920756e646566696e6564206e756c6c20747275650a\"}, {\"name\": \"string_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2076616c756520746578740a\"}, {\"name\": \"primitive_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20376e7c53796d626f6c2878297c2d307c6e756c6c0a\"}, {\"name\": \"number_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20322e357c327c322e350a\"}, {\"name\": \"nonfinite_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20496e66696e6974797c4e614e7c496e66696e6974790a\"}, {\"name\": \"negative_zero_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a202d307c2d307c307c300a\"}, {\"name\": \"bigint_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20376e7c376e7c376e7c370a\"}, {\"name\": \"symbol_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2053796d626f6c2878297c4e614e7c4e614e7c4e614e0a\"}, {\"name\": \"json_object\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207b2261223a312c2262223a22e282ac227d0a\"}, {\"name\": \"json_undefined\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20756e646566696e65640a\"}, {\"name\": \"json_hook\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207b2261637475616c223a317d0a\"}, {\"name\": \"json_throw_identity\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a204572726f723a20436f6e736f6c6520617373657274696f6e207769746e657373206661696c65640a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"ignored_style\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207374796c65640a\"}, {\"name\": \"percent_without_args\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2025250a\"}, {\"name\": \"percent_with_args\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a202520370a\"}, {\"name\": \"unknown_format\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20756e6b6e6f776e202571207468656e20372065787472610a\"}, {\"name\": \"missing_format_args\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207820256420250a\"}, {\"name\": \"detached\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20756e646566696e6564206973206e6f7420616e206f626a65637420286576616c756174696e672027666e2e63616c6c27290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2064657461636865640a\"}, {\"name\": \"warn_override\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"warn_getter_throw\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"poisoned_conversions\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20376e7c322e357c327c322e350a\"}, {\"name\": \"replaced_global\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20666e206973206e6f7420612066756e6374696f6e2e2028496e2027666e2866616c73652c20226f726967696e616c20636f6e736f6c652229272c2027666e2720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206f726967696e616c20636f6e736f6c650a\"}]}",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "prototype-53-cli-unmodified-zig-js": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/cli-capture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/cli-unmodified-zig-js",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "candidate_argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "binary_sha256": "41af15ece61526ac430c7ba73cd00eb9241f77f04c9223311655861958e13377",
+      "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 194864,
+      "memory_limit_mb": 3072,
+      "seconds": 0.403,
+      "log": "cli-unmodified-zig-js.log",
+      "log_sha256": "a5e0d4808dcacaa5d0327c005e01bd384ce017a7cd03d527f6c869fa0f7fc7fd",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "cli-unmodified-before-zig-js": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/cli-capture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/cli-unmodified-before-zig-js",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-constants-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "candidate_argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-constants-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "binary_sha256": "ff2f26401abb07aa3de81299e37f5debd298bdce87b347e628c254f55942a3d1",
+      "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 268384,
+      "memory_limit_mb": 3072,
+      "seconds": 0.438,
+      "log": "cli-unmodified-before-zig-js.log",
+      "log_sha256": "b606472e37dbe418cb98c05242f720ae81cd7885c6670bcebbaf5386de973cdc",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "cli-unmodified-jsc": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/cli-capture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/cli-unmodified-jsc",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "candidate_argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "binary_sha256": "b00f30afa1c5e90da769eacf0f749ecc7fcf9a05dea6f396eaa2863e716cf148",
+      "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 37600,
+      "memory_limit_mb": 3072,
+      "seconds": 0.251,
+      "log": "cli-unmodified-jsc.log",
+      "log_sha256": "214301f065156c04c88fae46893a91b646094fab6a2cf1df0bba8b6808401bbd",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "cli-unmodified-node": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/cli-capture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/cli-unmodified-node",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "candidate_argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "binary_sha256": "600484350350ab7852b577ddf97e7888f498334bef3ca74e73ea3b507a5b6fac",
+      "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 107712,
+      "memory_limit_mb": 3072,
+      "seconds": 0.311,
+      "log": "cli-unmodified-node.log",
+      "log_sha256": "d9ee72f6b9cda609cbd6e75cc1877b732b2cf4f219af8a00f1715b80ca463edf",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "prototype-53-fixture-bun": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_console_assert_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/console_assert.cjs",
+        "--node"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 23024,
+      "memory_limit_mb": 3072,
+      "seconds": 0.761,
+      "log": "fixture-bun.log",
+      "log_sha256": "6020e179350e62e12f6f47c5a7ffbf0617982de01f9dd80e99d8e9c8d083e5b4",
+      "actual_signals": [
+        "CONSOLE ASSERT PHYSICAL RESULTS {\"node\": \"v26.10.0\", \"cases\": 55, \"passed\": 21, \"failures\": [{\"name\": \"empty_message\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"0a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a200a\"}, {\"name\": \"literal\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"6c69746572616c206661696c7572650a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206c69746572616c206661696c7572650a\"}, {\"name\": \"unicode\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"e282acf09f98800a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20e282acf09f98800a\"}, {\"name\": \"nul\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"6265666f72650061667465720a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206265666f72650061667465720a\"}, {\"name\": \"unpaired_surrogate\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"6265666f7265efbfbd61667465720a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206265666f7265efbfbd61667465720a\"}, {\"name\": \"multiline\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"66697273740a7365636f6e640d0a74686972640a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2066697273740a7365636f6e640d0a74686972640a\"}, {\"name\": \"undefined_message\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"756e646566696e65640a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c656420756e646566696e65640a\"}, {\"name\": \"null_message\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"6e756c6c0a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c6564206e756c6c0a\"}, {\"name\": \"boolean_message\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"66616c73650a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65642066616c73650a\"}, {\"name\": \"number_message\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"34320a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65642034320a\"}, {\"name\": \"negative_zero_message\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"2d300a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c6564202d300a\"}, {\"name\": \"bigint_message\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"376e0a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c656420376e0a\"}, {\"name\": \"symbol_message\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"53796d626f6c286d657373616765290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65642053796d626f6c286d657373616765290a\"}, {\"name\": \"extra_primitives\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"6d657373616765202d3020376e2053796d626f6c28782920756e646566696e6564206e756c6c20747275650a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206d657373616765202d3020376e2053796d626f6c28782920756e646566696e6564206e756c6c20747275650a\"}, {\"name\": \"string_substitution\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"76616c756520746578740a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2076616c756520746578740a\"}, {\"name\": \"primitive_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"377c31207c20636f6e7374206f7574707574203d20636f6e736f6c652e6c6f672e62696e6428636f6e736f6c65293b0a32207c2066756e6374696f6e20636865636b2876616c756529207b20696620282176616c756529207468726f77206e6577204572726f722827436f6e736f6c6520617373657274696f6e207769746e657373206661696c656427293b207d0a33207c2066756e6374696f6e20617373657274696f6e282e2e2e6172677329207b20636865636b28636f6e736f6c652e617373657274282e2e2e6172677329203d3d3d20756e646566696e6564293b207d0a2020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020205e0a547970654572726f723a2043616e6e6f7420636f6e7665727420612073796d626f6c20746f206120737472696e670a202020202020617420617373657274696f6e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a333a3435290a2020202020206174207072696d69746976655f737562737469747574696f6e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a33393a3330290a2020202020206174203c616e6f6e796d6f75733e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a37333a39290a0a42756e2076312e342e3420286d61634f532061726d3634290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20376e7c53796d626f6c2878297c2d307c6e756c6c0a\"}, {\"name\": \"number_substitution\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"327c327c322e350a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20322e357c327c322e350a\"}, {\"name\": \"nonfinite_substitution\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"4e614e7c4e614e7c496e66696e6974790a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20496e66696e6974797c4e614e7c496e66696e6974790a\"}, {\"name\": \"negative_zero_substitution\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"307c307c307c300a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a202d307c2d307c307c300a\"}, {\"name\": \"bigint_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"377c31207c20636f6e7374206f7574707574203d20636f6e736f6c652e6c6f672e62696e6428636f6e736f6c65293b0a32207c2066756e6374696f6e20636865636b2876616c756529207b20696620282176616c756529207468726f77206e6577204572726f722827436f6e736f6c6520617373657274696f6e207769746e657373206661696c656427293b207d0a33207c2066756e6374696f6e20617373657274696f6e282e2e2e6172677329207b20636865636b28636f6e736f6c652e617373657274282e2e2e6172677329203d3d3d20756e646566696e6564293b207d0a2020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020205e0a547970654572726f723a20436f6e76657273696f6e2066726f6d2027426967496e742720746f20276e756d62657227206973206e6f7420616c6c6f7765642e0a202020202020617420617373657274696f6e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a333a3435290a202020202020617420626967696e745f737562737469747574696f6e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a34333a3237290a2020202020206174203c616e6f6e796d6f75733e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a37333a39290a0a42756e2076312e342e3420286d61634f532061726d3634290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20376e7c376e7c376e7c370a\"}, {\"name\": \"symbol_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"31207c20636f6e7374206f7574707574203d20636f6e736f6c652e6c6f672e62696e6428636f6e736f6c65293b0a32207c2066756e6374696f6e20636865636b2876616c756529207b20696620282176616c756529207468726f77206e6577204572726f722827436f6e736f6c6520617373657274696f6e207769746e657373206661696c656427293b207d0a33207c2066756e6374696f6e20617373657274696f6e282e2e2e6172677329207b20636865636b28636f6e736f6c652e617373657274282e2e2e6172677329203d3d3d20756e646566696e6564293b207d0a2020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020205e0a547970654572726f723a2043616e6e6f7420636f6e7665727420612073796d626f6c20746f206120737472696e670a202020202020617420617373657274696f6e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a333a3435290a20202020202061742073796d626f6c5f737562737469747574696f6e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a34343a3237290a2020202020206174203c616e6f6e796d6f75733e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a37333a39290a0a42756e2076312e342e3420286d61634f532061726d3634290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2053796d626f6c2878297c4e614e7c4e614e7c4e614e0a\"}, {\"name\": \"json_object\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"7b2261223a312c2262223a22e282ac227d0a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207b2261223a312c2262223a22e282ac227d0a\"}, {\"name\": \"json_undefined\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"0a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20756e646566696e65640a\"}, {\"name\": \"json_hook\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"7b2261637475616c223a317d0a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207b2261637475616c223a317d0a\"}, {\"name\": \"ignored_style\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"7374796c65640a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207374796c65640a\"}, {\"name\": \"percent_without_args\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"25250a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2025250a\"}, {\"name\": \"percent_with_args\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"2520370a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a202520370a\"}, {\"name\": \"unknown_format\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"756e6b6e6f776e202571207468656e20372065787472610a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20756e6b6e6f776e202571207468656e20372065787472610a\"}, {\"name\": \"missing_format_args\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"782025642025250a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207820256420250a\"}, {\"name\": \"detached\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"64657461636865640a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2064657461636865640a\"}, {\"name\": \"warn_override\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"726177205b6f626a656374204f626a6563745d0a31207c20636f6e7374206f7574707574203d20636f6e736f6c652e6c6f672e62696e6428636f6e736f6c65293b0a32207c2066756e6374696f6e20636865636b2876616c756529207b20696620282176616c756529207468726f77206e6577204572726f722827436f6e736f6c6520617373657274696f6e207769746e657373206661696c656427293b207d0a20202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020205e0a6572726f723a20436f6e736f6c6520617373657274696f6e207769746e657373206661696c65640a202020202020617420636865636b20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a323a3437290a2020202020206174207761726e5f6f7665727269646520282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a35363a323632290a2020202020206174203c616e6f6e796d6f75733e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a37333a39290a0a42756e2076312e342e3420286d61634f532061726d3634290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"warn_getter_throw\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"780a31207c20636f6e7374206f7574707574203d20636f6e736f6c652e6c6f672e62696e6428636f6e736f6c65293b0a32207c2066756e6374696f6e20636865636b2876616c756529207b20696620282176616c756529207468726f77206e6577204572726f722827436f6e736f6c6520617373657274696f6e207769746e657373206661696c656427293b207d0a20202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020205e0a6572726f723a20436f6e736f6c6520617373657274696f6e207769746e657373206661696c65640a202020202020617420636865636b20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a323a3437290a2020202020206174207761726e5f6765747465725f7468726f7720282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a35373a323930290a2020202020206174203c616e6f6e796d6f75733e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a37333a39290a0a42756e2076312e342e3420286d61634f532061726d3634290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"poisoned_conversions\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"377c327c327c322e350a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20376e7c322e357c327c322e350a\"}, {\"name\": \"replaced_global\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"6f726967696e616c20636f6e736f6c650a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206f726967696e616c20636f6e736f6c650a\"}]}",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "suite-dependencies": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "tests/dependencies.test.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32000,
+      "memory_limit_mb": 3072,
+      "seconds": 0.466,
+      "log": "suite-dependencies.log",
+      "log_sha256": "40763e4b04823c3f39ffacb374d4082529ebdafc0c3a5b7f58e3528dd9ca8013",
+      "actual_signals": [
+        " 7 pass",
+        " 26 expect() calls",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "prototype-53-fixture-before-jsc": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_console_assert_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-constants-runtime/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/console_assert.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 30448,
+      "memory_limit_mb": 3072,
+      "seconds": 0.833,
+      "log": "fixture-before-jsc.log",
+      "log_sha256": "92e8b7367c516d830f2f2264a3869044b24100dae3a77f56abc35125d9a359d0",
+      "actual_signals": [
+        "CONSOLE ASSERT PHYSICAL RESULTS {\"node\": \"v26.10.0\", \"cases\": 55, \"passed\": 1, \"failures\": [{\"name\": \"surface\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a204572726f723a20436f6e736f6c6520617373657274696f6e207769746e657373206661696c65640a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"no_arguments\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"false_value\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"zero\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"negative_zero\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"nan\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"empty_condition\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"null_condition\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"undefined_condition\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"bigint_zero\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"truthy_boolean\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_number\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_string\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_bigint\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_symbol\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_object\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_boxed_false\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"empty_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a200a\"}, {\"name\": \"literal\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206c69746572616c206661696c7572650a\"}, {\"name\": \"unicode\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20e282acf09f98800a\"}, {\"name\": \"nul\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206265666f72650061667465720a\"}, {\"name\": \"native_log_unpaired\", \"exit\": 0, \"stdout_hex\": \"6265666f72650a4f4b0a\", \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"native_error_unpaired\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"6265666f72650a\", \"expected_stderr_hex\": \"6265666f7265efbfbd61667465720a\"}, {\"name\": \"unpaired_surrogate\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206265666f7265efbfbd61667465720a\"}, {\"name\": \"multiline\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2066697273740a7365636f6e640d0a74686972640a\"}, {\"name\": \"undefined_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c656420756e646566696e65640a\"}, {\"name\": \"null_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c6564206e756c6c0a\"}, {\"name\": \"boolean_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65642066616c73650a\"}, {\"name\": \"number_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65642034320a\"}, {\"name\": \"negative_zero_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c6564202d300a\"}, {\"name\": \"bigint_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c656420376e0a\"}, {\"name\": \"symbol_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65642053796d626f6c286d657373616765290a\"}, {\"name\": \"extra_primitives\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206d657373616765202d3020376e2053796d626f6c28782920756e646566696e6564206e756c6c20747275650a\"}, {\"name\": \"string_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2076616c756520746578740a\"}, {\"name\": \"primitive_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20376e7c53796d626f6c2878297c2d307c6e756c6c0a\"}, {\"name\": \"number_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20322e357c327c322e350a\"}, {\"name\": \"nonfinite_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20496e66696e6974797c4e614e7c496e66696e6974790a\"}, {\"name\": \"negative_zero_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a202d307c2d307c307c300a\"}, {\"name\": \"bigint_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20376e7c376e7c376e7c370a\"}, {\"name\": \"symbol_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2053796d626f6c2878297c4e614e7c4e614e7c4e614e0a\"}, {\"name\": \"json_object\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207b2261223a312c2262223a22e282ac227d0a\"}, {\"name\": \"json_undefined\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20756e646566696e65640a\"}, {\"name\": \"json_hook\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207b2261637475616c223a317d0a\"}, {\"name\": \"json_throw_identity\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a204572726f723a20436f6e736f6c6520617373657274696f6e207769746e657373206661696c65640a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"ignored_style\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207374796c65640a\"}, {\"name\": \"percent_without_args\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2025250a\"}, {\"name\": \"percent_with_args\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a202520370a\"}, {\"name\": \"unknown_format\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20756e6b6e6f776e202571207468656e20372065787472610a\"}, {\"name\": \"missing_format_args\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207820256420250a\"}, {\"name\": \"detached\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20756e646566696e6564206973206e6f7420616e206f626a65637420286576616c756174696e672027666e2e63616c6c27290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2064657461636865640a\"}, {\"name\": \"warn_override\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"warn_getter_throw\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"poisoned_conversions\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20376e7c322e357c327c322e350a\"}, {\"name\": \"replaced_global\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20666e206973206e6f7420612066756e6374696f6e2e2028496e2027666e2866616c73652c20226f726967696e616c20636f6e736f6c652229272c2027666e2720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206f726967696e616c20636f6e736f6c650a\"}]}",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "fixture-node": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_console_assert_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/console_assert.cjs",
+        "--node"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 68016,
+      "memory_limit_mb": 3072,
+      "seconds": 2.014,
+      "log": "fixture-node.log",
+      "log_sha256": "12da2880b504876ab868d2a43ca6ba445d3ec11638180ddb308bcba2e98ff3a1",
+      "actual_signals": [
+        "CONSOLE ASSERT PHYSICAL RESULTS {\"node\": \"v26.10.0\", \"cases\": 55, \"passed\": 55, \"failures\": []}",
+        "NATIVE CONSOLE ASSERT STDERR BYTES, RETURN VALUES AND WARN DISPATCH VERIFIED",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "fixture-bun": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_console_assert_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/console_assert.cjs",
+        "--node"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 26032,
+      "memory_limit_mb": 3072,
+      "seconds": 0.76,
+      "log": "fixture-bun.log",
+      "log_sha256": "6020e179350e62e12f6f47c5a7ffbf0617982de01f9dd80e99d8e9c8d083e5b4",
+      "actual_signals": [
+        "CONSOLE ASSERT PHYSICAL RESULTS {\"node\": \"v26.10.0\", \"cases\": 55, \"passed\": 21, \"failures\": [{\"name\": \"empty_message\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"0a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a200a\"}, {\"name\": \"literal\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"6c69746572616c206661696c7572650a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206c69746572616c206661696c7572650a\"}, {\"name\": \"unicode\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"e282acf09f98800a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20e282acf09f98800a\"}, {\"name\": \"nul\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"6265666f72650061667465720a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206265666f72650061667465720a\"}, {\"name\": \"unpaired_surrogate\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"6265666f7265efbfbd61667465720a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206265666f7265efbfbd61667465720a\"}, {\"name\": \"multiline\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"66697273740a7365636f6e640d0a74686972640a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2066697273740a7365636f6e640d0a74686972640a\"}, {\"name\": \"undefined_message\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"756e646566696e65640a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c656420756e646566696e65640a\"}, {\"name\": \"null_message\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"6e756c6c0a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c6564206e756c6c0a\"}, {\"name\": \"boolean_message\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"66616c73650a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65642066616c73650a\"}, {\"name\": \"number_message\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"34320a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65642034320a\"}, {\"name\": \"negative_zero_message\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"2d300a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c6564202d300a\"}, {\"name\": \"bigint_message\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"376e0a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c656420376e0a\"}, {\"name\": \"symbol_message\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"53796d626f6c286d657373616765290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65642053796d626f6c286d657373616765290a\"}, {\"name\": \"extra_primitives\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"6d657373616765202d3020376e2053796d626f6c28782920756e646566696e6564206e756c6c20747275650a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206d657373616765202d3020376e2053796d626f6c28782920756e646566696e6564206e756c6c20747275650a\"}, {\"name\": \"string_substitution\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"76616c756520746578740a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2076616c756520746578740a\"}, {\"name\": \"primitive_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"377c31207c20636f6e7374206f7574707574203d20636f6e736f6c652e6c6f672e62696e6428636f6e736f6c65293b0a32207c2066756e6374696f6e20636865636b2876616c756529207b20696620282176616c756529207468726f77206e6577204572726f722827436f6e736f6c6520617373657274696f6e207769746e657373206661696c656427293b207d0a33207c2066756e6374696f6e20617373657274696f6e282e2e2e6172677329207b20636865636b28636f6e736f6c652e617373657274282e2e2e6172677329203d3d3d20756e646566696e6564293b207d0a2020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020205e0a547970654572726f723a2043616e6e6f7420636f6e7665727420612073796d626f6c20746f206120737472696e670a202020202020617420617373657274696f6e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a333a3435290a2020202020206174207072696d69746976655f737562737469747574696f6e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a33393a3330290a2020202020206174203c616e6f6e796d6f75733e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a37333a39290a0a42756e2076312e342e3420286d61634f532061726d3634290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20376e7c53796d626f6c2878297c2d307c6e756c6c0a\"}, {\"name\": \"number_substitution\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"327c327c322e350a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20322e357c327c322e350a\"}, {\"name\": \"nonfinite_substitution\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"4e614e7c4e614e7c496e66696e6974790a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20496e66696e6974797c4e614e7c496e66696e6974790a\"}, {\"name\": \"negative_zero_substitution\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"307c307c307c300a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a202d307c2d307c307c300a\"}, {\"name\": \"bigint_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"377c31207c20636f6e7374206f7574707574203d20636f6e736f6c652e6c6f672e62696e6428636f6e736f6c65293b0a32207c2066756e6374696f6e20636865636b2876616c756529207b20696620282176616c756529207468726f77206e6577204572726f722827436f6e736f6c6520617373657274696f6e207769746e657373206661696c656427293b207d0a33207c2066756e6374696f6e20617373657274696f6e282e2e2e6172677329207b20636865636b28636f6e736f6c652e617373657274282e2e2e6172677329203d3d3d20756e646566696e6564293b207d0a2020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020205e0a547970654572726f723a20436f6e76657273696f6e2066726f6d2027426967496e742720746f20276e756d62657227206973206e6f7420616c6c6f7765642e0a202020202020617420617373657274696f6e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a333a3435290a202020202020617420626967696e745f737562737469747574696f6e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a34333a3237290a2020202020206174203c616e6f6e796d6f75733e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a37333a39290a0a42756e2076312e342e3420286d61634f532061726d3634290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20376e7c376e7c376e7c370a\"}, {\"name\": \"symbol_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"31207c20636f6e7374206f7574707574203d20636f6e736f6c652e6c6f672e62696e6428636f6e736f6c65293b0a32207c2066756e6374696f6e20636865636b2876616c756529207b20696620282176616c756529207468726f77206e6577204572726f722827436f6e736f6c6520617373657274696f6e207769746e657373206661696c656427293b207d0a33207c2066756e6374696f6e20617373657274696f6e282e2e2e6172677329207b20636865636b28636f6e736f6c652e617373657274282e2e2e6172677329203d3d3d20756e646566696e6564293b207d0a2020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020205e0a547970654572726f723a2043616e6e6f7420636f6e7665727420612073796d626f6c20746f206120737472696e670a202020202020617420617373657274696f6e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a333a3435290a20202020202061742073796d626f6c5f737562737469747574696f6e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a34343a3237290a2020202020206174203c616e6f6e796d6f75733e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a37333a39290a0a42756e2076312e342e3420286d61634f532061726d3634290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2053796d626f6c2878297c4e614e7c4e614e7c4e614e0a\"}, {\"name\": \"json_object\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"7b2261223a312c2262223a22e282ac227d0a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207b2261223a312c2262223a22e282ac227d0a\"}, {\"name\": \"json_undefined\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"0a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20756e646566696e65640a\"}, {\"name\": \"json_hook\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"7b2261637475616c223a317d0a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207b2261637475616c223a317d0a\"}, {\"name\": \"ignored_style\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"7374796c65640a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207374796c65640a\"}, {\"name\": \"percent_without_args\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"25250a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2025250a\"}, {\"name\": \"percent_with_args\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"2520370a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a202520370a\"}, {\"name\": \"unknown_format\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"756e6b6e6f776e202571207468656e20372065787472610a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20756e6b6e6f776e202571207468656e20372065787472610a\"}, {\"name\": \"missing_format_args\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"782025642025250a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207820256420250a\"}, {\"name\": \"detached\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"64657461636865640a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2064657461636865640a\"}, {\"name\": \"warn_override\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"726177205b6f626a656374204f626a6563745d0a31207c20636f6e7374206f7574707574203d20636f6e736f6c652e6c6f672e62696e6428636f6e736f6c65293b0a32207c2066756e6374696f6e20636865636b2876616c756529207b20696620282176616c756529207468726f77206e6577204572726f722827436f6e736f6c6520617373657274696f6e207769746e657373206661696c656427293b207d0a20202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020205e0a6572726f723a20436f6e736f6c6520617373657274696f6e207769746e657373206661696c65640a202020202020617420636865636b20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a323a3437290a2020202020206174207761726e5f6f7665727269646520282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a35363a323632290a2020202020206174203c616e6f6e796d6f75733e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a37333a39290a0a42756e2076312e342e3420286d61634f532061726d3634290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"warn_getter_throw\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"780a31207c20636f6e7374206f7574707574203d20636f6e736f6c652e6c6f672e62696e6428636f6e736f6c65293b0a32207c2066756e6374696f6e20636865636b2876616c756529207b20696620282176616c756529207468726f77206e6577204572726f722827436f6e736f6c6520617373657274696f6e207769746e657373206661696c656427293b207d0a20202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020205e0a6572726f723a20436f6e736f6c6520617373657274696f6e207769746e657373206661696c65640a202020202020617420636865636b20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a323a3437290a2020202020206174207761726e5f6765747465725f7468726f7720282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a35373a323930290a2020202020206174203c616e6f6e796d6f75733e20282f55736572732f63687269732f436f64652f486f6d652f7a69672d6a732d65636f73797374656d2d686f6d652f7061636b616765732f72756e74696d652f746573742f746f6f6c5f6d6f64756c65732f636f6e736f6c655f6173736572742e636a733a37333a39290a0a42756e2076312e342e3420286d61634f532061726d3634290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"poisoned_conversions\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"377c327c327c322e350a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20376e7c322e357c327c322e350a\"}, {\"name\": \"replaced_global\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"6f726967696e616c20636f6e736f6c650a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206f726967696e616c20636f6e736f6c650a\"}]}",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "prototype-53-fixture-node": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_console_assert_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/console_assert.cjs",
+        "--node"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 68000,
+      "memory_limit_mb": 3072,
+      "seconds": 1.999,
+      "log": "fixture-node.log",
+      "log_sha256": "12da2880b504876ab868d2a43ca6ba445d3ec11638180ddb308bcba2e98ff3a1",
+      "actual_signals": [
+        "CONSOLE ASSERT PHYSICAL RESULTS {\"node\": \"v26.10.0\", \"cases\": 55, \"passed\": 55, \"failures\": []}",
+        "NATIVE CONSOLE ASSERT STDERR BYTES, RETURN VALUES AND WARN DISPATCH VERIFIED",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "cli-unmodified-zig-js": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/cli-capture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/cli-unmodified-zig-js",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "candidate_argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "binary_sha256": "dc1a4e95da946bf9cca1097248243257da7320ce740782bb51316538b3efa5fa",
+      "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 214176,
+      "memory_limit_mb": 3072,
+      "seconds": 0.346,
+      "log": "cli-unmodified-zig-js.log",
+      "log_sha256": "a5e0d4808dcacaa5d0327c005e01bd384ce017a7cd03d527f6c869fa0f7fc7fd",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "full-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1234064,
+      "memory_limit_mb": 3072,
+      "seconds": 45.804,
+      "log": "full-jsc.log",
+      "log_sha256": "8ff8f19c6a2d4c5871bdbfb45a5eb46005259488fd5e59225f6648267b960806",
+      "actual_signals": [
+        "CONSOLE ASSERT PHYSICAL RESULTS {\"node\": \"v26.10.0\", \"cases\": 55, \"passed\": 55, \"failures\": []}",
+        "HOME CONSOLE ASSERT PROFILE 6 INSPECTION REFUSALS; CIRCULAR JSON UNAVAILABLE",
+        "NATIVE CONSOLE ASSERT STDERR BYTES, RETURN VALUES AND WARN DISPATCH VERIFIED",
+        "Build Summary: 253/278 steps succeeded (21 failed)",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "before-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-constants-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/before.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 512,
+      "memory_limit_mb": 3072,
+      "seconds": 0.1,
+      "log": "before-zig-js.log",
+      "log_sha256": "dad738d5975e82b797f4834ce792cf9eaaf65ffdea5fb0365ce9b42f59201969",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "before-bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/before.cjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.058,
+      "log": "before-bun.log",
+      "log_sha256": "a1338a60def368bc5f5198f4e71ac9eeba843b743f54d07d6a455f20f19422d0",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "prototype-53-fixture-before-zig-js": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_console_assert_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-constants-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/console_assert.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 53520,
+      "memory_limit_mb": 3072,
+      "seconds": 1.375,
+      "log": "fixture-before-zig-js.log",
+      "log_sha256": "d2b95d5db50e1e127b5f788a1cc0b1b267e4a8707f5927ae50cd986c17d5accb",
+      "actual_signals": [
+        "CONSOLE ASSERT PHYSICAL RESULTS {\"node\": \"v26.10.0\", \"cases\": 55, \"passed\": 3, \"failures\": [{\"name\": \"surface\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a204572726f723a20436f6e736f6c6520617373657274696f6e207769746e657373206661696c65640a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"no_arguments\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"false_value\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"zero\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"negative_zero\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"nan\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"empty_condition\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"null_condition\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"undefined_condition\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"bigint_zero\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"truthy_boolean\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_number\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_string\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_bigint\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_symbol\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_object\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_boxed_false\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"empty_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a200a\"}, {\"name\": \"literal\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206c69746572616c206661696c7572650a\"}, {\"name\": \"unicode\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20e282acf09f98800a\"}, {\"name\": \"nul\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206265666f72650061667465720a\"}, {\"name\": \"unpaired_surrogate\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206265666f7265efbfbd61667465720a\"}, {\"name\": \"multiline\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2066697273740a7365636f6e640d0a74686972640a\"}, {\"name\": \"undefined_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c656420756e646566696e65640a\"}, {\"name\": \"null_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c6564206e756c6c0a\"}, {\"name\": \"boolean_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65642066616c73650a\"}, {\"name\": \"number_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65642034320a\"}, {\"name\": \"negative_zero_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c6564202d300a\"}, {\"name\": \"bigint_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c656420376e0a\"}, {\"name\": \"symbol_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65642053796d626f6c286d657373616765290a\"}, {\"name\": \"extra_primitives\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206d657373616765202d3020376e2053796d626f6c28782920756e646566696e6564206e756c6c20747275650a\"}, {\"name\": \"string_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2076616c756520746578740a\"}, {\"name\": \"primitive_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20376e7c53796d626f6c2878297c2d307c6e756c6c0a\"}, {\"name\": \"number_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20322e357c327c322e350a\"}, {\"name\": \"nonfinite_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20496e66696e6974797c4e614e7c496e66696e6974790a\"}, {\"name\": \"negative_zero_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a202d307c2d307c307c300a\"}, {\"name\": \"bigint_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20376e7c376e7c376e7c370a\"}, {\"name\": \"symbol_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2053796d626f6c2878297c4e614e7c4e614e7c4e614e0a\"}, {\"name\": \"json_object\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207b2261223a312c2262223a22e282ac227d0a\"}, {\"name\": \"json_undefined\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20756e646566696e65640a\"}, {\"name\": \"json_hook\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207b2261637475616c223a317d0a\"}, {\"name\": \"json_throw_identity\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a204572726f723a20436f6e736f6c6520617373657274696f6e207769746e657373206661696c65640a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"ignored_style\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207374796c65640a\"}, {\"name\": \"percent_without_args\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2025250a\"}, {\"name\": \"percent_with_args\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a202520370a\"}, {\"name\": \"unknown_format\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20756e6b6e6f776e202571207468656e20372065787472610a\"}, {\"name\": \"missing_format_args\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207820256420250a\"}, {\"name\": \"detached\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20756e646566696e6564206973206e6f7420616e206f626a65637420286576616c756174696e672027666e2e63616c6c27290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2064657461636865640a\"}, {\"name\": \"warn_override\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"warn_getter_throw\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"poisoned_conversions\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20376e7c322e357c327c322e350a\"}, {\"name\": \"replaced_global\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20287a69672d6a73293a20547970654572726f723a20666e206973206e6f7420612066756e6374696f6e2e2028496e2027666e2866616c73652c20226f726967696e616c20636f6e736f6c652229272c2027666e2720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206f726967696e616c20636f6e736f6c650a\"}]}",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "before-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-constants-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/before.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 160,
+      "memory_limit_mb": 3072,
+      "seconds": 0.043,
+      "log": "before-jsc.log",
+      "log_sha256": "143851c9f8c500ffc66516df286253e93c369c8e1b600f5908540e93f5d25430",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "pickier": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bunx",
+        "--bun",
+        "pickier",
+        "packages/runtime/src/jsc/tool_console_assert.js",
+        "packages/runtime/test/tool_modules/console_assert.cjs",
+        "--fix"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.125,
+      "log": "pickier.log",
+      "log_sha256": "f3412885fbc85bf3ba4ad58be0fec2ed3cb511ce7cfebb9fdc7efdb8dda23537",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "actionlint": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.031,
+      "log": "actionlint.log",
+      "log_sha256": "2d83d05058d9a5a71a9f35ce1058cfbba75d86aafa904bc66054d98660f1e0d2",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "python-syntax": {
+      "argv": [
+        "python3",
+        "-m",
+        "compileall",
+        "-q",
+        "scripts",
+        "tests"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5136,
+      "memory_limit_mb": 3072,
+      "seconds": 0.059,
+      "log": "python-syntax.log",
+      "log_sha256": "c37d57d03ca122065a959866952623f8a0b5b21264d974c3c39701b0a8c72dc9",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "full-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 940288,
+      "memory_limit_mb": 3072,
+      "seconds": 54.692,
+      "log": "full-zig-js.log",
+      "log_sha256": "d9df869703f9d4c2c6011ca02490007c14730030a13c5e84f3d204f89a3c4145",
+      "actual_signals": [
+        "CONSOLE ASSERT PHYSICAL RESULTS {\"node\": \"v26.10.0\", \"cases\": 55, \"passed\": 55, \"failures\": []}",
+        "HOME CONSOLE ASSERT PROFILE 6 INSPECTION REFUSALS; CIRCULAR JSON UNAVAILABLE",
+        "NATIVE CONSOLE ASSERT STDERR BYTES, RETURN VALUES AND WARN DISPATCH VERIFIED",
+        "Build Summary: 280/280 steps succeeded",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "fixture-before-jsc": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_console_assert_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-constants-runtime/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/console_assert.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 29504,
+      "memory_limit_mb": 3072,
+      "seconds": 0.862,
+      "log": "fixture-before-jsc.log",
+      "log_sha256": "92e8b7367c516d830f2f2264a3869044b24100dae3a77f56abc35125d9a359d0",
+      "actual_signals": [
+        "CONSOLE ASSERT PHYSICAL RESULTS {\"node\": \"v26.10.0\", \"cases\": 55, \"passed\": 1, \"failures\": [{\"name\": \"surface\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a204572726f723a20436f6e736f6c6520617373657274696f6e207769746e657373206661696c65640a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"no_arguments\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"false_value\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"zero\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"negative_zero\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"nan\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"empty_condition\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"null_condition\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"undefined_condition\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"bigint_zero\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65640a\"}, {\"name\": \"truthy_boolean\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_number\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_string\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_bigint\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_symbol\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_object\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"truthy_boxed_false\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"empty_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a200a\"}, {\"name\": \"literal\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206c69746572616c206661696c7572650a\"}, {\"name\": \"unicode\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20e282acf09f98800a\"}, {\"name\": \"nul\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206265666f72650061667465720a\"}, {\"name\": \"native_log_unpaired\", \"exit\": 0, \"stdout_hex\": \"6265666f72650a4f4b0a\", \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"native_error_unpaired\", \"exit\": 0, \"stdout_hex\": \"4f4b0a\", \"stderr_hex\": \"6265666f72650a\", \"expected_stderr_hex\": \"6265666f7265efbfbd61667465720a\"}, {\"name\": \"unpaired_surrogate\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206265666f7265efbfbd61667465720a\"}, {\"name\": \"multiline\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2066697273740a7365636f6e640d0a74686972640a\"}, {\"name\": \"undefined_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c656420756e646566696e65640a\"}, {\"name\": \"null_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c6564206e756c6c0a\"}, {\"name\": \"boolean_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65642066616c73650a\"}, {\"name\": \"number_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65642034320a\"}, {\"name\": \"negative_zero_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c6564202d300a\"}, {\"name\": \"bigint_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c656420376e0a\"}, {\"name\": \"symbol_message\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65642053796d626f6c286d657373616765290a\"}, {\"name\": \"extra_primitives\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206d657373616765202d3020376e2053796d626f6c28782920756e646566696e6564206e756c6c20747275650a\"}, {\"name\": \"string_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2076616c756520746578740a\"}, {\"name\": \"primitive_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20376e7c53796d626f6c2878297c2d307c6e756c6c0a\"}, {\"name\": \"number_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20322e357c327c322e350a\"}, {\"name\": \"nonfinite_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20496e66696e6974797c4e614e7c496e66696e6974790a\"}, {\"name\": \"negative_zero_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a202d307c2d307c307c300a\"}, {\"name\": \"bigint_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20376e7c376e7c376e7c370a\"}, {\"name\": \"symbol_substitution\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2053796d626f6c2878297c4e614e7c4e614e7c4e614e0a\"}, {\"name\": \"json_object\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207b2261223a312c2262223a22e282ac227d0a\"}, {\"name\": \"json_undefined\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20756e646566696e65640a\"}, {\"name\": \"json_hook\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207b2261637475616c223a317d0a\"}, {\"name\": \"json_throw_identity\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a204572726f723a20436f6e736f6c6520617373657274696f6e207769746e657373206661696c65640a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"ignored_style\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207374796c65640a\"}, {\"name\": \"percent_without_args\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2025250a\"}, {\"name\": \"percent_with_args\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a202520370a\"}, {\"name\": \"unknown_format\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20756e6b6e6f776e202571207468656e20372065787472610a\"}, {\"name\": \"missing_format_args\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a207820256420250a\"}, {\"name\": \"detached\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20756e646566696e6564206973206e6f7420616e206f626a65637420286576616c756174696e672027666e2e63616c6c27290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a2064657461636865640a\"}, {\"name\": \"warn_override\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"warn_getter_throw\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"\"}, {\"name\": \"poisoned_conversions\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20636f6e736f6c652e617373657274206973206e6f7420612066756e6374696f6e2e2028496e2027636f6e736f6c652e617373657274282e2e2e6172677329272c2027636f6e736f6c652e6173736572742720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a20376e7c322e357c327c322e350a\"}, {\"name\": \"replaced_global\", \"exit\": 1, \"stdout_hex\": \"\", \"stderr_hex\": \"686f6d652d746f6f6c20286a7363293a20547970654572726f723a20666e206973206e6f7420612066756e6374696f6e2e2028496e2027666e2866616c73652c20226f726967696e616c20636f6e736f6c652229272c2027666e2720697320756e646566696e6564290a\", \"expected_stderr_hex\": \"417373657274696f6e206661696c65643a206f726967696e616c20636f6e736f6c650a\"}]}",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    }
+  },
+  "promotion": "Caller stays on qualified18655ff6ec393da85b068e33b3e4a5ebc2d965cb until exact pushed functional suite passes source validation, Linux runtime artifacts/provenance and4consumer preflights. All selected repositories and previous failures/refusals/limits remain intact. No native Bun candidate fallback, skipped tests or no-op assert."
+}

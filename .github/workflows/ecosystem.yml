@@ -161,6 +161,7 @@ jobs:
           python3 packages/runtime/test/tool_tty_stream_fixture.py zig-out/bin/home-tool packages/runtime/test/tool_modules/node_tty_stream.mjs --home-profile
           python3 packages/runtime/test/tool_fs_mutations_fixture.py zig-out/bin/home-tool packages/runtime/test/tool_modules/fs_callback_mutations.mjs --home-profile
           python3 packages/runtime/test/tool_native_constants_fixture.py zig-out/bin/home-tool packages/runtime/test/tool_modules/native_constants.mjs --home-profile
+          python3 packages/runtime/test/tool_console_assert_fixture.py zig-out/bin/home-tool packages/runtime/test/tool_modules/console_assert.cjs --home-profile
           zig build test -Dfilter=ts_driver -Dts-driver-test-filter=runtime -Denable_jsc=false -Dcpu=baseline -Doptimize="${{ steps.config.outputs.runtime_optimize }}" -j1 --summary all
           zig build home-tool-source-nul -Dcpu=baseline -Doptimize="${{ steps.config.outputs.runtime_optimize }}" -Dtool-js-engine=zig-js -Dzig-js-root="$GITHUB_WORKSPACE/engine" --summary all
           zig-out/bin/home-tool run packages/runtime/test/tool_modules/vm_script.mjs
