@@ -1,0 +1,359 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-12T08:53:32.145035+00:00",
+  "run": 43180226835,
+  "engine_sha": "f7025b02477221c5d7cf8419a907c8013fddbc6d",
+  "functional_suite": "82a2fb49ed2f3e14cc3125f155db3ee107e4ae91",
+  "home_ref": "5a6408d84d97e580bd770fbac783ee7f1b21ba54",
+  "runtime": {
+    "job": 131054353246,
+    "artifact": {
+      "id": 13926741287,
+      "name": "ecosystem-runtime",
+      "digest": "sha256:743d1b9c595bfc1d26d00911988625114ce870b2afc35b789d346a07e52908fe",
+      "size_in_bytes": 42410601
+    },
+    "verified_zip_sha256": "743d1b9c595bfc1d26d00911988625114ce870b2afc35b789d346a07e52908fe",
+    "physical_hashes": {
+      "engine/zig-out/lib/libzig-js.a": "5fe3517dab45f14dbdbfb37be47150c0fd54a29adfa8275d42fbfb5e58c0c62a",
+      "home-tool": "04e90db1582c2c369a2a05c51ef545c2672b767335b09476527d9896f98811c9"
+    },
+    "provenance": {
+      "engine_sha": "f7025b02477221c5d7cf8419a907c8013fddbc6d",
+      "suite_ref": "82a2fb49ed2f3e14cc3125f155db3ee107e4ae91",
+      "home_repository": "home-lang/home",
+      "home_ref": "5a6408d84d97e580bd770fbac783ee7f1b21ba54",
+      "zig_version": "0.18.0-dev.146+35accc06e",
+      "build_cpu": "baseline",
+      "build_optimize": "ReleaseSafe",
+      "sha256": {
+        "home-tool": "04e90db1582c2c369a2a05c51ef545c2672b767335b09476527d9896f98811c9",
+        "engine/zig-out/lib/libzig-js.a": "5fe3517dab45f14dbdbfb37be47150c0fd54a29adfa8275d42fbfb5e58c0c62a"
+      }
+    },
+    "log_sha256": "e207f62dfebc160329e92959ae28b7d5d9c8e3a99929acd93f2a7d2101227920",
+    "actual_transform_signals": [
+      "2026-11-12T08:18:29.0242015Z TRANSPILE SYNC RESULTS {\"checks\":20,\"passed\":20,\"failures\":[]}",
+      "2026-11-12T08:18:29.0245515Z TRANSPILE EXPLICIT REFUSALS 16",
+      "2026-11-12T08:18:29.0246043Z TRANSPILE 20 EXECUTED CHECKS OK"
+    ],
+    "limit": "New caller runtime physical hashes are verified independently, not assumed equal to the previously qualified363e archive."
+  },
+  "priority_reports": [
+    {
+      "repository": "stacksjs/stacks",
+      "consumer_sha": "f1d130f9a9c429cba6b6366ca395999adab864ce",
+      "scopes": 100,
+      "checks": 936,
+      "candidate": {
+        "unsupported": 355,
+        "failed": 182,
+        "passed": 94
+      },
+      "artifact": {
+        "id": 13926934688,
+        "name": "ecosystem-results-0",
+        "digest": "sha256:a961085af8fe01e95bef5e79e38ede543cdf742bea4ef5a4221c9cb5ec6dcbfd",
+        "size_in_bytes": 1445893
+      },
+      "report_sha256": "179d6e9f0b27142c2238da61fe956962c02c43f90654db8294acc38bd9d9512a",
+      "runtime_provenance": {
+        "engine_sha": "f7025b02477221c5d7cf8419a907c8013fddbc6d",
+        "suite_ref": "82a2fb49ed2f3e14cc3125f155db3ee107e4ae91",
+        "home_repository": "home-lang/home",
+        "home_ref": "5a6408d84d97e580bd770fbac783ee7f1b21ba54",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "04e90db1582c2c369a2a05c51ef545c2672b767335b09476527d9896f98811c9",
+          "engine/zig-out/lib/libzig-js.a": "5fe3517dab45f14dbdbfb37be47150c0fd54a29adfa8275d42fbfb5e58c0c62a"
+        }
+      },
+      "comparison": {
+        "run": 43177855243,
+        "before_consumer_sha": "3ee81d08a45fa3701e4bdd8f1999759d43d6a2ae",
+        "same_consumer_sha": false,
+        "compared_labels": 631,
+        "added": 0,
+        "removed": 0,
+        "status_changes": 0,
+        "limit": "All candidate-label statuses match; Stacks source moved, so no same-source no-regression or causal claim. Home source matches but full-engine regression scope is not inferred."
+      },
+      "actual_diagnostics": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 2535336,
+            "memory_limit_mb": 3072,
+            "seconds": 10.353,
+            "log": "0016.log",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "./buddy build"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate",
+            "engine_invocations": 3
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/caller-f702-followup/ecosystem-results-0/stacksjs--stacks/0016.log",
+            "sha256": "2816d29253ca0f64493a604363bc40972c52dfde0f32733459fb241043f8d62a",
+            "content": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-12T08:19:39.254Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 2535336 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 37976,
+            "memory_limit_mb": 3072,
+            "seconds": 0.215,
+            "log": "0203.log",
+            "label": "storage/framework/core/desktop: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+              "src/index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/desktop",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/caller-f702-followup/ecosystem-results-0/stacksjs--stacks/0203.log",
+            "sha256": "6e6f67295a6844a2a9d0e588d1d3db7042118ae910d69a54071f2a90549ea669",
+            "content": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): TypeError: promisify original must be a function\n\nECOSYSTEM PEAK SAMPLED RSS: 37976 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 900296,
+            "memory_limit_mb": 3072,
+            "seconds": 2.109,
+            "log": "0630.log",
+            "label": "storage/framework/libs/components/stx: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/libs/components/stx",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/caller-f702-followup/ecosystem-results-0/stacksjs--stacks/0630.log",
+            "sha256": "f9af6732d50d4f849c7d4fa6b33ce5970207883990d3ec0fc533a5a2ba8ac72a",
+            "content": "$ [\"/bin/sh\", \"-c\", \"bun build.ts\"]\n[2026-11-12T08:27:06.649Z] local.INFO: Building your STX component library...\nhome-tool (zig-js): AggregateError: Failed to bundle component library\nTypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [path.join(outputDir, \"index.js\")], outdir: outputDir, naming: \"bundle.js\", target: \"browser\", format: \"esm\", minify: config.minify ?? !0, sourcemap: config.sourcemap || \"none\" })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 900296 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        }
+      ]
+    },
+    {
+      "repository": "home-lang/home",
+      "consumer_sha": "5a6408d84d97e580bd770fbac783ee7f1b21ba54",
+      "scopes": 46,
+      "checks": 234,
+      "candidate": {
+        "timed-out": 1,
+        "unsupported": 37,
+        "passed": 9,
+        "failed": 40
+      },
+      "artifact": {
+        "id": 13927154823,
+        "name": "ecosystem-results-1",
+        "digest": "sha256:46295970d6733532dce4507c86e51b9117a90959f977ecd12ce6c8bae2b720b3",
+        "size_in_bytes": 105235
+      },
+      "report_sha256": "d8fd7d41843db5ec51cc557313b51f5d59b8af4d03cdf4541290ddc3e6f35f6a",
+      "runtime_provenance": {
+        "engine_sha": "f7025b02477221c5d7cf8419a907c8013fddbc6d",
+        "suite_ref": "82a2fb49ed2f3e14cc3125f155db3ee107e4ae91",
+        "home_repository": "home-lang/home",
+        "home_ref": "5a6408d84d97e580bd770fbac783ee7f1b21ba54",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "04e90db1582c2c369a2a05c51ef545c2672b767335b09476527d9896f98811c9",
+          "engine/zig-out/lib/libzig-js.a": "5fe3517dab45f14dbdbfb37be47150c0fd54a29adfa8275d42fbfb5e58c0c62a"
+        }
+      },
+      "comparison": {
+        "run": 43177855243,
+        "before_consumer_sha": "5a6408d84d97e580bd770fbac783ee7f1b21ba54",
+        "same_consumer_sha": true,
+        "compared_labels": 87,
+        "added": 0,
+        "removed": 0,
+        "status_changes": 0,
+        "limit": "All candidate-label statuses match; Stacks source moved, so no same-source no-regression or causal claim. Home source matches but full-engine regression scope is not inferred."
+      },
+      "actual_diagnostics": [
+        {
+          "check": {
+            "status": "timed-out",
+            "exit_code": 124,
+            "peak_sampled_rss_kib": 2001512,
+            "memory_limit_mb": 3072,
+            "seconds": 300.17,
+            "log": "0052.log",
+            "reason": "command time budget exhausted",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bunx bunpress build"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/caller-f702-followup/ecosystem-results-1/home-lang--home/0052.log",
+            "sha256": "f067c4a8905b811e943383c03bb9ffbd5a91e5aa9368b03cf27c01fa3205976e",
+            "content": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 2001512 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: command time budget exhausted\n\nECOSYSTEM RESULT: timed-out, exit 124\n"
+          }
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 135892,
+            "memory_limit_mb": 3072,
+            "seconds": 0.473,
+            "log": "0062.log",
+            "label": "packages/registry: test",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "jest"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/registry",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/caller-f702-followup/ecosystem-results-1/home-lang--home/0062.log",
+            "sha256": "46162cd108c43ae11ce3152aa1de0ce28e328fe0ad90f1850ba866bcadeb0703",
+            "content": "$ [\"/bin/sh\", \"-c\", \"jest\"]\nSyntaxError: Unexpected token\n    at <anonymous> (home:tool-module-install:253:7)\n    at evaluateSync (home:tool-module-install:272:7)\n    at load (home:tool-module-install:374:5)\n    at <anonymous> (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/registry/node_modules/%40babel/code-frame/lib/index.js?home-emitted:5:1)\n    at <anonymous> (home:tool-module-install:255:7)\n    at evaluateSync (home:tool-module-install:272:7)\n    at load (home:tool-module-install:374:5)\n    at <anonymous> (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/registry/node_modules/parse-json/index.js?home-emitted:6:1)\n    at <anonymous> (home:tool-module-install:255:7)\n    at evaluateSync (home:tool-module-install:272:7)\nUncaught unhandledRejection: SyntaxError: Unexpected token\n\nECOSYSTEM PEAK SAMPLED RSS: 135892 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 252740,
+            "memory_limit_mb": 3072,
+            "seconds": 0.581,
+            "log": "0071.log",
+            "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun run build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/caller-f702-followup/ecosystem-results-1/home-lang--home/0071.log",
+            "sha256": "79cb25da802aeaf43af9387c9e6d7e377cb6a11a0a4e1aeff5ff7b10f0d9647a",
+            "content": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 252740 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        }
+      ]
+    }
+  ],
+  "other_home_reports": [
+    {
+      "repository": "home-lang/home-os",
+      "consumer_sha": "151269666bc09aa15a271f1c1f4603f681132e65",
+      "candidate": {},
+      "checks": [
+        {
+          "check": {
+            "label": "coverage",
+            "lane": "coverage",
+            "status": "unsupported",
+            "reason": "No recognized package or native Zig build entry point"
+          }
+        }
+      ]
+    },
+    {
+      "repository": "home-lang/generals",
+      "consumer_sha": "5aa7de8bee5a8f207e315db0a88cdeff673a51da",
+      "candidate": {},
+      "checks": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 900528,
+            "memory_limit_mb": 3072,
+            "seconds": 97.419,
+            "log": "0004.log",
+            "label": "native Zig build",
+            "lane": "native-zig",
+            "command": [
+              "zig",
+              "build"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--generals/candidate",
+            "engine_invocations": 0
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/caller-f702-followup/ecosystem-results-14/home-lang--generals/0004.log",
+            "sha256": "0736de027c9289d81ea792721cd394167eeb37d7d1065c725d9ac2b8dd6801b7",
+            "content": "$ [\"zig\", \"build\"]\nbuild.zig:18:13: error: no field or member function named 'addCSourceFile' in 'Build.Step.Compile'\n    generals.addCSourceFile(.{\n    ~~~~~~~~^~~~~~~~~~~~~~~\n/home/runner/work/zig-js/zig-js/pantry/ziglang-org/0.18.0-dev.146_35accc06e/lib/std/Build/Step/Compile.zig:1:1: note: struct declared here\nconst Compile = @This();\n^~~~~\nbuild.zig:18:13: note: method invocation only supports up to one level of implicit pointer dereferencing\nbuild.zig:18:13: note: use '.*' to dereference pointer\nreferenced by:\n    runPackageScript [inlined]: /home/runner/work/zig-js/zig-js/pantry/ziglang-org/0.18.0-dev.146_35accc06e/lib/std/Build.zig:2144:50\n    main: /home/runner/work/zig-js/zig-js/pantry/ziglang-org/0.18.0-dev.146_35accc06e/lib/compiler/configurer.zig:138:29\n    4 reference(s) hidden; use '-freference-trace=6' to see all references\n\nECOSYSTEM PEAK SAMPLED RSS: 900528 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 165196,
+            "memory_limit_mb": 3072,
+            "seconds": 1.3,
+            "log": "0005.log",
+            "label": "discover native Zig test steps",
+            "lane": "native-zig",
+            "command": [
+              "zig",
+              "build",
+              "--help"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--generals/candidate",
+            "engine_invocations": 0
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/caller-f702-followup/ecosystem-results-14/home-lang--generals/0005.log",
+            "sha256": "5528552af4b8ad852189f4ea35c44f6d09ef70df06a091872dfecf4598c8dd27",
+            "content": "$ [\"zig\", \"build\", \"--help\"]\nbuild.zig:18:13: error: no field or member function named 'addCSourceFile' in 'Build.Step.Compile'\n    generals.addCSourceFile(.{\n    ~~~~~~~~^~~~~~~~~~~~~~~\n/home/runner/work/zig-js/zig-js/pantry/ziglang-org/0.18.0-dev.146_35accc06e/lib/std/Build/Step/Compile.zig:1:1: note: struct declared here\nconst Compile = @This();\n^~~~~\nbuild.zig:18:13: note: method invocation only supports up to one level of implicit pointer dereferencing\nbuild.zig:18:13: note: use '.*' to dereference pointer\nreferenced by:\n    runPackageScript [inlined]: /home/runner/work/zig-js/zig-js/pantry/ziglang-org/0.18.0-dev.146_35accc06e/lib/std/Build.zig:2144:50\n    main: /home/runner/work/zig-js/zig-js/pantry/ziglang-org/0.18.0-dev.146_35accc06e/lib/compiler/configurer.zig:138:29\n    4 reference(s) hidden; use '-freference-trace=6' to see all references\n\nECOSYSTEM PEAK SAMPLED RSS: 165196 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        }
+      ]
+    }
+  ],
+  "other_home_artifact": {
+    "id": 13927603616,
+    "name": "ecosystem-results-14",
+    "digest": "sha256:9494b87fc16e646102b22016f19987f438503a31c1beecde3a381dda3b7845b6",
+    "size_in_bytes": 5162
+  },
+  "status": "Caller runtime passes; completed priorities retain94/182/355 Stacks and9/40/37/1timeout Home with no changed candidate-label outcomes. Generals/native Zig mismatch and home-os unsupported coverage remain unchanged. All-selected aggregate still has queued consumers; no cancellation or completion inferred.",
+  "limits": [
+    "Stacks consumer source moved3ee81to f1d130; no same-source no-regression claim.",
+    "Home5a source matches and all87candidate-label statuses match, including timeout and unsupported; no full-engine no-regression claim.",
+    "Actual bundler, async exec, root evaluation budget, registry tokenizer and native binding failures stay recorded. Empty candidate inventories are never passes.",
+    "No new actionable failure or behavior fix; quiet evidence follow-up only. Caller stays82a2fb4. Evidence only; flips0test262cases."
+  ]
+}
