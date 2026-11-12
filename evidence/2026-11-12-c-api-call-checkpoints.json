@@ -1,0 +1,1067 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-12T02:04:46.343666+00:00",
+  "status": "C function call checkpoint repair verified and pushed; Home VM integration remains unfinished",
+  "engine_commit": "67b8276edf87183614b3a0fb42819a56a22318c1",
+  "engine_url": "https://github.com/zig-utils/zig-js/commit/67b8276edf87183614b3a0fb42819a56a22318c1",
+  "before_engine": "ec63c2a958e51883b3f178c2ccbfc70772ca38e9",
+  "validated_suite_pin_unchanged": "9f6ac1f1109416a183e923f0b58a6c34770ba652",
+  "home_ref_unchanged": "baabd83f05594c89d5ab932a83a66a37223d165d",
+  "source_files": [
+    {
+      "path": "build.zig",
+      "git_blob": "a7946b1b16a0a10d13b6efdcdc6532bc030116c1",
+      "sha256": "aee2b9a0a3a44d12ec0e16d96ba2a635b05f3084872c7d232d5af7ec34109df4"
+    },
+    {
+      "path": "src/c_api.zig",
+      "git_blob": "fba91eda80c1911f17d6b46e2c872f138f4ac1c3",
+      "sha256": "d8475dac9fd4bbd34e7b626f4d19e60381f8782af1c121eaee6c427268ec195e"
+    },
+    {
+      "path": "src/c_api_call_budget.zig",
+      "git_blob": "57ec7b1ab515f49514feef2f62758836b66542be",
+      "sha256": "2c4d4fc1ad77a3d9a0809ac25ca28adb3543198085e40ac43be4847f530ff818"
+    },
+    {
+      "path": "tests/c_api_call_checkpoints.c",
+      "git_blob": "bb8d810d7e9719526d9a070a4abd6905a1a7c38a",
+      "sha256": "45371bc749eafb29540c062d448c68c9a5a763b29f4a782f874ce5403e856a6a"
+    },
+    {
+      "path": "tests/c_api_call_checkpoint_gc.c",
+      "git_blob": "8f6274372c71375cd232af2e61f034d4a0592ea0",
+      "sha256": "bc50d380ba6b3fab69fbde66a6a071fb6ce058a3c624083f0a63f77cc4f8d753"
+    }
+  ],
+  "before": {
+    "before-build": {
+      "receipt": {
+        "argv": [
+          "/usr/bin/clang",
+          "/Users/chris/Code/Libraries/zig-js/tests/c_api_call_checkpoints.c",
+          "-I/Users/chris/Code/Libraries/zig-js/include",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/script-checkpoints/engine-fixed/lib/libzig-js.a",
+          "-lm",
+          "-lpthread",
+          "-o",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/before"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 91408,
+        "memory_limit_mb": 3072,
+        "seconds": 0.53,
+        "log": "before-build.log"
+      },
+      "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/before-build.log",
+      "log_sha256": "e78917ff656aacf813aeded7d90db43d1c115e8ee7b1e8a702ed2aa71eb62043",
+      "log": "$ [\"/usr/bin/clang\", \"/Users/chris/Code/Libraries/zig-js/tests/c_api_call_checkpoints.c\", \"-I/Users/chris/Code/Libraries/zig-js/include\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/script-checkpoints/engine-fixed/lib/libzig-js.a\", \"-lm\", \"-lpthread\", \"-o\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/before\"]\nld: warning: object file (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/script-checkpoints/engine-fixed/lib/libzig-js.a[2](zig-js_zcu.o)) was built for newer 'macOS' version (27.0.1) than being linked (27.0)\n\nECOSYSTEM PEAK SAMPLED RSS: 91408 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "before-run": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/before"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.35,
+        "log": "before-run.log"
+      },
+      "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/before-run.log",
+      "log_sha256": "51cf0e5a69e3f2453b9c5eac0c8f4c453aea4a46b144cf6141e451f531109b9e",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/before\"]\nreentrant Script expected [before,nested,after,job], got [before,nested,after]\ncall checkpoint case 0 failed (completion=1, state=0)\nreentrant Script expected [job], got []\ncall checkpoint case 1 failed (completion=1, state=0)\nreentrant Script expected [outer,inner,after,outer-job,inner-job], got [outer,inner,after]\ncall checkpoint case 2 failed (completion=1, state=0)\nreentrant Script expected [job], got []\ncall checkpoint case 3 failed (completion=1, state=0)\nreentrant Script expected [inner,native-after,job], got [inner,job,native-after]\ncall checkpoint case 4 failed (completion=1, state=0)\nreentrant Script expected [inner,caught-native,job], got [inner,job,caught-native]\ncall checkpoint case 5 failed (completion=1, state=0)\nC function call checkpoints: 0/6 cases passed\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "gc-before-build": {
+      "receipt": {
+        "argv": [
+          "/usr/bin/clang",
+          "/Users/chris/Code/Libraries/zig-js/tests/c_api_call_checkpoint_gc.c",
+          "-I/Users/chris/Code/Libraries/zig-js/include",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/script-checkpoints/engine-fixed/lib/libzig-js.a",
+          "-lm",
+          "-lpthread",
+          "-o",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/gc-before"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 111840,
+        "memory_limit_mb": 3072,
+        "seconds": 0.487,
+        "log": "gc-before-build.log"
+      },
+      "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/gc-before-build.log",
+      "log_sha256": "b7c4b74f16920b1d83dbce9801cc99c4724c4451d385d21b442bf6b1eec48a0b",
+      "log": "$ [\"/usr/bin/clang\", \"/Users/chris/Code/Libraries/zig-js/tests/c_api_call_checkpoint_gc.c\", \"-I/Users/chris/Code/Libraries/zig-js/include\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/script-checkpoints/engine-fixed/lib/libzig-js.a\", \"-lm\", \"-lpthread\", \"-o\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/gc-before\"]\nld: warning: object file (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/script-checkpoints/engine-fixed/lib/libzig-js.a[2](zig-js_zcu.o)) was built for newer 'macOS' version (27.0.1) than being linked (27.0)\n\nECOSYSTEM PEAK SAMPLED RSS: 111840 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "gc-before-run": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/gc-before"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.455,
+        "log": "gc-before-run.log"
+      },
+      "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/gc-before-run.log",
+      "log_sha256": "9cdb3c6bb8ef3196fcafca3160593f9db5ac3deab856a25b04640917d34ab034",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/gc-before\"]\nprecise-GC call case 0 failed (collections=0)\nprecise-GC call case 1 failed (collections=0)\nC call checkpoint precise-GC completions: 0/2 cases passed\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "budget-before-build": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build-exe",
+          "-OReleaseSafe",
+          "--dep",
+          "regex",
+          "--dep",
+          "gc",
+          "-I/Users/chris/Code/Libraries/zig-js/include",
+          "-Mroot=/Users/chris/Code/Libraries/zig-js/src/c_api_call_budget.zig",
+          "-OReleaseSafe",
+          "-Mregex=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_regex-0.2.1-omky0VQnHAAyGDvpJhAP9TWq__v103WF70P-lj300Gy7/src/root.zig",
+          "-OReleaseSafe",
+          "-Mgc=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig",
+          "-lc",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/script-checkpoints/engine-fixed/lib/libzig-js.a",
+          "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/budget-before"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 454144,
+        "memory_limit_mb": 3072,
+        "seconds": 5.652,
+        "log": "budget-before-build.log"
+      },
+      "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/budget-before-build.log",
+      "log_sha256": "5cabe899f90187f5297f59eef1c92236ac13341cae1b6a3107501294a9bf2de4",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build-exe\", \"-OReleaseSafe\", \"--dep\", \"regex\", \"--dep\", \"gc\", \"-I/Users/chris/Code/Libraries/zig-js/include\", \"-Mroot=/Users/chris/Code/Libraries/zig-js/src/c_api_call_budget.zig\", \"-OReleaseSafe\", \"-Mregex=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_regex-0.2.1-omky0VQnHAAyGDvpJhAP9TWq__v103WF70P-lj300Gy7/src/root.zig\", \"-OReleaseSafe\", \"-Mgc=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig\", \"-lc\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/script-checkpoints/engine-fixed/lib/libzig-js.a\", \"-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/budget-before\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 454144 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "budget-before": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/budget-before"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.333,
+        "log": "budget-before.log"
+      },
+      "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/budget-before.log",
+      "log_sha256": "232b0a8b5926d440316aa4a029d200fead12516dd2e562b80bafd5d60f37d64d",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/budget-before\"]\nC call reentry budget: RangeError and fresh host entry passed\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "oracles": {
+    "jsc-build": {
+      "receipt": {
+        "argv": [
+          "/usr/bin/clang",
+          "/Users/chris/Code/Libraries/zig-js/tests/c_api_call_checkpoints.c",
+          "-framework",
+          "JavaScriptCore",
+          "-o",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/jsc"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32688,
+        "memory_limit_mb": 3072,
+        "seconds": 0.156,
+        "log": "jsc-build.log"
+      },
+      "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/jsc-build.log",
+      "log_sha256": "4c8be01512396d313879ce4896a4942ca1394a159387231360c53c079c200627",
+      "log": "$ [\"/usr/bin/clang\", \"/Users/chris/Code/Libraries/zig-js/tests/c_api_call_checkpoints.c\", \"-framework\", \"JavaScriptCore\", \"-o\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/jsc\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 32688 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "jsc-run": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/jsc"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.123,
+        "log": "jsc-run.log"
+      },
+      "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/jsc-run.log",
+      "log_sha256": "7ac3aef88cb64764f6d84e055b7788f5c7e543e849aab1ff606cc38902fcc846",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/jsc\"]\nC function call checkpoints: 6/6 cases passed\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "node-oracle": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/node",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/node-call-oracle.mjs"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 27696,
+        "memory_limit_mb": 3072,
+        "seconds": 0.258,
+        "log": "node-oracle.log"
+      },
+      "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/node-oracle.log",
+      "log_sha256": "6a8c7ce28ef09b1c0ffd35076fd777c13f945c1002e9ad729b142d70c3ef58d2",
+      "log": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/node-call-oracle.mjs\"]\nACTUAL HOST CALL LANGUAGE/JOB CONTROL: 6/6 passed\n\nECOSYSTEM PEAK SAMPLED RSS: 27696 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "bun-oracle": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/.local/share/pantry/global/bin/bun",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/node-call-oracle.mjs"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.107,
+        "log": "bun-oracle.log"
+      },
+      "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/bun-oracle.log",
+      "log_sha256": "6ef9c68178e1d2ecc445a2596deb816b53e6a6257df3222bf42c019372be1cec",
+      "log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/node-call-oracle.mjs\"]\nACTUAL HOST CALL LANGUAGE/JOB CONTROL: 6/6 passed\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "node_bun_source": "import vm from 'node:vm';\nglobalThis.hostScript=source=>vm.runInThisContext(source);\nglobalThis.nestedCall=fn=>Reflect.apply(fn,globalThis,[]);\nglobalThis.nativeEcho=value=>{hostScript(\"globalThis.trace=[];Promise.resolve().then(()=>trace.push('job'));trace.push('inner')\");hostScript(\"trace.push('native-after')\");return value;};\nglobalThis.nativeThrow=()=>{let thrown;try{hostScript(\"globalThis.trace=[];Promise.resolve().then(()=>trace.push('job'));trace.push('inner');throw token\");}catch(error){thrown=error;}hostScript(\"trace.push('caught-native')\");throw thrown;};\nconst cases=[[\"(function(){globalThis.trace=[];Promise.resolve().then(()=>trace.push('job'));trace.push('before');hostScript(\\\"trace.push('nested')\\\");trace.push('after');return trace.join(',')})\", \"before,nested,after\", \"before,nested,after,job\", 0], [\"(function(){globalThis.trace=[];Promise.resolve().then(()=>trace.push('job'));throw token})\", null, \"job\", 1], [\"(function(){globalThis.trace=[];Promise.resolve().then(()=>trace.push('outer-job'));trace.push('outer');nestedCall(()=>{trace.push('inner');Promise.resolve().then(()=>trace.push('inner-job'))});trace.push('after');return trace.join(',')})\", \"outer,inner,after\", \"outer,inner,after,outer-job,inner-job\", 0], [\"(function(value){globalThis.trace=[];Promise.resolve().then(()=>trace.push('job'));return this.factor+value})\", \"12\", \"job\", 0], [\"nativeEcho\", null, \"inner,native-after,job\", 0], [\"nativeThrow\", null, \"inner,caught-native,job\", 1]];\nfor(let index=0;index<cases.length;index++){const [source,expected,state,throws]=cases[index];globalThis.token={marker:42};let result,error;try{result=Reflect.apply(vm.runInThisContext(source),{factor:7},[index===4?token:5]);}catch(thrown){error=thrown;}if(throws?error!==token:error|| (index===4?result!==token:String(result)!==expected))throw Error('completion '+index);await new Promise(resolve=>setImmediate(resolve));if(trace.join(',')!==state)throw Error('checkpoint '+index+': '+trace);}\nconsole.log('ACTUAL HOST CALL LANGUAGE/JOB CONTROL: 6/6 passed');\n",
+    "scope": "Same six completion/job contracts pass real JSC C API and Node/Bun vm. Precise-GC and budget witnesses are Root-specific native evidence, not Node feature claims."
+  },
+  "after_profiles": {
+    "release": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "install",
+          "test-c-api",
+          "test-home-public-abi",
+          "test-home-private-abi",
+          "test-c-api-call-budget",
+          "c-api-jsc-diff",
+          "test262-bin",
+          "-Doptimize=ReleaseSafe",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-fixed",
+          "-j1",
+          "--summary",
+          "all",
+          "-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 2221824,
+        "memory_limit_mb": 3072,
+        "seconds": 229.249,
+        "log": "validation-release.log",
+        "TSAN_OPTIONS": null
+      },
+      "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/validation-release.log",
+      "log_sha256": "3b0dd6655b0cbb5245e1d6a5dc9d3d67a21261a8717bbbfa22f2237dee29d217",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"install\", \"test-c-api\", \"test-home-public-abi\", \"test-home-private-abi\", \"test-c-api-call-budget\", \"c-api-jsc-diff\", \"test262-bin\", \"-Doptimize=ReleaseSafe\", \"--prefix\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-fixed\", \"-j1\", \"--summary\", \"all\", \"-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool\"]\nc-api audit: 117 declarations, 117 complete, 0 pending, 117 public symbols present, 35 zig-js extensions, 460 private profile exports\nc-api JSC differential: matched 35 rows (4738a98b624bd0a6)\nC call reentry budget: RangeError and fresh host entry passed\nHome private ABI audit: home-private-7ed99c02: 538 symbols from 66 files; private=447, public=59, platform=7, consumer-provided=25, implemented-private=447, pending-private=0, unclassified=0\nc-api audit: 117 declarations, 117 complete, 0 pending, 117 public symbols present, 35 zig-js extensions, 460 private profile exports\nHome private value shims: 392/392 symbols linked; runtime matrix passed\nreentrant Script public boundary: 6/6 cases passed\ninherited host get: 448/99/123/7, 64/65/66/67 callbacks\nOK rejection FIFO, identity, handled filtering, undefined, realm isolation and precise GC lifetime\nOK native value brands, zero traps, realm ownership, unhandled rejection and protected GC lifetime\nOK native value brands, zero traps, realm ownership, unhandled rejection and protected GC lifetime\nC call checkpoint precise-GC completions: 2/2 cases passed\nOK async context identity, nested scopes, abrupt jobs, await, thenables, species and precise compaction\nOK independent owner-thread execution contexts\nOK async context identity, nested scopes, abrupt jobs, await, thenables, species and precise compaction\nreentrant Script timer boundary: 2/2 checks passed\nC function call checkpoints: 6/6 cases passed\nOK typed-array backing pointer, offset and view write\nreentrant Script no-GIL lifecycle: caller resumed and child returned 1\nreentrant Script GIL lifecycle: caller resumed and child returned 1\nOK 2 job scopes restore after normal and abrupt completion\nABI profile audit: home-public-c-7ed99c02: 50/50 exports; zero missing\nhome public ABI: 50/50 symbols linked; runtime smoke passed\nBuild Summary: 67/67 steps succeeded\ntest262-bin success\n+- run test cached\n|  +- compile test safe native cached 207ms MaxRSS:30M\n+- install test262 success\n   +- compile exe test262 safe native success 1m MaxRSS:2G\n      +- options cached\n      +- options cached\nc-api-jsc-diff success\n+- run /usr/bin/env success 13s\n   +- compile exe c-api-value-diff-zig-js safe native success 526ms MaxRSS:201M\n   |  +- WriteFile cached\n   |  +- compile lib zig-js safe native success 1m MaxRSS:2G\n   |  |  +- options (reused)\n   |  +- compile lib zig-js safe native (+1 more reused dependencies)\n   +- compile exe c-api-context-group-diff-zig-js safe native success 526ms MaxRSS:201M\n   |  +- WriteFile (reused)\n   |  +- compile lib zig-js safe native (+1 more reused dependencies)\n   |  +- compile lib zig-js safe native (+1 more reused dependencies)\n   +- compile exe c-api-inherited-host-get safe native success 248ms MaxRSS:198M\n      +- WriteFile (reused)\n      +- compile lib zig-js safe native (+1 more reused dependencies)\n      +- compile lib zig-js safe native (+1 more reused dependencies)\ntest-c-api-call-budget success\n+- run exe c-api-call-budget success 225ms\n|  +- compile exe c-api-call-budget safe native success 5s MaxRSS:473M\n|     +- WriteFile (reused)\n|     +- compile lib zig-js safe native (+1 more reused dependencies)\n|     +- compile lib zig-js safe native (+1 more reused dependencies)\n+- install c-api-call-budget success\n   +- compile exe c-api-call-budget safe native (+3 more reused dependencies)\ntest-home-private-abi success\n+- run exe home-private-value-shims success 469ms\n   +- compile exe home-private-value-shims safe native success 7s MaxRSS:702M\n   |  +- WriteFile (reused)\n   |  +- compile lib zig-js safe native (+1 more reused dependencies)\n   |  +- compile lib zig-js safe native (+1 more reused dependencies)\n   +- run /usr/bin/env success 247ms\ntest-home-public-abi success\n+- run exe home-public-abi-7ed99c02 success 465ms\n   +- compile exe home-public-abi-7ed99c02 safe native success 4s MaxRSS:484M\n   |  +- WriteFile (reused)\n   |  +- compile lib zig-js safe native (+1 more reused dependencies)\n   |  +- compile lib zig-js safe native (+1 more reused dependencies)\n   +- run /usr/bin/env success 11s\ntest-c-api success\n+- run exe c-api-value-brands-c success 366ms\n|  +- compile exe c-api-value-brands-c safe native success 229ms MaxRSS:201M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env success 10s\n+- run exe c-api-value-brands-cpp success 305ms\n|  +- compile exe c-api-value-brands-cpp safe native success 230ms MaxRSS:200M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-typed-array-offset success 300ms\n|  +- compile exe c-api-typed-array-offset safe native success 344ms MaxRSS:201M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe async-context-job-scopes success 39ms\n|  +- compile exe async-context-job-scopes safe native cached 239ms MaxRSS:30M\n+- run exe c-api-async-context-c success 321ms\n|  +- compile exe c-api-async-context-c safe native success 232ms MaxRSS:200M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-async-context-cpp success 357ms\n|  +- compile exe c-api-async-context-cpp safe native success 287ms MaxRSS:205M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-rejections success 300ms\n|  +- compile exe c-api-rejections safe native success 350ms MaxRSS:200M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-smoke-c success 290ms\n|  +- compile exe c-api-smoke-c safe native success 252ms MaxRSS:200M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-latin1 success 290ms\n|  +- compile exe c-api-latin1 safe native success 344ms MaxRSS:201M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-smoke-cpp success 348ms\n|  +- compile exe c-api-smoke-cpp safe native success 328ms MaxRSS:203M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-inspector-smoke success 337ms\n|  +- compile exe c-api-inspector-smoke safe native success 315ms MaxRSS:201M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-inherited-host-get success 38ms\n|  +- compile exe c-api-inherited-host-get safe native (+3 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-call-checkpoints success 305ms\n|  +- compile exe c-api-call-checkpoints safe native success 271ms MaxRSS:199M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-call-checkpoint-gc success 305ms\n|  +- compile exe c-api-call-checkpoint-gc safe native success 225ms MaxRSS:200M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-reentrant-scripts success 308ms\n|  +- compile exe c-api-reentrant-scripts safe native success 274ms MaxRSS:199M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-reentrant-timers success 311ms\n|  +- compile exe c-api-reentrant-timers safe native success 315ms MaxRSS:198M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-call-budget (+1 more reused dependencies)\n+- run exe reentrant-script-lifecycle success 51ms\n   +- compile exe reentrant-script-lifecycle safe native cached 239ms MaxRSS:30M\ninstall success\n+- install generated to libzig-js.a success\n|  +- run /usr/bin/env (libzig-js.a) success 836ms\n|     +- compile lib zig-js safe native (+1 more reused dependencies)\n|     +- run xcrun (objc_bridge.o) cached\n|     +- compile obj zig-js-objc-dispatch safe native cached 78ms MaxRSS:30M\n+- install include/ success\n\n\nECOSYSTEM PEAK SAMPLED RSS: 2221824 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "debug": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "install",
+          "test-c-api-call-checkpoints",
+          "test-c-api-call-checkpoint-gc",
+          "test-c-api-call-budget",
+          "test-home-private-abi",
+          "-Doptimize=Debug",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-debug",
+          "-j1",
+          "--summary",
+          "all",
+          "-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 2206448,
+        "memory_limit_mb": 3072,
+        "seconds": 41.934,
+        "log": "validation-debug.log",
+        "TSAN_OPTIONS": null
+      },
+      "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/validation-debug.log",
+      "log_sha256": "07b2822b8ece7b665a61618b193696df14b73d00ca9199baec44461275d82ae7",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"install\", \"test-c-api-call-checkpoints\", \"test-c-api-call-checkpoint-gc\", \"test-c-api-call-budget\", \"test-home-private-abi\", \"-Doptimize=Debug\", \"--prefix\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-debug\", \"-j1\", \"--summary\", \"all\", \"-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool\"]\nHome private ABI audit: home-private-7ed99c02: 538 symbols from 66 files; private=447, public=59, platform=7, consumer-provided=25, implemented-private=447, pending-private=0, unclassified=0\nHome private value shims: 392/392 symbols linked; runtime matrix passed\nC call reentry budget: RangeError and fresh host entry passed\nc-api audit: 117 declarations, 117 complete, 0 pending, 117 public symbols present, 35 zig-js extensions, 460 private profile exports\nC call checkpoint precise-GC completions: 2/2 cases passed\nC function call checkpoints: 6/6 cases passed\nBuild Summary: 24/24 steps succeeded\ntest-home-private-abi success\n+- run exe home-private-value-shims success 885ms\n   +- compile exe home-private-value-shims debug native success 1s MaxRSS:503M\n   |  +- WriteFile cached\n   |  +- compile lib zig-js debug native success 23s MaxRSS:2G\n   |  |  +- options cached\n   |  +- compile lib zig-js debug native (+1 more reused dependencies)\n   +- run /usr/bin/env success 281ms\ntest-c-api-call-budget success\n+- run exe c-api-call-budget success 522ms\n|  +- compile exe c-api-call-budget debug native success 1s MaxRSS:531M\n|     +- WriteFile (reused)\n|     +- compile lib zig-js debug native (+1 more reused dependencies)\n|     +- compile lib zig-js debug native (+1 more reused dependencies)\n+- install c-api-call-budget success\n   +- compile exe c-api-call-budget debug native (+3 more reused dependencies)\ntest-c-api-call-checkpoint-gc success\n+- run exe c-api-call-checkpoint-gc success 818ms\n   +- compile exe c-api-call-checkpoint-gc debug native success 678ms MaxRSS:272M\n   |  +- WriteFile (reused)\n   |  +- compile lib zig-js debug native (+1 more reused dependencies)\n   |  +- compile lib zig-js debug native (+1 more reused dependencies)\n   +- run /usr/bin/env success 11s\ntest-c-api-call-checkpoints success\n+- run exe c-api-call-checkpoints success 824ms\n   +- compile exe c-api-call-checkpoints debug native success 518ms MaxRSS:271M\n   |  +- WriteFile (reused)\n   |  +- compile lib zig-js debug native (+1 more reused dependencies)\n   |  +- compile lib zig-js debug native (+1 more reused dependencies)\n   +- run /usr/bin/env (reused)\ninstall success\n+- install generated to libzig-js.a success\n|  +- run /usr/bin/env (libzig-js.a) success 887ms\n|     +- compile lib zig-js debug native (+1 more reused dependencies)\n|     +- run xcrun (objc_bridge.o) cached\n|     +- compile obj zig-js-objc-dispatch debug native cached 44ms MaxRSS:30M\n+- install include/ success\n\n\nECOSYSTEM PEAK SAMPLED RSS: 2206448 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "tsan": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "install",
+          "test-c-api-call-checkpoints",
+          "test-c-api-call-checkpoint-gc",
+          "test-c-api-call-budget",
+          "test-home-private-abi",
+          "-Doptimize=ReleaseSafe",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-tsan",
+          "-j1",
+          "--summary",
+          "all",
+          "-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool",
+          "-Dtsan=true"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 2306768,
+        "memory_limit_mb": 3072,
+        "seconds": 114.532,
+        "log": "validation-tsan.log",
+        "TSAN_OPTIONS": null
+      },
+      "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/validation-tsan.log",
+      "log_sha256": "733f417ea8f4bc6a3890b8bbea55bddc9d9ed70e6d1f43e2630ca30fcf85c3bf",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"install\", \"test-c-api-call-checkpoints\", \"test-c-api-call-checkpoint-gc\", \"test-c-api-call-budget\", \"test-home-private-abi\", \"-Doptimize=ReleaseSafe\", \"--prefix\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-tsan\", \"-j1\", \"--summary\", \"all\", \"-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool\", \"-Dtsan=true\"]\nc-api audit: 117 declarations, 117 complete, 0 pending, 117 public symbols present, 35 zig-js extensions, 460 private profile exports\nHome private ABI audit: home-private-7ed99c02: 538 symbols from 66 files; private=447, public=59, platform=7, consumer-provided=25, implemented-private=447, pending-private=0, unclassified=0\nC function call checkpoints: 6/6 cases passed\nC call checkpoint precise-GC completions: 2/2 cases passed\nC call reentry budget: RangeError and fresh host entry passed\nHome private value shims: 392/392 symbols linked; runtime matrix passed\nBuild Summary: 24/24 steps succeeded\ntest-home-private-abi success\n+- run exe home-private-value-shims success 1s\n   +- compile exe home-private-value-shims safe native success 7s MaxRSS:656M\n   |  +- WriteFile cached\n   |  +- compile lib zig-js safe native success 1m MaxRSS:2G\n   |  |  +- options cached\n   |  +- compile lib zig-js safe native (+1 more reused dependencies)\n   +- run /usr/bin/env success 268ms\ntest-c-api-call-budget success\n+- run exe c-api-call-budget success 554ms\n|  +- compile exe c-api-call-budget safe native success 5s MaxRSS:599M\n|     +- WriteFile (reused)\n|     +- compile lib zig-js safe native (+1 more reused dependencies)\n|     +- compile lib zig-js safe native (+1 more reused dependencies)\n+- install c-api-call-budget success\n   +- compile exe c-api-call-budget safe native (+3 more reused dependencies)\ntest-c-api-call-checkpoint-gc success\n+- run exe c-api-call-checkpoint-gc success 574ms\n   +- compile exe c-api-call-checkpoint-gc safe native success 282ms MaxRSS:220M\n   |  +- WriteFile (reused)\n   |  +- compile lib zig-js safe native (+1 more reused dependencies)\n   |  +- compile lib zig-js safe native (+1 more reused dependencies)\n   +- run /usr/bin/env success 11s\ntest-c-api-call-checkpoints success\n+- run exe c-api-call-checkpoints success 1s\n   +- compile exe c-api-call-checkpoints safe native success 457ms MaxRSS:223M\n   |  +- WriteFile (reused)\n   |  +- compile lib zig-js safe native (+1 more reused dependencies)\n   |  +- compile lib zig-js safe native (+1 more reused dependencies)\n   +- run /usr/bin/env (reused)\ninstall success\n+- install generated to libzig-js.a success\n|  +- run /usr/bin/env (libzig-js.a) success 615ms\n|     +- compile lib zig-js safe native (+1 more reused dependencies)\n|     +- run xcrun (objc_bridge.o) cached\n|     +- compile obj zig-js-objc-dispatch safe native cached 46ms MaxRSS:30M\n+- install include/ success\n\n\nECOSYSTEM PEAK SAMPLED RSS: 2306768 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "artifacts": {
+    "release": {
+      "archive": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-fixed/lib/libzig-js.a",
+      "archive_sha256": "9192650fb70820f17bd1cf3d0e202390d42cffc1a6ee030b20ab42272818e940",
+      "native_fixture": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-fixed/bin/c-api-call-budget",
+      "native_fixture_sha256": "3ea1faee2625424fb65fa399f217ed748212f220e820154fe14d04e904555350"
+    },
+    "debug": {
+      "archive": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-debug/lib/libzig-js.a",
+      "archive_sha256": "8aae29bff4e2d834656c8b4736b73642162fe7f0d621a25810625c9819ee5d2a",
+      "native_fixture": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-debug/bin/c-api-call-budget",
+      "native_fixture_sha256": "c4d46f3b80b1818cedfb0b219e7ca5bb0a9e3fab622aa7f0192ae21248931ca3"
+    },
+    "tsan": {
+      "archive": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-tsan/lib/libzig-js.a",
+      "archive_sha256": "0cd85fcfe2891864f1f960f41a0094b4c039afc9490b5906495cd48666d050a7",
+      "native_fixture": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-tsan/bin/c-api-call-budget",
+      "native_fixture_sha256": "cca499713c9170f7408f92dd0faa3307fe69ed2e9bddd8b8f2c405825f4fed9a"
+    }
+  },
+  "tsan_instrumentation": {
+    "archive": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-tsan/lib/libzig-js.a",
+    "tsan_init": true,
+    "tsan_func_entry": true,
+    "native_call_budget_instrumented": true,
+    "TSAN_OPTIONS": null
+  },
+  "test262_controls": {
+    "eval-code": {
+      "before": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/script-checkpoints/engine-fixed/bin/test262",
+            "--diag",
+            "test/language/eval-code"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 13184,
+          "memory_limit_mb": 3072,
+          "seconds": 0.398,
+          "log": "eval-code-before.log"
+        },
+        "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/eval-code-before.log",
+        "log_sha256": "f8594ccae86e9ae3ad5f4954ab294181a8e6a7c25ddd0b5786481cbbff179487",
+        "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/script-checkpoints/engine-fixed/bin/test262\", \"--diag\", \"test/language/eval-code\"]\n# test/language/eval-code: 0 fail, 347 pass\n\nECOSYSTEM PEAK SAMPLED RSS: 13184 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "after": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-fixed/bin/test262",
+            "--diag",
+            "test/language/eval-code"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 11232,
+          "memory_limit_mb": 3072,
+          "seconds": 0.646,
+          "log": "eval-code-after.log"
+        },
+        "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/eval-code-after.log",
+        "log_sha256": "bffd7c96ed32809677f3047b5e6ffa9d2335a32f1849932eb0f160b431d5db5f",
+        "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-fixed/bin/test262\", \"--diag\", \"test/language/eval-code\"]\n# test/language/eval-code: 0 fail, 347 pass\n\nECOSYSTEM PEAK SAMPLED RSS: 11232 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "passed_before": 347,
+      "passed_after": 347,
+      "failed_before": 0,
+      "failed_after": 0,
+      "gains": 0,
+      "regressions": 0
+    },
+    "promise": {
+      "before": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/script-checkpoints/engine-fixed/bin/test262",
+            "--diag",
+            "test/built-ins/Promise"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 13840,
+          "memory_limit_mb": 3072,
+          "seconds": 0.688,
+          "log": "promise-before.log"
+        },
+        "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/promise-before.log",
+        "log_sha256": "d3ae2fa467713a19b2ca6bf953b5d8918a706ab7ef7155ff43e2ee401b2ab257",
+        "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/script-checkpoints/engine-fixed/bin/test262\", \"--diag\", \"test/built-ins/Promise\"]\n# test/built-ins/Promise: 0 fail, 677 pass\n\nECOSYSTEM PEAK SAMPLED RSS: 13840 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "after": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-fixed/bin/test262",
+            "--diag",
+            "test/built-ins/Promise"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 13520,
+          "memory_limit_mb": 3072,
+          "seconds": 0.651,
+          "log": "promise-after.log"
+        },
+        "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/promise-after.log",
+        "log_sha256": "f7266e6f1acd41cecbdd3610139f331dd91662ceaa2013f16af30ead8d7f2e20",
+        "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-fixed/bin/test262\", \"--diag\", \"test/built-ins/Promise\"]\n# test/built-ins/Promise: 0 fail, 677 pass\n\nECOSYSTEM PEAK SAMPLED RSS: 13520 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "passed_before": 677,
+      "passed_after": 677,
+      "failed_before": 0,
+      "failed_after": 0,
+      "gains": 0,
+      "regressions": 0
+    }
+  },
+  "implementation": "Both JS and direct C callbacks establish an active interpreter/async scope. Same-realm reentry inherits and returns its execution budget and defers jobs to its outer call. Only the outer C entry drains host microtasks; return and primary exception roots survive that checkpoint, and direct callback handle identity is preserved. No public/private symbol, signature, layout or inventory status changes.",
+  "coverage_scope": "ReleaseSafe 67/67 includes full public C/C++ fixtures, Home public/private ABI, 35-row JSC differential and 1,024 test262 controls. Debug/TSan cover the six call cases, two precise-GC completions, real budget limit/recovery and Home private fixture. No full unit, full test262 or thread-corpus claim. No new shared engine state or suppression.",
+  "retained_prototype_and_tool_failures": {
+    "focused-after": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build",
+          "install",
+          "test-c-api-call-checkpoints",
+          "test-c-api-call-checkpoint-gc",
+          "-Doptimize=ReleaseSafe",
+          "--prefix",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-after",
+          "-j1",
+          "--summary",
+          "all",
+          "-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1917168,
+        "memory_limit_mb": 3072,
+        "seconds": 98.712,
+        "log": "focused-after.log"
+      },
+      "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/focused-after.log",
+      "log_sha256": "5a05a684cde54f2f2a98786d7168ca5bfdf13db4728beb9c4f4000995898395e",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"install\", \"test-c-api-call-checkpoints\", \"test-c-api-call-checkpoint-gc\", \"-Doptimize=ReleaseSafe\", \"--prefix\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-after\", \"-j1\", \"--summary\", \"all\", \"-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool\"]\nc-api audit: 117 declarations, 117 complete, 0 pending, 117 public symbols present, 35 zig-js extensions, 460 private profile exports\nC call checkpoint precise-GC completions: 2/2 cases passed\nC function call checkpoints: 6/6 cases passed\nBuild Summary: 16/16 steps succeeded\ntest-c-api-call-checkpoint-gc success\n+- run exe c-api-call-checkpoint-gc success 247ms\n   +- compile exe c-api-call-checkpoint-gc safe native success 495ms MaxRSS:200M\n   |  +- WriteFile cached\n   |  +- compile lib zig-js safe native success 1m MaxRSS:1G\n   |  |  +- options cached\n   |  +- compile lib zig-js safe native (+1 more reused dependencies)\n   +- run /usr/bin/env success 11s\ntest-c-api-call-checkpoints success\n+- run exe c-api-call-checkpoints success 264ms\n   +- compile exe c-api-call-checkpoints safe native success 309ms MaxRSS:199M\n   |  +- WriteFile (reused)\n   |  +- compile lib zig-js safe native (+1 more reused dependencies)\n   |  +- compile lib zig-js safe native (+1 more reused dependencies)\n   +- run /usr/bin/env (reused)\ninstall success\n+- install generated to libzig-js.a success\n|  +- run /usr/bin/env (libzig-js.a) success 534ms\n|     +- compile lib zig-js safe native (+1 more reused dependencies)\n|     +- run xcrun (objc_bridge.o) cached\n|     +- compile obj zig-js-objc-dispatch safe native cached 54ms MaxRSS:30M\n+- install include/ success\n\n\nECOSYSTEM PEAK SAMPLED RSS: 1917168 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "budget-prototype-build": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build-exe",
+          "-OReleaseSafe",
+          "--dep",
+          "regex",
+          "--dep",
+          "gc",
+          "-I/Users/chris/Code/Libraries/zig-js/include",
+          "-Mroot=/Users/chris/Code/Libraries/zig-js/src/c_api_call_budget.zig",
+          "-OReleaseSafe",
+          "-Mregex=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_regex-0.2.1-omky0VQnHAAyGDvpJhAP9TWq__v103WF70P-lj300Gy7/src/root.zig",
+          "-OReleaseSafe",
+          "-Mgc=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig",
+          "-lc",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-after/lib/libzig-js.a",
+          "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/budget-prototype"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 407968,
+        "memory_limit_mb": 3072,
+        "seconds": 4.984,
+        "log": "budget-prototype-build.log"
+      },
+      "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/budget-prototype-build.log",
+      "log_sha256": "d5544ece735d1ecdacf84e3546316992b3764076e31f8422e1695dd2420cc359",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build-exe\", \"-OReleaseSafe\", \"--dep\", \"regex\", \"--dep\", \"gc\", \"-I/Users/chris/Code/Libraries/zig-js/include\", \"-Mroot=/Users/chris/Code/Libraries/zig-js/src/c_api_call_budget.zig\", \"-OReleaseSafe\", \"-Mregex=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_regex-0.2.1-omky0VQnHAAyGDvpJhAP9TWq__v103WF70P-lj300Gy7/src/root.zig\", \"-OReleaseSafe\", \"-Mgc=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig\", \"-lc\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-after/lib/libzig-js.a\", \"-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/budget-prototype\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 407968 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "budget-prototype": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/budget-prototype"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.255,
+        "log": "budget-prototype.log"
+      },
+      "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/budget-prototype.log",
+      "log_sha256": "a6ed92e4c5e4a0f76571d0203dfb1cdfe99a2979f0c01be762707f439134e9bb",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/budget-prototype\"]\nerror: NestedCallResetBudget\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "initial-cimport-budget-before-build": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build-exe",
+          "-OReleaseSafe",
+          "--dep",
+          "regex",
+          "--dep",
+          "gc",
+          "-I/Users/chris/Code/Libraries/zig-js/include",
+          "-Mroot=/Users/chris/Code/Libraries/zig-js/src/c_api_call_budget.zig",
+          "-OReleaseSafe",
+          "-Mregex=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_regex-0.2.1-omky0VQnHAAyGDvpJhAP9TWq__v103WF70P-lj300Gy7/src/root.zig",
+          "-OReleaseSafe",
+          "-Mgc=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig",
+          "-lc",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/script-checkpoints/engine-fixed/lib/libzig-js.a",
+          "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/budget-before"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 177360,
+        "memory_limit_mb": 3072,
+        "seconds": 0.419,
+        "log": "budget-before-build.log"
+      },
+      "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/initial-cimport-budget-before-build.log",
+      "log_sha256": "f9377a40515b894968f49ba132e766e38d0f14f71fa89e82a580516345d87c12",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build-exe\", \"-OReleaseSafe\", \"--dep\", \"regex\", \"--dep\", \"gc\", \"-I/Users/chris/Code/Libraries/zig-js/include\", \"-Mroot=/Users/chris/Code/Libraries/zig-js/src/c_api_call_budget.zig\", \"-OReleaseSafe\", \"-Mregex=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_regex-0.2.1-omky0VQnHAAyGDvpJhAP9TWq__v103WF70P-lj300Gy7/src/root.zig\", \"-OReleaseSafe\", \"-Mgc=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig\", \"-lc\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/script-checkpoints/engine-fixed/lib/libzig-js.a\", \"-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/budget-before\"]\nsrc/c_api_call_budget.zig:4:13: error: invalid builtin function: '@cImport'\nconst api = @cImport({\n            ^~~~~~~~\n\nECOSYSTEM PEAK SAMPLED RSS: 177360 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "initial-cimport-budget-prototype-build": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build-exe",
+          "-OReleaseSafe",
+          "--dep",
+          "regex",
+          "--dep",
+          "gc",
+          "-I/Users/chris/Code/Libraries/zig-js/include",
+          "-Mroot=/Users/chris/Code/Libraries/zig-js/src/c_api_call_budget.zig",
+          "-OReleaseSafe",
+          "-Mregex=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_regex-0.2.1-omky0VQnHAAyGDvpJhAP9TWq__v103WF70P-lj300Gy7/src/root.zig",
+          "-OReleaseSafe",
+          "-Mgc=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig",
+          "-lc",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-after/lib/libzig-js.a",
+          "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/budget-prototype"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 168928,
+        "memory_limit_mb": 3072,
+        "seconds": 0.23,
+        "log": "budget-prototype-build.log"
+      },
+      "retained_log_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/initial-cimport-budget-prototype-build.log",
+      "log_sha256": "a2ae2132e81e4a6bb508a6610ead4c17fb724fe4098923d9bef586ad9c8d8849",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build-exe\", \"-OReleaseSafe\", \"--dep\", \"regex\", \"--dep\", \"gc\", \"-I/Users/chris/Code/Libraries/zig-js/include\", \"-Mroot=/Users/chris/Code/Libraries/zig-js/src/c_api_call_budget.zig\", \"-OReleaseSafe\", \"-Mregex=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_regex-0.2.1-omky0VQnHAAyGDvpJhAP9TWq__v103WF70P-lj300Gy7/src/root.zig\", \"-OReleaseSafe\", \"-Mgc=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig\", \"-lc\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/engine-after/lib/libzig-js.a\", \"-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/call-checkpoints/budget-prototype\"]\nsrc/c_api_call_budget.zig:4:13: error: invalid builtin function: '@cImport'\nconst api = @cImport({\n            ^~~~~~~~\n\nECOSYSTEM PEAK SAMPLED RSS: 168928 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    }
+  },
+  "prototype_interpretation": "First job-order prototype passed 6/6 and 2/2 but introduced a real quota reset. Immutable old archive passes the lowered budget; prototype fails NestedCallResetBudget; final all three profiles require RangeError and fresh-host recovery. Initial @cImport compiler errors remain retained; final fixture uses explicit ABI declarations because pinned Zig removed @cImport.",
+  "latest_complete_consumer_reports": {
+    "run": 43124016270,
+    "engine": "52ee50f536bc56313cac4a3e6ea3aa257469130f",
+    "reports": [
+      {
+        "repository": "stacksjs/stacks",
+        "consumer": "4e8a0ede8c7467b6b9eadcb4e4fc777d1e8c4916",
+        "engine": "52ee50f536bc56313cac4a3e6ea3aa257469130f",
+        "scopes": 100,
+        "checks": 936,
+        "candidate": {
+          "unsupported": 357,
+          "failed": 192,
+          "passed": 82
+        },
+        "artifact": {
+          "id": 13904648022,
+          "name": "ecosystem-results-0",
+          "digest": "sha256:af53449b5a86cedb8461f14093e999e93c9ad9fa1b01fb61366e9e5859d76ce1",
+          "size_in_bytes": 1550967
+        },
+        "verified_zip_sha256": "af53449b5a86cedb8461f14093e999e93c9ad9fa1b01fb61366e9e5859d76ce1",
+        "report_sha256": "08fc08d377a7ba73ac867e819b6a2d9b936857e013232c8ea251e4c8007288ce",
+        "runtime_provenance": {
+          "engine_sha": "52ee50f536bc56313cac4a3e6ea3aa257469130f",
+          "suite_ref": "9f6ac1f1109416a183e923f0b58a6c34770ba652",
+          "home_repository": "home-lang/home",
+          "home_ref": "baabd83f05594c89d5ab932a83a66a37223d165d",
+          "zig_version": "0.18.0-dev.146+35accc06e",
+          "build_cpu": "baseline",
+          "build_optimize": "ReleaseSafe",
+          "sha256": {
+            "home-tool": "b695c5011c799f294042c511b346928df38fa31541a6fddcd6cee09a95c216f6",
+            "engine/zig-out/lib/libzig-js.a": "87c217edc6f1c7868e3a6057aa23a9c3c410f69fa73c3b9a0c589bec2757fb65"
+          }
+        },
+        "actual_consumer_logs": [
+          {
+            "check": {
+              "status": "passed",
+              "exit_code": 0,
+              "peak_sampled_rss_kib": 173788,
+              "memory_limit_mb": 3072,
+              "seconds": 0.361,
+              "log": "0488.log",
+              "label": "storage/framework/core/router: module initialization src/index.ts",
+              "lane": "candidate",
+              "command": [
+                "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+                "src/index.ts"
+              ],
+              "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/router",
+              "engine_invocations": 1
+            },
+            "log_sha256": "a41c79fe882d625d2992c40c9f4a237812f01b4d84cc50b19cb4b96a880dd1c1",
+            "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 173788 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+          }
+        ]
+      },
+      {
+        "repository": "home-lang/home",
+        "consumer": "baabd83f05594c89d5ab932a83a66a37223d165d",
+        "engine": "52ee50f536bc56313cac4a3e6ea3aa257469130f",
+        "scopes": 46,
+        "checks": 234,
+        "candidate": {
+          "timed-out": 1,
+          "unsupported": 37,
+          "passed": 9,
+          "failed": 40
+        },
+        "artifact": {
+          "id": 13904464100,
+          "name": "ecosystem-results-1",
+          "digest": "sha256:7d698061979c883b818b286109de1bd238a37276375b74ac5f6271add118f168",
+          "size_in_bytes": 104379
+        },
+        "verified_zip_sha256": "7d698061979c883b818b286109de1bd238a37276375b74ac5f6271add118f168",
+        "report_sha256": "015099cad010bd18e35e82c1c0d5b3108cc3d0c933fa08e1b41219480cb28b60",
+        "runtime_provenance": {
+          "engine_sha": "52ee50f536bc56313cac4a3e6ea3aa257469130f",
+          "suite_ref": "9f6ac1f1109416a183e923f0b58a6c34770ba652",
+          "home_repository": "home-lang/home",
+          "home_ref": "baabd83f05594c89d5ab932a83a66a37223d165d",
+          "zig_version": "0.18.0-dev.146+35accc06e",
+          "build_cpu": "baseline",
+          "build_optimize": "ReleaseSafe",
+          "sha256": {
+            "home-tool": "b695c5011c799f294042c511b346928df38fa31541a6fddcd6cee09a95c216f6",
+            "engine/zig-out/lib/libzig-js.a": "87c217edc6f1c7868e3a6057aa23a9c3c410f69fa73c3b9a0c589bec2757fb65"
+          }
+        },
+        "actual_consumer_logs": [
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 211660,
+              "memory_limit_mb": 3072,
+              "seconds": 0.528,
+              "log": "0071.log",
+              "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun run build.ts"
+              ],
+              "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind",
+              "engine_invocations": 1
+            },
+            "log_sha256": "b6d4ad4626df50f4dcf7ff4f60968aa7d27765a483ef3b922ead0f552bdd6b0d",
+            "log": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module vm from /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/node_modules/bun-plugin-tailwind/index.mjs\n\nECOSYSTEM PEAK SAMPLED RSS: 211660 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          },
+          {
+            "check": {
+              "status": "not-run",
+              "reason": "repository time budget exhausted",
+              "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+              "lane": "reference",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun run build.ts"
+              ],
+              "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/reference/packages/runtime/src/runtime/cli/init/react-tailwind",
+              "engine_invocations": 0
+            }
+          }
+        ]
+      },
+      {
+        "repository": "home-lang/flappy-bird",
+        "consumer": "c303fe9f067144814652b84d48c9d9e6b7ac326c",
+        "engine": "52ee50f536bc56313cac4a3e6ea3aa257469130f",
+        "scopes": 0,
+        "checks": 4,
+        "candidate": {},
+        "artifact": {
+          "id": 13904752196,
+          "name": "ecosystem-results-13",
+          "digest": "sha256:40d69cdfa9c642e7873de3a7c687fb0e58ee4d2bebb2a745908f834e157a5ea6",
+          "size_in_bytes": 9487
+        },
+        "verified_zip_sha256": "40d69cdfa9c642e7873de3a7c687fb0e58ee4d2bebb2a745908f834e157a5ea6",
+        "report_sha256": "a2ac3d1191408d590934866f3aa3587b4d2fd749ada9187ab596ac5ddeabdf1b",
+        "runtime_provenance": {
+          "engine_sha": "52ee50f536bc56313cac4a3e6ea3aa257469130f",
+          "suite_ref": "9f6ac1f1109416a183e923f0b58a6c34770ba652",
+          "home_repository": "home-lang/home",
+          "home_ref": "baabd83f05594c89d5ab932a83a66a37223d165d",
+          "zig_version": "0.18.0-dev.146+35accc06e",
+          "build_cpu": "baseline",
+          "build_optimize": "ReleaseSafe",
+          "sha256": {
+            "home-tool": "b695c5011c799f294042c511b346928df38fa31541a6fddcd6cee09a95c216f6",
+            "engine/zig-out/lib/libzig-js.a": "87c217edc6f1c7868e3a6057aa23a9c3c410f69fa73c3b9a0c589bec2757fb65"
+          }
+        },
+        "actual_consumer_logs": [
+          {
+            "check": {
+              "label": "coverage",
+              "lane": "coverage",
+              "status": "not-applicable",
+              "reason": "No tracked JavaScript/TypeScript/Zig executable consumer"
+            }
+          }
+        ]
+      },
+      {
+        "repository": "home-lang/ballerburg",
+        "consumer": "2cc719df053ae15a7282685071dbb1a87ca86ba6",
+        "engine": "52ee50f536bc56313cac4a3e6ea3aa257469130f",
+        "scopes": 1,
+        "checks": 14,
+        "candidate": {
+          "unsupported": 2,
+          "failed": 1
+        },
+        "artifact": {
+          "id": 13904752196,
+          "name": "ecosystem-results-13",
+          "digest": "sha256:40d69cdfa9c642e7873de3a7c687fb0e58ee4d2bebb2a745908f834e157a5ea6",
+          "size_in_bytes": 9487
+        },
+        "verified_zip_sha256": "40d69cdfa9c642e7873de3a7c687fb0e58ee4d2bebb2a745908f834e157a5ea6",
+        "report_sha256": "6fe6adc8ab226093148712de98be1dad9165d50d87f9b33aa5c66ea2f7fb03f2",
+        "runtime_provenance": {
+          "engine_sha": "52ee50f536bc56313cac4a3e6ea3aa257469130f",
+          "suite_ref": "9f6ac1f1109416a183e923f0b58a6c34770ba652",
+          "home_repository": "home-lang/home",
+          "home_ref": "baabd83f05594c89d5ab932a83a66a37223d165d",
+          "zig_version": "0.18.0-dev.146+35accc06e",
+          "build_cpu": "baseline",
+          "build_optimize": "ReleaseSafe",
+          "sha256": {
+            "home-tool": "b695c5011c799f294042c511b346928df38fa31541a6fddcd6cee09a95c216f6",
+            "engine/zig-out/lib/libzig-js.a": "87c217edc6f1c7868e3a6057aa23a9c3c410f69fa73c3b9a0c589bec2757fb65"
+          }
+        },
+        "actual_consumer_logs": [
+          {
+            "check": {
+              "status": "unsupported",
+              "exit_code": 78,
+              "peak_sampled_rss_kib": 10484,
+              "memory_limit_mb": 3072,
+              "seconds": 0.039,
+              "log": "0006.log",
+              "label": ".: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun build ui/index.ts --outdir=dist --target=bun"
+              ],
+              "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--ballerburg/candidate",
+              "engine_invocations": 0,
+              "unsupported_reasons": [
+                "bun build requires a host API absent from Home's repository-tool runtime"
+              ],
+              "reason": "bun build requires a host API absent from Home's repository-tool runtime"
+            },
+            "log_sha256": "e7ce224d0dc42afd5d650b089a41512833120f250432cea7d90abbf62019d562",
+            "log": "$ [\"/bin/sh\", \"-c\", \"bun build ui/index.ts --outdir=dist --target=bun\"]\nECOSYSTEM UNSUPPORTED: bun build requires a host API absent from Home's repository-tool runtime\n\nECOSYSTEM PEAK SAMPLED RSS: 10484 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+          },
+          {
+            "check": {
+              "status": "unsupported",
+              "exit_code": 78,
+              "peak_sampled_rss_kib": 10508,
+              "memory_limit_mb": 3072,
+              "seconds": 0.038,
+              "log": "0007.log",
+              "label": ".: test",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun test"
+              ],
+              "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--ballerburg/candidate",
+              "engine_invocations": 0,
+              "unsupported_reasons": [
+                "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+              ],
+              "reason": "Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed"
+            },
+            "log_sha256": "fc075645fedead91271915da7be9615646ffd2e94b0d0d005cb2b26e1fdb36fe",
+            "log": "$ [\"/bin/sh\", \"-c\", \"bun test\"]\nECOSYSTEM UNSUPPORTED: Home's repository-tool runtime has no Bun/Node test scheduler; upstream tests were not executed\n\nECOSYSTEM PEAK SAMPLED RSS: 10508 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 78\n"
+          },
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 8668,
+              "memory_limit_mb": 3072,
+              "seconds": 0.07,
+              "log": "0008.log",
+              "label": ".: module initialization ui/index.ts",
+              "lane": "candidate",
+              "command": [
+                "/home/runner/work/zig-js/zig-js/.work/home-lang--ballerburg/shims/bun",
+                "ui/index.ts"
+              ],
+              "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--ballerburg/candidate",
+              "engine_invocations": 1
+            },
+            "log_sha256": "02c219a13b45941ed9323b724eddd8c46074fe5105ade1e520f5a7a66f90e37a",
+            "log": "$ [\"/home/runner/work/zig-js/zig-js/.work/home-lang--ballerburg/shims/bun\", \"ui/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module ../../craft/packages/typescript/src/index.ts from /home/runner/work/zig-js/zig-js/.work/home-lang--ballerburg/candidate/ui/index.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 8668 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          },
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 0,
+              "memory_limit_mb": 3072,
+              "seconds": 0.009,
+              "log": "0013.log",
+              "label": ".: build",
+              "lane": "reference",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun build ui/index.ts --outdir=dist --target=bun"
+              ],
+              "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--ballerburg/reference",
+              "engine_invocations": 0
+            },
+            "log_sha256": "2e35e16deabb68f6c2487a0674872cfe210c3669b546e8f12a7f5c914521c116",
+            "log": "$ [\"/bin/sh\", \"-c\", \"bun build ui/index.ts --outdir=dist --target=bun\"]\n9 | import { createApp } from '../../craft/packages/typescript/src/index.ts'\n                              ^\nerror: Could not resolve: \"../../craft/packages/typescript/src/index.ts\"\n    at /home/runner/work/zig-js/zig-js/.work/home-lang--ballerburg/reference/ui/index.ts:9:27\n\nECOSYSTEM PEAK SAMPLED RSS: 0 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          },
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 0,
+              "memory_limit_mb": 3072,
+              "seconds": 0.009,
+              "log": "0014.log",
+              "label": ".: test",
+              "lane": "reference",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun test"
+              ],
+              "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--ballerburg/reference",
+              "engine_invocations": 0
+            },
+            "log_sha256": "7e9367ce59c066ecc6ade361d0ab0fa9ff13980b45075fe61cfa46adbdd5c4d9",
+            "log": "$ [\"/bin/sh\", \"-c\", \"bun test\"]\nbun test v1.4.4 (38afee6c8)\nNo tests found!\n\nTests need \".test\", \"_test_\", \".spec\" or \"_spec_\" in the filename (ex: \"MyApp.test.ts\")\n\nLearn more about bun test: https://bun.com/docs/cli/test\n\nECOSYSTEM PEAK SAMPLED RSS: 0 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        ]
+      },
+      {
+        "repository": "home-lang/home-os",
+        "consumer": "151269666bc09aa15a271f1c1f4603f681132e65",
+        "engine": "52ee50f536bc56313cac4a3e6ea3aa257469130f",
+        "scopes": 0,
+        "checks": 4,
+        "candidate": {},
+        "artifact": {
+          "id": 13903793445,
+          "name": "ecosystem-results-14",
+          "digest": "sha256:b89d76f972eddb91db5007b7c88f2b94d71377af0c7efa93295052d30792babb",
+          "size_in_bytes": 5161
+        },
+        "verified_zip_sha256": "b89d76f972eddb91db5007b7c88f2b94d71377af0c7efa93295052d30792babb",
+        "report_sha256": "2d71626840e03336e40ecae3bdf5fc1a70eb6d2389e294ff175855bacfc43cc5",
+        "runtime_provenance": {
+          "engine_sha": "52ee50f536bc56313cac4a3e6ea3aa257469130f",
+          "suite_ref": "9f6ac1f1109416a183e923f0b58a6c34770ba652",
+          "home_repository": "home-lang/home",
+          "home_ref": "baabd83f05594c89d5ab932a83a66a37223d165d",
+          "zig_version": "0.18.0-dev.146+35accc06e",
+          "build_cpu": "baseline",
+          "build_optimize": "ReleaseSafe",
+          "sha256": {
+            "home-tool": "b695c5011c799f294042c511b346928df38fa31541a6fddcd6cee09a95c216f6",
+            "engine/zig-out/lib/libzig-js.a": "87c217edc6f1c7868e3a6057aa23a9c3c410f69fa73c3b9a0c589bec2757fb65"
+          }
+        },
+        "actual_consumer_logs": [
+          {
+            "check": {
+              "label": "coverage",
+              "lane": "coverage",
+              "status": "unsupported",
+              "reason": "No recognized package or native Zig build entry point"
+            }
+          }
+        ]
+      },
+      {
+        "repository": "home-lang/generals",
+        "consumer": "5aa7de8bee5a8f207e315db0a88cdeff673a51da",
+        "engine": "52ee50f536bc56313cac4a3e6ea3aa257469130f",
+        "scopes": 0,
+        "checks": 5,
+        "candidate": {},
+        "artifact": {
+          "id": 13903793445,
+          "name": "ecosystem-results-14",
+          "digest": "sha256:b89d76f972eddb91db5007b7c88f2b94d71377af0c7efa93295052d30792babb",
+          "size_in_bytes": 5161
+        },
+        "verified_zip_sha256": "b89d76f972eddb91db5007b7c88f2b94d71377af0c7efa93295052d30792babb",
+        "report_sha256": "fac7182260ff0f09526f80c95e369774ef309d1fc6163e7ba9936f55499ed82e",
+        "runtime_provenance": {
+          "engine_sha": "52ee50f536bc56313cac4a3e6ea3aa257469130f",
+          "suite_ref": "9f6ac1f1109416a183e923f0b58a6c34770ba652",
+          "home_repository": "home-lang/home",
+          "home_ref": "baabd83f05594c89d5ab932a83a66a37223d165d",
+          "zig_version": "0.18.0-dev.146+35accc06e",
+          "build_cpu": "baseline",
+          "build_optimize": "ReleaseSafe",
+          "sha256": {
+            "home-tool": "b695c5011c799f294042c511b346928df38fa31541a6fddcd6cee09a95c216f6",
+            "engine/zig-out/lib/libzig-js.a": "87c217edc6f1c7868e3a6057aa23a9c3c410f69fa73c3b9a0c589bec2757fb65"
+          }
+        },
+        "actual_consumer_logs": [
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 878788,
+              "memory_limit_mb": 3072,
+              "seconds": 59.094,
+              "log": "0004.log",
+              "label": "native Zig build",
+              "lane": "native-zig",
+              "command": [
+                "zig",
+                "build"
+              ],
+              "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--generals/candidate",
+              "engine_invocations": 0
+            },
+            "log_sha256": "bd436b5eeeb40b2d3e01d24f0b7ecb44e08cba3d0b89dc28798aa8679f958c30",
+            "log": "$ [\"zig\", \"build\"]\nbuild.zig:18:13: error: no field or member function named 'addCSourceFile' in 'Build.Step.Compile'\n    generals.addCSourceFile(.{\n    ~~~~~~~~^~~~~~~~~~~~~~~\n/home/runner/work/zig-js/zig-js/pantry/ziglang-org/0.18.0-dev.146_35accc06e/lib/std/Build/Step/Compile.zig:1:1: note: struct declared here\nconst Compile = @This();\n^~~~~\nbuild.zig:18:13: note: method invocation only supports up to one level of implicit pointer dereferencing\nbuild.zig:18:13: note: use '.*' to dereference pointer\nreferenced by:\n    runPackageScript [inlined]: /home/runner/work/zig-js/zig-js/pantry/ziglang-org/0.18.0-dev.146_35accc06e/lib/std/Build.zig:2144:50\n    main: /home/runner/work/zig-js/zig-js/pantry/ziglang-org/0.18.0-dev.146_35accc06e/lib/compiler/configurer.zig:138:29\n    4 reference(s) hidden; use '-freference-trace=6' to see all references\n\nECOSYSTEM PEAK SAMPLED RSS: 878788 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          },
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 158616,
+              "memory_limit_mb": 3072,
+              "seconds": 0.67,
+              "log": "0005.log",
+              "label": "discover native Zig test steps",
+              "lane": "native-zig",
+              "command": [
+                "zig",
+                "build",
+                "--help"
+              ],
+              "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--generals/candidate",
+              "engine_invocations": 0
+            },
+            "log_sha256": "105c5a4e21f4415e0995513d41d302710216061739093f28afb1d75e40153a87",
+            "log": "$ [\"zig\", \"build\", \"--help\"]\nbuild.zig:18:13: error: no field or member function named 'addCSourceFile' in 'Build.Step.Compile'\n    generals.addCSourceFile(.{\n    ~~~~~~~~^~~~~~~~~~~~~~~\n/home/runner/work/zig-js/zig-js/pantry/ziglang-org/0.18.0-dev.146_35accc06e/lib/std/Build/Step/Compile.zig:1:1: note: struct declared here\nconst Compile = @This();\n^~~~~\nbuild.zig:18:13: note: method invocation only supports up to one level of implicit pointer dereferencing\nbuild.zig:18:13: note: use '.*' to dereference pointer\nreferenced by:\n    runPackageScript [inlined]: /home/runner/work/zig-js/zig-js/pantry/ziglang-org/0.18.0-dev.146_35accc06e/lib/std/Build.zig:2144:50\n    main: /home/runner/work/zig-js/zig-js/pantry/ziglang-org/0.18.0-dev.146_35accc06e/lib/compiler/configurer.zig:138:29\n    4 reference(s) hidden; use '-freference-trace=6' to see all references\n\nECOSYSTEM PEAK SAMPLED RSS: 158616 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        ]
+      }
+    ],
+    "scope": "Stacks revision moved with unchanged82/192/357, real router initialization passed. Homebaabd remains9/40/37/1timeout and actual Tailwind vm resolution fails. Ballerburg retains missing sibling craft in both candidate/reference, absent build host/test scheduler; generals retains a native Zig build API mismatch; home-os unsupported and flappy-bird not applicable are not passes. None is a result for the new engine."
+  },
+  "preceding_engine_linux_runtime": {
+    "engine": "ec63c2a958e51883b3f178c2ccbfc70772ca38e9",
+    "run": 43133497714,
+    "job": 130905341303,
+    "conclusion": "success",
+    "log_sha256": "c2c845c1460f6da9a7a0bab64475e682d942b0739561dd1533b47ffb52b893ba",
+    "actual_markers": [
+      "2026-11-12T01:43:59.0307779Z FUNCTION MOCK RESULTS {\"groups\":30,\"passed\":30,\"failures\":[]}",
+      "2026-11-12T01:44:02.8720000Z NATIVE DNS PHYSICAL HOST ORACLE VERIFIED {\"queries\": 22, \"answers\": 22, \"resolver_failures\": 3, \"hosts_file_sha256\": \"bb61c1b40ceb466d6993067deb54a96090db6f5161c8754374d02df4f529d4ef\"}",
+      "2026-11-12T01:45:16.1467693Z CONDITIONAL ARM 18 CHECKS OK",
+      "2026-11-12T01:45:16.1470306Z TYPED CONDITIONAL ARROW 4 CHECKS OK",
+      "2026-11-12T01:45:16.1784536Z COMPACT TYPE CLOSER 12 CHECKS OK",
+      "2026-11-12T01:45:16.2379595Z NATIVE CPU SNAPSHOT MATCHES HOST"
+    ],
+    "scope": "Actual maintained Suite9f6/Homebaabd Linux runtime for preceding engine ec63, not the newly pushed commit or a whole consumer pass."
+  },
+  "new_pushed_runs": [
+    {
+      "conclusion": "",
+      "databaseId": 43138846652,
+      "headSha": "67b8276edf87183614b3a0fb42819a56a22318c1",
+      "name": "Ecosystem",
+      "status": "queued",
+      "url": "https://github.com/zig-utils/zig-js/actions/runs/43138846652"
+    },
+    {
+      "conclusion": "",
+      "databaseId": 43138845996,
+      "headSha": "67b8276edf87183614b3a0fb42819a56a22318c1",
+      "name": "CI",
+      "status": "pending",
+      "url": "https://github.com/zig-utils/zig-js/actions/runs/43138845996"
+    }
+  ],
+  "deployed_dashboard": {
+    "url": "https://zig-utils.github.io/zig-js-ecosystem/",
+    "observed_http_headers": "HTTP/2 200 \nserver: GitHub.com\ncontent-type: text/html; charset=utf-8\nlast-modified: Thu, 12 Nov 2026 01:07:44 GMT\naccess-control-allow-origin: *\nstrict-transport-security: max-age=31556952\netag: \"6af51160-7e5ba\"\nexpires: Thu, 12 Nov 2026 02:12:07 GMT\ncache-control: max-age=600\nx-proxy-cache: MISS\nx-github-request-id: A6C6:30449:EA58B:108D74:6AF51E1D\nx-github-edge-region: westus3\naccept-ranges: bytes\nage: 0\ndate: Thu, 12 Nov 2026 02:02:07 GMT\nvia: 1.1 varnish\nx-served-by: cache-hhr-khhr2060038-HHR\nx-cache: MISS\nx-cache-hits: 0\nx-timer: S1794448927.493310,VS0,VE108\nvary: Accept-Encoding\nx-fastly-request-id: 031af7dde5c773540e2f43c2ad353ba4a2cacdd2\ncontent-length: 517562\n\n",
+    "scope": "Existing STX dashboard remains deployed; no site source or pass/fail classification changed in this repair."
+  },
+  "limits": [
+    "No Home vm module, plugin.setup, full Tailwind build or full package pass is claimed.",
+    "Caller stays on validated functional9f6; this receipt and its Suite commit are evidence only, never promotion candidates.",
+    "All selected repositories remain in the unchanged every-push workflow; no old run cancelled.",
+    "Foreign untracked zig-pkg remains untouched. Exactly five owned code/build/test paths staged."
+  ]
+}
