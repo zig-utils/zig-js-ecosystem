@@ -1,0 +1,1501 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-12T16:57:59.411942+00:00",
+  "status": "Real POSIX terminal output implemented, locally validated and pushed; fresh immutable Linux qualification pending",
+  "home_ref": "183ff983a1febb522ae7be52f010530bd0c6e541",
+  "home_url": "https://github.com/home-lang/home/commit/183ff983a1febb522ae7be52f010530bd0c6e541",
+  "source_tree": "6bafb8a10981a1cc3b3b2279ee5f83ae04f1fa85",
+  "before_home_ref": "198c75ae8c3424be778d0649ed8bace93ed62f90",
+  "preserved_foreign_parent": "9b1859bc13d809d8836f7efe4675e80838db9986",
+  "foreign_work": "Two independent assignment-join checker/oracle commits preserved before editing. Original Home/lang worktree/index untouched. No whole-checker regression claim.",
+  "source_files": [
+    {
+      "git_blob": "b688061044374882c0b38a1dc0931e8f9f940609",
+      "sha256": "048af4dd909aa7531f3aac24c387389da9a75e92bf7374e8fb6eb8dabc4fbbe7",
+      "path": "build.zig"
+    },
+    {
+      "git_blob": "ffdefb443439510ef3c590ab7167019e1e66d9a1",
+      "sha256": "79c1f4866ceefe8d91935e3ed5ad6eb6bca0201755e54acb051cd1ee277224c3",
+      "path": "packages/runtime/src/jsc/tool_builtins.js"
+    },
+    {
+      "git_blob": "2856ae7d20365b6b2f9d07d8e0620e1fe7ec68bb",
+      "sha256": "22ba5bd8b573cadbe0454d05b0626ac9e774d85d15b59fe502731d57c2fcb352",
+      "path": "packages/runtime/src/jsc/tool_builtins.zig"
+    },
+    {
+      "git_blob": "c56228667eccf249301d0cd397bda1740ca11fb7",
+      "sha256": "e482a726c33ac6ec58a7a0d19af88509e367fa992a2944320a0270850e8aa411",
+      "path": "packages/runtime/src/jsc/tool_tty.zig"
+    },
+    {
+      "git_blob": "5d9de21bacf1aa60682e7495b937d9c7968e1606",
+      "sha256": "dc332dfa84f87a518a25a7d26ef563737a9e6b4adbf721b4644932b4c45425a5",
+      "path": "packages/runtime/src/jsc/tool_tty.js"
+    },
+    {
+      "git_blob": "36b5fbce2ace125c8219038631a82710c080ba9a",
+      "sha256": "01824122072a448ea69b929833395c51d714235fd09a27f44c110c1737ae916c",
+      "path": "packages/runtime/test/TTY_STREAM_PROFILE.md"
+    },
+    {
+      "git_blob": "ddf28027fa56ec6242a930b9a38fc1457f31dfd8",
+      "sha256": "00bcaa3af2f5233cd37937ecaaf965117fb907aa7dc3b9fb6449d31fdc2d9b3d",
+      "path": "packages/runtime/test/tool_modules/node_tty_stream.mjs"
+    },
+    {
+      "git_blob": "a87902640afd3234a0e5968b9a03cdb6141ac7e9",
+      "sha256": "b3695245497fa9c8709a3db2073b4786b06f2dd32ad9e7cb7ff06c5da4e78a26",
+      "path": "packages/runtime/test/tool_modules/tty_color_oracle.json"
+    },
+    {
+      "git_blob": "f1093a73da3df6287c589a5cf68a5c25e436646d",
+      "sha256": "5a70ab093b7a62a9ead47d26809da2ce7a6dabe6c07184a50ff9f11df30b6703",
+      "path": "packages/runtime/test/tool_tty_oracle.mjs"
+    },
+    {
+      "git_blob": "f312f65d821eda05a32ad1fee144b9d379f043ae",
+      "sha256": "bf092b751079f14075877689adc383c89bdbfb926aa724a21214265262ab8140",
+      "path": "packages/runtime/test/tool_tty_stream_fixture.py"
+    }
+  ],
+  "local_engine_sha": "a7b0fdfd2e9caa6a9e822d911dd8a390e21babf1",
+  "local_archive_sha256": "3b182ee48ac27e763c308b16276e5330e552906f82d82336907f7389ce1b03ed",
+  "local_profile": "Darwin ReleaseSafe with the same exact pushed zig-js archive; distinct from requested Linux5cb qualification",
+  "preceding_complete_qualification": {
+    "run": 43248806917,
+    "functional_suite": "9b2a5571158aac6a49d35b970c4992d4244b98c8",
+    "report_job": 131312720485,
+    "actual_summary": "4/4 consumers reported; 4 failing, 0 missing",
+    "report_log_sha256": "2c6bb68214cc83f0765a8939cc81878cc6f45c024ddb9b020da2c7f1f5d44d71",
+    "consumers": [
+      {
+        "repository": "stacksjs/stacks",
+        "sha": "5c66d33bebde1cbacf42de7936b53708c768ac66",
+        "engine_sha": "72d7abd6b27186471932d8d665c7c8c69615a390",
+        "candidate_counts": {
+          "unsupported": 355,
+          "failed": 182,
+          "passed": 94
+        },
+        "artifact": {
+          "id": 13959704086,
+          "digest": "sha256:74a689b39a620f66b796c2dce2d28cd748ea489f74ab24e36e0e3343b69a7901",
+          "size_in_bytes": 1339680
+        },
+        "report_sha256": "6c99ae73a9f8b5de9cc276fdbd60c34e05982263dfdf43d52cdbeac09511132b",
+        "actual_logs": [
+          {
+            "label": ".: build",
+            "status": "failed",
+            "log_sha256": "05afb5db999c4a33b15cd64c08e78362697e556a9a0a2b3b5231c3b7eafde380",
+            "text": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-12T15:48:13.103Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default — ssr is false)\nNo site URL configured — sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 2557896 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        ]
+      },
+      {
+        "repository": "home-lang/home",
+        "sha": "198c75ae8c3424be778d0649ed8bace93ed62f90",
+        "engine_sha": "72d7abd6b27186471932d8d665c7c8c69615a390",
+        "candidate_counts": {
+          "timed-out": 1,
+          "unsupported": 37,
+          "passed": 9,
+          "failed": 40
+        },
+        "artifact": {
+          "id": 13960378222,
+          "digest": "sha256:239e8256244ce86e3637850ce16542ae6e4b61db7d1ffa2da29dd73b10c9d3c0",
+          "size_in_bytes": 106590
+        },
+        "report_sha256": "2e5581d3d61c56d01e1fafd01c7ff9c61cf4afcdadcb2b89e11cdc3887f53b1f",
+        "actual_logs": [
+          {
+            "label": ".: build",
+            "status": "timed-out",
+            "log_sha256": "ea9e4d5535d4163c1072be8622c87f46d279726bc213b6ced0cd8ceb8f9a3afb",
+            "text": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 2029064 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: command time budget exhausted\n\nECOSYSTEM RESULT: timed-out, exit 124\n"
+          },
+          {
+            "label": "packages/registry: test",
+            "status": "failed",
+            "log_sha256": "6fb5396a2a815b6b85d8c90fe1810efc4d543f0f76812397e69dcbce8302ab35",
+            "text": "$ [\"/bin/sh\", \"-c\", \"jest\"]\nSyntaxError: Unexpected token\n    at <anonymous> (home:tool-module-install:258:7)\n    at evaluateSync (home:tool-module-install:277:7)\n    at load (home:tool-module-install:379:5)\n    at <anonymous> (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/registry/node_modules/%40babel/code-frame/lib/index.js?home-emitted:5:1)\n    at <anonymous> (home:tool-module-install:260:7)\n    at evaluateSync (home:tool-module-install:277:7)\n    at load (home:tool-module-install:379:5)\n    at <anonymous> (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/registry/node_modules/parse-json/index.js?home-emitted:6:1)\n    at <anonymous> (home:tool-module-install:260:7)\n    at evaluateSync (home:tool-module-install:277:7)\nUncaught unhandledRejection: SyntaxError: Unexpected token\n\nECOSYSTEM PEAK SAMPLED RSS: 129320 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          },
+          {
+            "label": "packages/runtime/upstream/bench/ffi/src: build",
+            "status": "failed",
+            "log_sha256": "2d06142cc88a21c47279d81b4c15781319eb10f7f33984c12dbb9d3735f5cf52",
+            "text": "$ [\"/bin/sh\", \"-c\", \"bun run build:napi && bun run build:ffi\"]\nhome-tool (zig-js): Error: cannot resolve module http from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/ffi/src/node_modules/@napi-rs/cli/scripts/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 275936 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          },
+          {
+            "label": "packages/runtime/upstream/packages/bun-build-mdx-rs: build",
+            "status": "failed",
+            "log_sha256": "569834fae40f23bab57550ab0c927f1067c184f80ec8b550fcb100d715caec0c",
+            "text": "$ [\"/bin/sh\", \"-c\", \"napi build --platform --release\"]\nhome-tool (zig-js): TypeError: undefined is not an object (evaluating 'tty$1.WriteStream.prototype')\n\nECOSYSTEM PEAK SAMPLED RSS: 196248 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        ]
+      },
+      {
+        "repository": "stacksjs/bunpress",
+        "sha": "e7b328e3fd3db76ff92ce52649e9f13c6f811fdc",
+        "engine_sha": "72d7abd6b27186471932d8d665c7c8c69615a390",
+        "candidate_counts": {
+          "failed": 4,
+          "unsupported": 4,
+          "passed": 5
+        },
+        "artifact": {
+          "id": 13958619420,
+          "digest": "sha256:94ffcad18e322496279f36a2414891ea5d9a2cf7c08fa851d2199c08009ac98c",
+          "size_in_bytes": 335604
+        },
+        "report_sha256": "8b56705e3452ac62ec9b669523b86ddd97c6aff2c291cdd150ef0ff980a163dd",
+        "actual_logs": [
+          {
+            "label": ".: build",
+            "status": "failed",
+            "log_sha256": "b3c47a2a968ecd5948596f8b5afe4a35ad14f336c73bd8ae2eba06010524c9a0",
+            "text": "$ [\"/bin/sh\", \"-c\", \"bun run build:bunpress && bun run build:plugin\"]\nBuilding library...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./bin/cli.ts\"], outdir: \"./dist\", plugins: [dts()], minify: true, splitting: true, target: \"bun\", external: [\"@cwcss/crosswind\", \"@stacksjs/clapp\", \"@stacksjs/stx\", \"@stacksjs/ts-cloud\", \"@stacksjs/ts-i18n\", \"@ts-cloud/core\", \"bunfig\", \"ts-syntax-highlighter\"] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 130452 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        ]
+      },
+      {
+        "repository": "stacksjs/clapp",
+        "sha": "2ecc2af97d33f59ad5d22abe399392793d8de63d",
+        "engine_sha": "72d7abd6b27186471932d8d665c7c8c69615a390",
+        "candidate_counts": {
+          "failed": 2,
+          "unsupported": 4,
+          "passed": 3
+        },
+        "artifact": {
+          "id": 13959232076,
+          "digest": "sha256:f172030ed855aca8f575043bc11208345134c9cd13c9354f8dfb695e5f86ab63",
+          "size_in_bytes": 23987
+        },
+        "report_sha256": "329c00bf2ae304e8dac90c062fce4eb0019c9245b8996362c6c3fe0406e00b68",
+        "actual_logs": [
+          {
+            "label": ".: build",
+            "status": "failed",
+            "log_sha256": "43e068062e08e57ea0a24fcfc9db50df466a8fdb2c4631fe0daa45936721895d",
+            "text": "$ [\"/bin/sh\", \"-c\", \"bun --bun build.ts\"]\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [join(cwd, \"src/index.ts\"), join(cwd, \"src/telemetry.ts\")], outdir: join(cwd, \"dist\"), format: \"esm\", splitting: true, plugins: [dts({ cwd, root: \"./src\", outdir: \"./dist\", moduleSpecifierMode: \"node\" })], target: \"node\" })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 170756 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        ]
+      }
+    ]
+  },
+  "reproduction": {
+    "actual_trigger": "After string_decoder, one Home NAPI CLI build reaches missing http, while MDX CLI reaches undefined tty.WriteStream.prototype. Missing HTTP stays unsupported; no import-only module is added.",
+    "before": "Both providers fail a real PTY constructor probe with zero output bytes. Node/Bun controls write actual UTF-8 and report the independently configured93x27 kernel size.",
+    "after_each_home_provider": "29/29 groups and119/119 pinned Node environment cases execute in each of two actual PTYs; Python sets93x27 and47x11 independently and compares all41 UTF-8/NUL/0xff/ANSI bytes.",
+    "native_implementation": "Read-only ioctl size queries; managed Writable delegates to real descriptor writes and owns a /dev/fd copy. Existing FS ownership closes it exactly once. Kernel descriptor counts rise by one during ownership and return to baseline after close, with the caller fd still a terminal. Private query/factory hooks are deleted.",
+    "color_source": {
+      "source": "Node v26.10.0 internal/tty.js through the installed pinned runtime; MIT/FSF notices retained in tool_tty.js",
+      "snapshot": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/node-tty-colors-v26.10.0.js",
+      "sha256": "996ae301ee60854817401545811fd908c332cd3ed071c6a498d211ccdd9a932d",
+      "scope": "POSIX environment rules; Windows query refuses support. The119-row matrix regenerates byte-exactly with pinned Node."
+    },
+    "limits": "Default options only; constructor requires a real POSIX terminal. Read/raw input, non-terminal constructors, option objects and automatic SIGWINCH watching remain unavailable. Explicit _refreshSize queries the kernel; no automatic resize event is simulated. No full CLI, HTTP, N-API/Rust build or upstream-test pass is claimed.",
+    "references": "Node passes29+119 and both physical windows. Bun full reference fails24/29 groups in its first window with five API differences; its119 colors,41 bytes and first size match, but second-window execution is unexecuted. The smaller initial Bun physical constructor probe passes.",
+    "retained_harness_failures": "Initial PTY drain closed the last slave too early on macOS and lost queued bytes; keeping the parent slave open fixes the independent harness. Initial Node expectations of a public fd field and ERR_STREAM_DESTROYED after end were wrong; Node exposes no fd there and returns ERR_STREAM_WRITE_AFTER_END. Initial expectation that Node closes the caller fd was also disproved: actual Node retains it. All raw failures remain; final behavior follows the executed reference."
+  },
+  "validation": {
+    "maintained_zig_js": "Final276/276 steps pass, with native steps cached. Earlier pre-review graph separately reports4/4 fresh native tests; do not invent a fresh final count.",
+    "maintained_jsc": "Final249/274 with21 failures remains red; TTY fixture passes. Failure-command comparison is a limited cached/negative-command sanity check, not no-regression evidence.",
+    "jsc_failure_command_comparison": {
+      "before_commands": [
+        "<home-tool> run packages/runtime/test/tool_modules/source_nul.mjs --transpile",
+        "python3 ./packages/runtime/test/tool_immediates_fixture.py <home-tool> ./packages/runtime/test/tool_modules/immediates_async_context.mjs --context",
+        "cd packages/runtime/test/tool_modules && <home-tool> run timers_async_context.mjs",
+        "cd packages/runtime/test/tool_modules && <home-tool> run async_context.mjs",
+        "cd packages/runtime/test/tool_modules/package_exports && <home-tool> run reject-missing-array.mjs",
+        "cd packages/runtime/test/tool_modules/package_exports && <home-tool> run reject-extensionless.mjs",
+        "cd packages/runtime/test/tool_modules/tsconfig_paths && <home-tool> run malformed/entry.cjs",
+        "cd packages/runtime/test/tool_modules/dynamic_import && <home-tool> run pending-entry.mjs",
+        "cd packages/runtime/test/tool_modules/async && <home-tool> run rejected.mjs",
+        "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs undefined",
+        "cd packages/runtime/test/tool_modules/async && <home-tool> run pending.mjs",
+        "cd packages/runtime/test/tool_modules && <home-tool> run node_stream_pending.mjs",
+        "cd packages/runtime/test/tool_modules && <home-tool> run assert_failure.cjs",
+        "cd packages/runtime/test/tool_modules && <home-tool> run timers_exit.cjs fatal",
+        "cd packages/runtime/test/tool_modules && <home-tool> run timers_exit.cjs handler-throw",
+        "cd packages/runtime/test/tool_modules/async && <home-tool> run dependency-rejected.mjs",
+        "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs override",
+        "cd packages/runtime/test/tool_modules/tsconfig_paths && <home-tool> run cycle/entry.cjs",
+        "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs handler-throw",
+        "cd packages/runtime/test/tool_modules/async && <home-tool> run cjs-await.cjs",
+        "cd packages/runtime/test/tool_modules/package_exports && <home-tool> run reject-require-only.mjs",
+        "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs exit-throw",
+        "<home-tool> eval \"process.on('exit', function() { throw new Error('exit listener witness'); });\"",
+        "cd packages/runtime/test/tool_modules/dynamic_import && <home-tool> run reject-entry.mjs",
+        "cd packages/runtime/test/tool_modules && <home-tool> run runtime_invalid_syntax.js",
+        "<home-tool> run packages/runtime/test/tool_modules/jsdoc_runtime.mjs --transpile",
+        "cd packages/runtime/test/tool_modules/package_exports && <home-tool> run reject-directory.mjs",
+        "cd packages/runtime/test/tool_modules/async && <home-tool> run cycle-a.mjs",
+        "cd packages/runtime/test/tool_modules/tsconfig_paths && <home-tool> run declaration/entry.cjs",
+        "cd packages/runtime/test/tool_modules/tsconfig_paths && <home-tool> run invalid-options/entry.cjs",
+        "<home-tool> run packages/runtime/test/tool_modules/async_property_newline.cjs",
+        "cd packages/runtime/test/tool_modules/tsconfig_paths && <home-tool> run missing/entry.cjs",
+        "cd packages/runtime/test/tool_modules/async && <home-tool> run undefined.mjs",
+        "cd packages/runtime/test/tool_modules && <home-tool> run node_events_entry.cjs",
+        "cd packages/runtime/test/tool_modules/package_exports && <home-tool> run reject-blocked.mjs",
+        "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs monitor",
+        "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs monitor-throw",
+        "python3 ./packages/runtime/test/tool_dns_fixture.py <home-tool> ./packages/runtime/test/tool_modules",
+        "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs error",
+        "cd packages/runtime/test/tool_modules && <home-tool> run node_path_to_url.mjs",
+        "cd packages/runtime/test/tool_modules && <home-tool> run node_module_url.mjs",
+        "cd packages/runtime/test/tool_modules && <home-tool> run node_file_url_fs.mjs",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-jsc/bin/home-tool run unhandled_rejection.cjs async",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-jsc/bin/home-tool run unhandled_rejection.cjs listener-throw",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-jsc/bin/home-tool run unhandled_rejection.cjs error",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-jsc/bin/home-tool run unhandled_rejection.cjs undefined",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-jsc/bin/home-tool run timers_exit.cjs reject",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-jsc/bin/home-tool run timers_exit.cjs reject-listener",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-jsc/bin/home-tool run unhandled_rejection.cjs wrapped",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-jsc/bin/home-tool run ./node_immediates.mjs reject",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-jsc/bin/home-tool run unhandled_rejection.cjs second",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-jsc/bin/home-tool run unhandled_rejection.cjs handler-throw",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-jsc/bin/home-tool run unhandled_rejection.cjs listener",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-jsc/bin/home-tool run unhandled_rejection.cjs uncaught",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-jsc/bin/home-tool run unhandled_rejection.cjs chain",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-jsc/bin/home-tool run ./node_immediates.mjs reject-listener"
+      ],
+      "after_commands": [
+        "python3 ./packages/runtime/test/tool_immediates_fixture.py <home-tool> ./packages/runtime/test/tool_modules/immediates_async_context.mjs --context",
+        "cd packages/runtime/test/tool_modules && <home-tool> run timers_async_context.mjs",
+        "cd packages/runtime/test/tool_modules && <home-tool> run async_context.mjs",
+        "cd packages/runtime/test/tool_modules && <home-tool> run node_path_to_url.mjs",
+        "cd packages/runtime/test/tool_modules && <home-tool> run node_file_url_fs.mjs",
+        "cd packages/runtime/test/tool_modules && <home-tool> run node_module_url.mjs",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool run unhandled_rejection.cjs async",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool run unhandled_rejection.cjs wrapped",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool run unhandled_rejection.cjs uncaught",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool run timers_exit.cjs reject",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool run unhandled_rejection.cjs listener",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool run unhandled_rejection.cjs listener-throw",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool run unhandled_rejection.cjs chain",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool run unhandled_rejection.cjs undefined",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool run timers_exit.cjs reject-listener",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool run unhandled_rejection.cjs handler-throw",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool run ./node_immediates.mjs reject",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool run ./node_immediates.mjs reject-listener",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool run unhandled_rejection.cjs error",
+        "cd packages/runtime/test/tool_modules && /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool run unhandled_rejection.cjs second",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool run packages/runtime/test/tool_modules/source_nul.mjs --transpile",
+        "python3 ./packages/runtime/test/tool_dns_fixture.py /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool ./packages/runtime/test/tool_modules"
+      ],
+      "same_normalized_failed_command_sequence": false,
+      "scope": "Commands emitted by Zig include negative-test commands and cached successes differ. This is a failure-command sanity check only, not a measured whole-suite no-regression result.",
+      "after_commands_not_in_before": [],
+      "after_command_set_is_subset_of_before": true
+    },
+    "suite": "45 Python tests,7 dependency tests/26 assertions,actionlint and Python syntax pass",
+    "lint": "Pickier0 errors;2 warnings on unchanged tool_builtins.js lines1041/1044",
+    "guard": "Saved runtime/compiler/reference receipts use3072MiB sampled command-tree cap. No quota increase or cache/foreign-work deletion.",
+    "test262_flips": 0,
+    "test262_scope": "No engine or corpus edit; full test262 not run"
+  },
+  "receipts": [
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/actionlint.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.027,
+      "log": "actionlint.log",
+      "log_sha256": "2d83d05058d9a5a71a9f35ce1058cfbba75d86aafa904bc66054d98660f1e0d2",
+      "log_bytes": 183,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/bun-before-final.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/probe.py",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/probe.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 17632,
+      "memory_limit_mb": 3072,
+      "seconds": 0.266,
+      "log": "bun-before-final.log",
+      "log_sha256": "d676e9f7522ab0ab1f0f8d7e18df08b484243f2bf026afd88f7e80458864b7af",
+      "log_bytes": 452,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 17632 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/bun-before.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/probe.py",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/probe.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 17520,
+      "memory_limit_mb": 3072,
+      "seconds": 0.736,
+      "log": "bun-before.log",
+      "log_sha256": "a831e0dd1b1fcc99f8db427b6e0be9fdb6a4a90a837ce85b0753c3a862ebc976",
+      "log_bytes": 956,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 17520 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/final-focused-jsc.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-tty-stream-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1117920,
+      "memory_limit_mb": 3072,
+      "seconds": 32.415,
+      "log": "final-focused-jsc.log",
+      "free_bytes_after": 2066870272,
+      "log_sha256": "c7619dbad1a5999ab0ff32a21991188bbbf1d260023f9a0dffc442304d747e68",
+      "log_bytes": 1739,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27}\\n\"}",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11}\\n\"}",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "Build Summary: 7/7 steps succeeded",
+        "ECOSYSTEM PEAK SAMPLED RSS: 1117920 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/final-focused-zig-js.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-tty-stream-smoke",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1054400,
+      "memory_limit_mb": 3072,
+      "seconds": 38.921,
+      "log": "final-focused-zig-js.log",
+      "free_bytes_after": 2093244416,
+      "log_sha256": "40390252083b63466d8248f64b8615e1e14100f952201f3fe657528d2bec87f0",
+      "log_bytes": 1848,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27}\\n\"}",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11}\\n\"}",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "Build Summary: 7/7 steps succeeded",
+        "ECOSYSTEM PEAK SAMPLED RSS: 1054400 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/final-full-jsc.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 61360,
+      "memory_limit_mb": 3072,
+      "seconds": 3.667,
+      "log": "final-full-jsc.log",
+      "log_sha256": "d659774d2973a888e6ff2fa8dbe4924369580790bcf6ce169259bd08ea6f3f3d",
+      "log_bytes": 47198,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "TTY STREAM RESULTS {\"groups\":29,\"passed\":29,\"failures\":[]}",
+        "TTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}",
+        "TTY NATIVE WINDOW {\"columns\":93,\"rows\":27,\"originalStillTerminal\":true}",
+        "HOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "TTY STREAM RESULTS {\"groups\":29,\"passed\":29,\"failures\":[]}",
+        "TTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}",
+        "TTY NATIVE WINDOW {\"columns\":47,\"rows\":11,\"originalStillTerminal\":true}",
+        "HOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "Build Summary: 249/274 steps succeeded (21 failed)",
+        "ECOSYSTEM PEAK SAMPLED RSS: 61360 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/final-full-zig-js.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 273088,
+      "memory_limit_mb": 3072,
+      "seconds": 10.642,
+      "log": "final-full-zig-js.log",
+      "log_sha256": "d4d64126b3a98b127b0bf030aedc9737d90ae756d67d161c6ada4aa4f20bc363",
+      "log_bytes": 56235,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "TTY STREAM RESULTS {\"groups\":29,\"passed\":29,\"failures\":[]}",
+        "TTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}",
+        "TTY NATIVE WINDOW {\"columns\":93,\"rows\":27,\"originalStillTerminal\":true}",
+        "HOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "TTY STREAM RESULTS {\"groups\":29,\"passed\":29,\"failures\":[]}",
+        "TTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}",
+        "TTY NATIVE WINDOW {\"columns\":47,\"rows\":11,\"originalStillTerminal\":true}",
+        "HOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "Build Summary: 276/276 steps succeeded",
+        "ECOSYSTEM PEAK SAMPLED RSS: 273088 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/final-owned-physical-jsc.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_tty_stream_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs",
+        "--home-profile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 19232,
+      "memory_limit_mb": 3072,
+      "seconds": 0.568,
+      "log": "final-owned-physical-jsc.log",
+      "log_sha256": "980a700d390719233ca1845f088897fa1daf672afb1173b1f5c18beda194dc56",
+      "log_bytes": 1583,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "ECOSYSTEM PEAK SAMPLED RSS: 19232 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/final-owned-physical-node.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_tty_stream_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs",
+        "--node"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 19456,
+      "memory_limit_mb": 3072,
+      "seconds": 0.563,
+      "log": "final-owned-physical-node.log",
+      "log_sha256": "fdb3ae7775ea2402e87793d0b4a3113391730b6cae309d2791e6cda67d40d681",
+      "log_bytes": 1289,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\n\"}",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11,\\\"originalStillTerminal\\\":true}\\n\"}",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "ECOSYSTEM PEAK SAMPLED RSS: 19456 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/final-owned-physical-zig-js.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_tty_stream_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs",
+        "--home-profile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 39520,
+      "memory_limit_mb": 3072,
+      "seconds": 0.658,
+      "log": "final-owned-physical-zig-js.log",
+      "log_sha256": "19d647809f16fa825cfe2246b7fab5167bc5bc9bc3877968e02732b743548e75",
+      "log_bytes": 1586,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "ECOSYSTEM PEAK SAMPLED RSS: 39520 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/final-physical-jsc.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_tty_stream_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs",
+        "--home-profile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 19248,
+      "memory_limit_mb": 3072,
+      "seconds": 0.509,
+      "log": "final-physical-jsc.log",
+      "log_sha256": "2fc300299a5d6b1c914b6fb6cc675fc9e8d899f7b47fd1c5e7a00ab22d130124",
+      "log_bytes": 1583,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "ECOSYSTEM PEAK SAMPLED RSS: 19248 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/final-physical-node.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_tty_stream_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs",
+        "--node"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 42032,
+      "memory_limit_mb": 3072,
+      "seconds": 0.464,
+      "log": "final-physical-node.log",
+      "log_sha256": "8d16feba08a1a999dbad3ede56cd83ba7226e558031a616572b20265bace1590",
+      "log_bytes": 1021,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\n\"}",
+        "ECOSYSTEM PEAK SAMPLED RSS: 42032 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/final-physical-zig-js.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_tty_stream_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs",
+        "--home-profile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 19248,
+      "memory_limit_mb": 3072,
+      "seconds": 0.584,
+      "log": "final-physical-zig-js.log",
+      "log_sha256": "697cbe63e5d16055eafc92cdbb53a40cb8d200ec7b32b16006444d050db5c57c",
+      "log_bytes": 1586,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "ECOSYSTEM PEAK SAMPLED RSS: 19248 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/final-validation-bun.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_tty_stream_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 19216,
+      "memory_limit_mb": 3072,
+      "seconds": 0.339,
+      "log": "final-validation-bun.log",
+      "log_sha256": "42f16d1b1c312c4ede3a6f30abdcdccf5c7ab6e7797880026c4022e8328db7a6",
+      "log_bytes": 5213,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 1, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":24,\\\"failures\\\":[{\\\"name\\\":\\\"descriptor classification rejects coercion\\\",\\\"message\\\":\\\"Expected false, got true\\\"},{\\\"name\\\":\\\"no artificial public descriptor field\\\",\\\"message\\\":\\\"Expected undefined, got 1\\\"},{\\\"name\\\":\\\"invalid descriptor types and ranges\\\",\\\"message\\\":\\\"Expected \\\\\\\"ERR_INVALID_FD\\\\\\\", got \\\\\\\"ERR_OUT_OF_RANGE\\\\\\\"\\\"},{\\\"name\\\":\\\"invalid native descriptor\\\",\\\"message\\\":\\\"Expected true, got false\\\"},{\\\"name\\\":\\\"UTF8 write and deferred acknowledgement\\\",\\\"message\\\":\\\"Expected true, got false\\\"}]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\n50 | for(let i=0;i<oracle.cases.length;++i){const row=oracle.cases[i];const actual={depth:tty.WriteStream.prototype.getColorDepth(row.env),colors:oracle.counts.map(n=>tty.WriteStream.prototype.hasColors(n,row.env))};if(JSON.stringify(actual)!==JSON.stringify({depth:row.depth,colors:row.colors}))mismatches.push({index:i,env:row.env,expected:{depth:row.depth,colors:row.colors},actual});}\\n51 | console.error('TTY STREAM RESULTS '+JSON.stringify({groups,passed:groups-failures.length,failures}));\\n52 | console.error('TTY COLOR ORACLE RESULTS '+JSON.stringify({node:oracle.node,cases:oracle.cases.length,mismatches:mismatches.length,first:mismatches.slice(0,4)}));\\n53 | console.error('TTY NATIVE WINDOW '+JSON.stringify({columns:size[0],rows:size[1],originalStillTerminal:tty.isatty(1)}));\\n54 | if(process.argv.includes('--home-profile')){errorCode(()=>new WriteStream(1,{}),'ERR_HOME_UNSUPPORTED');equal(tty.isatty(1),true);equal(fdDuring,fdBefore+1);equal(readdirSync(fdDirectory).length,fdBefore);console.error('HOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE');}\\n55 | if(groups!==29||failures.length||mismatches.length)throw new Error('TTY stream execution failed');\\n                                                                  ^\\nerror: TTY stream execution failed\\n      at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs:55:62\\n\\nBun v1.4.4 (macOS arm64)\\n\"}",
+        "AssertionError: b'TTY STREAM RESULTS {\"groups\":29,\"passed\":24,\"failures\":[{\"name\":\"descriptor classification rejects coercion\",\"message\":\"Expected false, got true\"},{\"name\":\"no artificial public descriptor field\",\"message\":\"Expected undefined, got 1\"},{\"name\":\"invalid descriptor types and ranges\",\"message\":\"Expected \\\\\"ERR_INVALID_FD\\\\\", got \\\\\"ERR_OUT_OF_RANGE\\\\\"\"},{\"name\":\"invalid native descriptor\",\"message\":\"Expected true, got false\"},{\"name\":\"UTF8 write and deferred acknowledgement\",\"message\":\"Expected true, got false\"}]}\\nTTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}\\nTTY NATIVE WINDOW {\"columns\":93,\"rows\":27,\"originalStillTerminal\":true}\\n50 | for(let i=0;i<oracle.cases.length;++i){const row=oracle.cases[i];const actual={depth:tty.WriteStream.prototype.getColorDepth(row.env),colors:oracle.counts.map(n=>tty.WriteStream.prototype.hasColors(n,row.env))};if(JSON.stringify(actual)!==JSON.stringify({depth:row.depth,colors:row.colors}))mismatches.push({index:i,env:row.env,expected:{depth:row.depth,colors:row.colors},actual});}\\n51 | console.error(\\'TTY STREAM RESULTS \\'+JSON.stringify({groups,passed:groups-failures.length,failures}));\\n52 | console.error(\\'TTY COLOR ORACLE RESULTS \\'+JSON.stringify({node:oracle.node,cases:oracle.cases.length,mismatches:mismatches.length,first:mismatches.slice(0,4)}));\\n53 | console.error(\\'TTY NATIVE WINDOW \\'+JSON.stringify({columns:size[0],rows:size[1],originalStillTerminal:tty.isatty(1)}));\\n54 | if(process.argv.includes(\\'--home-profile\\')){errorCode(()=>new WriteStream(1,{}),\\'ERR_HOME_UNSUPPORTED\\');equal(tty.isatty(1),true);equal(fdDuring,fdBefore+1);equal(readdirSync(fdDirectory).length,fdBefore);console.error(\\'HOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\');}\\n55 | if(groups!==29||failures.length||mismatches.length)throw new Error(\\'TTY stream execution failed\\');\\n                                                                  ^\\nerror: TTY stream execution failed\\n      at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs:55:62\\n\\nBun v1.4.4 (macOS arm64)\\n'",
+        "ECOSYSTEM PEAK SAMPLED RSS: 19216 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/final-validation-jsc.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_tty_stream_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs",
+        "--home-profile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 19296,
+      "memory_limit_mb": 3072,
+      "seconds": 0.519,
+      "log": "final-validation-jsc.log",
+      "log_sha256": "3311131c3e7013058cb874e210ec38c38d286e76aef7f52152dad927fa16a638",
+      "log_bytes": 2243,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "TTY STREAM RESULTS {\"groups\":29,\"passed\":29,\"failures\":[]}",
+        "TTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}",
+        "TTY NATIVE WINDOW {\"columns\":93,\"rows\":27,\"originalStillTerminal\":true}",
+        "HOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "TTY STREAM RESULTS {\"groups\":29,\"passed\":29,\"failures\":[]}",
+        "TTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}",
+        "TTY NATIVE WINDOW {\"columns\":47,\"rows\":11,\"originalStillTerminal\":true}",
+        "HOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "ECOSYSTEM PEAK SAMPLED RSS: 19296 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/final-validation-node.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_tty_stream_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs",
+        "--node"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 30416,
+      "memory_limit_mb": 3072,
+      "seconds": 0.751,
+      "log": "final-validation-node.log",
+      "log_sha256": "bae7373ba40713c55f0847fcc7e937a5fd12a007cfd4623485e88cdab9e7daa6",
+      "log_bytes": 1717,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\n\"}",
+        "TTY STREAM RESULTS {\"groups\":29,\"passed\":29,\"failures\":[]}",
+        "TTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}",
+        "TTY NATIVE WINDOW {\"columns\":93,\"rows\":27,\"originalStillTerminal\":true}",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11,\\\"originalStillTerminal\\\":true}\\n\"}",
+        "TTY STREAM RESULTS {\"groups\":29,\"passed\":29,\"failures\":[]}",
+        "TTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}",
+        "TTY NATIVE WINDOW {\"columns\":47,\"rows\":11,\"originalStillTerminal\":true}",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "ECOSYSTEM PEAK SAMPLED RSS: 30416 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/final-validation-zig-js.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_tty_stream_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs",
+        "--home-profile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 19312,
+      "memory_limit_mb": 3072,
+      "seconds": 0.61,
+      "log": "final-validation-zig-js.log",
+      "log_sha256": "7c0c70ad7c188edc77b7c60bb84f83539e6210dcf0c65fa3235fdf93b3c742bb",
+      "log_bytes": 2246,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "TTY STREAM RESULTS {\"groups\":29,\"passed\":29,\"failures\":[]}",
+        "TTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}",
+        "TTY NATIVE WINDOW {\"columns\":93,\"rows\":27,\"originalStillTerminal\":true}",
+        "HOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "TTY STREAM RESULTS {\"groups\":29,\"passed\":29,\"failures\":[]}",
+        "TTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}",
+        "TTY NATIVE WINDOW {\"columns\":47,\"rows\":11,\"originalStillTerminal\":true}",
+        "HOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "ECOSYSTEM PEAK SAMPLED RSS: 19312 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/fixture-initial-node.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_tty_stream_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs",
+        "--node"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 19200,
+      "memory_limit_mb": 3072,
+      "seconds": 0.34,
+      "log": "fixture-initial-node.log",
+      "log_sha256": "14960a3f258d71543069425dfc7726adcc277d54e5f05fa466ad8d027066f2ca",
+      "log_bytes": 2688,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 1, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":27,\\\"failures\\\":[{\\\"name\\\":\\\"reported descriptor\\\",\\\"message\\\":\\\"Expected 1, got undefined\\\"},{\\\"name\\\":\\\"closed stream refuses output\\\",\\\"message\\\":\\\"Expected \\\\\\\"ERR_STREAM_DESTROYED\\\\\\\", got \\\\\\\"ERR_STREAM_WRITE_AFTER_END\\\\\\\"\\\"}]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27}\\nfile:///Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs:50\\nif(groups!==29||failures.length||mismatches.length)throw new Error('TTY stream execution failed');\\n                                                         ^\\n\\nError: TTY stream execution failed\\n    at file:///Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs:50:58\\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\\n\\nNode.js v26.10.0\\n\"}",
+        "AssertionError: b'TTY STREAM RESULTS {\"groups\":29,\"passed\":27,\"failures\":[{\"name\":\"reported descriptor\",\"message\":\"Expected 1, got undefined\"},{\"name\":\"closed stream refuses output\",\"message\":\"Expected \\\\\"ERR_STREAM_DESTROYED\\\\\", got \\\\\"ERR_STREAM_WRITE_AFTER_END\\\\\"\"}]}\\nTTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}\\nTTY NATIVE WINDOW {\"columns\":93,\"rows\":27}\\nfile:///Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs:50\\nif(groups!==29||failures.length||mismatches.length)throw new Error(\\'TTY stream execution failed\\');\\n                                                         ^\\n\\nError: TTY stream execution failed\\n    at file:///Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs:50:58\\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\\n\\nNode.js v26.10.0\\n'",
+        "ECOSYSTEM PEAK SAMPLED RSS: 19200 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/fixture-reference-bun.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_tty_stream_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 19184,
+      "memory_limit_mb": 3072,
+      "seconds": 0.3,
+      "log": "fixture-reference-bun.log",
+      "log_sha256": "1b76249aeeaaa18f040102b23c5945cbbf8b056bda0c667e1d58a971f8ca920f",
+      "log_bytes": 4437,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 1, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":24,\\\"failures\\\":[{\\\"name\\\":\\\"descriptor classification rejects coercion\\\",\\\"message\\\":\\\"Expected false, got true\\\"},{\\\"name\\\":\\\"no artificial public descriptor field\\\",\\\"message\\\":\\\"Expected undefined, got 1\\\"},{\\\"name\\\":\\\"invalid descriptor types and ranges\\\",\\\"message\\\":\\\"Expected \\\\\\\"ERR_INVALID_FD\\\\\\\", got \\\\\\\"ERR_OUT_OF_RANGE\\\\\\\"\\\"},{\\\"name\\\":\\\"invalid native descriptor\\\",\\\"message\\\":\\\"Expected true, got false\\\"},{\\\"name\\\":\\\"UTF8 write and deferred acknowledgement\\\",\\\"message\\\":\\\"Expected true, got false\\\"}]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27}\\n45 | const mismatches=[];\\n46 | for(let i=0;i<oracle.cases.length;++i){const row=oracle.cases[i];const actual={depth:tty.WriteStream.prototype.getColorDepth(row.env),colors:oracle.counts.map(n=>tty.WriteStream.prototype.hasColors(n,row.env))};if(JSON.stringify(actual)!==JSON.stringify({depth:row.depth,colors:row.colors}))mismatches.push({index:i,env:row.env,expected:{depth:row.depth,colors:row.colors},actual});}\\n47 | console.error('TTY STREAM RESULTS '+JSON.stringify({groups,passed:groups-failures.length,failures}));\\n48 | console.error('TTY COLOR ORACLE RESULTS '+JSON.stringify({node:oracle.node,cases:oracle.cases.length,mismatches:mismatches.length,first:mismatches.slice(0,4)}));\\n49 | console.error('TTY NATIVE WINDOW '+JSON.stringify({columns:size[0],rows:size[1]}));\\n50 | if(groups!==29||failures.length||mismatches.length)throw new Error('TTY stream execution failed');\\n                                                                  ^\\nerror: TTY stream execution failed\\n      at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs:50:62\\n\\nBun v1.4.4 (macOS arm64)\\n\"}",
+        "AssertionError: b'TTY STREAM RESULTS {\"groups\":29,\"passed\":24,\"failures\":[{\"name\":\"descriptor classification rejects coercion\",\"message\":\"Expected false, got true\"},{\"name\":\"no artificial public descriptor field\",\"message\":\"Expected undefined, got 1\"},{\"name\":\"invalid descriptor types and ranges\",\"message\":\"Expected \\\\\"ERR_INVALID_FD\\\\\", got \\\\\"ERR_OUT_OF_RANGE\\\\\"\"},{\"name\":\"invalid native descriptor\",\"message\":\"Expected true, got false\"},{\"name\":\"UTF8 write and deferred acknowledgement\",\"message\":\"Expected true, got false\"}]}\\nTTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}\\nTTY NATIVE WINDOW {\"columns\":93,\"rows\":27}\\n45 | const mismatches=[];\\n46 | for(let i=0;i<oracle.cases.length;++i){const row=oracle.cases[i];const actual={depth:tty.WriteStream.prototype.getColorDepth(row.env),colors:oracle.counts.map(n=>tty.WriteStream.prototype.hasColors(n,row.env))};if(JSON.stringify(actual)!==JSON.stringify({depth:row.depth,colors:row.colors}))mismatches.push({index:i,env:row.env,expected:{depth:row.depth,colors:row.colors},actual});}\\n47 | console.error(\\'TTY STREAM RESULTS \\'+JSON.stringify({groups,passed:groups-failures.length,failures}));\\n48 | console.error(\\'TTY COLOR ORACLE RESULTS \\'+JSON.stringify({node:oracle.node,cases:oracle.cases.length,mismatches:mismatches.length,first:mismatches.slice(0,4)}));\\n49 | console.error(\\'TTY NATIVE WINDOW \\'+JSON.stringify({columns:size[0],rows:size[1]}));\\n50 | if(groups!==29||failures.length||mismatches.length)throw new Error(\\'TTY stream execution failed\\');\\n                                                                  ^\\nerror: TTY stream execution failed\\n      at /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs:50:62\\n\\nBun v1.4.4 (macOS arm64)\\n'",
+        "ECOSYSTEM PEAK SAMPLED RSS: 19184 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/fixture-reference-node.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_tty_stream_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs",
+        "--node"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 19248,
+      "memory_limit_mb": 3072,
+      "seconds": 0.557,
+      "log": "fixture-reference-node.log",
+      "log_sha256": "44a9e3acc2f7ae97a71ea19a8e8e3334d07c3347e6094af755c5b91af4fbed22",
+      "log_bytes": 1227,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27}\\n\"}",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11}\\n\"}",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "ECOSYSTEM PEAK SAMPLED RSS: 19248 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/focused-zig-js.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 984608,
+      "memory_limit_mb": 3072,
+      "seconds": 47.803,
+      "log": "focused-zig-js.log",
+      "free_bytes_after": 1466601472,
+      "log_sha256": "a26b65ff58aa4ada2c272474b8924f4780c8c0272db0d77eb553d6620248e04f",
+      "log_bytes": 821,
+      "signals": [
+        "Build Summary: 5/5 steps succeeded",
+        "ECOSYSTEM PEAK SAMPLED RSS: 984608 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/full-jsc.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1282464,
+      "memory_limit_mb": 3072,
+      "seconds": 36.654,
+      "log": "full-jsc.log",
+      "log_sha256": "d8cdeceffcd10bc30b2aee3599147940aa4ee1a6aeea40847fa7b4d909a4a3ca",
+      "log_bytes": 60539,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "Build Summary: 249/274 steps succeeded (21 failed)",
+        "ECOSYSTEM PEAK SAMPLED RSS: 1282464 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/full-pre-review-jsc.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 74512,
+      "memory_limit_mb": 3072,
+      "seconds": 7.416,
+      "log": "full-jsc.log",
+      "log_sha256": "d8cdeceffcd10bc30b2aee3599147940aa4ee1a6aeea40847fa7b4d909a4a3ca",
+      "log_bytes": 60539,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "Build Summary: 249/274 steps succeeded (21 failed)",
+        "ECOSYSTEM PEAK SAMPLED RSS: 1282464 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/full-pre-review-zig-js.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 797216,
+      "memory_limit_mb": 3072,
+      "seconds": 23.67,
+      "log": "full-zig-js.log",
+      "log_sha256": "edebbbccc0c357f58bb567be0e898bbb690c110e68812b57e5f3903ddd0b8944",
+      "log_bytes": 54813,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "Build Summary: 276/276 steps succeeded",
+        "ECOSYSTEM PEAK SAMPLED RSS: 1335424 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/full-pre-style-jsc.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1210880,
+      "memory_limit_mb": 3072,
+      "seconds": 40.528,
+      "log": "full-jsc.log",
+      "log_sha256": "d8cdeceffcd10bc30b2aee3599147940aa4ee1a6aeea40847fa7b4d909a4a3ca",
+      "log_bytes": 60539,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "Build Summary: 249/274 steps succeeded (21 failed)",
+        "ECOSYSTEM PEAK SAMPLED RSS: 1282464 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/full-pre-style-zig-js.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1325808,
+      "memory_limit_mb": 3072,
+      "seconds": 49.25,
+      "log": "full-zig-js.log",
+      "log_sha256": "edebbbccc0c357f58bb567be0e898bbb690c110e68812b57e5f3903ddd0b8944",
+      "log_bytes": 54813,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "Build Summary: 276/276 steps succeeded",
+        "ECOSYSTEM PEAK SAMPLED RSS: 1335424 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/full-zig-js.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1335424,
+      "memory_limit_mb": 3072,
+      "seconds": 41.731,
+      "log": "full-zig-js.log",
+      "log_sha256": "edebbbccc0c357f58bb567be0e898bbb690c110e68812b57e5f3903ddd0b8944",
+      "log_bytes": 54813,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "Build Summary: 276/276 steps succeeded",
+        "ECOSYSTEM PEAK SAMPLED RSS: 1335424 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/jsc-before-final.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/probe.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/probe.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 17696,
+      "memory_limit_mb": 3072,
+      "seconds": 0.289,
+      "log": "jsc-before-final.log",
+      "log_sha256": "ad0a6182ebd0ead0b146caef10eaf44bbd862f66c39cef3b8e79137335199a61",
+      "log_bytes": 1064,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 17696 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/jsc-before.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/probe.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/probe.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1520,
+      "memory_limit_mb": 3072,
+      "seconds": 0.091,
+      "log": "jsc-before.log",
+      "log_sha256": "f18c04cc1f75857d0b5f62831e2ef5e973d19ac7915a54d871464fffe4593ad8",
+      "log_bytes": 1063,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 1520 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/node-before-final.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/probe.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/probe.mjs",
+        "--node"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 17536,
+      "memory_limit_mb": 3072,
+      "seconds": 0.286,
+      "log": "node-before-final.log",
+      "log_sha256": "51cbfd742402a92b98f3bf3039044a4b5428c9eeefeb55bd868605bb7ff3f4e0",
+      "log_bytes": 463,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 17536 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/node-before.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/probe.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/probe.mjs",
+        "--node"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 45216,
+      "memory_limit_mb": 3072,
+      "seconds": 0.831,
+      "log": "node-before.log",
+      "log_sha256": "10b34aff0645e124cda42a5536de91ced330e869b584415c5a72a66fdaef8b69",
+      "log_bytes": 967,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 45216 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/oracle-regeneration.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "packages/runtime/test/tool_tty_oracle.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 816,
+      "memory_limit_mb": 3072,
+      "seconds": 0.048,
+      "log": "oracle-regeneration.log",
+      "byte_exact_regeneration": true,
+      "oracle_sha256": "b3695245497fa9c8709a3db2073b4786b06f2dd32ad9e7cb7ff06c5da4e78a26",
+      "log_sha256": "9c778ca6529b4462fce4f38f7b1ea187243bd85a7fe12223736292ec26e82292",
+      "log_bytes": 215,
+      "signals": [
+        "PINNED TTY COLOR ORACLE 119",
+        "ECOSYSTEM PEAK SAMPLED RSS: 816 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/owned-physical-jsc.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_tty_stream_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs",
+        "--home-profile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 19408,
+      "memory_limit_mb": 3072,
+      "seconds": 0.527,
+      "log": "owned-physical-jsc.log",
+      "log_sha256": "abf9ae8110820167d6712c538cc161356c759876ea3a839b832d896eb7e711e1",
+      "log_bytes": 1583,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "ECOSYSTEM PEAK SAMPLED RSS: 19408 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/owned-physical-node.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_tty_stream_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs",
+        "--node"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 19264,
+      "memory_limit_mb": 3072,
+      "seconds": 0.339,
+      "log": "owned-physical-node.log",
+      "log_sha256": "58680356502a3655a11c298b1be036eb6cb4d5cacc2efd2f1648af79361d4230",
+      "log_bytes": 1021,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\n\"}",
+        "ECOSYSTEM PEAK SAMPLED RSS: 19264 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/owned-physical-zig-js.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_tty_stream_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_tty_stream.mjs",
+        "--home-profile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 19296,
+      "memory_limit_mb": 3072,
+      "seconds": 0.624,
+      "log": "owned-physical-zig-js.log",
+      "log_sha256": "ab9584e5b686f9fc1a59ec34795e867a45c055d753dc1b068db20a29ca4e9531",
+      "log_bytes": 1586,
+      "signals": [
+        "TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+        "NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+        "ECOSYSTEM PEAK SAMPLED RSS: 19296 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/pickier.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bunx",
+        "--bun",
+        "pickier",
+        "packages/runtime/src/jsc/tool_tty.js",
+        "packages/runtime/src/jsc/tool_builtins.js",
+        "packages/runtime/test/tool_modules/node_tty_stream.mjs",
+        "packages/runtime/test/tool_tty_oracle.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 70912,
+      "memory_limit_mb": 3072,
+      "seconds": 0.157,
+      "log": "pickier.log",
+      "log_sha256": "ff32fef8e9b52db604bdae88ab2ecc85a21ed6ae8953631d18413d3afdaae183",
+      "log_bytes": 750,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 70912 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/probe-after-zig-js.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/probe.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/probe.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 17600,
+      "memory_limit_mb": 3072,
+      "seconds": 0.734,
+      "log": "probe-after-zig-js.log",
+      "log_sha256": "8f84afa09b4e9f70463538341607997b16eb5d0f78cadd22b974a07e6bce2f37",
+      "log_bytes": 508,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 17600 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/python-syntax.json",
+      "argv": [
+        "python3",
+        "-m",
+        "compileall",
+        "-q",
+        "scripts",
+        "tests"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 992,
+      "memory_limit_mb": 3072,
+      "seconds": 0.04,
+      "log": "python-syntax.log",
+      "log_sha256": "7ae10556d3b5a4da106157a7da5a8c93252a2b69e71a057b2a0894d1bb721bae",
+      "log_bytes": 147,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 992 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/suite-dependencies.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "tests/dependencies.test.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 26912,
+      "memory_limit_mb": 3072,
+      "seconds": 0.372,
+      "log": "suite-dependencies.log",
+      "log_sha256": "df8c093399c9960863711d825c2f646767d259fe2d67197246c2899227f01e38",
+      "log_bytes": 946,
+      "signals": [
+        " 7 pass",
+        " 26 expect() calls",
+        "ECOSYSTEM PEAK SAMPLED RSS: 26912 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/suite-python.json",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 130224,
+      "memory_limit_mb": 3072,
+      "seconds": 3.736,
+      "log": "suite-python.log",
+      "log_sha256": "b79e72e3b805f6e52ed05819d2b20daf9c09f535401dd622338374825199f5f6",
+      "log_bytes": 9684,
+      "signals": [
+        "Ran 45 tests in 3.583s",
+        "ECOSYSTEM PEAK SAMPLED RSS: 130224 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/zig-js-before-final.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/probe.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/probe.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 17552,
+      "memory_limit_mb": 3072,
+      "seconds": 0.341,
+      "log": "zig-js-before-final.log",
+      "log_sha256": "15caa02d7ef888db9a4823c7ef79dee4e11a7b76fbf614f257ac49cc6ab7bd91",
+      "log_bytes": 1070,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 17552 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/zig-js-before.json",
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/probe.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/string-decoder-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/probe.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 39424,
+      "memory_limit_mb": 3072,
+      "seconds": 0.182,
+      "log": "zig-js-before.log",
+      "log_sha256": "42b79aa887544af8ffcbabe34df71d2729d630dcd96db3481a3c512b823d09ca",
+      "log_bytes": 1070,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 39424 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    }
+  ],
+  "promotion_policy": "Keep caller on validated functional9b2a557 until new suite executes both real PTYs,29 groups,119 color cases, exact41 physical bytes, native ownership/refusal checks, all maintained markers/native driver controls, official ZIP/physical baseline+ReleaseSafe provenance and all four actual CPU/provenance preflights. Never promote an evidence-only descendant."
+}
