@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-12T17:03:16.487415+00:00",
+  "functional_suite": "6fdda991cf886f8522b13e95a0e45abfabfedb7a",
+  "home_ref": "183ff983a1febb522ae7be52f010530bd0c6e541",
+  "requested_engine_sha": "5cbba9a14dd4bab40cb6de85bff221a5a995493d",
+  "qualification_run": 43264878098,
+  "qualification": {
+    "conclusion": "",
+    "headSha": "6fdda991cf886f8522b13e95a0e45abfabfedb7a",
+    "jobs": [
+      {
+        "completedAt": "0001-01-01T00:00:00Z",
+        "conclusion": "",
+        "databaseId": 131346153133,
+        "name": "discover",
+        "startedAt": "2026-11-12T17:01:42Z",
+        "status": "queued",
+        "steps": [],
+        "url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/43264878098/job/131346153133"
+      }
+    ],
+    "status": "queued",
+    "url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/43264878098"
+  },
+  "source_validation_run": 43264626428,
+  "source_validation": {
+    "conclusion": "success",
+    "headSha": "6fdda991cf886f8522b13e95a0e45abfabfedb7a",
+    "jobs": [
+      {
+        "completedAt": "2026-11-12T17:00:10Z",
+        "conclusion": "success",
+        "databaseId": 131344793280,
+        "name": "validate",
+        "startedAt": "2026-11-12T17:00:00Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-11-12T17:00:02Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-11-12T17:00:01Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-12T17:00:04Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 2,
+            "startedAt": "2026-11-12T17:00:02Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-12T17:00:06Z",
+            "conclusion": "success",
+            "name": "Run python3 -m unittest discover -s tests -v",
+            "number": 3,
+            "startedAt": "2026-11-12T17:00:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-12T17:00:06Z",
+            "conclusion": "success",
+            "name": "Read dependency-test toolchain pin",
+            "number": 4,
+            "startedAt": "2026-11-12T17:00:06Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-12T17:00:07Z",
+            "conclusion": "success",
+            "name": "Run oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6",
+            "number": 5,
+            "startedAt": "2026-11-12T17:00:06Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-12T17:00:08Z",
+            "conclusion": "success",
+            "name": "Verify real workspace dependency setup",
+            "number": 6,
+            "startedAt": "2026-11-12T17:00:07Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-12T17:00:08Z",
+            "conclusion": "success",
+            "name": "Check Python syntax",
+            "number": 7,
+            "startedAt": "2026-11-12T17:00:08Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-12T17:00:08Z",
+            "conclusion": "success",
+            "name": "Post Run oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6",
+            "number": 13,
+            "startedAt": "2026-11-12T17:00:08Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-12T17:00:08Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 14,
+            "startedAt": "2026-11-12T17:00:08Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-12T17:00:08Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 15,
+            "startedAt": "2026-11-12T17:00:08Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/43264626428/job/131344793280"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/43264626428"
+  },
+  "source_validation_actual_logs": [
+    {
+      "job": 131344793280,
+      "name": "validate",
+      "log": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/validation-131344793280.log",
+      "sha256": "46b08eb2aa92b772a35d74167d2c4d032a298e6209832d00207d289e16dbaf0a",
+      "signals": [
+        "2026-11-12T17:00:06.8717354Z Ran 45 tests in 2.486s",
+        "2026-11-12T17:00:08.3410273Z  7 pass",
+        "2026-11-12T17:00:08.3410930Z  26 expect() calls"
+      ]
+    }
+  ],
+  "dispatch_command": {
+    "timestamp": "2026-11-12T17:00:55.464988+00:00",
+    "argv": [
+      "/Users/chris/.local/share/pantry/global/bin/gh",
+      "workflow",
+      "run",
+      "ecosystem.yml",
+      "-R",
+      "zig-utils/zig-js-ecosystem",
+      "--ref",
+      "main",
+      "-f",
+      "engine_sha=5cbba9a14dd4bab40cb6de85bff221a5a995493d",
+      "-f",
+      "suite_ref=6fdda991cf886f8522b13e95a0e45abfabfedb7a",
+      "-f",
+      "repositories=stacksjs/stacks,home-lang/home,stacksjs/bunpress,stacksjs/clapp",
+      "-f",
+      "reference=true"
+    ],
+    "exit_code": 0,
+    "stdout": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/43264878098\n",
+    "stderr": "",
+    "functional_suite": "6fdda991cf886f8522b13e95a0e45abfabfedb7a"
+  },
+  "caller_pin": "9b2a5571158aac6a49d35b970c4992d4244b98c8",
+  "promotion_requirements": "Actual two-PTY dimensions93x27/47x11,29 contract groups,119 color cases per window, exact41 raw UTF8/NUL/0xff/ANSI bytes, genuine descriptor ownership/refusal checks,12 native runtime driver controls and every maintained marker. Verify official ZIP and physical baseline+ReleaseSafe provenance and all four actual CPU/provenance preflights. Full package results remain separate. Never promote an evidence-only descendant."
+}
