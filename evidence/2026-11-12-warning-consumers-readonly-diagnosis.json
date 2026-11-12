@@ -1,0 +1,456 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-12T04:44:37.822583+00:00",
+  "status": "Completed warning-suite consumer follow-up and readonly-export diagnosis; native bindings remain unsupported",
+  "functional_suite": "da8e5910262623e37ba94f00a18955e7d81b0e55",
+  "run": 43152424065,
+  "run_url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/43152424065",
+  "reports": [
+    {
+      "repository": "stacksjs/stacks",
+      "consumer": "db47a16cbda1f96dc55b5231aeb71b13cb3fb2aa",
+      "scopes": 100,
+      "checks_all_lanes": 936,
+      "candidate_status_counts": {
+        "unsupported": 357,
+        "failed": 192,
+        "passed": 82
+      },
+      "artifact": {
+        "id": 13915139510,
+        "official_digest": "sha256:380f041fc77ca79495fa3045f6428c5524d39aa1acd57fcfd55548b33a3a25a7",
+        "downloaded_zip_sha256": "380f041fc77ca79495fa3045f6428c5524d39aa1acd57fcfd55548b33a3a25a7"
+      },
+      "report_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-deprecate/qualification/consumers/ecosystem-results-0/stacksjs--stacks.json",
+      "report_sha256": "efb1b07ed51feee4387e6a63aac0fd81e6260766eb04f8958a7883c40886af2b",
+      "selected_actual_checks": [
+        {
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 141372,
+            "memory_limit_mb": 3072,
+            "seconds": 0.283,
+            "log": "0488.log",
+            "label": "storage/framework/core/router: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+              "src/index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/router",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-deprecate/qualification/consumers/ecosystem-results-0/stacksjs--stacks/0488.log",
+            "sha256": "01ce7399c8003910ea2970eb45a8898773dc725ae4cf94f8ec8fd40ae4d43791",
+            "text": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 141372 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+          }
+        }
+      ]
+    },
+    {
+      "repository": "home-lang/home",
+      "consumer": "6aa2a4ffe9ebd5d104edc3d2b4a68e9c8e964e00",
+      "scopes": 46,
+      "checks_all_lanes": 234,
+      "candidate_status_counts": {
+        "timed-out": 1,
+        "unsupported": 37,
+        "passed": 9,
+        "failed": 40
+      },
+      "artifact": {
+        "id": 13915907872,
+        "official_digest": "sha256:09c5ae085dc63a18132416a8da1d82906488bb6f94b189cd8dd89b69634ea208",
+        "downloaded_zip_sha256": "09c5ae085dc63a18132416a8da1d82906488bb6f94b189cd8dd89b69634ea208"
+      },
+      "report_path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-deprecate/qualification/consumers/ecosystem-results-1/home-lang--home.json",
+      "report_sha256": "51a09a471ceb187b9108df2659aee26f4bcff33ed53cf87f57e4cbe6f161b20d",
+      "selected_actual_checks": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 339976,
+            "memory_limit_mb": 3072,
+            "seconds": 0.643,
+            "log": "0071.log",
+            "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun run build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-deprecate/qualification/consumers/ecosystem-results-1/home-lang--home/0071.log",
+            "sha256": "1eabbc5088b4cb068b491dc5780aa43f01924e06fe9d65d90287f9e09a5cd077",
+            "text": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\n/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind/node_modules/bun-plugin-tailwind/tailwindcss-oxide.linux-x64-gnu.node:0: Invalid character. (TS1127)\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 339976 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 10480,
+            "memory_limit_mb": 3072,
+            "seconds": 0.071,
+            "log": "0136.log",
+            "label": "packages/runtime/upstream/src/runtime/cli/init/react-tailwind: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun run build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-deprecate/qualification/consumers/ecosystem-results-1/home-lang--home/0136.log",
+            "sha256": "3bc6123315ce2191c14d19f57d91118673f8e92d35e47a5e2a7ce5ba82e6f385",
+            "text": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/src/runtime/cli/init/react-tailwind/build.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 10480 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        }
+      ]
+    }
+  ],
+  "local_diagnosis": {
+    "home_ref": "355236519892e7e99b13aaeed528da64bc2b4dbd",
+    "engine_archive_ref": "67b8276edf87183614b3a0fb42819a56a22318c1",
+    "archive_sha256": "9192650fb70820f17bd1cf3d0e202390d42cffc1a6ee030b20ab42272818e940",
+    "pristine_plugin": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/index.mjs",
+      "sha256": "96ce6dc7ce5f9b5106d5f79b09065a615f42ae832f9e6200ec747cc7be713e2e",
+      "size_bytes": 1583926
+    },
+    "diagnostic_copy": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/readonly-diagnostic.mjs",
+      "sha256": "7099eafbc961924e07d5c137ff5a60ed69d6f6bafb7dfe82398eaa54607b12de",
+      "changes": "Only console observations before/after createRequire assignment, requireNative and module.exports assignment. Same directory; no binding, resolver, platform or exception replacement."
+    },
+    "sources": {
+      "commonjs-wrapper.mjs": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/commonjs-wrapper.mjs",
+        "sha256": "c74fd495abd24b422c3c4025a8c48a84f02f3cc7f74a6f6e1064ed29fe5703e6",
+        "text": "function commonJS(callback){let cache;return function(){if(!cache){cache={exports:{}};callback(cache.exports,cache);}return cache.exports;};}\nconst load=commonJS(function(exports,module){const binding={};module.exports=binding;module.exports.Scanner=42;exports.old=true;});\nconst value=load();\nif(value.Scanner!==42 || value.old!==undefined || value!==load())throw Error('Nested CommonJS scope mismatch');\nconsole.log('NESTED COMMONJS MODULE SCOPE EXECUTED');\nexport default value;\n"
+      },
+      "primitive-export.cjs": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/primitive-export.cjs",
+        "sha256": "fc1a1dd84b3e2a9a9509c77c228bcb54e344fa6e37f7451761b1b1ba6e33a1d6",
+        "text": "\"use strict\";\nconst binding = \"./tailwindcss-oxide.darwin-arm64.node\";\nconst mod = { exports: binding };\nlet caught;\ntry { mod.exports.Scanner = binding.Scanner; } catch (error) { caught = error; }\nif (!(caught instanceof TypeError) || mod.exports !== binding) throw Error(\"Strict primitive export assignment did not reject\");\nconsole.log(\"STRICT PRIMITIVE EXPORT ASSIGNMENT REFUSED\");\n"
+      },
+      "instrumented-import.mjs": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/instrumented-import.mjs",
+        "sha256": "04cab66e144ee7b6c08bc516d5a918f2df9efe1a051191dc7fb80c08551f2ebd",
+        "text": "try { await import('../home-tailwind-vm/package/readonly-diagnostic.mjs'); console.log('DIAGNOSTIC IMPORT COMPLETE'); } catch(e) { console.error(String(e.stack)); throw e; }\n"
+      },
+      "tailwind-stack.mjs": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/tailwind-stack.mjs",
+        "sha256": "a99073a932edf21626f2d9fc106048229f3f7227af397a48d51b5d6fb233aae9",
+        "text": "try { await import('../home-tailwind-vm/package/index.mjs'); console.log('ACTUAL TAILWIND PLUGIN IMPORT EXECUTED'); }\ncatch(error){ console.error(String(error.stack)); throw error; }\n"
+      },
+      "diagnose.py": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/diagnose.py",
+        "sha256": "7c13b38f7e26e494a35a9505f828332351b827b777d1eaa70b29c692571f610e",
+        "text": "from pathlib import Path\nimport sys,os,json\np=Path(__file__).parent\nsys.path.insert(0,'/Users/chris/Code/Libraries/zig-js-ecosystem/scripts');import run\nfor provider in ['zig-js','jsc']:\n argv=[str(p.parent/'native-addon-refusal'/('home-'+provider)/'bin/home-tool'),'run',str(p/'instrumented-import.mjs')]\n r=run.execute(argv,'/Users/chris/Code/Home/zig-js-ecosystem-home',dict(os.environ),p/(provider+'-instrumented.log'),90,3072)\n (p/(provider+'-instrumented.json')).write_text(json.dumps({'argv':argv,**r},indent=2)+'\\n');print(provider,r,flush=True)\n\nfor provider,exe in [('node','/Users/chris/.local/share/pantry/global/bin/node'),('bun','/Users/chris/.local/share/pantry/global/bin/bun'),('zig-js',str(p.parent/'native-addon-refusal/home-zig-js/bin/home-tool')),('jsc',str(p.parent/'native-addon-refusal/home-jsc/bin/home-tool'))]:\n argv=[exe]+(['run'] if provider in ['zig-js','jsc'] else [])+[str(p/'primitive-export.cjs')]\n r=run.execute(argv,str(p),dict(os.environ),p/(provider+'-primitive-export.log'),30,3072)\n (p/(provider+'-primitive-export.json')).write_text(json.dumps({'argv':argv,**r},indent=2)+'\\n');print(provider,r,flush=True)\n"
+      }
+    },
+    "experiments": {
+      "bun-commonjs-wrapper": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/.local/share/pantry/global/bin/bun",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/commonjs-wrapper.mjs"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 2080,
+          "memory_limit_mb": 3072,
+          "seconds": 0.017,
+          "log": "bun-commonjs-wrapper.log"
+        },
+        "raw_log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/bun-commonjs-wrapper.log",
+          "sha256": "cbd1f5db15d064ea8899b7fc6cc3f844fa36d74089cc8bd1116d8d5005eca4a5",
+          "text": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/commonjs-wrapper.mjs\"]\nNESTED COMMONJS MODULE SCOPE EXECUTED\n\nECOSYSTEM PEAK SAMPLED RSS: 2080 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        }
+      },
+      "bun-primitive-export": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/.local/share/pantry/global/bin/bun",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/primitive-export.cjs"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 2288,
+          "memory_limit_mb": 3072,
+          "seconds": 0.017,
+          "log": "bun-primitive-export.log"
+        },
+        "raw_log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/bun-primitive-export.log",
+          "sha256": "0f01fba8c6ced75fa25dc48bd26d76db0b5cbf6f8fa663f1698d490c66589c6f",
+          "text": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/primitive-export.cjs\"]\nSTRICT PRIMITIVE EXPORT ASSIGNMENT REFUSED\n\nECOSYSTEM PEAK SAMPLED RSS: 2288 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        }
+      },
+      "bun-tailwind-stack": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/.local/share/pantry/global/bin/bun",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/tailwind-stack.mjs"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 36256,
+          "memory_limit_mb": 3072,
+          "seconds": 1.847,
+          "log": "bun-tailwind-stack.log"
+        },
+        "raw_log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/bun-tailwind-stack.log",
+          "sha256": "777c2cc84bd3733a93572219a4dac3b02abccae465a5ac46943f09d3b48ce240",
+          "text": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/tailwind-stack.mjs\"]\nACTUAL TAILWIND PLUGIN IMPORT EXECUTED\n\nECOSYSTEM PEAK SAMPLED RSS: 36256 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        }
+      },
+      "jsc-commonjs-wrapper": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-addon-refusal/home-jsc/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/commonjs-wrapper.mjs"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 32,
+          "memory_limit_mb": 3072,
+          "seconds": 0.054,
+          "log": "jsc-commonjs-wrapper.log"
+        },
+        "raw_log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/jsc-commonjs-wrapper.log",
+          "sha256": "84db250b26b52359d3ece130dc3f440144021f6197fb4e98a229182e214acd27",
+          "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-addon-refusal/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/commonjs-wrapper.mjs\"]\nNESTED COMMONJS MODULE SCOPE EXECUTED\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        }
+      },
+      "jsc-instrumented": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-addon-refusal/home-jsc/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/instrumented-import.mjs"
+          ],
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 4880,
+          "memory_limit_mb": 3072,
+          "seconds": 0.125,
+          "log": "jsc-instrumented.log"
+        },
+        "raw_log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/jsc-instrumented.log",
+          "sha256": "8bec1a06abe331f405bf895cb750ea69a0036795da02048538f5e6fdd23e5228",
+          "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-addon-refusal/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/instrumented-import.mjs\"]\nDIAG before createRequire assignment\nDIAG after createRequire assignment\nDIAG before requireNative\nDIAG after requireNative string ./tailwindcss-oxide.darwin-arm64.node\nDIAG before exports string true\nDIAG after exports\n../../crates/node/index.js@file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/readonly-diagnostic.mjs:21671:17\n__require2@file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/readonly-diagnostic.mjs:23:50\n@file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/readonly-diagnostic.mjs:31413:40\nevaluateSync@home:tool-module-install:272:21\nevaluateAsync@home:tool-module-install:291:84\nhome-tool (jsc): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 4880 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      },
+      "jsc-primitive-export": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-addon-refusal/home-jsc/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/primitive-export.cjs"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 5568,
+          "memory_limit_mb": 3072,
+          "seconds": 0.017,
+          "log": "jsc-primitive-export.log"
+        },
+        "raw_log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/jsc-primitive-export.log",
+          "sha256": "148be9a7ce2b7501f15bae0bdb48bbe8798a5080c21b473d43ddfd3dbe0a5ac0",
+          "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-addon-refusal/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/primitive-export.cjs\"]\nSTRICT PRIMITIVE EXPORT ASSIGNMENT REFUSED\n\nECOSYSTEM PEAK SAMPLED RSS: 5568 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        }
+      },
+      "jsc-tailwind-stack": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-addon-refusal/home-jsc/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/tailwind-stack.mjs"
+          ],
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 6224,
+          "memory_limit_mb": 3072,
+          "seconds": 0.14,
+          "log": "jsc-tailwind-stack.log"
+        },
+        "raw_log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/jsc-tailwind-stack.log",
+          "sha256": "da75889977c833e6c4c50cf5199537bf5e73a9170298e75167cfcfd85ebf8210",
+          "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-addon-refusal/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/tailwind-stack.mjs\"]\n../../crates/node/index.js@file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/index.mjs:21665:17\n__require2@file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/index.mjs:23:50\n@file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/index.mjs:31407:40\nevaluateSync@home:tool-module-install:272:21\nevaluateAsync@home:tool-module-install:291:84\nhome-tool (jsc): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 6224 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      },
+      "node-commonjs-wrapper": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/.local/share/pantry/global/bin/node",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/commonjs-wrapper.mjs"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 39536,
+          "memory_limit_mb": 3072,
+          "seconds": 0.186,
+          "log": "node-commonjs-wrapper.log"
+        },
+        "raw_log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/node-commonjs-wrapper.log",
+          "sha256": "6956354defb041d2d6d59dc0961fe52a7d9b972390331b465c52913be96b5796",
+          "text": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/commonjs-wrapper.mjs\"]\nNESTED COMMONJS MODULE SCOPE EXECUTED\n\nECOSYSTEM PEAK SAMPLED RSS: 39536 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        }
+      },
+      "node-primitive-export": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/.local/share/pantry/global/bin/node",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/primitive-export.cjs"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 224,
+          "memory_limit_mb": 3072,
+          "seconds": 0.04,
+          "log": "node-primitive-export.log"
+        },
+        "raw_log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/node-primitive-export.log",
+          "sha256": "e527f7628b9766ea30d48debf51c1f8e62af25e25e550ee202670cf382bebe58",
+          "text": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/primitive-export.cjs\"]\nSTRICT PRIMITIVE EXPORT ASSIGNMENT REFUSED\n\nECOSYSTEM PEAK SAMPLED RSS: 224 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        }
+      },
+      "node-tailwind-stack": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/.local/share/pantry/global/bin/node",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/tailwind-stack.mjs"
+          ],
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 816,
+          "memory_limit_mb": 3072,
+          "seconds": 0.056,
+          "log": "node-tailwind-stack.log"
+        },
+        "raw_log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/node-tailwind-stack.log",
+          "sha256": "5200084102b3c4ff7ae91d2fbbf7cbbb8d322b30eccf73af19e342dc24b14655",
+          "text": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/tailwind-stack.mjs\"]\nError: Dynamic require of \"os\" is not supported\n    at file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/index.mjs:15:9\n    at file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/index.mjs:6725:17\n    at file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/index.mjs:9658:9\n    at ../../node_modules/.pnpm/jiti@2.6.0/node_modules/jiti/dist/jiti.cjs (file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/index.mjs:9659:7)\n    at __require2 (file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/index.mjs:21:50)\n    at file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/index.mjs:26234:27\n    at ModuleJob.run (node:internal/modules/esm/module_job:569:25)\n    at async node:internal/modules/esm/loader:650:26\n    at async file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/tailwind-stack.mjs:1:7\nnode:internal/modules/run_main:111\n    triggerUncaughtException(\n    ^\n\nError: Dynamic require of \"os\" is not supported\n    at file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/index.mjs:15:9\n    at file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/index.mjs:6725:17\n    at file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/index.mjs:9658:9\n    at ../../node_modules/.pnpm/jiti@2.6.0/node_modules/jiti/dist/jiti.cjs (file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/index.mjs:9659:7)\n    at __require2 (file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/index.mjs:21:50)\n    at file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/index.mjs:26234:27\n    at ModuleJob.run (node:internal/modules/esm/module_job:569:25)\n    at async node:internal/modules/esm/loader:650:26\n    at async file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/tailwind-stack.mjs:1:7\n\nNode.js v26.10.0\n\nECOSYSTEM PEAK SAMPLED RSS: 816 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      },
+      "zig-js-commonjs-wrapper": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-addon-refusal/home-zig-js/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/commonjs-wrapper.mjs"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 32,
+          "memory_limit_mb": 3072,
+          "seconds": 0.101,
+          "log": "zig-js-commonjs-wrapper.log"
+        },
+        "raw_log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/zig-js-commonjs-wrapper.log",
+          "sha256": "a74b8fb5d2b7ea4c8648c6cabb2f40b9cf0ea86f18ed6c10802de497d5c7285f",
+          "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-addon-refusal/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/commonjs-wrapper.mjs\"]\nNESTED COMMONJS MODULE SCOPE EXECUTED\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        }
+      },
+      "zig-js-instrumented": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-addon-refusal/home-zig-js/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/instrumented-import.mjs"
+          ],
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 277296,
+          "memory_limit_mb": 3072,
+          "seconds": 0.279,
+          "log": "zig-js-instrumented.log"
+        },
+        "raw_log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/zig-js-instrumented.log",
+          "sha256": "3fe9577a241b8cad413e0102572730f438f8646384dd79cf105aabf57a67df43",
+          "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-addon-refusal/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/instrumented-import.mjs\"]\nDIAG before createRequire assignment\nDIAG after createRequire assignment\nDIAG before requireNative\nDIAG after requireNative string ./tailwindcss-oxide.darwin-arm64.node\nDIAG before exports string true\nDIAG after exports\nTypeError: Attempted to assign to readonly property.\n    at ../../crates/node/index.js (file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/readonly-diagnostic.mjs?home-emitted:21671:3)\n    at __require2 (file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/readonly-diagnostic.mjs?home-emitted:23:3)\n    at <anonymous> (file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/readonly-diagnostic.mjs?home-emitted:31413:1)\n    at <anonymous> (home:tool-module-install:255:7)\n    at evaluateSync (home:tool-module-install:272:7)\n    at evaluateAsync (home:tool-module-install:291:49)\n    at <global> (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/instrumented-import.mjs:1:1)\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 277296 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      },
+      "zig-js-primitive-export": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-addon-refusal/home-zig-js/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/primitive-export.cjs"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 6528,
+          "memory_limit_mb": 3072,
+          "seconds": 0.019,
+          "log": "zig-js-primitive-export.log"
+        },
+        "raw_log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/zig-js-primitive-export.log",
+          "sha256": "0578dd416912da03858d9dfea532e2e2e2ffa750443428f3d47e814a5fe7528d",
+          "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-addon-refusal/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/primitive-export.cjs\"]\nSTRICT PRIMITIVE EXPORT ASSIGNMENT REFUSED\n\nECOSYSTEM PEAK SAMPLED RSS: 6528 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+        }
+      },
+      "zig-js-tailwind-stack": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-addon-refusal/home-zig-js/bin/home-tool",
+            "run",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/tailwind-stack.mjs"
+          ],
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 268048,
+          "memory_limit_mb": 3072,
+          "seconds": 0.308,
+          "log": "zig-js-tailwind-stack.log"
+        },
+        "raw_log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/zig-js-tailwind-stack.log",
+          "sha256": "db013e4a03cc4757b8e1a3a55c000f2bcb61bde7ed55e867de931a7fc3c7868a",
+          "text": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-addon-refusal/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/tailwind-stack.mjs\"]\nTypeError: Attempted to assign to readonly property.\n    at ../../crates/node/index.js (file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/index.mjs?home-emitted:21665:3)\n    at __require2 (file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/index.mjs?home-emitted:23:3)\n    at <anonymous> (file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/package/index.mjs?home-emitted:31407:1)\n    at <anonymous> (home:tool-module-install:255:7)\n    at evaluateSync (home:tool-module-install:272:7)\n    at evaluateAsync (home:tool-module-install:291:49)\n    at <global> (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/readonly-exports/tailwind-stack.mjs:1:1)\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 268048 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      }
+    },
+    "finding": "Both Home providers execute createRequire reassignment and requireNative. After genuine native loading fails, the bundled CommonJS fallback returns primitive string ./tailwindcss-oxide.darwin-arm64.node. Assigning Scanner to that primitive in strict code throws; the direct primitive witness confirms TypeError on Node, Bun and both Home providers. The generic nested CommonJS scope witness passes all four providers. No reproduced emitter or engine semantic defect justifies changing readonly behavior.",
+    "upstream_source_locations": [
+      "index.mjs:11763-11766 bundled darwin-arm64 fallback exports native filename string",
+      "index.mjs:25859-25873 native load then bundled fallback",
+      "index.mjs:26218-26224 primitive assigned to module.exports then Scanner property assignment"
+    ],
+    "limits": [
+      "The instrumented copy is a diagnostic only, not an unmodified package pass.",
+      "The pristine Bun import passes; Node rejects dynamic require(os); both Home providers still fail readonly export. No plugin.setup or full build execution claimed.",
+      "Native .node/N-API and fallback WASI bindings remain unavailable. No fake native object, skip or native Bun candidate fallback added.",
+      "Candidate/reference counts include unsupported and timeouts independently. Consumer revisions moved; equal totals do not prove no regressions."
+    ]
+  },
+  "caller_remains": "da8e5910262623e37ba94f00a18955e7d81b0e55",
+  "pending_functional_suite": "063fa247d4c5011952cca67d06d0addd9dc3173e",
+  "pending_run": 43155556448,
+  "pending_note": "Runtime building Home at snapshot. Qualification and official artifact verification still required before promotion. All-selected caller run43155211928 retains complete coverage; no old runs cancelled."
+}
