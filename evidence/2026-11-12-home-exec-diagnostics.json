@@ -1,0 +1,580 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-12T23:48:00.170189+00:00",
+  "home_commit": "4fd4fdaf84b6999aec08e3d83561d239479d9151",
+  "before_home_commit": "6f69d21bf42fbde16710ee11454c1d86e55762fc",
+  "files": {
+    "build.zig": {
+      "git_blob": "f6d821f5e27ae2fc764507f3ef6ba501e7831fb6",
+      "sha256": "6ad0dcd8ee137587af4834878c1aca145f8bb1cc6dbca17ccbfd74b8fd54ba8a"
+    },
+    "packages/runtime/src/jsc/tool_exec.js": {
+      "git_blob": "181a672554e66e33d0a622ef305c707f08c4ae07",
+      "sha256": "02f692ee13ccf3adb377f5ca274243708b6d53fe9dbe0f16b9f5a948df305e8e"
+    },
+    "packages/runtime/test/tool_modules/exec_diagnostics.cjs": {
+      "git_blob": "2c946a5430aafe516eaf799fef7a7345faa3dafe",
+      "sha256": "cbda73697a644179b4d18bd1f95503c74413a40ef97f47b29ad8fa1f6f5b43f2"
+    },
+    "packages/runtime/test/tool_modules/exec_diagnostics_oracle.json": {
+      "git_blob": "c0140f802ce9b3d7215ebafd302f144b80d68e1a",
+      "sha256": "b703f972263189a6cd13928d87516aa9bdcd16699b6876492e69c7d57147c26d"
+    },
+    "packages/runtime/test/tool_exec_diagnostics_fixture.py": {
+      "git_blob": "e299888aead36a1a9221db42722e13a9b0e363da",
+      "sha256": "542e49e507680b90eab8bbf88ced6741ff6d51ffb92fa60f0c0bad13f6b3fb5f"
+    },
+    "packages/runtime/test/EXEC_DIAGNOSTICS_PROFILE.md": {
+      "git_blob": "252d5d69ac179d0850b46147630c7df6d085bb5a",
+      "sha256": "28c9f44a1ef8944667d3a55cbbc066f59ec49691e00e767e98072133291bb834"
+    }
+  },
+  "local_evidence_directory": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime",
+  "local_platform": "macOS AArch64; not Linux runtime qualification",
+  "local_engine": {
+    "commit": "a7b0fdfd2e9caa6a9e822d911dd8a390e21babf1",
+    "archive_sha256": "3b182ee48ac27e763c308b16276e5330e552906f82d82336907f7389ce1b03ed"
+  },
+  "scope": "Normal captured process exits/signals now retain original command and actual UTF-8 stderr in Error.message. Raw stdout/stderr, status/signal and output aliases are preserved. Native spawn/limit errors and inherited stdio remain unchanged; no full Node child_process equivalence claim.",
+  "oracle": {
+    "producer": "Node v26.10.0",
+    "cases": 20,
+    "before_zig_js_passed": 0,
+    "before_jsc_passed": 0,
+    "node_passed": 20,
+    "bun_passed": 20,
+    "after_both_passed": 20,
+    "covers": [
+      "execSync and execFileSync",
+      "literal argv including spaces and empty strings",
+      "shell options",
+      "empty/multiline/Unicode/binary stderr",
+      "stdout and encoding aliases",
+      "default stderr mirroring and pipe",
+      "real child SIGTERM",
+      "NAPI-style TypeError stringification"
+    ]
+  },
+  "local_checks": {
+    "actionlint": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.042,
+      "log": "actionlint.log",
+      "log_sha256": "2d83d05058d9a5a71a9f35ce1058cfbba75d86aafa904bc66054d98660f1e0d2",
+      "witnesses": []
+    },
+    "after-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/before.cjs"
+      ],
+      "scope": "Probe catches real failing commands; status7 and Rustup status1 remain failures",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6448,
+      "memory_limit_mb": 3072,
+      "seconds": 0.039,
+      "log": "after-jsc.log",
+      "log_sha256": "cf4d5f60dad59b9d3a5271ee7367f324516ffc9c8ba90d57347a40fbab9be1ce",
+      "witnesses": []
+    },
+    "after-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/before.cjs"
+      ],
+      "scope": "Probe catches real failing commands; status7 and Rustup status1 remain failures",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6544,
+      "memory_limit_mb": 3072,
+      "seconds": 0.096,
+      "log": "after-zig-js.log",
+      "log_sha256": "23004e6f0392b69c0e3667b9580b03b1a2d89c9408ff5ec95bbb4040e59dbb00",
+      "witnesses": []
+    },
+    "before-bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/before.cjs"
+      ],
+      "scope": "Probe catches real nonzero commands; their status is in stdout, not a Cargo success",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.109,
+      "log": "before-bun.log",
+      "log_sha256": "02e894884ee7641cd65b72023dc695252c9ba75364f9bb06198a990f039479d8",
+      "witnesses": []
+    },
+    "before-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/before.cjs"
+      ],
+      "scope": "Probe catches real nonzero commands; their status is in stdout, not a Cargo success",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.093,
+      "log": "before-jsc.log",
+      "log_sha256": "8f90b6893257a168dbd0fe806dc2a4fed2069261113cf705ca6501263682c992",
+      "witnesses": []
+    },
+    "before-node": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/before.cjs"
+      ],
+      "scope": "Probe catches real nonzero commands; their status is in stdout, not a Cargo success",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 54336,
+      "memory_limit_mb": 3072,
+      "seconds": 0.323,
+      "log": "before-node.log",
+      "log_sha256": "089ebc7c9529a1cc8a4b93d109c3dbe4204a36652482015e7b8fdc2756fa0fef",
+      "witnesses": []
+    },
+    "before-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/before.cjs"
+      ],
+      "scope": "Probe catches real nonzero commands; their status is in stdout, not a Cargo success",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 464,
+      "memory_limit_mb": 3072,
+      "seconds": 0.149,
+      "log": "before-zig-js.log",
+      "log_sha256": "b5b2c905334934a67b11865be10eadeff5f6934435a1c62ac8234dfe259bc944",
+      "witnesses": []
+    },
+    "cli-unmodified-jsc": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/cli-capture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/cli-unmodified-jsc",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "candidate_argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "binary_sha256": "0667b88033e5293d69e4963c1ee1aec08a2039bd012311efda29132121f32822",
+      "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 48992,
+      "memory_limit_mb": 3072,
+      "seconds": 0.321,
+      "log": "cli-unmodified-jsc.log",
+      "log_sha256": "e413c0687738a266a9a0e532727cb4c43f7166dd93ca4c2ed4892fbd5c5bd9fd",
+      "witnesses": []
+    },
+    "cli-unmodified-zig-js": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/cli-capture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/cli-unmodified-zig-js",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "candidate_argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "binary_sha256": "b4717c31441a817e4b7d34f1464d0203388c07ceb155506c5cb703d7cd585660",
+      "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 169952,
+      "memory_limit_mb": 3072,
+      "seconds": 0.398,
+      "log": "cli-unmodified-zig-js.log",
+      "log_sha256": "1c540558ea58d9e72eacdc00c7bc7dbd9a25af3663cd4245546fec920deeeac9",
+      "witnesses": []
+    },
+    "fixture-before-jsc": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_exec_diagnostics_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/exec_diagnostics.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 34048,
+      "memory_limit_mb": 3072,
+      "seconds": 0.602,
+      "log": "fixture-before-jsc.log",
+      "log_sha256": "5bcc8a9f278005c6bc6504dd30b3fd81568192383f937dfa8f7888f4e267a92a",
+      "witnesses": [
+        "EXEC DIAGNOSTIC RESULTS {\"node\": \"v26.10.0\", \"cases\": 20, \"passed\": 0, \"failures\": [{\"name\": \"shell_empty\", \"exit\": 0, \"actual\": {\"name\": \"shell_empty\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_empty\", \"message\": \"Command failed: exit 7\", \"stringified\": \"Error: Command failed: exit 7\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: exit 7\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"shell_stderr\", \"exit\": 0, \"actual\": {\"name\": \"shell_stderr\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"6e61746976652d6361757365\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_stderr\", \"message\": \"Command failed: printf native-cause >&2; exit 7\\nnative-cause\", \"stringified\": \"Error: Command failed: printf native-cause >&2; exit 7\\nnative-cause\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf native-cause >&2; exit 7\\nnative-cause\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"6e61746976652d6361757365\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"shell_multiline\", \"exit\": 0, \"actual\": {\"name\": \"shell_multiline\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 3, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"66697273740a7365636f6e640a\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_multiline\", \"message\": \"Command failed: printf \\\"first\\\\nsecond\\\\n\\\" >&2; exit 3\\nfirst\\nsecond\\n\", \"stringified\": \"Error: Command failed: printf \\\"first\\\\nsecond\\\\n\\\" >&2; exit 3\\nfirst\\nsecond\\n\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf \\\"first\\\\nsecond\\\\n\\\" >&2; exit 3\\nfirst\\nsecond\\n\", \"status\": 3, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"66697273740a7365636f6e640a\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"shell_unicode\", \"exit\": 0, \"actual\": {\"name\": \"shell_unicode\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 4, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"e282acf09f9880\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_unicode\", \"message\": \"Command failed: printf \\\"\\u20ac\\ud83d\\ude00\\\" >&2; exit 4\\n\\u20ac\\ud83d\\ude00\", \"stringified\": \"Error: Command failed: printf \\\"\\u20ac\\ud83d\\ude00\\\" >&2; exit 4\\n\\u20ac\\ud83d\\ude00\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf \\\"\\u20ac\\ud83d\\ude00\\\" >&2; exit 4\\n\\u20ac\\ud83d\\ude00\", \"status\": 4, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"e282acf09f9880\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"shell_binary\", \"exit\": 0, \"actual\": {\"name\": \"shell_binary\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 6, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"6f757400726177ff\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"65727200726177fe\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_binary\", \"message\": \"Command failed: printf \\\"out\\\\000raw\\\\377\\\"; printf \\\"err\\\\000raw\\\\376\\\" >&2; exit 6\\nerr\\u0000raw\\ufffd\", \"stringified\": \"Error: Command failed: printf \\\"out\\\\000raw\\\\377\\\"; printf \\\"err\\\\000raw\\\\376\\\" >&2; exit 6\\nerr\\u0000raw\\ufffd\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf \\\"out\\\\000raw\\\\377\\\"; printf \\\"err\\\\000raw\\\\376\\\" >&2; exit 6\\nerr\\u0000raw\\ufffd\", \"status\": 6, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"6f757400726177ff\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"65727200726177fe\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"shell_utf8\", \"exit\": 0, \"actual\": {\"name\": \"shell_utf8\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 5, \"signal\": null, \"stdout\": {\"kind\": \"string\", \"value\": \"out\"}, \"stderr\": {\"kind\": \"string\", \"value\": \"cause\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_utf8\", \"message\": \"Command failed: printf out; printf cause >&2; exit 5\\ncause\", \"stringified\": \"Error: Command failed: printf out; printf cause >&2; exit 5\\ncause\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf out; printf cause >&2; exit 5\\ncause\", \"status\": 5, \"signal\": null, \"stdout\": {\"kind\": \"string\", \"value\": \"out\"}, \"stderr\": {\"kind\": \"string\", \"value\": \"cause\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"shell_utf8_alias\", \"exit\": 0, \"actual\": {\"name\": \"shell_utf8_alias\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 5, \"signal\": null, \"stdout\": {\"kind\": \"string\", \"value\": \"out\"}, \"stderr\": {\"kind\": \"string\", \"value\": \"cause\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_utf8_alias\", \"message\": \"Command failed: printf out; printf cause >&2; exit 5\\ncause\", \"stringified\": \"Error: Command failed: printf out; printf cause >&2; exit 5\\ncause\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf out; printf cause >&2; exit 5\\ncause\", \"status\": 5, \"signal\": null, \"stdout\": {\"kind\": \"string\", \"value\": \"out\"}, \"stderr\": {\"kind\": \"string\", \"value\": \"cause\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"shell_default_mirror\", \"exit\": 0, \"actual\": {\"name\": \"shell_default_mirror\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 2, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"6f7574\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"6d6972726f726564\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_default_mirror\", \"message\": \"Command failed: printf out; printf mirrored >&2; exit 2\\nmirrored\", \"stringified\": \"Error: Command failed: printf out; printf mirrored >&2; exit 2\\nmirrored\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf out; printf mirrored >&2; exit 2\\nmirrored\", \"status\": 2, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"6f7574\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"6d6972726f726564\"}, \"outputAliases\": true}, \"stderr_hex\": \"6d6972726f726564\", \"expected_stderr_hex\": \"6d6972726f726564\"}, {\"name\": \"shell_false_option\", \"exit\": 0, \"actual\": {\"name\": \"shell_false_option\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 8, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"7368656c6c2d6361757365\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_false_option\", \"message\": \"Command failed: printf shell-cause >&2; exit 8\\nshell-cause\", \"stringified\": \"Error: Command failed: printf shell-cause >&2; exit 8\\nshell-cause\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf shell-cause >&2; exit 8\\nshell-cause\", \"status\": 8, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"7368656c6c2d6361757365\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"shell_true_option\", \"exit\": 0, \"actual\": {\"name\": \"shell_true_option\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 8, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"7368656c6c2d6361757365\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_true_option\", \"message\": \"Command failed: printf shell-cause >&2; exit 8\\nshell-cause\", \"stringified\": \"Error: Command failed: printf shell-cause >&2; exit 8\\nshell-cause\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf shell-cause >&2; exit 8\\nshell-cause\", \"status\": 8, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"7368656c6c2d6361757365\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"shell_explicit_option\", \"exit\": 0, \"actual\": {\"name\": \"shell_explicit_option\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 8, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"7368656c6c2d6361757365\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_explicit_option\", \"message\": \"Command failed: printf shell-cause >&2; exit 8\\nshell-cause\", \"stringified\": \"Error: Command failed: printf shell-cause >&2; exit 8\\nshell-cause\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf shell-cause >&2; exit 8\\nshell-cause\", \"status\": 8, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"7368656c6c2d6361757365\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"shell_signal\", \"exit\": 0, \"actual\": {\"name\": \"shell_signal\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": null, \"signal\": \"SIGTERM\", \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"7369676e616c2d6361757365\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_signal\", \"message\": \"Command failed: printf signal-cause >&2; kill -TERM $$\\nsignal-cause\", \"stringified\": \"Error: Command failed: printf signal-cause >&2; kill -TERM $$\\nsignal-cause\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf signal-cause >&2; kill -TERM $$\\nsignal-cause\", \"status\": null, \"signal\": \"SIGTERM\", \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"7369676e616c2d6361757365\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"file_empty\", \"exit\": 0, \"actual\": {\"name\": \"file_empty\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"file_empty\", \"message\": \"Command failed: /bin/sh -c exit 7\", \"stringified\": \"Error: Command failed: /bin/sh -c exit 7\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh -c exit 7\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"file_stderr\", \"exit\": 0, \"actual\": {\"name\": \"file_stderr\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"6e61746976652d6361757365\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"file_stderr\", \"message\": \"Command failed: /bin/sh -c printf native-cause >&2; exit 7\\nnative-cause\", \"stringified\": \"Error: Command failed: /bin/sh -c printf native-cause >&2; exit 7\\nnative-cause\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh -c printf native-cause >&2; exit 7\\nnative-cause\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"6e61746976652d6361757365\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"file_empty_argument\", \"exit\": 0, \"actual\": {\"name\": \"file_empty_argument\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"file_empty_argument\", \"message\": \"Command failed: /bin/sh -c exit 7 \", \"stringified\": \"Error: Command failed: /bin/sh -c exit 7 \", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh -c exit 7 \", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"file_argument_spaces\", \"exit\": 0, \"actual\": {\"name\": \"file_argument_spaces\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"61637475616c20617267756d656e74\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"file_argument_spaces\", \"message\": \"Command failed: /bin/sh -c printf \\\"%s\\\" \\\"$1\\\" >&2; exit 7 label actual argument\\nactual argument\", \"stringified\": \"Error: Command failed: /bin/sh -c printf \\\"%s\\\" \\\"$1\\\" >&2; exit 7 label actual argument\\nactual argument\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh -c printf \\\"%s\\\" \\\"$1\\\" >&2; exit 7 label actual argument\\nactual argument\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"61637475616c20617267756d656e74\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"file_binary\", \"exit\": 0, \"actual\": {\"name\": \"file_binary\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 6, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"6f757400726177ff\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"65727200726177fe\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"file_binary\", \"message\": \"Command failed: /bin/sh -c printf \\\"out\\\\000raw\\\\377\\\"; printf \\\"err\\\\000raw\\\\376\\\" >&2; exit 6\\nerr\\u0000raw\\ufffd\", \"stringified\": \"Error: Command failed: /bin/sh -c printf \\\"out\\\\000raw\\\\377\\\"; printf \\\"err\\\\000raw\\\\376\\\" >&2; exit 6\\nerr\\u0000raw\\ufffd\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh -c printf \\\"out\\\\000raw\\\\377\\\"; printf \\\"err\\\\000raw\\\\376\\\" >&2; exit 6\\nerr\\u0000raw\\ufffd\", \"status\": 6, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"6f757400726177ff\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"65727200726177fe\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"file_utf8\", \"exit\": 0, \"actual\": {\"name\": \"file_utf8\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 5, \"signal\": null, \"stdout\": {\"kind\": \"string\", \"value\": \"out\"}, \"stderr\": {\"kind\": \"string\", \"value\": \"cause\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"file_utf8\", \"message\": \"Command failed: /bin/sh -c printf out; printf cause >&2; exit 5\\ncause\", \"stringified\": \"Error: Command failed: /bin/sh -c printf out; printf cause >&2; exit 5\\ncause\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh -c printf out; printf cause >&2; exit 5\\ncause\", \"status\": 5, \"signal\": null, \"stdout\": {\"kind\": \"string\", \"value\": \"out\"}, \"stderr\": {\"kind\": \"string\", \"value\": \"cause\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"file_default_mirror\", \"exit\": 0, \"actual\": {\"name\": \"file_default_mirror\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 2, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"6f7574\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"6d6972726f726564\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"file_default_mirror\", \"message\": \"Command failed: /bin/sh -c printf out; printf mirrored >&2; exit 2\\nmirrored\", \"stringified\": \"Error: Command failed: /bin/sh -c printf out; printf mirrored >&2; exit 2\\nmirrored\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh -c printf out; printf mirrored >&2; exit 2\\nmirrored\", \"status\": 2, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"6f7574\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"6d6972726f726564\"}, \"outputAliases\": true}, \"stderr_hex\": \"6d6972726f726564\", \"expected_stderr_hex\": \"6d6972726f726564\"}, {\"name\": \"file_signal\", \"exit\": 0, \"actual\": {\"name\": \"file_signal\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": null, \"signal\": \"SIGTERM\", \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"7369676e616c2d6361757365\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"file_signal\", \"message\": \"Command failed: /bin/sh -c printf signal-cause >&2; kill -TERM $$\\nsignal-cause\", \"stringified\": \"Error: Command failed: /bin/sh -c printf signal-cause >&2; kill -TERM $$\\nsignal-cause\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh -c printf signal-cause >&2; kill -TERM $$\\nsignal-cause\", \"status\": null, \"signal\": \"SIGTERM\", \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"7369676e616c2d6361757365\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}]}"
+      ]
+    },
+    "fixture-before-zig-js": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_exec_diagnostics_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/exec_diagnostics.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 58752,
+      "memory_limit_mb": 3072,
+      "seconds": 0.747,
+      "log": "fixture-before-zig-js.log",
+      "log_sha256": "65d6b4f7ca16efd8a336daea7f73d9e68a28b66a34f679f480e31cc2681daf45",
+      "witnesses": [
+        "EXEC DIAGNOSTIC RESULTS {\"node\": \"v26.10.0\", \"cases\": 20, \"passed\": 0, \"failures\": [{\"name\": \"shell_empty\", \"exit\": 0, \"actual\": {\"name\": \"shell_empty\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_empty\", \"message\": \"Command failed: exit 7\", \"stringified\": \"Error: Command failed: exit 7\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: exit 7\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"shell_stderr\", \"exit\": 0, \"actual\": {\"name\": \"shell_stderr\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"6e61746976652d6361757365\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_stderr\", \"message\": \"Command failed: printf native-cause >&2; exit 7\\nnative-cause\", \"stringified\": \"Error: Command failed: printf native-cause >&2; exit 7\\nnative-cause\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf native-cause >&2; exit 7\\nnative-cause\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"6e61746976652d6361757365\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"shell_multiline\", \"exit\": 0, \"actual\": {\"name\": \"shell_multiline\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 3, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"66697273740a7365636f6e640a\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_multiline\", \"message\": \"Command failed: printf \\\"first\\\\nsecond\\\\n\\\" >&2; exit 3\\nfirst\\nsecond\\n\", \"stringified\": \"Error: Command failed: printf \\\"first\\\\nsecond\\\\n\\\" >&2; exit 3\\nfirst\\nsecond\\n\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf \\\"first\\\\nsecond\\\\n\\\" >&2; exit 3\\nfirst\\nsecond\\n\", \"status\": 3, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"66697273740a7365636f6e640a\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"shell_unicode\", \"exit\": 0, \"actual\": {\"name\": \"shell_unicode\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 4, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"e282acf09f9880\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_unicode\", \"message\": \"Command failed: printf \\\"\\u20ac\\ud83d\\ude00\\\" >&2; exit 4\\n\\u20ac\\ud83d\\ude00\", \"stringified\": \"Error: Command failed: printf \\\"\\u20ac\\ud83d\\ude00\\\" >&2; exit 4\\n\\u20ac\\ud83d\\ude00\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf \\\"\\u20ac\\ud83d\\ude00\\\" >&2; exit 4\\n\\u20ac\\ud83d\\ude00\", \"status\": 4, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"e282acf09f9880\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"shell_binary\", \"exit\": 0, \"actual\": {\"name\": \"shell_binary\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 6, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"6f757400726177ff\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"65727200726177fe\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_binary\", \"message\": \"Command failed: printf \\\"out\\\\000raw\\\\377\\\"; printf \\\"err\\\\000raw\\\\376\\\" >&2; exit 6\\nerr\\u0000raw\\ufffd\", \"stringified\": \"Error: Command failed: printf \\\"out\\\\000raw\\\\377\\\"; printf \\\"err\\\\000raw\\\\376\\\" >&2; exit 6\\nerr\\u0000raw\\ufffd\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf \\\"out\\\\000raw\\\\377\\\"; printf \\\"err\\\\000raw\\\\376\\\" >&2; exit 6\\nerr\\u0000raw\\ufffd\", \"status\": 6, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"6f757400726177ff\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"65727200726177fe\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"shell_utf8\", \"exit\": 0, \"actual\": {\"name\": \"shell_utf8\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 5, \"signal\": null, \"stdout\": {\"kind\": \"string\", \"value\": \"out\"}, \"stderr\": {\"kind\": \"string\", \"value\": \"cause\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_utf8\", \"message\": \"Command failed: printf out; printf cause >&2; exit 5\\ncause\", \"stringified\": \"Error: Command failed: printf out; printf cause >&2; exit 5\\ncause\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf out; printf cause >&2; exit 5\\ncause\", \"status\": 5, \"signal\": null, \"stdout\": {\"kind\": \"string\", \"value\": \"out\"}, \"stderr\": {\"kind\": \"string\", \"value\": \"cause\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"shell_utf8_alias\", \"exit\": 0, \"actual\": {\"name\": \"shell_utf8_alias\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 5, \"signal\": null, \"stdout\": {\"kind\": \"string\", \"value\": \"out\"}, \"stderr\": {\"kind\": \"string\", \"value\": \"cause\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_utf8_alias\", \"message\": \"Command failed: printf out; printf cause >&2; exit 5\\ncause\", \"stringified\": \"Error: Command failed: printf out; printf cause >&2; exit 5\\ncause\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf out; printf cause >&2; exit 5\\ncause\", \"status\": 5, \"signal\": null, \"stdout\": {\"kind\": \"string\", \"value\": \"out\"}, \"stderr\": {\"kind\": \"string\", \"value\": \"cause\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"shell_default_mirror\", \"exit\": 0, \"actual\": {\"name\": \"shell_default_mirror\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 2, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"6f7574\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"6d6972726f726564\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_default_mirror\", \"message\": \"Command failed: printf out; printf mirrored >&2; exit 2\\nmirrored\", \"stringified\": \"Error: Command failed: printf out; printf mirrored >&2; exit 2\\nmirrored\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf out; printf mirrored >&2; exit 2\\nmirrored\", \"status\": 2, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"6f7574\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"6d6972726f726564\"}, \"outputAliases\": true}, \"stderr_hex\": \"6d6972726f726564\", \"expected_stderr_hex\": \"6d6972726f726564\"}, {\"name\": \"shell_false_option\", \"exit\": 0, \"actual\": {\"name\": \"shell_false_option\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 8, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"7368656c6c2d6361757365\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_false_option\", \"message\": \"Command failed: printf shell-cause >&2; exit 8\\nshell-cause\", \"stringified\": \"Error: Command failed: printf shell-cause >&2; exit 8\\nshell-cause\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf shell-cause >&2; exit 8\\nshell-cause\", \"status\": 8, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"7368656c6c2d6361757365\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"shell_true_option\", \"exit\": 0, \"actual\": {\"name\": \"shell_true_option\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 8, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"7368656c6c2d6361757365\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_true_option\", \"message\": \"Command failed: printf shell-cause >&2; exit 8\\nshell-cause\", \"stringified\": \"Error: Command failed: printf shell-cause >&2; exit 8\\nshell-cause\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf shell-cause >&2; exit 8\\nshell-cause\", \"status\": 8, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"7368656c6c2d6361757365\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"shell_explicit_option\", \"exit\": 0, \"actual\": {\"name\": \"shell_explicit_option\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 8, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"7368656c6c2d6361757365\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_explicit_option\", \"message\": \"Command failed: printf shell-cause >&2; exit 8\\nshell-cause\", \"stringified\": \"Error: Command failed: printf shell-cause >&2; exit 8\\nshell-cause\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf shell-cause >&2; exit 8\\nshell-cause\", \"status\": 8, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"7368656c6c2d6361757365\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"shell_signal\", \"exit\": 0, \"actual\": {\"name\": \"shell_signal\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": null, \"signal\": \"SIGTERM\", \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"7369676e616c2d6361757365\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"shell_signal\", \"message\": \"Command failed: printf signal-cause >&2; kill -TERM $$\\nsignal-cause\", \"stringified\": \"Error: Command failed: printf signal-cause >&2; kill -TERM $$\\nsignal-cause\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: printf signal-cause >&2; kill -TERM $$\\nsignal-cause\", \"status\": null, \"signal\": \"SIGTERM\", \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"7369676e616c2d6361757365\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"file_empty\", \"exit\": 0, \"actual\": {\"name\": \"file_empty\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"file_empty\", \"message\": \"Command failed: /bin/sh -c exit 7\", \"stringified\": \"Error: Command failed: /bin/sh -c exit 7\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh -c exit 7\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"file_stderr\", \"exit\": 0, \"actual\": {\"name\": \"file_stderr\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"6e61746976652d6361757365\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"file_stderr\", \"message\": \"Command failed: /bin/sh -c printf native-cause >&2; exit 7\\nnative-cause\", \"stringified\": \"Error: Command failed: /bin/sh -c printf native-cause >&2; exit 7\\nnative-cause\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh -c printf native-cause >&2; exit 7\\nnative-cause\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"6e61746976652d6361757365\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"file_empty_argument\", \"exit\": 0, \"actual\": {\"name\": \"file_empty_argument\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"file_empty_argument\", \"message\": \"Command failed: /bin/sh -c exit 7 \", \"stringified\": \"Error: Command failed: /bin/sh -c exit 7 \", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh -c exit 7 \", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"file_argument_spaces\", \"exit\": 0, \"actual\": {\"name\": \"file_argument_spaces\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"61637475616c20617267756d656e74\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"file_argument_spaces\", \"message\": \"Command failed: /bin/sh -c printf \\\"%s\\\" \\\"$1\\\" >&2; exit 7 label actual argument\\nactual argument\", \"stringified\": \"Error: Command failed: /bin/sh -c printf \\\"%s\\\" \\\"$1\\\" >&2; exit 7 label actual argument\\nactual argument\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh -c printf \\\"%s\\\" \\\"$1\\\" >&2; exit 7 label actual argument\\nactual argument\", \"status\": 7, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"61637475616c20617267756d656e74\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"file_binary\", \"exit\": 0, \"actual\": {\"name\": \"file_binary\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 6, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"6f757400726177ff\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"65727200726177fe\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"file_binary\", \"message\": \"Command failed: /bin/sh -c printf \\\"out\\\\000raw\\\\377\\\"; printf \\\"err\\\\000raw\\\\376\\\" >&2; exit 6\\nerr\\u0000raw\\ufffd\", \"stringified\": \"Error: Command failed: /bin/sh -c printf \\\"out\\\\000raw\\\\377\\\"; printf \\\"err\\\\000raw\\\\376\\\" >&2; exit 6\\nerr\\u0000raw\\ufffd\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh -c printf \\\"out\\\\000raw\\\\377\\\"; printf \\\"err\\\\000raw\\\\376\\\" >&2; exit 6\\nerr\\u0000raw\\ufffd\", \"status\": 6, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"6f757400726177ff\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"65727200726177fe\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"file_utf8\", \"exit\": 0, \"actual\": {\"name\": \"file_utf8\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 5, \"signal\": null, \"stdout\": {\"kind\": \"string\", \"value\": \"out\"}, \"stderr\": {\"kind\": \"string\", \"value\": \"cause\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"file_utf8\", \"message\": \"Command failed: /bin/sh -c printf out; printf cause >&2; exit 5\\ncause\", \"stringified\": \"Error: Command failed: /bin/sh -c printf out; printf cause >&2; exit 5\\ncause\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh -c printf out; printf cause >&2; exit 5\\ncause\", \"status\": 5, \"signal\": null, \"stdout\": {\"kind\": \"string\", \"value\": \"out\"}, \"stderr\": {\"kind\": \"string\", \"value\": \"cause\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}, {\"name\": \"file_default_mirror\", \"exit\": 0, \"actual\": {\"name\": \"file_default_mirror\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": 2, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"6f7574\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"6d6972726f726564\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"file_default_mirror\", \"message\": \"Command failed: /bin/sh -c printf out; printf mirrored >&2; exit 2\\nmirrored\", \"stringified\": \"Error: Command failed: /bin/sh -c printf out; printf mirrored >&2; exit 2\\nmirrored\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh -c printf out; printf mirrored >&2; exit 2\\nmirrored\", \"status\": 2, \"signal\": null, \"stdout\": {\"kind\": \"buffer\", \"hex\": \"6f7574\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"6d6972726f726564\"}, \"outputAliases\": true}, \"stderr_hex\": \"6d6972726f726564\", \"expected_stderr_hex\": \"6d6972726f726564\"}, {\"name\": \"file_signal\", \"exit\": 0, \"actual\": {\"name\": \"file_signal\", \"message\": \"Command failed: /bin/sh\", \"stringified\": \"Error: Command failed: /bin/sh\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\", \"status\": null, \"signal\": \"SIGTERM\", \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"7369676e616c2d6361757365\"}, \"outputAliases\": true}, \"expected\": {\"name\": \"file_signal\", \"message\": \"Command failed: /bin/sh -c printf signal-cause >&2; kill -TERM $$\\nsignal-cause\", \"stringified\": \"Error: Command failed: /bin/sh -c printf signal-cause >&2; kill -TERM $$\\nsignal-cause\", \"wrapped\": \"TypeError: Could not parse the Cargo.toml: Error: Command failed: /bin/sh -c printf signal-cause >&2; kill -TERM $$\\nsignal-cause\", \"status\": null, \"signal\": \"SIGTERM\", \"stdout\": {\"kind\": \"buffer\", \"hex\": \"\"}, \"stderr\": {\"kind\": \"buffer\", \"hex\": \"7369676e616c2d6361757365\"}, \"outputAliases\": true}, \"stderr_hex\": \"\", \"expected_stderr_hex\": \"\"}]}"
+      ]
+    },
+    "fixture-bun": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_exec_diagnostics_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/exec_diagnostics.cjs",
+        "--node"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32496,
+      "memory_limit_mb": 3072,
+      "seconds": 0.476,
+      "log": "fixture-bun.log",
+      "log_sha256": "4ba245f41d488aabc704ffa53c0e4b535d34371a2c1342a696fa7498c002e14e",
+      "witnesses": [
+        "EXEC DIAGNOSTIC RESULTS {\"node\": \"v26.10.0\", \"cases\": 20, \"passed\": 20, \"failures\": []}",
+        "NATIVE NONZERO COMMANDS, UTF8/BINARY STDERR AND ERROR STATUS VERIFIED"
+      ]
+    },
+    "fixture-node": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_exec_diagnostics_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/exec_diagnostics.cjs",
+        "--node"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 69584,
+      "memory_limit_mb": 3072,
+      "seconds": 1.09,
+      "log": "fixture-node.log",
+      "log_sha256": "c706d67eedf9516bccabe8adc6a811daf4f4f295026129d76a2eff3e5945b83e",
+      "witnesses": [
+        "EXEC DIAGNOSTIC RESULTS {\"node\": \"v26.10.0\", \"cases\": 20, \"passed\": 20, \"failures\": []}",
+        "NATIVE NONZERO COMMANDS, UTF8/BINARY STDERR AND ERROR STATUS VERIFIED"
+      ]
+    },
+    "full-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1155776,
+      "memory_limit_mb": 3072,
+      "seconds": 40.457,
+      "log": "full-jsc.log",
+      "log_sha256": "a53f548436698d5921f3809cc2ef73a6a99e698375e580d7f85d6b04444919d3",
+      "witnesses": [
+        "EXEC DIAGNOSTIC RESULTS {\"node\": \"v26.10.0\", \"cases\": 20, \"passed\": 20, \"failures\": []}",
+        "NATIVE NONZERO COMMANDS, UTF8/BINARY STDERR AND ERROR STATUS VERIFIED",
+        "Build Summary: 254/279 steps succeeded (21 failed)"
+      ]
+    },
+    "full-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 906576,
+      "memory_limit_mb": 3072,
+      "seconds": 56.373,
+      "log": "full-zig-js.log",
+      "log_sha256": "6884bbc14ca4ac3af5163c5fb42b8bdf7dcc36fd799dd56722b03b0685f38966",
+      "witnesses": [
+        "EXEC DIAGNOSTIC RESULTS {\"node\": \"v26.10.0\", \"cases\": 20, \"passed\": 20, \"failures\": []}",
+        "NATIVE NONZERO COMMANDS, UTF8/BINARY STDERR AND ERROR STATUS VERIFIED",
+        "Build Summary: 281/281 steps succeeded"
+      ]
+    },
+    "pickier": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bunx",
+        "--bun",
+        "pickier",
+        "packages/runtime/src/jsc/tool_exec.js",
+        "packages/runtime/test/tool_modules/exec_diagnostics.cjs",
+        "--fix"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 30304,
+      "memory_limit_mb": 3072,
+      "seconds": 0.165,
+      "log": "pickier.log",
+      "log_sha256": "5bdceb07d11dad2ea518bcabb02bfe8ee666ea6c6bfac71292bf94e8c5dd6b4c",
+      "witnesses": []
+    },
+    "python-syntax": {
+      "argv": [
+        "python3",
+        "-m",
+        "compileall",
+        "-q",
+        "scripts",
+        "tests"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2064,
+      "memory_limit_mb": 3072,
+      "seconds": 0.064,
+      "log": "python-syntax.log",
+      "log_sha256": "80be17eadcacdb6e090fcbb41001957c44f13fdab1078184e5526dbbf8715b36",
+      "witnesses": []
+    },
+    "suite-dependencies": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "tests/dependencies.test.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 27040,
+      "memory_limit_mb": 3072,
+      "seconds": 1.012,
+      "log": "suite-dependencies.log",
+      "log_sha256": "3502d3364c00a36284be5d68f43df0ef177ed751ec12981266789cd8fac07bc4",
+      "witnesses": []
+    },
+    "suite-python": {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 125408,
+      "memory_limit_mb": 3072,
+      "seconds": 5.803,
+      "log": "suite-python.log",
+      "log_sha256": "d4e31cc7d0ac4b7e2026533dfff33a28a9b806f8d8d005433bfdc8618f79ba5f",
+      "witnesses": [
+        "Ran 45 tests in 5.619s"
+      ]
+    },
+    "zig-fmt": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "fmt",
+        "--check",
+        "build.zig"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 19776,
+      "memory_limit_mb": 3072,
+      "seconds": 0.225,
+      "log": "zig-fmt.log",
+      "log_sha256": "c1adf4fbdf69cf0a0586657f622cc5062610d318ed11cadd2b5ab6119696687b",
+      "witnesses": []
+    }
+  },
+  "native_tests": "Native test artifacts were cached; no fresh native test count inferred.",
+  "jsc_comparison": {
+    "steps": "254/279 succeeded, 21 failed",
+    "baseline_log_sha256": {
+      "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/console-assert-runtime/full-jsc.log": "8ff8f19c6a2d4c5871bdbfb45a5eb46005259488fd5e59225f6648267b960806",
+      "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/native-constants-runtime/full-jsc.log": "953ca36a2d2e45e2148e821468541ab82e656104fcf8bd73ab89009e2a8f11aa"
+    },
+    "additional_normalized_failed_commands": [],
+    "qualification": "Bounded saved host comparison only; not whole-checker or test262 regression evidence."
+  },
+  "actual_local_cargo": "cargo --version still exits 1: Rustup has no default toolchain. Both before providers conceal its cause in message; both after providers retain actual stderr. Outer probe catches real statuses 7/1 and exits 0, not a Cargo success. No toolchain was installed/configured. The different Linux CI Cargo cause remains unknown.",
+  "napi_help": {
+    "version": "2.18.4",
+    "unmodified_bundle_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+    "both_after_exit": 0,
+    "stdout_bytes": 1359,
+    "stdout_sha256": "697266e6931d3215816724a7eba14a5e4f793a326389ad5bc7b02521d43b43fe",
+    "stderr_bytes": 0,
+    "limitation": "Help only; no addon build/release or full CLI tests invoked."
+  },
+  "completed_console_qualifier": {
+    "run": 43321645760,
+    "engine": "5de3a079c68fb2aeb7f8bd9a9f55f7e43240b4b0",
+    "suite": "4cf067535ccdb00e8ad0bffd6e0de72f364596c0",
+    "reported": 4,
+    "failing": 4,
+    "missing": 0,
+    "consumers": [
+      {
+        "repository": "stacksjs/stacks",
+        "source_sha": "cb63602daaec57c379d0b441c021763fb12b0bcb",
+        "artifact_id": 13993026858,
+        "official_digest": "sha256:a2f76cec85516c7b5cc83a147eafeb3404d40daea75603244288909ff8c40050",
+        "zip_sha256": "a2f76cec85516c7b5cc83a147eafeb3404d40daea75603244288909ff8c40050",
+        "report_sha256": "6c7529914da79e069f51e33364bfe442410e70bc5a68be0f297ea8103483bf93",
+        "candidate_counts": {
+          "unsupported": 355,
+          "failed": 182,
+          "passed": 94
+        }
+      },
+      {
+        "repository": "home-lang/home",
+        "source_sha": "6f69d21bf42fbde16710ee11454c1d86e55762fc",
+        "artifact_id": 13992214321,
+        "official_digest": "sha256:9df10fb7f79dd2a63cfd462bfa1d643215a6575d84294413ea84a3d925db0301",
+        "zip_sha256": "9df10fb7f79dd2a63cfd462bfa1d643215a6575d84294413ea84a3d925db0301",
+        "report_sha256": "45ca6d519bfbcf7286ae1c12f6596bf0ae2c0e1c6df9c098c9a03b04a0f957db",
+        "candidate_counts": {
+          "failed": 41,
+          "unsupported": 37,
+          "passed": 9
+        },
+        "mdx_checks": [
+          {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 907628,
+            "memory_limit_mb": 3072,
+            "seconds": 28.861,
+            "log": "0097.log",
+            "label": "packages/runtime/upstream/packages/bun-build-mdx-rs: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "napi build --platform --release"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs",
+            "engine_invocations": 1
+          },
+          {
+            "status": "not-run",
+            "reason": "repository time budget exhausted",
+            "label": "packages/runtime/upstream/packages/bun-build-mdx-rs: build",
+            "lane": "reference",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "napi build --platform --release"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/packages/bun-build-mdx-rs",
+            "engine_invocations": 0
+          }
+        ],
+        "mdx_log_sha256": "6271263b4fddbe3d81b826a4e3f51e68b479e501331920a5731327d0cc52c557",
+        "mdx_log": "$ [\"/bin/sh\", \"-c\", \"napi build --platform --release\"]\n\u001b[31m\u001b[1mType Error\u001b[22m\u001b[39m: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\n    at <anonymous> (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:8294:9)\n    at <anonymous> (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:2735:5)\n    at __awaiter$1 (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:2717:3)\n    at validateAndExecute (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:1554:5)\n    at <anonymous>\n    at run (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:2419:7)\n    at <anonymous> (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:29414:1)\n    at <anonymous> (home:tool-module-install:260:7)\n    at evaluateSync (home:tool-module-install:277:7)\n    at <anonymous> (home:tool-module-install:387:7)\n\nECOSYSTEM PEAK SAMPLED RSS: 907628 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+      },
+      {
+        "repository": "stacksjs/bunpress",
+        "source_sha": "e7b328e3fd3db76ff92ce52649e9f13c6f811fdc",
+        "artifact_id": 13991906803,
+        "official_digest": "sha256:eca79202fcc998ff377e33e76f3966be2963cddadc7ae553b920d84ea99378b4",
+        "zip_sha256": "eca79202fcc998ff377e33e76f3966be2963cddadc7ae553b920d84ea99378b4",
+        "report_sha256": "ada18f133b9ef25a68fa8f05fe442a4e2889b3750aba45f9fd9eed90b40f3d5c",
+        "candidate_counts": {
+          "failed": 4,
+          "unsupported": 4,
+          "passed": 5
+        }
+      },
+      {
+        "repository": "stacksjs/clapp",
+        "source_sha": "2ecc2af97d33f59ad5d22abe399392793d8de63d",
+        "artifact_id": 13991981336,
+        "official_digest": "sha256:da589ef3e12c0de76afdf66000efc338139db5c9bd6a9d4ea040ffc03cd0caf7",
+        "zip_sha256": "da589ef3e12c0de76afdf66000efc338139db5c9bd6a9d4ea040ffc03cd0caf7",
+        "report_sha256": "378519d1e323a7a9ac97557464ef305c4de4389d18f5a80e842a01dee88c4d7a",
+        "candidate_counts": {
+          "failed": 2,
+          "unsupported": 4,
+          "passed": 3
+        }
+      }
+    ],
+    "report_log_sha256": "760e587acb36bfe6e3e839f72f01effb4629dd5e01731f1f183a80a9a8a60d91",
+    "reference": "Home MDX reference is not-run: repository time budget exhausted, no log. No reference Cargo outcome inferred."
+  },
+  "caller_retained": "4cf067535ccdb00e8ad0bffd6e0de72f364596c0",
+  "promotion": "New functional Suite requires exact source validation, actual Linux 20-case execution twice, runtime artifact/provenance and four consumer preflights before caller promotion. Every selected repository, quota and truthful unsupported/failure evidence remains intact. No native Bun candidate fallback, skipped checks or fake host/Cargo.",
+  "test262_flips": 0
+}
