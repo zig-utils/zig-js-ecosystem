@@ -1,0 +1,1127 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-12T18:38:13.714963+00:00",
+  "status": "Real callback filesystem mutations locally validated and pushed; immutable Linux qualification pending",
+  "home_ref": "325bb00651dfb395c397016f60db086f0826066a",
+  "home_url": "https://github.com/home-lang/home/commit/325bb00651dfb395c397016f60db086f0826066a",
+  "source_tree": "5572eb066bdcf7b42cdc65abd4e88ef9d70e5e4f",
+  "before_home_ref": "183ff983a1febb522ae7be52f010530bd0c6e541",
+  "preserved_foreign_parent": "4a2dbe2a0b77178852c41b4e3a4066134b842e46",
+  "foreign_work": "Independent loop-head and compound-assignment checker/oracle commits retained via non-overlapping rebase; original Home/lang worktree and index untouched. No whole-checker regression claim.",
+  "source_files": [
+    {
+      "path": "build.zig",
+      "git_blob": "672d69ef8d477a6f88ac8856a3937d302d9b04d8",
+      "sha256": "5028241423aefc242a8e7a5e3f315959db131375990ba9702e9611c9f89d52a2"
+    },
+    {
+      "path": "packages/runtime/src/jsc/tool_builtins.js",
+      "git_blob": "1ca958da957dc45f9c8c4c2547447f090ee06df2",
+      "sha256": "3e5d18202579f44f0f455b1c014f79372283f22758ee03c6a9e15abec1a670d4"
+    },
+    {
+      "path": "packages/runtime/src/jsc/tool_fs.zig",
+      "git_blob": "bd707f17a08c2ad599e4efe206c0e811f29270f6",
+      "sha256": "5b081fcee3b5103617ab3af230226221b58641940aec2c796df7fb4e42387753"
+    },
+    {
+      "path": "packages/runtime/test/FS_MUTATIONS_PROFILE.md",
+      "git_blob": "ec8ea1da8af333e631dc545588c53f2ce89247ea",
+      "sha256": "9c8bfa36863f3f363649da87630be55f8ec03789b44af68b6cb3a5e038f003e9"
+    },
+    {
+      "path": "packages/runtime/test/tool_fs_mutations_fixture.py",
+      "git_blob": "ddfeff8f179cf336c9f1c486d21349b8cfaeaaa9",
+      "sha256": "bc04689df1ebff391e772f27261d5bb32f1e20c1945354af503775467debb506"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/fs_callback_mutations.mjs",
+      "git_blob": "9ba96d775a0ba650faf10a56cf50edac8381c0d1",
+      "sha256": "7e81c17746acc65a8986b0fa31785a2716f345ec3fa8d12c5d76484f45446474"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/fs_mutations_child.cjs",
+      "git_blob": "39d1334bdcb2437a5e4e7e2fde3d5851ab094480",
+      "sha256": "6020fe5338ea829513d4b77e5a21e023cae2d52d7cc90447bc8eea05ba7691c9"
+    }
+  ],
+  "local_engine_sha": "a7b0fdfd2e9caa6a9e822d911dd8a390e21babf1",
+  "local_archive_sha256": "3b182ee48ac27e763c308b16276e5330e552906f82d82336907f7389ce1b03ed",
+  "local_profile": "Darwin ReleaseSafe with exact pushed engine archive; distinct from requested Linux095858da qualification.",
+  "latest_priority_ci": {
+    "run": 43271217417,
+    "consumers": [
+      {
+        "repository": "stacksjs/stacks",
+        "source_sha": "542a0a06250a262e851427cfcf431c60b7f1c557",
+        "engine_sha": "095858da320906973eedbb148125c5f6bca3eed1",
+        "runtime_provenance": {
+          "engine_sha": "095858da320906973eedbb148125c5f6bca3eed1",
+          "suite_ref": "6fdda991cf886f8522b13e95a0e45abfabfedb7a",
+          "home_repository": "home-lang/home",
+          "home_ref": "183ff983a1febb522ae7be52f010530bd0c6e541",
+          "zig_version": "0.18.0-dev.146+35accc06e",
+          "build_cpu": "baseline",
+          "build_optimize": "ReleaseSafe",
+          "sha256": {
+            "home-tool": "3cb815898f8ce4fd22e95956059a65dcb690f1b9653100a716decc6998f944fd",
+            "engine/zig-out/lib/libzig-js.a": "5fe3517dab45f14dbdbfb37be47150c0fd54a29adfa8275d42fbfb5e58c0c62a"
+          }
+        },
+        "artifact": {
+          "id": 13972430610,
+          "digest": "sha256:2c4a8b7b32216bf38edb9687d15188dfc3d73ab0ea6e159edc9acafb02e8c865",
+          "name": "ecosystem-results-0"
+        },
+        "report_sha256": "325772f8193f927fbad98a874c4b6592e7c733c1c68e54d51352eb40e2b7533d",
+        "candidate_counts": {
+          "unsupported": 355,
+          "failed": 182,
+          "passed": 94
+        },
+        "selected_actual_checks": [
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 2555068,
+              "memory_limit_mb": 3072,
+              "seconds": 12.628,
+              "log": "0016.log",
+              "label": ".: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "./buddy build"
+              ],
+              "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate",
+              "engine_invocations": 3
+            },
+            "log_sha256": "fcbd6ddb1ab4b867ef747e2160fdb6b24393badc08cbb33a203fc71fdddf20de",
+            "actual_log_tail": [
+              "[stx build] Mode: SSG (default \u2014 ssr is false)",
+              "No site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.",
+              "  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,",
+              "  via --domain, or with SITE_URL in the build environment.",
+              "\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts",
+              "[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png",
+              "[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png",
+              "Uncaught unhandledRejection: RangeError: evaluation step budget exceeded",
+              "Failed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate",
+              "",
+              "The frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.",
+              "The error it printed above is the cause - this step only relays its exit status.",
+              "",
+              "Failed to execute command: bun --conditions=development /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate",
+              "",
+              "ECOSYSTEM PEAK SAMPLED RSS: 2555068 KiB; limit 3072 MiB",
+              "",
+              "ECOSYSTEM RESULT: failed, exit 1"
+            ]
+          }
+        ]
+      },
+      {
+        "repository": "home-lang/home",
+        "source_sha": "96ed016b422d09c4b7159e683708414fa8873ade",
+        "engine_sha": "095858da320906973eedbb148125c5f6bca3eed1",
+        "runtime_provenance": {
+          "engine_sha": "095858da320906973eedbb148125c5f6bca3eed1",
+          "suite_ref": "6fdda991cf886f8522b13e95a0e45abfabfedb7a",
+          "home_repository": "home-lang/home",
+          "home_ref": "183ff983a1febb522ae7be52f010530bd0c6e541",
+          "zig_version": "0.18.0-dev.146+35accc06e",
+          "build_cpu": "baseline",
+          "build_optimize": "ReleaseSafe",
+          "sha256": {
+            "home-tool": "3cb815898f8ce4fd22e95956059a65dcb690f1b9653100a716decc6998f944fd",
+            "engine/zig-out/lib/libzig-js.a": "5fe3517dab45f14dbdbfb37be47150c0fd54a29adfa8275d42fbfb5e58c0c62a"
+          }
+        },
+        "artifact": {
+          "id": 13971667160,
+          "digest": "sha256:e6d823d63c29b4c9df302e6e534e7a107a6aaa1b721d3db05454085ee8df7c68",
+          "name": "ecosystem-results-1"
+        },
+        "report_sha256": "d3d14dca4d85325557819157bfae7d637f1fce54002bda4ff9de8046a9a5b660",
+        "candidate_counts": {
+          "timed-out": 1,
+          "unsupported": 37,
+          "passed": 9,
+          "failed": 40
+        },
+        "selected_actual_checks": [
+          {
+            "check": {
+              "status": "timed-out",
+              "exit_code": 124,
+              "peak_sampled_rss_kib": 2039260,
+              "memory_limit_mb": 3072,
+              "seconds": 300.177,
+              "log": "0052.log",
+              "reason": "command time budget exhausted",
+              "label": ".: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bunx bunpress build"
+              ],
+              "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate",
+              "engine_invocations": 1
+            },
+            "log_sha256": "399b60026744646524b638cbe2d69d55dc1e996fc25cd8d2e95597ac526b7d93",
+            "actual_log_tail": [
+              "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]",
+              "  Building documentation...",
+              "",
+              "ECOSYSTEM PEAK SAMPLED RSS: 2039260 KiB; limit 3072 MiB",
+              "ECOSYSTEM LIMIT: command time budget exhausted",
+              "",
+              "ECOSYSTEM RESULT: timed-out, exit 124"
+            ]
+          },
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 135852,
+              "memory_limit_mb": 3072,
+              "seconds": 0.504,
+              "log": "0062.log",
+              "label": "packages/registry: test",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "jest"
+              ],
+              "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/registry",
+              "engine_invocations": 1
+            },
+            "log_sha256": "f84fcdd5804373fe1977c6ef4d594fbc2f46bbd044a05da892a4903291006ead",
+            "actual_log_tail": [
+              "$ [\"/bin/sh\", \"-c\", \"jest\"]",
+              "SyntaxError: Unexpected token",
+              "    at <anonymous> (home:tool-module-install:258:7)",
+              "    at evaluateSync (home:tool-module-install:277:7)",
+              "    at load (home:tool-module-install:379:5)",
+              "    at <anonymous> (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/registry/node_modules/%40babel/code-frame/lib/index.js?home-emitted:5:1)",
+              "    at <anonymous> (home:tool-module-install:260:7)",
+              "    at evaluateSync (home:tool-module-install:277:7)",
+              "    at load (home:tool-module-install:379:5)",
+              "    at <anonymous> (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/registry/node_modules/parse-json/index.js?home-emitted:6:1)",
+              "    at <anonymous> (home:tool-module-install:260:7)",
+              "    at evaluateSync (home:tool-module-install:277:7)",
+              "Uncaught unhandledRejection: SyntaxError: Unexpected token",
+              "",
+              "ECOSYSTEM PEAK SAMPLED RSS: 135852 KiB; limit 3072 MiB",
+              "",
+              "ECOSYSTEM RESULT: failed, exit 1"
+            ]
+          },
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 127,
+              "peak_sampled_rss_kib": 10360,
+              "memory_limit_mb": 3072,
+              "seconds": 0.108,
+              "log": "0078.log",
+              "label": "packages/runtime/upstream/bench/ffi: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "cd src && bun run build"
+              ],
+              "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/bench/ffi",
+              "engine_invocations": 0
+            },
+            "log_sha256": "15d19c32e516e63ae91d73966667434b278354a4d7c6e9a4dc0c380fecd96c46",
+            "actual_log_tail": [
+              "$ [\"/bin/sh\", \"-c\", \"cd src && bun run build\"]",
+              "ecosystem-script: 1: napi: not found",
+              "",
+              "ECOSYSTEM PEAK SAMPLED RSS: 10360 KiB; limit 3072 MiB",
+              "",
+              "ECOSYSTEM RESULT: failed, exit 127"
+            ]
+          },
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 337844,
+              "memory_limit_mb": 3072,
+              "seconds": 0.939,
+              "log": "0079.log",
+              "label": "packages/runtime/upstream/bench/ffi/src: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "bun run build:napi && bun run build:ffi"
+              ],
+              "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/bench/ffi/src",
+              "engine_invocations": 1
+            },
+            "log_sha256": "b8d5de130cb16098ea1b724a1e265450fb351402a99affbb6b61bafee30c5f9a",
+            "actual_log_tail": [
+              "$ [\"/bin/sh\", \"-c\", \"bun run build:napi && bun run build:ffi\"]",
+              "home-tool (zig-js): Error: cannot resolve module http from /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/bench/ffi/src/node_modules/@napi-rs/cli/scripts/index.js",
+              "",
+              "ECOSYSTEM PEAK SAMPLED RSS: 337844 KiB; limit 3072 MiB",
+              "",
+              "ECOSYSTEM RESULT: failed, exit 1"
+            ]
+          },
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 226728,
+              "memory_limit_mb": 3072,
+              "seconds": 0.473,
+              "log": "0097.log",
+              "label": "packages/runtime/upstream/packages/bun-build-mdx-rs: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "napi build --platform --release"
+              ],
+              "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs",
+              "engine_invocations": 1
+            },
+            "log_sha256": "138b27636536b1e695942471ddc1e5319422f5821186fa456c30e68f2f7e3839",
+            "actual_log_tail": [
+              "$ [\"/bin/sh\", \"-c\", \"napi build --platform --release\"]",
+              "home-tool (zig-js): TypeError: promisify original must be a function",
+              "",
+              "ECOSYSTEM PEAK SAMPLED RSS: 226728 KiB; limit 3072 MiB",
+              "",
+              "ECOSYSTEM RESULT: failed, exit 1"
+            ]
+          }
+        ]
+      }
+    ],
+    "all_selected_run_status": "Still queued/running consumers; no full report claim"
+  },
+  "exact_cli": {
+    "version": "2.18.4",
+    "files": {
+      "consumer/node_modules/@napi-rs/cli/package.json": "3b1e47918b62551e9b368f82f64e8942d4a67915fd7dbea0a8ed43428aa8e8fc",
+      "consumer/node_modules/@napi-rs/cli/scripts/index.js": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+      "consumer/bun.lock": "1e685c27802c0fa5677709812d08a1fdc4b107cfe0411c7102854dbe3152114e",
+      "consumer/package.json": "337d97c0bdfaa2a195ee5826f561cabe10a44e24972a8f2cb6d35298f426aa4b"
+    },
+    "invocation_scope": "Install --ignore-scripts and unmodified --help only; never napi build/release"
+  },
+  "implementation_scope": "Real POSIX write/mkdir/unlink/streaming copy over protected owner task queue, not libuv worker-pool IO. Borrowed fds remain open; hardlink inode, symlink target, same-file safety and exclusive creation physically verified. Callback throws outside IO catch; strict util.promisify unchanged.",
+  "focused_oracle": "43 groups: both before providers 1/43; final Node and both Home providers 43/43 plus 16 exception/fatal/liveness children each. Native Python checks 1048593 bytes (SHA256 93513902ca696d5666cfebbe008c992048a8c04aec93f5c62b732c165dbc9373), permissions, hardlinks and symlinks. Full Bun reference passes 21/43 groups, fails 22 and fails the fixture; its child phase was unexecuted.",
+  "prototype_failures": {
+    "initial_node_fixture": "40/43: assumptions about existing-recursive mkdir callback arity, macOS source-directory error and fractional copy flags were wrong. Corrected against actual Node; first logs retained. Prototype Home43/43 did not demonstrate parity.",
+    "initial_jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 926640,
+      "memory_limit_mb": 3072,
+      "seconds": 75.84,
+      "log": "full-jsc.log",
+      "observed_build_summary": "249/275 steps succeeded (22 failed)",
+      "observed_fixture": {
+        "groups": 43,
+        "passed": 42,
+        "failures": [
+          {
+            "name": "bad callback paths reject synchronously",
+            "message": "Expected ERR_INVALID_ARG_TYPE, got ERR_HOME_UNSUPPORTED"
+          }
+        ]
+      },
+      "explanation": "Initial filePath validation queried native URL branding before rejecting null; corrected before publication. Full log path was reused for final rerun; this receipt and actual captured tool output retain the failed observation, not a preserved raw transcript."
+    }
+  },
+  "jsc_failed_command_comparison": {
+    "before_commands": [
+      "<home-tool> eval \"process.on('exit', function() { throw new Error('exit listener witness'); });\"",
+      "<home-tool> run packages/runtime/test/tool_modules/async_property_newline.cjs",
+      "<home-tool> run packages/runtime/test/tool_modules/jsdoc_runtime.mjs --transpile",
+      "<home-tool> run packages/runtime/test/tool_modules/source_nul.mjs --transpile",
+      "cd packages/runtime/test/tool_modules && <home-tool> run ./node_immediates.mjs reject",
+      "cd packages/runtime/test/tool_modules && <home-tool> run ./node_immediates.mjs reject-listener",
+      "cd packages/runtime/test/tool_modules && <home-tool> run assert_failure.cjs",
+      "cd packages/runtime/test/tool_modules && <home-tool> run async_context.mjs",
+      "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs error",
+      "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs exit-throw",
+      "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs handler-throw",
+      "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs monitor",
+      "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs monitor-throw",
+      "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs override",
+      "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs undefined",
+      "cd packages/runtime/test/tool_modules && <home-tool> run node_events_entry.cjs",
+      "cd packages/runtime/test/tool_modules && <home-tool> run node_file_url_fs.mjs",
+      "cd packages/runtime/test/tool_modules && <home-tool> run node_module_url.mjs",
+      "cd packages/runtime/test/tool_modules && <home-tool> run node_path_to_url.mjs",
+      "cd packages/runtime/test/tool_modules && <home-tool> run node_stream_pending.mjs",
+      "cd packages/runtime/test/tool_modules && <home-tool> run runtime_invalid_syntax.js",
+      "cd packages/runtime/test/tool_modules && <home-tool> run timers_async_context.mjs",
+      "cd packages/runtime/test/tool_modules && <home-tool> run timers_exit.cjs fatal",
+      "cd packages/runtime/test/tool_modules && <home-tool> run timers_exit.cjs handler-throw",
+      "cd packages/runtime/test/tool_modules && <home-tool> run timers_exit.cjs reject",
+      "cd packages/runtime/test/tool_modules && <home-tool> run timers_exit.cjs reject-listener",
+      "cd packages/runtime/test/tool_modules && <home-tool> run unhandled_rejection.cjs async",
+      "cd packages/runtime/test/tool_modules && <home-tool> run unhandled_rejection.cjs chain",
+      "cd packages/runtime/test/tool_modules && <home-tool> run unhandled_rejection.cjs error",
+      "cd packages/runtime/test/tool_modules && <home-tool> run unhandled_rejection.cjs handler-throw",
+      "cd packages/runtime/test/tool_modules && <home-tool> run unhandled_rejection.cjs listener",
+      "cd packages/runtime/test/tool_modules && <home-tool> run unhandled_rejection.cjs listener-throw",
+      "cd packages/runtime/test/tool_modules && <home-tool> run unhandled_rejection.cjs second",
+      "cd packages/runtime/test/tool_modules && <home-tool> run unhandled_rejection.cjs uncaught",
+      "cd packages/runtime/test/tool_modules && <home-tool> run unhandled_rejection.cjs undefined",
+      "cd packages/runtime/test/tool_modules && <home-tool> run unhandled_rejection.cjs wrapped",
+      "cd packages/runtime/test/tool_modules/async && <home-tool> run cjs-await.cjs",
+      "cd packages/runtime/test/tool_modules/async && <home-tool> run cycle-a.mjs",
+      "cd packages/runtime/test/tool_modules/async && <home-tool> run dependency-rejected.mjs",
+      "cd packages/runtime/test/tool_modules/async && <home-tool> run pending.mjs",
+      "cd packages/runtime/test/tool_modules/async && <home-tool> run rejected.mjs",
+      "cd packages/runtime/test/tool_modules/async && <home-tool> run undefined.mjs",
+      "cd packages/runtime/test/tool_modules/dynamic_import && <home-tool> run pending-entry.mjs",
+      "cd packages/runtime/test/tool_modules/dynamic_import && <home-tool> run reject-entry.mjs",
+      "cd packages/runtime/test/tool_modules/package_exports && <home-tool> run reject-blocked.mjs",
+      "cd packages/runtime/test/tool_modules/package_exports && <home-tool> run reject-directory.mjs",
+      "cd packages/runtime/test/tool_modules/package_exports && <home-tool> run reject-extensionless.mjs",
+      "cd packages/runtime/test/tool_modules/package_exports && <home-tool> run reject-missing-array.mjs",
+      "cd packages/runtime/test/tool_modules/package_exports && <home-tool> run reject-require-only.mjs",
+      "cd packages/runtime/test/tool_modules/tsconfig_paths && <home-tool> run cycle/entry.cjs",
+      "cd packages/runtime/test/tool_modules/tsconfig_paths && <home-tool> run declaration/entry.cjs",
+      "cd packages/runtime/test/tool_modules/tsconfig_paths && <home-tool> run invalid-options/entry.cjs",
+      "cd packages/runtime/test/tool_modules/tsconfig_paths && <home-tool> run malformed/entry.cjs",
+      "cd packages/runtime/test/tool_modules/tsconfig_paths && <home-tool> run missing/entry.cjs",
+      "python3 ./packages/runtime/test/tool_dns_fixture.py <home-tool> ./packages/runtime/test/tool_modules",
+      "python3 ./packages/runtime/test/tool_immediates_fixture.py <home-tool> ./packages/runtime/test/tool_modules/immediates_async_context.mjs --context"
+    ],
+    "after_commands": [
+      "<home-tool> eval \"process.on('exit', function() { throw new Error('exit listener witness'); });\"",
+      "<home-tool> run packages/runtime/test/tool_modules/async_property_newline.cjs",
+      "<home-tool> run packages/runtime/test/tool_modules/jsdoc_runtime.mjs --transpile",
+      "<home-tool> run packages/runtime/test/tool_modules/source_nul.mjs --transpile",
+      "cd packages/runtime/test/tool_modules && <home-tool> run ./node_immediates.mjs reject",
+      "cd packages/runtime/test/tool_modules && <home-tool> run ./node_immediates.mjs reject-listener",
+      "cd packages/runtime/test/tool_modules && <home-tool> run assert_failure.cjs",
+      "cd packages/runtime/test/tool_modules && <home-tool> run async_context.mjs",
+      "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs error",
+      "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs exit-throw",
+      "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs handler-throw",
+      "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs monitor",
+      "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs monitor-throw",
+      "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs override",
+      "cd packages/runtime/test/tool_modules && <home-tool> run next_tick_failure.cjs undefined",
+      "cd packages/runtime/test/tool_modules && <home-tool> run node_events_entry.cjs",
+      "cd packages/runtime/test/tool_modules && <home-tool> run node_file_url_fs.mjs",
+      "cd packages/runtime/test/tool_modules && <home-tool> run node_module_url.mjs",
+      "cd packages/runtime/test/tool_modules && <home-tool> run node_path_to_url.mjs",
+      "cd packages/runtime/test/tool_modules && <home-tool> run node_stream_pending.mjs",
+      "cd packages/runtime/test/tool_modules && <home-tool> run runtime_invalid_syntax.js",
+      "cd packages/runtime/test/tool_modules && <home-tool> run timers_async_context.mjs",
+      "cd packages/runtime/test/tool_modules && <home-tool> run timers_exit.cjs fatal",
+      "cd packages/runtime/test/tool_modules && <home-tool> run timers_exit.cjs handler-throw",
+      "cd packages/runtime/test/tool_modules && <home-tool> run timers_exit.cjs reject",
+      "cd packages/runtime/test/tool_modules && <home-tool> run timers_exit.cjs reject-listener",
+      "cd packages/runtime/test/tool_modules && <home-tool> run unhandled_rejection.cjs async",
+      "cd packages/runtime/test/tool_modules && <home-tool> run unhandled_rejection.cjs chain",
+      "cd packages/runtime/test/tool_modules && <home-tool> run unhandled_rejection.cjs error",
+      "cd packages/runtime/test/tool_modules && <home-tool> run unhandled_rejection.cjs handler-throw",
+      "cd packages/runtime/test/tool_modules && <home-tool> run unhandled_rejection.cjs listener",
+      "cd packages/runtime/test/tool_modules && <home-tool> run unhandled_rejection.cjs listener-throw",
+      "cd packages/runtime/test/tool_modules && <home-tool> run unhandled_rejection.cjs second",
+      "cd packages/runtime/test/tool_modules && <home-tool> run unhandled_rejection.cjs uncaught",
+      "cd packages/runtime/test/tool_modules && <home-tool> run unhandled_rejection.cjs undefined",
+      "cd packages/runtime/test/tool_modules && <home-tool> run unhandled_rejection.cjs wrapped",
+      "cd packages/runtime/test/tool_modules/async && <home-tool> run cjs-await.cjs",
+      "cd packages/runtime/test/tool_modules/async && <home-tool> run cycle-a.mjs",
+      "cd packages/runtime/test/tool_modules/async && <home-tool> run dependency-rejected.mjs",
+      "cd packages/runtime/test/tool_modules/async && <home-tool> run pending.mjs",
+      "cd packages/runtime/test/tool_modules/async && <home-tool> run rejected.mjs",
+      "cd packages/runtime/test/tool_modules/async && <home-tool> run undefined.mjs",
+      "cd packages/runtime/test/tool_modules/dynamic_import && <home-tool> run pending-entry.mjs",
+      "cd packages/runtime/test/tool_modules/dynamic_import && <home-tool> run reject-entry.mjs",
+      "cd packages/runtime/test/tool_modules/package_exports && <home-tool> run reject-blocked.mjs",
+      "cd packages/runtime/test/tool_modules/package_exports && <home-tool> run reject-directory.mjs",
+      "cd packages/runtime/test/tool_modules/package_exports && <home-tool> run reject-extensionless.mjs",
+      "cd packages/runtime/test/tool_modules/package_exports && <home-tool> run reject-missing-array.mjs",
+      "cd packages/runtime/test/tool_modules/package_exports && <home-tool> run reject-require-only.mjs",
+      "cd packages/runtime/test/tool_modules/tsconfig_paths && <home-tool> run cycle/entry.cjs",
+      "cd packages/runtime/test/tool_modules/tsconfig_paths && <home-tool> run declaration/entry.cjs",
+      "cd packages/runtime/test/tool_modules/tsconfig_paths && <home-tool> run invalid-options/entry.cjs",
+      "cd packages/runtime/test/tool_modules/tsconfig_paths && <home-tool> run malformed/entry.cjs",
+      "cd packages/runtime/test/tool_modules/tsconfig_paths && <home-tool> run missing/entry.cjs",
+      "python3 ./packages/runtime/test/tool_dns_fixture.py <home-tool> ./packages/runtime/test/tool_modules",
+      "python3 ./packages/runtime/test/tool_immediates_fixture.py <home-tool> ./packages/runtime/test/tool_modules/immediates_async_context.mjs --context"
+    ],
+    "added": [],
+    "removed": [],
+    "scope": "Compare against the union of preceding TTY full-JSC and final-full-JSC transcripts: caching changes which expected-nonzero child commands print. Physical binary paths normalized. This is an observed failed-command sanity comparison, not a complete checker/test262 regression measurement."
+  },
+  "remaining_limits": [
+    "Reflink flags and nonregular copy explicitly unsupported; no fake cloning.",
+    "No private process.binding shim. Exact unmodified NAPI CLI help remains failed at process.binding(constants) after genuine six FS promisify registrations; no complete CLI/native-addon pass.",
+    "Known HTTP, js-tokens tokenizer, Stacks 500m evaluation budget and Home docs timeout/RSS failures retained. No quota increase, skips or candidate Bun fallback.",
+    "All selected repositories remain in inventory; full all-selected run unfinished, not inferred green."
+  ],
+  "receipts": {
+    "actionlint": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 144,
+      "memory_limit_mb": 3072,
+      "seconds": 0.06,
+      "log": "actionlint.log",
+      "log_sha256": "ced4ef22c1d35f09ae59485530a642b7901226a76430b40a394208ab4282b0db",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "cli-before-bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/inspect-cli.cjs",
+        "--help"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 66640,
+      "memory_limit_mb": 3072,
+      "seconds": 0.145,
+      "log": "cli-before-bun.log",
+      "log_sha256": "d57dcd7d103d5e3798324a3544ebb8978196f3a05acff09eed0beddadbe7b577",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "cli-before-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/inspect-cli.cjs",
+        "--help"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 22736,
+      "memory_limit_mb": 3072,
+      "seconds": 0.247,
+      "log": "cli-before-jsc.log",
+      "log_sha256": "67b793c967aed03da8a696149a435251b0d29c6bfb7f32f4c247e82a8a92eea1",
+      "actual_signals": [
+        "home-tool (jsc): TypeError: promisify original must be a function",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "cli-before-node": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/inspect-cli.cjs",
+        "--help"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 71088,
+      "memory_limit_mb": 3072,
+      "seconds": 0.218,
+      "log": "cli-before-node.log",
+      "log_sha256": "622d06ee2b6c0f422e206a21cbb8ff6eb3b00195f40897e40735f6811e97a5dd",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "cli-before-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/inspect-cli.cjs",
+        "--help"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 179584,
+      "memory_limit_mb": 3072,
+      "seconds": 0.322,
+      "log": "cli-before-zig-js.log",
+      "log_sha256": "85325dd41c49b88c95da409e2ef578775211ca488fd0002320ed5ad5c0668408",
+      "actual_signals": [
+        "home-tool (zig-js): TypeError: promisify original must be a function",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "cli-first-after-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/inspect-cli.cjs",
+        "--help"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 175280,
+      "memory_limit_mb": 3072,
+      "seconds": 0.787,
+      "log": "cli-first-after-zig-js.log",
+      "log_sha256": "023e357afec280e10eb2583b2814164f24a488855c3bd304dfac24eb4fa49205",
+      "actual_signals": [
+        "home-tool (zig-js): TypeError: process.binding is not a function. (In 'process.binding(\"constants\")', 'process.binding' is undefined)",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "cli-unmodified-before-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "binary_sha256": "f4f89f780e25248332af0bf79e16fc231c8ef8dbbf1df087165c41e23119de00",
+      "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 36640,
+      "memory_limit_mb": 3072,
+      "seconds": 0.145,
+      "log": "cli-unmodified-before-jsc.log",
+      "log_sha256": "197945fc3ffe418824c8877bb2d55362382d536f5ef118baf2d668287155ab80",
+      "actual_signals": [
+        "home-tool (jsc): TypeError: promisify original must be a function",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "cli-unmodified-before-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "binary_sha256": "71387a26fc5fe2f46041730f062c332885ff9661cb480af8c487e8fe908953ab",
+      "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 195408,
+      "memory_limit_mb": 3072,
+      "seconds": 0.297,
+      "log": "cli-unmodified-before-zig-js.log",
+      "log_sha256": "baad39b92a726a5ac1a69bc422d383d063871c4bfb4a575b81d3b2655c5637a0",
+      "actual_signals": [
+        "home-tool (zig-js): TypeError: promisify original must be a function",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "cli-unmodified-bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "binary_sha256": "6b947fc4b25d640c482e40f253cbb2df692a555ce29c247844b766d8fea16dca",
+      "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 28944,
+      "memory_limit_mb": 3072,
+      "seconds": 0.222,
+      "log": "cli-unmodified-bun.log",
+      "log_sha256": "8d1af3fb5efe2686a45d01f7d08f03554dfac16dd98e65c71cc69d3b5d1b6ed8",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "cli-unmodified-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "binary_sha256": "f6592cf6b61af7666c9a36247d0b85e6e650cfddbae3e69a67ab4b8ab59d641a",
+      "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 33488,
+      "memory_limit_mb": 3072,
+      "seconds": 0.183,
+      "log": "cli-unmodified-jsc.log",
+      "log_sha256": "43aa6caf3103255f027f0fd92174c8227a18435c4cd9c6e2d303d959a41412d1",
+      "actual_signals": [
+        "home-tool (jsc): TypeError: process.binding is not a function. (In 'process.binding(\"constants\")', 'process.binding' is undefined)",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "cli-unmodified-node": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "binary_sha256": "600484350350ab7852b577ddf97e7888f498334bef3ca74e73ea3b507a5b6fac",
+      "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 64208,
+      "memory_limit_mb": 3072,
+      "seconds": 0.369,
+      "log": "cli-unmodified-node.log",
+      "log_sha256": "99cc11a9305ee66915e206eb50a6382c4a958589d51c598aa03a99056a66d166",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "cli-unmodified-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/consumer/node_modules/@napi-rs/cli/scripts/index.js",
+        "--help"
+      ],
+      "binary_sha256": "8629394d9ac5af42d1fc8d7a1f44256a4e1d48398a0308cd956b36961ccb9873",
+      "cli_sha256": "3f985a990a22eab7bf361dd37fdfaa856dc07642250b5549308b56d941acb182",
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 53600,
+      "memory_limit_mb": 3072,
+      "seconds": 0.386,
+      "log": "cli-unmodified-zig-js.log",
+      "log_sha256": "41718eabea71cfb6b24d644deb01d6741daffce07a4358f6639768e3c837b641",
+      "actual_signals": [
+        "home-tool (zig-js): TypeError: process.binding is not a function. (In 'process.binding(\"constants\")', 'process.binding' is undefined)",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "consumer-install": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "install",
+        "--ignore-scripts"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 17184,
+      "memory_limit_mb": 3072,
+      "seconds": 0.529,
+      "log": "consumer-install.log",
+      "scope": "Dependency setup only; never candidate execution or lifecycle/publishing scripts",
+      "log_sha256": "ef6d436f4755b01356059384a6981feceefcc94cb253a96c1aa2d6fc6427b15b",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "fixture-before-jsc": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_fs_mutations_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/fs_callback_mutations.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 23344,
+      "memory_limit_mb": 3072,
+      "seconds": 0.145,
+      "log": "fixture-before-jsc.log",
+      "log_sha256": "57effeb0346372b904b2f2179a60856e446deea42002f938d8d407f8ee43c22d",
+      "actual_signals": [
+        "FS MUTATION RESULTS {\"groups\":43,\"passed\":1,\"failures\":[{\"name\":\"actual callback exports\",\"message\":\"Expected [\\\"function\\\",\\\"function\\\",\\\"function\\\",\\\"function\\\",\\\"function\\\",\\\"function\\\"], got [\\\"function\\\",\\\"undefined\\\",\\\"undefined\\\",\\\"undefined\\\",\\\"undefined\\\",\\\"function\\\"]\"},{\"name\":\"sync and promise aliases\",\"message\":\"Expected [\\\"function\\\",\\\"function\\\",\\\"function\\\",\\\"function\\\"], got [\\\"undefined\\\",\\\"undefined\\\",\\\"undefined\\\",\\\"undefined\\\"]\"},{\"name\":\"deferred text write and exact callback arity\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"binary view writes exact bytes\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"write flags captured before deferred IO\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"write exclusive error leaves old bytes\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"write missing parent reports real failure\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"borrowed descriptor offset and lifetime\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"null write options mean defaults\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"default mkdir callback arity\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"recursive mkdir first-created path\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"existing recursive mkdir returns undefined\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"numeric mkdir mode\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"string mkdir mode\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"mkdir file collision\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"mkdir missing parent\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"mkdir existing directory\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"mkdir option snapshot\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"unlink actually removes file\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"unlink missing path error\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"unlink removes symlink entry only\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"unlink does not delete directories\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"stream real source bytes to new file\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"existing destination inode and hardlinks survive\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"destination symlink followed without replacement\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"same filename is a no-op\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"source hardlink alias is a no-op\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"exclusive copy leaves destination untouched\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"exclusive copy creates actual destination\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"missing copy source\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"missing copy destination parent\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"copy rejects source directory\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"copy rejects destination directory\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"real copy constants\",\"message\":\"Expected [1,2,4], got [null,null,null]\"},{\"name\":\"sync unlink\",\"message\":\"fs.unlinkSync is not a function. (In 'fs.unlinkSync(file(\\\"sync-delete\\\"))', 'fs.unlinkSync' is undefined)\"},{\"name\":\"sync copy\",\"message\":\"fs.copyFileSync is not a function. (In 'fs.copyFileSync(file(\\\"source.bin\\\"), file(\\\"sync-copy\\\"))', 'fs.copyFileSync' is undefined)\"},{\"name\":\"promise aliases execute actual mutations\",\"message\":\"fs.promises.copyFile is not a function. (In 'fs.promises.copyFile(file(\\\"source.bin\\\"), file(\\\"promise-copy\\\"))', 'fs.promises.copyFile' is undefined)\"},{\"name\":\"promisified mutations execute real IO\",\"message\":\"promisify original must be a function\"},{\"name\":\"missing callbacks reject synchronously\",\"message\":\"Expected \\\"ERR_INVALID_ARG_TYPE\\\", got undefined\"},{\"name\":\"bad callback paths reject synchronously\",\"message\":\"Expected \\\"ERR_INVALID_ARG_TYPE\\\", got undefined\"},{\"name\":\"invalid write data rejects before scheduling\",\"message\":\"Expected \\\"ERR_INVALID_ARG_TYPE\\\", got undefined\"},{\"name\":\"copy flag truncation and validation\",\"message\":\"Expected \\\"ERR_INVALID_ARG_TYPE\\\", got undefined\"}],\"doubleCallbacks\":[]}",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "fixture-before-zig-js": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_fs_mutations_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/tty-stream-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/fs_callback_mutations.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 30080,
+      "memory_limit_mb": 3072,
+      "seconds": 0.218,
+      "log": "fixture-before-zig-js.log",
+      "log_sha256": "8132f9c1c1f1fc8b3ddb8739a387aa0b0c2b1868e77ef9321d659100d9efd162",
+      "actual_signals": [
+        "FS MUTATION RESULTS {\"groups\":43,\"passed\":1,\"failures\":[{\"name\":\"actual callback exports\",\"message\":\"Expected [\\\"function\\\",\\\"function\\\",\\\"function\\\",\\\"function\\\",\\\"function\\\",\\\"function\\\"], got [\\\"function\\\",\\\"undefined\\\",\\\"undefined\\\",\\\"undefined\\\",\\\"undefined\\\",\\\"function\\\"]\"},{\"name\":\"sync and promise aliases\",\"message\":\"Expected [\\\"function\\\",\\\"function\\\",\\\"function\\\",\\\"function\\\"], got [\\\"undefined\\\",\\\"undefined\\\",\\\"undefined\\\",\\\"undefined\\\"]\"},{\"name\":\"deferred text write and exact callback arity\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"binary view writes exact bytes\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"write flags captured before deferred IO\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"write exclusive error leaves old bytes\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"write missing parent reports real failure\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"borrowed descriptor offset and lifetime\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"null write options mean defaults\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"default mkdir callback arity\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"recursive mkdir first-created path\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"existing recursive mkdir returns undefined\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"numeric mkdir mode\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"string mkdir mode\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"mkdir file collision\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"mkdir missing parent\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"mkdir existing directory\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"mkdir option snapshot\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"unlink actually removes file\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"unlink missing path error\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"unlink removes symlink entry only\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"unlink does not delete directories\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"stream real source bytes to new file\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"existing destination inode and hardlinks survive\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"destination symlink followed without replacement\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"same filename is a no-op\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"source hardlink alias is a no-op\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"exclusive copy leaves destination untouched\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"exclusive copy creates actual destination\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"missing copy source\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"missing copy destination parent\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"copy rejects source directory\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"copy rejects destination directory\",\"message\":\"fs[name] is not a function. (In 'fs[name](...args, function(...values) {\\n      ++calls;\\n      if (calls > 1) {\\n        doubles.push(name);\\n        return;\\n      }\\n      if (!returned) {\\n        reject(new Error(name + \\\" callback was synchronous\\\"));\\n        return;\\n      }\\n      resolve(values);\\n    })', 'fs[name]' is undefined)\"},{\"name\":\"real copy constants\",\"message\":\"Expected [1,2,4], got [null,null,null]\"},{\"name\":\"sync unlink\",\"message\":\"fs.unlinkSync is not a function. (In 'fs.unlinkSync(file(\\\"sync-delete\\\"))', 'fs.unlinkSync' is undefined)\"},{\"name\":\"sync copy\",\"message\":\"fs.copyFileSync is not a function. (In 'fs.copyFileSync(file(\\\"source.bin\\\"), file(\\\"sync-copy\\\"))', 'fs.copyFileSync' is undefined)\"},{\"name\":\"promise aliases execute actual mutations\",\"message\":\"fs.promises.copyFile is not a function. (In 'fs.promises.copyFile(file(\\\"source.bin\\\"), file(\\\"promise-copy\\\"))', 'fs.promises.copyFile' is undefined)\"},{\"name\":\"promisified mutations execute real IO\",\"message\":\"promisify original must be a function\"},{\"name\":\"missing callbacks reject synchronously\",\"message\":\"Expected \\\"ERR_INVALID_ARG_TYPE\\\", got undefined\"},{\"name\":\"bad callback paths reject synchronously\",\"message\":\"Expected \\\"ERR_INVALID_ARG_TYPE\\\", got undefined\"},{\"name\":\"invalid write data rejects before scheduling\",\"message\":\"Expected \\\"ERR_INVALID_ARG_TYPE\\\", got undefined\"},{\"name\":\"copy flag truncation and validation\",\"message\":\"Expected \\\"ERR_INVALID_ARG_TYPE\\\", got undefined\"}],\"doubleCallbacks\":[]}",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "fixture-bun": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_fs_mutations_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/fs_callback_mutations.mjs",
+        "--node"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 37680,
+      "memory_limit_mb": 3072,
+      "seconds": 0.415,
+      "log": "fixture-bun.log",
+      "log_sha256": "95cce22c8483ef855816ebc344224c7c7a09dac06208015bd6369a96c4aa8b50",
+      "actual_signals": [
+        "FS MUTATION RESULTS {\"groups\":43,\"passed\":21,\"failures\":[{\"name\":\"deferred text write and exact callback arity\",\"message\":\"Expected 1, got 2\"},{\"name\":\"binary view writes exact bytes\",\"message\":\"Expected 1, got 2\"},{\"name\":\"write flags captured before deferred IO\",\"message\":\"Expected 1, got 2\"},{\"name\":\"borrowed descriptor offset and lifetime\",\"message\":\"Expected 1, got 2\"},{\"name\":\"null write options mean defaults\",\"message\":\"Expected 1, got 2\"},{\"name\":\"default mkdir callback arity\",\"message\":\"Expected 1, got 2\"},{\"name\":\"existing recursive mkdir returns undefined\",\"message\":\"Expected 1, got 2\"},{\"name\":\"numeric mkdir mode\",\"message\":\"Expected 1, got 2\"},{\"name\":\"string mkdir mode\",\"message\":\"Expected 1, got 2\"},{\"name\":\"unlink actually removes file\",\"message\":\"Expected 1, got 2\"},{\"name\":\"unlink removes symlink entry only\",\"message\":\"Expected 1, got 2\"},{\"name\":\"stream real source bytes to new file\",\"message\":\"Expected 1, got 2\"},{\"name\":\"existing destination inode and hardlinks survive\",\"message\":\"Expected 1, got 2\"},{\"name\":\"destination symlink followed without replacement\",\"message\":\"Expected 1, got 2\"},{\"name\":\"same filename is a no-op\",\"message\":\"ENOENT: no such file or directory, copyfile '/var/folders/cv/vscx542522j3h3vknn13gbbw0000gn/T/home-fs-mutations-j63s474w/source.bin' -> '/var/folders/cv/vscx542522j3h3vknn13gbbw0000gn/T/home-fs-mutations-j63s474w/source.bin'\"},{\"name\":\"source hardlink alias is a no-op\",\"message\":\"ENOENT: no such file or directory, copyfile '/var/folders/cv/vscx542522j3h3vknn13gbbw0000gn/T/home-fs-mutations-j63s474w/source.bin' -> '/var/folders/cv/vscx542522j3h3vknn13gbbw0000gn/T/home-fs-mutations-j63s474w/source-alias'\"},{\"name\":\"exclusive copy leaves destination untouched\",\"message\":\"Expected \\\"EEXIST\\\", got \\\"ENOENT\\\"\"},{\"name\":\"exclusive copy creates actual destination\",\"message\":\"ENOENT: no such file or directory, copyfile '/var/folders/cv/vscx542522j3h3vknn13gbbw0000gn/T/home-fs-mutations-j63s474w/source.bin' -> '/var/folders/cv/vscx542522j3h3vknn13gbbw0000gn/T/home-fs-mutations-j63s474w/exclusive-new'\"},{\"name\":\"copy rejects destination directory\",\"message\":\"Expected \\\"EISDIR\\\", got \\\"ENOENT\\\"\"},{\"name\":\"sync copy\",\"message\":\"ENOENT: no such file or directory, copyfile '/var/folders/cv/vscx542522j3h3vknn13gbbw0000gn/T/home-fs-mutations-j63s474w/source.bin' -> '/var/folders/cv/vscx542522j3h3vknn13gbbw0000gn/T/home-fs-mutations-j63s474w/sync-copy'\"},{\"name\":\"promise aliases execute actual mutations\",\"message\":\"ENOENT: no such file or directory, copyfile '/var/folders/cv/vscx542522j3h3vknn13gbbw0000gn/T/home-fs-mutations-j63s474w/source.bin' -> '/var/folders/cv/vscx542522j3h3vknn13gbbw0000gn/T/home-fs-mutations-j63s474w/promise-copy'\"},{\"name\":\"copy flag truncation and validation\",\"message\":\"ENOENT: no such file or directory, copyfile '/var/folders/cv/vscx542522j3h3vknn13gbbw0000gn/T/home-fs-mutations-j63s474w/source.bin' -> '/var/folders/cv/vscx542522j3h3vknn13gbbw0000gn/T/home-fs-mutations-j63s474w/fractional-mode'\"}],\"doubleCallbacks\":[]}",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "fixture-first-node": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_fs_mutations_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/fs_callback_mutations.mjs",
+        "--node"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 59824,
+      "memory_limit_mb": 3072,
+      "seconds": 0.447,
+      "log": "fixture-first-node.log",
+      "log_sha256": "10e928381cf7813e4ffaf0ececba95379338ac92e4a693b67d2d9975b9f13510",
+      "actual_signals": [
+        "FS MUTATION RESULTS {\"groups\":43,\"passed\":40,\"failures\":[{\"name\":\"existing recursive mkdir returns undefined\",\"message\":\"Expected 2, got 1\"},{\"name\":\"copy rejects source directory\",\"message\":\"Expected \\\"EISDIR\\\", got \\\"ENOTSUP\\\"\"},{\"name\":\"invalid copy flags reject before scheduling\",\"message\":\"Expected true, got false\"}],\"doubleCallbacks\":[]}",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "fixture-first-zig-js": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_fs_mutations_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/fs_callback_mutations.mjs",
+        "--home-profile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 65248,
+      "memory_limit_mb": 3072,
+      "seconds": 0.299,
+      "log": "fixture-first-zig-js.log",
+      "log_sha256": "7e7bb9b418edb9f562d8084c3c522f425258175572c7d4f01e0cee85a8f59dcc",
+      "actual_signals": [
+        "FS MUTATION RESULTS {\"groups\":43,\"passed\":43,\"failures\":[],\"doubleCallbacks\":[]}",
+        "NATIVE FS MUTATION BYTES/INODES/LINKS/PERMISSIONS VERIFIED {\"source_bytes\": 1048593, \"sha256\": \"93513902ca696d5666cfebbe008c992048a8c04aec93f5c62b732c165dbc9373\", \"hardlink_identity_preserved\": true, \"symlink_entry_preserved\": true}",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "fixture-node": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_fs_mutations_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/fs_callback_mutations.mjs",
+        "--node"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 72944,
+      "memory_limit_mb": 3072,
+      "seconds": 1.726,
+      "log": "fixture-node.log",
+      "log_sha256": "2e279d7f3b16dad04bd8b5699966eea2903339dc3e8ef63bb3f014628f33eab6",
+      "actual_signals": [
+        "FS MUTATION RESULTS {\"groups\":43,\"passed\":43,\"failures\":[],\"doubleCallbacks\":[]}",
+        "NATIVE FS MUTATION BYTES/INODES/LINKS/PERMISSIONS VERIFIED {\"source_bytes\": 1048593, \"sha256\": \"93513902ca696d5666cfebbe008c992048a8c04aec93f5c62b732c165dbc9373\", \"hardlink_identity_preserved\": true, \"symlink_entry_preserved\": true}",
+        "FS MUTATION 16 EXCEPTION/FATAL/LIVENESS CHILDREN OK",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "fixture-zig-js": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_fs_mutations_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/fs_callback_mutations.mjs",
+        "--home-profile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 62080,
+      "memory_limit_mb": 3072,
+      "seconds": 1.2,
+      "log": "fixture-zig-js.log",
+      "log_sha256": "567598da37dcefc5ade5be47dcb9ce39a6de1055fb54134d6b4b46f79871293e",
+      "actual_signals": [
+        "FS MUTATION RESULTS {\"groups\":43,\"passed\":43,\"failures\":[],\"doubleCallbacks\":[]}",
+        "NATIVE FS MUTATION BYTES/INODES/LINKS/PERMISSIONS VERIFIED {\"source_bytes\": 1048593, \"sha256\": \"93513902ca696d5666cfebbe008c992048a8c04aec93f5c62b732c165dbc9373\", \"hardlink_identity_preserved\": true, \"symlink_entry_preserved\": true}",
+        "FS MUTATION 16 EXCEPTION/FATAL/LIVENESS CHILDREN OK",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "focused-zig-js-final": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 884832,
+      "memory_limit_mb": 3072,
+      "seconds": 48.55,
+      "log": "focused-zig-js-final.log",
+      "log_sha256": "1cf9f306a7b9df8aef523e782f6d323a4cf69400082d246eb151b3e0e214b582",
+      "actual_signals": [
+        "Build Summary: 5/5 steps succeeded",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "focused-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 956832,
+      "memory_limit_mb": 3072,
+      "seconds": 38.117,
+      "log": "focused-zig-js.log",
+      "log_sha256": "f49af6e09e20f1cd036a54309db2f11edf99dadb785e12a5d46a6c9a6cb9467e",
+      "actual_signals": [
+        "Build Summary: 5/5 steps succeeded",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "full-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 683264,
+      "memory_limit_mb": 3072,
+      "seconds": 52.326,
+      "log": "full-jsc.log",
+      "log_sha256": "1c001adc3476c09d281d3b50cab76981087689c84a354ab912dab77b01e06d6d",
+      "actual_signals": [
+        "FS MUTATION RESULTS {\"groups\":43,\"passed\":43,\"failures\":[],\"doubleCallbacks\":[]}",
+        "NATIVE FS MUTATION BYTES/INODES/LINKS/PERMISSIONS VERIFIED {\"source_bytes\": 1048593, \"sha256\": \"93513902ca696d5666cfebbe008c992048a8c04aec93f5c62b732c165dbc9373\", \"hardlink_identity_preserved\": true, \"symlink_entry_preserved\": true}",
+        "FS MUTATION 16 EXCEPTION/FATAL/LIVENESS CHILDREN OK",
+        "Build Summary: 250/275 steps succeeded (21 failed)",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "full-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 768544,
+      "memory_limit_mb": 3072,
+      "seconds": 78.472,
+      "log": "full-zig-js.log",
+      "log_sha256": "693589ec41317364c3a3c3f945c28f681bce4e42699d1abd2cb0479a5f7ccde6",
+      "actual_signals": [
+        "FS MUTATION RESULTS {\"groups\":43,\"passed\":43,\"failures\":[],\"doubleCallbacks\":[]}",
+        "NATIVE FS MUTATION BYTES/INODES/LINKS/PERMISSIONS VERIFIED {\"source_bytes\": 1048593, \"sha256\": \"93513902ca696d5666cfebbe008c992048a8c04aec93f5c62b732c165dbc9373\", \"hardlink_identity_preserved\": true, \"symlink_entry_preserved\": true}",
+        "FS MUTATION 16 EXCEPTION/FATAL/LIVENESS CHILDREN OK",
+        "Build Summary: 277/277 steps succeeded; 4/4 tests passed",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "pickier": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bunx",
+        "--bun",
+        "pickier",
+        "packages/runtime/src/jsc/tool_builtins.js",
+        "packages/runtime/test/tool_modules/fs_callback_mutations.mjs",
+        "packages/runtime/test/tool_modules/fs_mutations_child.cjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32096,
+      "memory_limit_mb": 3072,
+      "seconds": 0.23,
+      "log": "pickier.log",
+      "log_sha256": "e58abdf0defe526b3254f7e6ad7c63b5dbddfc8eaea8be4d82d29218fe75600f",
+      "actual_signals": [
+        "\u001b[31m\u2716 2 problems (0 errors, 2 warnings)\u001b[0m",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "python-syntax": {
+      "argv": [
+        "python3",
+        "-m",
+        "compileall",
+        "-q",
+        "scripts",
+        "tests"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5264,
+      "memory_limit_mb": 3072,
+      "seconds": 0.127,
+      "log": "python-syntax.log",
+      "log_sha256": "51bae8acfd0d20c21635c4ba32ad943b025f8f96547c0442578848ae357a3632",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "suite-dependencies": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "tests/dependencies.test.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 25488,
+      "memory_limit_mb": 3072,
+      "seconds": 0.414,
+      "log": "suite-dependencies.log",
+      "log_sha256": "57701abe6bf3e973747c1bb87268d2d910131709c7df743e8629f6c6533ca8b1",
+      "actual_signals": [
+        " 7 pass",
+        " 26 expect() calls",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "suite-python": {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 123328,
+      "memory_limit_mb": 3072,
+      "seconds": 3.791,
+      "log": "suite-python.log",
+      "log_sha256": "90b36310f28dce996968e87f8fd034451b112b31d2b57152751ca38cbefe76a6",
+      "actual_signals": [
+        "Ran 45 tests in 3.430s",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "zig-fmt": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "fmt",
+        "--check",
+        "build.zig",
+        "packages/runtime/src/jsc/tool_fs.zig"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 17360,
+      "memory_limit_mb": 3072,
+      "seconds": 0.246,
+      "log": "zig-fmt.log",
+      "log_sha256": "1b85bd2c4e96a25ed43f5efb18a7a984d642d456057bcb433bf00a3cb264dabe",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    }
+  },
+  "promotion_policy": "Keep zig-js caller6fdda991cf886f8522b13e95a0e45abfabfedb7a until exact pushed functional suite/source validation/runtime artifact hashes/provenance and four real consumer preflights qualify. No evidence-only descendant promotion."
+}
