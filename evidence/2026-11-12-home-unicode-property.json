@@ -1,0 +1,1016 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-12T14:27:32.484548+00:00",
+  "status": "Quoted Unicode property emission repaired, locally validated and pushed; immutable Linux qualification pending",
+  "home_ref": "0c0b9a1bb8c3bfedd274d38e0aa25ba8e4c171b7",
+  "home_url": "https://github.com/home-lang/home/commit/0c0b9a1bb8c3bfedd274d38e0aa25ba8e4c171b7",
+  "source_tree": "4921c10a56a96d508f2d44d9a6b257809038c24b",
+  "before_home_ref": "15242b410e2a71eb76018f1f8e1fd418109b3232",
+  "preserved_foreign_parent": "f51688765a666323981668646aa38edce023920f",
+  "foreign_work": "Two independent logical-negation checker/oracle commits preserved before editing. Original Home/lang worktree/index untouched. No whole-checker regression claim.",
+  "source_files": [
+    {
+      "path": "build.zig",
+      "git_blob": "14aaa77d59a3d6f877f9b5e9de8e7d321f30269a",
+      "sha256": "4d161915e1bd465507e39bbacb2492a25caa55081b2d1f96fd9a17b130f965cf",
+      "changed_in_fix": true
+    },
+    {
+      "path": "packages/ts_emit/src/js_emit.zig",
+      "git_blob": "26b4f0ff923f82db1605e0f1680d2219954ada10",
+      "sha256": "9b8def9b95ed912f41e806d4df4199faf9939db71227649321941b76ed4f2d66",
+      "changed_in_fix": true
+    },
+    {
+      "path": "packages/ts_driver/src/ts_driver.zig",
+      "git_blob": "696ffcc2d080b78a89d986504a4b95b7be3161ca",
+      "sha256": "61c71062b1f30e703298b5cbf47a79616f81da4bf0c826b2b7b4e1e91de6a69c",
+      "changed_in_fix": true
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/unicode_property.mjs",
+      "git_blob": "eabee7a02115ad12ad80818e3970050f280bf51e",
+      "sha256": "35acae0642a81a820d16bfd9eb86e5257760b9b0c6622dfc22ce59edd52f11ca",
+      "changed_in_fix": true
+    },
+    {
+      "path": "packages/runtime/src/js_parser/lexer/identifier.zig",
+      "git_blob": "a146eeb035b04fab9736c46f44f201be38a8331a",
+      "sha256": "26dec8bd3c72dfa88be205d3818f5a25896c0dea073def8ee28fc18c80e3abe4",
+      "changed_in_fix": false
+    }
+  ],
+  "local_engine_sha": "a7b0fdfd2e9caa6a9e822d911dd8a390e21babf1",
+  "local_archive_sha256": "3b182ee48ac27e763c308b16276e5330e552906f82d82336907f7389ce1b03ed",
+  "local_profile": "Darwin ReleaseSafe; same exact pushed zig-js archive before/after, independent of Linux engine50913 qualification",
+  "preceding_complete_qualification": {
+    "run": 43226474061,
+    "report_job": 131228640706,
+    "actual_summary": "4/4 consumers reported; 4 failing, 0 missing",
+    "report_log_sha256": "4b808fd470ac79f793fb1ffeb640a9e63cd87de5b187c6d4087b8cef9bd577d3",
+    "consumers": [
+      {
+        "repository": "stacksjs/stacks",
+        "sha": "525bfe90eaa2283e6aaa4ec1a269f0c4d03eae4c",
+        "engine_sha": "2d2d91976c4a5b25c82ddc200a08087d82a6ead9",
+        "candidate_counts": {
+          "unsupported": 355,
+          "failed": 182,
+          "passed": 94
+        },
+        "report_sha256": "32b345e13a31045cd0c2da4cdccb52c47603a54a9035e194e6860c5501489243",
+        "artifact": {
+          "id": 13950951166,
+          "digest": "sha256:12e5e1ed8abf390bffb00a8c7e7162b951ce28b583859a43956821c3f40274ef",
+          "size_in_bytes": 1459954
+        },
+        "actual_logs": [
+          {
+            "label": "storage/framework/core: build",
+            "status": "failed",
+            "sha256": "59956e2fc97f299b74cb0a96113f19e27af207f06b798590f094bc46432ecc60",
+            "text": "$ [\"/bin/sh\", \"-c\", \"bun ./build.ts\"]\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/arrays\n[2026-11-12T13:38:34.919Z] local.INFO: Building @stacksjs/arrays...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/audio\n[2026-11-12T13:38:35.777Z] local.INFO: Building @stacksjs/audio...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/browser-extension\n[2026-11-12T13:38:36.630Z] local.INFO: Building @stacksjs/browser-extension...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/charts\n[2026-11-12T13:38:37.493Z] local.INFO: Building @stacksjs/charts...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/collections\n[2026-11-12T13:38:38.351Z] local.INFO: Building @stacksjs/collections...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/cron\n[2026-11-12T13:38:39.220Z] local.INFO: Building @stacksjs/cron...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/datetime\n[2026-11-12T13:38:40.074Z] local.INFO: Building @stacksjs/datetime...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/enums\n[2026-11-12T13:38:40.955Z] local.INFO: Building @stacksjs/enums...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/faker\n[2026-11-12T13:38:41.806Z] local.INFO: Building @stacksjs/faker...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/git\n[2026-11-12T13:38:42.664Z] local.INFO: Building @stacksjs/git...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/github\n[2026-11-12T13:38:43.533Z] local.INFO: Building @stacksjs/github...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/health\n[2026-11-12T13:38:44.392Z] local.INFO: Building @stacksjs/health...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/hq\n[2026-11-12T13:38:45.251Z] local.INFO: Building @stacksjs/hq...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/http\n[2026-11-12T13:38:46.091Z] local.INFO: Building @stacksjs/http...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, plugins: [dts({ root: \"./src\", outdir: \"./dist\", exclude: [\"tests/**\"] })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/lint\n[2026-11-12T13:38:46.945Z] local.INFO: Building @stacksjs/lint...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/pagination\n[2026-11-12T13:38:47.808Z] local.INFO: Building @stacksjs/pagination...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", target: \"bun\", format: \"esm\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/path\n[2026-11-12T13:38:48.669Z] local.INFO: Building @stacksjs/path...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./src/project.ts\", \"./src/module-resolution.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/query-builder\n[2026-11-12T13:38:49.545Z] local.INFO: Building @stacksjs/query-builder...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\", exclude: [\"tests/**\"] })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/shell\n[2026-11-12T13:38:50.409Z] local.INFO: Building @stacksjs/shell...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/strings\n[2026-11-12T13:38:51.275Z] local.INFO: Building @stacksjs/strings...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/tinker\n[2026-11-12T13:38:52.139Z] local.INFO: Building @stacksjs/tinker...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/tunnel\n[2026-11-12T13:38:53.011Z] local.INFO: Building @stacksjs/tunnel...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\"], outdir: \"./dist\", format: \"esm\", target: \"bun\", minify: true, external: frameworkExternal(), plugins: [dts({ root: \"./src\", outdir: \"./dist\" })] })', 'Bun.build' is undefined)\nBuilding /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/video\n[2026-11-12T13:38:53.890Z] local.INFO: Building @stacksjs/video...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: srcFiles.map((f) => p.resolve(srcDir, f)), outdir: distDir, root: srcDir, target: \"bun\", format: \"esm\", splitting: false, external: options.external ?? frameworkExternal(), plugins: [dts({ root: srcDir, outdir: distDir })] })', 'Bun.build' is undefined)\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/alias: dependencies failed: @stacksjs/path\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/calendar-api: dependencies failed: @stacksjs/datetime\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/composables: dependencies failed: @stacksjs/datetime\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/env: dependencies failed: @stacksjs/path\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/events: dependencies failed: @stacksjs/path\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/features: dependencies failed: @stacksjs/path\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/repl: dependencies failed: @stacksjs/tinker\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/browser: dependencies failed: @stacksjs/datetime, @stacksjs/strings, @stacksjs/composables\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/config: dependencies failed: @stacksjs/path, @stacksjs/tunnel, @stacksjs/events, @stacksjs/features\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/types: dependencies failed: @stacksjs/strings, @stacksjs/events\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/action-runner: dependencies failed: @stacksjs/enums, @stacksjs/types\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/api: dependencies failed: @stacksjs/pagination, @stacksjs/path, @stacksjs/config\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/cache: dependencies failed: @stacksjs/config\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/docs: dependencies failed: @stacksjs/path, @stacksjs/config\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/error-handling: dependencies failed: @stacksjs/path, @stacksjs/config, @stacksjs/types\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/image: dependencies failed: @stacksjs/types\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/mobile: dependencies failed: @stacksjs/types\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/registry: dependencies failed: @stacksjs/types\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/security: dependencies failed: @stacksjs/config\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/ui: dependencies failed: @stacksjs/config\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/defaults: dependencies failed: @stacksjs/strings, @stacksjs/mobile\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/logging: dependencies failed: @stacksjs/path, @stacksjs/config, @stacksjs/types, @stacksjs/error-handling\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/cli: dependencies failed: @stacksjs/collections, @stacksjs/types, @stacksjs/error-handling, @stacksjs/logging\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/cloud: dependencies failed: @stacksjs/path, @stacksjs/strings, @stacksjs/config, @stacksjs/error-handling, @stacksjs/logging\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/i18n: dependencies failed: @stacksjs/path, @stacksjs/config, @stacksjs/logging\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/realtime: dependencies failed: @stacksjs/path, @stacksjs/logging\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/whois: dependencies failed: @stacksjs/logging\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/push: dependencies failed: @stacksjs/config, @stacksjs/cli\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/storage: dependencies failed: @stacksjs/arrays, @stacksjs/path, @stacksjs/strings, @stacksjs/env, @stacksjs/config, @stacksjs/error-handling, @stacksjs/logging, @stacksjs/cli\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/build: dependencies failed: @stacksjs/path, @stacksjs/cli, @stacksjs/storage\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/dns: dependencies failed: @stacksjs/enums, @stacksjs/path, @stacksjs/config, @stacksjs/action-runner, @stacksjs/error-handling, @stacksjs/logging, @stacksjs/storage\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/router: dependencies failed: @stacksjs/collections, @stacksjs/pagination, @stacksjs/path, @stacksjs/config, @stacksjs/cache, @stacksjs/error-handling, @stacksjs/security, @stacksjs/logging, @stacksjs/storage\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/skills: dependencies failed: @stacksjs/path, @stacksjs/storage\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/utils: dependencies failed: @stacksjs/enums, @stacksjs/path, @stacksjs/strings, @stacksjs/browser, @stacksjs/config, @stacksjs/types, @stacksjs/error-handling, @stacksjs/logging, @stacksjs/cli, @stacksjs/storage\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/ai: dependencies failed: @stacksjs/config, @stacksjs/cli, @stacksjs/storage, @stacksjs/router\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/validation: dependencies failed: @stacksjs/path, @stacksjs/strings, @stacksjs/types, @stacksjs/error-handling, @stacksjs/utils\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/model-meta: dependencies failed: @stacksjs/path, @stacksjs/strings, @stacksjs/types, @stacksjs/storage, @stacksjs/validation\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/objects: dependencies failed: @stacksjs/utils, @stacksjs/validation\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/database: dependencies failed: @stacksjs/faker, @stacksjs/path, @stacksjs/query-builder, @stacksjs/strings, @stacksjs/env, @stacksjs/features, @stacksjs/config, @stacksjs/error-handling, @stacksjs/security, @stacksjs/logging, @stacksjs/storage, @stacksjs/model-meta\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/analytics: dependencies failed: @stacksjs/env, @stacksjs/types, @stacksjs/database\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/email: dependencies failed: @stacksjs/path, @stacksjs/strings, @stacksjs/events, @stacksjs/config, @stacksjs/logging, @stacksjs/storage, @stacksjs/utils, @stacksjs/database\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/feature-flags: dependencies failed: @stacksjs/config, @stacksjs/database\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/orm: dependencies failed: @stacksjs/pagination, @stacksjs/path, @stacksjs/query-builder, @stacksjs/strings, @stacksjs/env, @stacksjs/events, @stacksjs/config, @stacksjs/cache, @stacksjs/error-handling, @stacksjs/logging, @stacksjs/cli, @stacksjs/realtime, @stacksjs/storage, @stacksjs/router, @stacksjs/validation, @stacksjs/model-meta, @stacksjs/database\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/queue: dependencies failed: @stacksjs/cron, @stacksjs/path, @stacksjs/env, @stacksjs/config, @stacksjs/action-runner, @stacksjs/cache, @stacksjs/error-handling, @stacksjs/logging, @stacksjs/database\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/slug: dependencies failed: @stacksjs/database\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/sms: dependencies failed: @stacksjs/config, @stacksjs/database\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/socials: dependencies failed: @stacksjs/composables, @stacksjs/config, @stacksjs/api, @stacksjs/database\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/auth: dependencies failed: @stacksjs/path, @stacksjs/env, @stacksjs/config, @stacksjs/cache, @stacksjs/error-handling, @stacksjs/security, @stacksjs/logging, @stacksjs/storage, @stacksjs/router, @stacksjs/database, @stacksjs/email, @stacksjs/orm, @stacksjs/socials\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/chat: dependencies failed: @stacksjs/config, @stacksjs/logging, @stacksjs/orm\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/newsletter: dependencies failed: @stacksjs/hq, @stacksjs/database, @stacksjs/email, @stacksjs/orm, @stacksjs/queue\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/payments: dependencies failed: @stacksjs/config, @stacksjs/types, @stacksjs/error-handling, @stacksjs/logging, @stacksjs/database, @stacksjs/orm\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/search-engine: dependencies failed: @stacksjs/path, @stacksjs/strings, @stacksjs/config, @stacksjs/error-handling, @stacksjs/logging, @stacksjs/storage, @stacksjs/database, @stacksjs/orm\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/commerce: dependencies failed: @stacksjs/strings, @stacksjs/env, @stacksjs/events, @stacksjs/config, @stacksjs/cache, @stacksjs/error-handling, @stacksjs/logging, @stacksjs/realtime, @stacksjs/validation, @stacksjs/database, @stacksjs/orm, @stacksjs/slug, @stacksjs/payments\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/notifications: dependencies failed: @stacksjs/datetime, @stacksjs/config, @stacksjs/cli, @stacksjs/realtime, @stacksjs/push, @stacksjs/database, @stacksjs/email, @stacksjs/sms, @stacksjs/chat\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/server: dependencies failed: @stacksjs/path, @stacksjs/events, @stacksjs/config, @stacksjs/logging, @stacksjs/i18n, @stacksjs/storage, @stacksjs/router, @stacksjs/orm, @stacksjs/auth, @stacksjs/payments\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/sites: dependencies failed: @stacksjs/config, @stacksjs/router, @stacksjs/database, @stacksjs/auth\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/cms: dependencies failed: @stacksjs/path, @stacksjs/error-handling, @stacksjs/validation, @stacksjs/database, @stacksjs/orm, @stacksjs/slug, @stacksjs/sites\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/desktop: dependencies failed: @stacksjs/config, @stacksjs/storage, @stacksjs/router, @stacksjs/server\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/forms: dependencies failed: @stacksjs/datetime, @stacksjs/config, @stacksjs/logging, @stacksjs/database, @stacksjs/notifications\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/scheduler: dependencies failed: @stacksjs/cron, @stacksjs/path, @stacksjs/env, @stacksjs/config, @stacksjs/types, @stacksjs/action-runner, @stacksjs/error-handling, @stacksjs/logging, @stacksjs/cli, @stacksjs/storage, @stacksjs/database, @stacksjs/queue, @stacksjs/notifications\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/testing: dependencies failed: @stacksjs/path, @stacksjs/strings, @stacksjs/events, @stacksjs/config, @stacksjs/cache, @stacksjs/cli, @stacksjs/storage, @stacksjs/router, @stacksjs/database, @stacksjs/email, @stacksjs/auth, @stacksjs/server\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions: dependencies failed: @stacksjs/enums, @stacksjs/github, @stacksjs/path, @stacksjs/strings, @stacksjs/tunnel, @stacksjs/env, @stacksjs/config, @stacksjs/types, @stacksjs/action-runner, @stacksjs/api, @stacksjs/docs, @stacksjs/error-handling, @stacksjs/image, @stacksjs/mobile, @stacksjs/registry, @stacksjs/security, @stacksjs/logging, @stacksjs/cli, @stacksjs/cloud, @stacksjs/i18n, @stacksjs/whois, @stacksjs/storage, @stacksjs/build, @stacksjs/dns, @stacksjs/router, @stacksjs/utils, @stacksjs/ai, @stacksjs/database, @stacksjs/analytics, @stacksjs/orm, @stacksjs/queue, @stacksjs/auth, @stacksjs/payments, @stacksjs/search-engine, @stacksjs/server, @stacksjs/sites, @stacksjs/cms, @stacksjs/desktop-build, @stacksjs/scheduler\nCannot build /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/buddy: dependencies failed: @stacksjs/arrays, @stacksjs/browser-extension, @stacksjs/collections, @stacksjs/enums, @stacksjs/git, @stacksjs/health, @stacksjs/lint, @stacksjs/path, @stacksjs/strings, @stacksjs/tinker, @stacksjs/tunnel, @stacksjs/alias, @stacksjs/env, @stacksjs/events, @stacksjs/features, @stacksjs/config, @stacksjs/types, @stacksjs/api, @stacksjs/cache, @stacksjs/docs, @stacksjs/error-handling, @stacksjs/image, @stacksjs/security, @stacksjs/ui, @stacksjs/logging, @stacksjs/cli, @stacksjs/cloud, @stacksjs/realtime, @stacksjs/storage, @stacksjs/build, @stacksjs/dns, @stacksjs/router, @stacksjs/skills, @stacksjs/utils, @stacksjs/ai, @stacksjs/validation, @stacksjs/objects, @stacksjs/database, @stacksjs/analytics, @stacksjs/email, @stacksjs/orm, @stacksjs/socials, @stacksjs/auth, @stacksjs/chat, @stacksjs/payments, @stacksjs/search-engine, @stacksjs/commerce, @stacksjs/notifications, @stacksjs/server, @stacksjs/sites, @stacksjs/cms, @stacksjs/desktop-build, @stacksjs/scheduler, @stacksjs/testing, @stacksjs/actions\nhome-tool (zig-js): Error: Framework builds failed or were blocked: @stacksjs/arrays, @stacksjs/audio, @stacksjs/browser-extension, @stacksjs/charts, @stacksjs/collections, @stacksjs/cron, @stacksjs/datetime, @stacksjs/enums, @stacksjs/faker, @stacksjs/git, @stacksjs/github, @stacksjs/health, @stacksjs/hq, @stacksjs/http, @stacksjs/lint, @stacksjs/pagination, @stacksjs/path, @stacksjs/query-builder, @stacksjs/shell, @stacksjs/strings, @stacksjs/tinker, @stacksjs/tunnel, @stacksjs/video, @stacksjs/alias, @stacksjs/calendar-api, @stacksjs/composables, @stacksjs/env, @stacksjs/events, @stacksjs/features, @stacksjs/repl, @stacksjs/browser, @stacksjs/config, @stacksjs/types, @stacksjs/action-runner, @stacksjs/api, @stacksjs/cache, @stacksjs/docs, @stacksjs/error-handling, @stacksjs/image, @stacksjs/mobile, @stacksjs/registry, @stacksjs/security, @stacksjs/ui, @stacksjs/defaults, @stacksjs/logging, @stacksjs/cli, @stacksjs/cloud, @stacksjs/i18n, @stacksjs/realtime, @stacksjs/whois, @stacksjs/push, @stacksjs/storage, @stacksjs/build, @stacksjs/dns, @stacksjs/router, @stacksjs/skills, @stacksjs/utils, @stacksjs/ai, @stacksjs/validation, @stacksjs/model-meta, @stacksjs/objects, @stacksjs/database, @stacksjs/analytics, @stacksjs/email, @stacksjs/feature-flags, @stacksjs/orm, @stacksjs/queue, @stacksjs/slug, @stacksjs/sms, @stacksjs/socials, @stacksjs/auth, @stacksjs/chat, @stacksjs/newsletter, @stacksjs/payments, @stacksjs/search-engine, @stacksjs/commerce, @stacksjs/notifications, @stacksjs/server, @stacksjs/sites, @stacksjs/cms, @stacksjs/desktop-build, @stacksjs/forms, @stacksjs/scheduler, @stacksjs/testing, @stacksjs/actions, @stacksjs/buddy\n\nECOSYSTEM PEAK SAMPLED RSS: 608400 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        ]
+      },
+      {
+        "repository": "home-lang/home",
+        "sha": "15242b410e2a71eb76018f1f8e1fd418109b3232",
+        "engine_sha": "2d2d91976c4a5b25c82ddc200a08087d82a6ead9",
+        "candidate_counts": {
+          "timed-out": 1,
+          "unsupported": 37,
+          "passed": 9,
+          "failed": 40
+        },
+        "report_sha256": "c391293e71a7f77530515ac32c5099d61777225cd16741d2d323773793d6c1d5",
+        "artifact": {
+          "id": 13949329781,
+          "digest": "sha256:6076d2543c015ce71715b9e70b73f81e89b62737c984c43855200a44711b9bc4",
+          "size_in_bytes": 106191
+        },
+        "actual_logs": [
+          {
+            "label": "packages/registry: test",
+            "status": "failed",
+            "sha256": "637a74831052566d909eb5ef32b179a17bbd9e6073661a6d03e73f4ebc83989f",
+            "text": "$ [\"/bin/sh\", \"-c\", \"jest\"]\nSyntaxError: Unexpected token\n    at <anonymous> (home:tool-module-install:253:7)\n    at evaluateSync (home:tool-module-install:272:7)\n    at load (home:tool-module-install:374:5)\n    at <anonymous> (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/registry/node_modules/%40babel/code-frame/lib/index.js?home-emitted:5:1)\n    at <anonymous> (home:tool-module-install:255:7)\n    at evaluateSync (home:tool-module-install:272:7)\n    at load (home:tool-module-install:374:5)\n    at <anonymous> (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/registry/node_modules/parse-json/index.js?home-emitted:6:1)\n    at <anonymous> (home:tool-module-install:255:7)\n    at evaluateSync (home:tool-module-install:272:7)\nUncaught unhandledRejection: SyntaxError: Unexpected token\n\nECOSYSTEM PEAK SAMPLED RSS: 137264 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          },
+          {
+            "label": "packages/runtime/upstream/bench/ffi/src: build",
+            "status": "failed",
+            "sha256": "ab304ebbd5b3a1c7796b005d9e01a7939b8949f21ab6797c50736e9355723f77",
+            "text": "$ [\"/bin/sh\", \"-c\", \"bun run build:napi && bun run build:ffi\"]\nhome-tool (zig-js): SyntaxError: Invalid character: '€'\n\nECOSYSTEM PEAK SAMPLED RSS: 965488 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          },
+          {
+            "label": "packages/runtime/upstream/packages/bun-build-mdx-rs: build",
+            "status": "failed",
+            "sha256": "fa379e72db3589fa431b4db0e76397c83c7fe73698173bd5b8214fdff7cdc12b",
+            "text": "$ [\"/bin/sh\", \"-c\", \"napi build --platform --release\"]\nhome-tool (zig-js): SyntaxError: Invalid character: '€'\n\nECOSYSTEM PEAK SAMPLED RSS: 524424 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        ]
+      },
+      {
+        "repository": "stacksjs/bunpress",
+        "sha": "e7b328e3fd3db76ff92ce52649e9f13c6f811fdc",
+        "engine_sha": "2d2d91976c4a5b25c82ddc200a08087d82a6ead9",
+        "candidate_counts": {
+          "failed": 4,
+          "unsupported": 4,
+          "passed": 5
+        },
+        "report_sha256": "61ebaaa6b46d3098708ad3b0b81bfbc695fe935f964b36089a43e3ef1efb10d9",
+        "artifact": {
+          "id": 13948941953,
+          "digest": "sha256:60ca05120b39be560996ca4bbee8ea5c5b3aab3ceaffa456bdc8d72a4483bf45",
+          "size_in_bytes": 335555
+        },
+        "actual_logs": []
+      },
+      {
+        "repository": "stacksjs/clapp",
+        "sha": "2ecc2af97d33f59ad5d22abe399392793d8de63d",
+        "engine_sha": "2d2d91976c4a5b25c82ddc200a08087d82a6ead9",
+        "candidate_counts": {
+          "failed": 2,
+          "unsupported": 4,
+          "passed": 3
+        },
+        "report_sha256": "acda4c8171aa0b6b5abf65f8384570cea28f9c6208c2e1c3463a63b1eaf5fa05",
+        "artifact": {
+          "id": 13949331476,
+          "digest": "sha256:cb1981aacbb6167e61469aba3c5831bec581f8dc6e6362e21944e9de963d4074",
+          "size_in_bytes": 24189
+        },
+        "actual_logs": []
+      }
+    ]
+  },
+  "reproduction": {
+    "trigger": "Actual Home @napi-rs CLI build logs advanced past TS1052 to Invalid character: euro sign. A minimized quoted currency/emoji object fails on both prior Home providers while Node and Bun execute its body.",
+    "before_final_fixture": {
+      "common_groups": 44,
+      "common_passed": 29,
+      "typed_transform_groups": 46,
+      "typed_transform_passed": 30
+    },
+    "after_each_home_provider": {
+      "common_groups": 44,
+      "common_passed": 44,
+      "typed_transform_groups": 46,
+      "typed_transform_passed": 46
+    },
+    "references": {
+      "node": "44/44 common",
+      "bun": "44/44 common and46/46 typed/transform"
+    },
+    "coverage": "30 physical key vectors via both CJS and ESM, eight contexts including object/class methods, accessors, fields and native-private control; six malformed bare-name prefix refusals. Typed CTS/MTS and actual transformed-code execution remain separate groups.",
+    "root_cause": "Byte>=0x80 was incorrectly accepted as a valid IdentifierName. Reuse owned generated ID_Start/ID_Continue codepoint tables, with join controls only in parts; quote other cooked string keys and route native class property names through the same emitter.",
+    "source_origin_guard": "Quoted and bare names share HIR identifier shape. Preserve malformed bare input (including escaped names) so this repair never converts it into valid executable properties.",
+    "limit": "This does not repair strict standalone Unicode lexing: malformed bare property source may be rejected by engine evaluation after transformation. Tests require rejection at or before evaluation and zero prefix execution. No full bundled CLI, native-addon/Rust build or upstream-test execution claimed."
+  },
+  "validation": {
+    "native_driver": "12/12 named cases including new Unicode source plus retained runtime/checked syntax controls",
+    "native_emitter": "11/11 named cases via saved temporary build-file changing only the native ts_emit test filter to property; production build unchanged and temporary file removed byte-exact",
+    "maintained_zig_js": "274/274 steps; 4/4 fresh native tests, other native successes cached",
+    "maintained_jsc": "247/272 steps, 21 failures retained; focused Unicode passes. Cached native steps are not fresh counts.",
+    "guard": "Every saved command uses 3072MiB sampled command-tree cap; no increase or foreign/default cache deletion",
+    "test262_flips": 0,
+    "test262_scope": "No engine or corpus edit; full test262 not run",
+    "suite": "45 Python tests, 7 dependency tests/26 assertions, actionlint and Python syntax pass"
+  },
+  "receipts": [
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/actionlint.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.028,
+      "log": "actionlint.log",
+      "log_sha256": "2d83d05058d9a5a71a9f35ce1058cfbba75d86aafa904bc66054d98660f1e0d2",
+      "log_bytes": 183,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/bun-before.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/currency.cjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "bun-before.log",
+      "log_sha256": "737696aa3ce5bfc320c8aa6cd25ef2d4c241d2b9053c0180701b30a5d727b05d",
+      "log_bytes": 264,
+      "signals": [
+        "QUOTED CURRENCY BODY 42",
+        "ECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/driver-runtime-names.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache/o/cc8aca29d647a32391ad11cf21a000b9/test"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 7328,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "driver-runtime-names.log",
+      "log_sha256": "2536968f4e5cc9d84c7a1a831b62a083795263d9637b926e9bdcc186d85d77f3",
+      "log_bytes": 1310,
+      "signals": [
+        "1/12 ts_driver.test.driver: runtime emission erases types while checked compilation retains diagnostics...OK",
+        "2/12 ts_driver.test.driver: runtime emission rejects recovered syntax...OK",
+        "3/12 ts_driver.test.driver: runtime emission preserves empty if bodies and checked grammar diagnostics...OK",
+        "4/12 ts_driver.test_0...OK",
+        "5/12 ts_driver.test.driver: automatic-runtime JSX fragment does not require factory scope (no TS2879)...OK",
+        "6/12 ts_driver.test.driver: React lib reference satisfies automatic JSX runtime...OK",
+        "7/12 ts_driver.test.driver: automatic jsx import source reports missing runtime module...OK",
+        "8/12 ts_driver.test.driver: automatic jsx runtime defaults to react...OK",
+        "9/12 ts_driver.test.driver: runtime JSDoc comments preserve compiler diagnostics and real syntax rejection...OK",
+        "10/12 ts_driver.test.driver: runtime setter defaults retain checked TS1052 and executable output...OK",
+        "11/12 ts_driver.test.driver: runtime defaults preserve assignment expression boundaries...OK",
+        "12/12 ts_driver.test.driver: runtime Unicode property literals retain string keys...OK",
+        "All 12 tests passed.",
+        "ECOSYSTEM PEAK SAMPLED RSS: 7328 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/driver-runtime.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "test",
+        "-Dfilter=ts_driver",
+        "-Dts-driver-test-filter=runtime",
+        "-Denable_jsc=false",
+        "-Doptimize=ReleaseSafe",
+        "-j1",
+        "--summary",
+        "all",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2784592,
+      "memory_limit_mb": 3072,
+      "seconds": 99.551,
+      "log": "driver-runtime.log",
+      "log_sha256": "914b791c68b93c46f4854e57ad9a8fce886d667b2d1f4ee387044f98a6b3accb",
+      "log_bytes": 594,
+      "signals": [
+        "Build Summary: 3/3 steps succeeded; 12/12 tests passed",
+        "ECOSYSTEM PEAK SAMPLED RSS: 2784592 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/emitter-property-names.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache/o/da3ffd15b5ef58f32a6a7665e9495058/test"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 0,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "emitter-property-names.log",
+      "log_sha256": "ab99cc569b34e0ba57ae5cca8725cf270f8386968c7f3263f35db6da26e89e9b",
+      "log_bytes": 1105,
+      "signals": [
+        "1/11 ts_emit.test_0...OK",
+        "2/11 js_emit.test.emit: object property key unquotes only valid identifiers...OK",
+        "3/11 js_emit.test.emit: property names never become template literals...OK",
+        "4/11 js_emit.test.emit: computed property names preserve sequence grouping...OK",
+        "5/11 js_emit.test.emit: parameter-property assignments follow a leading super() call...OK",
+        "6/11 js_emit.test.emit: a plain (non-property) constructor param emits no assignment...OK",
+        "7/11 js_emit.test.emit: object destructuring lowers to temp + property reads at es5...OK",
+        "8/11 js_emit.test.emit: property decorators emit __decorate against prototype...OK",
+        "9/11 js_emit.test.emit: emitDecoratorMetadata adds design:type for property decorators...OK",
+        "10/11 js_emit.test.emit: object method shorthand lowers to property:function at es5...OK",
+        "11/11 js_emit.test.emit: Unicode property identifiers use codepoints...OK",
+        "All 11 tests passed.",
+        "ECOSYSTEM PEAK SAMPLED RSS: 0 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/emitter-property.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "--build-file",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/.codex-unicode-emit-build.zig",
+        "test",
+        "-Dfilter=ts_emit",
+        "-Denable_jsc=false",
+        "-Doptimize=ReleaseSafe",
+        "-j1",
+        "--summary",
+        "all",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 910448,
+      "memory_limit_mb": 3072,
+      "seconds": 19.036,
+      "log": "emitter-property.log",
+      "log_sha256": "c8c3c5f71b1b0fa324df53e75601b9b2ce83215fd9bea9ce1971c8796af29ade",
+      "log_bytes": 653,
+      "signals": [
+        "Build Summary: 3/3 steps succeeded; 11/11 tests passed",
+        "ECOSYSTEM PEAK SAMPLED RSS: 910448 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/fixture-after-bun.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unicode_property.mjs",
+        "--transpile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2368,
+      "memory_limit_mb": 3072,
+      "seconds": 0.106,
+      "log": "fixture-after-bun.log",
+      "log_sha256": "eb1d5884c79e76dc5c6da0734647fff6447642fe78cc17af5b60d4aa7dc6b44f",
+      "log_bytes": 453,
+      "signals": [
+        "UNICODE PROPERTY RESULTS {\"vectors\":30,\"checks\":44,\"passed\":44,\"failures\":[]}",
+        "UNICODE PROPERTY TRANSPILE RESULTS {\"checks\":46,\"passed\":46,\"failures\":[]}",
+        "UNICODE PROPERTY 44 EXECUTED CHECKS OK",
+        "ECOSYSTEM PEAK SAMPLED RSS: 2368 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/fixture-after-jsc.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unicode_property.mjs",
+        "--transpile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1264,
+      "memory_limit_mb": 3072,
+      "seconds": 0.102,
+      "log": "fixture-after-jsc.log",
+      "log_sha256": "a2632c413cffd5dd850969761835b7ea6e4d6b6bf26024c322c2642116ea33ee",
+      "log_bytes": 519,
+      "signals": [
+        "UNICODE PROPERTY RESULTS {\"vectors\":30,\"checks\":44,\"passed\":44,\"failures\":[]}",
+        "UNICODE PROPERTY TRANSPILE RESULTS {\"checks\":46,\"passed\":46,\"failures\":[]}",
+        "UNICODE PROPERTY 44 EXECUTED CHECKS OK",
+        "ECOSYSTEM PEAK SAMPLED RSS: 1264 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/fixture-after-node.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unicode_property.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 49936,
+      "memory_limit_mb": 3072,
+      "seconds": 0.171,
+      "log": "fixture-after-node.log",
+      "log_sha256": "f715b88d3dc45562f7d6d57ee07b6a7ec18bac06e9c45260392fc49aabaffcad",
+      "log_bytes": 365,
+      "signals": [
+        "UNICODE PROPERTY RESULTS {\"vectors\":30,\"checks\":44,\"passed\":44,\"failures\":[]}",
+        "UNICODE PROPERTY 44 EXECUTED CHECKS OK",
+        "ECOSYSTEM PEAK SAMPLED RSS: 49936 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/fixture-after-zig-js.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/unicode_property.mjs",
+        "--transpile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 55344,
+      "memory_limit_mb": 3072,
+      "seconds": 0.144,
+      "log": "fixture-after-zig-js.log",
+      "log_sha256": "9301ca7bba65d3596bc3012cc554693ad86987c7e01ed52975581b52b737eb02",
+      "log_bytes": 523,
+      "signals": [
+        "UNICODE PROPERTY RESULTS {\"vectors\":30,\"checks\":44,\"passed\":44,\"failures\":[]}",
+        "UNICODE PROPERTY TRANSPILE RESULTS {\"checks\":46,\"passed\":46,\"failures\":[]}",
+        "UNICODE PROPERTY 44 EXECUTED CHECKS OK",
+        "ECOSYSTEM PEAK SAMPLED RSS: 55344 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/fixture-before-bun.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/unicode_property.mjs",
+        "--transpile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.1,
+      "log": "fixture-before-bun.log",
+      "log_sha256": "f274de3316bb8c9f65a3e0f4ba82a20d2c6c66266790f432b2f19ce960aa8dc5",
+      "log_bytes": 455,
+      "signals": [
+        "UNICODE PROPERTY RESULTS {\"vectors\":30,\"checks\":41,\"passed\":41,\"failures\":[]}",
+        "UNICODE PROPERTY TRANSPILE RESULTS {\"checks\":43,\"passed\":43,\"failures\":[]}",
+        "UNICODE PROPERTY 41 EXECUTED CHECKS OK",
+        "ECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/fixture-before-jsc.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/setter-default-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/unicode_property.mjs",
+        "--transpile"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.1,
+      "log": "fixture-before-jsc.log",
+      "log_sha256": "0091a0031c71d6158ca69020180c9a0c365a79ba54f058cb4bf7856d6a4804b6",
+      "log_bytes": 2755,
+      "signals": [
+        "UNICODE PROPERTY RESULTS {\"vectors\":30,\"checks\":41,\"passed\":26,\"failures\":[{\"name\":\"literal key 0\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"literal key 1\",\"message\":\"Invalid character '\\\\ud83d'\"},{\"name\":\"literal key 2\",\"message\":\"Invalid character '\\\\u00a3'\"},{\"name\":\"literal key 3\",\"message\":\"Invalid character '\\\\u00a9'\"},{\"name\":\"literal key 4\",\"message\":\"Invalid character '\\\\u00d7'\"},{\"name\":\"literal key 5\",\"message\":\"Invalid character '\\\\u2014'\"},{\"name\":\"literal key 8\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"literal key 9\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"literal key 10\",\"message\":\"Invalid character '\\\\u0301'\"},{\"name\":\"literal key 11\",\"message\":\"Invalid character '\\\\u0661'\"},{\"name\":\"literal key 12\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"object method\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"object accessors\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"class method\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"class fields\",\"message\":\"Invalid character '\\\\u20ac'\"}]}",
+        "UNICODE PROPERTY TRANSPILE RESULTS {\"checks\":43,\"passed\":27,\"failures\":[{\"name\":\"transformed key 0\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"transformed key 1\",\"message\":\"Invalid character '\\\\ud83d'\"},{\"name\":\"transformed key 2\",\"message\":\"Invalid character '\\\\u00a3'\"},{\"name\":\"transformed key 3\",\"message\":\"Invalid character '\\\\u00a9'\"},{\"name\":\"transformed key 4\",\"message\":\"Invalid character '\\\\u00d7'\"},{\"name\":\"transformed key 5\",\"message\":\"Invalid character '\\\\u2014'\"},{\"name\":\"transformed key 8\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"transformed key 9\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"transformed key 10\",\"message\":\"Invalid character '\\\\u0301'\"},{\"name\":\"transformed key 11\",\"message\":\"Invalid character '\\\\u0661'\"},{\"name\":\"transformed key 12\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"transformed object method\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"transformed object accessors\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"transformed class method\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"transformed class fields\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"typed physical module formats\",\"message\":\"Invalid character '\\\\u20ac'\"}]}",
+        "ECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/fixture-before-node.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/unicode_property.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 816,
+      "memory_limit_mb": 3072,
+      "seconds": 0.1,
+      "log": "fixture-before-node.log",
+      "log_sha256": "275d3d5abc51ccba409852b0d688e8223cf9cfe1365c561a5888088fd334d61a",
+      "log_bytes": 367,
+      "signals": [
+        "UNICODE PROPERTY RESULTS {\"vectors\":30,\"checks\":41,\"passed\":41,\"failures\":[]}",
+        "UNICODE PROPERTY 41 EXECUTED CHECKS OK",
+        "ECOSYSTEM PEAK SAMPLED RSS: 816 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/fixture-before-zig-js.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/setter-default-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/unicode_property.mjs",
+        "--transpile"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.121,
+      "log": "fixture-before-zig-js.log",
+      "log_sha256": "a7761df28765f259fb6e5dfed9087985ca83844677d849f52ece86fad41dd764",
+      "log_bytes": 2672,
+      "signals": [
+        "UNICODE PROPERTY RESULTS {\"vectors\":30,\"checks\":41,\"passed\":26,\"failures\":[{\"name\":\"literal key 0\",\"message\":\"Invalid character: '€'\"},{\"name\":\"literal key 1\",\"message\":\"Invalid character: '😀'\"},{\"name\":\"literal key 2\",\"message\":\"Invalid character: '£'\"},{\"name\":\"literal key 3\",\"message\":\"Invalid character: '©'\"},{\"name\":\"literal key 4\",\"message\":\"Invalid character: '×'\"},{\"name\":\"literal key 5\",\"message\":\"Invalid character: '—'\"},{\"name\":\"literal key 8\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"literal key 9\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"literal key 10\",\"message\":\"Invalid character: '́'\"},{\"name\":\"literal key 11\",\"message\":\"Invalid character: '١'\"},{\"name\":\"literal key 12\",\"message\":\"Invalid character: '€'\"},{\"name\":\"object method\",\"message\":\"Invalid character: '€'\"},{\"name\":\"object accessors\",\"message\":\"Invalid character: '€'\"},{\"name\":\"class method\",\"message\":\"Invalid character: '€'\"},{\"name\":\"class fields\",\"message\":\"Invalid character: '€'\"}]}",
+        "UNICODE PROPERTY TRANSPILE RESULTS {\"checks\":43,\"passed\":27,\"failures\":[{\"name\":\"transformed key 0\",\"message\":\"Invalid character: '€'\"},{\"name\":\"transformed key 1\",\"message\":\"Invalid character: '😀'\"},{\"name\":\"transformed key 2\",\"message\":\"Invalid character: '£'\"},{\"name\":\"transformed key 3\",\"message\":\"Invalid character: '©'\"},{\"name\":\"transformed key 4\",\"message\":\"Invalid character: '×'\"},{\"name\":\"transformed key 5\",\"message\":\"Invalid character: '—'\"},{\"name\":\"transformed key 8\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"transformed key 9\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"transformed key 10\",\"message\":\"Invalid character: '́'\"},{\"name\":\"transformed key 11\",\"message\":\"Invalid character: '١'\"},{\"name\":\"transformed key 12\",\"message\":\"Invalid character: '€'\"},{\"name\":\"transformed object method\",\"message\":\"Invalid character: '€'\"},{\"name\":\"transformed object accessors\",\"message\":\"Invalid character: '€'\"},{\"name\":\"transformed class method\",\"message\":\"Invalid character: '€'\"},{\"name\":\"transformed class fields\",\"message\":\"Invalid character: '€'\"},{\"name\":\"typed physical module formats\",\"message\":\"Invalid character: '€'\"}]}",
+        "ECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/fixture-v2-before-bun.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/unicode_property.mjs",
+        "--transpile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2080,
+      "memory_limit_mb": 3072,
+      "seconds": 0.066,
+      "log": "fixture-v2-before-bun.log",
+      "log_sha256": "e60e951ceb2e479ef85f5c721142736b6ab5bb1ad41ca28a8f7f9775b7c7e624",
+      "log_bytes": 457,
+      "signals": [
+        "UNICODE PROPERTY RESULTS {\"vectors\":30,\"checks\":42,\"passed\":42,\"failures\":[]}",
+        "UNICODE PROPERTY TRANSPILE RESULTS {\"checks\":44,\"passed\":44,\"failures\":[]}",
+        "UNICODE PROPERTY 42 EXECUTED CHECKS OK",
+        "ECOSYSTEM PEAK SAMPLED RSS: 2080 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/fixture-v2-before-jsc.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/setter-default-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/unicode_property.mjs",
+        "--transpile"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 576,
+      "memory_limit_mb": 3072,
+      "seconds": 0.064,
+      "log": "fixture-v2-before-jsc.log",
+      "log_sha256": "a0570efdbd0839593a664c73a1385ffc8cdaf77809a879bd41b65242554b8e90",
+      "log_bytes": 2756,
+      "signals": [
+        "UNICODE PROPERTY RESULTS {\"vectors\":30,\"checks\":42,\"passed\":27,\"failures\":[{\"name\":\"literal key 0\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"literal key 1\",\"message\":\"Invalid character '\\\\ud83d'\"},{\"name\":\"literal key 2\",\"message\":\"Invalid character '\\\\u00a3'\"},{\"name\":\"literal key 3\",\"message\":\"Invalid character '\\\\u00a9'\"},{\"name\":\"literal key 4\",\"message\":\"Invalid character '\\\\u00d7'\"},{\"name\":\"literal key 5\",\"message\":\"Invalid character '\\\\u2014'\"},{\"name\":\"literal key 8\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"literal key 9\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"literal key 10\",\"message\":\"Invalid character '\\\\u0301'\"},{\"name\":\"literal key 11\",\"message\":\"Invalid character '\\\\u0661'\"},{\"name\":\"literal key 12\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"object method\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"object accessors\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"class method\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"class fields\",\"message\":\"Invalid character '\\\\u20ac'\"}]}",
+        "UNICODE PROPERTY TRANSPILE RESULTS {\"checks\":44,\"passed\":28,\"failures\":[{\"name\":\"transformed key 0\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"transformed key 1\",\"message\":\"Invalid character '\\\\ud83d'\"},{\"name\":\"transformed key 2\",\"message\":\"Invalid character '\\\\u00a3'\"},{\"name\":\"transformed key 3\",\"message\":\"Invalid character '\\\\u00a9'\"},{\"name\":\"transformed key 4\",\"message\":\"Invalid character '\\\\u00d7'\"},{\"name\":\"transformed key 5\",\"message\":\"Invalid character '\\\\u2014'\"},{\"name\":\"transformed key 8\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"transformed key 9\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"transformed key 10\",\"message\":\"Invalid character '\\\\u0301'\"},{\"name\":\"transformed key 11\",\"message\":\"Invalid character '\\\\u0661'\"},{\"name\":\"transformed key 12\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"transformed object method\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"transformed object accessors\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"transformed class method\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"transformed class fields\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"typed physical module formats\",\"message\":\"Invalid character '\\\\u20ac'\"}]}",
+        "ECOSYSTEM PEAK SAMPLED RSS: 576 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/fixture-v2-before-node.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/unicode_property.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 272,
+      "memory_limit_mb": 3072,
+      "seconds": 0.099,
+      "log": "fixture-v2-before-node.log",
+      "log_sha256": "322748ed922b2e117e791eaf3bb5326a4f33e1da1e767449a2935da15d031feb",
+      "log_bytes": 367,
+      "signals": [
+        "UNICODE PROPERTY RESULTS {\"vectors\":30,\"checks\":42,\"passed\":42,\"failures\":[]}",
+        "UNICODE PROPERTY 42 EXECUTED CHECKS OK",
+        "ECOSYSTEM PEAK SAMPLED RSS: 272 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/fixture-v2-before-zig-js.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/setter-default-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/unicode_property.mjs",
+        "--transpile"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 688,
+      "memory_limit_mb": 3072,
+      "seconds": 0.127,
+      "log": "fixture-v2-before-zig-js.log",
+      "log_sha256": "07f806d7e1a9f405b405a1530625c4fb58e8fdd7b164ff59a7645dd35aa0e4c9",
+      "log_bytes": 2673,
+      "signals": [
+        "UNICODE PROPERTY RESULTS {\"vectors\":30,\"checks\":42,\"passed\":27,\"failures\":[{\"name\":\"literal key 0\",\"message\":\"Invalid character: '€'\"},{\"name\":\"literal key 1\",\"message\":\"Invalid character: '😀'\"},{\"name\":\"literal key 2\",\"message\":\"Invalid character: '£'\"},{\"name\":\"literal key 3\",\"message\":\"Invalid character: '©'\"},{\"name\":\"literal key 4\",\"message\":\"Invalid character: '×'\"},{\"name\":\"literal key 5\",\"message\":\"Invalid character: '—'\"},{\"name\":\"literal key 8\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"literal key 9\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"literal key 10\",\"message\":\"Invalid character: '́'\"},{\"name\":\"literal key 11\",\"message\":\"Invalid character: '١'\"},{\"name\":\"literal key 12\",\"message\":\"Invalid character: '€'\"},{\"name\":\"object method\",\"message\":\"Invalid character: '€'\"},{\"name\":\"object accessors\",\"message\":\"Invalid character: '€'\"},{\"name\":\"class method\",\"message\":\"Invalid character: '€'\"},{\"name\":\"class fields\",\"message\":\"Invalid character: '€'\"}]}",
+        "UNICODE PROPERTY TRANSPILE RESULTS {\"checks\":44,\"passed\":28,\"failures\":[{\"name\":\"transformed key 0\",\"message\":\"Invalid character: '€'\"},{\"name\":\"transformed key 1\",\"message\":\"Invalid character: '😀'\"},{\"name\":\"transformed key 2\",\"message\":\"Invalid character: '£'\"},{\"name\":\"transformed key 3\",\"message\":\"Invalid character: '©'\"},{\"name\":\"transformed key 4\",\"message\":\"Invalid character: '×'\"},{\"name\":\"transformed key 5\",\"message\":\"Invalid character: '—'\"},{\"name\":\"transformed key 8\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"transformed key 9\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"transformed key 10\",\"message\":\"Invalid character: '́'\"},{\"name\":\"transformed key 11\",\"message\":\"Invalid character: '١'\"},{\"name\":\"transformed key 12\",\"message\":\"Invalid character: '€'\"},{\"name\":\"transformed object method\",\"message\":\"Invalid character: '€'\"},{\"name\":\"transformed object accessors\",\"message\":\"Invalid character: '€'\"},{\"name\":\"transformed class method\",\"message\":\"Invalid character: '€'\"},{\"name\":\"transformed class fields\",\"message\":\"Invalid character: '€'\"},{\"name\":\"typed physical module formats\",\"message\":\"Invalid character: '€'\"}]}",
+        "ECOSYSTEM PEAK SAMPLED RSS: 688 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/fixture-v3-before-bun.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/unicode_property.mjs",
+        "--transpile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.105,
+      "log": "fixture-v3-before-bun.log",
+      "log_sha256": "9244f2cec425be8e6b78484fabcba12af5a8ff4673283ab97479506ad145e6c4",
+      "log_bytes": 455,
+      "signals": [
+        "UNICODE PROPERTY RESULTS {\"vectors\":30,\"checks\":44,\"passed\":44,\"failures\":[]}",
+        "UNICODE PROPERTY TRANSPILE RESULTS {\"checks\":46,\"passed\":46,\"failures\":[]}",
+        "UNICODE PROPERTY 44 EXECUTED CHECKS OK",
+        "ECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/fixture-v3-before-jsc.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/setter-default-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/unicode_property.mjs",
+        "--transpile"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.109,
+      "log": "fixture-v3-before-jsc.log",
+      "log_sha256": "091fbd5f0bc50928c78d618b3096fbe0bc4f5539ec96fe52a1cb3fac8a6d5264",
+      "log_bytes": 2755,
+      "signals": [
+        "UNICODE PROPERTY RESULTS {\"vectors\":30,\"checks\":44,\"passed\":29,\"failures\":[{\"name\":\"literal key 0\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"literal key 1\",\"message\":\"Invalid character '\\\\ud83d'\"},{\"name\":\"literal key 2\",\"message\":\"Invalid character '\\\\u00a3'\"},{\"name\":\"literal key 3\",\"message\":\"Invalid character '\\\\u00a9'\"},{\"name\":\"literal key 4\",\"message\":\"Invalid character '\\\\u00d7'\"},{\"name\":\"literal key 5\",\"message\":\"Invalid character '\\\\u2014'\"},{\"name\":\"literal key 8\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"literal key 9\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"literal key 10\",\"message\":\"Invalid character '\\\\u0301'\"},{\"name\":\"literal key 11\",\"message\":\"Invalid character '\\\\u0661'\"},{\"name\":\"literal key 12\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"object method\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"object accessors\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"class method\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"class fields\",\"message\":\"Invalid character '\\\\u20ac'\"}]}",
+        "UNICODE PROPERTY TRANSPILE RESULTS {\"checks\":46,\"passed\":30,\"failures\":[{\"name\":\"transformed key 0\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"transformed key 1\",\"message\":\"Invalid character '\\\\ud83d'\"},{\"name\":\"transformed key 2\",\"message\":\"Invalid character '\\\\u00a3'\"},{\"name\":\"transformed key 3\",\"message\":\"Invalid character '\\\\u00a9'\"},{\"name\":\"transformed key 4\",\"message\":\"Invalid character '\\\\u00d7'\"},{\"name\":\"transformed key 5\",\"message\":\"Invalid character '\\\\u2014'\"},{\"name\":\"transformed key 8\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"transformed key 9\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"transformed key 10\",\"message\":\"Invalid character '\\\\u0301'\"},{\"name\":\"transformed key 11\",\"message\":\"Invalid character '\\\\u0661'\"},{\"name\":\"transformed key 12\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"transformed object method\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"transformed object accessors\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"transformed class method\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"transformed class fields\",\"message\":\"Invalid character '\\\\u20ac'\"},{\"name\":\"typed physical module formats\",\"message\":\"Invalid character '\\\\u20ac'\"}]}",
+        "ECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/fixture-v3-before-node.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/unicode_property.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 464,
+      "memory_limit_mb": 3072,
+      "seconds": 0.096,
+      "log": "fixture-v3-before-node.log",
+      "log_sha256": "b80476df689c6e24cab52538a391aa7b263e281350e8dfc0458c7dc9fd5127ee",
+      "log_bytes": 367,
+      "signals": [
+        "UNICODE PROPERTY RESULTS {\"vectors\":30,\"checks\":44,\"passed\":44,\"failures\":[]}",
+        "UNICODE PROPERTY 44 EXECUTED CHECKS OK",
+        "ECOSYSTEM PEAK SAMPLED RSS: 464 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/fixture-v3-before-zig-js.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/setter-default-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/unicode_property.mjs",
+        "--transpile"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 144,
+      "memory_limit_mb": 3072,
+      "seconds": 0.108,
+      "log": "fixture-v3-before-zig-js.log",
+      "log_sha256": "863ac15f3707d7f6684cdb697687a77e21c8d6dae427e5415c8fcb38ae74c1f3",
+      "log_bytes": 2673,
+      "signals": [
+        "UNICODE PROPERTY RESULTS {\"vectors\":30,\"checks\":44,\"passed\":29,\"failures\":[{\"name\":\"literal key 0\",\"message\":\"Invalid character: '€'\"},{\"name\":\"literal key 1\",\"message\":\"Invalid character: '😀'\"},{\"name\":\"literal key 2\",\"message\":\"Invalid character: '£'\"},{\"name\":\"literal key 3\",\"message\":\"Invalid character: '©'\"},{\"name\":\"literal key 4\",\"message\":\"Invalid character: '×'\"},{\"name\":\"literal key 5\",\"message\":\"Invalid character: '—'\"},{\"name\":\"literal key 8\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"literal key 9\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"literal key 10\",\"message\":\"Invalid character: '́'\"},{\"name\":\"literal key 11\",\"message\":\"Invalid character: '١'\"},{\"name\":\"literal key 12\",\"message\":\"Invalid character: '€'\"},{\"name\":\"object method\",\"message\":\"Invalid character: '€'\"},{\"name\":\"object accessors\",\"message\":\"Invalid character: '€'\"},{\"name\":\"class method\",\"message\":\"Invalid character: '€'\"},{\"name\":\"class fields\",\"message\":\"Invalid character: '€'\"}]}",
+        "UNICODE PROPERTY TRANSPILE RESULTS {\"checks\":46,\"passed\":30,\"failures\":[{\"name\":\"transformed key 0\",\"message\":\"Invalid character: '€'\"},{\"name\":\"transformed key 1\",\"message\":\"Invalid character: '😀'\"},{\"name\":\"transformed key 2\",\"message\":\"Invalid character: '£'\"},{\"name\":\"transformed key 3\",\"message\":\"Invalid character: '©'\"},{\"name\":\"transformed key 4\",\"message\":\"Invalid character: '×'\"},{\"name\":\"transformed key 5\",\"message\":\"Invalid character: '—'\"},{\"name\":\"transformed key 8\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"transformed key 9\",\"message\":\"Unexpected token ':'. Expected a property name.\"},{\"name\":\"transformed key 10\",\"message\":\"Invalid character: '́'\"},{\"name\":\"transformed key 11\",\"message\":\"Invalid character: '١'\"},{\"name\":\"transformed key 12\",\"message\":\"Invalid character: '€'\"},{\"name\":\"transformed object method\",\"message\":\"Invalid character: '€'\"},{\"name\":\"transformed object accessors\",\"message\":\"Invalid character: '€'\"},{\"name\":\"transformed class method\",\"message\":\"Invalid character: '€'\"},{\"name\":\"transformed class fields\",\"message\":\"Invalid character: '€'\"},{\"name\":\"typed physical module formats\",\"message\":\"Invalid character: '€'\"}]}",
+        "ECOSYSTEM PEAK SAMPLED RSS: 144 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/focused-jsc.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-unicode-property",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1430400,
+      "memory_limit_mb": 3072,
+      "seconds": 26.668,
+      "log": "focused-jsc.log",
+      "log_sha256": "e989f1ffafc50ca2708b2c0e66a99c9155ee0e631ba044a1c6c17d94fa1e65ad",
+      "log_bytes": 889,
+      "signals": [
+        "Build Summary: 7/7 steps succeeded",
+        "ECOSYSTEM PEAK SAMPLED RSS: 1430400 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/focused-zig-js-compile-failed.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-unicode-property",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "global_cache_dir": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/global-cache",
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 439488,
+      "memory_limit_mb": 3072,
+      "seconds": 5.066,
+      "log": "focused-zig-js.log",
+      "free_bytes_after": 2208100352,
+      "log_sha256": "b2dfb0584385f9af4b0376a3ef08aa516f4416c004681a74d8bb73f2103b72d6",
+      "log_bytes": 998,
+      "signals": [
+        "Build Summary: 7/7 steps succeeded",
+        "ECOSYSTEM PEAK SAMPLED RSS: 1301392 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/focused-zig-js.json",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1301392,
+      "memory_limit_mb": 3072,
+      "seconds": 27.04,
+      "log": "focused-zig-js.log",
+      "log_sha256": "b2dfb0584385f9af4b0376a3ef08aa516f4416c004681a74d8bb73f2103b72d6",
+      "log_bytes": 998,
+      "signals": [
+        "Build Summary: 7/7 steps succeeded",
+        "ECOSYSTEM PEAK SAMPLED RSS: 1301392 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/full-jsc.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 67328,
+      "memory_limit_mb": 3072,
+      "seconds": 7.258,
+      "log": "full-jsc.log",
+      "log_sha256": "dd4e3b9e1c7ee0946efeeddcb984ad035813f3b0282b4f380ee097cade22065d",
+      "log_bytes": 59113,
+      "signals": [
+        "error: process exited with code 1",
+        "error: process exited with code 1",
+        "error: ========= expected this stdout: =========",
+        "error: process exited with code 1",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: process exited with code 1",
+        "Build Summary: 247/272 steps succeeded (21 failed)",
+        "ECOSYSTEM PEAK SAMPLED RSS: 67328 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/full-zig-js.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 906480,
+      "memory_limit_mb": 3072,
+      "seconds": 28.451,
+      "log": "full-zig-js.log",
+      "log_sha256": "f2bddbe462cff4cb6fd9caa472d855df4ae4075c845aed8bf305963969f28d52",
+      "log_bytes": 54187,
+      "signals": [
+        "Build Summary: 274/274 steps succeeded; 4/4 tests passed",
+        "ECOSYSTEM PEAK SAMPLED RSS: 906480 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/jsc-before.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/setter-default-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/currency.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.106,
+      "log": "jsc-before.log",
+      "log_sha256": "790898f2c48400cf4f13c34a0728976388e2d38fbb229a54ca3c0eb9303f9616",
+      "log_bytes": 361,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/node-before.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/currency.cjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 39488,
+      "memory_limit_mb": 3072,
+      "seconds": 0.17,
+      "log": "node-before.log",
+      "log_sha256": "227b2a5161390ea6a4cc1358909c6efafb3e7f46d9cf25027f045402c456c527",
+      "log_bytes": 268,
+      "signals": [
+        "QUOTED CURRENCY BODY 42",
+        "ECOSYSTEM PEAK SAMPLED RSS: 39488 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/python-syntax.json",
+      "argv": [
+        "python3",
+        "-m",
+        "compileall",
+        "-q",
+        "scripts",
+        "tests"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1392,
+      "memory_limit_mb": 3072,
+      "seconds": 0.056,
+      "log": "python-syntax.log",
+      "log_sha256": "3951679a53390e871ebda8c7645eda29f22fd8a49f47337aebaefc31a73b198a",
+      "log_bytes": 148,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 1392 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/suite-dependencies.json",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "tests/dependencies.test.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 27968,
+      "memory_limit_mb": 3072,
+      "seconds": 0.417,
+      "log": "suite-dependencies.log",
+      "log_sha256": "2cdc8e297b16090ee7a3681c1cffa179f6597d8cba070821980e32af3d546b01",
+      "log_bytes": 947,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 27968 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/suite-python.json",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 128176,
+      "memory_limit_mb": 3072,
+      "seconds": 3.653,
+      "log": "suite-python.log",
+      "log_sha256": "b0801fefdd759f7894acb60dd3d4e0661b8598759c098d7de2963a4259aa2182",
+      "log_bytes": 9684,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 128176 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    {
+      "receipt": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/zig-js-before.json",
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/setter-default-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/unicode-property-runtime/currency.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 144,
+      "memory_limit_mb": 3072,
+      "seconds": 0.103,
+      "log": "zig-js-before.log",
+      "log_sha256": "996d5ccdf244467c98a1508fc917f8f37d04e8ed64ab4ab345b725becdda044c",
+      "log_bytes": 366,
+      "signals": [
+        "ECOSYSTEM PEAK SAMPLED RSS: 144 KiB; limit 3072 MiB",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    }
+  ],
+  "promotion_policy": "Caller remains validated functionalbffb35f until exact new functional suite passes actual Linux runtime markers, native controls, official archive/baseline/ReleaseSafe provenance and all four actual consumer preflights. Full consumer outcomes remain separate. Never promote an evidence-only descendant."
+}

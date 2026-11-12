@@ -156,6 +156,7 @@ jobs:
           zig-out/bin/home-tool run packages/runtime/test/tool_modules/source_nul.mjs --transpile
           zig-out/bin/home-tool run packages/runtime/test/tool_modules/jsdoc_runtime.mjs --transpile
           zig-out/bin/home-tool run packages/runtime/test/tool_modules/setter_runtime.mjs --transpile
+          zig-out/bin/home-tool run packages/runtime/test/tool_modules/unicode_property.mjs --transpile
           zig build test -Dfilter=ts_driver -Dts-driver-test-filter=runtime -Denable_jsc=false -Dcpu=baseline -Doptimize="${{ steps.config.outputs.runtime_optimize }}" -j1 --summary all
           zig build home-tool-source-nul -Dcpu=baseline -Doptimize="${{ steps.config.outputs.runtime_optimize }}" -Dtool-js-engine=zig-js -Dzig-js-root="$GITHUB_WORKSPACE/engine" --summary all
           zig-out/bin/home-tool run packages/runtime/test/tool_modules/vm_script.mjs
