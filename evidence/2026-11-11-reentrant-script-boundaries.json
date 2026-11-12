@@ -1,0 +1,470 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-12T00:03:09.889736+00:00",
+  "status": "Budget fix verified and pushed; genuine VM adapter still pending a separately reproduced checkpoint-order repair",
+  "engine_commit": "52ee50f536bc56313cac4a3e6ea3aa257469130f",
+  "engine_commit_url": "https://github.com/zig-utils/zig-js/commit/52ee50f536bc56313cac4a3e6ea3aa257469130f",
+  "validated_suite_pin": "9f6ac1f1109416a183e923f0b58a6c34770ba652",
+  "home_ref_unchanged": "baabd83f05594c89d5ab932a83a66a37223d165d",
+  "source_files": [
+    {
+      "path": "src/context.zig",
+      "git_blob": "83a5038352be637e9baf85f9d50603470892de35",
+      "sha256": "ac8a73863d3bd0b90d30f32c9816dbb9a2a2d73e655f22d193c6987fbaf61329"
+    },
+    {
+      "path": "tools/focused_engine_tests.zig",
+      "git_blob": "186d0c93392d7ad5afb0291fbf48b0b893a7c1d3",
+      "sha256": "40a1de235073c228298396921318960cc0e66c5113aa459580f817459d03cd3a"
+    },
+    {
+      "path": "tools/reentrant_script_tests.zig",
+      "git_blob": "c7060adcab057498a5968d20a7117ccf67460aed",
+      "sha256": "315036810bfec2ba3e7149d8c948643564abe61e631cd439d289e7aaed5cbfd7"
+    },
+    {
+      "path": "CLAUDE.md",
+      "git_blob": "d2067033bd1031852b172df5d34ab7a89a8320a7",
+      "sha256": "42e0f1da5473fad66c7ba217a52f12835cda611af68207a115a82f1eee5740ee"
+    }
+  ],
+  "push_race": {
+    "initial_local_commit": "fc9f13d62bac3a95d0c5c936ea78fcc70a2ed78c",
+    "rebased_parent": "11df4be7",
+    "preserved_remote_paths": [
+      "conformance/threadfuzz.zig",
+      "docs/.data/dependency-inventory-v1.json"
+    ],
+    "engine_build_inputs_unchanged_by_rebase": true
+  },
+  "budget_fix": {
+    "before_contract": "FAILED: 20 nested Scripts completed under a 2,000-step allowance in tree-walker and required-bytecode modes. The reproducer exits zero after printing the bypass; that process success is not a budget-contract pass.",
+    "before_build": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build-exe",
+          "-OReleaseSafe",
+          "--dep",
+          "js",
+          "-Mroot=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/reentrant-budget-probe.zig",
+          "-OReleaseSafe",
+          "--dep",
+          "regex",
+          "--dep",
+          "gc",
+          "-Mjs=/Users/chris/Code/Libraries/zig-js/src/root.zig",
+          "-OReleaseSafe",
+          "-Mregex=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_regex-0.2.1-omky0VQnHAAyGDvpJhAP9TWq__v103WF70P-lj300Gy7/src/root.zig",
+          "-OReleaseSafe",
+          "-Mgc=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig",
+          "-lc",
+          "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/budget-before"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 1384800,
+        "memory_limit_mb": 3072,
+        "seconds": 119.17,
+        "log": "budget-build-before.log"
+      },
+      "log_sha256": "ab7993723d82f8fed48d28bc5715c6332d3f7d3e03e1633f4c53c5b298d301cd",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build-exe\", \"-OReleaseSafe\", \"--dep\", \"js\", \"-Mroot=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/reentrant-budget-probe.zig\", \"-OReleaseSafe\", \"--dep\", \"regex\", \"--dep\", \"gc\", \"-Mjs=/Users/chris/Code/Libraries/zig-js/src/root.zig\", \"-OReleaseSafe\", \"-Mregex=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_regex-0.2.1-omky0VQnHAAyGDvpJhAP9TWq__v103WF70P-lj300Gy7/src/root.zig\", \"-OReleaseSafe\", \"-Mgc=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig\", \"-lc\", \"-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/budget-before\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 1384800 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "before_execution": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/budget-before"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.274,
+        "log": "budget-before.log"
+      },
+      "log_sha256": "5fb660a6baecf27f297738001d7d3e62292fffc83884ff679739726b07c59910",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/budget-before\"]\nBUDGET RESET REPRODUCED: mode=tree-walker, budget=2000, completed=20 nested scripts\nBUDGET RESET REPRODUCED: mode=required-bytecode, budget=2000, completed=20 nested scripts\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "after_build": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build-exe",
+          "-OReleaseSafe",
+          "--dep",
+          "js",
+          "-Mroot=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/reentrant-budget-probe.zig",
+          "-OReleaseSafe",
+          "--dep",
+          "regex",
+          "--dep",
+          "gc",
+          "-Mjs=/Users/chris/Code/Libraries/zig-js/src/root.zig",
+          "-OReleaseSafe",
+          "-Mregex=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_regex-0.2.1-omky0VQnHAAyGDvpJhAP9TWq__v103WF70P-lj300Gy7/src/root.zig",
+          "-OReleaseSafe",
+          "-Mgc=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig",
+          "-lc",
+          "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/budget-after"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 2034912,
+        "memory_limit_mb": 3072,
+        "seconds": 105.575,
+        "log": "budget-build-after.log"
+      },
+      "log_sha256": "6f1cae69ddfb4a4025bf5b627c46bf48cac1e59f589d79438097e860c29a1312",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build-exe\", \"-OReleaseSafe\", \"--dep\", \"js\", \"-Mroot=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/reentrant-budget-probe.zig\", \"-OReleaseSafe\", \"--dep\", \"regex\", \"--dep\", \"gc\", \"-Mjs=/Users/chris/Code/Libraries/zig-js/src/root.zig\", \"-OReleaseSafe\", \"-Mregex=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_regex-0.2.1-omky0VQnHAAyGDvpJhAP9TWq__v103WF70P-lj300Gy7/src/root.zig\", \"-OReleaseSafe\", \"-Mgc=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig\", \"-lc\", \"-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/budget-after\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 2034912 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "after_execution": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/budget-after"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.257,
+        "log": "budget-after.log"
+      },
+      "log_sha256": "6f612b566da8f4f60f8fafdf7e9bfa5d80955cca43e8bbb13dec6da406ea51c3",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/budget-after\"]\nNESTED EVALUATION EXHAUSTED: mode=tree-walker, error=Throw\nNESTED EVALUATION EXHAUSTED: mode=required-bytecode, error=Throw\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "checked_in_regression": "The production-module frontend executable now requires real RangeError in both modes, checks a successful nested completion, and verifies that a fresh top-level host entry recovers. Both cases genuinely execute in the 48-step gate.",
+    "reproducer_source": "const std = @import(\"std\");\nconst js = @import(\"js\");\nfn script(raw: *anyopaque, _: js.Value, args: []const js.Value) js.HostError!js.Value {\n    const machine: *js.Interpreter = @ptrCast(@alignCast(raw));\n    const ctx: *js.Context = @ptrCast(@alignCast(machine.gc_realm_context.?));\n    return ctx.evaluate(args[0].asStr()) catch |err| switch (err) {\n        error.Throw => { machine.exception = ctx.exception.?; return error.Throw; },\n        else => return error.OutOfMemory,\n    };\n}\npub fn main() !void {\n    for ([_]bool{false, true}) |bytecode| {\n        const ctx = try js.Context.createWithTestingOptions(std.heap.page_allocator, .{ .step_budget = 2000, .bytecode_execution_mode = if(bytecode) .required else .tree_walker });\n        defer ctx.destroy();\n        var machine = ctx.interpreter();\n        const f = try machine.newObject();\n        f.asObj().native = script;\n        try ctx.global_object.setOwn(ctx.arena(), ctx.root_shape, \"hostScript\", f);\n        const source = \"var calls=0;for(var round=0;round<20;round++){hostScript('for(var inner=0;inner<100;inner++){}');calls++;}calls\";\n        if(ctx.evaluate(source)) |result| {\n            std.debug.print(\"BUDGET RESET REPRODUCED: mode={s}, budget=2000, completed={d} nested scripts\\n\", .{if(bytecode) \"required-bytecode\" else \"tree-walker\", result.asNum()});\n        } else |err| {\n            std.debug.print(\"NESTED EVALUATION EXHAUSTED: mode={s}, error={s}\\n\", .{if(bytecode) \"required-bytecode\" else \"tree-walker\", @errorName(err)});\n        }\n        const subsequent = try ctx.evaluate(\"7\");\n        if(subsequent.asNum()!=7) return error.FreshEntryFailed;\n    }\n}\n",
+    "failed_initial_probe_build": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+          "build-exe",
+          "-OReleaseSafe",
+          "--dep",
+          "js",
+          "-Mroot=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/reentrant-budget-probe.zig",
+          "-OReleaseSafe",
+          "--dep",
+          "regex",
+          "--dep",
+          "gc",
+          "-Mjs=/Users/chris/Code/Libraries/zig-js/src/root.zig",
+          "-OReleaseSafe",
+          "-Mregex=/Users/chris/Code/Libraries/zig-regex/src/root.zig",
+          "-OReleaseSafe",
+          "-Mgc=/Users/chris/Code/Libraries/zig-gc/src/root.zig",
+          "-lc",
+          "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/budget-before"
+        ],
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 195360,
+        "memory_limit_mb": 3072,
+        "seconds": 0.85,
+        "log": "budget-build-before.log"
+      },
+      "log_sha256": "ab7993723d82f8fed48d28bc5715c6332d3f7d3e03e1633f4c53c5b298d301cd",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build-exe\", \"-OReleaseSafe\", \"--dep\", \"js\", \"-Mroot=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/reentrant-budget-probe.zig\", \"-OReleaseSafe\", \"--dep\", \"regex\", \"--dep\", \"gc\", \"-Mjs=/Users/chris/Code/Libraries/zig-js/src/root.zig\", \"-OReleaseSafe\", \"-Mregex=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_regex-0.2.1-omky0VQnHAAyGDvpJhAP9TWq__v103WF70P-lj300Gy7/src/root.zig\", \"-OReleaseSafe\", \"-Mgc=/Users/chris/Code/Libraries/zig-js/zig-pkg/zig_gc-0.0.1-e4SVf1WzBAA0WpyH09Vg97LmvYYKPjZ9n8LBvrwGxh-V/src/root.zig\", \"-lc\", \"-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/budget-before\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 1384800 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "initial_failure_scope": "Initial per-module command used stale sibling zig-gc and could not compile. The corrected before/after probes use the exact dependency package hashes from build.zig.zon; the original failed build is retained."
+  },
+  "release_safe_validation": {
+    "receipt": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "test262-bin",
+        "install",
+        "test-frontend",
+        "test-c-api",
+        "test-home-public-abi",
+        "-Dtest-filter=reentrant script budget",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/engine-after",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2331536,
+      "memory_limit_mb": 3072,
+      "seconds": 1053.481,
+      "log": "engine-build-after.log"
+    },
+    "log_sha256": "fe72cf4ae3a30c3d664b4cbc14ca15b9b64c87ccaa5f2770922c7a548584c4ec",
+    "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"test262-bin\", \"install\", \"test-frontend\", \"test-c-api\", \"test-home-public-abi\", \"-Dtest-filter=reentrant script budget\", \"-Doptimize=ReleaseSafe\", \"--prefix\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/engine-after\", \"-j1\", \"--summary\", \"all\", \"-Dhome-tool=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool\"]\nc-api audit: 117 declarations, 117 complete, 0 pending, 117 public symbols present, 35 zig-js extensions, 460 private profile exports\ninherited host get: 448/99/123/7, 64/65/66/67 callbacks\nOK native value brands, zero traps, realm ownership, unhandled rejection and protected GC lifetime\nOK rejection FIFO, identity, handled filtering, undefined, realm isolation and precise GC lifetime\nOK typed-array backing pointer, offset and view write\nOK async context identity, nested scopes, abrupt jobs, await, thenables, species and precise compaction\nOK native value brands, zero traps, realm ownership, unhandled rejection and protected GC lifetime\nOK independent owner-thread execution contexts\nOK async context identity, nested scopes, abrupt jobs, await, thenables, species and precise compaction\nreentrant script tree-walker: nested completion, RangeError and fresh host entry passed\nreentrant script required-bytecode: nested completion, RangeError and fresh host entry passed\nfocused engine frontend: 2 cases passed\nOK 2 job scopes restore after normal and abrupt completion\nABI profile audit: home-public-c-7ed99c02: 50/50 exports; zero missing\nhome public ABI: 50/50 symbols linked; runtime smoke passed\nBuild Summary: 48/48 steps succeeded\ntest-home-public-abi success\n+- run exe home-public-abi-7ed99c02 success 637ms\n   +- compile exe home-public-abi-7ed99c02 safe native success 6s MaxRSS:404M\n   |  +- WriteFile success\n   |  +- compile lib zig-js safe native success 1m MaxRSS:2G\n   |  |  +- options cached\n   |  +- compile lib zig-js safe native (+1 more reused dependencies)\n   +- run /usr/bin/env success 1m\ntest-c-api success\n+- run exe c-api-value-brands-c success 319ms\n|  +- compile exe c-api-value-brands-c safe native success 359ms MaxRSS:194M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env success 15s\n+- run exe c-api-value-brands-cpp success 263ms\n|  +- compile exe c-api-value-brands-cpp safe native success 315ms MaxRSS:200M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-typed-array-offset success 228ms\n|  +- compile exe c-api-typed-array-offset safe native success 395ms MaxRSS:199M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe async-context-job-scopes success 241ms\n|  +- compile exe async-context-job-scopes safe native success 1m MaxRSS:1G\n+- run exe c-api-async-context-c success 236ms\n|  +- compile exe c-api-async-context-c safe native success 346ms MaxRSS:199M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-async-context-cpp success 239ms\n|  +- compile exe c-api-async-context-cpp safe native success 572ms MaxRSS:205M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-rejections success 240ms\n|  +- compile exe c-api-rejections safe native success 376ms MaxRSS:200M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-smoke-c success 226ms\n|  +- compile exe c-api-smoke-c safe native success 345ms MaxRSS:201M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-latin1 success 228ms\n|  +- compile exe c-api-latin1 safe native success 333ms MaxRSS:200M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-smoke-cpp success 257ms\n|  +- compile exe c-api-smoke-cpp safe native success 9s MaxRSS:312M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-inspector-smoke success 232ms\n|  +- compile exe c-api-inspector-smoke safe native success 345ms MaxRSS:201M\n|  |  +- WriteFile (reused)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  |  +- compile lib zig-js safe native (+1 more reused dependencies)\n|  +- run /usr/bin/env (reused)\n+- run exe c-api-inherited-host-get success 504ms\n   +- compile exe c-api-inherited-host-get safe native success 635ms MaxRSS:201M\n   |  +- WriteFile (reused)\n   |  +- compile lib zig-js safe native (+1 more reused dependencies)\n   |  +- compile lib zig-js safe native (+1 more reused dependencies)\n   +- run /usr/bin/env (reused)\ntest-frontend success\n+- run exe focused-engine-tests success 315ms\n   +- compile exe focused-engine-tests safe native success 1m MaxRSS:1G\n      +- options (reused)\ninstall success\n+- install generated to libzig-js.a success\n|  +- run /usr/bin/env (libzig-js.a) success 2s\n|     +- compile lib zig-js safe native (+1 more reused dependencies)\n|     +- run xcrun (objc_bridge.o) cached\n|     +- compile obj zig-js-objc-dispatch safe native cached 932ms MaxRSS:30M\n+- install include/ success\ntest262-bin success\n+- run test cached\n|  +- compile test safe native cached 59ms MaxRSS:30M\n+- install test262 success\n   +- compile exe test262 safe native success 12m MaxRSS:1G\n      +- options cached\n      +- options (reused)\n\n\nECOSYSTEM PEAK SAMPLED RSS: 2331536 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+  },
+  "c_api_audit": {
+    "receipt": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool",
+        "run",
+        "tools/verify-c-api.ts"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 197328,
+      "memory_limit_mb": 3072,
+      "seconds": 14.311,
+      "log": "c-api-audit.log"
+    },
+    "log_sha256": "2edb60b09c1ba9b52c0618f536c3314c251b07d035fd189c0c5752f964f6f16e",
+    "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool\", \"run\", \"tools/verify-c-api.ts\"]\nc-api audit: 117 declarations, 117 complete, 0 pending, 117 public symbols present, 35 zig-js extensions, 460 private profile exports\n\nECOSYSTEM PEAK SAMPLED RSS: 197328 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+  },
+  "home_public_profile_audit": {
+    "receipt": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool",
+        "run",
+        "tools/verify-abi-profile.ts",
+        "--profile",
+        "home-public-c-7ed99c02"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 227216,
+      "memory_limit_mb": 3072,
+      "seconds": 13.605,
+      "log": "home-public-audit.log"
+    },
+    "log_sha256": "52413e81bbc87987071f8b69adcf56dd6dc255c8b27c3972a7360cd38006dd6d",
+    "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/compact-type-closers/home-zig-js/bin/home-tool\", \"run\", \"tools/verify-abi-profile.ts\", \"--profile\", \"home-public-c-7ed99c02\"]\nABI profile audit: home-public-c-7ed99c02: 50/50 exports; zero missing\n\nECOSYSTEM PEAK SAMPLED RSS: 227216 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+  },
+  "eval_code_control": {
+    "subtree": "test/language/eval-code",
+    "before": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/engine-after/bin/test262",
+          "--diag",
+          "test/language/eval-code"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 11104,
+        "memory_limit_mb": 3072,
+        "seconds": 0.768,
+        "log": "eval-code-before.log"
+      },
+      "log_sha256": "f6a183e1f6aa1eb1640fafa0ec98c92f2cd90cb791eb9e533a67c9fbcc1b7b1d",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/engine-after/bin/test262\", \"--diag\", \"test/language/eval-code\"]\n# test/language/eval-code: 0 fail, 347 pass\n\nECOSYSTEM PEAK SAMPLED RSS: 11104 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "after": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/engine-after/bin/test262",
+          "--diag",
+          "test/language/eval-code"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 12528,
+        "memory_limit_mb": 3072,
+        "seconds": 9.889,
+        "log": "eval-code-after.log"
+      },
+      "log_sha256": "b47acb0607432a9f82c96ba71d13c4d0e5229fc5e4af59cf967e590c0a195e02",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/engine-after/bin/test262\", \"--diag\", \"test/language/eval-code\"]\n# test/language/eval-code: 0 fail, 347 pass\n\nECOSYSTEM PEAK SAMPLED RSS: 12528 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "before_passed": 347,
+    "after_passed": 347,
+    "before_failed": 0,
+    "after_failed": 0,
+    "gains": 0,
+    "regressions": 0,
+    "scope": "Only this nonempty subtree; no full-corpus or full-unit/TSan claim."
+  },
+  "native_artifacts": {
+    "after_library": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/engine-after/lib/libzig-js.a",
+      "sha256": "a8753d1137bed1bf890872c8805a0dc47ab4bb1decac706fa9e5fe499b4c8af1"
+    },
+    "after_test262": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/engine-after/bin/test262",
+      "sha256": "665faff9a68c3a51a3976729b1925a5f82e93eb890a5f3f2ad9afbf994b925d7"
+    },
+    "before_library": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/engine-after/lib/libzig-js.a",
+      "source_revision": "68be3efbd615607f6727fe96a74e895b4c4efb49",
+      "sha256": "792d20310d6439c90967385f0a1ff51a6c942678e84d46f54e2ab5cb83036b54"
+    }
+  },
+  "next_vm_checkpoint_blocker": {
+    "status": "FAILED ORACLE COMPARISON before and after the independent budget fix; not repaired by this commit",
+    "c_source": "#include <JavaScriptCore/JavaScript.h>\n#include <stdio.h>\nstatic JSValueRef script(JSContextRef c, JSObjectRef f, JSObjectRef t, size_t n, const JSValueRef a[], JSValueRef *ex) {\n    (void)f; (void)t;\n    if(n!=1) return JSValueMakeUndefined(c);\n    JSStringRef s=JSValueToStringCopy(c,a[0],ex);\n    if(!s) return NULL;\n    JSValueRef r=JSEvaluateScript(c,s,NULL,NULL,1,ex);\n    JSStringRelease(s);return r;\n}\nstatic int evaluate(JSContextRef c,const char *text) {\n    JSStringRef s=JSStringCreateWithUTF8CString(text);JSValueRef ex=NULL;\n    JSValueRef r=JSEvaluateScript(c,s,NULL,NULL,1,&ex);JSStringRelease(s);\n    if(!r || ex) { fputs(\"Script failed\\n\",stderr);return 1; }\n    JSStringRef v=JSValueToStringCopy(c,r,&ex);char out[512];\n    if(!v || ex)return 1;JSStringGetUTF8CString(v,out,sizeof(out));JSStringRelease(v);puts(out);return 0;\n}\nint main(void) {\n    JSGlobalContextRef c=JSGlobalContextCreate(NULL);\n    JSStringRef name=JSStringCreateWithUTF8CString(\"hostScript\");JSValueRef ex=NULL;\n    JSObjectRef f=JSObjectMakeFunctionWithCallback(c,name,script);\n    JSObjectSetProperty(c,JSContextGetGlobalObject(c),name,f,kJSPropertyAttributeNone,&ex);JSStringRelease(name);\n    if(ex)return 1;\n    int status=evaluate(c,\"var trace=[];Promise.resolve().then(()=>trace.push('job'));trace.push('before');hostScript(\\\"trace.push('nested')\\\");trace.push('after');trace.join(',')\");\n    status|=evaluate(c,\"trace.join(',')\");JSGlobalContextRelease(c);return status;\n}\n",
+    "c_source_sha256": "5ae145d7217b975c3ce8d83420a614701cf06ae9228ff62696453aba10a9cdaa",
+    "before_build": {
+      "receipt": {
+        "argv": [
+          "/usr/bin/clang",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/nested-script-order.c",
+          "-I/Users/chris/Code/Libraries/zig-js/include",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/engine-after/lib/libzig-js.a",
+          "-lm",
+          "-lpthread",
+          "-o",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/nested-order-zig-js"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 108192,
+        "memory_limit_mb": 3072,
+        "seconds": 9.128,
+        "log": "nested-order-build-zig-js.log"
+      },
+      "log_sha256": "b798421008536362639bde81ad21305295be80a8d40f93245568ce11f3b392c0",
+      "log": "$ [\"/usr/bin/clang\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/nested-script-order.c\", \"-I/Users/chris/Code/Libraries/zig-js/include\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/engine-after/lib/libzig-js.a\", \"-lm\", \"-lpthread\", \"-o\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/nested-order-zig-js\"]\nld: warning: object file (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bun-test-mocks/engine-after/lib/libzig-js.a[2](zig-js_zcu.o)) was built for newer 'macOS' version (27.0.1) than being linked (27.0)\n\nECOSYSTEM PEAK SAMPLED RSS: 108192 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "before_execution": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/nested-order-zig-js"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 1.524,
+        "log": "nested-order-zig-js.log"
+      },
+      "log_sha256": "13decf228704b8e6348b7a2d59977343ed6f27dab7848d022a705e082699c66b",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/nested-order-zig-js\"]\nbefore,nested,job,after\nbefore,nested,job,after\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "after_build": {
+      "receipt": {
+        "argv": [
+          "/usr/bin/clang",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/nested-script-order.c",
+          "-I/Users/chris/Code/Libraries/zig-js/include",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/engine-after/lib/libzig-js.a",
+          "-lm",
+          "-lpthread",
+          "-o",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/nested-order-budget-fixed"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 115744,
+        "memory_limit_mb": 3072,
+        "seconds": 2.445,
+        "log": "nested-order-budget-fixed-build.log"
+      },
+      "log_sha256": "59b679c993b4033edde54c8afdb5d04ae18adeb509fd968d8f0f8660ab7d491b",
+      "log": "$ [\"/usr/bin/clang\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/nested-script-order.c\", \"-I/Users/chris/Code/Libraries/zig-js/include\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/engine-after/lib/libzig-js.a\", \"-lm\", \"-lpthread\", \"-o\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/nested-order-budget-fixed\"]\nld: warning: object file (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/engine-after/lib/libzig-js.a[2](zig-js_zcu.o)) was built for newer 'macOS' version (27.0.1) than being linked (27.0)\n\nECOSYSTEM PEAK SAMPLED RSS: 115744 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "after_execution": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/nested-order-budget-fixed"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 32,
+        "memory_limit_mb": 3072,
+        "seconds": 0.843,
+        "log": "nested-order-budget-fixed-run.log"
+      },
+      "log_sha256": "3974d12cd36f392506bf10b340d2acda62a6ebcbd47ae75350d557440738b768",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/nested-order-budget-fixed\"]\nbefore,nested,job,after\nbefore,nested,job,after\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "jsc_build": {
+      "receipt": {
+        "argv": [
+          "/usr/bin/clang",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/nested-script-order.c",
+          "-framework",
+          "JavaScriptCore",
+          "-o",
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/nested-order-jsc"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 43680,
+        "memory_limit_mb": 3072,
+        "seconds": 5.909,
+        "log": "nested-order-build-jsc.log"
+      },
+      "log_sha256": "e0d5fa7a4127ebf4533d12ed9320e6c435be544e645d2b4523bf001ccca3babd",
+      "log": "$ [\"/usr/bin/clang\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/nested-script-order.c\", \"-framework\", \"JavaScriptCore\", \"-o\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/nested-order-jsc\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 43680 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "jsc_execution": {
+      "receipt": {
+        "argv": [
+          "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/nested-order-jsc"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "peak_sampled_rss_kib": 8336,
+        "memory_limit_mb": 3072,
+        "seconds": 1.043,
+        "log": "nested-order-jsc.log"
+      },
+      "log_sha256": "2144dd2e00e63d0aa38ae959900ecf5e061ceef6d55692ccf3b6c085a66f3693",
+      "log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/nested-order-jsc\"]\nbefore,nested,after\nbefore,nested,after,job\n\nECOSYSTEM PEAK SAMPLED RSS: 8336 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "system_oracle": "Same real C program linked to system JavaScriptCore on macOS 27.0.1",
+    "expected_outer_completion": "before,nested,after",
+    "expected_next_host_entry": "before,nested,after,job",
+    "actual_outer_completion": "before,nested,job,after",
+    "actual_next_host_entry": "before,nested,job,after",
+    "node_vm_source": "import vm from 'node:vm';\nglobalThis.vmOrderTrace=[];\nPromise.resolve().then(()=>vmOrderTrace.push('job'));\nvmOrderTrace.push('before');\nvm.runInThisContext(\"vmOrderTrace.push('nested')\");\nvmOrderTrace.push('after');\nif(vmOrderTrace.join(',')!=='before,nested,after')throw new Error('premature nested Script checkpoint: '+vmOrderTrace);\nconsole.log(vmOrderTrace.join(','));\nawait Promise.resolve();\nif(vmOrderTrace.join(',')!=='before,nested,after,job')throw new Error('missing outer checkpoint: '+vmOrderTrace);\nconsole.log(vmOrderTrace.join(','));\n",
+    "references": {
+      "node": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/.local/share/pantry/global/bin/node",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/vm-order.mjs"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 50096,
+          "memory_limit_mb": 3072,
+          "seconds": 2.332,
+          "log": "vm-order-node.log"
+        },
+        "log_sha256": "254f7d7f6563acbd88c75e68b17b0544aa64534d989a55b54a86eba54849b6ef",
+        "log": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/vm-order.mjs\"]\nbefore,nested,after\nbefore,nested,after,job\n\nECOSYSTEM PEAK SAMPLED RSS: 50096 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      },
+      "bun": {
+        "receipt": {
+          "argv": [
+            "/Users/chris/.local/share/pantry/global/bin/bun",
+            "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/vm-order.mjs"
+          ],
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 0,
+          "memory_limit_mb": 3072,
+          "seconds": 2.395,
+          "log": "vm-order-bun.log"
+        },
+        "log_sha256": "5fdac01b2a441f0d51517cff0e64c465d6f53ad21425a97552b9cb9360d745ff",
+        "log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/home-tailwind-vm/vm-order.mjs\"]\nbefore,nested,after\nbefore,nested,after,job\n\nECOSYSTEM PEAK SAMPLED RSS: 0 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+      }
+    },
+    "reference_versions": {
+      "node": "v26.10.0",
+      "bun": "1.4.4"
+    },
+    "official_contract": "https://nodejs.org/api/vm.html#vmruninthiscontextcode-options",
+    "next_action": "Repair and validate genuine nested Script checkpoint ordering before providing Home runInThisContext. Preserve global Script scope, errors and source ownership; no indirect-eval substitute, fake contextification/timeouts or native Bun fallback."
+  },
+  "limits": [
+    "This changes the engine budget boundary only. No Home vm export, plugin setup or full Tailwind build was added or passed. The actual missing-module consumer evidence remains in 2026-11-11-home-next-vm-blocker.json and parser-priority-consumer-followup.json.",
+    "Root full unit, full corpus, Debug and TSan gates were not run locally. No ABI symbol, signature, struct layout or inventory changed. ReleaseSafe public boundary fixtures, native focused cases and the 347-case control are the measured scope.",
+    "Both caller pins stay at validated functional9f6ac1f. No selected repository, unsupported/failure evidence or older all-selected run was removed or cancelled. Do not promote this evidence-only suite descendant."
+  ],
+  "new_root_coverage": {
+    "checked_at": "2026-11-12T00:05:28.987073+00:00",
+    "all_selected_run": 43124016270,
+    "all_selected_url": "https://github.com/zig-utils/zig-js/actions/runs/43124016270",
+    "status_at_check": "queued",
+    "ci_run": 43124015415,
+    "ci_status_at_check": "pending",
+    "scope": "Automatic every-push coverage at exact52ee50f5; no consumer filter or old Ecosystem cancellation. These pending runs are not passing evidence."
+  }
+}
