@@ -1,0 +1,618 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-12T08:23:57.951612+00:00",
+  "run": 43177855243,
+  "functional_suite": "82a2fb49ed2f3e14cc3125f155db3ee107e4ae91",
+  "engine_sha": "363e8b8220f409bf1b9b98fc6410571100cccd9e",
+  "home_ref": "5a6408d84d97e580bd770fbac783ee7f1b21ba54",
+  "reports": [
+    {
+      "repository": "stacksjs/stacks",
+      "consumer_sha": "3ee81d08a45fa3701e4bdd8f1999759d43d6a2ae",
+      "scopes": 100,
+      "checks": 936,
+      "candidate": {
+        "unsupported": 355,
+        "failed": 182,
+        "passed": 94
+      },
+      "all_lanes": {
+        "candidate": {
+          "unsupported": 355,
+          "failed": 182,
+          "passed": 94
+        },
+        "engine": {
+          "passed": 1
+        },
+        "reference": {
+          "passed": 24,
+          "failed": 16,
+          "timed-out": 1,
+          "not-run": 237
+        },
+        "reference-setup": {
+          "passed": 10
+        },
+        "setup": {
+          "passed": 16
+        }
+      },
+      "artifact": {
+        "id": 13925734359,
+        "name": "ecosystem-results-0",
+        "digest": "sha256:55fedf3e9d62b9e607c6c52c0e55aabb4242b44556e0afab7653e49ceef42c6a",
+        "size_in_bytes": 1325573
+      },
+      "verified_zip_sha256": "55fedf3e9d62b9e607c6c52c0e55aabb4242b44556e0afab7653e49ceef42c6a",
+      "report_sha256": "008a1b38703a6380a53f69bdfb38243d0902680b6f40dd685eaebd6fb3bbaf76",
+      "runtime_provenance": {
+        "engine_sha": "363e8b8220f409bf1b9b98fc6410571100cccd9e",
+        "suite_ref": "82a2fb49ed2f3e14cc3125f155db3ee107e4ae91",
+        "home_repository": "home-lang/home",
+        "home_ref": "5a6408d84d97e580bd770fbac783ee7f1b21ba54",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "b218e097522e868d6c826eac6713de74377eab045f6fc17f3f6a0148089b9e62",
+          "engine/zig-out/lib/libzig-js.a": "46cc42cbc8c7e8794dd7cc84c903c5ed91f87cd0003e2d06a466c6261a9bffca"
+        }
+      },
+      "comparison": {
+        "before_run": 43169880719,
+        "before_consumer_sha": "f5778951c8e005817118310bc78288283a1f019c",
+        "same_consumer_sha": false,
+        "candidate_labels_before": 631,
+        "candidate_labels_after": 631,
+        "added": [],
+        "removed": [],
+        "candidate_status_changes": [
+          {
+            "label": "storage/framework/libs/components/stx: module initialization ./dist/index.js",
+            "before": {
+              "status": "unsupported",
+              "exit_code": 78,
+              "peak_sampled_rss_kib": 8588,
+              "memory_limit_mb": 3072,
+              "seconds": 0.072,
+              "log": "0632.log",
+              "label": "storage/framework/libs/components/stx: module initialization ./dist/index.js",
+              "lane": "candidate",
+              "command": [
+                "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+                "./dist/index.js"
+              ],
+              "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/libs/components/stx",
+              "engine_invocations": 0,
+              "unsupported_reasons": [
+                "No script or installed binary: ./dist/index.js"
+              ],
+              "reason": "No script or installed binary: ./dist/index.js"
+            },
+            "after": {
+              "status": "passed",
+              "exit_code": 0,
+              "peak_sampled_rss_kib": 8668,
+              "memory_limit_mb": 3072,
+              "seconds": 0.108,
+              "log": "0632.log",
+              "label": "storage/framework/libs/components/stx: module initialization ./dist/index.js",
+              "lane": "candidate",
+              "command": [
+                "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+                "./dist/index.js"
+              ],
+              "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/libs/components/stx",
+              "engine_invocations": 1
+            }
+          },
+          {
+            "label": "storage/framework/libs/components/stx: module initialization dist/index.js",
+            "before": {
+              "status": "unsupported",
+              "exit_code": 78,
+              "peak_sampled_rss_kib": 8576,
+              "memory_limit_mb": 3072,
+              "seconds": 0.072,
+              "log": "0631.log",
+              "label": "storage/framework/libs/components/stx: module initialization dist/index.js",
+              "lane": "candidate",
+              "command": [
+                "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+                "dist/index.js"
+              ],
+              "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/libs/components/stx",
+              "engine_invocations": 0,
+              "unsupported_reasons": [
+                "No script or installed binary: dist/index.js"
+              ],
+              "reason": "No script or installed binary: dist/index.js"
+            },
+            "after": {
+              "status": "passed",
+              "exit_code": 0,
+              "peak_sampled_rss_kib": 8628,
+              "memory_limit_mb": 3072,
+              "seconds": 0.108,
+              "log": "0631.log",
+              "label": "storage/framework/libs/components/stx: module initialization dist/index.js",
+              "lane": "candidate",
+              "command": [
+                "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+                "dist/index.js"
+              ],
+              "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/libs/components/stx",
+              "engine_invocations": 1
+            }
+          }
+        ],
+        "limit": "Both consumer sources moved, as did the Home runtime and engine. Status transitions are observations, not a controlled causal gain or no-regression claim."
+      },
+      "diagnostic_samples": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 2542400,
+            "memory_limit_mb": 3072,
+            "seconds": 12.89,
+            "log": "0016.log",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "./buddy build"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate",
+            "engine_invocations": 3
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/qualification/consumers/ecosystem-results-0/stacksjs--stacks/0016.log",
+            "sha256": "004775838c56201d72793fd492bac255a865db75b316471a20c426786bb41a29",
+            "content": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-12T07:55:39.711Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 2542400 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 913428,
+            "memory_limit_mb": 3072,
+            "seconds": 2.523,
+            "log": "0630.log",
+            "label": "storage/framework/libs/components/stx: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/libs/components/stx",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/qualification/consumers/ecosystem-results-0/stacksjs--stacks/0630.log",
+            "sha256": "a714c255ea1c1312f79ef2658e741fee4f16c5a062e0e21c269c44506832bda1",
+            "content": "$ [\"/bin/sh\", \"-c\", \"bun build.ts\"]\n[2026-11-12T08:05:08.245Z] local.INFO: Building your STX component library...\nhome-tool (zig-js): AggregateError: Failed to bundle component library\nTypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [path.join(outputDir, \"index.js\")], outdir: outputDir, naming: \"bundle.js\", target: \"browser\", format: \"esm\", minify: config.minify ?? !0, sourcemap: config.sourcemap || \"none\" })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 913428 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        },
+        {
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 8628,
+            "memory_limit_mb": 3072,
+            "seconds": 0.108,
+            "log": "0631.log",
+            "label": "storage/framework/libs/components/stx: module initialization dist/index.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+              "dist/index.js"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/libs/components/stx",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/qualification/consumers/ecosystem-results-0/stacksjs--stacks/0631.log",
+            "sha256": "3efb06ae3133a9706cbf680ce90552bbfc7a894ffb80cdfe299ed75470b04eca",
+            "content": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"dist/index.js\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 8628 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+          }
+        },
+        {
+          "check": {
+            "status": "passed",
+            "exit_code": 0,
+            "peak_sampled_rss_kib": 8668,
+            "memory_limit_mb": 3072,
+            "seconds": 0.108,
+            "log": "0632.log",
+            "label": "storage/framework/libs/components/stx: module initialization ./dist/index.js",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+              "./dist/index.js"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/libs/components/stx",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/qualification/consumers/ecosystem-results-0/stacksjs--stacks/0632.log",
+            "sha256": "c735c783ca2bf2706ee0f0d3ce84dd8c54a94344a9fb026ebcb7f4a276040129",
+            "content": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"./dist/index.js\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 8668 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+          }
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 92744,
+            "memory_limit_mb": 3072,
+            "seconds": 0.256,
+            "log": "0203.log",
+            "label": "storage/framework/core/desktop: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun",
+              "src/index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/desktop",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/qualification/consumers/ecosystem-results-0/stacksjs--stacks/0203.log",
+            "sha256": "b40e1ce824f89db69eb10f985dc3cfff415aaa433d8897d6c6466ebc8b88ea0f",
+            "content": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): TypeError: promisify original must be a function\n\nECOSYSTEM PEAK SAMPLED RSS: 92744 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        }
+      ]
+    },
+    {
+      "repository": "home-lang/home",
+      "consumer_sha": "5a6408d84d97e580bd770fbac783ee7f1b21ba54",
+      "scopes": 46,
+      "checks": 234,
+      "candidate": {
+        "timed-out": 1,
+        "unsupported": 37,
+        "passed": 9,
+        "failed": 40
+      },
+      "all_lanes": {
+        "candidate": {
+          "timed-out": 1,
+          "unsupported": 37,
+          "passed": 9,
+          "failed": 40
+        },
+        "direct-consumer": {
+          "passed": 4
+        },
+        "engine": {
+          "passed": 1
+        },
+        "reference": {
+          "not-run": 50
+        },
+        "reference-setup": {
+          "passed": 10,
+          "timed-out": 1,
+          "not-run": 32
+        },
+        "setup": {
+          "passed": 46,
+          "timed-out": 1,
+          "failed": 2
+        }
+      },
+      "artifact": {
+        "id": 13926845317,
+        "name": "ecosystem-results-1",
+        "digest": "sha256:491502f9bff63a25d55742bba71f93af47d74b1e3092654a199530975a2c56fe",
+        "size_in_bytes": 106393
+      },
+      "verified_zip_sha256": "491502f9bff63a25d55742bba71f93af47d74b1e3092654a199530975a2c56fe",
+      "report_sha256": "c8190fb908041730283b434d6dc3be5dfa0d2bdb75091f2a75e81f6a988d50ee",
+      "runtime_provenance": {
+        "engine_sha": "363e8b8220f409bf1b9b98fc6410571100cccd9e",
+        "suite_ref": "82a2fb49ed2f3e14cc3125f155db3ee107e4ae91",
+        "home_repository": "home-lang/home",
+        "home_ref": "5a6408d84d97e580bd770fbac783ee7f1b21ba54",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "b218e097522e868d6c826eac6713de74377eab045f6fc17f3f6a0148089b9e62",
+          "engine/zig-out/lib/libzig-js.a": "46cc42cbc8c7e8794dd7cc84c903c5ed91f87cd0003e2d06a466c6261a9bffca"
+        }
+      },
+      "comparison": {
+        "before_run": 43169880719,
+        "before_consumer_sha": "04ab3064eb425eeb1f5ffebf7457745d4a83327a",
+        "same_consumer_sha": false,
+        "candidate_labels_before": 87,
+        "candidate_labels_after": 87,
+        "added": [],
+        "removed": [],
+        "candidate_status_changes": [],
+        "limit": "Both consumer sources moved, as did the Home runtime and engine. Status transitions are observations, not a controlled causal gain or no-regression claim."
+      },
+      "diagnostic_samples": [
+        {
+          "check": {
+            "status": "timed-out",
+            "exit_code": 124,
+            "peak_sampled_rss_kib": 2028628,
+            "memory_limit_mb": 3072,
+            "seconds": 300.148,
+            "log": "0052.log",
+            "reason": "command time budget exhausted",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bunx bunpress build"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/qualification/consumers/ecosystem-results-1/home-lang--home/0052.log",
+            "sha256": "0162a4266cb145bb2156b7a1ea8508e634ff5c9df336b32adb70013aa7eab46a",
+            "content": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 2028628 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: command time budget exhausted\n\nECOSYSTEM RESULT: timed-out, exit 124\n"
+          }
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 129896,
+            "memory_limit_mb": 3072,
+            "seconds": 0.391,
+            "log": "0062.log",
+            "label": "packages/registry: test",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "jest"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/registry",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/qualification/consumers/ecosystem-results-1/home-lang--home/0062.log",
+            "sha256": "af788d09c65669fc77bc6a237a799732002e9df45cee78970631c89a47230b67",
+            "content": "$ [\"/bin/sh\", \"-c\", \"jest\"]\nSyntaxError: Unexpected token\n    at <anonymous> (home:tool-module-install:253:7)\n    at evaluateSync (home:tool-module-install:272:7)\n    at load (home:tool-module-install:374:5)\n    at <anonymous> (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/registry/node_modules/%40babel/code-frame/lib/index.js?home-emitted:5:1)\n    at <anonymous> (home:tool-module-install:255:7)\n    at evaluateSync (home:tool-module-install:272:7)\n    at load (home:tool-module-install:374:5)\n    at <anonymous> (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/registry/node_modules/parse-json/index.js?home-emitted:6:1)\n    at <anonymous> (home:tool-module-install:255:7)\n    at evaluateSync (home:tool-module-install:272:7)\nUncaught unhandledRejection: SyntaxError: Unexpected token\n\nECOSYSTEM PEAK SAMPLED RSS: 129896 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 8512,
+            "memory_limit_mb": 3072,
+            "seconds": 0.07,
+            "log": "0058.log",
+            "label": "packages/action: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun",
+              "src/index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/action",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/qualification/consumers/ecosystem-results-1/home-lang--home/0058.log",
+            "sha256": "657d42a48403838babb52767ad120d40483823c710859ca16e8f9817fec7850a",
+            "content": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module https from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/action/src/index.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 8512 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 272208,
+            "memory_limit_mb": 3072,
+            "seconds": 0.466,
+            "log": "0071.log",
+            "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun run build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/qualification/consumers/ecosystem-results-1/home-lang--home/0071.log",
+            "sha256": "55a8f942721f51e7a8f3d8c0029b067988c6a605aef70847b5b6752bb539eebc",
+            "content": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 272208 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        }
+      ]
+    }
+  ],
+  "report_completion": {
+    "job": 131058386750,
+    "actual_stdout": "2/2 consumers reported; 2 failing, 0 missing",
+    "log_sha256": "c9e28b4614a27749521e45a2eceb5e1ce3c3151d45fab50ff2d702a96d72d94d",
+    "raw_log": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/qualification/consumers/report-ci.log"
+  },
+  "stacks_source_changes": {
+    "before": "f5778951c8e005817118310bc78288283a1f019c",
+    "after": "3ee81d08a45fa3701e4bdd8f1999759d43d6a2ae",
+    "commits": 4,
+    "changed_files": [
+      ".github/scripts/type-sdk-package.acceptance.ts",
+      ".github/workflows/ci.yml",
+      ".github/workflows/release.yml",
+      "CHANGELOG.md",
+      "bun.lock",
+      "package.json",
+      "pantry.lock",
+      "storage/framework/api/package.json",
+      "storage/framework/cloud/package.json",
+      "storage/framework/core/action-runner/package.json",
+      "storage/framework/core/actions/package.json",
+      "storage/framework/core/ai/package.json",
+      "storage/framework/core/alias/package.json",
+      "storage/framework/core/analytics/package.json",
+      "storage/framework/core/api/package.json",
+      "storage/framework/core/arrays/package.json",
+      "storage/framework/core/audio/package.json",
+      "storage/framework/core/auth/package.json",
+      "storage/framework/core/browser-extension/package.json",
+      "storage/framework/core/browser/package.json",
+      "storage/framework/core/buddy/package.json",
+      "storage/framework/core/build/README.md",
+      "storage/framework/core/build/package.json",
+      "storage/framework/core/cache/package.json",
+      "storage/framework/core/calendar-api/package.json",
+      "storage/framework/core/charts/package.json",
+      "storage/framework/core/chat/package.json",
+      "storage/framework/core/cli/package.json",
+      "storage/framework/core/cloud/LICENSE.md",
+      "storage/framework/core/cloud/package.json",
+      "storage/framework/core/cms/package.json",
+      "storage/framework/core/collections/package.json",
+      "storage/framework/core/commerce/package.json",
+      "storage/framework/core/composables/package.json",
+      "storage/framework/core/config/LICENSE.md",
+      "storage/framework/core/config/package.json",
+      "storage/framework/core/cron/LICENSE.md",
+      "storage/framework/core/cron/build.ts",
+      "storage/framework/core/cron/package.json",
+      "storage/framework/core/cron/src/bun-cron.d.ts",
+      "storage/framework/core/cron/src/index.ts",
+      "storage/framework/core/database/package.json",
+      "storage/framework/core/datetime/package.json",
+      "storage/framework/core/defaults/package.json",
+      "storage/framework/core/deploy/package.json",
+      "storage/framework/core/desktop/package.json",
+      "storage/framework/core/development/package.json",
+      "storage/framework/core/dns/package.json",
+      "storage/framework/core/docs/package.json",
+      "storage/framework/core/email/package.json",
+      "storage/framework/core/enums/package.json",
+      "storage/framework/core/env/package.json",
+      "storage/framework/core/error-handling/LICENSE.md",
+      "storage/framework/core/error-handling/package.json",
+      "storage/framework/core/events/package.json",
+      "storage/framework/core/faker/package.json",
+      "storage/framework/core/feature-flags/package.json",
+      "storage/framework/core/features/package.json",
+      "storage/framework/core/forms/package.json",
+      "storage/framework/core/git/package.json",
+      "storage/framework/core/github/package.json",
+      "storage/framework/core/health/package.json",
+      "storage/framework/core/hq/package.json",
+      "storage/framework/core/http/package.json",
+      "storage/framework/core/i18n/package.json",
+      "storage/framework/core/image/package.json",
+      "storage/framework/core/lint/package.json",
+      "storage/framework/core/lint/src/index.ts",
+      "storage/framework/core/lint/tests/lint.test.ts",
+      "storage/framework/core/logging/package.json",
+      "storage/framework/core/mobile/package.json",
+      "storage/framework/core/model-meta/package.json",
+      "storage/framework/core/newsletter/package.json",
+      "storage/framework/core/notifications/package.json",
+      "storage/framework/core/objects/package.json",
+      "storage/framework/core/orm/LICENSE.md",
+      "storage/framework/core/orm/package.json",
+      "storage/framework/core/package.json",
+      "storage/framework/core/pagination/package.json",
+      "storage/framework/core/path/package.json",
+      "storage/framework/core/payments/LICENSE.md",
+      "storage/framework/core/payments/package.json",
+      "storage/framework/core/payments/src/drivers/stripe.ts",
+      "storage/framework/core/payments/tests/stripe-availability.test.ts",
+      "storage/framework/core/push/package.json",
+      "storage/framework/core/query-builder/package.json",
+      "storage/framework/core/queue/package.json",
+      "storage/framework/core/realtime/package.json",
+      "storage/framework/core/registry/package.json",
+      "storage/framework/core/repl/package.json",
+      "storage/framework/core/router/LICENSE.md",
+      "storage/framework/core/router/package.json",
+      "storage/framework/core/scheduler/package.json",
+      "storage/framework/core/search-engine/package.json",
+      "storage/framework/core/security/package.json",
+      "storage/framework/core/server/package.json",
+      "storage/framework/core/shell/package.json",
+      "storage/framework/core/sites/package.json",
+      "storage/framework/core/skills/package.json",
+      "storage/framework/core/slug/package.json",
+      "storage/framework/core/sms/package.json",
+      "storage/framework/core/socials/package.json",
+      "storage/framework/core/storage/package.json",
+      "storage/framework/core/strings/package.json",
+      "storage/framework/core/testing/LICENSE.md",
+      "storage/framework/core/testing/package.json",
+      "storage/framework/core/tinker/package.json",
+      "storage/framework/core/tunnel/package.json",
+      "storage/framework/core/types/LICENSE.md",
+      "storage/framework/core/types/package.json",
+      "storage/framework/core/types/src/cron-jobs.ts",
+      "storage/framework/core/types/src/index.ts",
+      "storage/framework/core/types/src/router.ts",
+      "storage/framework/core/types/src/scheduler.ts",
+      "storage/framework/core/ui/package.json",
+      "storage/framework/core/utils/package.json",
+      "storage/framework/core/validation/LICENSE.md",
+      "storage/framework/core/validation/package.json",
+      "storage/framework/core/video/package.json",
+      "storage/framework/core/whois/package.json",
+      "storage/framework/defaults/ai/skills/stacks-native/CATALOG.md",
+      "storage/framework/defaults/ai/skills/stacks-payments/SKILL.md",
+      "storage/framework/defaults/ide/vscode/package.json",
+      "storage/framework/docs/package.json",
+      "storage/framework/libs/components/stx/package.json",
+      "storage/framework/orm/package.json",
+      "storage/framework/package.json",
+      "storage/framework/server/package.json"
+    ],
+    "raw_compare_sha256": "f6b93ce05ee3e92053276ec64c62a93dcd75f97b1e41a692953f007c4ea118ea",
+    "limit": "Dependency manifests and both lockfiles changed among other files; do not attribute two entry-label transitions solely to the runtime."
+  },
+  "interpretation": "The STX component build advances past the missing Transpiler and remains failed on absent Bun.build. Two entry labels dist/index.js and ./dist/index.js now execute the same generated index module via Home; these are source-initialization checks, not two independent package features or upstream tests. Full Stacks build still hits the existing evaluation budget. Home retains actual registry syntax, TLS, Tailwind readonly and docs-timeout failures.",
+  "all_selected_coverage": {
+    "run": 43180226835,
+    "caller": "f7025b02477221c5d7cf8419a907c8013fddbc6d",
+    "jobs": [
+      {
+        "id": 131054353246,
+        "name": "ecosystem / runtime",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 131059624280,
+        "name": "ecosystem / Consumers stacksjs/stacks",
+        "status": "in_progress",
+        "conclusion": null
+      },
+      {
+        "id": 131059624299,
+        "name": "ecosystem / Consumers home-lang/home",
+        "status": "queued",
+        "conclusion": null
+      }
+    ],
+    "prior_runs_cancelled": false
+  },
+  "caller_pin": "82a2fb49ed2f3e14cc3125f155db3ee107e4ae91",
+  "limits": [
+    "No missing API is substituted, no scheduler/upstream test execution is invented, no Bun candidate fallback is used.",
+    "Unsupported count declines357to355 only because two entry-label commands now execute; every182candidate failure remains recorded.",
+    "Actual per-consumer and reference/native lane results remain separate. No full package, bundling, DOM, Jest or N-API compatibility claim.",
+    "Evidence only; flips0test262cases. Never promote an evidence-only descendant."
+  ]
+}
