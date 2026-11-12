@@ -1,0 +1,571 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-12T07:45:55.660236+00:00",
+  "status": "Real TypeScript transform implemented, locally validated and pushed; new immutable suite Linux qualification pending",
+  "home_implementation": "2275c23622f920cfe786621d9d95fba82cd93a41",
+  "home_ref": "5a6408d84d97e580bd770fbac783ee7f1b21ba54",
+  "home_url": "https://github.com/home-lang/home/commit/5a6408d84d97e580bd770fbac783ee7f1b21ba54",
+  "before_home": "04ab3064eb425eeb1f5ffebf7457745d4a83327a",
+  "local_pushed_engine": "a7b0fdfd2e9caa6a9e822d911dd8a390e21babf1",
+  "local_archive_sha256": "3b182ee48ac27e763c308b16276e5330e552906f82d82336907f7389ce1b03ed",
+  "profile": "Darwin native ReleaseSafe; exact unchanged pushed engine archive through Home, no Bun candidate fallback",
+  "source_files": [
+    {
+      "path": "build.zig",
+      "git_blob": "cb3aa47b65f1efc9523ac1b076cc07e151319e40",
+      "sha256": "114dd6904a90dd6c05d09364aff7578704075592ec0c2449253b43bff35618f6"
+    },
+    {
+      "path": "packages/runtime/src/jsc/tool_modules.zig",
+      "git_blob": "fbdbd3ebb2e42c70a3923d4c2b9fe26a7a4ed155",
+      "sha256": "f2885d06cd34f2e84ca24ed522abc19ba60a1eea91dc9e7f409f6a301cedf03d"
+    },
+    {
+      "path": "packages/runtime/src/jsc/tool_transpiler.js",
+      "git_blob": "5215bb9884c695b5a99f97f38dd0cb48c84e97de",
+      "sha256": "21aff02188831aa6174d677352a0b7ff4b6e1b3b98faefbcdb4637ed53dda2ce"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/transpiler_sync.mjs",
+      "git_blob": "a2362ff217d1743a5d3c4df2b7a5bd4b8f21146f",
+      "sha256": "2ed42263e543d4b477424069098f505a2ccd5d7a40f2a2de5369c6607dac2c55"
+    }
+  ],
+  "upstream_contract": "https://bun.sh/docs/runtime/transpiler#transformsync",
+  "official_consumer_failure": {
+    "run": 43169880719,
+    "job": 131023850537,
+    "artifact": 13922029783,
+    "official_zip_sha256": "bce402da6b1f8b35e2d113cc37261a09fd72292f31fbe6626f52a520b946d4af",
+    "consumer_sha": "f5778951c8e005817118310bc78288283a1f019c",
+    "label": "storage/framework/libs/components/stx: build",
+    "log_sha256": "b7766e3213169a0dba1664748621f12b4befa18daeae105c396ad4ad74464e9c",
+    "raw_log": "$ [\"/bin/sh\", \"-c\", \"bun build.ts\"]\n[2026-11-12T07:00:27.224Z] local.INFO: Building your STX component library...\nhome-tool (zig-js): Error: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/resources/components/ContextMenu.stx: failed to compile render (undefined is not a constructor (evaluating 'new Bun.Transpiler({ loader: \"ts\" })'))\n\nECOSYSTEM PEAK SAMPLED RSS: 907000 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+  },
+  "implementation": {
+    "compiler": "Home ts_driver.prepareSource + emitPreparedSource, bind-only/no-resolve/no-lib, ESM/esnext output",
+    "implemented": "Bun.Transpiler with explicit ts loader and synchronous string transform; native syntax diagnostics become SyntaxError, no source-body execution",
+    "unsupported": "Other loaders/default loader, arbitrary options, macro/context inputs, byte buffers, asynchronous transform, scanning and bundling remain unavailable; requested unsupported options reject explicitly. No fake emitter, host API, test scheduler or native Bun fallback.",
+    "test_correction": "Implementation commit2275 used JSON serialization for constructor identity. Follow-up5a6408 uses actual function identity; final twenty-check fixtures execute again on both providers. Full gate was run at2275; only this assertion changes at5a6408, not compiled runtime sources."
+  },
+  "validation": {
+    "before-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/late-imports/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/repro.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 176,
+      "memory_limit_mb": 3072,
+      "seconds": 0.099,
+      "log": "before-zig-js.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/before-zig-js.log",
+        "sha256": "ea0ed498606e44e7c130779a8e4b682f85d82102edbbfa8635fc07f08223dbb9"
+      }
+    },
+    "before-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/late-imports/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/repro.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.057,
+      "log": "before-jsc.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/before-jsc.log",
+        "sha256": "095ef6dc691b496de2e85d720fadd13f0ec014b75e3da5a51e449f216b600216"
+      }
+    },
+    "bun-reference": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/repro.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1344,
+      "memory_limit_mb": 3072,
+      "seconds": 0.021,
+      "log": "bun-reference.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/bun-reference.log",
+        "sha256": "91dd83214ab701d9568ba2e2bd0f4ae7bbdceea9636fbd2915f87254c9e2b443"
+      }
+    },
+    "before-zig-js-fixture": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/late-imports/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/transpiler_sync.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 336,
+      "memory_limit_mb": 3072,
+      "seconds": 0.109,
+      "log": "before-zig-js-fixture.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/before-zig-js-fixture.log",
+        "sha256": "d2411def363e47ea4425ae80e622ef7b1fd1e43a4e787152cfa598873378d535"
+      }
+    },
+    "before-jsc-fixture": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/late-imports/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/transpiler_sync.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 4544,
+      "memory_limit_mb": 3072,
+      "seconds": 0.03,
+      "log": "before-jsc-fixture.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/before-jsc-fixture.log",
+        "sha256": "272ea3307dfa3bb1382d709714e9628270374fa1fa177a2789de7ec0f384d4cc"
+      }
+    },
+    "bun-reference-fixture": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/transpiler_sync.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1792,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "bun-reference-fixture.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/bun-reference-fixture.log",
+        "sha256": "ece517e21976eeb2a2848f728ea97cc069c32f5dc7ee97ec7fbb6b84b64023ff"
+      }
+    },
+    "focused-build": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-transpiler-sync",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1355792,
+      "memory_limit_mb": 3072,
+      "seconds": 37.829,
+      "log": "focused-build.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/focused-build.log",
+        "sha256": "b64aaaa7971e83add919c673c88ed891fae19129c1d73ab8120b70aa7fedf80b"
+      }
+    },
+    "full-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-transpiler-sync",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 219840,
+      "memory_limit_mb": 3072,
+      "seconds": 10.769,
+      "log": "full-zig-js.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/full-zig-js.log",
+        "sha256": "57b8450105c86ca66cbc2d2fde7ac2a62bdeadb43d91442c0054630d40b0b937"
+      }
+    },
+    "full-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-transpiler-sync",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1337424,
+      "memory_limit_mb": 3072,
+      "seconds": 40.08,
+      "log": "full-jsc.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/full-jsc.log",
+        "sha256": "d3a1dc35d9ec0c471a882242c10e5593d3e0c6cf4180dac3f321dedd464cf679"
+      }
+    },
+    "final-zig-js-fixture": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/home-zig-js/bin/home-tool",
+        "run",
+        "packages/runtime/test/tool_modules/transpiler_sync.mjs",
+        "--home-refusals"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 512,
+      "memory_limit_mb": 3072,
+      "seconds": 0.122,
+      "log": "final-zig-js-fixture.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/final-zig-js-fixture.log",
+        "sha256": "4ba0dade6e3940dc3b1596fb9069c71fe42e55df836205b476d889169ca8d08e"
+      }
+    },
+    "final-jsc-fixture": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/home-jsc/bin/home-tool",
+        "run",
+        "packages/runtime/test/tool_modules/transpiler_sync.mjs",
+        "--home-refusals"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 3648,
+      "memory_limit_mb": 3072,
+      "seconds": 0.043,
+      "log": "final-jsc-fixture.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/final-jsc-fixture.log",
+        "sha256": "4fcb39ac29fe1378d0a6ea731f180cee14370aae809005238d6aea5260ac0ae4"
+      }
+    },
+    "before-zig-js-unbundled": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/late-imports/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/consumer-probe.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/out-before-zig-js-unbundled"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.092,
+      "log": "before-zig-js-unbundled.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/before-zig-js-unbundled.log",
+        "sha256": "aa5aeefcdbc69e4b011baf96d4aa9562a2c167a29d74116d378ac0b03ef5f745"
+      }
+    },
+    "before-zig-js-bundle": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/late-imports/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/consumer-probe.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/out-before-zig-js-bundle",
+        "--bundle"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 6800,
+      "memory_limit_mb": 3072,
+      "seconds": 0.039,
+      "log": "before-zig-js-bundle.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/before-zig-js-bundle.log",
+        "sha256": "b2841383ef6a6a53d8743c26822a63bbc24aec9c93b9e68e8cd060df2cd6354c"
+      }
+    },
+    "after-zig-js-unbundled": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/consumer-probe.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/out-after-zig-js-unbundled"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5568,
+      "memory_limit_mb": 3072,
+      "seconds": 0.057,
+      "log": "after-zig-js-unbundled.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/after-zig-js-unbundled.log",
+        "sha256": "55f500c6dbe686196c00a07d495f23871ba1442c4fa5621b430c18fadbc66c5a"
+      }
+    },
+    "after-zig-js-bundle": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/consumer-probe.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/out-after-zig-js-bundle",
+        "--bundle"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 6336,
+      "memory_limit_mb": 3072,
+      "seconds": 0.038,
+      "log": "after-zig-js-bundle.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/after-zig-js-bundle.log",
+        "sha256": "01eee0f9131ed9a4192c788997a37dbe890c5cc7f03ff6efd6b5efffe304133b"
+      }
+    },
+    "after-jsc-unbundled": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/consumer-probe.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/out-after-jsc-unbundled"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5552,
+      "memory_limit_mb": 3072,
+      "seconds": 0.029,
+      "log": "after-jsc-unbundled.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/after-jsc-unbundled.log",
+        "sha256": "73cebf5abc366b83cf3ffb75bd366fc98cd39a2a8603f256e0b3f411e4751a52"
+      }
+    },
+    "after-jsc-bundle": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/consumer-probe.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/out-after-jsc-bundle",
+        "--bundle"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5856,
+      "memory_limit_mb": 3072,
+      "seconds": 0.025,
+      "log": "after-jsc-bundle.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/after-jsc-bundle.log",
+        "sha256": "0a46a483d9b3658e63bfedf73872e26ae30c96af60084bfc73ed75b34c4023fc"
+      }
+    },
+    "bun-reference-unbundled": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/consumer-probe.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/out-bun-reference-unbundled"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 608,
+      "memory_limit_mb": 3072,
+      "seconds": 0.031,
+      "log": "bun-reference-unbundled.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/bun-reference-unbundled.log",
+        "sha256": "b70404fd1fe53fe6d0e85407969aeba9fda03635ab557e439b95a7bc86a56b7a"
+      }
+    },
+    "bun-reference-bundle": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/consumer-probe.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/out-bun-reference-bundle",
+        "--bundle"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.025,
+      "log": "bun-reference-bundle.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/bun-reference-bundle.log",
+        "sha256": "6f6f0e65e109d3ef48064d792dba1fc477e0aa00ed864a0a548a4ccf87d006b4"
+      }
+    },
+    "suite-python": {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 130736,
+      "memory_limit_mb": 3072,
+      "seconds": 3.607,
+      "log": "suite-python.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/suite-python.log",
+        "sha256": "337fe1c7f286ab862c24fe5cbf1d20c1f7051f39451107a1c8813d721c689535"
+      }
+    },
+    "suite-dependencies": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "tests/dependencies.test.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 26928,
+      "memory_limit_mb": 3072,
+      "seconds": 0.313,
+      "log": "suite-dependencies.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/suite-dependencies.log",
+        "sha256": "970b0ac68f7ee3cf0f6f4c50467407896fd5275a1efb4a959671ff52333a5d0a"
+      }
+    },
+    "actionlint": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 144,
+      "memory_limit_mb": 3072,
+      "seconds": 0.027,
+      "log": "actionlint.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/actionlint.log",
+        "sha256": "ced4ef22c1d35f09ae59485530a642b7901226a76430b40a394208ab4282b0db"
+      }
+    },
+    "python-syntax": {
+      "argv": [
+        "python3",
+        "-m",
+        "compileall",
+        "-q",
+        "scripts",
+        "tests"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 992,
+      "memory_limit_mb": 3072,
+      "seconds": 0.061,
+      "log": "python-syntax.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/python-syntax.log",
+        "sha256": "7ae10556d3b5a4da106157a7da5a8c93252a2b69e71a057b2a0894d1bb721bae"
+      }
+    },
+    "final-bun-fixture": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.026,
+      "log": "final-bun-fixture.log",
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "packages/runtime/test/tool_modules/transpiler_sync.mjs"
+      ],
+      "raw_log": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/final-bun-fixture.log"
+    }
+  },
+  "focused_checks": {
+    "before": "Both old Home providers reject constructor before the fixture body: zero of20 checks execute. Reference Bun executes the standalone typed transform successfully.",
+    "after": "Both Home providers execute20/20 actual checks and16 unsupported/refusal checks. Initial reference fixture18/20 retained; final reference19/20 after accepting genuine Error rather than requiring SyntaxError for Bun BuildMessage.",
+    "reference_difference": "Bun1.4.4 removes the use-strict directive and returns a global receiver for the emitted function. Keep the strict-execution expectation and failed Bun check; do not weaken the emitted Home behavior."
+  },
+  "actual_consumer": {
+    "source": {
+      "path": "resources/components/ContextMenu.stx",
+      "sha": "8447baa4529bac8432a38b8f5018c7aac633367e",
+      "size": 303,
+      "html_url": "https://github.com/stacksjs/stacks/blob/f5778951c8e005817118310bc78288283a1f019c/resources/components/ContextMenu.stx"
+    },
+    "stacks_sha": "f5778951c8e005817118310bc78288283a1f019c",
+    "published_stx_version": "0.2.842",
+    "component_library_sha256": "f16393cbd4c91e2cf508e89dfb8e79c1c2ad55119aebd641d92bf616b4599ddb",
+    "frozen_source_sha256": "bd9daeef56642bc45cf7c9ee5cabc7235a9ff7e2602b10dc2438c17902539888",
+    "probe": {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/consumer-probe.mjs",
+      "sha256": "f3fe351392ec5be2650fd1c44ede237d6a3d01b100ad5e0196318226d8fa26e8"
+    },
+    "matched_results": [
+      {
+        "components": 1,
+        "files": 9,
+        "html": "<stx-context-menu id=\"actual-context-menu\"><div class=\"context-menu\" id=\"actual-context-menu\" style=\"display: none;\">\n    <span>Real slot</span>\n  </div></stx-context-menu>",
+        "generatedClassLoaded": true
+      },
+      {
+        "components": 1,
+        "files": 9,
+        "html": "<stx-context-menu id=\"actual-context-menu\"><div class=\"context-menu\" id=\"actual-context-menu\" style=\"display: none;\">\n    <span>Real slot</span>\n  </div></stx-context-menu>",
+        "generatedClassLoaded": true
+      }
+    ],
+    "scope": "One frozen actual ContextMenu source using published STX. Its legitimate unbundled configuration emits9files, loads the generated class and renders matching SSR HTML under zig-js and Bun. No DOM or full Stacks build/test execution claim.",
+    "remaining_failures": "Both Home providers with bundle=true advance to missing Bun.build and remain failed; native Bun bundling succeeds. JSC unbundled probe emits files but later fails the linked URL constructor guard at pathToFileURL, retained as failed. No URL shim or missing bundle replacement."
+  },
+  "suite_change": "Config pins pushed Home5a6408 and Linux explicitly executes/prints twenty checks and sixteen refusals; all existing inventories, failure evidence and matrix scope retained.",
+  "caller_pin_unchanged": "9e9bfba5ea11a91fb67c42227d8cd9ef4781210b",
+  "limits": [
+    "No engine src change or test262 execution; flips0test262cases.",
+    "Maintained zig-js full graph261/261passes; basic JSC full graph234/259with21failures remains red.",
+    "No full Bun.Transpiler compatibility, non-ts loader, asynchronous transform, scanning, bundling or full package pass.",
+    "Latest all-selected Root363e run remains covered; local a7b proof does not retroactively qualify the separate GC/inventory changes.",
+    "Caller must remain at qualified9e9bfba until new immutable Linux runtime/artifact/both-priority provenance and CPU preflights pass. Never promote evidence-only descendants."
+  ]
+}
