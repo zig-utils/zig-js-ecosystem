@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "status": "reproduced; unfixed; validation waiting for disk capacity",
+  "consumer_evidence": {
+    "run": 43203788373,
+    "job": 131139328466,
+    "repository": "home-lang/home",
+    "consumer_sha": "b329eba288006768e81fe43883a76d8a0bccde82",
+    "engine_sha": "91d1f6e6d1fdd1ef24a0bc6900d334c7df0bdfbc",
+    "label": "packages/runtime/upstream/bench/ffi/src: build",
+    "status": "failed",
+    "log_sha256": "8163fdded4272eab8433de93b097d2641922024e65b2c17491c2e8f232be830e",
+    "log": "$ [\"/bin/sh\", \"-c\", \"bun run build:napi && bun run build:ffi\"]\n/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/ffi/src/node_modules/@napi-rs/cli/scripts/index.js:1008135: 'returns' tag already specified. (TS1223)\nhome-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/bench/ffi/src/node_modules/@napi-rs/cli/scripts/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 83664 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+    "full_package_pass": false
+  },
+  "minimal_source": {
+    "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/duplicate-returns.cjs",
+    "sha256": "b84845d1b4a02b855ccbb855f83e2a42d15ae4edabf5ca83b2ccba3a3d395737",
+    "text": "/**\n * @returns {number} first\n * @returns {number} second\n */\nfunction answer() { return 42; }\nif (answer() !== 42) throw new Error(\"wrong body\");\nconsole.log(\"JSDOC BODY 42\");\n"
+  },
+  "references_and_providers": {
+    "zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bunpress-module-syntax/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/duplicate-returns.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.389,
+      "log": "zig-js.log",
+      "raw_log_sha256": "f195c0c80770eab07ecf002992dec4d557ccd7a199a97dec5bbddb1f3bfe5cad",
+      "raw_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bunpress-module-syntax/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/duplicate-returns.cjs\"]\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/duplicate-returns.cjs:35: 'returns' tag already specified. (TS1223)\nhome-tool (zig-js): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/duplicate-returns.cjs\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bunpress-module-syntax/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/duplicate-returns.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 112,
+      "memory_limit_mb": 3072,
+      "seconds": 0.044,
+      "log": "jsc.log",
+      "raw_log_sha256": "3d960c26384dd22fef173bbf3a5e381321d20e7cfa86c7f3e407afa7682ae4a5",
+      "raw_log": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bunpress-module-syntax/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/duplicate-returns.cjs\"]\n/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/duplicate-returns.cjs:35: 'returns' tag already specified. (TS1223)\nhome-tool (jsc): Error: cannot emit module /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/duplicate-returns.cjs\n\nECOSYSTEM PEAK SAMPLED RSS: 112 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "node": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/duplicate-returns.cjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 816,
+      "memory_limit_mb": 3072,
+      "seconds": 0.062,
+      "log": "node.log",
+      "raw_log_sha256": "3a758eeb465e630ef0c91019e1ac37e31ef27abaa79be4b2a1f2019cdd1837fb",
+      "raw_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/duplicate-returns.cjs\"]\nJSDOC BODY 42\n\nECOSYSTEM PEAK SAMPLED RSS: 816 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/duplicate-returns.cjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 384,
+      "memory_limit_mb": 3072,
+      "seconds": 0.018,
+      "log": "bun.log",
+      "raw_log_sha256": "485b3bae4e352e0ef5a5a5c8b8105c8eee0cdf8e032aca882ecfd3d17fee1dba",
+      "raw_log": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/duplicate-returns.cjs\"]\nJSDOC BODY 42\n\nECOSYSTEM PEAK SAMPLED RSS: 384 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "finding": "Valid JavaScript containing duplicate @returns tags executes on Node and Bun. Both Home providers reject it with TS1223 before body execution. This independently reproduces the JSDoc diagnostic in the actual bundled @napi-rs/cli source; it does not establish that the whole CLI would execute after a fix.",
+  "code_path": {
+    "parser": "packages/ts_parser/src/ts_parser.zig: parseSourceFile calls reportJSDocTypeArgumentSyntaxDiagnostics",
+    "driver": "packages/ts_driver/src/ts_driver.zig: emitPreparedSource refuses isSyntactic diagnostics, including the comment diagnostic",
+    "host": "packages/runtime/src/jsc/tool_modules.zig: emitModule prepares and emits source",
+    "intended_scope": "Separate runtime comment diagnostics from checked compiler diagnostics, preserving real lexer/parser errors and zero body execution for invalid source. No implementation change yet."
+  },
+  "disk": {
+    "free_bytes_at_recording": 363737088,
+    "known_task_cache_kib": 762740,
+    "known_task_compiler_cache_kib": 241436,
+    "reason": "Insufficient local space for a safe new build/validation cycle; all known task caches combined would recover less than 1 GiB and clearing the active compiler cache would force cold rebuild. No foreign files or historical evidence removed.",
+    "required_user_action": "Free a few GB on this volume; then implement and validate against both providers plus compiler diagnostic and invalid-syntax controls."
+  },
+  "production_changes": false,
+  "caller_pin": "2e215bc8c13f432205f8f0a5dbbbcd41f883bb62",
+  "all_selected_run": 43206536404,
+  "raw_directory": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit"
+}
