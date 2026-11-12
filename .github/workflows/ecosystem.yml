@@ -149,6 +149,8 @@ jobs:
           zig-out/bin/home-tool run packages/runtime/test/tool_modules/arrow_object_heads.mts
           zig-out/bin/home-tool run packages/runtime/test/tool_modules/conditional_arms.mts
           zig-out/bin/home-tool run packages/runtime/test/tool_modules/compact_type_closers.mts
+          zig-out/bin/home-tool run packages/runtime/test/tool_modules/vm_script.mjs
+          zig-out/bin/home-tool run packages/runtime/test/tool_modules/vm_refusals.mjs
           python3 packages/runtime/test/tool_cpu_info_fixture.py zig-out/bin/home-tool packages/runtime/test/tool_modules/node_cpu_information.mjs
       - name: Package runtime and immutable provenance
         env:
