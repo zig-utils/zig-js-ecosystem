@@ -1,0 +1,339 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-12T20:42:32.254308+00:00",
+  "status": "Real Linux statx descriptor boundary repair pushed; fresh Linux runtime execution still pending",
+  "home_ref": "c056ef69c2c55bfbe7a66a348d4bb9d456e3180e",
+  "home_url": "https://github.com/home-lang/home/commit/c056ef69c2c55bfbe7a66a348d4bb9d456e3180e",
+  "home_tree": "8a1d6fa1a383008368cbbf961ba2363a81803ed9",
+  "preserved_foreign_parent": "627d6b7898396c369ed3a946498f19fb48d0c5e3",
+  "foreign_work": "Preserved independent nullish arithmetic checker/oracle commits; original Home/lang worktree and index untouched.",
+  "source_file": {
+    "path": "packages/runtime/src/jsc/tool_fs.zig",
+    "git_blob": "8170263e47ab333fdfcd98b267c8729eadaf02ca",
+    "sha256": "b7b5ff992cc374509f54830045796d6740814d74bdf4e5e7b9ed75cf85a4cde0"
+  },
+  "failed_qualification": {
+    "run": 43281957339,
+    "url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/43281957339",
+    "functional_suite": "81d4c9a23f351f1eb45c0a0eb1772c68bdd605d1",
+    "engine_sha": "095858da320906973eedbb148125c5f6bca3eed1",
+    "home_ref": "325bb00651dfb395c397016f60db086f0826066a",
+    "runtime_job": 131406543736,
+    "actual_errors": [
+      "2026-11-12T18:48:48.7911821Z packages/runtime/src/jsc/tool_fs.zig:342:18: error: type 'void' not a function",
+      "2026-11-12T18:48:48.7918453Z packages/runtime/src/jsc/tool_fs.zig:358:36: error: type 'void' does not support field access"
+    ],
+    "runtime_log_sha256": "b7bdd1568c3885617358db9290252f6c07b87e3dba8e793e4cd00c7c3aa4aaef",
+    "report_job": 131411447989,
+    "actual_report": "0/4 consumers reported; 0 failing, 4 missing",
+    "report_log_sha256": "e2e8da0cc28fff19e7463f51297b210f6f52d948a89a902e38a27f15ff1a87b1",
+    "actual_artifacts": [
+      {
+        "id": 13974172855,
+        "name": "ecosystem-report",
+        "digest": "sha256:f542bf1a2aa35ee7c8a6cca3a23c68b6b7b6bf840623910a7ef78428e833e1b5",
+        "size_in_bytes": 14332
+      },
+      {
+        "id": 13973501353,
+        "name": "ecosystem-inventory",
+        "digest": "sha256:5a0e4a681990dd5d2ec9059c7831ddfc623028b7770e1d0f8c11a4666e2b8eab",
+        "size_in_bytes": 13424
+      }
+    ],
+    "runtime_artifact_created": false,
+    "consumer_execution": "Skipped because Home compilation failed; no package results or preflight passes inferred."
+  },
+  "reproduction": "Before production copy functions extracted unchanged and forced through exported entry: pinned Zig0.18 Linux x86_64 compile fails with the same two void fstat/Stat diagnostics. After actual production subset compiles to real object files for x86_64-linux-gnu, aarch64-linux-gnu and aarch64-macos. These are cross-compile checks, not Linux execution.",
+  "repair": "Linux std.c.statx(fd, empty path, AT_EMPTY_PATH) checks actual open descriptor TYPE/MODE/INO mask. Missing metadata returns explicit unsupported. Actual kernel errors propagate. Full device major/minor pair plus64-bit inode compared before truncation. Other platforms keep actual fstat.",
+  "local_runtime": {
+    "engine_sha": "a7b0fdfd2e9caa6a9e822d911dd8a390e21babf1",
+    "archive_sha256": "3b182ee48ac27e763c308b16276e5330e552906f82d82336907f7389ce1b03ed",
+    "profile": "Darwin ReleaseSafe, separate from pending exact095858da Linux qualification",
+    "zig_js": "277/277 graph steps;10/10 freshly executed native tests;43 physical filesystem groups and16 exception/fatal/liveness children passed",
+    "jsc": "250/275 graph steps,21 known failures;43 physical filesystem groups and16 children passed"
+  },
+  "jsc_failed_command_comparison": {
+    "added": [],
+    "removed": [],
+    "scope": "Normalize physical binary paths; union of preceding full-JSC saved transcripts accounts for cached expected-nonzero children. Bounded host failure-command comparison only."
+  },
+  "receipts": {
+    "zig-fmt": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "fmt",
+        "--check",
+        "packages/runtime/src/jsc/tool_fs.zig"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 9360,
+      "memory_limit_mb": 3072,
+      "seconds": 0.041,
+      "log": "zig-fmt.log",
+      "log_sha256": "c1f66d798c54ea60d25461829b7be093c0a761e1443c812265e081a89ed301ec",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "before-cross-x86_64": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build-obj",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-linux/before-production-copy.zig",
+        "-target",
+        "x86_64-linux-gnu",
+        "-lc",
+        "-fno-emit-bin"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 76416,
+      "memory_limit_mb": 3072,
+      "seconds": 0.368,
+      "log": "before-cross-x86_64.log",
+      "log_sha256": "1ad5205adadb915ce8adaf16ba4228bd339ec8079fd93b9e282046aaae6a50e3",
+      "actual_signals": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-linux/before-production-copy.zig:31:18: error: type 'void' not a function",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-linux/before-production-copy.zig:47:36: error: type 'void' does not support field access",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "after-cross-aarch64-linux-gnu": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build-obj",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-linux/after-production-copy.zig",
+        "-target",
+        "aarch64-linux-gnu",
+        "-lc",
+        "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-linux/aarch64-linux-gnu.o"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 222336,
+      "memory_limit_mb": 3072,
+      "seconds": 1.454,
+      "log": "after-cross-aarch64-linux-gnu.log",
+      "log_sha256": "c51f3c0c9601884c0ddf3c0e29465e281b2b523225ee660af3ea685d0298dcda",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "after-cross-aarch64-macos": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build-obj",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-linux/after-production-copy.zig",
+        "-target",
+        "aarch64-macos",
+        "-lc",
+        "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-linux/aarch64-macos.o"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 213296,
+      "memory_limit_mb": 3072,
+      "seconds": 1.506,
+      "log": "after-cross-aarch64-macos.log",
+      "log_sha256": "897d675b754ff712c8fbca2995cb9aa7c092bcedf88e93332c3c072437103a9a",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "full-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-linux/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 758320,
+      "memory_limit_mb": 3072,
+      "seconds": 50.104,
+      "log": "full-jsc.log",
+      "log_sha256": "b7dfb8f635a4f333ffd8a6e3077e21ca15d87760afd25a8cf8128c90581fdc03",
+      "actual_signals": [
+        "error: ========= expected this stdout: =========",
+        "error: process exited with code 1",
+        "error: process exited with code 1",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: process exited with code 1",
+        "FS MUTATION RESULTS {\"groups\":43,\"passed\":43,\"failures\":[],\"doubleCallbacks\":[]}",
+        "NATIVE FS MUTATION BYTES/INODES/LINKS/PERMISSIONS VERIFIED {\"source_bytes\": 1048593, \"sha256\": \"93513902ca696d5666cfebbe008c992048a8c04aec93f5c62b732c165dbc9373\", \"hardlink_identity_preserved\": true, \"symlink_entry_preserved\": true}",
+        "FS MUTATION 16 EXCEPTION/FATAL/LIVENESS CHILDREN OK",
+        "error: ========= expected this stdout: =========",
+        "error: ========= expected this stdout: =========",
+        "error: process exited with code 1",
+        "Build Summary: 250/275 steps succeeded (21 failed)",
+        "ECOSYSTEM RESULT: failed, exit 1"
+      ]
+    },
+    "after-cross-x86_64-linux-gnu": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build-obj",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-linux/after-production-copy.zig",
+        "-target",
+        "x86_64-linux-gnu",
+        "-lc",
+        "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-linux/x86_64-linux-gnu.o"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 111776,
+      "memory_limit_mb": 3072,
+      "seconds": 0.379,
+      "log": "after-cross-x86_64-linux-gnu.log",
+      "log_sha256": "f79247fe2b3d5a0fd2160b4b64f8e4deb201a12bf6cd5d79f198c08e4ebf8837",
+      "actual_signals": [
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    },
+    "full-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/callback-fs-linux/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1039824,
+      "memory_limit_mb": 3072,
+      "seconds": 55.806,
+      "log": "full-zig-js.log",
+      "log_sha256": "0ec5577d83776ef15bb677688a55a071292f382fe7684c720d637201550f5f6d",
+      "actual_signals": [
+        "FS MUTATION RESULTS {\"groups\":43,\"passed\":43,\"failures\":[],\"doubleCallbacks\":[]}",
+        "NATIVE FS MUTATION BYTES/INODES/LINKS/PERMISSIONS VERIFIED {\"source_bytes\": 1048593, \"sha256\": \"93513902ca696d5666cfebbe008c992048a8c04aec93f5c62b732c165dbc9373\", \"hardlink_identity_preserved\": true, \"symlink_entry_preserved\": true}",
+        "FS MUTATION 16 EXCEPTION/FATAL/LIVENESS CHILDREN OK",
+        "Build Summary: 277/277 steps succeeded; 10/10 tests passed",
+        "ECOSYSTEM RESULT: passed, exit 0"
+      ]
+    }
+  },
+  "source_snapshot_hashes": {
+    "before-production-copy.zig": "a66a841c2ed3d91d2c5867514f3f2d086505deb21c99047d58a627640aae1b0e",
+    "after-production-copy.zig": "a63df447193f3aca2e856a171e6301039c7d1de372832f22dda8bb3dbdb9bb08"
+  },
+  "cross_object_hashes": {
+    "aarch64-linux-gnu.o": "366928199b0bdb5b014f5df81d5364cf87a0b4c8b31a78e318f7d45752619f79",
+    "aarch64-macos.o": "0e38e59030f242bb8e6335670e352cec1991003b5b8b109c1e5faf99950499b8",
+    "x86_64-linux-gnu.o": "500b0a957e7c88fa8db2e3e00ea5a5745e941fe806297458386dba6404ff75bc"
+  },
+  "promotion": "Keep caller6fdda991cf886f8522b13e95a0e45abfabfedb7a until exact pushed new functional suite passes source validation, real Linux runtime fixture/artifact/provenance and4consumer preflights. No quota changes, skips, fake stat data or candidate Bun fallback.",
+  "suite_checks": {
+    "suite-python": {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 128064,
+      "memory_limit_mb": 3072,
+      "seconds": 4.061,
+      "log": "suite-python.log",
+      "log_sha256": "a3619207cce1711bee8db62b36d8682d912100154c95d5e4e40c24f90254852a"
+    },
+    "suite-dependencies": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "tests/dependencies.test.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 37312,
+      "memory_limit_mb": 3072,
+      "seconds": 1.669,
+      "log": "suite-dependencies.log",
+      "log_sha256": "2aea45062bea0059405236b48ac2df9fc919893e1416bbd41058fcbe4810f7ac"
+    },
+    "actionlint": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.028,
+      "log": "actionlint.log",
+      "log_sha256": "2d83d05058d9a5a71a9f35ce1058cfbba75d86aafa904bc66054d98660f1e0d2"
+    },
+    "python-syntax": {
+      "argv": [
+        "python3",
+        "-m",
+        "compileall",
+        "-q",
+        "scripts",
+        "tests"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1056,
+      "memory_limit_mb": 3072,
+      "seconds": 0.061,
+      "log": "python-syntax.log",
+      "log_sha256": "3a6bef271728ecbfc2fafe14e42fb47dd6084d4dae42b52c8b1e217f90cbd33b"
+    }
+  }
+}
