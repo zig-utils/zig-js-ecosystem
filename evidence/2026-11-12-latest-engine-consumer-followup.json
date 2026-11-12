@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "timestamp": "2026-11-12T07:52:39.395719+00:00",
+  "timestamp": "2026-11-12T08:09:35.106241+00:00",
   "repository": "zig-utils/zig-js",
   "run": 43171502877,
   "engine_sha": "363e8b8220f409bf1b9b98fc6410571100cccd9e",
@@ -456,10 +456,181 @@
           }
         }
       ]
+    },
+    {
+      "repository": "home-lang/home",
+      "consumer_sha": "04ab3064eb425eeb1f5ffebf7457745d4a83327a",
+      "engine_sha": "363e8b8220f409bf1b9b98fc6410571100cccd9e",
+      "home_ref": "04ab3064eb425eeb1f5ffebf7457745d4a83327a",
+      "scopes": 46,
+      "checks": 234,
+      "candidate": {
+        "timed-out": 1,
+        "unsupported": 37,
+        "passed": 9,
+        "failed": 40
+      },
+      "all_lanes": {
+        "candidate": {
+          "timed-out": 1,
+          "unsupported": 37,
+          "passed": 9,
+          "failed": 40
+        },
+        "direct-consumer": {
+          "passed": 4
+        },
+        "engine": {
+          "passed": 1
+        },
+        "reference": {
+          "not-run": 50
+        },
+        "reference-setup": {
+          "passed": 10,
+          "timed-out": 1,
+          "not-run": 32
+        },
+        "setup": {
+          "passed": 46,
+          "timed-out": 1,
+          "failed": 2
+        }
+      },
+      "artifact": {
+        "id": 13925460667,
+        "name": "ecosystem-results-1",
+        "digest": "sha256:d618d3f81ebb0dde7af86f91adf75bd45310daa105682a9b522d207fd371757b",
+        "size_in_bytes": 105191
+      },
+      "report_sha256": "6f0632e74d312a8f65d0bed7596137bd7fd7aad53c9ad8a73e3402350d022be4",
+      "provenance": {
+        "engine_sha": "363e8b8220f409bf1b9b98fc6410571100cccd9e",
+        "suite_ref": "9e9bfba5ea11a91fb67c42227d8cd9ef4781210b",
+        "home_repository": "home-lang/home",
+        "home_ref": "04ab3064eb425eeb1f5ffebf7457745d4a83327a",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "9c2b009e42ede773945668c14cb15d2fae9565602c53227c4e2e828e54401466",
+          "engine/zig-out/lib/libzig-js.a": "5fe3517dab45f14dbdbfb37be47150c0fd54a29adfa8275d42fbfb5e58c0c62a"
+        }
+      },
+      "comparison": {
+        "before_run": 43169880719,
+        "before_engine": "a7b0fdfd2e9caa6a9e822d911dd8a390e21babf1",
+        "before_report_sha256": "87e7d9541cf7df358528ac98c1a1c9c4f5d6e4e0f0f3942b30776cc03cd271aa",
+        "same_consumer_sha": true,
+        "same_home_ref": true,
+        "candidate_labels": 87,
+        "status_changes": 0,
+        "added_labels": 0,
+        "removed_labels": 0,
+        "scope": "Exact same-source candidate-label statuses only, including timeout and unsupported. No package or full-engine no-regression claim."
+      },
+      "actual_diagnostics": [
+        {
+          "check": {
+            "status": "timed-out",
+            "exit_code": 124,
+            "peak_sampled_rss_kib": 2017304,
+            "memory_limit_mb": 3072,
+            "seconds": 300.181,
+            "log": "0052.log",
+            "reason": "command time budget exhausted",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bunx bunpress build"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/latest-all-selected/ecosystem-results-1/home-lang--home/0052.log",
+            "sha256": "2537d4b8eca4abd34ea1b828ab15a9b47c716e5497e1de1697a7cb54136b3b3c",
+            "content": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 2017304 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: command time budget exhausted\n\nECOSYSTEM RESULT: timed-out, exit 124\n"
+          }
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 8444,
+            "memory_limit_mb": 3072,
+            "seconds": 0.108,
+            "log": "0058.log",
+            "label": "packages/action: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/home-lang--home/shims/bun",
+              "src/index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/action",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/latest-all-selected/ecosystem-results-1/home-lang--home/0058.log",
+            "sha256": "9338bb8ec33975cf15f683a12c320e9c6dedef056a1300528673e906124ac526",
+            "content": "$ [\"/home/runner/work/zig-js/zig-js/.work/home-lang--home/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module https from /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/action/src/index.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 8444 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 136708,
+            "memory_limit_mb": 3072,
+            "seconds": 0.473,
+            "log": "0062.log",
+            "label": "packages/registry: test",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "jest"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/registry",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/latest-all-selected/ecosystem-results-1/home-lang--home/0062.log",
+            "sha256": "f812335ef47c26ddc7a974db743f02ab46f67102c308f450c461b796d1bc058c",
+            "content": "$ [\"/bin/sh\", \"-c\", \"jest\"]\nSyntaxError: Unexpected token\n    at <anonymous> (home:tool-module-install:253:7)\n    at evaluateSync (home:tool-module-install:272:7)\n    at load (home:tool-module-install:374:5)\n    at <anonymous> (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/registry/node_modules/%40babel/code-frame/lib/index.js?home-emitted:5:1)\n    at <anonymous> (home:tool-module-install:255:7)\n    at evaluateSync (home:tool-module-install:272:7)\n    at load (home:tool-module-install:374:5)\n    at <anonymous> (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/registry/node_modules/parse-json/index.js?home-emitted:6:1)\n    at <anonymous> (home:tool-module-install:255:7)\n    at evaluateSync (home:tool-module-install:272:7)\nUncaught unhandledRejection: SyntaxError: Unexpected token\n\nECOSYSTEM PEAK SAMPLED RSS: 136708 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 272820,
+            "memory_limit_mb": 3072,
+            "seconds": 0.583,
+            "log": "0071.log",
+            "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun run build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-tailwind",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/latest-all-selected/ecosystem-results-1/home-lang--home/0071.log",
+            "sha256": "35be399962ad8021ae88d015dfe4ca37a349a2cff870eaf209f8200ae0bf0460",
+            "content": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 272820 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        }
+      ]
     }
   ],
-  "observation": "Latest engine with separate GC/inventory changes retains all631Stacks statuses at identical source/Home:92passed,182failed,357unsupported. Inspected actual other-Home logs match already-known missing craft dependency, absent bundler/test scheduler and native Zig compiler API mismatch; empty inventories are not scored passes.",
-  "pending": "Latest Home priority still in progress at first observation. New Home5a6408 transform suite82a2fb4 qualifies separately in43177855243; runtime was building exact engine, so no new Linux success or caller promotion inferred.",
+  "observation": "Latest engine with separate GC/inventory changes retains all631Stacks statuses at identical source/Home:92passed,182failed,357unsupported. Inspected actual other-Home logs match already-known missing craft dependency, absent bundler/test scheduler and native Zig compiler API mismatch; empty inventories are not scored passes. Completed Home04 artifact now retains9passed/40failed/37unsupported/1timeout, with all87candidate statuses unchanged at identical Home source.",
+  "pending": "Old Home04 and Stacks priority reports on Root363e are complete, retaining all failures. Separate new Home5a6408 transform suite82a2fb4 is now Linux-runtime-qualified in43177855243 and promoted by callerf7025b02; its full-package commands and new all-selected43180226835 remain independent.",
   "preservation": "All selected repositories remain in the caller matrix; no old run cancelled, no failure hidden, no fake host or native Bun candidate fallback.",
   "notifications": "No new actionable failure or changed candidate status; this follow-up is quiet evidence maintenance."
 }
