@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-12T15:35:50.432614+00:00",
+  "run": 43240661047,
+  "status": "Latest validated caller priority jobs completed with known failures; full all-selected run continues",
+  "consumers": [
+    {
+      "repository": "stacksjs/stacks",
+      "sha": "8550375a656fa4616f4e18518231a648493ca4e3",
+      "engine_sha": "72d7abd6b27186471932d8d665c7c8c69615a390",
+      "suite_ref": "e8872b095d34115ec2a1424b7130d4d5e14e3dac",
+      "candidate_counts": {
+        "unsupported": 355,
+        "failed": 182,
+        "passed": 94
+      },
+      "report_sha256": "db7c8155f20b0239d839684911cb1653c97d05e24e357ff90029dfa0700eeb3d",
+      "artifact": {
+        "id": 13956124723,
+        "digest": "sha256:4ebe017a5ecba3646b4dbe97077ca02f53a334748668d4bbe6e288e764890e60",
+        "size_in_bytes": 1833039
+      },
+      "previous_qualifier_source": "470f534ea7ada95d59c56fa9ac0c61a9cab80c2a",
+      "candidate_label_status_sequence_equal": true,
+      "actual_logs": [
+        {
+          "label": ".: build",
+          "status": "failed",
+          "log_sha256": "89ded3dd016d5654589f6c24239de821732326e0ce1e6fd5ae7fd6aa5fc1ec2e",
+          "text": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-12T14:59:07.410Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 2535700 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ]
+    },
+    {
+      "repository": "home-lang/home",
+      "sha": "0c0b9a1bb8c3bfedd274d38e0aa25ba8e4c171b7",
+      "engine_sha": "72d7abd6b27186471932d8d665c7c8c69615a390",
+      "suite_ref": "e8872b095d34115ec2a1424b7130d4d5e14e3dac",
+      "candidate_counts": {
+        "timed-out": 1,
+        "unsupported": 37,
+        "passed": 9,
+        "failed": 40
+      },
+      "report_sha256": "12b710ae6290eb749aa274147112a8fe9168868be1e74cc4239964badc4474b4",
+      "artifact": {
+        "id": 13957017248,
+        "digest": "sha256:49915604d9921296f4164f00bc0d9cf4c921c26c6fe618dac41cba05e320ec46",
+        "size_in_bytes": 105163
+      },
+      "previous_qualifier_source": "0c0b9a1bb8c3bfedd274d38e0aa25ba8e4c171b7",
+      "candidate_label_status_sequence_equal": true,
+      "actual_logs": [
+        {
+          "label": ".: build",
+          "status": "timed-out",
+          "log_sha256": "a5efd4f457bfa698d9791e6e22ecf4d1e3d55aba80d50f85f1b29523cd094cd3",
+          "text": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 2006396 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: command time budget exhausted\n\nECOSYSTEM RESULT: timed-out, exit 124\n"
+        },
+        {
+          "label": "packages/registry: test",
+          "status": "failed",
+          "log_sha256": "8fa4ed77bdafcbaed5f706210af2fb3d1bcc6b2820bf7f9bf5862d0fe0364038",
+          "text": "$ [\"/bin/sh\", \"-c\", \"jest\"]\nSyntaxError: Unexpected token\n    at <anonymous> (home:tool-module-install:253:7)\n    at evaluateSync (home:tool-module-install:272:7)\n    at load (home:tool-module-install:374:5)\n    at <anonymous> (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/registry/node_modules/%40babel/code-frame/lib/index.js?home-emitted:5:1)\n    at <anonymous> (home:tool-module-install:255:7)\n    at evaluateSync (home:tool-module-install:272:7)\n    at load (home:tool-module-install:374:5)\n    at <anonymous> (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/registry/node_modules/parse-json/index.js?home-emitted:6:1)\n    at <anonymous> (home:tool-module-install:255:7)\n    at evaluateSync (home:tool-module-install:272:7)\nUncaught unhandledRejection: SyntaxError: Unexpected token\n\nECOSYSTEM PEAK SAMPLED RSS: 111268 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "label": "packages/runtime/upstream/bench/ffi/src: build",
+          "status": "failed",
+          "log_sha256": "40787c634ead80d7abe0d2bcaba872587f98c0eef299e19b8845bee7e561a714",
+          "text": "$ [\"/bin/sh\", \"-c\", \"bun run build:napi && bun run build:ffi\"]\nhome-tool (zig-js): Error: cannot resolve module string_decoder from /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/bench/ffi/src/node_modules/@napi-rs/cli/scripts/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 287604 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "label": "packages/runtime/upstream/packages/bun-build-mdx-rs: build",
+          "status": "failed",
+          "log_sha256": "753211951fef58c07d15e8865858abab9aeb55902d1b1eb381d7b5c936c3795c",
+          "text": "$ [\"/bin/sh\", \"-c\", \"napi build --platform --release\"]\nhome-tool (zig-js): Error: cannot resolve module string_decoder from /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/@napi-rs/cli/scripts/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 214208 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ]
+    }
+  ],
+  "comparison_limits": "Home source stays0c0b9a1bb; Stacks source moves8550375a. Engine changes50913-to72d7 and graphs are not established equivalent. Equal label/status sequences do not prove no regressions or full package compatibility.",
+  "decoder_qualification": {
+    "run": 43248806917,
+    "functional_suite": "9b2a5571158aac6a49d35b970c4992d4244b98c8",
+    "home_ref": "198c75ae8c3424be778d0649ed8bace93ed62f90",
+    "status": "queued at check-in; neither Linux runtime nor source validation claimed"
+  },
+  "caller_pin": "e8872b095d34115ec2a1424b7130d4d5e14e3dac",
+  "scope": "Latest caller reports use old validated Home0c0b9a1bb runtime. Their missing string_decoder failure cannot qualify or refute the new Home198 implementation. Every selected repository and old uncancelled run remains covered. No new failure notification is needed."
+}
