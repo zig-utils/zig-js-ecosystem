@@ -1,0 +1,2126 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-12T09:23:56.090881+00:00",
+  "status": "Home source extension resolution fixed, focused/full maintained gates validated and pushed; new suite qualification pending",
+  "home_ref": "5a731c4daebb965220f600cc28ef38f46ea8b083",
+  "home_url": "https://github.com/home-lang/home/commit/5a731c4daebb965220f600cc28ef38f46ea8b083",
+  "before_home": "5a6408d84d97e580bd770fbac783ee7f1b21ba54",
+  "before_local_binary_note": "Installed native before binaries were built at2275c2362; production runtime sources are unchanged at5a6408, which changes one test assertion only. Official failing consumer uses exact pushed5a6408.",
+  "local_pushed_engine": "a7b0fdfd2e9caa6a9e822d911dd8a390e21babf1",
+  "local_archive_sha256": "3b182ee48ac27e763c308b16276e5330e552906f82d82336907f7389ce1b03ed",
+  "profile": "Darwin native ReleaseSafe, same exact pushed archive before/after; distinct from current Linuxf702 archive",
+  "source_files": [
+    {
+      "path": "build.zig",
+      "git_blob": "508456bdc8b726ad6b5eb20b5d4d475d1fa6ef26",
+      "sha256": "f5675077d0143f4f9fc9418e2ce69f9494a87544db711ebf6cb16843a2c8f761"
+    },
+    {
+      "path": "packages/runtime/src/jsc/tool_modules.zig",
+      "git_blob": "166d2575539005a31667429b4b8b8785ef49cd7f",
+      "sha256": "436fb54b687354b4ad79d4a4a6041907208dd9526d5843f844625b8f5c3868fc"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/appended-js/dep.js.ts",
+      "git_blob": "fa785e76cda50b031b080a9a7e9dda5fe9ee0658",
+      "sha256": "ba69ddeebdbc32696ea4199eeb2524abe24bd79cd5c53e4cd9240cd4a9c4c4c4"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/appended-js/dep.ts",
+      "git_blob": "467da7603e32a219b83f584e543e08eb176241de",
+      "sha256": "3d4bc72c2ef9799e1af84fe0c90516ea7678c890d5ec62a6b758187beae35ed7"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/appended-mjs/dep.mjs.ts",
+      "git_blob": "8c9a5fd8394d5760e28fd321b9de147b36a538e9",
+      "sha256": "aa96a9b173bd258181e686e3e95eb50c08745134cf93d82fd339a06628fae8d2"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/appended-mjs/dep.mts",
+      "git_blob": "bd5bf32ee1814716a6de48fcdc10c1afb2acede7",
+      "sha256": "bc15042b13ff984090fdea7fec686bfda2e30503b217307dfea0fb7dd8bb38df"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/appended-tsx-js/dep.js.tsx",
+      "git_blob": "4211be790b08e3bd03f1fca1379ca1491bc45a70",
+      "sha256": "af4f45ca4c6f80280212846a3749171acb55cc482c4c383019456c6f2fc8a3f0"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/appended-tsx-js/dep.ts",
+      "git_blob": "d8ea4215fd72cbed0b8b10eedd2e8d37953630a0",
+      "sha256": "c86d85f40edb06736abf9c0fea832f35ff56198cd21a957677fdd09459c63eba"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/cases.json",
+      "git_blob": "b18cf81aaad9382361f4b232e5b4630cad5bb266",
+      "sha256": "4e203d8b5cfc0c279b0f47ad4039f68453622f193b3f7ccef765171b62de6d81"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/cjs-cts/dep.cts",
+      "git_blob": "dc0c30721f426fe61b17a96af0d6099a6be7b3da",
+      "sha256": "13583f3777bea6967a1471f8c56cd87e2e0f40cbf84182058b0158b479e88783"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/directory-js/dep.js/index.ts",
+      "git_blob": "9b93b6790f0fc7e7be686d8c033cc19cfe9e8520",
+      "sha256": "22df25a29d89516a7dba2a0b256870e3b6d0afda64f196605dcaebb738edae5b"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/directory-js/dep.ts",
+      "git_blob": "f2dd1c8ffde57147168ed849d285ae82cc344fa8",
+      "sha256": "b52f3a2fdf7843369315202c0d83665c280ac900144540a93de9990dfd8dd72e"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/dotted-js/dep.compiled.ts",
+      "git_blob": "63a7d04ad0737608d76288bf5db5589df2277945",
+      "sha256": "b649a10eeae86c13a8e31ce6c03767fa828e40d852b4bbe487366c51bd061c0c"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/entry.mjs",
+      "git_blob": "3307f3d596642ac17c3ace533d138f00b8055cc2",
+      "sha256": "b7c69348e9143ae085bbd415a3d7bfcb060181f8b4007bc97b58e05a6aef9cff"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/exact-cjs/dep.cjs",
+      "git_blob": "e3301b56e7a0c0addce9360d90d1d0af700ba533",
+      "sha256": "5109f6be5bae74821607166ef9605a2c7eac91d36446afc708aca2c38891239b"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/exact-cjs/dep.cts",
+      "git_blob": "f5c1797a4ef158f4b41a97fbe9be96c4fbb6ccb5",
+      "sha256": "717acccc05960ba152004787fa92344c38ef7854e14f86a84e756cc285f335e2"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/exact-js/dep.js",
+      "git_blob": "75b9e5eaa62ce12bcb73939ba44bd91ec4a6b02e",
+      "sha256": "24b550b50e674ca44a4b4ee6e20dbe964728156f1be1416183279c22f99ba667"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/exact-js/dep.ts",
+      "git_blob": "9e904aeca88d04ecf8bb11b004c693bf17616fba",
+      "sha256": "24eab604f28731bd483df3b36eefa0af25cdd8ecd53123983cc9f777837bd428"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/exact-jsx/dep.jsx",
+      "git_blob": "f6eb6002aae85965409c40b53f9869f0b069da54",
+      "sha256": "d9ebbff5c14a793ebb3b8051de7b85f38227059fb3ce0d1d7568a59ce083aeb9"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/exact-jsx/dep.tsx",
+      "git_blob": "cb77102c4b3a4177181b23f63cbfb0f3286f0c17",
+      "sha256": "6ddbb2c0e1a99dde6238c837bebc6b808243a2d011136fbcdd020978dd2cd5b6"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/exact-mjs/dep.mjs",
+      "git_blob": "5fe6fb8c8de36ac5f7b0d20270d154216fac1b02",
+      "sha256": "cd4c8864a11701a4d7c705cef941297fc1978d4a9ce03b0d42ecdb2e21178938"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/exact-mjs/dep.mts",
+      "git_blob": "03bb95929bb49c1e8fe9b2fa6814b330083db9a5",
+      "sha256": "f06d1af0b79e26b5fb0d004bdcbfcdc0527b421a96f6dabb657584c001e51489"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/expected.json",
+      "git_blob": "a418b8011daea79d0ec0634aaa6837b5f2ee6547",
+      "sha256": "b812302ee5451e95905471faa3eeca1bcbdfd7b0363173d7bf68e1d9110f717e"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/guards.mjs",
+      "git_blob": "6170393e72eacc00a820a5b10bceb54de347573b",
+      "sha256": "6e0e6fd505bfc7dd66d3ae3d3804db9b6649dba32b630b137ba42fa3f62a6d46"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/import-target.ts",
+      "git_blob": "732e0e60745d0c2c6b44f77b7e39def983dd433f",
+      "sha256": "3aaee8398d750bbfa3eb70f3a51950b19fd9dd755b7baca10abe478e36baafb0"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/js-both/dep.ts",
+      "git_blob": "45d290864b97d8a8bb5277b34cc98f953b280106",
+      "sha256": "7505b032bcab1fda6e2856814df73d732179ba77a4dd5d645b5eac713f3d1f8e"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/js-both/dep.tsx",
+      "git_blob": "c5a887f2ef377c83bd3c13a9243fbae518bd6c14",
+      "sha256": "44e954c5d474889278bfe923eaef8b92c618915844abc0be0fb61b75f3e370f2"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/js-ts/dep.ts",
+      "git_blob": "2bea41a443623682e0990e612cc198a4090fff6e",
+      "sha256": "c85baca8f65455dd34e415afdd844183ce4c83d0ab4f46a252f95efc2ad3853f"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/js-tsx/dep.tsx",
+      "git_blob": "d037d7aca6685b0bcddbd7952920f2b3ed714aff",
+      "sha256": "d8b0f61106413d77eea6fdfdf5a99666e25a42eb52c86d15b0de5340b35a7711"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/jsx-both/dep.ts",
+      "git_blob": "e0ac87b592eaf907f1c2f2ccd5be87674eb8f36f",
+      "sha256": "7b2b14a3e94fb5ba201abf8b4a320db08915a29c1d7a00ac3c28928b79da47f5"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/jsx-both/dep.tsx",
+      "git_blob": "4324a417387a6d46e8f6edcb21a868bdeaa28c69",
+      "sha256": "6d7e854702b5b302e6de94a7dfe68098a6efac08e4ebd55158f64beb841060ae"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/jsx-ts/dep.ts",
+      "git_blob": "d7925a13bc166ad893dc81a293cdacd6336502ce",
+      "sha256": "baabad3bc52a99f88259dfc85b05c0d0e4facc4678ae73ea4e30ce3a932ec056"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/jsx-tsx/dep.tsx",
+      "git_blob": "006d726cd19532598aee41a3e116f6584ed1f062",
+      "sha256": "63d5c3bc815d8e25246c9f4fd4ce284d3aa6e85407be78408af239b402b25131"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/mjs-mts/dep.mts",
+      "git_blob": "b8d8442591e2c0a1c7e9be769bb58b99665faf9b",
+      "sha256": "35f5d8736ea75585dce5c57c5a8b2a6a3b42898b3ce6aa8a4f3e29a2513d4931"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/modules-cjs/node_modules/pkg/dep.cts",
+      "git_blob": "b78832ba9e86b521aae463ffc9ae1f73d89ab94e",
+      "sha256": "509502a63629dfa641b61ee77ee6e771d48286b60a385f4f8a5abfb40e35eef7"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/modules-js/node_modules/pkg/dep.ts",
+      "git_blob": "67dcd0397d5ad3c0ba516a45ef801e26c3322e88",
+      "sha256": "d3bb377ab36a51b89b4603a4e7d7eabab0af350bb4478e391a4ea93841529a95"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/modules-jsx/node_modules/pkg/dep.tsx",
+      "git_blob": "7bf92b5fc27b797ef37d9e98064bb41e8167e447",
+      "sha256": "06f7106e8854506e2a5832070cb3f5851d383d96e7c906c9b64ec9be68e0cdfa"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/modules-lookalike/node_modules_x/dep.mts",
+      "git_blob": "264e9ac0fd5e5d8f1567284c277a2bd31cdf0fcb",
+      "sha256": "0909094c4fd6b4d9db282f6f2bc7995d1cb1df9cb364e1a69f298dec31c54dee"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/modules-mjs/node_modules/pkg/dep.mts",
+      "git_blob": "041fdf0308f2395a9c5cc46c939718f4f94af158",
+      "sha256": "9279c323fbd82962938fd94a872d4ceb5337c479b9255687f745d1ef07f5e58f"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/node_modules/blocked/hidden.ts",
+      "git_blob": "5dbbe43ce242add90ae6334f894f6cce2bde74bb",
+      "sha256": "5bba470a17cbc10d4ec8153bb7b9f75306e3d4ee32cc1d827d2135158987d7bc"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/node_modules/blocked/index.js",
+      "git_blob": "5dbbe43ce242add90ae6334f894f6cce2bde74bb",
+      "sha256": "5bba470a17cbc10d4ec8153bb7b9f75306e3d4ee32cc1d827d2135158987d7bc"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/node_modules/blocked/package.json",
+      "git_blob": "023af19d0e70b7c714843c8d1760d513560f2ddb",
+      "sha256": "aa88773cf49fff3a2fec0b6820390280a457663685f1e2dd8a2c329da4344118"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/node_modules/strict-exports/entry.ts",
+      "git_blob": "5dbbe43ce242add90ae6334f894f6cce2bde74bb",
+      "sha256": "5bba470a17cbc10d4ec8153bb7b9f75306e3d4ee32cc1d827d2135158987d7bc"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/node_modules/strict-exports/package.json",
+      "git_blob": "76c37d4f74091f7d8e94e86f0d674c3ff001760b",
+      "sha256": "df080e31fd82009af1a7db885413f22b9057660f676798fbf8820d8b136b57eb"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/package.json",
+      "git_blob": "d68ae3f253604b4c6101a8857e170966997d5740",
+      "sha256": "45a1586c0a38f91b5e9bd5b2271969d541db68f5f95790090d46322e07effd48"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/space-js/hello world.ts",
+      "git_blob": "2e834ce611c66f16539931010c1500995ce3bed9",
+      "sha256": "537fda0fe10cf4c4730b3c7f9f63f0e8d881fd35c2df287c8274600f4eb752ec"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/unicode-js/\u03a9.ts",
+      "git_blob": "f917963983bf5f3ca47d73ca91a4539ed8c0cee2",
+      "sha256": "5610d4974ae6982fa02cbe59f0044a29b03c53df5a22c057ebc07a89d30507ef"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/js_extension_resolution/upper-js/dep.ts",
+      "git_blob": "de041b83c11ebd133393854d96334293ae4e74c2",
+      "sha256": "5df39ed13d78c85bcbf7bb2aac1b55fc61a47f26146ca86ce93d2f25741f13d0"
+    }
+  ],
+  "official_clapp_failure": {
+    "repository": "stacksjs/clapp",
+    "consumer_sha": "2ecc2af97d33f59ad5d22abe399392793d8de63d",
+    "scopes": 2,
+    "checks": 24,
+    "candidate": {
+      "failed": 3,
+      "unsupported": 4,
+      "passed": 2
+    },
+    "artifact": {
+      "id": 13928961436,
+      "name": "ecosystem-results-38",
+      "digest": "sha256:d9a63eb37c930cd722de817a2e7895b100e171f4b09dc1589df22112344d53fa",
+      "size_in_bytes": 37838
+    },
+    "report_sha256": "d01aa2d6d084505734416aad80300214bd9e90639f3c02f7f64cd8dca8d94b64",
+    "actual_initialization_failures": [
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 8952,
+          "memory_limit_mb": 3072,
+          "seconds": 0.07,
+          "log": "0012.log",
+          "label": "packages/ts: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--clapp/shims/bun",
+            "src/index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--clapp/candidate/packages/ts",
+          "engine_invocations": 1
+        },
+        "raw_log": {
+          "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/other-stacks-f702/ecosystem-results-38/stacksjs--clapp/0012.log",
+          "sha256": "40a248857aa87731ac209ce99f4f8119e1447a6124bce6db08aa031f626b988e",
+          "content": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--clapp/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module ./common.js from /home/runner/work/zig-js/zig-js/.work/stacksjs--clapp/candidate/packages/ts/src/prompts/autocomplete.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 8952 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      }
+    ]
+  },
+  "other_stacks_reports": [
+    {
+      "repository": "stacksjs/browser",
+      "consumer_sha": "61ee57e09171ebd2ce9cd649f73dba3c7e608589",
+      "scopes": 7,
+      "checks": 50,
+      "candidate": {
+        "failed": 6,
+        "passed": 3,
+        "unsupported": 12
+      },
+      "artifact": {
+        "id": 13929081158,
+        "name": "ecosystem-results-28",
+        "digest": "sha256:15420080146a3accb7f24ec2338572f3af85319369068b0312a532fa5d35b152",
+        "size_in_bytes": 118034
+      },
+      "report_sha256": "21eb62e441b97b508fd1b6eb6c8b4a8742a34e57a5c60c21328e5b8307800aaf",
+      "actual_initialization_failures": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 8752,
+            "memory_limit_mb": 3072,
+            "seconds": 0.108,
+            "log": "0029.log",
+            "label": "storage/framework/server: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--browser/shims/bun",
+              "src/index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--browser/candidate/storage/framework/server",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/other-stacks-f702/ecosystem-results-28/stacksjs--browser/0029.log",
+            "sha256": "eb077fa86b9cb9955a6bf881040d0ff88623fee102f4e9de2c049a97fe7d3a29",
+            "content": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--browser/shims/bun\", \"src/index.ts\"]\nhome-tool tsconfig: extended tsconfig is missing: ../core/tsconfig.json\nhome-tool (zig-js): Error: Cannot resolve @stacksjs/logging/runtime from /home/runner/work/zig-js/zig-js/.work/stacksjs--browser/candidate/storage/framework/server/src/index.ts: InvalidRuntimeConfig\n\nECOSYSTEM PEAK SAMPLED RSS: 8752 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        }
+      ]
+    },
+    {
+      "repository": "stacksjs/buddy",
+      "consumer_sha": "98b2c570bddba7a28da3fc23eada297557eff2b9",
+      "scopes": 1,
+      "checks": 19,
+      "candidate": {
+        "failed": 2,
+        "unsupported": 4,
+        "passed": 1
+      },
+      "artifact": {
+        "id": 13929081158,
+        "name": "ecosystem-results-28",
+        "digest": "sha256:15420080146a3accb7f24ec2338572f3af85319369068b0312a532fa5d35b152",
+        "size_in_bytes": 118034
+      },
+      "report_sha256": "f51b9d803ef1482ef19fbd7cce615023b962b6df60e9d4eef14ff7ae82aba16f",
+      "actual_initialization_failures": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 48260,
+            "memory_limit_mb": 3072,
+            "seconds": 0.256,
+            "log": "0009.log",
+            "label": ".: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--buddy/shims/bun",
+              "src/index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--buddy/candidate",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/other-stacks-f702/ecosystem-results-28/stacksjs--buddy/0009.log",
+            "sha256": "00935d0adbee8209df1a88f450517e290c5c62d9799560fc9b08d9e81377baf1",
+            "content": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--buddy/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module node:https from /home/runner/work/zig-js/zig-js/.work/stacksjs--buddy/candidate/node_modules/ts-pantry/dist/chunk-9656334h.js\n\nECOSYSTEM PEAK SAMPLED RSS: 48260 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        }
+      ]
+    },
+    {
+      "repository": "stacksjs/bun-unocss-issue",
+      "consumer_sha": "a6b62aa7b3eabb09236bdb61f6008aef0f47be75",
+      "scopes": 1,
+      "checks": 12,
+      "candidate": {
+        "failed": 2
+      },
+      "artifact": {
+        "id": 13929310276,
+        "name": "ecosystem-results-35",
+        "digest": "sha256:3be416e38fb90130e6458f2e5f799ff961897e3e8bc885d148cb2a41a99f29ad",
+        "size_in_bytes": 36928
+      },
+      "report_sha256": "01973fc054ff11eb6f2e50b62746347689185c027f56473f88f2b5224cb0eebf",
+      "actual_initialization_failures": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 8808,
+            "memory_limit_mb": 3072,
+            "seconds": 0.071,
+            "log": "0007.log",
+            "label": ".: module initialization src/main.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun-unocss-issue/shims/bun",
+              "src/main.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun-unocss-issue/candidate",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/other-stacks-f702/ecosystem-results-35/stacksjs--bun-unocss-issue/0007.log",
+            "sha256": "a4fb26537066d8681db8595cc5a6e668bf5f3b16a321ed9b4fd257909b97e09d",
+            "content": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--bun-unocss-issue/shims/bun\", \"src/main.ts\"]\n/home/runner/work/zig-js/zig-js/.work/stacksjs--bun-unocss-issue/candidate/src/assets/main.css:1: Expression expected. (TS1109)\nhome-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js/zig-js/.work/stacksjs--bun-unocss-issue/candidate/src/assets/main.css\n\nECOSYSTEM PEAK SAMPLED RSS: 8808 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        }
+      ]
+    },
+    {
+      "repository": "stacksjs/bunfig",
+      "consumer_sha": "be1f738e97cf91f7709c1a09187cc9ab8c845dce",
+      "scopes": 2,
+      "checks": 30,
+      "candidate": {
+        "failed": 2,
+        "unsupported": 10,
+        "passed": 3
+      },
+      "artifact": {
+        "id": 13929310276,
+        "name": "ecosystem-results-35",
+        "digest": "sha256:3be416e38fb90130e6458f2e5f799ff961897e3e8bc885d148cb2a41a99f29ad",
+        "size_in_bytes": 36928
+      },
+      "report_sha256": "8329ddaa0404c47e155fd8478c32f6d21ba9e6f78cca22e5cf02541761f95a5b",
+      "actual_initialization_failures": []
+    },
+    {
+      "repository": "stacksjs/bunpress",
+      "consumer_sha": "e7b328e3fd3db76ff92ce52649e9f13c6f811fdc",
+      "scopes": 4,
+      "checks": 31,
+      "candidate": {
+        "failed": 5,
+        "unsupported": 4,
+        "passed": 4
+      },
+      "artifact": {
+        "id": 13927824865,
+        "name": "ecosystem-results-36",
+        "digest": "sha256:3158c12952e8288699b2f91f1148320cd63a949a3d28ecf74b4d19b5515a94c2",
+        "size_in_bytes": 343014
+      },
+      "report_sha256": "7d9de1b263f90edf342ba27b330a54c187dfe318bc02e244c55418a395fca823",
+      "actual_initialization_failures": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 8704,
+            "memory_limit_mb": 3072,
+            "seconds": 0.109,
+            "log": "0007.log",
+            "label": "benchmark: module initialization index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--bunpress/shims/bun",
+              "index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bunpress/candidate/benchmark",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/other-stacks-f702/ecosystem-results-36/stacksjs--bunpress/0007.log",
+            "sha256": "5d1eb01e6b7bccc5d8577ec38f6a04fac2d4f78f7679fb98a095792f6d5582d3",
+            "content": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--bunpress/shims/bun\", \"index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module mitata from /home/runner/work/zig-js/zig-js/.work/stacksjs--bunpress/candidate/benchmark/index.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 8704 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 198560,
+            "memory_limit_mb": 3072,
+            "seconds": 0.566,
+            "log": "0017.log",
+            "label": "packages/bunpress: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--bunpress/shims/bun",
+              "src/index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bunpress/candidate/packages/bunpress",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/other-stacks-f702/ecosystem-results-36/stacksjs--bunpress/0017.log",
+            "sha256": "a722e84b3759b8bf242a6b53d60bfd6b3a3078efbf42e913a1f97ed36236abfe",
+            "content": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--bunpress/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): SyntaxError: Unexpected end of script\n\nECOSYSTEM PEAK SAMPLED RSS: 198560 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        }
+      ]
+    },
+    {
+      "repository": "stacksjs/calendar",
+      "consumer_sha": "1c02d801fed5c605d4d037818fb6fab60fe1a787",
+      "scopes": 1,
+      "checks": 14,
+      "candidate": {
+        "failed": 1,
+        "unsupported": 2
+      },
+      "artifact": {
+        "id": 13927824865,
+        "name": "ecosystem-results-36",
+        "digest": "sha256:3158c12952e8288699b2f91f1148320cd63a949a3d28ecf74b4d19b5515a94c2",
+        "size_in_bytes": 343014
+      },
+      "report_sha256": "e42577603dfa1b1ae711740699cdd5a8dabd6a5e0a352daf68d91a4a2bb9d4cb",
+      "actual_initialization_failures": []
+    },
+    {
+      "repository": "stacksjs/clapp",
+      "consumer_sha": "2ecc2af97d33f59ad5d22abe399392793d8de63d",
+      "scopes": 2,
+      "checks": 24,
+      "candidate": {
+        "failed": 3,
+        "unsupported": 4,
+        "passed": 2
+      },
+      "artifact": {
+        "id": 13928961436,
+        "name": "ecosystem-results-38",
+        "digest": "sha256:d9a63eb37c930cd722de817a2e7895b100e171f4b09dc1589df22112344d53fa",
+        "size_in_bytes": 37838
+      },
+      "report_sha256": "d01aa2d6d084505734416aad80300214bd9e90639f3c02f7f64cd8dca8d94b64",
+      "actual_initialization_failures": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 8952,
+            "memory_limit_mb": 3072,
+            "seconds": 0.07,
+            "log": "0012.log",
+            "label": "packages/ts: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--clapp/shims/bun",
+              "src/index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--clapp/candidate/packages/ts",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/other-stacks-f702/ecosystem-results-38/stacksjs--clapp/0012.log",
+            "sha256": "40a248857aa87731ac209ce99f4f8119e1447a6124bce6db08aa031f626b988e",
+            "content": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--clapp/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module ./common.js from /home/runner/work/zig-js/zig-js/.work/stacksjs--clapp/candidate/packages/ts/src/prompts/autocomplete.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 8952 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        }
+      ]
+    },
+    {
+      "repository": "stacksjs/clarity",
+      "consumer_sha": "c43c19c834df19e9f0d6e1a181f4e95a86b6612f",
+      "scopes": 1,
+      "checks": 19,
+      "candidate": {
+        "failed": 1,
+        "unsupported": 4,
+        "passed": 2
+      },
+      "artifact": {
+        "id": 13928961436,
+        "name": "ecosystem-results-38",
+        "digest": "sha256:d9a63eb37c930cd722de817a2e7895b100e171f4b09dc1589df22112344d53fa",
+        "size_in_bytes": 37838
+      },
+      "report_sha256": "000e0a63281b26041ebcc295c06ef558a1ebdf1e44b95ccae99141eb383a610c",
+      "actual_initialization_failures": []
+    },
+    {
+      "repository": "stacksjs/hush",
+      "consumer_sha": "0d71ad9939210bd6325f9fae48cfdcf59f8362c4",
+      "scopes": 1,
+      "checks": 15,
+      "candidate": {
+        "unsupported": 2,
+        "passed": 1
+      },
+      "artifact": {
+        "id": 13928558387,
+        "name": "ecosystem-results-48",
+        "digest": "sha256:8379eb2d371feb136134e79722ca843b3b57e334b8ebda6bbdd5229768b9f8e8",
+        "size_in_bytes": 18592
+      },
+      "report_sha256": "24f365b7ff88a8ea6d6981a377950c38d12293aa71c2a01f581a9d2eb5890213",
+      "actual_initialization_failures": []
+    },
+    {
+      "repository": "stacksjs/image-optimization",
+      "consumer_sha": "96ab6d27b67c94a1750ae7acb7d35c85fbd1c4b3",
+      "scopes": 1,
+      "checks": 15,
+      "candidate": {
+        "unsupported": 2,
+        "passed": 1
+      },
+      "artifact": {
+        "id": 13928558387,
+        "name": "ecosystem-results-48",
+        "digest": "sha256:8379eb2d371feb136134e79722ca843b3b57e334b8ebda6bbdd5229768b9f8e8",
+        "size_in_bytes": 18592
+      },
+      "report_sha256": "700860d7653bae9871659c0196f98c3a6e060efbbd7ac3ab9c27ec196287484d",
+      "actual_initialization_failures": []
+    },
+    {
+      "repository": "stacksjs/localtunnels",
+      "consumer_sha": "87ade51118dc7c17f488dbe4c5877ace3b2bc9d8",
+      "scopes": 5,
+      "checks": 37,
+      "candidate": {
+        "unsupported": 12,
+        "passed": 4,
+        "failed": 1
+      },
+      "artifact": {
+        "id": 13928833417,
+        "name": "ecosystem-results-51",
+        "digest": "sha256:1940e27eedc4085dd389ecc0098017f03b71794b3bd35ef07d3a1da72fd860a2",
+        "size_in_bytes": 76957
+      },
+      "report_sha256": "bac47040c52bce570f9427765a1404afe459303e5e857cd8910eebf1ca964c2d",
+      "actual_initialization_failures": []
+    },
+    {
+      "repository": "stacksjs/logsmith",
+      "consumer_sha": "a8bc247261941653d1eafb4a7906049f0a7031ea",
+      "scopes": 3,
+      "checks": 27,
+      "candidate": {
+        "unsupported": 7,
+        "failed": 4,
+        "passed": 1
+      },
+      "artifact": {
+        "id": 13928833417,
+        "name": "ecosystem-results-51",
+        "digest": "sha256:1940e27eedc4085dd389ecc0098017f03b71794b3bd35ef07d3a1da72fd860a2",
+        "size_in_bytes": 76957
+      },
+      "report_sha256": "23d1061249d5a78a8f1a81f96f1910fe21a9cca9e24fdb9fb5ab920157724aec",
+      "actual_initialization_failures": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 33748,
+            "memory_limit_mb": 3072,
+            "seconds": 0.136,
+            "log": "0010.log",
+            "label": "packages/action: module initialization src/index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js/zig-js/.work/stacksjs--logsmith/shims/bun",
+              "src/index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--logsmith/candidate/packages/action",
+            "engine_invocations": 1
+          },
+          "raw_log": {
+            "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/other-stacks-f702/ecosystem-results-51/stacksjs--logsmith/0010.log",
+            "sha256": "d0996fa8628be522d514ba1569135c9728a33c161db73e2538ac9df3e459d339",
+            "content": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--logsmith/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module http from /home/runner/work/zig-js/zig-js/.work/stacksjs--logsmith/candidate/node_modules/@actions/http-client/lib/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 33748 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        }
+      ]
+    }
+  ],
+  "frozen_actual_sources": [
+    {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/autocomplete.ts",
+      "sha256": "e71f796fe7e58d255582368a788721d5a8a0595c9d57137b9c81f2da69b17e6b",
+      "git_source": {
+        "path": "packages/ts/src/prompts/autocomplete.ts",
+        "sha": "80a4bf719c720448f8779a912bac71019d6a0495",
+        "size": 10085,
+        "html_url": "https://github.com/stacksjs/clapp/blob/2ecc2af97d33f59ad5d22abe399392793d8de63d/packages/ts/src/prompts/autocomplete.ts"
+      }
+    },
+    {
+      "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/common.ts",
+      "sha256": "2fa59548f2601d5e807e94b7ab153e123ab8db6679726edf0d6bba03ef665790",
+      "git_source": {
+        "path": "packages/ts/src/prompts/common.ts",
+        "sha": "625eece94e284a426f2f903cffacae3dbe90f506",
+        "size": 2436,
+        "html_url": "https://github.com/stacksjs/clapp/blob/2ecc2af97d33f59ad5d22abe399392793d8de63d/packages/ts/src/prompts/common.ts"
+      }
+    }
+  ],
+  "actual_lookup_scope": "Byte-identical real clapp autocomplete.ts/common.ts preserve the actual ./common.js request and file presence. Both old providers fail lookup, both after providers and Bun resolve common.ts. This is filename lookup only: zero actual clapp module bodies, prompts, full graphs or package tests execute. The separate54-check fixture executes actual source bodies, static/dynamic bindings and cache identity.",
+  "implementation": "Keep exact and appended-file precedence, then substitute .js/.jsx to .ts/.tsx and local .mjs/.cjs to .mts/.cts. Do not map mjs/cjs inside a node_modules path component. Existing exact package imports/exports target checks are preserved. No fake host, alias file or Bun candidate fallback.",
+  "oracle": {
+    "reference": "Bun1.4.4",
+    "documentation": "https://bun.sh/docs/runtime/module-resolution",
+    "observed_documentation_difference": "Pinned executed Bun1.4.4 resolves local .cjs to .cts despite current documentation saying it does not. Both lookup and actual static import execution are retained; behavior follows these controls.",
+    "reference_rows": [
+      {
+        "case": "exact-js",
+        "request": "./exact-js/dep.js",
+        "path": "exact-js/dep.js"
+      },
+      {
+        "case": "js-ts",
+        "request": "./js-ts/dep.js",
+        "path": "js-ts/dep.ts"
+      },
+      {
+        "case": "js-tsx",
+        "request": "./js-tsx/dep.js",
+        "path": "js-tsx/dep.tsx"
+      },
+      {
+        "case": "js-both",
+        "request": "./js-both/dep.js",
+        "path": "js-both/dep.ts"
+      },
+      {
+        "case": "jsx-ts",
+        "request": "./jsx-ts/dep.jsx",
+        "path": "jsx-ts/dep.ts"
+      },
+      {
+        "case": "jsx-tsx",
+        "request": "./jsx-tsx/dep.jsx",
+        "path": "jsx-tsx/dep.tsx"
+      },
+      {
+        "case": "jsx-both",
+        "request": "./jsx-both/dep.jsx",
+        "path": "jsx-both/dep.ts"
+      },
+      {
+        "case": "mjs-mts",
+        "request": "./mjs-mts/dep.mjs",
+        "path": "mjs-mts/dep.mts"
+      },
+      {
+        "case": "cjs-cts",
+        "request": "./cjs-cts/dep.cjs",
+        "path": "cjs-cts/dep.cts"
+      },
+      {
+        "case": "upper-js",
+        "request": "./upper-js/dep.JS",
+        "error": "MODULE_NOT_FOUND"
+      },
+      {
+        "case": "dotted-js",
+        "request": "./dotted-js/dep.compiled.js",
+        "path": "dotted-js/dep.compiled.ts"
+      },
+      {
+        "case": "appended-js",
+        "request": "./appended-js/dep.js",
+        "path": "appended-js/dep.js.ts"
+      },
+      {
+        "case": "appended-tsx-js",
+        "request": "./appended-tsx-js/dep.js",
+        "path": "appended-tsx-js/dep.js.tsx"
+      },
+      {
+        "case": "appended-mjs",
+        "request": "./appended-mjs/dep.mjs",
+        "path": "appended-mjs/dep.mjs.ts"
+      },
+      {
+        "case": "directory-js",
+        "request": "./directory-js/dep.js",
+        "path": "directory-js/dep.ts"
+      },
+      {
+        "case": "exact-jsx",
+        "request": "./exact-jsx/dep.jsx",
+        "path": "exact-jsx/dep.jsx"
+      },
+      {
+        "case": "exact-mjs",
+        "request": "./exact-mjs/dep.mjs",
+        "path": "exact-mjs/dep.mjs"
+      },
+      {
+        "case": "exact-cjs",
+        "request": "./exact-cjs/dep.cjs",
+        "path": "exact-cjs/dep.cjs"
+      },
+      {
+        "case": "modules-js",
+        "request": "./modules-js/node_modules/pkg/dep.js",
+        "path": "modules-js/node_modules/pkg/dep.ts"
+      },
+      {
+        "case": "modules-jsx",
+        "request": "./modules-jsx/node_modules/pkg/dep.jsx",
+        "path": "modules-jsx/node_modules/pkg/dep.tsx"
+      },
+      {
+        "case": "modules-mjs",
+        "request": "./modules-mjs/node_modules/pkg/dep.mjs",
+        "error": "MODULE_NOT_FOUND"
+      },
+      {
+        "case": "modules-cjs",
+        "request": "./modules-cjs/node_modules/pkg/dep.cjs",
+        "error": "MODULE_NOT_FOUND"
+      },
+      {
+        "case": "space-js",
+        "request": "./space-js/hello world.js",
+        "path": "space-js/hello world.ts"
+      },
+      {
+        "case": "unicode-js",
+        "request": "./unicode-js/\u03a9.js",
+        "path": "unicode-js/\u03a9.ts"
+      },
+      {
+        "case": "modules-lookalike",
+        "request": "./modules-lookalike/node_modules_x/dep.mjs",
+        "path": "modules-lookalike/node_modules_x/dep.mts"
+      }
+    ],
+    "comparisons": {
+      "before-zig-js": {
+        "rows": 25,
+        "mismatches": 15,
+        "results": [
+          {
+            "case": "exact-js",
+            "request": "./exact-js/dep.js",
+            "path": "exact-js/dep.js"
+          },
+          {
+            "case": "js-ts",
+            "request": "./js-ts/dep.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "js-tsx",
+            "request": "./js-tsx/dep.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "js-both",
+            "request": "./js-both/dep.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "jsx-ts",
+            "request": "./jsx-ts/dep.jsx",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "jsx-tsx",
+            "request": "./jsx-tsx/dep.jsx",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "jsx-both",
+            "request": "./jsx-both/dep.jsx",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "mjs-mts",
+            "request": "./mjs-mts/dep.mjs",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "cjs-cts",
+            "request": "./cjs-cts/dep.cjs",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "upper-js",
+            "request": "./upper-js/dep.JS",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "dotted-js",
+            "request": "./dotted-js/dep.compiled.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "appended-js",
+            "request": "./appended-js/dep.js",
+            "path": "appended-js/dep.js.ts"
+          },
+          {
+            "case": "appended-tsx-js",
+            "request": "./appended-tsx-js/dep.js",
+            "path": "appended-tsx-js/dep.js.tsx"
+          },
+          {
+            "case": "appended-mjs",
+            "request": "./appended-mjs/dep.mjs",
+            "path": "appended-mjs/dep.mjs.ts"
+          },
+          {
+            "case": "directory-js",
+            "request": "./directory-js/dep.js",
+            "path": "directory-js/dep.js/index.ts"
+          },
+          {
+            "case": "exact-jsx",
+            "request": "./exact-jsx/dep.jsx",
+            "path": "exact-jsx/dep.jsx"
+          },
+          {
+            "case": "exact-mjs",
+            "request": "./exact-mjs/dep.mjs",
+            "path": "exact-mjs/dep.mjs"
+          },
+          {
+            "case": "exact-cjs",
+            "request": "./exact-cjs/dep.cjs",
+            "path": "exact-cjs/dep.cjs"
+          },
+          {
+            "case": "modules-js",
+            "request": "./modules-js/node_modules/pkg/dep.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "modules-jsx",
+            "request": "./modules-jsx/node_modules/pkg/dep.jsx",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "modules-mjs",
+            "request": "./modules-mjs/node_modules/pkg/dep.mjs",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "modules-cjs",
+            "request": "./modules-cjs/node_modules/pkg/dep.cjs",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "space-js",
+            "request": "./space-js/hello world.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "unicode-js",
+            "request": "./unicode-js/\u03a9.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "modules-lookalike",
+            "request": "./modules-lookalike/node_modules_x/dep.mjs",
+            "error": "MODULE_NOT_FOUND"
+          }
+        ]
+      },
+      "before-jsc": {
+        "rows": 25,
+        "mismatches": 15,
+        "results": [
+          {
+            "case": "exact-js",
+            "request": "./exact-js/dep.js",
+            "path": "exact-js/dep.js"
+          },
+          {
+            "case": "js-ts",
+            "request": "./js-ts/dep.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "js-tsx",
+            "request": "./js-tsx/dep.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "js-both",
+            "request": "./js-both/dep.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "jsx-ts",
+            "request": "./jsx-ts/dep.jsx",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "jsx-tsx",
+            "request": "./jsx-tsx/dep.jsx",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "jsx-both",
+            "request": "./jsx-both/dep.jsx",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "mjs-mts",
+            "request": "./mjs-mts/dep.mjs",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "cjs-cts",
+            "request": "./cjs-cts/dep.cjs",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "upper-js",
+            "request": "./upper-js/dep.JS",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "dotted-js",
+            "request": "./dotted-js/dep.compiled.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "appended-js",
+            "request": "./appended-js/dep.js",
+            "path": "appended-js/dep.js.ts"
+          },
+          {
+            "case": "appended-tsx-js",
+            "request": "./appended-tsx-js/dep.js",
+            "path": "appended-tsx-js/dep.js.tsx"
+          },
+          {
+            "case": "appended-mjs",
+            "request": "./appended-mjs/dep.mjs",
+            "path": "appended-mjs/dep.mjs.ts"
+          },
+          {
+            "case": "directory-js",
+            "request": "./directory-js/dep.js",
+            "path": "directory-js/dep.js/index.ts"
+          },
+          {
+            "case": "exact-jsx",
+            "request": "./exact-jsx/dep.jsx",
+            "path": "exact-jsx/dep.jsx"
+          },
+          {
+            "case": "exact-mjs",
+            "request": "./exact-mjs/dep.mjs",
+            "path": "exact-mjs/dep.mjs"
+          },
+          {
+            "case": "exact-cjs",
+            "request": "./exact-cjs/dep.cjs",
+            "path": "exact-cjs/dep.cjs"
+          },
+          {
+            "case": "modules-js",
+            "request": "./modules-js/node_modules/pkg/dep.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "modules-jsx",
+            "request": "./modules-jsx/node_modules/pkg/dep.jsx",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "modules-mjs",
+            "request": "./modules-mjs/node_modules/pkg/dep.mjs",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "modules-cjs",
+            "request": "./modules-cjs/node_modules/pkg/dep.cjs",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "space-js",
+            "request": "./space-js/hello world.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "unicode-js",
+            "request": "./unicode-js/\u03a9.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "modules-lookalike",
+            "request": "./modules-lookalike/node_modules_x/dep.mjs",
+            "error": "MODULE_NOT_FOUND"
+          }
+        ]
+      },
+      "after-zig-js": {
+        "rows": 25,
+        "mismatches": 0,
+        "results": [
+          {
+            "case": "exact-js",
+            "request": "./exact-js/dep.js",
+            "path": "exact-js/dep.js"
+          },
+          {
+            "case": "js-ts",
+            "request": "./js-ts/dep.js",
+            "path": "js-ts/dep.ts"
+          },
+          {
+            "case": "js-tsx",
+            "request": "./js-tsx/dep.js",
+            "path": "js-tsx/dep.tsx"
+          },
+          {
+            "case": "js-both",
+            "request": "./js-both/dep.js",
+            "path": "js-both/dep.ts"
+          },
+          {
+            "case": "jsx-ts",
+            "request": "./jsx-ts/dep.jsx",
+            "path": "jsx-ts/dep.ts"
+          },
+          {
+            "case": "jsx-tsx",
+            "request": "./jsx-tsx/dep.jsx",
+            "path": "jsx-tsx/dep.tsx"
+          },
+          {
+            "case": "jsx-both",
+            "request": "./jsx-both/dep.jsx",
+            "path": "jsx-both/dep.ts"
+          },
+          {
+            "case": "mjs-mts",
+            "request": "./mjs-mts/dep.mjs",
+            "path": "mjs-mts/dep.mts"
+          },
+          {
+            "case": "cjs-cts",
+            "request": "./cjs-cts/dep.cjs",
+            "path": "cjs-cts/dep.cts"
+          },
+          {
+            "case": "upper-js",
+            "request": "./upper-js/dep.JS",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "dotted-js",
+            "request": "./dotted-js/dep.compiled.js",
+            "path": "dotted-js/dep.compiled.ts"
+          },
+          {
+            "case": "appended-js",
+            "request": "./appended-js/dep.js",
+            "path": "appended-js/dep.js.ts"
+          },
+          {
+            "case": "appended-tsx-js",
+            "request": "./appended-tsx-js/dep.js",
+            "path": "appended-tsx-js/dep.js.tsx"
+          },
+          {
+            "case": "appended-mjs",
+            "request": "./appended-mjs/dep.mjs",
+            "path": "appended-mjs/dep.mjs.ts"
+          },
+          {
+            "case": "directory-js",
+            "request": "./directory-js/dep.js",
+            "path": "directory-js/dep.ts"
+          },
+          {
+            "case": "exact-jsx",
+            "request": "./exact-jsx/dep.jsx",
+            "path": "exact-jsx/dep.jsx"
+          },
+          {
+            "case": "exact-mjs",
+            "request": "./exact-mjs/dep.mjs",
+            "path": "exact-mjs/dep.mjs"
+          },
+          {
+            "case": "exact-cjs",
+            "request": "./exact-cjs/dep.cjs",
+            "path": "exact-cjs/dep.cjs"
+          },
+          {
+            "case": "modules-js",
+            "request": "./modules-js/node_modules/pkg/dep.js",
+            "path": "modules-js/node_modules/pkg/dep.ts"
+          },
+          {
+            "case": "modules-jsx",
+            "request": "./modules-jsx/node_modules/pkg/dep.jsx",
+            "path": "modules-jsx/node_modules/pkg/dep.tsx"
+          },
+          {
+            "case": "modules-mjs",
+            "request": "./modules-mjs/node_modules/pkg/dep.mjs",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "modules-cjs",
+            "request": "./modules-cjs/node_modules/pkg/dep.cjs",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "space-js",
+            "request": "./space-js/hello world.js",
+            "path": "space-js/hello world.ts"
+          },
+          {
+            "case": "unicode-js",
+            "request": "./unicode-js/\u03a9.js",
+            "path": "unicode-js/\u03a9.ts"
+          },
+          {
+            "case": "modules-lookalike",
+            "request": "./modules-lookalike/node_modules_x/dep.mjs",
+            "path": "modules-lookalike/node_modules_x/dep.mts"
+          }
+        ]
+      },
+      "after-jsc": {
+        "rows": 25,
+        "mismatches": 0,
+        "results": [
+          {
+            "case": "exact-js",
+            "request": "./exact-js/dep.js",
+            "path": "exact-js/dep.js"
+          },
+          {
+            "case": "js-ts",
+            "request": "./js-ts/dep.js",
+            "path": "js-ts/dep.ts"
+          },
+          {
+            "case": "js-tsx",
+            "request": "./js-tsx/dep.js",
+            "path": "js-tsx/dep.tsx"
+          },
+          {
+            "case": "js-both",
+            "request": "./js-both/dep.js",
+            "path": "js-both/dep.ts"
+          },
+          {
+            "case": "jsx-ts",
+            "request": "./jsx-ts/dep.jsx",
+            "path": "jsx-ts/dep.ts"
+          },
+          {
+            "case": "jsx-tsx",
+            "request": "./jsx-tsx/dep.jsx",
+            "path": "jsx-tsx/dep.tsx"
+          },
+          {
+            "case": "jsx-both",
+            "request": "./jsx-both/dep.jsx",
+            "path": "jsx-both/dep.ts"
+          },
+          {
+            "case": "mjs-mts",
+            "request": "./mjs-mts/dep.mjs",
+            "path": "mjs-mts/dep.mts"
+          },
+          {
+            "case": "cjs-cts",
+            "request": "./cjs-cts/dep.cjs",
+            "path": "cjs-cts/dep.cts"
+          },
+          {
+            "case": "upper-js",
+            "request": "./upper-js/dep.JS",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "dotted-js",
+            "request": "./dotted-js/dep.compiled.js",
+            "path": "dotted-js/dep.compiled.ts"
+          },
+          {
+            "case": "appended-js",
+            "request": "./appended-js/dep.js",
+            "path": "appended-js/dep.js.ts"
+          },
+          {
+            "case": "appended-tsx-js",
+            "request": "./appended-tsx-js/dep.js",
+            "path": "appended-tsx-js/dep.js.tsx"
+          },
+          {
+            "case": "appended-mjs",
+            "request": "./appended-mjs/dep.mjs",
+            "path": "appended-mjs/dep.mjs.ts"
+          },
+          {
+            "case": "directory-js",
+            "request": "./directory-js/dep.js",
+            "path": "directory-js/dep.ts"
+          },
+          {
+            "case": "exact-jsx",
+            "request": "./exact-jsx/dep.jsx",
+            "path": "exact-jsx/dep.jsx"
+          },
+          {
+            "case": "exact-mjs",
+            "request": "./exact-mjs/dep.mjs",
+            "path": "exact-mjs/dep.mjs"
+          },
+          {
+            "case": "exact-cjs",
+            "request": "./exact-cjs/dep.cjs",
+            "path": "exact-cjs/dep.cjs"
+          },
+          {
+            "case": "modules-js",
+            "request": "./modules-js/node_modules/pkg/dep.js",
+            "path": "modules-js/node_modules/pkg/dep.ts"
+          },
+          {
+            "case": "modules-jsx",
+            "request": "./modules-jsx/node_modules/pkg/dep.jsx",
+            "path": "modules-jsx/node_modules/pkg/dep.tsx"
+          },
+          {
+            "case": "modules-mjs",
+            "request": "./modules-mjs/node_modules/pkg/dep.mjs",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "modules-cjs",
+            "request": "./modules-cjs/node_modules/pkg/dep.cjs",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "space-js",
+            "request": "./space-js/hello world.js",
+            "path": "space-js/hello world.ts"
+          },
+          {
+            "case": "unicode-js",
+            "request": "./unicode-js/\u03a9.js",
+            "path": "unicode-js/\u03a9.ts"
+          },
+          {
+            "case": "modules-lookalike",
+            "request": "./modules-lookalike/node_modules_x/dep.mjs",
+            "path": "modules-lookalike/node_modules_x/dep.mts"
+          }
+        ]
+      },
+      "node": {
+        "rows": 25,
+        "mismatches": 18,
+        "results": [
+          {
+            "case": "exact-js",
+            "request": "./exact-js/dep.js",
+            "path": "exact-js/dep.js"
+          },
+          {
+            "case": "js-ts",
+            "request": "./js-ts/dep.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "js-tsx",
+            "request": "./js-tsx/dep.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "js-both",
+            "request": "./js-both/dep.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "jsx-ts",
+            "request": "./jsx-ts/dep.jsx",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "jsx-tsx",
+            "request": "./jsx-tsx/dep.jsx",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "jsx-both",
+            "request": "./jsx-both/dep.jsx",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "mjs-mts",
+            "request": "./mjs-mts/dep.mjs",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "cjs-cts",
+            "request": "./cjs-cts/dep.cjs",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "upper-js",
+            "request": "./upper-js/dep.JS",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "dotted-js",
+            "request": "./dotted-js/dep.compiled.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "appended-js",
+            "request": "./appended-js/dep.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "appended-tsx-js",
+            "request": "./appended-tsx-js/dep.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "appended-mjs",
+            "request": "./appended-mjs/dep.mjs",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "directory-js",
+            "request": "./directory-js/dep.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "exact-jsx",
+            "request": "./exact-jsx/dep.jsx",
+            "path": "exact-jsx/dep.jsx"
+          },
+          {
+            "case": "exact-mjs",
+            "request": "./exact-mjs/dep.mjs",
+            "path": "exact-mjs/dep.mjs"
+          },
+          {
+            "case": "exact-cjs",
+            "request": "./exact-cjs/dep.cjs",
+            "path": "exact-cjs/dep.cjs"
+          },
+          {
+            "case": "modules-js",
+            "request": "./modules-js/node_modules/pkg/dep.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "modules-jsx",
+            "request": "./modules-jsx/node_modules/pkg/dep.jsx",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "modules-mjs",
+            "request": "./modules-mjs/node_modules/pkg/dep.mjs",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "modules-cjs",
+            "request": "./modules-cjs/node_modules/pkg/dep.cjs",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "space-js",
+            "request": "./space-js/hello world.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "unicode-js",
+            "request": "./unicode-js/\u03a9.js",
+            "error": "MODULE_NOT_FOUND"
+          },
+          {
+            "case": "modules-lookalike",
+            "request": "./modules-lookalike/node_modules_x/dep.mjs",
+            "error": "MODULE_NOT_FOUND"
+          }
+        ]
+      }
+    },
+    "transport_limit": "The lookup matrix driver exits0 even when a row records a resolution error. Compare actual row data; transport success is not a semantic pass."
+  },
+  "validation": {
+    "before-zig-js-entry": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/js_extension_resolution/entry.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 464,
+      "memory_limit_mb": 3072,
+      "seconds": 0.161,
+      "log": "before-zig-js-entry.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/before-zig-js-entry.log",
+        "sha256": "6bfa518fea5f38a457d36ef19c5bf6b0737ef763553340c9fe8e06c95df72640"
+      }
+    },
+    "before-jsc-entry": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/js_extension_resolution/entry.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 448,
+      "memory_limit_mb": 3072,
+      "seconds": 0.05,
+      "log": "before-jsc-entry.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/before-jsc-entry.log",
+        "sha256": "cd9dc6652c30c08b4c6bc00caff2126946d5bc9d09c213a38ff20a92655067b0"
+      }
+    },
+    "before-zig-js-guards": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/js_extension_resolution/guards.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 4592,
+      "memory_limit_mb": 3072,
+      "seconds": 0.027,
+      "log": "before-zig-js-guards.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/before-zig-js-guards.log",
+        "sha256": "da40fa0a7d5b3ed24980f9061088993b39ef9092dad4c539384224ceb7e6299e"
+      }
+    },
+    "before-jsc-guards": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/js_extension_resolution/guards.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5008,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "before-jsc-guards.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/before-jsc-guards.log",
+        "sha256": "6ca3ab81587eee5fba441664d7710f5dcd5ba5b0742c2ca283343e689c346ffd"
+      }
+    },
+    "bun-entry": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/js_extension_resolution/entry.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2192,
+      "memory_limit_mb": 3072,
+      "seconds": 0.025,
+      "log": "bun-entry.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/bun-entry.log",
+        "sha256": "c7ba3c1f347f1d27108ab35f4355ce3d052b29950394954fe8c0aaa0388d417d"
+      }
+    },
+    "bun-guards": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/js_extension_resolution/guards.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 2112,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "bun-guards.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/bun-guards.log",
+        "sha256": "dffef514b99611398f6a86c955901544023ecf1c6edb5415e89ef29dee1398bb"
+      }
+    },
+    "node-entry": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/js_extension_resolution/entry.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 320,
+      "memory_limit_mb": 3072,
+      "seconds": 0.059,
+      "log": "node-entry.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/node-entry.log",
+        "sha256": "13da493c8518b0d5233363072e15dbbd8e640b60224b75b8bea4b23334aea24f"
+      }
+    },
+    "node-guards": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/js_extension_resolution/guards.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1120,
+      "memory_limit_mb": 3072,
+      "seconds": 0.046,
+      "log": "node-guards.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/node-guards.log",
+        "sha256": "2f907e8d509e7e18bd2da831541d4ef801ad9277ec80bbd504101a9bfa2c9f67"
+      }
+    },
+    "focused-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-source-extensions",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1173648,
+      "memory_limit_mb": 3072,
+      "seconds": 32.163,
+      "log": "focused-zig-js.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/focused-zig-js.log",
+        "sha256": "d72588550b8aaabc83edda7e96595d781d68b7fdcaab3b25b117ea411171072f"
+      }
+    },
+    "focused-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-source-extensions",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1099520,
+      "memory_limit_mb": 3072,
+      "seconds": 28.984,
+      "log": "focused-jsc.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/focused-jsc.log",
+        "sha256": "7f66d1faa86df5beb852fd5f06cef45e17bf99dd68a5071bb0b5b56f97ab5d2c"
+      }
+    },
+    "full-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-extensions",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 213728,
+      "memory_limit_mb": 3072,
+      "seconds": 9.576,
+      "log": "full-zig-js.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/full-zig-js.log",
+        "sha256": "4f0bda9d067aa32a22ae074e17bbc91e811c5d7b9b5c5ed1a0ed700bc006b33f"
+      }
+    },
+    "full-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-extensions",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 61808,
+      "memory_limit_mb": 3072,
+      "seconds": 7.481,
+      "log": "full-jsc.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/full-jsc.log",
+        "sha256": "b4e2775934fa70be420efbb7fefe210508c77c03508837e722e31110f628d0bd"
+      }
+    },
+    "after-zig-js-entry": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/home-zig-js/bin/home-tool",
+        "run",
+        "packages/runtime/test/tool_modules/js_extension_resolution/entry.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 304,
+      "memory_limit_mb": 3072,
+      "seconds": 0.099,
+      "log": "after-zig-js-entry.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/after-zig-js-entry.log",
+        "sha256": "8e8dd2ccb331724b0b4a4abe41ff36d5e52db76db04bbd73f5aa4e2b913dbbb4"
+      }
+    },
+    "after-zig-js-guards": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/home-zig-js/bin/home-tool",
+        "run",
+        "packages/runtime/test/tool_modules/js_extension_resolution/guards.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 4768,
+      "memory_limit_mb": 3072,
+      "seconds": 0.023,
+      "log": "after-zig-js-guards.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/after-zig-js-guards.log",
+        "sha256": "22a410050690b97cb86e8f39b17fd26dfda2961fdee89da1c21730bed043305b"
+      }
+    },
+    "after-jsc-entry": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/home-jsc/bin/home-tool",
+        "run",
+        "packages/runtime/test/tool_modules/js_extension_resolution/entry.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 240,
+      "memory_limit_mb": 3072,
+      "seconds": 0.036,
+      "log": "after-jsc-entry.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/after-jsc-entry.log",
+        "sha256": "f535691e3546d5f5b1836b107467f914fa9b668fcb2981f749aecae2804fbced"
+      }
+    },
+    "after-jsc-guards": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/home-jsc/bin/home-tool",
+        "run",
+        "packages/runtime/test/tool_modules/js_extension_resolution/guards.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 4736,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "after-jsc-guards.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/after-jsc-guards.log",
+        "sha256": "15038e98bb95c4695be69f4ed8ac52d87b7396c812824866650a3e9c9075b0d9"
+      }
+    },
+    "before-zig-js-lookup": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/actual-lookup.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 336,
+      "memory_limit_mb": 3072,
+      "seconds": 0.127,
+      "log": "before-zig-js-lookup.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/before-zig-js-lookup.log",
+        "sha256": "6863e656363ab64b2175463deacb158dae84cf9f33cce78f252ce83773e2d9d2"
+      }
+    },
+    "before-zig-js-matrix": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/oracle/entry.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6576,
+      "memory_limit_mb": 3072,
+      "seconds": 0.031,
+      "log": "before-zig-js-matrix.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/before-zig-js-matrix.log",
+        "sha256": "c4e6914173c56c344a6ee436c8b3a28de3034522876d104a2779dd31eb4f5e14"
+      }
+    },
+    "before-jsc-lookup": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/actual-lookup.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 464,
+      "memory_limit_mb": 3072,
+      "seconds": 0.028,
+      "log": "before-jsc-lookup.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/before-jsc-lookup.log",
+        "sha256": "2b9f351c03282f2bfd0a516ac2fddba133e1abc96e8bde4b2f1f7d9b428d087e"
+      }
+    },
+    "before-jsc-matrix": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/oracle/entry.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5840,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "before-jsc-matrix.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/before-jsc-matrix.log",
+        "sha256": "62fbb5e1df60abb5331a3d0432eee1ad6629e0c8418f2da0565884343a368f0b"
+      }
+    },
+    "after-zig-js-lookup": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/actual-lookup.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.387,
+      "log": "after-zig-js-lookup.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/after-zig-js-lookup.log",
+        "sha256": "c62aa213c8f6c809d189d253b048940388b76724a8c53bba4fb191a8768b00ce"
+      }
+    },
+    "after-zig-js-matrix": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/oracle/entry.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6576,
+      "memory_limit_mb": 3072,
+      "seconds": 0.024,
+      "log": "after-zig-js-matrix.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/after-zig-js-matrix.log",
+        "sha256": "cb4b984b5639afe05f30a76fe5749507bda1920d75fe35545c1d373d228cf281"
+      }
+    },
+    "after-jsc-lookup": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/actual-lookup.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 448,
+      "memory_limit_mb": 3072,
+      "seconds": 0.023,
+      "log": "after-jsc-lookup.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/after-jsc-lookup.log",
+        "sha256": "eaa997741111fec0f64591ac50201950ee9b920226192bd45afcfdc2dc686a53"
+      }
+    },
+    "after-jsc-matrix": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/oracle/entry.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 6176,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "after-jsc-matrix.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/after-jsc-matrix.log",
+        "sha256": "79299ef53bb93a0c2fc3baa734527933f61d097b7c24bbe54d1508872cbdd235"
+      }
+    },
+    "bun-lookup": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/actual-lookup.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 464,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "bun-lookup.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/bun-lookup.log",
+        "sha256": "17ab7bc2e5312258a874b4859974d143712716d3c31639bc697af6c2819c9bab"
+      }
+    },
+    "bun-matrix": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/oracle/entry.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 256,
+      "memory_limit_mb": 3072,
+      "seconds": 0.021,
+      "log": "bun-matrix.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/bun-matrix.log",
+        "sha256": "eddcd4c56a5b33acc4b8b3f7bb7708d39a73b111ed53d18d1cd63e0a36d6a9fe"
+      }
+    },
+    "node-lookup": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/actual-lookup.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 816,
+      "memory_limit_mb": 3072,
+      "seconds": 0.041,
+      "log": "node-lookup.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/node-lookup.log",
+        "sha256": "7bc83cca6452649f6855b004b6ac1ef29360cf507a89662c55be57e7c95034d9"
+      }
+    },
+    "node-matrix": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/oracle/entry.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 832,
+      "memory_limit_mb": 3072,
+      "seconds": 0.042,
+      "log": "node-matrix.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/node-matrix.log",
+        "sha256": "fbd1e674aca4252696a9eaed46f76089424befab07852b24532db81db48f7072"
+      }
+    },
+    "suite-python": {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 128064,
+      "memory_limit_mb": 3072,
+      "seconds": 3.626,
+      "log": "suite-python.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/suite-python.log",
+        "sha256": "60824b3b19328705203b8239adb204d95baa1f23c20c9e8e776b95463ecab5dc"
+      }
+    },
+    "suite-dependencies": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "tests/dependencies.test.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 30080,
+      "memory_limit_mb": 3072,
+      "seconds": 0.36,
+      "log": "suite-dependencies.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/suite-dependencies.log",
+        "sha256": "443291e03701788b8bf5f74d706b589912797230a148a61304a52ae32b10caba"
+      }
+    },
+    "actionlint": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 144,
+      "memory_limit_mb": 3072,
+      "seconds": 0.025,
+      "log": "actionlint.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/actionlint.log",
+        "sha256": "ced4ef22c1d35f09ae59485530a642b7901226a76430b40a394208ab4282b0db"
+      }
+    },
+    "python-syntax": {
+      "argv": [
+        "python3",
+        "-m",
+        "compileall",
+        "-q",
+        "scripts",
+        "tests"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 992,
+      "memory_limit_mb": 3072,
+      "seconds": 0.059,
+      "log": "python-syntax.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/js-extension-resolution/python-syntax.log",
+        "sha256": "7ae10556d3b5a4da106157a7da5a8c93252a2b69e71a057b2a0894d1bb721bae"
+      }
+    }
+  },
+  "reference_limits": {
+    "bun": "54/54 common execution checks pass. Separate preserved Node-style package/imports target profile is0/5 on Bun, retained as different semantics/error codes and actual source-body execution, not skipped or counted as full Bun compatibility.",
+    "node": "The actual .js-to-TypeScript source rewrite is refused and the common entry fixture stops before its body. Lookup matrix has18 differences from Bun; the five exact package target controls pass. No Node bug is inferred."
+  },
+  "experiments": {
+    "whole_clapp_archive": "Bounded codeload attempt exceeded16MiB and was refused before extraction. No complete graph/dependency install, full module initialization, prompt UI, build, upstream tests or publish operation ran."
+  },
+  "suite_change": "Pin pushed Home5a731 and explicitly print54 execution/five exact package boundary checks on Linux while retaining all selected inventories. Local45Python/7dependency/26assertions and actionlint pass.",
+  "caller_pin_unchanged": "82a2fb49ed2f3e14cc3125f155db3ee107e4ae91",
+  "limits": [
+    "Target maintained graph264/264passes; basic JSC remains237/262with21failures.",
+    "Source extension/loader work only; no engine src or test262 execution. Flips0test262cases.",
+    "Other actual HTTPS/HTTP, CSS-module, missing workspace/config, benchmark dependency and bunpress syntax failures remain. Bunpress syntax failure is not yet locally reproduced; no engine cause assigned.",
+    "No full Node/Bun module-resolution, JSX syntax, consumer package, scheduler or host API claim.",
+    "Keep caller at previously validated82a2fb4 until new immutable source validation, Linux runtime/artifact and both priority provenance/CPU preflights pass. Never promote evidence-only descendants."
+  ]
+}
