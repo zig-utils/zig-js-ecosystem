@@ -1,0 +1,596 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-12T12:04:39.039701+00:00",
+  "status": "Home runtime JSDoc repair locally validated and pushed; fresh immutable Linux qualification pending",
+  "home_ref": "94776b93738b1bf05b72b6eecca61f599050dc9e",
+  "home_url": "https://github.com/home-lang/home/commit/94776b93738b1bf05b72b6eecca61f599050dc9e",
+  "before_home_ref": "b329eba288006768e81fe43883a76d8a0bccde82",
+  "local_engine_sha": "a7b0fdfd2e9caa6a9e822d911dd8a390e21babf1",
+  "local_archive_sha256": "3b182ee48ac27e763c308b16276e5330e552906f82d82336907f7389ce1b03ed",
+  "local_profile": "Darwin native ReleaseSafe; identical exact pushed engine archive before and after; Linux new engine0b qualification remains independent",
+  "source_files": [
+    {
+      "path": "build.zig",
+      "git_blob": "0b07e5dc09bccc5efe2ddd80e014a8eec4a13a07",
+      "sha256": "442dbbae22391798db9a3f62a9078334d4922c364ceacc74c88b82b5a97ecfe6"
+    },
+    {
+      "path": "packages/ts_parser/src/ts_parser.zig",
+      "git_blob": "c5fc750e882d62ce290fe9b6bfd6b944b99e6bb0",
+      "sha256": "548ef86a30a41a2bb09e48d76bf4a0658b73d7b9c7fef1fb83ed0a2669da26e8"
+    },
+    {
+      "path": "packages/ts_driver/src/ts_driver.zig",
+      "git_blob": "9452920978e9797714474b5b8c49d6cd7b5c11df",
+      "sha256": "f207a2f67bff552e7967686e05a39e8c52b2e6f5d89e9ed76e87989dcc5e3be5"
+    },
+    {
+      "path": "packages/runtime/src/jsc/tool_modules.zig",
+      "git_blob": "6b647b104aafb7308d80ac2fd7c612b7a865c3be",
+      "sha256": "50efe679bf3f73239249ef2d7353d097b3ea89a6d57d74890e053353f9bd3712"
+    },
+    {
+      "path": "packages/runtime/test/tool_modules/jsdoc_runtime.mjs",
+      "git_blob": "45065c8cbc998029b4551eed0a5598e9b9f6fe51",
+      "sha256": "f6da04db34b676922cbc877c8b2cab541e9c35a8821d7e400f81cb2d8e9f7071"
+    }
+  ],
+  "reproduction": "evidence/2026-11-12-runtime-jsdoc-emission-reproduction.json",
+  "repair": "Parser JSDoc comment diagnostics remain enabled by default through CompileOptions. Runtime module emission and in-memory TypeScript transformation alone disable that scan. Scanner errors, program syntax and checked compiler diagnostics are retained. No comment stripping, fake host, test skip or native Bun candidate fallback.",
+  "validation": {
+    "zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bunpress-module-syntax/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/duplicate-returns.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.389,
+      "log": "zig-js.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/zig-js.log",
+        "sha256": "f195c0c80770eab07ecf002992dec4d557ccd7a199a97dec5bbddb1f3bfe5cad"
+      }
+    },
+    "jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bunpress-module-syntax/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/duplicate-returns.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 112,
+      "memory_limit_mb": 3072,
+      "seconds": 0.044,
+      "log": "jsc.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/jsc.log",
+        "sha256": "3d960c26384dd22fef173bbf3a5e381321d20e7cfa86c7f3e407afa7682ae4a5"
+      }
+    },
+    "node": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/duplicate-returns.cjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 816,
+      "memory_limit_mb": 3072,
+      "seconds": 0.062,
+      "log": "node.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/node.log",
+        "sha256": "3a758eeb465e630ef0c91019e1ac37e31ef27abaa79be4b2a1f2019cdd1837fb"
+      }
+    },
+    "bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/duplicate-returns.cjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 384,
+      "memory_limit_mb": 3072,
+      "seconds": 0.018,
+      "log": "bun.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/bun.log",
+        "sha256": "485b3bae4e352e0ef5a5a5c8b8105c8eee0cdf8e032aca882ecfd3d17fee1dba"
+      }
+    },
+    "fixture-before-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bunpress-module-syntax/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/jsdoc_runtime.mjs",
+        "--transpile"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 144,
+      "memory_limit_mb": 3072,
+      "seconds": 0.112,
+      "log": "fixture-before-zig-js.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/fixture-before-zig-js.log",
+        "sha256": "4855129d9f913a1479c86812bac93f7dcc5c70215c6160ebe8504c51d571ca13"
+      }
+    },
+    "fixture-before-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bunpress-module-syntax/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/jsdoc_runtime.mjs",
+        "--transpile"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.043,
+      "log": "fixture-before-jsc.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/fixture-before-jsc.log",
+        "sha256": "6e922f3f82ebe1e075f5e171602df58a2de99d838e808c905724f62ec826594b"
+      }
+    },
+    "fixture-before-node": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/jsdoc_runtime.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 208,
+      "memory_limit_mb": 3072,
+      "seconds": 0.062,
+      "log": "fixture-before-node.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/fixture-before-node.log",
+        "sha256": "877a08a3be62c309acf7de26a726b5411647abefd2c44abfd8581bec5d475942"
+      }
+    },
+    "fixture-before-bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/jsdoc_runtime.mjs",
+        "--transpile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2288,
+      "memory_limit_mb": 3072,
+      "seconds": 0.037,
+      "log": "fixture-before-bun.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/fixture-before-bun.log",
+        "sha256": "84eb9c2c2272897767dfbbd8f9780ec97658ff45eb7a9f15319845d829de3932"
+      }
+    },
+    "fixture-after-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/jsdoc_runtime.mjs",
+        "--transpile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.107,
+      "log": "fixture-after-zig-js.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/fixture-after-zig-js.log",
+        "sha256": "e8c884e04cf2f3f009b4e24cd00394f017c7eb9b471478b50ba46085f6a9a2fe"
+      }
+    },
+    "fixture-after-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/jsdoc_runtime.mjs",
+        "--transpile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.129,
+      "log": "fixture-after-jsc.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/fixture-after-jsc.log",
+        "sha256": "b175afcb5e6975d68d1725a28af5a9e0134a54f52b33e5f9ba415e7ab2336491"
+      }
+    },
+    "focused-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-runtime-jsdoc",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 9360,
+      "memory_limit_mb": 3072,
+      "seconds": 0.107,
+      "log": "focused-zig-js.log",
+      "disk_free_after": 900116480,
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/focused-zig-js.log",
+        "sha256": "8db232a8c07bb05937c3a86d7019a1712fe058bf40f5ec8695c7a6fa08aa378b"
+      }
+    },
+    "focused-zig-js-retry": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-runtime-jsdoc",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache",
+        "--global-cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/global-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 9360,
+      "memory_limit_mb": 3072,
+      "seconds": 0.065,
+      "log": "focused-zig-js-retry.log",
+      "disk_free_after": 900014080,
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/focused-zig-js-retry.log",
+        "sha256": "f1877433834fb6bd73d294698be10536797985c229555c984057da6663d605f9"
+      }
+    },
+    "focused-zig-js-isolated": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-runtime-jsdoc",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache",
+        "--global-cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/global-cache"
+      ],
+      "global_cache_dir": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/global-cache",
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1018320,
+      "memory_limit_mb": 3072,
+      "seconds": 34.395,
+      "log": "focused-zig-js-isolated.log",
+      "disk_free_after": 840589312,
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/focused-zig-js-isolated.log",
+        "sha256": "f82c1a45dc2c8ebf7158c54caffbecae791c4d8ea6d224435a1a7e1b2f8ac15a"
+      }
+    },
+    "focused-zig-js-env": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-runtime-jsdoc",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "global_cache_dir": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/global-cache",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1487136,
+      "memory_limit_mb": 3072,
+      "seconds": 31.343,
+      "log": "focused-zig-js-env.log",
+      "disk_free_after": 761946112,
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/focused-zig-js-env.log",
+        "sha256": "52524e36fd8aa3ac504b43b8c6ad7042875c321b3fd7f5e28a8c1e939776601f"
+      }
+    },
+    "focused-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-runtime-jsdoc",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "global_cache_dir": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/global-cache",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1428816,
+      "memory_limit_mb": 3072,
+      "seconds": 27.434,
+      "log": "focused-jsc.log",
+      "disk_free_after": 937218048,
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/focused-jsc.log",
+        "sha256": "eaa489c7d68f13829528ee71e320181494f49567589a434d83da071f5e819584"
+      }
+    },
+    "driver-runtime": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "test",
+        "-Dtest-filter=ts_driver",
+        "-Dts-driver-test-filter=runtime",
+        "-Denable_jsc=false",
+        "-Doptimize=ReleaseSafe",
+        "-j1",
+        "--summary",
+        "all",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "global_cache_dir": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/global-cache",
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 9360,
+      "memory_limit_mb": 3072,
+      "seconds": 0.306,
+      "log": "driver-runtime.log",
+      "disk_free_after": 1017610240,
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/driver-runtime.log",
+        "sha256": "e5269d61c575ebcab5735eec0f37a59b01fbbb3ba14a306e499214c6dd29e638"
+      }
+    },
+    "driver-runtime-retry": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "test",
+        "-Dfilter=ts_driver",
+        "-Dts-driver-test-filter=runtime",
+        "-Denable_jsc=false",
+        "-Doptimize=ReleaseSafe",
+        "-j1",
+        "--summary",
+        "all",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "global_cache_dir": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/global-cache",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2783248,
+      "memory_limit_mb": 3072,
+      "seconds": 97.442,
+      "log": "driver-runtime-retry.log",
+      "disk_free_after": 951894016,
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/driver-runtime-retry.log",
+        "sha256": "03cc4ab6f9fdf5e33230aaa507cb58d3e0ef335764661df30b1b8b92d9791f9f"
+      }
+    },
+    "full-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "global_cache_dir": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/global-cache",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 910496,
+      "memory_limit_mb": 3072,
+      "seconds": 88.869,
+      "log": "full-zig-js.log",
+      "disk_free_after": 866226176,
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/full-zig-js.log",
+        "sha256": "973c78904383bed916995c86920f8994071bab1bdd7cf69736f92e65f655c2dc"
+      }
+    },
+    "full-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "global_cache_dir": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/global-cache",
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 425488,
+      "memory_limit_mb": 3072,
+      "seconds": 17.688,
+      "log": "full-jsc.log",
+      "disk_free_after": 856608768,
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/full-jsc.log",
+        "sha256": "2280565096f127c73f308fb6abb7e3c2d9df31bf6ccd1eda961d62244ddd03b8"
+      }
+    },
+    "suite-python": {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 128144,
+      "memory_limit_mb": 3072,
+      "seconds": 3.363,
+      "log": "suite-python.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/suite-python.log",
+        "sha256": "462964a1dcb133dd10db27948d228cd86df5276618026362bfb05a86b620057b"
+      }
+    },
+    "suite-dependencies": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "tests/dependencies.test.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 26848,
+      "memory_limit_mb": 3072,
+      "seconds": 0.353,
+      "log": "suite-dependencies.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/suite-dependencies.log",
+        "sha256": "c2cc94342879f9e322558c299e300e34444e9d074ca4d3ccdb68446856ce5272"
+      }
+    },
+    "actionlint": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.03,
+      "log": "actionlint.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/actionlint.log",
+        "sha256": "2d83d05058d9a5a71a9f35ce1058cfbba75d86aafa904bc66054d98660f1e0d2"
+      }
+    },
+    "python-syntax": {
+      "argv": [
+        "python3",
+        "-m",
+        "compileall",
+        "-q",
+        "scripts",
+        "tests"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 3760,
+      "memory_limit_mb": 3072,
+      "seconds": 0.041,
+      "log": "python-syntax.log",
+      "raw_log": {
+        "path": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/jsdoc-emit/python-syntax.log",
+        "sha256": "264268d29d01153920d9b8f8d74d19beb61005a2409ace60bb4e80761a42e2af"
+      }
+    }
+  },
+  "executed_scope": {
+    "before": "Both Home providers execute19common checks with15passes/4failures and17typed/transform checks with13passes/4failures; duplicate comment tags prevent bodies or transforms. Node19 and Bun19+17 pass.",
+    "after": "Both providers19/19common and17/17typed/transform pass: real CJS/ESM bodies, typed CTS/MTS bodies, module identities, physical comments, emitted-code execution and transformation non-execution. Invalid declaration/string/comment/export source rejects and executes no prefix.",
+    "compiler": "All9focused runtime compiler tests pass, including real compileSource retaining TS1223 under defaults and runtime preparation/emission refusing four genuine syntax errors.",
+    "maintained_zig_js": "270/270steps and68/68native tests pass",
+    "maintained_jsc": "243/268steps;21failures;6/6native tests pass; full graph remains red. No identical-failure-set/no-regression claim."
+  },
+  "tooling_attempts": {
+    "initial_builds": "Default global cache maker executable was absent. A CLI --global-cache-dir attempt was not accepted by Zig0.18. Both failures remain failed/unexecuted evidence. An owned ZIG_GLOBAL_CACHE_DIR environment directory repairs execution; no shared/foreign cache changed.",
+    "initial_driver": "Used wrong -Dtest-filter option; unexecuted failure retained. Correct -Dfilter=ts_driver with -Dts-driver-test-filter=runtime executes9tests, all pass.",
+    "disk": "Some space became available after the earlier318MiB report. Existing owned local compiler cache plus an isolated global maker cache allowed actual builds/validation to complete with no deletions or quota increase. Earlier user action is no longer required for this fix.",
+    "free_bytes_at_recording": 774950912,
+    "peak_driver_rss_kib": 2783248,
+    "limit_mb": 3072
+  },
+  "suite_change": "Pin pushed94776b937 and print actual19common/17typed markers plus focused native driver test summary on Linux. All selected repositories and maintained gates remain covered.",
+  "caller_pin_unchanged": "2e215bc8c13f432205f8f0a5dbbbcd41f883bb62",
+  "limits": [
+    "Minimal comment diagnostics and real fixture bodies are measured. The entire bundled @napi-rs CLI, Rust/N-API builds or upstream tests were not run or claimed passed.",
+    "No engine source, public/private ABI inventory, test262 corpus or performance claim; flips0test262cases.",
+    "Current all-selected43206536404 retains truthful priority failures: Stacks94passed/182failed/355unsupported; Home9passed/41failed/37unsupported, with the previous root docs timeout now hitting3072MiB instead.",
+    "Do not promote an evidence-only descendant. Caller waits for fresh source validation, Linux runtime, official artifact/file provenance and both actual priority preflights."
+  ]
+}
