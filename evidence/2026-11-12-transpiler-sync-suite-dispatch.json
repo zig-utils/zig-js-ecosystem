@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-12T07:48:25.787277+00:00",
+  "functional_suite": "82a2fb49ed2f3e14cc3125f155db3ee107e4ae91",
+  "home_ref": "5a6408d84d97e580bd770fbac783ee7f1b21ba54",
+  "engine_sha": "363e8b8220f409bf1b9b98fc6410571100cccd9e",
+  "qualification": {
+    "run": 43177855243,
+    "url": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/43177855243",
+    "head_sha": "82a2fb49ed2f3e14cc3125f155db3ee107e4ae91",
+    "status": "in_progress",
+    "conclusion": null,
+    "jobs": [
+      {
+        "id": 131046356596,
+        "name": "discover",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 131046683029,
+        "name": "runtime",
+        "status": "in_progress",
+        "conclusion": null
+      }
+    ],
+    "selection": [
+      "stacksjs/stacks",
+      "home-lang/home"
+    ],
+    "reference": true
+  },
+  "source_validation": {
+    "run": 43177781175,
+    "job": 131046108845,
+    "head_sha": "82a2fb49ed2f3e14cc3125f155db3ee107e4ae91",
+    "conclusion": "success",
+    "actual_python_tests": 45,
+    "actual_dependency_tests": 7,
+    "actual_dependency_assertions": 26,
+    "raw_log": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/transpiler-sync/qualification/source-validation-ci.log",
+    "log_sha256": "7c8b64457c646cc797785a2e22f6642c5f642a3490e8d25a94036b4a82ec707a"
+  },
+  "initial_dispatch_error": {
+    "ref": "82a2fb49ed2f3e14cc3125f155db3ee107e4ae91",
+    "error": "HTTP422: No ref found for exact SHA dispatch ref; no run created",
+    "correction": "Dispatch via main with explicit immutable suite_ref and engine_sha; resulting run head verified exactly equals functional suite"
+  },
+  "caller_unchanged": "9e9bfba5ea11a91fb67c42227d8cd9ef4781210b",
+  "required_before_promotion": [
+    "Actual Linux TRANSPILE SYNC RESULTS twenty passed ledger and sixteen explicit refusals",
+    "All maintained native and JavaScript runtime gates",
+    "Official ZIP digest, baseline ReleaseSafe provenance and both physical file hashes",
+    "Both actual priority consumer provenance and CPU preflights",
+    "No inferred package or unsupported feature passes"
+  ],
+  "all_selected_coverage": {
+    "run": 43171502877,
+    "engine_sha": "363e8b8220f409bf1b9b98fc6410571100cccd9e",
+    "jobs": [
+      {
+        "id": 131025873112,
+        "name": "ecosystem / runtime",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 131031044488,
+        "name": "ecosystem / Consumers stacksjs/stacks",
+        "status": "in_progress",
+        "conclusion": null
+      },
+      {
+        "id": 131031044495,
+        "name": "ecosystem / Consumers home-lang/home",
+        "status": "in_progress",
+        "conclusion": null
+      }
+    ],
+    "no_runs_cancelled": true
+  },
+  "local_evidence": "2026-11-12-home-transpiler-sync.json",
+  "limits": [
+    "New engine363e includes separate GC and owned-dependency-inventory fixes; local a7b archive proof is not latest-engine qualification.",
+    "Keep Bun strict-directive, JSC URL/full-gate and missing Bun.build/package failures explicit.",
+    "Never pin the caller to this evidence-only receipt."
+  ]
+}
