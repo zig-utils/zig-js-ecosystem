@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "run": 43203788373,
+  "conclusion": "failure",
+  "report": {
+    "job": 131149667495,
+    "actual_summary": "4/4 consumers reported; 4 failing, 0 missing",
+    "log_sha256": "4a72cee44eac8c8c8e9dbc602dedd536fad103fa115b7680927093d9c3efac51"
+  },
+  "engine_sha": "91d1f6e6d1fdd1ef24a0bc6900d334c7df0bdfbc",
+  "functional_suite": "2e215bc8c13f432205f8f0a5dbbbcd41f883bb62",
+  "home_runtime": "b329eba288006768e81fe43883a76d8a0bccde82",
+  "consumers": [
+    {
+      "repository": "stacksjs/stacks",
+      "sha": "0a5a1de4b3ba99a49766bb6ce7568c6b9bf93bd7",
+      "scopes": 100,
+      "checks": 936,
+      "candidate": {
+        "unsupported": 355,
+        "failed": 182,
+        "passed": 94
+      },
+      "artifact": {
+        "id": 13939826350,
+        "digest": "sha256:b3813d5bb1efefa1ba1ebb0ac94f0266dbdca86ae029e0cacc8ac539e913ba9c",
+        "size_in_bytes": 1761143
+      },
+      "report_sha256": "8c2439c02a96c8a5a9f062b14723cd16879e5a1d70dbebde839e60d722e0f9a0",
+      "prior_consumer_sha": "e2c984dcb59e03f178d8dbec64d3c4fee55f7b7b",
+      "candidate_label_status_sequences_match_prior": true,
+      "comparison_limit": "Consumer revisions changed; unchanged labels/statuses do not establish same-source no-regression evidence.",
+      "actual_failure_logs": [
+        {
+          "label": ".: build",
+          "status": "failed",
+          "log_sha256": "921873a94176ba2d5192d2539f8d4202d54af8d428b46c00d0d205c9f431f981",
+          "text": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-12T11:01:43.103Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 2539724 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "label": "storage/framework/libs/components/stx: build",
+          "status": "failed",
+          "log_sha256": "ee8990e74ef3ab8757c6f4fcb02c2b51d36cc64bcf1f88e73785c015812c9c4a",
+          "text": "$ [\"/bin/sh\", \"-c\", \"bun build.ts\"]\n[2026-11-12T11:08:06.714Z] local.INFO: Building your STX component library...\nhome-tool (zig-js): AggregateError: Failed to bundle component library\nTypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [path.join(outputDir, \"index.js\")], outdir: outputDir, naming: \"bundle.js\", target: \"browser\", format: \"esm\", minify: config.minify ?? !0, sourcemap: config.sourcemap || \"none\" })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 912316 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ]
+    },
+    {
+      "repository": "home-lang/home",
+      "sha": "b329eba288006768e81fe43883a76d8a0bccde82",
+      "scopes": 46,
+      "checks": 234,
+      "candidate": {
+        "timed-out": 1,
+        "unsupported": 37,
+        "passed": 9,
+        "failed": 40
+      },
+      "artifact": {
+        "id": 13940026813,
+        "digest": "sha256:4d0d3a88ed41a8bd05a9c2b992223e279799ef0dda860eb396ea22d412f381d0",
+        "size_in_bytes": 106405
+      },
+      "report_sha256": "97808f1619ac299bcae599364c21929150dfc565360136f2d53e6dd9b568da76",
+      "prior_consumer_sha": "5a731c4daebb965220f600cc28ef38f46ea8b083",
+      "candidate_label_status_sequences_match_prior": true,
+      "comparison_limit": "Consumer revisions changed; unchanged labels/statuses do not establish same-source no-regression evidence.",
+      "actual_failure_logs": [
+        {
+          "label": "packages/registry: test",
+          "status": "failed",
+          "log_sha256": "cffc32a0ce6d030b994fbc69e85490e56f50754b3bc92f93c34072d8b0157a8f",
+          "text": "$ [\"/bin/sh\", \"-c\", \"jest\"]\nSyntaxError: Unexpected token\n    at <anonymous> (home:tool-module-install:253:7)\n    at evaluateSync (home:tool-module-install:272:7)\n    at load (home:tool-module-install:374:5)\n    at <anonymous> (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/registry/node_modules/%40babel/code-frame/lib/index.js?home-emitted:5:1)\n    at <anonymous> (home:tool-module-install:255:7)\n    at evaluateSync (home:tool-module-install:272:7)\n    at load (home:tool-module-install:374:5)\n    at <anonymous> (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/registry/node_modules/parse-json/index.js?home-emitted:6:1)\n    at <anonymous> (home:tool-module-install:255:7)\n    at evaluateSync (home:tool-module-install:272:7)\nUncaught unhandledRejection: SyntaxError: Unexpected token\n\nECOSYSTEM PEAK SAMPLED RSS: 138124 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "label": "packages/runtime/src/runtime/cli/init/react-tailwind: build",
+          "status": "failed",
+          "log_sha256": "a67d79e139ad66e8a16450f1d52fb3809f75da6af2215d0b3ef65e4b33c796c3",
+          "text": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 227756 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ]
+    },
+    {
+      "repository": "stacksjs/bunpress",
+      "sha": "e7b328e3fd3db76ff92ce52649e9f13c6f811fdc",
+      "scopes": 4,
+      "checks": 31,
+      "candidate": {
+        "failed": 4,
+        "unsupported": 4,
+        "passed": 5
+      },
+      "artifact": {
+        "id": 13936872281,
+        "digest": "sha256:05d56af3ba060eeff2b36744ebced3efbf89feb1c00e28dc0eba69d957551d00",
+        "size_in_bytes": 335608
+      },
+      "report_sha256": "e284f1824f8bc3e36328ecf8a2d470f4f6759512f58e8019e5ece9c731b8f202"
+    },
+    {
+      "repository": "stacksjs/clapp",
+      "sha": "2ecc2af97d33f59ad5d22abe399392793d8de63d",
+      "scopes": 2,
+      "checks": 24,
+      "candidate": {
+        "failed": 2,
+        "unsupported": 4,
+        "passed": 3
+      },
+      "artifact": {
+        "id": 13937002939,
+        "digest": "sha256:296a7344d9cbd90d644fa85453d9d623cc89d3fb08c18b2131166ebeb8ad7992",
+        "size_in_bytes": 24254
+      },
+      "report_sha256": "c408f2a5dbf040178ac99d8c0b616841166267cb62aa28adcdb24bc872d79871"
+    }
+  ],
+  "scope": "All four completed package reports are retained with official ZIP digests. Full packages remain failed. Actual BunPress source-entry gain and passing Clapp source entry are qualified in the preceding promotion proof, not full builds or executed upstream test suites. Stacks/Home preserve budget, absent bundler/hosts, tokenizer, native addon, missing generated/fixture/dependency and unsupported evidence. No skip/fake host or native Bun candidate fallback. References and native/direct checks remain separate.",
+  "caller": {
+    "commit": "0b28aae4c89160bd94eeba860186ce755eb72418",
+    "functional_suite": "2e215bc8c13f432205f8f0a5dbbbcd41f883bb62",
+    "all_selected_run": 43206536404,
+    "status_at_recording": "in progress; runtime success; priority package commands in progress; other selected jobs queued or running",
+    "prior_runs_cancelled": false
+  },
+  "raw_directory": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/bunpress-module-syntax/qualification"
+}
