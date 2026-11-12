@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-12T20:48:53.508351+00:00",
+  "dispatch": {
+    "timestamp": "2026-11-12T20:43:48.161587+00:00",
+    "argv": [
+      "/Users/chris/.local/share/pantry/global/bin/gh",
+      "workflow",
+      "run",
+      "ecosystem.yml",
+      "-R",
+      "zig-utils/zig-js-ecosystem",
+      "--ref",
+      "main",
+      "-f",
+      "engine_sha=095858da320906973eedbb148125c5f6bca3eed1",
+      "-f",
+      "suite_ref=682ec6e0c08e204fb7af587ebfa6d2123921a7fb",
+      "-f",
+      "repositories=stacksjs/stacks,home-lang/home,stacksjs/bunpress,stacksjs/clapp",
+      "-f",
+      "reference=true"
+    ],
+    "exit_code": 0,
+    "stdout": "https://github.com/zig-utils/zig-js-ecosystem/actions/runs/43303179964\n",
+    "stderr": "",
+    "functional_suite": "682ec6e0c08e204fb7af587ebfa6d2123921a7fb"
+  },
+  "observed_jobs": [
+    {
+      "id": 131479461721,
+      "name": "discover",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 131479821604,
+      "name": "runtime",
+      "status": "in_progress",
+      "conclusion": null
+    }
+  ],
+  "source_validation": {
+    "run": 43303147598,
+    "job": 131479340668,
+    "conclusion": "success",
+    "python_tests": 45,
+    "dependency_tests": 7,
+    "dependency_assertions": 26,
+    "log_sha256": "7ec0e17fe68e3e8eb7c80e59b9f1d08821ffbf1d56ca56ca1515ab4936e02781"
+  },
+  "dashboard": {
+    "run": 43303411977,
+    "conclusion": "success",
+    "live": {
+      "deployment_run": 43303411977,
+      "url": "https://zig-utils.github.io/zig-js-ecosystem/",
+      "generated_at": "2026-11-12T20:45:24+00:00",
+      "records": 227,
+      "snapshot_sha256": "a277a4a974c5a5e473c67fec85b05dd6ae3714b543e95a236c661048ba62c876",
+      "fettler_source": {
+        "repository": "zig-utils/zig-js",
+        "run_id": 43271217417,
+        "url": "https://github.com/zig-utils/zig-js/actions/runs/43271217417",
+        "run_created_at": "2026-11-12T17:36:23Z",
+        "measured_at": "2026-11-12T19:33:35Z",
+        "artifact_id": 13976749241,
+        "digest": "sha256:fb970041b2821687c8744976824a9af6da3c790ba73fcd194e4bd43b8c5938a0",
+        "focused": false,
+        "artifact_url": "https://github.com/zig-utils/zig-js/actions/runs/43271217417/artifacts/13976749241"
+      },
+      "warnings": []
+    }
+  },
+  "caller_retained": "6fdda991cf886f8522b13e95a0e45abfabfedb7a",
+  "promotion": "Runtime still in progress; no runtime artifact, Linux fixture success or consumer preflight inferred. Only functional682ec6e0c08e204fb7af587ebfa6d2123921a7fb may be promoted after actual qualification, never this evidence-only descendant."
+}
