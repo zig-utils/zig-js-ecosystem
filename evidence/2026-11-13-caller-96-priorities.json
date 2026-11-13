@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-13T00:29:46.892127+00:00",
+  "local_evidence_directory": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/latest-96",
+  "actual_priority_receipts": [
+    {
+      "run": 43330375184,
+      "job": 131584410111,
+      "artifact": 13998110006,
+      "official_digest": "sha256:811245c31e410b9304c239f0ce74e46201437fadbc338d2ccf51fcde2424c917",
+      "zip_sha256": "811245c31e410b9304c239f0ce74e46201437fadbc338d2ccf51fcde2424c917",
+      "job_log_sha256": "c003dd2721a72f3eb0637ed3146b9e12322b36da52e6a50b9bccaf57f6be587f",
+      "repository": "home-lang/home",
+      "source_sha": "6f69d21bf42fbde16710ee11454c1d86e55762fc",
+      "engine_sha": "96bdc767b2e333b623805f1286491aaa57060bd2",
+      "candidate_counts": {
+        "failed": 41,
+        "unsupported": 37,
+        "passed": 9
+      },
+      "suite_ref": "4cf067535ccdb00e8ad0bffd6e0de72f364596c0",
+      "selected_actual_failures": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": -9,
+            "peak_sampled_rss_kib": 3160756,
+            "memory_limit_mb": 3072,
+            "seconds": 26.468,
+            "log": "0052.log",
+            "reason": "sampled command tree RSS exceeded 3072 MiB",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bunx bunpress build"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate",
+            "engine_invocations": 1
+          },
+          "log_sha256": "2057ef23f3c606eb9c8b05c8253c798d32be883d9e648b25a3a64df47157d49c",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 3160756 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 902724,
+            "memory_limit_mb": 3072,
+            "seconds": 23.216,
+            "log": "0097.log",
+            "label": "packages/runtime/upstream/packages/bun-build-mdx-rs: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "napi build --platform --release"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs",
+            "engine_invocations": 1
+          },
+          "log_sha256": "08b5c0e3ed66410b66b3ebeb2b5f256adc9d4fd95ce57ee81dc95f6169a86238",
+          "log": "$ [\"/bin/sh\", \"-c\", \"napi build --platform --release\"]\n\u001b[31m\u001b[1mType Error\u001b[22m\u001b[39m: Could not parse the Cargo.toml: Error: Command failed: /bin/sh\n    at <anonymous> (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:8294:9)\n    at <anonymous> (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:2735:5)\n    at __awaiter$1 (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:2717:3)\n    at validateAndExecute (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:1554:5)\n    at <anonymous>\n    at run (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:2419:7)\n    at <anonymous> (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:29414:1)\n    at <anonymous> (home:tool-module-install:260:7)\n    at evaluateSync (home:tool-module-install:277:7)\n    at <anonymous> (home:tool-module-install:387:7)\n\nECOSYSTEM PEAK SAMPLED RSS: 902724 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ]
+    },
+    {
+      "run": 43330375184,
+      "job": 131584410267,
+      "artifact": 13998055951,
+      "official_digest": "sha256:7b79059b25b96f479e43d72fe3788a51be25575b258a319212c379829bcaf4a7",
+      "zip_sha256": "7b79059b25b96f479e43d72fe3788a51be25575b258a319212c379829bcaf4a7",
+      "job_log_sha256": "4007143dd778f9220edf67c285322e7cbc4f348db628986e56ad9be5d6e9abd8",
+      "repository": "stacksjs/stacks",
+      "source_sha": "b167dcc5b5a9345dc27914bb0e48005c5fe3af87",
+      "engine_sha": "96bdc767b2e333b623805f1286491aaa57060bd2",
+      "candidate_counts": {
+        "unsupported": 355,
+        "failed": 182,
+        "passed": 94
+      },
+      "suite_ref": "4cf067535ccdb00e8ad0bffd6e0de72f364596c0",
+      "selected_actual_failures": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 2568120,
+            "memory_limit_mb": 3072,
+            "seconds": 9.932,
+            "log": "0016.log",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "./buddy build"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate",
+            "engine_invocations": 3
+          },
+          "log_sha256": "fadfc6c2d8f53bc44a3ea41fad9fca27fae5f2e8e5f75013c5b3657415967414",
+          "log": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-13T00:04:57.223Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 2568120 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ]
+    }
+  ],
+  "notes": "Actual latest completed priority logs retain Home Cargo diagnostic loss on old runtime Home 6f69 and docs sampled RSS limit failure at 3160756 KiB, plus Stacks evaluation budget failure. The new Home 4fd4 and qualified suite 775c2e8 are not used by this old caller. No new complete all-selected report inferred; no fake passes, skips, native Bun candidate fallback or limit changes."
+}
