@@ -1,0 +1,962 @@
+{
+  "schema_version": 1,
+  "functional_suite": "398066f1122f282ded01b7f2e07f82c5e67cdadb",
+  "qualified_runtime": {
+    "run": 43349578745,
+    "runtime_job": 131638226621,
+    "artifact": {
+      "id": 14003618615,
+      "digest": "sha256:70317374433b5ad1c8030ade78453b02b447c70b03558c5e871c12a58c4ec7dd",
+      "size_in_bytes": 42440200
+    },
+    "downloaded_zip_sha256": "70317374433b5ad1c8030ade78453b02b447c70b03558c5e871c12a58c4ec7dd",
+    "provenance": {
+      "engine_sha": "bced184256f6c85c99ae56dd27fe9e141f0293a8",
+      "suite_ref": "398066f1122f282ded01b7f2e07f82c5e67cdadb",
+      "home_repository": "home-lang/home",
+      "home_ref": "74c899f1bc7ca9349d28fc421961684ce8c6f7b6",
+      "zig_version": "0.18.0-dev.146+35accc06e",
+      "build_cpu": "baseline",
+      "build_optimize": "ReleaseSafe",
+      "sha256": {
+        "home-tool": "5efb52e9b080d4e66545e30e460d18662ba9f8a2b733239c725690dbd7c7fbd9",
+        "engine/zig-out/lib/libzig-js.a": "46cc42cbc8c7e8794dd7cc84c903c5ed91f87cd0003e2d06a466c6261a9bffca"
+      }
+    },
+    "files": {
+      "engine/zig-out/lib/libzig-js.a": "46cc42cbc8c7e8794dd7cc84c903c5ed91f87cd0003e2d06a466c6261a9bffca",
+      "home-tool": "5efb52e9b080d4e66545e30e460d18662ba9f8a2b733239c725690dbd7c7fbd9"
+    },
+    "runtime_log_sha256": "c34efd37f1d6919b2152b930c3299ee9b6e25f0b5e12906d8cc87def26145eac",
+    "actual_signals": [
+      "2026-11-13T02:09:57.1143229Z All 6 tests passed.",
+      "2026-11-13T02:10:05.9942872Z All 7 tests passed.",
+      "2026-11-13T02:14:44.8148646Z NATIVE CONSTANTS RESULTS {\"groups\":18,\"passed\":18,\"failures\":[]}",
+      "2026-11-13T02:14:44.8209357Z HOME NATIVE CONSTANTS PROFILE REAL FS/OS ERRNO ONLY; OTHER PRIVATE BINDINGS UNAVAILABLE",
+      "2026-11-13T02:14:44.8231943Z NATIVE CONSTANTS 18 GROUPS OK",
+      "2026-11-13T02:14:44.8262030Z INDEPENDENT NATIVE CONSTANTS AND EXCLUSIVE KERNEL OPEN VERIFIED {\"errno_names\": 79, \"flags\": {\"O_CREAT\": 64, \"O_EXCL\": 128, \"O_RDWR\": 2}}",
+      "2026-11-13T02:14:46.2797982Z FS MUTATION RESULTS {\"groups\":43,\"passed\":43,\"failures\":[],\"doubleCallbacks\":[]}",
+      "2026-11-13T02:14:46.2822474Z HOME FS MUTATION PROFILE REAL OWNER-TASK IO; REFLINK FLAGS AND NONREGULAR COPY UNAVAILABLE",
+      "2026-11-13T02:14:46.2852050Z FS MUTATION 43 GROUPS OK",
+      "2026-11-13T02:14:46.2880562Z NATIVE FS MUTATION BYTES/INODES/LINKS/PERMISSIONS VERIFIED {\"source_bytes\": 1048593, \"sha256\": \"93513902ca696d5666cfebbe008c992048a8c04aec93f5c62b732c165dbc9373\", \"hardlink_identity_preserved\": true, \"symlink_entry_preserved\": true}",
+      "2026-11-13T02:14:46.2882027Z FS MUTATION 16 EXCEPTION/FATAL/LIVENESS CHILDREN OK",
+      "2026-11-13T02:14:46.9656309Z V8 BINARY RESULTS {\"groups\":31,\"passed\":31,\"failures\":[]}",
+      "2026-11-13T02:14:46.9702192Z V8 MALFORMED RESULTS {\"groups\":17,\"passed\":17,\"failures\":[]}",
+      "2026-11-13T02:14:46.9742091Z V8 NODE WIRE RESULTS {\"groups\":23,\"passed\":23,\"failures\":[]}",
+      "2026-11-13T02:14:46.9772602Z HOME V8 PROFILE RESULTS {\"groups\":9,\"passed\":9,\"failures\":[]}",
+      "2026-11-13T02:14:48.9083283Z FS CALLBACK READ RESULTS {\"groups\":21,\"passed\":21,\"failures\":[]}",
+      "2026-11-13T02:14:48.9132146Z NATIVE CALLBACK READ 65536 PHYSICAL BYTES INDEPENDENTLY VERIFIED",
+      "2026-11-13T02:14:48.9152369Z NATIVE FS CALLBACK 3 FATAL CHILDREN AND REF LIVENESS VERIFIED",
+      "2026-11-13T02:14:48.9182275Z HOME FS CALLBACK PROFILE RESULTS {\"groups\":6,\"passed\":6,\"failures\":[]}",
+      "2026-11-13T02:14:51.2726660Z NODE EXEC SHELL RESULTS {\"checks\":16,\"passed\":16,\"failures\":[]}",
+      "2026-11-13T02:14:51.2752537Z NODE EXEC SHELL 16 CHECKS OK",
+      "2026-11-13T02:14:51.2792724Z NATIVE SHELL RAW STDERR, INHERITED DESCRIPTORS AND PHYSICAL FILE VERIFIED",
+      "2026-11-13T02:14:51.2793311Z HOME EXEC SHELL 8 REFUSALS OK",
+      "2026-11-13T02:14:54.1782646Z STRICT ASSERT RESULTS {\"groups\":18,\"passed\":18,\"failures\":[]}",
+      "2026-11-13T02:14:54.1783018Z STRICT ASSERT 18 GROUPS OK",
+      "2026-11-13T02:14:54.2587112Z NATIVE ADDON FORMAT RESULTS {\"mode\":\"home\",\"resolved\":8,\"refused\":8,\"uncached\":8,\"sourceBodiesExecuted\":0,\"staticBodyExecuted\":false,\"dynamicCode\":\"ERR_HOME_UNSUPPORTED_NATIVE_ADDON\",\"missingCode\":\"MODULE_NOT_FOUND\",\"sourceControls\":true,\"outcomes\":[{\"route\":\"./text.node\",\"path\":\"/tmp/home-native-format-eh_aek1a/text.node\",\"code\":\"ERR_HOME_UNSUPPORTED_NATIVE_ADDON\",\"loaded\":false,\"uncached\":true},{\"route\":\"./binary.node\",\"path\":\"/tmp/home-native-format-eh_aek1a/binary.node\",\"code\":\"ERR_HOME_UNSUPPORTED_NATIVE_ADDON\",\"loaded\":false,\"uncached\":true},{\"route\":\"./text\",\"path\":\"/tmp/home-native-format-eh_aek1a/text.node\",\"code\":\"ERR_HOME_UNSUPPORTED_NATIVE_ADDON\",\"loaded\":false,\"uncached\":true},{\"route\":\"./indexpkg\",\"path\":\"/tmp/home-native-format-eh_aek1a/indexpkg/index.node\",\"code\":\"ERR_HOME_UNSUPPORTED_NATIVE_ADDON\",\"loaded\":false,\"uncached\":true},{\"route\":\"./mainpkg\",\"path\":\"/tmp/home-native-format-eh_aek1a/mainpkg/binding.node\",\"code\":\"ERR_HOME_UNSUPPORTED_NATIVE_ADDON\",\"loaded\":false,\"uncached\":true},{\"route\":\"addon-pkg\",\"path\":\"/tmp/home-native-format-eh_aek1a/node_modules/addon-pkg/binding.node\",\"code\":\"ERR_HOME_UNSUPPORTED_NATIVE_ADDON\",\"loaded\":false,\"uncached\":true},{\"route\":\"./alias.js\",\"path\":\"/tmp/home-native-format-eh_aek1a/text.node\",\"code\":\"ERR_HOME_UNSUPPORTED_NATIVE_ADDON\",\"loaded\":false,\"uncached\":true},{\"route\":\"./text.node\",\"path\":\"/tmp/home-native-format-eh_aek1a/text.node\",\"code\":\"ERR_HOME_UNSUPPORTED_NATIVE_ADDON\",\"loaded\":false,\"uncached\":true}]}",
+      "2026-11-13T02:14:54.2612074Z NATIVE ADDON REFUSAL STDERR \"\"",
+      "2026-11-13T02:14:54.2632057Z NATIVE ADDONS REMAIN UNAVAILABLE; SOURCE EXECUTION AND FAKE CACHE ENTRIES REFUSED",
+      "2026-11-13T02:14:56.7181279Z NODE EXEC CAPTURE RESULTS {\"checks\":14,\"passed\":14,\"failures\":[]}",
+      "2026-11-13T02:14:56.7192516Z NODE EXEC CAPTURE 14 CHECKS OK",
+      "2026-11-13T02:14:56.7192934Z NATIVE CAPTURE RAW STDERR FORWARDING VERIFIED",
+      "2026-11-13T02:14:56.7193417Z HOME EXEC CAPTURE 10 REFUSALS OK",
+      "2026-11-13T02:14:56.8813633Z NODE OS ABI 5 CHECKS OK",
+      "2026-11-13T02:14:56.8814040Z NATIVE EXECUTABLE ABI HEADER MATCHES RUNTIME",
+      "2026-11-13T02:14:59.0592155Z NODE PROCESS CHDIR 19 CHECKS OK",
+      "2026-11-13T02:14:59.0652495Z HOST CHDIR RELATIVE FILE AND CHILD VERIFIED",
+      "2026-11-13T02:14:59.0671871Z HOME PROCESS CHDIR 2 PATH GUARDS OK",
+      "2026-11-13T02:14:59.7112908Z TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+      "2026-11-13T02:14:59.7142550Z TTY STREAM RESULTS {\"groups\":29,\"passed\":29,\"failures\":[]}",
+      "2026-11-13T02:14:59.7146544Z TTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}",
+      "2026-11-13T02:14:59.7202170Z HOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE",
+      "2026-11-13T02:14:59.7233055Z TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+      "2026-11-13T02:14:59.7261820Z TTY STREAM RESULTS {\"groups\":29,\"passed\":29,\"failures\":[]}",
+      "2026-11-13T02:14:59.7262382Z TTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}",
+      "2026-11-13T02:14:59.7312172Z HOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE",
+      "2026-11-13T02:14:59.7331965Z NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+      "2026-11-13T02:15:01.5355916Z BUN SQLITE CORE RESULTS {\"checks\":32,\"passed\":32,\"failures\":[]}",
+      "2026-11-13T02:15:01.5380484Z BUN SQLITE CORE 32 CHECKS OK",
+      "2026-11-13T02:15:01.5412332Z NATIVE SQLITE FILE AND INDEPENDENT ROUNDTRIP OK",
+      "2026-11-13T02:15:04.0202219Z BUFFER BASE64 RESULTS {\"groups\":126,\"passed\":126,\"failures\":[]}",
+      "2026-11-13T02:15:04.0263380Z NATIVE BASE64 65536 PHYSICAL BYTES INDEPENDENTLY VERIFIED",
+      "2026-11-13T02:15:06.9237694Z CONSOLE ASSERT PHYSICAL RESULTS {\"node\": \"v26.10.0\", \"cases\": 55, \"passed\": 55, \"failures\": []}",
+      "2026-11-13T02:15:06.9262201Z HOME CONSOLE ASSERT PROFILE 6 INSPECTION REFUSALS; CIRCULAR JSON UNAVAILABLE",
+      "2026-11-13T02:15:06.9298996Z NATIVE CONSOLE ASSERT STDERR BYTES, RETURN VALUES AND WARN DISPATCH VERIFIED",
+      "2026-11-13T02:15:08.8522888Z STRING DECODER RESULTS {\"groups\":27,\"passed\":27,\"failures\":[]}",
+      "2026-11-13T02:15:08.8552327Z STRING DECODER ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":3383,\"mismatches\":0,\"first\":[]}",
+      "2026-11-13T02:15:08.8572176Z STRING DECODER 27 GROUPS OK",
+      "2026-11-13T02:15:08.8573312Z NATIVE STRING DECODER PHYSICAL UTF8 VERIFIED {\"input_bytes\": 47108, \"output_bytes\": 47113, \"input_sha256\": \"38844dec914be1997979e7e2c6d286d74dcf3841b217bacfe9efda26baf1b7af\", \"output_sha256\": \"14d068e80e5457d8262b13abbe604703b3a431ded60d68182af22383b371776e\"}",
+      "2026-11-13T02:15:09.5212884Z NET ADDRESS RESULTS {\"groups\":31,\"passed\":31,\"failures\":[]}",
+      "2026-11-13T02:15:09.5272498Z NET INDEPENDENT ORACLE {\"validators\":896,\"subnets\":162,\"queries\":1466}",
+      "2026-11-13T02:15:09.5281999Z PYTHON IPADDRESS ORACLE VERIFIED",
+      "2026-11-13T02:15:09.5312123Z HOME NET PROFILE 4 REAL EXPORTS; SOCKET AND DNS APIS ABSENT; NUL REFUSED",
+      "2026-11-13T02:15:11.1957220Z WIN32 PATH RESULTS {\"groups\":10,\"passed\":10,\"failures\":[]}",
+      "2026-11-13T02:15:11.1972801Z NATIVE WIN32 PATH ORACLE VERIFIED {\"cases\": 4040, \"node\": \"v26.10.0\", \"result_sha256\": \"562ef5f35c5079100b54a6a5155afc1c701facc5811b09bf74a04f8e97e34b0d\"}",
+      "2026-11-13T02:15:11.2002486Z HOME WIN32 PATH PROFILE TWO LEXICAL METHODS; DRIVE CWD AND FILESYSTEM APIS ABSENT",
+      "2026-11-13T02:15:11.8642821Z FUNCTION MOCK RESULTS {\"groups\":30,\"passed\":30,\"failures\":[]}",
+      "2026-11-13T02:15:11.8672311Z HOME FUNCTION MOCK PROFILE REAL INVOCATION TRACES; TEST SCHEDULING AND MODULE MOCKING ABSENT",
+      "2026-11-13T02:15:12.4510148Z DNS LOOKUP RESULTS {\"groups\":28,\"passed\":28,\"failures\":[]}",
+      "2026-11-13T02:15:12.4532692Z NATIVE DNS PHYSICAL HOST ORACLE VERIFIED {\"queries\": 22, \"answers\": 22, \"resolver_failures\": 3, \"hosts_file_sha256\": \"60d9df13dd41cfb94afe810146eb73754dffc903fcf22435a063ba235f6a2658\"}",
+      "2026-11-13T02:15:12.4562209Z NATIVE DNS REF LIVENESS AND REAL UNHANDLED RESOLVER FAILURE VERIFIED",
+      "2026-11-13T02:15:12.4589466Z HOME DNS PROFILE ASCII BOUND, PRIVATE BRIDGE, ONCE SNAPSHOT; RECORD RESOLVERS ABSENT",
+      "2026-11-13T02:15:14.4488592Z DEPRECATION RESULTS {\"groups\":20,\"passed\":20,\"failures\":[]}",
+      "2026-11-13T02:15:14.4512396Z WARNING RESULTS {\"groups\":13,\"passed\":13,\"failures\":[]}",
+      "2026-11-13T02:15:14.4572372Z NATIVE DEPRECATION CHILD basic VERIFIED",
+      "2026-11-13T02:15:14.4602015Z NATIVE DEPRECATION CHILD trace VERIFIED",
+      "2026-11-13T02:15:14.4661910Z NATIVE DEPRECATION CHILD throw VERIFIED",
+      "2026-11-13T02:15:14.4694164Z NATIVE DEPRECATION CHILD listener-throw VERIFIED",
+      "2026-11-13T02:15:14.4751966Z NATIVE DEPRECATION CHILD removed VERIFIED",
+      "2026-11-13T02:15:14.4781965Z NATIVE DEPRECATION CHILD silent VERIFIED",
+      "2026-11-13T02:15:14.5059265Z NODE MODULE CONSTRUCTOR 42 CHECKS OK",
+      "2026-11-13T02:15:25.2283423Z (home:3639) [W001] Warning: be careful",
+      "2026-11-13T02:16:17.2802341Z ARROW OBJECT HEAD 20 CHECKS OK",
+      "2026-11-13T02:16:17.2803455Z TYPED ARROW OBJECT HEAD 4 CHECKS OK",
+      "2026-11-13T02:16:17.3078927Z CONDITIONAL ARM 18 CHECKS OK",
+      "2026-11-13T02:16:17.3081028Z TYPED CONDITIONAL ARROW 4 CHECKS OK",
+      "2026-11-13T02:16:17.3347231Z COMPACT TYPE CLOSER 12 CHECKS OK",
+      "2026-11-13T02:16:17.3653501Z LATE STATIC IMPORT RESULTS {\"checks\":19,\"passed\":19,\"failures\":[]}",
+      "2026-11-13T02:16:17.3653865Z LATE STATIC IMPORT 19 CHECKS OK",
+      "2026-11-13T02:16:17.3953142Z TRANSPILE SYNC RESULTS {\"checks\":20,\"passed\":20,\"failures\":[]}",
+      "2026-11-13T02:16:17.3955152Z TRANSPILE EXPLICIT REFUSALS 16",
+      "2026-11-13T02:16:17.3955377Z TRANSPILE 20 EXECUTED CHECKS OK",
+      "2026-11-13T02:16:17.4366348Z JS EXTENSION RESULTS {\"cases\":25,\"checks\":54,\"passed\":54,\"failures\":[]}",
+      "2026-11-13T02:16:17.4366727Z JS EXTENSION 54 EXECUTED CHECKS OK",
+      "2026-11-13T02:16:17.4642407Z JS EXTENSION PACKAGE RESULTS {\"checks\":5,\"passed\":5,\"failures\":[]}",
+      "2026-11-13T02:16:17.4642680Z JS EXTENSION PACKAGE GUARDS 5 CHECKS OK",
+      "2026-11-13T02:16:17.4951054Z SOURCE NUL RESULTS {\"checks\":16,\"passed\":16,\"failures\":[]}",
+      "2026-11-13T02:16:17.4963443Z SOURCE NUL TRANSPILE RESULTS {\"checks\":5,\"passed\":5,\"failures\":[]}",
+      "2026-11-13T02:16:17.4963770Z SOURCE NUL 16 EXECUTED CHECKS OK",
+      "2026-11-13T02:16:17.5310769Z RUNTIME JSDOC RESULTS {\"checks\":19,\"passed\":19,\"failures\":[]}",
+      "2026-11-13T02:16:17.5356060Z RUNTIME JSDOC TRANSPILE RESULTS {\"checks\":17,\"passed\":17,\"failures\":[]}",
+      "2026-11-13T02:16:17.5356411Z RUNTIME JSDOC 19 EXECUTED CHECKS OK",
+      "2026-11-13T02:16:17.5745275Z SETTER DEFAULT RESULTS {\"checks\":22,\"passed\":22,\"failures\":[]}",
+      "2026-11-13T02:16:17.5834527Z SETTER DEFAULT TRANSPILE RESULTS {\"checks\":23,\"passed\":23,\"failures\":[]}",
+      "2026-11-13T02:16:17.5834881Z SETTER DEFAULT 22 EXECUTED CHECKS OK",
+      "2026-11-13T02:16:17.6550312Z UNICODE PROPERTY RESULTS {\"vectors\":30,\"checks\":44,\"passed\":44,\"failures\":[]}",
+      "2026-11-13T02:16:17.6619865Z UNICODE PROPERTY TRANSPILE RESULTS {\"checks\":46,\"passed\":46,\"failures\":[]}",
+      "2026-11-13T02:16:17.6620228Z UNICODE PROPERTY 44 EXECUTED CHECKS OK",
+      "2026-11-13T02:16:18.3550750Z STRING DECODER RESULTS {\"groups\":27,\"passed\":27,\"failures\":[]}",
+      "2026-11-13T02:16:18.3551075Z STRING DECODER ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":3383,\"mismatches\":0,\"first\":[]}",
+      "2026-11-13T02:16:18.3551336Z STRING DECODER 27 GROUPS OK",
+      "2026-11-13T02:16:18.3552009Z NATIVE STRING DECODER PHYSICAL UTF8 VERIFIED {\"input_bytes\": 47108, \"output_bytes\": 47113, \"input_sha256\": \"38844dec914be1997979e7e2c6d286d74dcf3841b217bacfe9efda26baf1b7af\", \"output_sha256\": \"14d068e80e5457d8262b13abbe604703b3a431ded60d68182af22383b371776e\"}",
+      "2026-11-13T02:16:18.8668302Z TTY PHYSICAL OBSERVATION {\"columns\": 93, \"rows\": 27, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":93,\\\"rows\\\":27,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+      "2026-11-13T02:16:18.8669296Z TTY STREAM RESULTS {\"groups\":29,\"passed\":29,\"failures\":[]}",
+      "2026-11-13T02:16:18.8669821Z TTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}",
+      "2026-11-13T02:16:18.8670401Z HOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE",
+      "2026-11-13T02:16:18.8671404Z TTY PHYSICAL OBSERVATION {\"columns\": 47, \"rows\": 11, \"exit\": 0, \"bytes\": 41, \"hex\": \"54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a\", \"stderr\": \"TTY STREAM RESULTS {\\\"groups\\\":29,\\\"passed\\\":29,\\\"failures\\\":[]}\\nTTY COLOR ORACLE RESULTS {\\\"node\\\":\\\"v26.10.0\\\",\\\"cases\\\":119,\\\"mismatches\\\":0,\\\"first\\\":[]}\\nTTY NATIVE WINDOW {\\\"columns\\\":47,\\\"rows\\\":11,\\\"originalStillTerminal\\\":true}\\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\\n\"}",
+      "2026-11-13T02:16:18.8673126Z TTY STREAM RESULTS {\"groups\":29,\"passed\":29,\"failures\":[]}",
+      "2026-11-13T02:16:18.8673490Z TTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}",
+      "2026-11-13T02:16:18.8674363Z HOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE",
+      "2026-11-13T02:16:18.8674690Z NATIVE TTY TWO WINDOWS, UTF8/BINARY/ANSI BYTES AND REAL STREAM CLOSE VERIFIED",
+      "2026-11-13T02:16:19.4836959Z FS MUTATION RESULTS {\"groups\":43,\"passed\":43,\"failures\":[],\"doubleCallbacks\":[]}",
+      "2026-11-13T02:16:19.4837302Z HOME FS MUTATION PROFILE REAL OWNER-TASK IO; REFLINK FLAGS AND NONREGULAR COPY UNAVAILABLE",
+      "2026-11-13T02:16:19.4837540Z FS MUTATION 43 GROUPS OK",
+      "2026-11-13T02:16:19.4837995Z NATIVE FS MUTATION BYTES/INODES/LINKS/PERMISSIONS VERIFIED {\"source_bytes\": 1048593, \"sha256\": \"93513902ca696d5666cfebbe008c992048a8c04aec93f5c62b732c165dbc9373\", \"hardlink_identity_preserved\": true, \"symlink_entry_preserved\": true}",
+      "2026-11-13T02:16:19.4838537Z FS MUTATION 16 EXCEPTION/FATAL/LIVENESS CHILDREN OK",
+      "2026-11-13T02:16:19.5385728Z NATIVE CONSTANTS RESULTS {\"groups\":18,\"passed\":18,\"failures\":[]}",
+      "2026-11-13T02:16:19.5389454Z HOME NATIVE CONSTANTS PROFILE REAL FS/OS ERRNO ONLY; OTHER PRIVATE BINDINGS UNAVAILABLE",
+      "2026-11-13T02:16:19.5389693Z NATIVE CONSTANTS 18 GROUPS OK",
+      "2026-11-13T02:16:19.5389985Z INDEPENDENT NATIVE CONSTANTS AND EXCLUSIVE KERNEL OPEN VERIFIED {\"errno_names\": 79, \"flags\": {\"O_CREAT\": 64, \"O_EXCL\": 128, \"O_RDWR\": 2}}",
+      "2026-11-13T02:16:21.0940583Z CONSOLE ASSERT PHYSICAL RESULTS {\"node\": \"v26.10.0\", \"cases\": 55, \"passed\": 55, \"failures\": []}",
+      "2026-11-13T02:16:21.0941107Z HOME CONSOLE ASSERT PROFILE 6 INSPECTION REFUSALS; CIRCULAR JSON UNAVAILABLE",
+      "2026-11-13T02:16:21.0941671Z NATIVE CONSOLE ASSERT STDERR BYTES, RETURN VALUES AND WARN DISPATCH VERIFIED",
+      "2026-11-13T02:18:47.2187705Z Build Summary: 3/3 steps succeeded; 12/12 tests passed",
+      "2026-11-13T02:18:47.2561167Z Build Summary: 8/8 steps succeeded",
+      "2026-11-13T02:18:47.2563196Z home-tool-source-nul success",
+      "2026-11-13T02:18:47.2563410Z +- run test cached",
+      "2026-11-13T02:18:47.2846634Z VM SCRIPT 20 CHECKS OK",
+      "2026-11-13T02:18:47.3127576Z VM REFUSAL 12 CHECKS OK",
+      "2026-11-13T02:18:47.3621967Z NODE CPU INFORMATION 14 CHECKS OK",
+      "2026-11-13T02:18:47.3622196Z NATIVE CPU SNAPSHOT MATCHES HOST"
+    ],
+    "consumer_preflights": [
+      {
+        "id": 131642656626,
+        "name": "Consumers stacksjs/stacks",
+        "preflights": [
+          {
+            "completedAt": "2026-11-13T02:21:57Z",
+            "conclusion": "success",
+            "name": "Unpack and verify runtime provenance",
+            "number": 7,
+            "startedAt": "2026-11-13T02:21:56Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-13T02:21:57Z",
+            "conclusion": "success",
+            "name": "Verify shared runtime executes on this consumer CPU",
+            "number": 8,
+            "startedAt": "2026-11-13T02:21:57Z",
+            "status": "completed"
+          }
+        ],
+        "package_step": {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Check every selected package, library, CLI and app",
+          "number": 9,
+          "startedAt": "2026-11-13T02:21:57Z",
+          "status": "in_progress"
+        }
+      },
+      {
+        "id": 131642656674,
+        "name": "Consumers home-lang/home",
+        "preflights": [
+          {
+            "completedAt": "2026-11-13T02:22:15Z",
+            "conclusion": "success",
+            "name": "Unpack and verify runtime provenance",
+            "number": 7,
+            "startedAt": "2026-11-13T02:22:14Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-13T02:22:15Z",
+            "conclusion": "success",
+            "name": "Verify shared runtime executes on this consumer CPU",
+            "number": 8,
+            "startedAt": "2026-11-13T02:22:15Z",
+            "status": "completed"
+          }
+        ],
+        "package_step": {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Check every selected package, library, CLI and app",
+          "number": 9,
+          "startedAt": "2026-11-13T02:22:15Z",
+          "status": "in_progress"
+        }
+      },
+      {
+        "id": 131642656565,
+        "name": "Consumers stacksjs/clapp",
+        "preflights": [
+          {
+            "completedAt": "2026-11-13T02:19:52Z",
+            "conclusion": "success",
+            "name": "Unpack and verify runtime provenance",
+            "number": 7,
+            "startedAt": "2026-11-13T02:19:51Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-13T02:19:53Z",
+            "conclusion": "success",
+            "name": "Verify shared runtime executes on this consumer CPU",
+            "number": 8,
+            "startedAt": "2026-11-13T02:19:52Z",
+            "status": "completed"
+          }
+        ],
+        "package_step": {
+          "completedAt": "2026-11-13T02:20:00Z",
+          "conclusion": "failure",
+          "name": "Check every selected package, library, CLI and app",
+          "number": 9,
+          "startedAt": "2026-11-13T02:19:53Z",
+          "status": "completed"
+        }
+      },
+      {
+        "id": 131642656559,
+        "name": "Consumers stacksjs/bunpress",
+        "preflights": [
+          {
+            "completedAt": "2026-11-13T02:19:26Z",
+            "conclusion": "success",
+            "name": "Unpack and verify runtime provenance",
+            "number": 7,
+            "startedAt": "2026-11-13T02:19:25Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-13T02:19:26Z",
+            "conclusion": "success",
+            "name": "Verify shared runtime executes on this consumer CPU",
+            "number": 8,
+            "startedAt": "2026-11-13T02:19:26Z",
+            "status": "completed"
+          }
+        ],
+        "package_step": {
+          "completedAt": "2026-11-13T02:19:35Z",
+          "conclusion": "failure",
+          "name": "Check every selected package, library, CLI and app",
+          "number": 9,
+          "startedAt": "2026-11-13T02:19:26Z",
+          "status": "completed"
+        }
+      }
+    ],
+    "native_format_observations": {
+      "mode": "home",
+      "resolved": 8,
+      "refused": 8,
+      "uncached": 8,
+      "sourceBodiesExecuted": 0,
+      "staticBodyExecuted": false,
+      "dynamicCode": "ERR_HOME_UNSUPPORTED_NATIVE_ADDON",
+      "missingCode": "MODULE_NOT_FOUND",
+      "sourceControls": true,
+      "outcomes": [
+        {
+          "route": "./text.node",
+          "path": "/tmp/home-native-format-eh_aek1a/text.node",
+          "code": "ERR_HOME_UNSUPPORTED_NATIVE_ADDON",
+          "loaded": false,
+          "uncached": true
+        },
+        {
+          "route": "./binary.node",
+          "path": "/tmp/home-native-format-eh_aek1a/binary.node",
+          "code": "ERR_HOME_UNSUPPORTED_NATIVE_ADDON",
+          "loaded": false,
+          "uncached": true
+        },
+        {
+          "route": "./text",
+          "path": "/tmp/home-native-format-eh_aek1a/text.node",
+          "code": "ERR_HOME_UNSUPPORTED_NATIVE_ADDON",
+          "loaded": false,
+          "uncached": true
+        },
+        {
+          "route": "./indexpkg",
+          "path": "/tmp/home-native-format-eh_aek1a/indexpkg/index.node",
+          "code": "ERR_HOME_UNSUPPORTED_NATIVE_ADDON",
+          "loaded": false,
+          "uncached": true
+        },
+        {
+          "route": "./mainpkg",
+          "path": "/tmp/home-native-format-eh_aek1a/mainpkg/binding.node",
+          "code": "ERR_HOME_UNSUPPORTED_NATIVE_ADDON",
+          "loaded": false,
+          "uncached": true
+        },
+        {
+          "route": "addon-pkg",
+          "path": "/tmp/home-native-format-eh_aek1a/node_modules/addon-pkg/binding.node",
+          "code": "ERR_HOME_UNSUPPORTED_NATIVE_ADDON",
+          "loaded": false,
+          "uncached": true
+        },
+        {
+          "route": "./alias.js",
+          "path": "/tmp/home-native-format-eh_aek1a/text.node",
+          "code": "ERR_HOME_UNSUPPORTED_NATIVE_ADDON",
+          "loaded": false,
+          "uncached": true
+        },
+        {
+          "route": "./text.node",
+          "path": "/tmp/home-native-format-eh_aek1a/text.node",
+          "code": "ERR_HOME_UNSUPPORTED_NATIVE_ADDON",
+          "loaded": false,
+          "uncached": true
+        }
+      ]
+    },
+    "scope": "Exact Home74c899f1b and enginebced1842 execute16actual Linux kernel release groups plus CJS/ESM/primitive controls twice, against independent physical uname. All previous220parser/20diagnostic/55console/18-79constants/43mutation-plus16children/TTY/decoder/source/driver markers remain verified. Native12/12 driver tests; cached NUL counts not inferred. Full packages are separate.",
+    "tty_physical_observations": [
+      {
+        "columns": 93,
+        "rows": 27,
+        "exit": 0,
+        "bytes": 41,
+        "hex": "54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a",
+        "stderr": "TTY STREAM RESULTS {\"groups\":29,\"passed\":29,\"failures\":[]}\nTTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}\nTTY NATIVE WINDOW {\"columns\":93,\"rows\":27,\"originalStillTerminal\":true}\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\n"
+      },
+      {
+        "columns": 47,
+        "rows": 11,
+        "exit": 0,
+        "bytes": 41,
+        "hex": "54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a",
+        "stderr": "TTY STREAM RESULTS {\"groups\":29,\"passed\":29,\"failures\":[]}\nTTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}\nTTY NATIVE WINDOW {\"columns\":47,\"rows\":11,\"originalStillTerminal\":true}\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\n"
+      },
+      {
+        "columns": 93,
+        "rows": 27,
+        "exit": 0,
+        "bytes": 41,
+        "hex": "54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a",
+        "stderr": "TTY STREAM RESULTS {\"groups\":29,\"passed\":29,\"failures\":[]}\nTTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}\nTTY NATIVE WINDOW {\"columns\":93,\"rows\":27,\"originalStillTerminal\":true}\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\n"
+      },
+      {
+        "columns": 47,
+        "rows": 11,
+        "exit": 0,
+        "bytes": 41,
+        "hex": "54545920e282acf09f98800a00ff411b5b333b34481b5b32441b5b31421b5b324b1b5b304a454e440a",
+        "stderr": "TTY STREAM RESULTS {\"groups\":29,\"passed\":29,\"failures\":[]}\nTTY COLOR ORACLE RESULTS {\"node\":\"v26.10.0\",\"cases\":119,\"mismatches\":0,\"first\":[]}\nTTY NATIVE WINDOW {\"columns\":47,\"rows\":11,\"originalStillTerminal\":true}\nHOME TTY PROFILE OWNED DUPLICATE CLOSED; CALLER FD RETAINED; OPTIONS REFUSED; READ/RAW/AUTOMATIC RESIZE UNAVAILABLE\n"
+      }
+    ],
+    "filesystem_mutation_observations": {
+      "groups": [
+        {
+          "groups": 43,
+          "passed": 43,
+          "failures": [],
+          "doubleCallbacks": []
+        },
+        {
+          "groups": 43,
+          "passed": 43,
+          "failures": [],
+          "doubleCallbacks": []
+        }
+      ],
+      "physical": [
+        {
+          "source_bytes": 1048593,
+          "sha256": "93513902ca696d5666cfebbe008c992048a8c04aec93f5c62b732c165dbc9373",
+          "hardlink_identity_preserved": true,
+          "symlink_entry_preserved": true
+        },
+        {
+          "source_bytes": 1048593,
+          "sha256": "93513902ca696d5666cfebbe008c992048a8c04aec93f5c62b732c165dbc9373",
+          "hardlink_identity_preserved": true,
+          "symlink_entry_preserved": true
+        }
+      ],
+      "child_fixture_completions": 2,
+      "scope": "Both maintained smoke graph and explicit post-graph Python fixture actually execute Linux mutations and16 child scenarios each; no Node/Bun reference or test262 claim."
+    },
+    "native_constants_observations": {
+      "groups": [
+        {
+          "groups": 18,
+          "passed": 18,
+          "failures": []
+        },
+        {
+          "groups": 18,
+          "passed": 18,
+          "failures": []
+        }
+      ],
+      "snapshots": [
+        {
+          "errno": {
+            "E2BIG": 7,
+            "EACCES": 13,
+            "EADDRINUSE": 98,
+            "EADDRNOTAVAIL": 99,
+            "EAFNOSUPPORT": 97,
+            "EAGAIN": 11,
+            "EALREADY": 114,
+            "EBADF": 9,
+            "EBADMSG": 74,
+            "EBUSY": 16,
+            "ECANCELED": 125,
+            "ECHILD": 10,
+            "ECONNABORTED": 103,
+            "ECONNREFUSED": 111,
+            "ECONNRESET": 104,
+            "EDEADLK": 35,
+            "EDESTADDRREQ": 89,
+            "EDOM": 33,
+            "EDQUOT": 122,
+            "EEXIST": 17,
+            "EFAULT": 14,
+            "EFBIG": 27,
+            "EHOSTUNREACH": 113,
+            "EIDRM": 43,
+            "EILSEQ": 84,
+            "EINPROGRESS": 115,
+            "EINTR": 4,
+            "EINVAL": 22,
+            "EIO": 5,
+            "EISCONN": 106,
+            "EISDIR": 21,
+            "ELOOP": 40,
+            "EMFILE": 24,
+            "EMLINK": 31,
+            "EMSGSIZE": 90,
+            "EMULTIHOP": 72,
+            "ENAMETOOLONG": 36,
+            "ENETDOWN": 100,
+            "ENETRESET": 102,
+            "ENETUNREACH": 101,
+            "ENFILE": 23,
+            "ENOBUFS": 105,
+            "ENODATA": 61,
+            "ENODEV": 19,
+            "ENOENT": 2,
+            "ENOEXEC": 8,
+            "ENOLCK": 37,
+            "ENOLINK": 67,
+            "ENOMEM": 12,
+            "ENOMSG": 42,
+            "ENOPROTOOPT": 92,
+            "ENOSPC": 28,
+            "ENOSR": 63,
+            "ENOSTR": 60,
+            "ENOSYS": 38,
+            "ENOTCONN": 107,
+            "ENOTDIR": 20,
+            "ENOTEMPTY": 39,
+            "ENOTSOCK": 88,
+            "ENOTSUP": 95,
+            "ENOTTY": 25,
+            "ENXIO": 6,
+            "EOPNOTSUPP": 95,
+            "EOVERFLOW": 75,
+            "EPERM": 1,
+            "EPIPE": 32,
+            "EPROTO": 71,
+            "EPROTONOSUPPORT": 93,
+            "EPROTOTYPE": 91,
+            "ERANGE": 34,
+            "EROFS": 30,
+            "ESPIPE": 29,
+            "ESRCH": 3,
+            "ESTALE": 116,
+            "ETIME": 62,
+            "ETIMEDOUT": 110,
+            "ETXTBSY": 26,
+            "EWOULDBLOCK": 11,
+            "EXDEV": 18
+          },
+          "flags": {
+            "O_CREAT": 64,
+            "O_EXCL": 128,
+            "O_RDWR": 2
+          }
+        },
+        {
+          "errno": {
+            "E2BIG": 7,
+            "EACCES": 13,
+            "EADDRINUSE": 98,
+            "EADDRNOTAVAIL": 99,
+            "EAFNOSUPPORT": 97,
+            "EAGAIN": 11,
+            "EALREADY": 114,
+            "EBADF": 9,
+            "EBADMSG": 74,
+            "EBUSY": 16,
+            "ECANCELED": 125,
+            "ECHILD": 10,
+            "ECONNABORTED": 103,
+            "ECONNREFUSED": 111,
+            "ECONNRESET": 104,
+            "EDEADLK": 35,
+            "EDESTADDRREQ": 89,
+            "EDOM": 33,
+            "EDQUOT": 122,
+            "EEXIST": 17,
+            "EFAULT": 14,
+            "EFBIG": 27,
+            "EHOSTUNREACH": 113,
+            "EIDRM": 43,
+            "EILSEQ": 84,
+            "EINPROGRESS": 115,
+            "EINTR": 4,
+            "EINVAL": 22,
+            "EIO": 5,
+            "EISCONN": 106,
+            "EISDIR": 21,
+            "ELOOP": 40,
+            "EMFILE": 24,
+            "EMLINK": 31,
+            "EMSGSIZE": 90,
+            "EMULTIHOP": 72,
+            "ENAMETOOLONG": 36,
+            "ENETDOWN": 100,
+            "ENETRESET": 102,
+            "ENETUNREACH": 101,
+            "ENFILE": 23,
+            "ENOBUFS": 105,
+            "ENODATA": 61,
+            "ENODEV": 19,
+            "ENOENT": 2,
+            "ENOEXEC": 8,
+            "ENOLCK": 37,
+            "ENOLINK": 67,
+            "ENOMEM": 12,
+            "ENOMSG": 42,
+            "ENOPROTOOPT": 92,
+            "ENOSPC": 28,
+            "ENOSR": 63,
+            "ENOSTR": 60,
+            "ENOSYS": 38,
+            "ENOTCONN": 107,
+            "ENOTDIR": 20,
+            "ENOTEMPTY": 39,
+            "ENOTSOCK": 88,
+            "ENOTSUP": 95,
+            "ENOTTY": 25,
+            "ENXIO": 6,
+            "EOPNOTSUPP": 95,
+            "EOVERFLOW": 75,
+            "EPERM": 1,
+            "EPIPE": 32,
+            "EPROTO": 71,
+            "EPROTONOSUPPORT": 93,
+            "EPROTOTYPE": 91,
+            "ERANGE": 34,
+            "EROFS": 30,
+            "ESPIPE": 29,
+            "ESRCH": 3,
+            "ESTALE": 116,
+            "ETIME": 62,
+            "ETIMEDOUT": 110,
+            "ETXTBSY": 26,
+            "EWOULDBLOCK": 11,
+            "EXDEV": 18
+          },
+          "flags": {
+            "O_CREAT": 64,
+            "O_EXCL": 128,
+            "O_RDWR": 2
+          }
+        }
+      ],
+      "independent_python": [
+        {
+          "errno_names": 79,
+          "flags": {
+            "O_CREAT": 64,
+            "O_EXCL": 128,
+            "O_RDWR": 2
+          }
+        },
+        {
+          "errno_names": 79,
+          "flags": {
+            "O_CREAT": 64,
+            "O_EXCL": 128,
+            "O_RDWR": 2
+          }
+        }
+      ],
+      "scope": "Actual Linux header constants checked against independent Python and real exclusive kernel opens twice. Other private bindings are refused; complete CLI, addons and schedulers remain unclaimed."
+    },
+    "console_assert_observations": {
+      "actual_stdout_stderr_byte_oracles": [
+        {
+          "node": "v26.10.0",
+          "cases": 55,
+          "passed": 55,
+          "failures": []
+        },
+        {
+          "node": "v26.10.0",
+          "cases": 55,
+          "passed": 55,
+          "failures": []
+        }
+      ],
+      "profile_refusal_completions": 2,
+      "scope": "Actual Linux processes match the checked-in Node byte oracle, including real false diagnostics, silent true conditions, UTF16 replacement/NUL/suffixes, log/error, warning dispatch and thrown identities. Inspection/circular JSON limits remain explicit; this is not a test scheduler."
+    },
+    "exec_diagnostic_observations": {
+      "physical_oracles": [
+        {
+          "node": "v26.10.0",
+          "cases": 20,
+          "passed": 20,
+          "failures": []
+        },
+        {
+          "node": "v26.10.0",
+          "cases": 20,
+          "passed": 20,
+          "failures": []
+        }
+      ],
+      "native_completions": 2,
+      "scope": "Actual captured normal nonzero exits/signals match Node records, UTF8/binary stderr, raw outputs and retained status on Linux. No failed command is promoted to success. Native spawn/limit and inherited-stdio profiles remain unchanged; Cargo CI cause and package builds remain separate."
+    },
+    "parse_args_observations": {
+      "physical_node_oracles": [
+        {
+          "node": "v26.10.0",
+          "cases": 220,
+          "executed": 220,
+          "passed": 220,
+          "available": true,
+          "failures": []
+        },
+        {
+          "node": "v26.10.0",
+          "cases": 220,
+          "executed": 220,
+          "passed": 220,
+          "available": true,
+          "failures": []
+        }
+      ],
+      "fixture_completions": 2,
+      "scope": "Both maintained graph and explicit publication fixture actually run 220 parser records and real CJS/ESM/argv controls. The Python fixture physically checks the ESM child bytes and controls before completing. This parses arguments; no upstream tests are scheduled or counted. Exact Node error text and all getter/proxy ordering remain unclaimed."
+    },
+    "kernel_release_observations": {
+      "actual_kernel_groups": [
+        {
+          "groups": 16,
+          "executed": 16,
+          "passed": 16,
+          "available": true,
+          "failures": [],
+          "release": "7.0.0-1017-azure"
+        },
+        {
+          "groups": 16,
+          "executed": 16,
+          "passed": 16,
+          "available": true,
+          "failures": [],
+          "release": "7.0.0-1017-azure"
+        }
+      ],
+      "independent_python_uname": [
+        {
+          "release": "7.0.0-1017-azure",
+          "uname_sysname": "Linux"
+        },
+        {
+          "release": "7.0.0-1017-azure",
+          "uname_sysname": "Linux"
+        }
+      ],
+      "fixture_completions": 2,
+      "scope": "Both actual Linux executions compare CJS and ESM release/primitive values with independent before/after Python uname. No static release oracle or environment placeholder. Unsupported OS/test APIs stay separate."
+    }
+  },
+  "source_validation": {
+    "run": 43349351175,
+    "job": 131636345834,
+    "conclusion": "success",
+    "log_sha256": "ffa21cb3a1d26084b266e1f79f1e2a1d172dc7397ffdd9af8bc26064e0b5ffb0",
+    "python_tests": 45,
+    "dependency_tests": 7,
+    "dependency_assertions": 26
+  },
+  "package_scope": "All four actual provenance and CPU preflights pass. Full package commands are independent and retain failures, unsupported, reference and unexecuted states.",
+  "previous_caller_pin": "23445c2c1fa0c84776a3c14c5703a28f5120f4c4",
+  "local_reference_limits": "Darwin Node and both built Home providers pass16kernel groups plus CJS/ESM controls, independently matching live uname. Before providers lack release and execute zero groups. Bun13/16 fails before ESM. Local graphzig-js283/283; JSC256/281 retains21failures and cached native artifacts. Linux helper cross objects were not execution; actual Linux execution is proven here. No original upstream runner/test scheduler or whole-package pass is claimed.",
+  "oracle": {
+    "packages/runtime/test/tool_modules/exec_diagnostics_oracle.json": {
+      "git_blob": "c0140f802ce9b3d7215ebafd302f144b80d68e1a",
+      "sha256": "b703f972263189a6cd13928d87516aa9bdcd16699b6876492e69c7d57147c26d"
+    },
+    "packages/runtime/test/tool_modules/exec_diagnostics.cjs": {
+      "git_blob": "2c946a5430aafe516eaf799fef7a7345faa3dafe",
+      "sha256": "cbda73697a644179b4d18bd1f95503c74413a40ef97f47b29ad8fa1f6f5b43f2"
+    },
+    "packages/runtime/test/tool_modules/util_parse_args_oracle.json": {
+      "git_blob": "eb4500f7d5279db6b9f3ac4c9ca9744c2f41e2ab",
+      "sha256": "3eeb6904270bc61ff311118b1bf87ff6875e719c96f3f9a103751255f4b3d8fb"
+    },
+    "packages/runtime/test/tool_modules/util_parse_args.cjs": {
+      "git_blob": "03fb1bd47d4ef786cba3b9abf0bfd550d648d6f3",
+      "sha256": "2692ed3914363402e7c965beb989f66005e5f9907854cdc8550b66d61089e06b"
+    },
+    "packages/runtime/test/tool_modules/util_parse_args_esm.mjs": {
+      "git_blob": "47b18d763deba8cdd25242093e51a3f3931c1aa7",
+      "sha256": "eb59fcaae3631a364f378da5a29005aa649a0b01d713756624c1d04c3e6e284c"
+    },
+    "packages/runtime/test/tool_modules/os_release.cjs": {
+      "git_blob": "af6c934ec40c02e8eb49115f3c5a4bc0b40a9281",
+      "sha256": "f0011fbc4b9328bcf46a5f1bac6744a871fc4274d3ff8ff9c0380d91122974fc"
+    },
+    "packages/runtime/test/tool_modules/os_release_esm.mjs": {
+      "git_blob": "3cf7c56b12f49f279d2ba4c63c0191bf398e8021",
+      "sha256": "5bd968b0844bf041d5d9f15b913caacfe24c381b200dff701885ed705b05ec40"
+    },
+    "packages/runtime/test/tool_os_release_fixture.py": {
+      "git_blob": "f6ef1567301e9f4c95208f58235d8489c47f7d40",
+      "sha256": "b3c7e635850281e8af825cfc59a0c47de547a46080dea0765f06ff218dd1e434"
+    },
+    "packages/runtime/src/jsc/tool_kernel_release.zig": {
+      "git_blob": "5c0ac92a3acf47376be36ad149bc54050522d7ef",
+      "sha256": "65c19a4ea2166f42118e551aed765a50a968af4bc63467f1f69c722a5aeb9982"
+    }
+  },
+  "timestamp": "2026-11-13T02:38:08.275464+00:00",
+  "caller_promotion": {
+    "commit": "d8e135a672c5dca7d85d22cbe0a1c9907d56bd6d",
+    "parent": "bced184256f6c85c99ae56dd27fe9e141f0293a8",
+    "previous_pin": "23445c2c1fa0c84776a3c14c5703a28f5120f4c4",
+    "parent_workflow_sha256": "6e7514e44a76a852a4bd4690fe11354e01a0d3f14c802275a0007056ce544797",
+    "pin": "398066f1122f282ded01b7f2e07f82c5e67cdadb",
+    "checks": [
+      "actionlint passed",
+      "git diff --check passed"
+    ],
+    "changed_paths": [
+      ".github/workflows/ecosystem.yml"
+    ],
+    "all_selected_run": 43353030504,
+    "state": "started; no new runtime/package results inferred",
+    "preservation": "Only caller workflow changed. All selected coverage, foreign zig-pkg, independent work, existing runs and quotas remain intact."
+  },
+  "artifact_transfer": {
+    "zip_bytes": 42440200,
+    "whole_zip_sha256": "70317374433b5ad1c8030ade78453b02b447c70b03558c5e871c12a58c4ec7dd",
+    "verification": "Slow transfer timed out at180seconds; retained36372480bytes and Range-resumed6067720bytes. Only the complete ZIP matching its official SHA256 was accepted; no CI quota changed."
+  },
+  "completed_consumer_receipts": [
+    {
+      "repository": "stacksjs/clapp",
+      "source": "2ecc2af97d33f59ad5d22abe399392793d8de63d",
+      "artifact_id": 14004345750,
+      "official_digest": "sha256:cd1dcd31359c7ac6740d2af2c2bee0fc7f9a21c640e6946e6af4e964001bcc6f",
+      "zip_sha256": "cd1dcd31359c7ac6740d2af2c2bee0fc7f9a21c640e6946e6af4e964001bcc6f",
+      "candidate_counts": {
+        "failed": 2,
+        "unsupported": 4,
+        "passed": 3
+      },
+      "actual_failed_checks": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 191036,
+            "memory_limit_mb": 3072,
+            "seconds": 0.364,
+            "log": "0006.log",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun --bun build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--clapp/candidate",
+            "engine_invocations": 1
+          },
+          "log_sha256": "3db8183182e2229641e3e6528f4f55040165538190f5af5e991258484de62651",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun --bun build.ts\"]\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [join(cwd, \"src/index.ts\"), join(cwd, \"src/telemetry.ts\")], outdir: join(cwd, \"dist\"), format: \"esm\", splitting: true, plugins: [dts({ cwd, root: \"./src\", outdir: \"./dist\", moduleSpecifierMode: \"node\" })], target: \"node\" })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 191036 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 191576,
+            "memory_limit_mb": 3072,
+            "seconds": 0.364,
+            "log": "0009.log",
+            "label": "packages/ts: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun --bun build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--clapp/candidate/packages/ts",
+            "engine_invocations": 1
+          },
+          "log_sha256": "fb4c3c78521bee62afaf72a288768274a8692d87e5f35bd2af1321824a247034",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun --bun build.ts\"]\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [join(cwd, \"src/index.ts\"), join(cwd, \"src/telemetry.ts\")], outdir: join(cwd, \"dist\"), format: \"esm\", splitting: true, plugins: [dts({ cwd, root: \"./src\", outdir: \"./dist\", moduleSpecifierMode: \"node\" })], target: \"node\" })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 191576 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ]
+    },
+    {
+      "repository": "stacksjs/bunpress",
+      "source": "e7b328e3fd3db76ff92ce52649e9f13c6f811fdc",
+      "artifact_id": 14004450836,
+      "official_digest": "sha256:95232378f9dc28bc2ad00399ceea667387bf70b1e23c849b63d0d96784542eaf",
+      "zip_sha256": "95232378f9dc28bc2ad00399ceea667387bf70b1e23c849b63d0d96784542eaf",
+      "candidate_counts": {
+        "failed": 4,
+        "unsupported": 4,
+        "passed": 5
+      },
+      "actual_failed_checks": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 8820,
+            "memory_limit_mb": 3072,
+            "seconds": 0.073,
+            "log": "0007.log",
+            "label": "benchmark: module initialization index.ts",
+            "lane": "candidate",
+            "command": [
+              "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--bunpress/shims/bun",
+              "index.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--bunpress/candidate/benchmark",
+            "engine_invocations": 1
+          },
+          "log_sha256": "875dd81e793519ae664fe44c1512e39725dc5170b42c5d18595866a33ec5e146",
+          "log": "$ [\"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--bunpress/shims/bun\", \"index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module mitata from /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--bunpress/candidate/benchmark/index.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 8820 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 128084,
+            "memory_limit_mb": 3072,
+            "seconds": 0.339,
+            "log": "0008.log",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun run build:bunpress && bun run build:plugin"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--bunpress/candidate",
+            "engine_invocations": 1
+          },
+          "log_sha256": "e2c78431bf108bad5591e4e6a31e3077540ec8a1de1e8fcadd659f833d5ca992",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun run build:bunpress && bun run build:plugin\"]\nBuilding library...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./bin/cli.ts\"], outdir: \"./dist\", plugins: [dts()], minify: true, splitting: true, target: \"bun\", external: [\"@cwcss/crosswind\", \"@stacksjs/clapp\", \"@stacksjs/stx\", \"@stacksjs/ts-cloud\", \"@stacksjs/ts-i18n\", \"@ts-cloud/core\", \"bunfig\", \"ts-syntax-highlighter\"] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 128084 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 138476,
+            "memory_limit_mb": 3072,
+            "seconds": 0.257,
+            "log": "0011.log",
+            "label": "packages/bun-plugin: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun --bun build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--bunpress/candidate/packages/bun-plugin",
+            "engine_invocations": 1
+          },
+          "log_sha256": "a5e2eee84847a4d4a59e81d35f0fcf34a20a708b73a036d51dbe95c6c03104db",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun --bun build.ts\"]\nBuilding bun-plugin-bunpress...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"src/index.ts\"], outdir: \"dist\", target: \"bun\", plugins: [dts()] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 138476 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 138976,
+            "memory_limit_mb": 3072,
+            "seconds": 0.253,
+            "log": "0015.log",
+            "label": "packages/bunpress: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun --bun build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/stacksjs--bunpress/candidate/packages/bunpress",
+            "engine_invocations": 1
+          },
+          "log_sha256": "a78f0378d5049eef65aaefe1706e8286ebac950f05eed50dfd05ba04819af56c",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bun --bun build.ts\"]\nBuilding library...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./bin/cli.ts\"], outdir: \"./dist\", plugins: [dts()], minify: true, splitting: true, target: \"bun\", external: [\"@cwcss/crosswind\", \"@stacksjs/clapp\", \"@stacksjs/stx\", \"@stacksjs/ts-cloud\", \"@stacksjs/ts-i18n\", \"@ts-cloud/core\", \"bunfig\", \"ts-syntax-highlighter\"] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 138976 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ]
+    }
+  ],
+  "pending_packages": "Actual Home/Stacks full package commands remain in progress. Their provenance/CPU preflights are verified, but no complete four-consumer report, package pass, native test scheduling or query-builder dependency rollout is inferred."
+}
