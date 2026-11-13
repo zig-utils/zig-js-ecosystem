@@ -1,0 +1,586 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-13T00:55:52.437391+00:00",
+  "home_commit": "a654d780855a80b045a7b6876f815e8d73e55705",
+  "before_home": "4fd4fdaf84b6999aec08e3d83561d239479d9151",
+  "files": {
+    "build.zig": {
+      "git_blob": "5a781cc157c842f708440d0f8a3be5af007ef89f",
+      "sha256": "d9327aed7b0d6deb329cf1a2f3dbaf211798811679d7d215526886e57c95cb2d"
+    },
+    "packages/runtime/src/jsc/tool_builtins.js": {
+      "git_blob": "25be5f707b4bfe250a9ae6ee9b35d5c89b18ad15",
+      "sha256": "4b49b545fbc60be214d9ee5dacdd96cd59d9f715b927f04009ad9403568512f5"
+    },
+    "packages/runtime/src/jsc/tool_builtins.zig": {
+      "git_blob": "1e6d301234c59ab01a2b8442192952c6880d3872",
+      "sha256": "4bbca800fde04f520986e5eafbe17b76fe8f58070ce49c785aa91bd5a8ea78e6"
+    },
+    "packages/runtime/src/jsc/tool_parse_args.js": {
+      "git_blob": "caf6be3f7ceb95c0fbc9ffbb5d4b6cda45573168",
+      "sha256": "cf058f39fcfc505139538281ec103b7b10fef3ca6d37dfd9e58b29cf39ce8d4b"
+    },
+    "packages/runtime/test/PARSE_ARGS_PROFILE.md": {
+      "git_blob": "ecbe64cd99dd32601318eb7cf41e0c38455aae40",
+      "sha256": "bc0d2e9421290d26809120c46989808a8ad0dee480ac0b11bfba784f3c121299"
+    },
+    "packages/runtime/test/tool_modules/util_parse_args.cjs": {
+      "git_blob": "03fb1bd47d4ef786cba3b9abf0bfd550d648d6f3",
+      "sha256": "2692ed3914363402e7c965beb989f66005e5f9907854cdc8550b66d61089e06b"
+    },
+    "packages/runtime/test/tool_modules/util_parse_args_esm.mjs": {
+      "git_blob": "47b18d763deba8cdd25242093e51a3f3931c1aa7",
+      "sha256": "eb59fcaae3631a364f378da5a29005aa649a0b01d713756624c1d04c3e6e284c"
+    },
+    "packages/runtime/test/tool_modules/util_parse_args_oracle.json": {
+      "git_blob": "eb4500f7d5279db6b9f3ac4c9ca9744c2f41e2ab",
+      "sha256": "3eeb6904270bc61ff311118b1bf87ff6875e719c96f3f9a103751255f4b3d8fb"
+    },
+    "packages/runtime/test/tool_parse_args_fixture.py": {
+      "git_blob": "e78b2352440b1811ae6bebb2f3608c0b7931ccbe",
+      "sha256": "0b91b7d88d32033185f6cc92049007d15554e2646aa2849ea23054665d554b52"
+    }
+  },
+  "local_evidence_directory": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime",
+  "local_engine": {
+    "commit": "a7b0fdfd2e9caa6a9e822d911dd8a390e21babf1",
+    "archive_sha256": "3b182ee48ac27e763c308b16276e5330e552906f82d82336907f7389ce1b03ed",
+    "platform": "Darwin AArch64; separate from future Linux qualifier"
+  },
+  "scope": "Genuine repository-tool util.parseArgs, not test discovery, registration, scheduling or execution. Boolean/string options, aliases/groups, multiple values/defaults, strict/permissive parsing, positionals, terminator, negation and original token indexes. Values use null prototypes; CJS/ESM identity, argv defaults and error names/codes are actually checked. Error text and all getter/proxy ordering are not claimed.",
+  "oracle": {
+    "node": "v26.10.0",
+    "cases": 220,
+    "node_passed": 220,
+    "after_both_home_passed": 220,
+    "before_both_home": "API absent; zero cases executed, complete fixtures fail",
+    "bun": "217/220 records match; full fixture fails including controls",
+    "prototype": "Initial independent Node-hosted algorithm matches 196/206, with ten actual mismatches retained at prototype-diff.json; corrected against Node before built Home validation. Final 220/220 records and controls match on both real Home providers.",
+    "initial_prototype_diff_sha256": "995e572dc2c43f5018b04dce87d70b0184a64907cb7c547345de323641e45f18"
+  },
+  "checks": {
+    "suite-python": {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 130416,
+      "memory_limit_mb": 3072,
+      "seconds": 3.911,
+      "log": "suite-python.log",
+      "log_sha256": "8396108937323065b725c09651d16864dd1b5b8802b78482f22473631fb2e337",
+      "markers": []
+    },
+    "zig-fmt": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "fmt",
+        "--check",
+        "build.zig",
+        "packages/runtime/src/jsc/tool_builtins.zig"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 9456,
+      "memory_limit_mb": 3072,
+      "seconds": 0.041,
+      "log": "zig-fmt.log",
+      "log_sha256": "9954e86528fe11fc88ee7f9a0ebd09fd84598966c0138f3dea7cd01946942757",
+      "markers": []
+    },
+    "runner-before-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/upstream/scripts/runner.node.mjs",
+        "--ecosystem-unknown-option"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 60880,
+      "memory_limit_mb": 3072,
+      "seconds": 0.165,
+      "log": "runner-before-zig-js.log",
+      "log_sha256": "65ce13cefb9ca457ffc996d61ed6ecf061c0b898c56c599f7c0399884981be15",
+      "markers": []
+    },
+    "runner-node": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/upstream/scripts/runner.node.mjs",
+        "--ecosystem-unknown-option"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 38752,
+      "memory_limit_mb": 3072,
+      "seconds": 0.265,
+      "log": "runner-node.log",
+      "log_sha256": "e5d6eec95a88d706f7c452b9604d29aa847327287beb1b1cedd84528e29e2994",
+      "markers": []
+    },
+    "suite-dependencies": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "tests/dependencies.test.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 34464,
+      "memory_limit_mb": 3072,
+      "seconds": 0.504,
+      "log": "suite-dependencies.log",
+      "log_sha256": "6b18f7b2c4b1cae95525b65891482aa6f5c2f13ebbccf36ca82b4d3839fc9f33",
+      "markers": []
+    },
+    "bun": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_parse_args_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/util_parse_args.cjs",
+        "--node"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 3440,
+      "memory_limit_mb": 3072,
+      "seconds": 0.128,
+      "log": "bun.log",
+      "log_sha256": "0c0dfa757454bfdc1563a3ddbd9f14ae41e03fbecdfe652ee08c19bae68ab8c8",
+      "markers": [
+        "UTIL PARSE ARGS RESULTS {\"node\": \"v26.10.0\", \"cases\": 220, \"executed\": 220, \"passed\": 217, \"available\": true, \"failures\": [{\"name\": \"argv-32-true-true\", \"actual\": {\"name\": \"argv-32-true-true\", \"error\": {\"name\": \"TypeError\", \"code\": \"ERR_PARSE_ARGS_UNKNOWN_OPTION\"}, \"inputUnchanged\": true}, \"expected\": {\"name\": \"argv-32-true-true\", \"error\": {\"name\": \"TypeError\", \"code\": \"ERR_PARSE_ARGS_INVALID_OPTION_VALUE\"}, \"inputUnchanged\": true}}, {\"name\": \"invalid-4\", \"actual\": {\"name\": \"invalid-4\", \"error\": {\"name\": \"TypeError\", \"code\": \"ERR_PARSE_ARGS_UNEXPECTED_POSITIONAL\"}, \"inputUnchanged\": true}, \"expected\": {\"name\": \"invalid-4\", \"error\": {\"name\": \"TypeError\", \"code\": null}, \"inputUnchanged\": true}}, {\"name\": \"negative-value-flag-true\", \"actual\": {\"name\": \"negative-value-flag-true\", \"error\": {\"name\": \"TypeError\", \"code\": \"ERR_PARSE_ARGS_UNKNOWN_OPTION\"}, \"inputUnchanged\": true}, \"expected\": {\"name\": \"negative-value-flag-true\", \"error\": {\"name\": \"TypeError\", \"code\": \"ERR_PARSE_ARGS_INVALID_OPTION_VALUE\"}, \"inputUnchanged\": true}}, {\"name\": \"controls\", \"actual\": {\"functionName\": \"parseArgs\", \"functionLength\": 1, \"moduleIdentity\": true, \"argvDefaults\": {\"values\": {\"value\": \"x\"}, \"positionals\": []}, \"defaultNullPrototype\": true}, \"expected\": {\"functionName\": \"parseArgs\", \"functionLength\": 0, \"moduleIdentity\": true, \"argvDefaults\": {\"values\": {\"value\": \"x\"}, \"positionals\": []}, \"defaultNullPrototype\": true}}]}"
+      ]
+    },
+    "runner-before-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/upstream/scripts/runner.node.mjs",
+        "--ecosystem-unknown-option"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 256,
+      "memory_limit_mb": 3072,
+      "seconds": 0.07,
+      "log": "runner-before-jsc.log",
+      "log_sha256": "001ab76741111f8a365c16a6605c2a8df1a62ede9f3b7410d1d276db9334fef0",
+      "markers": []
+    },
+    "runner-after-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/upstream/scripts/runner.node.mjs",
+        "--ecosystem-unknown-option"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.127,
+      "log": "runner-after-jsc.log",
+      "log_sha256": "b28cb2dc700e1a3f85bf3296c213f4e20523de126a29230920f1d56c9fc5a864",
+      "markers": []
+    },
+    "full-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 855632,
+      "memory_limit_mb": 3072,
+      "seconds": 49.113,
+      "log": "full-jsc.log",
+      "log_sha256": "987489015cde79b22dd5670fbb147826c54afdf4d1de4b9b561b60a6d42c0af6",
+      "markers": [
+        "UTIL PARSE ARGS RESULTS {\"node\": \"v26.10.0\", \"cases\": 220, \"executed\": 220, \"passed\": 220, \"available\": true, \"failures\": []}",
+        "UTIL PARSE ARGS VALUES/TOKENS/ERROR CODES, NULL PROTOTYPES AND ARGV DEFAULTS VERIFIED",
+        "Build Summary: 255/280 steps succeeded (21 failed)"
+      ]
+    },
+    "before-zig-js": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_parse_args_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/util_parse_args.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 47760,
+      "memory_limit_mb": 3072,
+      "seconds": 0.228,
+      "log": "before-zig-js.log",
+      "log_sha256": "c196ff7aa3518edff3f21ff0a2c8b593d977c9801f5059b367d959e518fd2ecf",
+      "markers": [
+        "UTIL PARSE ARGS RESULTS {\"node\": \"v26.10.0\", \"cases\": 220, \"executed\": 0, \"passed\": 0, \"available\": false, \"failures\": [{\"name\": \"controls\", \"actual\": null, \"expected\": {\"functionName\": \"parseArgs\", \"functionLength\": 0, \"moduleIdentity\": true, \"argvDefaults\": {\"values\": {\"value\": \"x\"}, \"positionals\": []}, \"defaultNullPrototype\": true}}]}"
+      ]
+    },
+    "runner-after-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/upstream/scripts/runner.node.mjs",
+        "--ecosystem-unknown-option"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.635,
+      "log": "runner-after-zig-js.log",
+      "log_sha256": "14bfcf1e50b390076b3003c414fb0cb40f2e45ca434a7647cde4f70d384b6e80",
+      "markers": []
+    },
+    "runner-bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/upstream/scripts/runner.node.mjs",
+        "--ecosystem-unknown-option"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 240,
+      "memory_limit_mb": 3072,
+      "seconds": 0.07,
+      "log": "runner-bun.log",
+      "log_sha256": "3c48f6ff6f59e3250f7706f7cc17ebbc2a3554c1246dc41cf38f7c4be444d3af",
+      "markers": []
+    },
+    "before-jsc": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_parse_args_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/exec-diagnostics-runtime/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/util_parse_args.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5264,
+      "memory_limit_mb": 3072,
+      "seconds": 0.133,
+      "log": "before-jsc.log",
+      "log_sha256": "e25f27f925f2c91b1792a05ca67426053d62cd940a203f99a9ed8a08a929959c",
+      "markers": [
+        "UTIL PARSE ARGS RESULTS {\"node\": \"v26.10.0\", \"cases\": 220, \"executed\": 0, \"passed\": 0, \"available\": false, \"failures\": [{\"name\": \"controls\", \"actual\": null, \"expected\": {\"functionName\": \"parseArgs\", \"functionLength\": 0, \"moduleIdentity\": true, \"argvDefaults\": {\"values\": {\"value\": \"x\"}, \"positionals\": []}, \"defaultNullPrototype\": true}}]}"
+      ]
+    },
+    "pickier": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bunx",
+        "--bun",
+        "pickier",
+        "packages/runtime/src/jsc/tool_parse_args.js",
+        "packages/runtime/test/tool_modules/util_parse_args.cjs",
+        "packages/runtime/test/tool_modules/util_parse_args_esm.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2352,
+      "memory_limit_mb": 3072,
+      "seconds": 0.124,
+      "log": "pickier.log",
+      "log_sha256": "1594bd10961b296a1703c4a09753cbcd547e3ddfe5f5dc3bcecae99cb9865252",
+      "markers": []
+    },
+    "node": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_parse_args_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/util_parse_args.cjs",
+        "--node"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1744,
+      "memory_limit_mb": 3072,
+      "seconds": 0.127,
+      "log": "node.log",
+      "log_sha256": "61a404ff84bb38dfa63ecf6e1044f0dadad53e093a19153d0beda3073bff0160",
+      "markers": [
+        "UTIL PARSE ARGS RESULTS {\"node\": \"v26.10.0\", \"cases\": 220, \"executed\": 220, \"passed\": 220, \"available\": true, \"failures\": []}",
+        "UTIL PARSE ARGS VALUES/TOKENS/ERROR CODES, NULL PROTOTYPES AND ARGV DEFAULTS VERIFIED"
+      ]
+    },
+    "actionlint": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.031,
+      "log": "actionlint.log",
+      "log_sha256": "2d83d05058d9a5a71a9f35ce1058cfbba75d86aafa904bc66054d98660f1e0d2",
+      "markers": []
+    },
+    "python-syntax": {
+      "argv": [
+        "python3",
+        "-m",
+        "compileall",
+        "-q",
+        "scripts",
+        "tests"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 3376,
+      "memory_limit_mb": 3072,
+      "seconds": 0.068,
+      "log": "python-syntax.log",
+      "log_sha256": "9459d28cdd6a24759a22a9382b4daec542ada09f57815b796f9f48eb332bd03f",
+      "markers": []
+    },
+    "full-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 994512,
+      "memory_limit_mb": 3072,
+      "seconds": 56.34,
+      "log": "full-zig-js.log",
+      "log_sha256": "e1d60cce2650e260519045a54ee33cc2812134961e56fa7e22c5f1124d536327",
+      "markers": [
+        "UTIL PARSE ARGS RESULTS {\"node\": \"v26.10.0\", \"cases\": 220, \"executed\": 220, \"passed\": 220, \"available\": true, \"failures\": []}",
+        "UTIL PARSE ARGS VALUES/TOKENS/ERROR CODES, NULL PROTOTYPES AND ARGV DEFAULTS VERIFIED",
+        "Build Summary: 282/282 steps succeeded"
+      ]
+    }
+  },
+  "jsc_comparison": {
+    "summary": "255/280 steps succeeded; 21 retained failures",
+    "baseline_log_sha256": "a53f548436698d5921f3809cc2ef73a6a99e698375e580d7f85d6b04444919d3",
+    "after_log_sha256": "987489015cde79b22dd5670fbb147826c54afdf4d1de4b9b561b60a6d42c0af6",
+    "added_normalized_failed_commands": [],
+    "scope": "Bounded saved host-command comparison; not whole checker or test262 regression proof. Native artifacts cached; no fresh native count inferred."
+  },
+  "actual_runner_probe": "Exact unchanged upstream runner receives --ecosystem-unknown-option. Before Home fails because parseArgs is missing; after both providers reject the unknown option, as Node/Bun do. All six actual command probes retain exit 1. This is a negative CLI probe, not an upstream test pass; no test was scheduled or counted.",
+  "diagnostic_qualifier_completed": {
+    "run": 43331932210,
+    "engine": "094375ef952a3ea6267eacfd76a81952e041af91",
+    "functional_suite": "775c2e8ed88ffb12ed672f56e14488384e5c9087",
+    "reported": 4,
+    "failing": 4,
+    "missing": 0,
+    "report_log_sha256": "d1fe50bde1bd09fe8624b0d5d186d37e7868272ace6357c50379645002148e7d",
+    "actual_consumers": [
+      {
+        "repository": "stacksjs/clapp",
+        "source": "2ecc2af97d33f59ad5d22abe399392793d8de63d",
+        "artifact": 13995968933,
+        "official_digest": "sha256:69f1d7f5889bda9434d3eb96cef9f9093a330a27450452a83428c09d5a6c9dab",
+        "report_sha256": "1d1156c8948e06c4293c0461f22707201bc8b42a9d1a65fe5cc1d1fba8f7229f",
+        "candidate": {
+          "failed": 2,
+          "unsupported": 4,
+          "passed": 3
+        }
+      },
+      {
+        "repository": "stacksjs/bunpress",
+        "source": "e7b328e3fd3db76ff92ce52649e9f13c6f811fdc",
+        "artifact": 13996907849,
+        "official_digest": "sha256:66ef5bf6ea10a45a2112a5bbe7be79c3caf635d04c4fe78c129f0cb75b6f4a85",
+        "report_sha256": "83e91416984f8653849a29e9a65b72c04c7a5a691bf46a3c29afc5793440d893",
+        "candidate": {
+          "failed": 4,
+          "unsupported": 4,
+          "passed": 5
+        }
+      },
+      {
+        "repository": "stacksjs/stacks",
+        "source": "b167dcc5b5a9345dc27914bb0e48005c5fe3af87",
+        "artifact": 13997174871,
+        "official_digest": "sha256:0ad91d0c27299d5a86fcf5f9d79733a06af1b70cc9581640fb102d069d2a550c",
+        "report_sha256": "2371179cbea9f2b836ce5291d867f546930bb874e9fdf95f87bef4cb85c7d700",
+        "candidate": {
+          "unsupported": 355,
+          "failed": 182,
+          "passed": 94
+        }
+      },
+      {
+        "repository": "home-lang/home",
+        "source": "4fd4fdaf84b6999aec08e3d83561d239479d9151",
+        "artifact": 13998501328,
+        "official_digest": "sha256:d1ade26f81cced55d5525bf6e6309d0aa65198b74aee97b80592196cb13a6f4b",
+        "report_sha256": "214114c52b17735ae3e221a7b27506e0f12bbe9fbce2e80305b3bd7676bd01f0",
+        "candidate": {
+          "failed": 41,
+          "unsupported": 37,
+          "passed": 9
+        },
+        "actual_relevant_checks": [
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 10168,
+              "memory_limit_mb": 3072,
+              "seconds": 0.105,
+              "log": "0095.log",
+              "label": "packages/runtime/upstream: test",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "node scripts/runner.node.mjs --exec-path ./build/debug/bun-debug"
+              ],
+              "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream",
+              "engine_invocations": 1
+            },
+            "log_sha256": "7514fa6a48a6364bfdf55de3bd8f41f58d470480bbc6042ca35a5a4aa5257c4e",
+            "log": "$ [\"/bin/sh\", \"-c\", \"node scripts/runner.node.mjs --exec-path ./build/debug/bun-debug\"]\nhome-tool (zig-js): TypeError: parseArgs is not a function. (In 'parseArgs({ allowPositionals: true, options: { [\"node-tests\"]: { type: \"boolean\", default: false }, [\"exec-path\"]: { type: \"string\", default: \"bun\" }, [\"step\"]: { type: \"string\", default: undefined }, [\"build-id\"]: { type: \"string\", default: undefined }, [\"bail\"]: { type: \"boolean\", default: false }, [\"shard\"]: { type: \"string\", default: getEnv(\"BUILDKITE_PARALLEL_JOB\", false) || \"0\" }, [\"max-shards\"]: { type: \"string\", default: getEnv(\"BUILDKITE_PARALLEL_JOB_COUNT\", false) || \"1\" }, [\"include\"]: { type: \"string\", multiple: true, default: undefined }, [\"exclude\"]: { type: \"string\", multiple: true, default: undefined }, [\"quiet\"]: { type: \"boolean\", default: false }, [\"smoke\"]: { type: \"string\", default: undefined }, [\"vendor\"]: { type: \"string\", default: undefined }, [\"retries\"]: { type: \"string\", default: isCI ? \"3\" : \"0\" }, [\"junit\"]: { type: \"boolean\", default: false }, [\"junit-temp-dir\"]: { type: \"string\", default: \"junit-reports\" }, [\"junit-upload\"]: { type: \"boolean\", default: isBuildkite }, [\"coredump-upload\"]: { type: \"boolean\", default: isBuildkite && isLinux }, [\"parallel\"]: { type: \"boolean\", default: false }, [\"results-json\"]: { type: \"string\", default: undefined } } })', 'parseArgs' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 10168 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          },
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 956828,
+              "memory_limit_mb": 3072,
+              "seconds": 26.06,
+              "log": "0097.log",
+              "label": "packages/runtime/upstream/packages/bun-build-mdx-rs: build",
+              "lane": "candidate",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "napi build --platform --release"
+              ],
+              "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs",
+              "engine_invocations": 1
+            },
+            "log_sha256": "e3e277c17c38333030bf6860ad031388a2427604046c0e1fb13eb9c0dc1069b9",
+            "log": "$ [\"/bin/sh\", \"-c\", \"napi build --platform --release\"]\n\u001b[31m\u001b[1mType Error\u001b[22m\u001b[39m: Could not parse the Cargo.toml: Error: Command failed: cargo metadata --format-version 1 --manifest-path \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/Cargo.toml\"\ninfo: syncing channel updates for nightly-2026-05-06-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-05-06 for version 1.97.0-nightly (e95e73209 2026-05-05)\ninfo: downloading 14 components\nwarn: the missing active toolchain `nightly-2026-05-06-x86_64-unknown-linux-gnu` has been auto-installed\nwarn: this might cause rustup commands to take longer time to finish than expected\ninfo: you may opt out with `RUSTUP_AUTO_INSTALL=0` or `rustup set auto-install disable`\nerror: current package believes it's in a workspace when it's not:\ncurrent:   /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/Cargo.toml\nworkspace: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/Cargo.toml\n\nthis may be fixable by adding `packages/bun-build-mdx-rs` to the `workspace.members` array of the manifest located at: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/Cargo.toml\nAlternatively, to keep it out of the workspace, add the package to the `workspace.exclude` array, or add an empty `[workspace]` table to the package's manifest.\n\ninfo: syncing channel updates for nightly-2026-05-06-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-05-06 for version 1.97.0-nightly (e95e73209 2026-05-05)\ninfo: downloading 14 components\nwarn: the missing active toolchain `nightly-2026-05-06-x86_64-unknown-linux-gnu` has been auto-installed\nwarn: this might cause rustup commands to take longer time to finish than expected\ninfo: you may opt out with `RUSTUP_AUTO_INSTALL=0` or `rustup set auto-install disable`\nerror: current package believes it's in a workspace when it's not:\ncurrent:   /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/Cargo.toml\nworkspace: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/Cargo.toml\n\nthis may be fixable by adding `packages/bun-build-mdx-rs` to the `workspace.members` array of the manifest located at: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/Cargo.toml\nAlternatively, to keep it out of the workspace, add the package to the `workspace.exclude` array, or add an empty `[workspace]` table to the package's manifest.\n\n    at <anonymous> (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:8294:9)\n    at <anonymous> (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:2735:5)\n    at __awaiter$1 (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:2717:3)\n    at validateAndExecute (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:1554:5)\n    at <anonymous>\n    at run (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:2419:7)\n    at <anonymous> (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:29414:1)\n    at <anonymous> (home:tool-module-install:260:7)\n    at evaluateSync (home:tool-module-install:277:7)\n    at <anonymous> (home:tool-module-install:387:7)\n\nECOSYSTEM PEAK SAMPLED RSS: 956828 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          },
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 84880,
+              "memory_limit_mb": 3072,
+              "seconds": 2.317,
+              "log": "0212.log",
+              "label": "packages/runtime/upstream: test",
+              "lane": "reference",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "node scripts/runner.node.mjs --exec-path ./build/debug/bun-debug"
+              ],
+              "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream",
+              "engine_invocations": 0
+            },
+            "log_sha256": "273aadc2c43b9195a9141c5c6e060394787bcc382f40d4673c8bad0c459c1161",
+            "log": "$ [\"/bin/sh\", \"-c\", \"node scripts/runner.node.mjs --exec-path ./build/debug/bun-debug\"]\n::group::Machine\nOperating System: linux\nArchitecture: x64\nKernel: 7.0.0\nABI: gnu\nABI Version: 2.39\nDistro: ubuntu\nDistro Version: 24.04\nHostname: GitHub Actions 1000152322\nTailscale IP: undefined\nPublic IP: 3.42.157.174\nUsername: runner\nWorking Directory: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream\nTemporary Directory: /tmp\nNode Version: v22.23.4\n::endgroup::\n\n::group::Environment\nACCEPT_EULA: Y\nACTIONS_ORCHESTRATION_ID: 2523b97c-03cd-43ca-8247-b17ccbe16b45.consumers._1_home-lang_home_home-la\nACTIONS_RUNNER_ACTION_ARCHIVE_CACHE: /opt/actionarchivecache\nACTIONS_RUNNER_RETURN_JOB_RESULT_FOR_HOSTED: 1\nAGENT_TOOLSDIRECTORY: /opt/hostedtoolcache\nANDROID_HOME: /usr/local/lib/android/sdk\nANDROID_NDK: /usr/local/lib/android/sdk/ndk/27.3.13750724\nANDROID_NDK_HOME: /usr/local/lib/android/sdk/ndk/27.3.13750724\nANDROID_NDK_LATEST_HOME: /usr/local/lib/android/sdk/ndk/30.0.16248370\nANDROID_NDK_ROOT: /usr/local/lib/android/sdk/ndk/27.3.13750724\nANDROID_SDK_ROOT: /usr/local/lib/android/sdk\nANT_HOME: /usr/share/ant\nAZURE_EXTENSION_DIR: /opt/az/azcliextensions\nBOOTSTRAP_HASKELL_NONINTERACTIVE: 1\nBUN_INSTALL: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/pantry\nBUN_INSTALL_CACHE_DIR: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/bun-cache\nCHROMEWEBDRIVER: /usr/local/share/chromedriver-linux64\nCHROME_BIN: /usr/bin/google-chrome\nCI: 1\nCONDA: /usr/share/miniconda\nDEBIAN_FRONTEND: noninteractive\nDOTNET_MULTILEVEL_LOOKUP: 0\nDOTNET_NOLOGO: 1\nDOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1\nECOSYSTEM_EVENTS: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/results/home-lang--home/0212.events.jsonl\nEDGEWEBDRIVER: /usr/local/share/edge_driver\nENABLE_RUNNER_TRACING: true\nENGINE_SHA: 094375ef952a3ea6267eacfd76a81952e041af91\nGECKOWEBDRIVER: /usr/local/share/gecko_driver\nGHCUP_INSTALL_BASE_PREFIX: /usr/local\nGITHUB_ACTION: __run_3\nGITHUB_ACTIONS: true\nGITHUB_ACTION_REF: \nGITHUB_ACTION_REPOSITORY: \nGITHUB_ACTOR: chrisbbreuer\nGITHUB_ACTOR_ID: 6228425\nGITHUB_API_URL: https://api.github.com\nGITHUB_ARTIFACTS: /home/runner/work/_temp/_runner_file_commands/artifacts_373acd55-adb6-4da0-bcd2-592de554d9a4\nGITHUB_ARTIFACTS_LIST: /home/runner/work/_temp/_runner_file_commands/artifacts_list_373acd55-adb6-4da0-bcd2-592de554d9a4\nGITHUB_BASE_REF: \nGITHUB_ENV: /home/runner/work/_temp/_runner_file_commands/set_env_373acd55-adb6-4da0-bcd2-592de554d9a4\nGITHUB_EVENT_NAME: workflow_dispatch\nGITHUB_EVENT_PATH: /home/runner/work/_temp/_github_workflow/event.json\nGITHUB_GRAPHQL_URL: https://api.github.com/graphql\nGITHUB_HEAD_REF: \nGITHUB_JOB: consumers\nGITHUB_OUTPUT: /home/runner/work/_temp/_runner_file_commands/set_output_373acd55-adb6-4da0-bcd2-592de554d9a4\nGITHUB_PATH: /home/runner/work/_temp/_runner_file_commands/add_path_373acd55-adb6-4da0-bcd2-592de554d9a4\nGITHUB_REF: refs/heads/main\nGITHUB_REF_NAME: main\nGITHUB_REF_PROTECTED: false\nGITHUB_REF_TYPE: branch\nGITHUB_REPOSITORY: zig-utils/zig-js-ecosystem\nGITHUB_REPOSITORY_ID: 1449802195\nGITHUB_REPOSITORY_OWNER: zig-utils\nGITHUB_REPOSITORY_OWNER_ID: 239920472\nGITHUB_RETENTION_DAYS: 90\nGITHUB_RUN_ATTEMPT: 1\nGITHUB_RUN_ID: 43331932210\nGITHUB_RUN_NUMBER: 142\nGITHUB_SERVER_URL: https://github.com\nGITHUB_SHA: 775c2e8ed88ffb12ed672f56e14488384e5c9087\nGITHUB_STATE: /home/runner/work/_temp/_runner_file_commands/save_state_373acd55-adb6-4da0-bcd2-592de554d9a4\nGITHUB_STEP_SUMMARY: /home/runner/work/_temp/_runner_file_commands/step_summary_373acd55-adb6-4da0-bcd2-592de554d9a4\nGITHUB_TRIGGERING_ACTOR: chrisbbreuer\nGITHUB_WORKFLOW: Ecosystem\nGITHUB_WORKFLOW_REF: zig-utils/zig-js-ecosystem/.github/workflows/ecosystem.yml@refs/heads/main\nGITHUB_WORKFLOW_SHA: 775c2e8ed88ffb12ed672f56e14488384e5c9087\nGITHUB_WORKSPACE: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem\nGIT_LFS_SKIP_SMUDGE: 1\nGIT_TERMINAL_PROMPT: 0\nGOROOT_1_24_X64: /opt/hostedtoolcache/go/1.24.13/x64\nGOROOT_1_25_X64: /opt/hostedtoolcache/go/1.25.14/x64\nGOROOT_1_26_X64: /opt/hostedtoolcache/go/1.26.11/x64\nGRADLE_HOME: /usr/share/gradle-9.9.1\nHCA_CLOUD_PROVIDER: aws\nHOME: /home/runner\nHOMEBREW_CLEANUP_PERIODIC_FULL_DAYS: 3650\nHOMEBREW_NO_AUTO_UPDATE: 1\nINVOCATION_ID: 0e32b0c02a034f0e91f125c60059d7c4\nImageOS: ubuntu24\nImageVersion: 20261111.127.1\nJAVA_HOME: /usr/lib/jvm/temurin-17-jdk-amd64\nJAVA_HOME_11_X64: /usr/lib/jvm/temurin-11-jdk-amd64\nJAVA_HOME_17_X64: /usr/lib/jvm/temurin-17-jdk-amd64\nJAVA_HOME_21_X64: /usr/lib/jvm/temurin-21-jdk-amd64\nJAVA_HOME_25_X64: /usr/lib/jvm/temurin-25-jdk-amd64\nJAVA_HOME_8_X64: /usr/lib/jvm/temurin-8-jdk-amd64\nJOURNAL_STREAM: 10:11764\nLANG: C.UTF-8\nLOGNAME: runner\nMEMORY_PRESSURE_WATCH: /sys/fs/cgroup/system.slice/hosted-compute-agent.service/memory.pressure\nMEMORY_PRESSURE_WRITE: c29tZSAyMDAwMDAgMjAwMDAwMAA=\nNVM_DIR: /home/runner/.nvm\nPATH: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/node_modules/.bin:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/node_modules/.bin:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/node_modules/.bin:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/node_modules/.bin:/home/runner/.bun/bin:/home/runner/.pantry/bin:/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/pantry/.bin:/opt/hostedtoolcache/pantry/0.11.193/x64:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin\nPIPX_BIN_DIR: /opt/pipx_bin\nPIPX_HOME: /opt/pipx\nPOWERSHELL_DISTRIBUTION_CHANNEL: GitHub-Actions-Linux\nPSModulePath: /root/.local/share/powershell/Modules:/usr/local/share/powershell/Modules:/opt/microsoft/powershell/7/Modules:/usr/share/az_15.6.1\nPWD: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream\nREFERENCE: true\nREPOSITORIES: [\n  {\n    \"full_name\": \"home-lang/home\",\n    \"default_branch\": \"main\",\n    \"pushed_at\": \"2026-11-12T23:41:04Z\",\n    \"language\": \"Zig\",\n    \"fork\": false,\n    \"html_url\": \"https://github.com/home-lang/home\",\n    \"sha\": \"4fd4fdaf84b6999aec08e3d83561d239479d9151\"\n  }\n]\nRUNNER_ARCH: X64\nRUNNER_ENVIRONMENT: github-hosted\nRUNNER_NAME: GitHub Actions 1000152322\nRUNNER_OS: Linux\nRUNNER_TEMP: /home/runner/work/_temp\nRUNNER_TOOL_CACHE: /opt/hostedtoolcache\nRUNNER_TRACKING_ID: github_844b9096-04c9-49d0-8b8e-0e65a034f70b\nRUNNER_WORKSPACE: /home/runner/work/zig-js-ecosystem\nSELENIUM_JAR_PATH: /usr/share/java/selenium-server.jar\nSHELL: /bin/bash\nSHLVL: 1\nSWIFT_PATH: /usr/share/swift/usr/bin\nSYSTEMD_EXEC_PID: 1924\nUSER: runner\nUSE_BAZEL_FALLBACK_VERSION: silent:\nVCPKG_INSTALLATION_ROOT: /usr/local/share/vcpkg\nXDG_CONFIG_HOME: /home/runner/.config\nXDG_RUNTIME_DIR: /run/user/1001\n_: /usr/bin/python3\n::endgroup::\n\n::group::Limits\ntime(seconds)        unlimited\nfile(blocks)         unlimited\ndata(kbytes)         unlimited\nstack(kbytes)        16384\ncoredump(blocks)     0\nmemory(kbytes)       unlimited\nlocked memory(kbytes) 8192\nprocess              55514\nnofiles              65536\nvmemory(kbytes)      unlimited\nlocks                unlimited\nrtprio               0\n::endgroup::\n\n::group::Disk (df)\nFilesystem           1K-blocks     Used Available Use% Mounted on\ntmpfs                  1607844     1136   1606708   1% /run\nefivarfs                   128        4       120   3% /sys/firmware/efi/efivars\n/dev/mapper/cow-root 151263856 65733164  85514308  44% /\ntmpfs                  8039208       84   8039124   1% /dev/shm\ntmpfs                     5120        0      5120   0% /run/lock\n/dev/nvme0n1p16         901520   116800    721592  14% /boot\n/dev/nvme0n1p15         106832     6250    100582   6% /boot/efi\ntmpfs                  1607840       12   1607828   1% /run/user/1001\n::endgroup::\n\n::group::Memory\n               total        used        free      shared     buffers       cache   available\nMem:           15701        1367        5784          50         534        8402       14334\nSwap:           3071           0        3071\n::endgroup::\n\n::group::Docker\nCONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES\n::endgroup::\n\n::group::Repository\nCommit: 775c2e8ed88ffb12ed672f56e14488384e5c9087\nMessage: fix(runtime): retain captured subprocess failure diagnostics\n\nNormal captured exits and signals now report the original command and\nUTF-8 stderr in error.message, including when consumers only stringify\nthe exception. Preserve status, signal, raw bytes and output aliases.\nNative spawn/limit and inherited-stdio profiles remain unchanged.\n\nNode oracle: both before providers pass 0/20 diagnostic cases; Node,\nBun and both after providers pass 20/20, including actual nonzero shell\ncommands, signals, raw binary output and default stderr mirroring.\nFull zig-js graph passes 281/281; JSC254/279 retains21 known failures.\nNative test artifacts were cached. Exact NAPI2.18.4 help remains\nNode-identical and exits0 on both providers.\n\nThe real local cargo --version command still fails with status1 because\nRustup has no default toolchain; its actual stderr is now visible in the\nmessage. This does not establish the different Linux CI Cargo cause or\nclaim a Cargo metadata/build pass. No fake Cargo or fallback was used.\nFlips0 test262 cases (Home host error reporting only).\nBranch: main\nMain Branch: undefined\nIs Fork: false\nIs Merge Queue: false\nIs Main Branch: false\nIs Pull Request: false\n::endgroup::\n\n::group::CI\nBuild ID: 43331932210\nBuild Label: Ecosystem\nBuild URL: https://github.com/zig-utils/zig-js-ecosystem/actions/runs/43331932210\n::endgroup::\n\nfile:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/scripts/runner.node.mjs:2038\n  throw new Error(`Could not find executable: ${bunExe}`, { cause: error });\n        ^\n\nError: Could not find executable: ./build/debug/bun-debug\n    at getExecPath (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/scripts/runner.node.mjs:2038:9)\n    at runTests (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/scripts/runner.node.mjs:430:16)\n    ... 4 lines matching cause stack trace ...\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {\n  [cause]: Error: spawnSync ./build/debug/bun-debug ENOENT\n      at Object.spawnSync (node:internal/child_process:1120:20)\n      at spawnSync (node:child_process:902:24)\n      at getExecPath (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/scripts/runner.node.mjs:2015:31)\n      at runTests (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/scripts/runner.node.mjs:430:16)\n      at main (file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/scripts/runner.node.mjs:2749:27)\n      at file:///home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/scripts/runner.node.mjs:2779:7\n      at ModuleJob.run (node:internal/modules/esm/module_job:343:25)\n      at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)\n      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {\n    errno: -2,\n    code: 'ENOENT',\n    syscall: 'spawnSync ./build/debug/bun-debug',\n    path: './build/debug/bun-debug',\n    spawnargs: [ '--print', 'process.argv[0]' ]\n  }\n}\n\nNode.js v22.23.4\n\nECOSYSTEM PEAK SAMPLED RSS: 84880 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          },
+          {
+            "check": {
+              "status": "failed",
+              "exit_code": 1,
+              "peak_sampled_rss_kib": 122696,
+              "memory_limit_mb": 3072,
+              "seconds": 0.173,
+              "log": "0214.log",
+              "label": "packages/runtime/upstream/packages/bun-build-mdx-rs: build",
+              "lane": "reference",
+              "command": [
+                "/bin/sh",
+                "-c",
+                "napi build --platform --release"
+              ],
+              "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/packages/bun-build-mdx-rs",
+              "engine_invocations": 0
+            },
+            "log_sha256": "40de523299f428f641475cb74e1b163f5e4657ef86ea1d6dd2677ed7eff1a292",
+            "log": "$ [\"/bin/sh\", \"-c\", \"napi build --platform --release\"]\n\u001b[31m\u001b[1mType Error\u001b[22m\u001b[39m: Could not parse the Cargo.toml: Error: Command failed: cargo metadata --format-version 1 --manifest-path \"/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/packages/bun-build-mdx-rs/Cargo.toml\"\nerror: current package believes it's in a workspace when it's not:\ncurrent:   /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/packages/bun-build-mdx-rs/Cargo.toml\nworkspace: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/Cargo.toml\n\nthis may be fixable by adding `packages/bun-build-mdx-rs` to the `workspace.members` array of the manifest located at: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/Cargo.toml\nAlternatively, to keep it out of the workspace, add the package to the `workspace.exclude` array, or add an empty `[workspace]` table to the package's manifest.\n\nerror: current package believes it's in a workspace when it's not:\ncurrent:   /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/packages/bun-build-mdx-rs/Cargo.toml\nworkspace: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/Cargo.toml\n\nthis may be fixable by adding `packages/bun-build-mdx-rs` to the `workspace.members` array of the manifest located at: /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/Cargo.toml\nAlternatively, to keep it out of the workspace, add the package to the `workspace.exclude` array, or add an empty `[workspace]` table to the package's manifest.\n\n    at BuildCommand.<anonymous> (/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/@napi-rs/cli/scripts/index.js:11313:23)\n    at Generator.next (<anonymous>)\n    at /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/@napi-rs/cli/scripts/index.js:3526:69\n    at new Promise (<anonymous>)\n    at __awaiter$1 (/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/@napi-rs/cli/scripts/index.js:3522:10)\n    at BuildCommand.execute (/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/@napi-rs/cli/scripts/index.js:11299:16)\n    at BuildCommand.validateAndExecute (/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/@napi-rs/cli/scripts/index.js:2087:37)\n    at /home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/@napi-rs/cli/scripts/index.js:3128:53\n    at noopCaptureActivator (/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/@napi-rs/cli/scripts/index.js:3354:12)\n    at Cli.run (/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/reference/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/@napi-rs/cli/scripts/index.js:3128:30)\n\nECOSYSTEM PEAK SAMPLED RSS: 122696 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+          }
+        ]
+      }
+    ]
+  },
+  "cargo_workspace_diagnosis": {
+    "actual_linux_candidate_and_reference": "Both now expose the identical real ancestor-workspace membership error, not a missing Cargo default toolchain. Candidate Rustup auto-installs the pinned nightly, then Cargo rejects the package layout. The reference actually executes and fails with the same workspace error.",
+    "local_reproduction": {
+      "argv": [
+        "/Users/chris/.cargo/bin/cargo",
+        "metadata",
+        "--format-version",
+        "1",
+        "--manifest-path",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/upstream/packages/bun-build-mdx-rs/Cargo.toml"
+      ],
+      "RUSTUP_TOOLCHAIN": "stable (pre-existing; no install/default change)",
+      "RUSTUP_AUTO_INSTALL": "0",
+      "status": "failed",
+      "exit_code": 101,
+      "peak_sampled_rss_kib": 21312,
+      "memory_limit_mb": 3072,
+      "seconds": 0.161,
+      "log": "$ [\"/Users/chris/.cargo/bin/cargo\", \"metadata\", \"--format-version\", \"1\", \"--manifest-path\", \"/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/upstream/packages/bun-build-mdx-rs/Cargo.toml\"]\nerror: current package believes it's in a workspace when it's not:\ncurrent:   /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/upstream/packages/bun-build-mdx-rs/Cargo.toml\nworkspace: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/upstream/Cargo.toml\n\nthis may be fixable by adding `packages/bun-build-mdx-rs` to the `workspace.members` array of the manifest located at: /Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/upstream/Cargo.toml\nAlternatively, to keep it out of the workspace, add the package to the `workspace.exclude` array, or add an empty `[workspace]` table to the package's manifest.\n\nECOSYSTEM PEAK SAMPLED RSS: 21312 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 101\n",
+      "log_sha256": "e510ad7ed3d5565b376709ec238dc99989294587027b8d45fa1e12aec61520dc"
+    },
+    "local_toolchain": "Pre-existing explicit stable Cargo 1.98.1, RUSTUP_AUTO_INSTALL=0; no installation or default changes. Different from pinned CI nightly, but reproduces the same workspace validation error.",
+    "policy": "Mirror manifests remain unchanged. Retain this real shared consumer/source-layout failure; never patch the candidate to manufacture a green result or claim an engine failure/build pass."
+  },
+  "caller_retained": "775c2e8ed88ffb12ed672f56e14488384e5c9087",
+  "qualification": "New functional Suite must pass exact source validation, real Linux parser fixtures twice, artifact bytes/provenance and consumer preflights. Evidence-only descendants are not caller targets. Every selected repository, true unsupported/failure evidence and quotas remain intact; no native Bun candidate fallback.",
+  "test262_flips": 0
+}
