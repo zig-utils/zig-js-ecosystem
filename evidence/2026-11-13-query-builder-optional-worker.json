@@ -1,0 +1,948 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-13T01:16:08.193613+00:00",
+  "fix_repository": "stacksjs/bun-query-builder",
+  "fix_commit": "27d7530b725aa0f00499480d1aadbd76b5e0331f",
+  "before_commit": "5257ba4c9578ea755bf5bedcda6d19eccf6b46ca",
+  "changed_paths": [
+    "packages/bun-query-builder/src/sync-driver.ts"
+  ],
+  "source": {
+    "path": "packages/bun-query-builder/src/sync-driver.ts",
+    "before_sha256": "ba90368543ff5bbbd376fb3a525d857c9c1b62ec40cd5d9d35605f9c9d8c1731",
+    "after_sha256": "b565d859134c2ba7448d2c4d3b590f082181f97915383566f04c34de624bdfe5",
+    "after_git_blob": "2b802d7ddf21dc72f15610322498adf4b7b6c28a"
+  },
+  "local_evidence_directory": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers",
+  "local_runtime": "Exact saved Home a654d7808 Darwin providers, linked to pushed engine a7b0fdfd archive3b182ee48ac27e763c308b16276e5330e552906f82d82336907f7389ce1b03ed; not a Linux/whole-Stacks qualifier. Native Bun is an explicitly separate control/build tool, never a candidate fallback.",
+  "repair": "Real node:worker_threads lookup moves from module initialization into synchronous network-driver construction. The real receive function is retained per instance. Ordinary imports and SQLite do not require workers; an unsupported worker still throws before allocating a channel. No fake worker, async API change or native Bun candidate fallback.",
+  "verification": {
+    "before-jsc-worker": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/leaf-probe.mjs",
+        "--worker"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 10224,
+      "memory_limit_mb": 3072,
+      "seconds": 0.051,
+      "log": "before-jsc-worker.log",
+      "log_sha256": "07053c967052a3b7f22615a7c959d5a5ff4fb87c027ceeae1a26d9cde8bf29ea",
+      "witnesses": []
+    },
+    "sqlite-model-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/sqlite-model-probe.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/sqlite-model-jsc.db"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 30064,
+      "memory_limit_mb": 3072,
+      "seconds": 0.146,
+      "log": "sqlite-model-jsc.log",
+      "log_sha256": "8ea4e56308743ea2232a213fccd22955c0451c22d904cb856d81f2ef4f4a00ad",
+      "witnesses": [
+        "REAL SQLITE MODEL READ/INSERT VERIFIED"
+      ]
+    },
+    "before-bun-worker": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/leaf-probe.mjs",
+        "--worker"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2320,
+      "memory_limit_mb": 3072,
+      "seconds": 0.1,
+      "log": "before-bun-worker.log",
+      "log_sha256": "05656fb52833e53f81f67d45f3b3e829114af9573a6deb45aea54d1fa614c356",
+      "witnesses": [
+        "REQUESTING REAL WORKER",
+        "REAL BUN WORKER CONSTRUCTED AND CLOSED"
+      ]
+    },
+    "before-zig-js-leaf": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/leaf-probe.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 208,
+      "memory_limit_mb": 3072,
+      "seconds": 0.1,
+      "log": "before-zig-js-leaf.log",
+      "log_sha256": "ed7aeee88ca9658b78c1a7cb3d0e52dfb30467289ce7869c25cb5953c0239f80",
+      "witnesses": []
+    },
+    "built-root-bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/root-probe.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 21584,
+      "memory_limit_mb": 3072,
+      "seconds": 0.225,
+      "log": "built-root-bun.log",
+      "log_sha256": "ac1c9bf8e3eb84b1bf98068207514913289519777dfa98721e2186e305124148",
+      "witnesses": [
+        "BUILT PACKAGE ROOT IMPORT VERIFIED"
+      ]
+    },
+    "published-0.4.0-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/published-probe.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5856,
+      "memory_limit_mb": 3072,
+      "seconds": 0.158,
+      "log": "published-0.4.0-jsc.log",
+      "log_sha256": "9dfd1bdda7e942b2de6ca5e4acc3c60902d4392c98a9e990f00e9eb823010cd0",
+      "witnesses": []
+    },
+    "published-0.4.0-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/published-probe.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 464,
+      "memory_limit_mb": 3072,
+      "seconds": 0.125,
+      "log": "published-0.4.0-zig-js.log",
+      "log_sha256": "c9a03cf4e4b2e46547223ce9e442ac340e935083d82bb8fc58c8586f81d1b16a",
+      "witnesses": []
+    },
+    "sqlite-model-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/sqlite-model-probe.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/sqlite-model-zig-js.db"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 209376,
+      "memory_limit_mb": 3072,
+      "seconds": 0.28,
+      "log": "sqlite-model-zig-js.log",
+      "log_sha256": "fb17602c51057b82225d41d132788135f1d5ab08f5f90ad5913cb07eb2faa6ba",
+      "witnesses": [
+        "REAL SQLITE MODEL READ/INSERT VERIFIED"
+      ]
+    },
+    "built-root-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/root-probe.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 752,
+      "memory_limit_mb": 3072,
+      "seconds": 0.13,
+      "log": "built-root-jsc.log",
+      "log_sha256": "03208ce48159c1102322965dbc2b2271577e45488a0687f880833e7d140f76b7",
+      "witnesses": [
+        "BUILT PACKAGE ROOT IMPORT VERIFIED"
+      ]
+    },
+    "after-zig-js-worker": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/leaf-probe.mjs",
+        "--worker"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5920,
+      "memory_limit_mb": 3072,
+      "seconds": 0.031,
+      "log": "after-zig-js-worker.log",
+      "log_sha256": "4954d3df3a74a625544db43d3257af8c1ab167a62780c4050e3c8a01ac67dbc6",
+      "witnesses": [
+        "REQUESTING REAL WORKER"
+      ]
+    },
+    "before-zig-js-worker": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/leaf-probe.mjs",
+        "--worker"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 11104,
+      "memory_limit_mb": 3072,
+      "seconds": 0.033,
+      "log": "before-zig-js-worker.log",
+      "log_sha256": "74c9d46438181a04345989c9aca94289db91805f57ee974734db4a0ce5f4a757",
+      "witnesses": []
+    },
+    "sqlite-model-bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/sqlite-model-probe.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/sqlite-model-bun.db"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 464,
+      "memory_limit_mb": 3072,
+      "seconds": 0.099,
+      "log": "sqlite-model-bun.log",
+      "log_sha256": "eac7c71a9ca9607a85230be2c5b493da99eeadc37484ad054dadf4da95a18832",
+      "witnesses": [
+        "REAL SQLITE MODEL READ/INSERT VERIFIED"
+      ]
+    },
+    "sqlite-models": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "packages/bun-query-builder/test/orm.sync.test.ts",
+        "packages/bun-query-builder/test/db.sqlite-statement-dispatch.test.ts",
+        "packages/bun-query-builder/test/sqlite.numbered-placeholders.test.ts"
+      ],
+      "cwd": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/source",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 464,
+      "memory_limit_mb": 3072,
+      "seconds": 0.133,
+      "log": "sqlite-models.log",
+      "log_sha256": "eeacdeda3f111d6a526ab864196db8b290c0e9cbb264befda317c900d7305242",
+      "witnesses": [
+        " 30 pass",
+        " 113 expect() calls"
+      ]
+    },
+    "before-jsc-leaf": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/leaf-probe.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 112,
+      "memory_limit_mb": 3072,
+      "seconds": 0.126,
+      "log": "before-jsc-leaf.log",
+      "log_sha256": "091baae0b3ffdd81782271c0f43967d6e18157111ffd093626b0e05519f1c387",
+      "witnesses": []
+    },
+    "after-bun-leaf": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/leaf-probe.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 944,
+      "memory_limit_mb": 3072,
+      "seconds": 0.025,
+      "log": "after-bun-leaf.log",
+      "log_sha256": "7ab3551f31158aed35ac6a0906c37abd0605ccd9ca00a51a2c36d1318269888c",
+      "witnesses": [
+        "LEAF IMPORT AND REAL ERROR VALUE VERIFIED"
+      ]
+    },
+    "before-bun-leaf": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/leaf-probe.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.088,
+      "log": "before-bun-leaf.log",
+      "log_sha256": "b37e4272f70ef73332f837bc7da9a34d49b9788411578dbcddad7d763af193c5",
+      "witnesses": [
+        "LEAF IMPORT AND REAL ERROR VALUE VERIFIED"
+      ]
+    },
+    "after-jsc-leaf": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/leaf-probe.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 4480,
+      "memory_limit_mb": 3072,
+      "seconds": 0.039,
+      "log": "after-jsc-leaf.log",
+      "log_sha256": "5a19ec74e064d04260945c4be80fb30b3dfd6eac2dc793ebc48c363d243317a3",
+      "witnesses": [
+        "LEAF IMPORT AND REAL ERROR VALUE VERIFIED"
+      ]
+    },
+    "built-root-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/root-probe.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 204016,
+      "memory_limit_mb": 3072,
+      "seconds": 0.325,
+      "log": "built-root-zig-js.log",
+      "log_sha256": "d697369c14d9a376093966f7ddec1715b4158c3a84872204bee07e37d889c5ff",
+      "witnesses": [
+        "BUILT PACKAGE ROOT IMPORT VERIFIED"
+      ]
+    },
+    "pickier": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bunx",
+        "--bun",
+        "pickier",
+        "packages/bun-query-builder/src/sync-driver.ts"
+      ],
+      "cwd": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/source",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 34528,
+      "memory_limit_mb": 3072,
+      "seconds": 0.152,
+      "log": "pickier.log",
+      "log_sha256": "6daafdb28ffee7d10cc3c86be6f553d3ec065f22cd9d4f29e3811c5affd8e085",
+      "witnesses": []
+    },
+    "after-jsc-worker": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/leaf-probe.mjs",
+        "--worker"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5312,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "after-jsc-worker.log",
+      "log_sha256": "cf1fa99a88cfaacf8637cd6e0a8fba70d537611310a427c75fa7f781ec856f49",
+      "witnesses": [
+        "REQUESTING REAL WORKER"
+      ]
+    },
+    "build": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "--bun",
+        "build.ts"
+      ],
+      "cwd": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/source/packages/bun-query-builder",
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 449616,
+      "memory_limit_mb": 3072,
+      "seconds": 1.015,
+      "log": "build.log",
+      "log_sha256": "118df1e1a08f837ac878b2d32415601c063597e4b0d878d3e105a76732cf09b9",
+      "witnesses": []
+    },
+    "after-zig-js-leaf": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/leaf-probe.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1104,
+      "memory_limit_mb": 3072,
+      "seconds": 0.097,
+      "log": "after-zig-js-leaf.log",
+      "log_sha256": "f0f4cb12089eb50b13ebc9069248d45ae0de73a70d0d73d5b3397fc01281de6b",
+      "witnesses": [
+        "LEAF IMPORT AND REAL ERROR VALUE VERIFIED"
+      ]
+    },
+    "after-bun-worker": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/query-builder-workers/leaf-probe.mjs",
+        "--worker"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2288,
+      "memory_limit_mb": 3072,
+      "seconds": 0.041,
+      "log": "after-bun-worker.log",
+      "log_sha256": "e4547a1ce8fe0dfde3279453ea83e34f5e1136702aa44a75219999b42694a6e0",
+      "witnesses": [
+        "REQUESTING REAL WORKER",
+        "REAL BUN WORKER CONSTRUCTED AND CLOSED"
+      ]
+    }
+  },
+  "physical_sqlite_independent_python": {
+    "bun": {
+      "rows": [
+        [
+          1,
+          "Ada"
+        ],
+        [
+          2,
+          "Grace"
+        ]
+      ],
+      "database_sha256": "443447b920da5fbe267d4d45a33aecaa2cbab970b9e3b10abf634edfcc931e71"
+    },
+    "zig-js": {
+      "rows": [
+        [
+          1,
+          "Ada"
+        ],
+        [
+          2,
+          "Grace"
+        ]
+      ],
+      "database_sha256": "443447b920da5fbe267d4d45a33aecaa2cbab970b9e3b10abf634edfcc931e71"
+    },
+    "jsc": {
+      "rows": [
+        [
+          1,
+          "Ada"
+        ],
+        [
+          2,
+          "Grace"
+        ]
+      ],
+      "database_sha256": "443447b920da5fbe267d4d45a33aecaa2cbab970b9e3b10abf634edfcc931e71"
+    }
+  },
+  "native_scope": "Bun constructs and closes a real worker with positive threadId both before/after. No Postgres/MySQL statement was sent or query success claimed. Thirty existing native Bun SQLite tests pass with113assertions. Production build executes both actual compilability checks. Pickier0errors/1stylewarning. Home built-package root and genuine synchronous SQLite model read/insert pass; Python independently reads both rows from every actual database file.",
+  "reproduction": "Exact published0.4.0 tarball physically matches SHA512 in Stacks frozen lock and npm metadata, then fails at worker_threads on both Home providers. Separate same-source0.4.1 before/after leaf proves eager load defect and delayed failure. Existing read-only node_modules reused; not a fresh complete frozen Stacks install.",
+  "published_before": {
+    "version": "0.4.0",
+    "dist": {
+      "shasum": "4b11cfa98dadfa7289f0e0115dbe78eec1724c7a",
+      "tarball": "https://registry.npmjs.org/bun-query-builder/-/bun-query-builder-0.4.0.tgz",
+      "fileCount": 91,
+      "integrity": "sha512-G46FfToMURLekQ1ksmEdh0ApI2YlfpJpVnYA1PLC2dTAeMpIhj6+4KnnrfEwVE8RemfwzAAFGj8H/rJYV5sRDg==",
+      "signatures": [
+        {
+          "sig": "MEQCIAJU/y3fzCWkBI4wydkAE41Qk+YODHeqL2X4QRVwGQz9AiAaD7tz+70EfFYQm05W4lmoUFMmJOI29PYQo/HfOJ1B9g==",
+          "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+        },
+        {
+          "sig": "MEQCIErwrywcmvDk0XvMRdQG5GEXVOFasCATIfzh+oF9DPdtAiA/GS0qR42W0kXXVn5cIK3kAMYH+6pAsQMS5o81qDkvuw==",
+          "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+        }
+      ],
+      "attestations": {
+        "url": "https://registry.npmjs.org/-/npm/v1/attestations/bun-query-builder@0.4.0",
+        "provenance": {
+          "predicateType": "https://slsa.dev/provenance/v1"
+        }
+      },
+      "unpackedSize": 1115398
+    },
+    "locked_integrity_matched": true,
+    "tar_sha256": "1362dfa109eb24550c8d24c9784eae2899f0aac65f2d3b37eed15a5e0b68bdc3"
+  },
+  "registry_snapshot": {
+    "timestamp": "2026-11-13T01:09:34.225513+00:00",
+    "latest": "0.4.1",
+    "fixed_source_published": false,
+    "dist": {
+      "shasum": "cf7ab3427f6129131e26a2cd5f9c3dde03a44b81",
+      "tarball": "https://registry.npmjs.org/bun-query-builder/-/bun-query-builder-0.4.1.tgz",
+      "fileCount": 91,
+      "integrity": "sha512-8NNrGcEi6EJcczfALNGWcnCDH8+HLEASVDw9XnrTZsdcwta1nODohuexcM1+lJpq3OxMaMC6Tg9zsTBP1E6rcw==",
+      "signatures": [
+        {
+          "sig": "MEUCIGFauWVa/gEeWaXlGcwggWO75rwgocJEPaAoqU660TqXAiEAnh7it2SOc14ULmaJj6Cm6vM1UuUKyhWY5YsJmEgcIWg=",
+          "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+        },
+        {
+          "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+          "sig": "MEQCIB/sKsBrksjOT5CdLchFbnILS9iC+d/WqiO5l5lsaJSXAiBq2XbiEH22Ho8D/PB8jJe96J0aepXckQZ+HM36DbG5/Q=="
+        }
+      ],
+      "attestations": {
+        "url": "https://registry.npmjs.org/-/npm/v1/attestations/bun-query-builder@0.4.1",
+        "provenance": {
+          "predicateType": "https://slsa.dev/provenance/v1"
+        }
+      },
+      "unpackedSize": 1118154
+    },
+    "repository": {
+      "url": "git+https://github.com/stacksjs/bun-query-builder.git",
+      "type": "git"
+    }
+  },
+  "rollout": "No package was published, retagged or version-bumped. Registry latest0.4.1 predates this source fix; Stacks frozen CI locks0.4.0. A subsequent fixed package release and lock update are required for affected consumers. Do not count fourteen remote checks restored until actually rerun.",
+  "latest_priority_receipts": [
+    {
+      "run": 43337180119,
+      "job": 131601148312,
+      "artifact": 14000240305,
+      "official_digest": "sha256:105e18042afe61652444d4ba1eb9549164ffd313db6fe605ad027ec5ec293cdd",
+      "zip_sha256": "105e18042afe61652444d4ba1eb9549164ffd313db6fe605ad027ec5ec293cdd",
+      "job_log_sha256": "bc589a5c300b1dd830d8d99ad377573d5fbacd255893d275c68c50bdccab0081",
+      "repository": "home-lang/home",
+      "source_sha": "4fd4fdaf84b6999aec08e3d83561d239479d9151",
+      "engine_sha": "4cc4e29fbf819b08426e83e3b40ce6e3b4563795",
+      "candidate_counts": {
+        "failed": 41,
+        "unsupported": 37,
+        "passed": 9
+      },
+      "suite_ref": "775c2e8ed88ffb12ed672f56e14488384e5c9087",
+      "selected_actual_failures": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": -9,
+            "peak_sampled_rss_kib": 3179600,
+            "memory_limit_mb": 3072,
+            "seconds": 20.961,
+            "log": "0052.log",
+            "reason": "sampled command tree RSS exceeded 3072 MiB",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bunx bunpress build"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate",
+            "engine_invocations": 1
+          },
+          "log_sha256": "3cd252dde6b5cf770a7d90473700895fc29ed0915741df15a1f4d171475ae085",
+          "log": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 3179600 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 891412,
+            "memory_limit_mb": 3072,
+            "seconds": 26.422,
+            "log": "0097.log",
+            "label": "packages/runtime/upstream/packages/bun-build-mdx-rs: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "napi build --platform --release"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs",
+            "engine_invocations": 1
+          },
+          "log_sha256": "c6309da4863077899988b9d761fa6c8808c22af3b27f5a7414910e44f9c9e64a",
+          "log": "$ [\"/bin/sh\", \"-c\", \"napi build --platform --release\"]\n\u001b[31m\u001b[1mType Error\u001b[22m\u001b[39m: Could not parse the Cargo.toml: Error: Command failed: cargo metadata --format-version 1 --manifest-path \"/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/Cargo.toml\"\ninfo: syncing channel updates for nightly-2026-05-06-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-05-06 for version 1.97.0-nightly (e95e73209 2026-05-05)\ninfo: downloading 14 components\nwarn: the missing active toolchain `nightly-2026-05-06-x86_64-unknown-linux-gnu` has been auto-installed\nwarn: this might cause rustup commands to take longer time to finish than expected\ninfo: you may opt out with `RUSTUP_AUTO_INSTALL=0` or `rustup set auto-install disable`\nerror: current package believes it's in a workspace when it's not:\ncurrent:   /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/Cargo.toml\nworkspace: /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/Cargo.toml\n\nthis may be fixable by adding `packages/bun-build-mdx-rs` to the `workspace.members` array of the manifest located at: /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/Cargo.toml\nAlternatively, to keep it out of the workspace, add the package to the `workspace.exclude` array, or add an empty `[workspace]` table to the package's manifest.\n\ninfo: syncing channel updates for nightly-2026-05-06-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-05-06 for version 1.97.0-nightly (e95e73209 2026-05-05)\ninfo: downloading 14 components\nwarn: the missing active toolchain `nightly-2026-05-06-x86_64-unknown-linux-gnu` has been auto-installed\nwarn: this might cause rustup commands to take longer time to finish than expected\ninfo: you may opt out with `RUSTUP_AUTO_INSTALL=0` or `rustup set auto-install disable`\nerror: current package believes it's in a workspace when it's not:\ncurrent:   /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/Cargo.toml\nworkspace: /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/Cargo.toml\n\nthis may be fixable by adding `packages/bun-build-mdx-rs` to the `workspace.members` array of the manifest located at: /home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/Cargo.toml\nAlternatively, to keep it out of the workspace, add the package to the `workspace.exclude` array, or add an empty `[workspace]` table to the package's manifest.\n\n    at <anonymous> (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:8294:9)\n    at <anonymous> (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:2735:5)\n    at __awaiter$1 (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:2717:3)\n    at validateAndExecute (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:1554:5)\n    at <anonymous>\n    at run (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:2419:7)\n    at <anonymous> (file:///home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:29414:1)\n    at <anonymous> (home:tool-module-install:260:7)\n    at evaluateSync (home:tool-module-install:277:7)\n    at <anonymous> (home:tool-module-install:387:7)\n\nECOSYSTEM PEAK SAMPLED RSS: 891412 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ]
+    },
+    {
+      "run": 43337180119,
+      "job": 131601148354,
+      "artifact": 13999915694,
+      "official_digest": "sha256:0c82d78850a0dd9bf71a34499a2321bfddeea150451ed29b228a802a45ab57b0",
+      "zip_sha256": "0c82d78850a0dd9bf71a34499a2321bfddeea150451ed29b228a802a45ab57b0",
+      "job_log_sha256": "e75a6ce4fc11e86793fe4f285cffb73025cd64886fb3397058620a9f96e7c242",
+      "repository": "stacksjs/stacks",
+      "source_sha": "5e9e10cc540dc27f012693ae69f0607ef6f0b069",
+      "engine_sha": "4cc4e29fbf819b08426e83e3b40ce6e3b4563795",
+      "candidate_counts": {
+        "unsupported": 355,
+        "failed": 196,
+        "passed": 80
+      },
+      "suite_ref": "775c2e8ed88ffb12ed672f56e14488384e5c9087",
+      "selected_actual_failures": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 2570560,
+            "memory_limit_mb": 3072,
+            "seconds": 12.647,
+            "log": "0016.log",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "./buddy build"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate",
+            "engine_invocations": 3
+          },
+          "log_sha256": "5864cf8cd8a7c57330fd6a8fd9ffd8d63ec3e2a274ac247c7f26a3ca3a25abaf",
+          "log": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-13T00:38:53.345Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 2570560 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+        }
+      ]
+    }
+  ],
+  "new_stack_failure_comparison": {
+    "previous_run": 43331932210,
+    "previous_engine": "094375ef952a3ea6267eacfd76a81952e041af91",
+    "previous_consumer": "b167dcc5b5a9345dc27914bb0e48005c5fe3af87",
+    "previous_candidate": {
+      "unsupported": 355,
+      "failed": 182,
+      "passed": 94
+    },
+    "current_run": 43337180119,
+    "current_consumer": "5e9e10cc540dc27f012693ae69f0607ef6f0b069",
+    "current_candidate": {
+      "unsupported": 355,
+      "failed": 196,
+      "passed": 80
+    },
+    "changes": [
+      {
+        "label": "storage/framework/core/analytics: module initialization src/index.ts",
+        "previous_status": "passed",
+        "current_check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 34200,
+          "memory_limit_mb": 3072,
+          "seconds": 0.15,
+          "log": "0050.log",
+          "label": "storage/framework/core/analytics: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+            "src/index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/analytics",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module worker_threads from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-rtxq63ye.js\n\nECOSYSTEM PEAK SAMPLED RSS: 34200 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "b0a8eb8a60d22be485897ea717a7490276681be2d028f55dabc773269fe305c9"
+      },
+      {
+        "label": "storage/framework/core/chat: module initialization src/index.ts",
+        "previous_status": "passed",
+        "current_check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 36444,
+          "memory_limit_mb": 3072,
+          "seconds": 0.338,
+          "log": "0129.log",
+          "label": "storage/framework/core/chat: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+            "src/index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/chat",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module worker_threads from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-rtxq63ye.js\n\nECOSYSTEM PEAK SAMPLED RSS: 36444 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "b9896cc53db4d0d9d49294f394d3b186ec877fca5a19c1b6880dd7b2b92556d9"
+      },
+      {
+        "label": "storage/framework/core/commerce: module initialization src/index.ts",
+        "previous_status": "passed",
+        "current_check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 34432,
+          "memory_limit_mb": 3072,
+          "seconds": 0.149,
+          "log": "0161.log",
+          "label": "storage/framework/core/commerce: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+            "src/index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/commerce",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module worker_threads from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-rtxq63ye.js\n\nECOSYSTEM PEAK SAMPLED RSS: 34432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "d31bdbf8f6a66c83c3880ffd8ddd209286d63c2ea79f634aebeff9590b98907b"
+      },
+      {
+        "label": "storage/framework/core/database: module initialization src/index.ts",
+        "previous_status": "passed",
+        "current_check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 37380,
+          "memory_limit_mb": 3072,
+          "seconds": 0.15,
+          "log": "0184.log",
+          "label": "storage/framework/core/database: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+            "src/index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/database",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module worker_threads from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-rtxq63ye.js\n\nECOSYSTEM PEAK SAMPLED RSS: 37380 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "e5ed256de8a3949c57bba57cbc86fd5f457398d7a148f193ec79d64429d0bc38"
+      },
+      {
+        "label": "storage/framework/core/newsletter: module initialization src/index.ts",
+        "previous_status": "passed",
+        "current_check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 34132,
+          "memory_limit_mb": 3072,
+          "seconds": 0.151,
+          "log": "0341.log",
+          "label": "storage/framework/core/newsletter: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+            "src/index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/newsletter",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module worker_threads from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-rtxq63ye.js\n\nECOSYSTEM PEAK SAMPLED RSS: 34132 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "738b86767707d0b027ad0ad840a1d4a8c4a388dbf1932ed9227d330868f6a3f3"
+      },
+      {
+        "label": "storage/framework/core/orm: module initialization src/index.ts",
+        "previous_status": "passed",
+        "current_check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 36916,
+          "memory_limit_mb": 3072,
+          "seconds": 0.326,
+          "log": "0359.log",
+          "label": "storage/framework/core/orm: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+            "src/index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/orm",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module worker_threads from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-rtxq63ye.js\n\nECOSYSTEM PEAK SAMPLED RSS: 36916 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "ccb04550d8dd1c223158abed7dca1f15435bfb656af590b3c14ae98d60b6900f"
+      },
+      {
+        "label": "storage/framework/core/payments: module initialization src/index.ts",
+        "previous_status": "passed",
+        "current_check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 34212,
+          "memory_limit_mb": 3072,
+          "seconds": 0.181,
+          "log": "0446.log",
+          "label": "storage/framework/core/payments: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+            "src/index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/payments",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module worker_threads from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-rtxq63ye.js\n\nECOSYSTEM PEAK SAMPLED RSS: 34212 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "db71fb1086c2959d4696f5f7707fdd9fb329bc7bba98c3c16415d1730d78cfc6"
+      },
+      {
+        "label": "storage/framework/core/query-builder: module initialization src/index.ts",
+        "previous_status": "passed",
+        "current_check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 38212,
+          "memory_limit_mb": 3072,
+          "seconds": 0.133,
+          "log": "0458.log",
+          "label": "storage/framework/core/query-builder: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+            "src/index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/query-builder",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module worker_threads from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-rtxq63ye.js\n\nECOSYSTEM PEAK SAMPLED RSS: 38212 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "9115a7e2427f9d9dc6ba8539ca2941f154ef5b05d658ceb4e1d4304aca5e4180"
+      },
+      {
+        "label": "storage/framework/core/queue: module initialization src/index.ts",
+        "previous_status": "passed",
+        "current_check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 33900,
+          "memory_limit_mb": 3072,
+          "seconds": 0.218,
+          "log": "0464.log",
+          "label": "storage/framework/core/queue: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+            "src/index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/queue",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module worker_threads from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-rtxq63ye.js\n\nECOSYSTEM PEAK SAMPLED RSS: 33900 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "c86bbb25de0176bbe165cd5de58e8909a634c7c603b935ae3b2dbbe796cfe43f"
+      },
+      {
+        "label": "storage/framework/core/scheduler: module initialization src/index.ts",
+        "previous_status": "passed",
+        "current_check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 38400,
+          "memory_limit_mb": 3072,
+          "seconds": 0.436,
+          "log": "0495.log",
+          "label": "storage/framework/core/scheduler: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+            "src/index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/scheduler",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module worker_threads from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-rtxq63ye.js\n\nECOSYSTEM PEAK SAMPLED RSS: 38400 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "e134005a2a7d7e3d84d882fc38400f8260248949082e1a6dccb256c6aecdd243"
+      },
+      {
+        "label": "storage/framework/core/search-engine: module initialization src/index.ts",
+        "previous_status": "passed",
+        "current_check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 39140,
+          "memory_limit_mb": 3072,
+          "seconds": 0.351,
+          "log": "0501.log",
+          "label": "storage/framework/core/search-engine: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+            "src/index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/search-engine",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module worker_threads from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-rtxq63ye.js\n\nECOSYSTEM PEAK SAMPLED RSS: 39140 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "aeef576bedc5a38e7181b1a67fa345c571cce074dc6f22a292773ac6eaf582f5"
+      },
+      {
+        "label": "storage/framework/core/slug: module initialization src/index.ts",
+        "previous_status": "passed",
+        "current_check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 34160,
+          "memory_limit_mb": 3072,
+          "seconds": 0.15,
+          "log": "0538.log",
+          "label": "storage/framework/core/slug: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+            "src/index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/slug",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module worker_threads from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-rtxq63ye.js\n\nECOSYSTEM PEAK SAMPLED RSS: 34160 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "bdaac6889aa7801d910b3e529dad530fb353c9f5b6a335931b9e4881e838fcef"
+      },
+      {
+        "label": "storage/framework/core/sms: module initialization src/index.ts",
+        "previous_status": "passed",
+        "current_check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 34456,
+          "memory_limit_mb": 3072,
+          "seconds": 0.182,
+          "log": "0544.log",
+          "label": "storage/framework/core/sms: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+            "src/index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/sms",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module worker_threads from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-rtxq63ye.js\n\nECOSYSTEM PEAK SAMPLED RSS: 34456 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "b8e9a54e756c909a8fbf4c28251455e3be0a1aaf024c130917d31a8f4e77470e"
+      },
+      {
+        "label": "storage/framework/orm: module initialization src/index.ts",
+        "previous_status": "passed",
+        "current_check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 39832,
+          "memory_limit_mb": 3072,
+          "seconds": 0.291,
+          "log": "0635.log",
+          "label": "storage/framework/orm: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun",
+            "src/index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/orm",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/shims/bun\", \"src/index.ts\"]\nhome-tool (zig-js): Error: cannot resolve module worker_threads from /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/node_modules/bun-query-builder/dist/chunk-rtxq63ye.js\n\nECOSYSTEM PEAK SAMPLED RSS: 39832 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "d70339576a016042334869e6706bdcedd365e97e36375e6e911a6083fa379ac2"
+      }
+    ],
+    "scope": "Fourteen source-initialization checks, not upstream tests or packages. Consumer source, dependency versions and engine/build inputs differ; no engine-regression or whole-graph equivalence claim."
+  },
+  "caller_retained": "775c2e8ed88ffb12ed672f56e14488384e5c9087",
+  "other_pending": "Functional parser suite23445c2 exact Linux runtime integration remains in progress; no artifact/fixture/preflight pass inferred. All selected repositories and truthful unsupported/failure evidence remain covered.",
+  "preservation": "Isolated source worktree; original bun-query-builder index/worktree untouched. Explicit file staging, configured Chris identity, no authorship trailers. Home and Root source unchanged in this repair; foreign zig-pkg remains untouched.",
+  "test262_flips": 0
+}
