@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-13T04:37:14.697560+00:00",
+  "run": 43353030504,
+  "report_job": 131685196442,
+  "engine_sha": "d8e135a672c5dca7d85d22cbe0a1c9907d56bd6d",
+  "functional_suite": "398066f1122f282ded01b7f2e07f82c5e67cdadb",
+  "runtime_home": "74c899f1bc7ca9349d28fc421961684ce8c6f7b6",
+  "artifact": {
+    "id": 14009448157,
+    "size_in_bytes": 16500163,
+    "digest": "sha256:5d191a9df11ce51ce75ce7ae2ab7de303f0ca082073f1d4656074dc972866980"
+  },
+  "downloaded_zip_sha256": "5d191a9df11ce51ce75ce7ae2ab7de303f0ca082073f1d4656074dc972866980",
+  "report_log_sha256": "a4f58bf76dfb78bfd2e51e145e1187b90f68fbf606d5e030a95fcef9bb774fd8",
+  "inventory_sha256": "9922507c2bcb29ec59b77922824d57d846671b384fb5aad694093df8cd6554e1",
+  "report_json_sha256": "70aadbdb5b1a1a4144df84214aeed7a684d937158489e9243c80b1011b3a1039",
+  "coverage": {
+    "selected": 229,
+    "reported": 229,
+    "failing": 204,
+    "missing": [],
+    "mismatched": [],
+    "all_frozen_sources_independently_match": true,
+    "all_runtime_provenance_matches": true,
+    "same_selected_names_as_previous_complete_audit": true,
+    "Stacks_Home_repositories": 167,
+    "without_candidate_lane": 39,
+    "candidate_check_counts": {
+      "failed": 3277,
+      "passed": 1357,
+      "unsupported": 4523,
+      "timed-out": 1
+    }
+  },
+  "changed_applicability": {
+    "current": {
+      "repository": "stacksjs/bun",
+      "sha": "8b6525a355db503229b77dafac67ddb42a021db8",
+      "engine_sha": "d8e135a672c5dca7d85d22cbe0a1c9907d56bd6d",
+      "checks": [
+        {
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 0,
+          "memory_limit_mb": 3072,
+          "seconds": 0.01,
+          "log": "0001.log",
+          "label": "git init",
+          "lane": "setup",
+          "command": [
+            "git",
+            "init",
+            "--quiet"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate",
+          "engine_invocations": 0
+        },
+        {
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 25512,
+          "memory_limit_mb": 3072,
+          "seconds": 0.395,
+          "log": "0002.log",
+          "label": "fetch exact consumer SHA",
+          "lane": "setup",
+          "command": [
+            "git",
+            "-c",
+            "credential.helper=",
+            "fetch",
+            "--depth=1",
+            "https://github.com/stacksjs/bun.git",
+            "8b6525a355db503229b77dafac67ddb42a021db8"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate",
+          "engine_invocations": 0
+        },
+        {
+          "status": "passed",
+          "exit_code": 0,
+          "peak_sampled_rss_kib": 0,
+          "memory_limit_mb": 3072,
+          "seconds": 0.008,
+          "log": "0003.log",
+          "label": "checkout",
+          "lane": "setup",
+          "command": [
+            "git",
+            "checkout",
+            "--quiet",
+            "--detach",
+            "FETCH_HEAD"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate",
+          "engine_invocations": 0
+        },
+        {
+          "label": "coverage",
+          "lane": "coverage",
+          "status": "not-applicable",
+          "reason": "No tracked JavaScript/TypeScript/Zig executable consumer"
+        }
+      ],
+      "scopes": [],
+      "omitted_manifests": [],
+      "runtime_provenance": {
+        "engine_sha": "d8e135a672c5dca7d85d22cbe0a1c9907d56bd6d",
+        "suite_ref": "398066f1122f282ded01b7f2e07f82c5e67cdadb",
+        "home_repository": "home-lang/home",
+        "home_ref": "74c899f1bc7ca9349d28fc421961684ce8c6f7b6",
+        "zig_version": "0.18.0-dev.146+35accc06e",
+        "build_cpu": "baseline",
+        "build_optimize": "ReleaseSafe",
+        "sha256": {
+          "home-tool": "610cc130033af86fc0391e1f99d296d232673771988380dd599a7b1d510be6b5",
+          "engine/zig-out/lib/libzig-js.a": "5fe3517dab45f14dbdbfb37be47150c0fd54a29adfa8275d42fbfb5e58c0c62a"
+        }
+      },
+      "native_build_files": [],
+      "failed": false
+    },
+    "previous_source": "8aa496e1df533d12d292aab963e5fcadb25507df",
+    "previous_candidate_counts": {
+      "passed": 6,
+      "failed": 27,
+      "unsupported": 30
+    },
+    "scope": "The sole decrease205to204failing repositories comes from stacksjs/bun source8b6525 no longer supplying any tracked executable consumer. Its coverage is not-applicable, zero candidate checks, not an engine fix or passing app. The previous executable snapshot and27actual failure logs stay retained. Never count selected-minus-failing as passing applications."
+  },
+  "priorities": [
+    {
+      "repository": "stacksjs/stacks",
+      "source": "b74c915e080ca2264c8e41201ddf9923fb557f15",
+      "candidate_counts": {
+        "unsupported": 356,
+        "failed": 196,
+        "passed": 80
+      },
+      "actual_failures": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 2574756,
+            "memory_limit_mb": 3072,
+            "seconds": 12.567,
+            "log": "0016.log",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "./buddy build"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate",
+            "engine_invocations": 3
+          },
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-13T02:50:37.509Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 2574756 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+          "log_sha256": "bcdb3e06a280c6322c6ac61b642e7cf49bbffd41f6400719b75342edf845a139"
+        }
+      ]
+    },
+    {
+      "repository": "home-lang/home",
+      "source": "74c899f1bc7ca9349d28fc421961684ce8c6f7b6",
+      "candidate_counts": {
+        "timed-out": 1,
+        "unsupported": 37,
+        "passed": 9,
+        "failed": 40
+      },
+      "actual_failures": [
+        {
+          "check": {
+            "status": "timed-out",
+            "exit_code": 124,
+            "peak_sampled_rss_kib": 2175880,
+            "memory_limit_mb": 3072,
+            "seconds": 300.186,
+            "log": "0052.log",
+            "reason": "command time budget exhausted",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bunx bunpress build"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate",
+            "engine_invocations": 1
+          },
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 2175880 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: command time budget exhausted\n\nECOSYSTEM RESULT: timed-out, exit 124\n",
+          "log_sha256": "cf7f159af20b3239f3b77918060ec09b39d1c520e3830b547c372ad6d4899655"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 10628,
+            "memory_limit_mb": 3072,
+            "seconds": 0.107,
+            "log": "0095.log",
+            "label": "packages/runtime/upstream: test",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "node scripts/runner.node.mjs --exec-path ./build/debug/bun-debug"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream",
+            "engine_invocations": 1
+          },
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"node scripts/runner.node.mjs --exec-path ./build/debug/bun-debug\"]\n::group::Machine\nOperating System: linux\nArchitecture: x64\nKernel: 7.0.0\nABI: undefined\nABI Version: undefined\nDistro: ubuntu\nDistro Version: 24.04\nHostname: GitHub Actions 1000152794\nTailscale IP: undefined\nPublic IP: undefined\n::endgroup::\n\nhome-tool (zig-js): TypeError: userInfo is not a function. (In 'userInfo()', 'userInfo' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 10628 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+          "log_sha256": "8ee94f87124b2c669b3d0b933623f7b15931067d75b37e63ac682af2afd58f40"
+        }
+      ]
+    }
+  ],
+  "scope": "Completed older frozen caller only; Home source74c still lacks userInfo and predates be595/eafa repairs. Stacks b74c also predates observed f85/query-builder0.4.2 rollout, so its old failures are not evidence of a current rollout regression. Runtime provenance and package source revisions are explicit. No new Node subprocess qualification inferred from this run; current functional32c64b1 is independent. Preserve all selected sources/history, unsupported/failures/timeouts and quotas; no fallback, exclusions or cancellation.",
+  "local_evidence_directory": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/completed-d8",
+  "test262_flips": 0
+}
