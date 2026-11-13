@@ -1,0 +1,762 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-13T03:19:16.128933+00:00",
+  "run": 43337180119,
+  "report_job": 131640085126,
+  "engine_sha": "4cc4e29fbf819b08426e83e3b40ce6e3b4563795",
+  "functional_suite": "775c2e8ed88ffb12ed672f56e14488384e5c9087",
+  "home_ref": "4fd4fdaf84b6999aec08e3d83561d239479d9151",
+  "artifact": {
+    "id": 14004145907,
+    "size_in_bytes": 17384554,
+    "digest": "sha256:db04095c4f77c8e60e411110efe1a2775d5c903613a421261e8581f321766248"
+  },
+  "downloaded_zip_sha256": "db04095c4f77c8e60e411110efe1a2775d5c903613a421261e8581f321766248",
+  "report_log_sha256": "5fb067680d8a1f68ac2fd533e7afb76686604a0fa0750182b4666a9b65c40a42",
+  "inventory_sha256": "7348f87d3e8481e57c66a2bea220fd0c973dd3f2e30e2267de6d9fb1809a853f",
+  "report_json_sha256": "a2cc779a17f60c4f45ac8e73e77530817adea38be3d9a0b9cb16468636b7d66b",
+  "coverage": {
+    "selected": 229,
+    "reported": 229,
+    "failing": 205,
+    "missing": [],
+    "mismatched": [],
+    "all_source_shas_independently_match_frozen_inventory": true,
+    "all_runtime_provenance_matches": true,
+    "stacks_home_selected": 167,
+    "without_candidate_lane": 38,
+    "candidate_check_counts": {
+      "failed": 3320,
+      "passed": 1348,
+      "unsupported": 4552
+    }
+  },
+  "priorities": [
+    {
+      "repository": "home-lang/home",
+      "source_sha": "4fd4fdaf84b6999aec08e3d83561d239479d9151",
+      "candidate_counts": {
+        "failed": 41,
+        "unsupported": 37,
+        "passed": 9
+      },
+      "actual_failure_witnesses": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": -9,
+            "peak_sampled_rss_kib": 3179600,
+            "memory_limit_mb": 3072,
+            "seconds": 20.961,
+            "log": "0052.log",
+            "reason": "sampled command tree RSS exceeded 3072 MiB",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bunx bunpress build"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate",
+            "engine_invocations": 1
+          },
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 3179600 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n",
+          "log_sha256": "3cd252dde6b5cf770a7d90473700895fc29ed0915741df15a1f4d171475ae085"
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 10196,
+            "memory_limit_mb": 3072,
+            "seconds": 0.105,
+            "log": "0095.log",
+            "label": "packages/runtime/upstream: test",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "node scripts/runner.node.mjs --exec-path ./build/debug/bun-debug"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream",
+            "engine_invocations": 1
+          },
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"node scripts/runner.node.mjs --exec-path ./build/debug/bun-debug\"]\nhome-tool (zig-js): TypeError: parseArgs is not a function. (In 'parseArgs({ allowPositionals: true, options: { [\"node-tests\"]: { type: \"boolean\", default: false }, [\"exec-path\"]: { type: \"string\", default: \"bun\" }, [\"step\"]: { type: \"string\", default: undefined }, [\"build-id\"]: { type: \"string\", default: undefined }, [\"bail\"]: { type: \"boolean\", default: false }, [\"shard\"]: { type: \"string\", default: getEnv(\"BUILDKITE_PARALLEL_JOB\", false) || \"0\" }, [\"max-shards\"]: { type: \"string\", default: getEnv(\"BUILDKITE_PARALLEL_JOB_COUNT\", false) || \"1\" }, [\"include\"]: { type: \"string\", multiple: true, default: undefined }, [\"exclude\"]: { type: \"string\", multiple: true, default: undefined }, [\"quiet\"]: { type: \"boolean\", default: false }, [\"smoke\"]: { type: \"string\", default: undefined }, [\"vendor\"]: { type: \"string\", default: undefined }, [\"retries\"]: { type: \"string\", default: isCI ? \"3\" : \"0\" }, [\"junit\"]: { type: \"boolean\", default: false }, [\"junit-temp-dir\"]: { type: \"string\", default: \"junit-reports\" }, [\"junit-upload\"]: { type: \"boolean\", default: isBuildkite }, [\"coredump-upload\"]: { type: \"boolean\", default: isBuildkite && isLinux }, [\"parallel\"]: { type: \"boolean\", default: false }, [\"results-json\"]: { type: \"string\", default: undefined } } })', 'parseArgs' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 10196 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+          "log_sha256": "55aba3002285dfb5952e58700945f1f9f33874c7982f03d42b987a57c70491d5"
+        }
+      ]
+    },
+    {
+      "repository": "stacksjs/stacks",
+      "source_sha": "5e9e10cc540dc27f012693ae69f0607ef6f0b069",
+      "candidate_counts": {
+        "unsupported": 355,
+        "failed": 196,
+        "passed": 80
+      },
+      "actual_failure_witnesses": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 2570560,
+            "memory_limit_mb": 3072,
+            "seconds": 12.647,
+            "log": "0016.log",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "./buddy build"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate",
+            "engine_invocations": 3
+          },
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"./buddy build\"]\n[2026-11-13T00:38:53.345Z] local.INFO: No build target specified, defaulting to the frontend (views). See `buddy build --help` for all targets.\n[stx] Plugin loaded: @stacksjs/defaults/components\n[stx build] Mode: SSG (default \u2014 ssr is false)\nNo site URL configured \u2014 sitemap.xml and robots.txt will point at http://localhost.\n  Set one in stx.config.ts (site: { url: 'https://example.com' }), in site.config.ts,\n  via --domain, or with SITE_URL in the build environment.\n\u001b[32m[ts-css]\u001b[0m Loaded config from config/css.ts\n[stx-images] Skipping unreadable raster: images/atomic-fx-diagram.png\n[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png\nUncaught unhandledRejection: RangeError: evaluation step budget exceeded\nFailed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nThe frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.\nThe error it printed above is the cause - this step only relays its exit status.\n\nFailed to execute command: bun --conditions=development /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate\n\nECOSYSTEM PEAK SAMPLED RSS: 2570560 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+          "log_sha256": "5864cf8cd8a7c57330fd6a8fd9ffd8d63ec3e2a274ac247c7f26a3ca3a25abaf"
+        }
+      ]
+    },
+    {
+      "repository": "stacksjs/bunpress",
+      "source_sha": "e7b328e3fd3db76ff92ce52649e9f13c6f811fdc",
+      "candidate_counts": {
+        "failed": 4,
+        "unsupported": 4,
+        "passed": 5
+      },
+      "actual_failure_witnesses": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 169620,
+            "memory_limit_mb": 3072,
+            "seconds": 0.397,
+            "log": "0008.log",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun run build:bunpress && bun run build:plugin"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bunpress/candidate",
+            "engine_invocations": 1
+          },
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun run build:bunpress && bun run build:plugin\"]\nBuilding library...\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [\"./src/index.ts\", \"./bin/cli.ts\"], outdir: \"./dist\", plugins: [dts()], minify: true, splitting: true, target: \"bun\", external: [\"@cwcss/crosswind\", \"@stacksjs/clapp\", \"@stacksjs/stx\", \"@stacksjs/ts-cloud\", \"@stacksjs/ts-i18n\", \"@ts-cloud/core\", \"bunfig\", \"ts-syntax-highlighter\"] })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 169620 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+          "log_sha256": "b5132275725190274721f30223405a1f7e137faedaf0760d49295e8df5b553ea"
+        }
+      ]
+    },
+    {
+      "repository": "stacksjs/clapp",
+      "source_sha": "2ecc2af97d33f59ad5d22abe399392793d8de63d",
+      "candidate_counts": {
+        "failed": 2,
+        "unsupported": 4,
+        "passed": 3
+      },
+      "actual_failure_witnesses": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 179812,
+            "memory_limit_mb": 3072,
+            "seconds": 0.387,
+            "log": "0006.log",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun --bun build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--clapp/candidate",
+            "engine_invocations": 1
+          },
+          "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun --bun build.ts\"]\nhome-tool (zig-js): TypeError: Bun.build is not a function. (In 'Bun.build({ entrypoints: [join(cwd, \"src/index.ts\"), join(cwd, \"src/telemetry.ts\")], outdir: join(cwd, \"dist\"), format: \"esm\", splitting: true, plugins: [dts({ cwd, root: \"./src\", outdir: \"./dist\", moduleSpecifierMode: \"node\" })], target: \"node\" })', 'Bun.build' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 179812 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+          "log_sha256": "4cd68c88eccdd043716481e19400413e80b482bcacbe4395b18199599b910086"
+        }
+      ]
+    }
+  ],
+  "new_selected": {
+    "repository": "stacksjs/bun",
+    "source_sha": "8aa496e1df533d12d292aab963e5fcadb25507df",
+    "candidate_counts": {
+      "unsupported": 30,
+      "failed": 27,
+      "passed": 6
+    },
+    "actual_failed_logs": [
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": -9,
+          "peak_sampled_rss_kib": 3214876,
+          "memory_limit_mb": 3072,
+          "seconds": 14.647,
+          "log": "0039.log",
+          "reason": "sampled command tree RSS exceeded 3072 MiB",
+          "label": "bench/bundle: module initialization index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/shims/bun",
+            "index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/bench/bundle",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/shims/bun\", \"index.ts\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 3214876 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n",
+        "log_sha256": "f37e3a150557d192bdf8e7af2f051343719b14ee01980f3fccf051067eb60895"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 127,
+          "peak_sampled_rss_kib": 9992,
+          "memory_limit_mb": 3072,
+          "seconds": 0.068,
+          "log": "0043.log",
+          "label": "bench/ffi: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "cd src && bun run build"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/bench/ffi",
+          "engine_invocations": 0
+        },
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"cd src && bun run build\"]\necosystem-script: 1: napi: not found\n\nECOSYSTEM PEAK SAMPLED RSS: 9992 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 127\n",
+        "log_sha256": "130a5cf6a2f46e1b796995a2877962ae63da77a2819743eb43e7e19ff2b04d71"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 354844,
+          "memory_limit_mb": 3072,
+          "seconds": 0.773,
+          "log": "0044.log",
+          "label": "bench/ffi/src: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun run build:napi && bun run build:ffi"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/bench/ffi/src",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun run build:napi && bun run build:ffi\"]\nhome-tool (zig-js): Error: cannot resolve module http from /home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/bench/ffi/src/node_modules/@napi-rs/cli/scripts/index.js\n\nECOSYSTEM PEAK SAMPLED RSS: 354844 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "bca323909fadc3377eb47dfd68dac1d6e64651fa5fbaad0fc7dac03690ac9051"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 8092,
+          "memory_limit_mb": 3072,
+          "seconds": 0.068,
+          "log": "0046.log",
+          "label": "bench/grpc-server: module initialization index.js",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/shims/bun",
+            "index.js"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/bench/grpc-server",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/shims/bun\", \"index.js\"]\nhome-tool (zig-js): Error: cannot resolve module tls from /home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/bench/grpc-server/node_modules/@grpc/grpc-js/build/src/channel-credentials.js\n\nECOSYSTEM PEAK SAMPLED RSS: 8092 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "ce805fb40af9c5d5e514b61a9f195e27516c467165644bdd2046bf5070bf48f4"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 66128,
+          "memory_limit_mb": 3072,
+          "seconds": 0.125,
+          "log": "0048.log",
+          "label": "bench/install: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "next build"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/bench/install",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"next build\"]\nhome-tool (zig-js): Error: cannot resolve module http from /home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/bench/install/node_modules/next/dist/server/setup-http-agent-env.js\n\nECOSYSTEM PEAK SAMPLED RSS: 66128 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "7da40bc8eb468ed31014f11eed7a840078c67bc59b199e721f0c2285983a165e"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 0,
+          "memory_limit_mb": 3072,
+          "seconds": 0.004,
+          "log": "0054.log",
+          "label": "bench/react-hello-world: test",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "echo \"Error: no test specified\" && exit 1"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/bench/react-hello-world",
+          "engine_invocations": 0
+        },
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"echo \\\"Error: no test specified\\\" && exit 1\"]\nError: no test specified\n\nECOSYSTEM PEAK SAMPLED RSS: 0 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "87f387c9c2d09f51fd608ee94e605783d808fe873645b8902a46d07e4d77ff24"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 53780,
+          "memory_limit_mb": 3072,
+          "seconds": 0.124,
+          "log": "0055.log",
+          "label": "bench/react-hello-world: module initialization react-hello-world.node.js",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/shims/bun",
+            "react-hello-world.node.js"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/bench/react-hello-world",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/shims/bun\", \"react-hello-world.node.js\"]\nhome-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/bench/react-hello-world/react-hello-world.node.js\n\nECOSYSTEM PEAK SAMPLED RSS: 53780 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "14dfef3c0118e347b9fe6f57ff17fade3ca58b0d65eca9330035aabe072b1b00"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 52636,
+          "memory_limit_mb": 3072,
+          "seconds": 0.209,
+          "log": "0059.log",
+          "label": ".: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun --silent run build:debug"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun --silent run build:debug\"]\nhome-tool (zig-js): Error: Async module cycles are not implemented: /home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/scripts/build/aot.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 52636 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "0e66cfbe35495cad6f930316b0a6dba472d5cfd91a52b76e271e6a3b4cd81632"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 10212,
+          "memory_limit_mb": 3072,
+          "seconds": 0.105,
+          "log": "0060.log",
+          "label": ".: test",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "node scripts/runner.node.ts --exec-path ./build/debug/bun-debug"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"node scripts/runner.node.ts --exec-path ./build/debug/bun-debug\"]\nhome-tool (zig-js): TypeError: spawnSync is not a function. (In 'spawnSync(file, args, { ...options, encoding: \"utf8\", stdio: [\"ignore\", \"pipe\", \"pipe\"] })', 'spawnSync' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 10212 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "4bb8f440811799aafc22a8f80873b1f45b00c4d2aa32b4261c7ab87a24f58c80"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": -9,
+          "peak_sampled_rss_kib": 3161840,
+          "memory_limit_mb": 3072,
+          "seconds": 63.667,
+          "log": "0061.log",
+          "reason": "sampled command tree RSS exceeded 3072 MiB",
+          "label": ".: typecheck",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "tsc --noEmit && cd test && bun run typecheck"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate",
+          "engine_invocations": 2
+        },
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"tsc --noEmit && cd test && bun run typecheck\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 3161840 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n",
+        "log_sha256": "575a1f865d840180bbf9d95a0083797a486b44f3bde6c47ccedaa77753914dba"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 1017432,
+          "memory_limit_mb": 3072,
+          "seconds": 31.149,
+          "log": "0062.log",
+          "label": "packages/bun-build-mdx-rs: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "napi build --platform --release"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-build-mdx-rs",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"napi build --platform --release\"]\n\u001b[31m\u001b[1mType Error\u001b[22m\u001b[39m: Could not parse the Cargo.toml: Error: Command failed: cargo metadata --format-version 1 --manifest-path \"/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-build-mdx-rs/Cargo.toml\"\ninfo: syncing channel updates for nightly-2026-09-15-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-09-15 for version 1.100.0-nightly (574ff7d98 2026-09-14)\ninfo: downloading 18 components\nwarn: the missing active toolchain `nightly-2026-09-15-x86_64-unknown-linux-gnu` has been auto-installed\nwarn: this might cause rustup commands to take longer time to finish than expected\ninfo: you may opt out with `RUSTUP_AUTO_INSTALL=0` or `rustup set auto-install disable`\nerror: current package believes it's in a workspace when it's not:\ncurrent:   /home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-build-mdx-rs/Cargo.toml\nworkspace: /home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/Cargo.toml\n\nthis may be fixable by adding `packages/bun-build-mdx-rs` to the `workspace.members` array of the manifest located at: /home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/Cargo.toml\nAlternatively, to keep it out of the workspace, add the package to the `workspace.exclude` array, or add an empty `[workspace]` table to the package's manifest.\n\ninfo: syncing channel updates for nightly-2026-09-15-x86_64-unknown-linux-gnu\ninfo: latest update on 2026-09-15 for version 1.100.0-nightly (574ff7d98 2026-09-14)\ninfo: downloading 18 components\nwarn: the missing active toolchain `nightly-2026-09-15-x86_64-unknown-linux-gnu` has been auto-installed\nwarn: this might cause rustup commands to take longer time to finish than expected\ninfo: you may opt out with `RUSTUP_AUTO_INSTALL=0` or `rustup set auto-install disable`\nerror: current package believes it's in a workspace when it's not:\ncurrent:   /home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-build-mdx-rs/Cargo.toml\nworkspace: /home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/Cargo.toml\n\nthis may be fixable by adding `packages/bun-build-mdx-rs` to the `workspace.members` array of the manifest located at: /home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/Cargo.toml\nAlternatively, to keep it out of the workspace, add the package to the `workspace.exclude` array, or add an empty `[workspace]` table to the package's manifest.\n\n    at <anonymous> (file:///home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:8294:9)\n    at <anonymous> (file:///home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:2735:5)\n    at __awaiter$1 (file:///home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:2717:3)\n    at validateAndExecute (file:///home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:1554:5)\n    at <anonymous>\n    at run (file:///home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:2419:7)\n    at <anonymous> (file:///home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-build-mdx-rs/node_modules/%40napi-rs/cli/scripts/index.js?home-emitted:29414:1)\n    at <anonymous> (home:tool-module-install:260:7)\n    at evaluateSync (home:tool-module-install:277:7)\n    at <anonymous> (home:tool-module-install:387:7)\n\nECOSYSTEM PEAK SAMPLED RSS: 1017432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "814ca835a8e739e00b6d826081815262c5a22ee1d4296aa2413a64f74663ff7c"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 9816,
+          "memory_limit_mb": 3072,
+          "seconds": 0.105,
+          "log": "0063.log",
+          "label": "packages/bun-build-mdx-rs: test",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "ava"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-build-mdx-rs",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"ava\"]\nhome-tool (zig-js): Error: cannot resolve module node:worker_threads from /home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-build-mdx-rs/node_modules/ava/lib/fork.js\n\nECOSYSTEM PEAK SAMPLED RSS: 9816 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "af299c18bdedba7d8e703374bef01e5e31798b2e168f74856709b3a550d65f68"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 8228,
+          "memory_limit_mb": 3072,
+          "seconds": 0.105,
+          "log": "0066.log",
+          "label": "packages/bun-debug-adapter-protocol: module initialization index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/shims/bun",
+            "index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-debug-adapter-protocol",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/shims/bun\", \"index.ts\"]\nhome-tool (zig-js): TypeError: Cannot convert undefined or null to object\n\nECOSYSTEM PEAK SAMPLED RSS: 8228 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "710a9f640d03aeaa2d167b8f7d4a6f280e9207c3fe35bab14b310c30bd112975"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 8208,
+          "memory_limit_mb": 3072,
+          "seconds": 0.068,
+          "log": "0072.log",
+          "label": "packages/bun-inspector-protocol: module initialization index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/shims/bun",
+            "index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-inspector-protocol",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/shims/bun\", \"index.ts\"]\nhome-tool (zig-js): TypeError: Cannot convert undefined or null to object\n\nECOSYSTEM PEAK SAMPLED RSS: 8208 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "94b036a40ebc4d73ee4167bec894000b5c354bf4461cdc84b8d094f8040ef24f"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 10056,
+          "memory_limit_mb": 3072,
+          "seconds": 0.069,
+          "log": "0081.log",
+          "label": "packages/bun-types: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun scripts/build.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-types",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun scripts/build.ts\"]\nhome-tool (zig-js): TypeError: undefined is not an object (evaluating '(process.env.BUN_VERSION || Bun.version || process.versions.bun).replace')\n\nECOSYSTEM PEAK SAMPLED RSS: 10056 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "7a3bdf334d0847a398a447bcc4dd52e99e07891d628feb9416e6037f42b8c88c"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": -9,
+          "peak_sampled_rss_kib": 3166156,
+          "memory_limit_mb": 3072,
+          "seconds": 5.796,
+          "log": "0082.log",
+          "reason": "sampled command tree RSS exceeded 3072 MiB",
+          "label": "packages/bun-types: test",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "tsc"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-types",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"tsc\"]\n\nECOSYSTEM PEAK SAMPLED RSS: 3166156 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: sampled command tree RSS exceeded 3072 MiB\n\nECOSYSTEM RESULT: failed, exit -9\n",
+        "log_sha256": "6379e40937dd6a33652fdab2bf764999015305a39c86f07ae0e395f308cae0e9"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 48520,
+          "memory_limit_mb": 3072,
+          "seconds": 0.221,
+          "log": "0084.log",
+          "label": "packages/bun-vscode: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "node scripts/build.mjs"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-vscode",
+          "engine_invocations": 2
+        },
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"node scripts/build.mjs\"]\nhome-tool (zig-js): Error: cannot resolve module http from /home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-vscode/node_modules/typed-rest-client/HttpClient.js\nhome-tool (zig-js): Error: Command failed: /bin/sh\n\nECOSYSTEM PEAK SAMPLED RSS: 48520 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "a5416e0686413f26fc3402f1dd53074397c8c6394a03642f2bd7ac5de152d9c6"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 10036,
+          "memory_limit_mb": 3072,
+          "seconds": 0.068,
+          "log": "0085.log",
+          "label": "packages/bun-vscode: test",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "node scripts/test.mjs"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-vscode",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"node scripts/test.mjs\"]\nhome-tool (zig-js): Error: No .vsix file found\n\nECOSYSTEM PEAK SAMPLED RSS: 10036 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "825c708911125930d7af224630ea69e47cd6fd2377cf26d777cdd506ce94b108"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 37504,
+          "memory_limit_mb": 3072,
+          "seconds": 0.174,
+          "log": "0086.log",
+          "label": "packages/bun-vscode: module initialization dist/extension.js",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/shims/bun",
+            "dist/extension.js"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-vscode",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/shims/bun\", \"dist/extension.js\"]\nhome-tool (zig-js): Error: cannot resolve module vscode from /home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/packages/bun-vscode/dist/extension.js\n\nECOSYSTEM PEAK SAMPLED RSS: 37504 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "6ed8127144bcbcbe106642b42113d315a29de6c916420f8ef4304134d254443e"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 10032,
+          "memory_limit_mb": 3072,
+          "seconds": 0.105,
+          "log": "0087.log",
+          "label": "src/node-fallbacks: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun run build-gen"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/src/node-fallbacks",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun run build-gen\"]\nhome-tool (zig-js): TypeError: Spread syntax requires ...iterable not be null or undefined\n\nECOSYSTEM PEAK SAMPLED RSS: 10032 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "186e12d1b7fa26da64fcf34cec0c7aba736437f147be54c5680e0e2c1d62fe9b"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 0,
+          "memory_limit_mb": 3072,
+          "seconds": 0.005,
+          "log": "0088.log",
+          "label": "src/node-fallbacks: test",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "echo \"Error: no test specified\" && exit 1"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/src/node-fallbacks",
+          "engine_invocations": 0
+        },
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"echo \\\"Error: no test specified\\\" && exit 1\"]\nError: no test specified\n\nECOSYSTEM PEAK SAMPLED RSS: 0 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "87f387c9c2d09f51fd608ee94e605783d808fe873645b8902a46d07e4d77ff24"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 10056,
+          "memory_limit_mb": 3072,
+          "seconds": 0.068,
+          "log": "0090.log",
+          "label": "src/runtime/cli/create/projects/react-shadcn-spa: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun 'REPLACE_ME_WITH_YOUR_APP_FILE_NAME.build.ts'"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/src/runtime/cli/create/projects/react-shadcn-spa",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun 'REPLACE_ME_WITH_YOUR_APP_FILE_NAME.build.ts'\"]\nhome-tool (zig-js): Error: cannot resolve module bun-plugin-tailwind from /home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/src/runtime/cli/create/projects/react-shadcn-spa/REPLACE_ME_WITH_YOUR_APP_FILE_NAME.build.ts\n\nECOSYSTEM PEAK SAMPLED RSS: 10056 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "18977bda53137ae49d225c4932defd8f14f7476fd055644f68f4ea2cd351c465"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 8240,
+          "memory_limit_mb": 3072,
+          "seconds": 0.068,
+          "log": "0094.log",
+          "label": "src/runtime/cli/init/react-app: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/shims/bun",
+            "src/index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/src/runtime/cli/init/react-app",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/shims/bun\", \"src/index.ts\"]\n/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/src/runtime/cli/init/react-app/src/index.html:1: '!' at the start of a type is not valid TypeScript syntax. Did you mean to write 'doctype'? (TS17020)\nhome-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/src/runtime/cli/init/react-app/src/index.html\n\nECOSYSTEM PEAK SAMPLED RSS: 8240 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "7f4eb92d8b8ffaf990a3d7aa35e60687cbc5cecce7f776afab88ff672a0c58aa"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 265684,
+          "memory_limit_mb": 3072,
+          "seconds": 0.456,
+          "log": "0095.log",
+          "label": "src/runtime/cli/init/react-shadcn: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun run build.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/src/runtime/cli/init/react-shadcn",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 265684 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "07ec62b8d9389078a9843a51110e06e3278c59952f7391617094013dde859529"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 8236,
+          "memory_limit_mb": 3072,
+          "seconds": 0.068,
+          "log": "0097.log",
+          "label": "src/runtime/cli/init/react-shadcn: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/shims/bun",
+            "src/index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/src/runtime/cli/init/react-shadcn",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/shims/bun\", \"src/index.ts\"]\n/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/src/runtime/cli/init/react-shadcn/src/index.html:1: '!' at the start of a type is not valid TypeScript syntax. Did you mean to write 'doctype'? (TS17020)\nhome-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/src/runtime/cli/init/react-shadcn/src/index.html\n\nECOSYSTEM PEAK SAMPLED RSS: 8236 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "55a16657daeac927343576dff442bd855c354df1114fda8217413841b028d44d"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 265556,
+          "memory_limit_mb": 3072,
+          "seconds": 0.456,
+          "log": "0098.log",
+          "label": "src/runtime/cli/init/react-tailwind: build",
+          "lane": "candidate",
+          "command": [
+            "/bin/sh",
+            "-c",
+            "bun run build.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/src/runtime/cli/init/react-tailwind",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 265556 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "9862d555819757739e8dc3f7887b1a3ebe214fab39ff22432b28fdcfecf8d33b"
+      },
+      {
+        "check": {
+          "status": "failed",
+          "exit_code": 1,
+          "peak_sampled_rss_kib": 8340,
+          "memory_limit_mb": 3072,
+          "seconds": 0.068,
+          "log": "0100.log",
+          "label": "src/runtime/cli/init/react-tailwind: module initialization src/index.ts",
+          "lane": "candidate",
+          "command": [
+            "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/shims/bun",
+            "src/index.ts"
+          ],
+          "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/src/runtime/cli/init/react-tailwind",
+          "engine_invocations": 1
+        },
+        "actual_log": "$ [\"/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/shims/bun\", \"src/index.ts\"]\n/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/src/runtime/cli/init/react-tailwind/src/index.html:1: '!' at the start of a type is not valid TypeScript syntax. Did you mean to write 'doctype'? (TS17020)\nhome-tool (zig-js): Error: cannot emit module /home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate/src/runtime/cli/init/react-tailwind/src/index.html\n\nECOSYSTEM PEAK SAMPLED RSS: 8340 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+        "log_sha256": "a453f4c4bf8226afe10dab3f37cb9bc4b060e5138e45c5be7ea9d3f20ae09b8b"
+      }
+    ],
+    "triage": "Actual original runner fails missing node:child_process.spawnSync. Root build still rejects async module cycles; bundle benchmark really exceeds 3072 MiB; napi executable missing in bench/ffi; MDX Cargo workspace rejection and HTTP module absence remain failures. Zero-exit placeholder builds stay unsupported, Bun scheduler stays unsupported, and no upstream test scheduling is credited. Separate node spawnSync support is an actionable future genuine native-host task; not fixed by userInfo. Existing limits and mirrored sources stay intact."
+  },
+  "scope": "Completed all-selected old caller only, not qualification or regression evidence for Home be5953615/current Suite0a28ece. Counts are checks, not passing applications. Every selected source is covered; 38 repositories have no candidate lane and selected-minus-failing is not an application pass count. No quota, skip, fake API, native Bun fallback, cancellation or source exclusion introduced. Query-builder published rollout remains separate.",
+  "local_evidence_directory": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/user-info-runtime/completed-4cc",
+  "test262_flips": 0
+}
