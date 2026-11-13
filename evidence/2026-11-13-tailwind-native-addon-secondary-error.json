@@ -1,0 +1,397 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-13T05:38:33.383056+00:00",
+  "status": "Verified native-addon refusal masked by secondary primitive assignment, not a Home module-emission fix",
+  "actual_ci": {
+    "run": 43364183274,
+    "home_source": "eafa6bd0d0874b9afa49047bc82bb2386bce19df",
+    "artifact": 14010824659,
+    "official_digest": "sha256:d43fcdf48e78433d572fe7c5971a554c4cbaaf29ea37a6095f7b0a9a76eb9825",
+    "check": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 275420,
+      "memory_limit_mb": 3072,
+      "seconds": 0.581,
+      "log": "0069.log",
+      "label": "packages/runtime/src/runtime/cli/init/react-shadcn: build",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bun run build.ts"
+      ],
+      "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn",
+      "engine_invocations": 1
+    },
+    "actual_log": "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 275420 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+    "log_sha256": "bca912c5b4fd929abf2c8bdf3324f31ba631e9b0fb55c2d68e9d0bd136e6c159"
+  },
+  "package": {
+    "name": "bun-plugin-tailwind",
+    "version": "0.1.2",
+    "license": "MIT",
+    "dist": {
+      "shasum": "a3d78a7fdb547cf2f8f40d7012ce260fe5e44eea",
+      "tarball": "https://registry.npmjs.org/bun-plugin-tailwind/-/bun-plugin-tailwind-0.1.2.tgz",
+      "fileCount": 12,
+      "integrity": "sha512-41jNC1tZRSK3s1o7pTNrLuQG8kL/0vR/JgiTmZAJ1eHwe0w5j6HFPKeqEk0WAD13jfrUC7+ULuewFBBCoADPpg==",
+      "signatures": [
+        {
+          "sig": "MEUCIQCFCJIqFbW3Cmjz6yHeo2Ad5i+L9J9SYntXlI1SGkYAngIgDdLCzONxr7wovVfydla2SvK0MGwkHvj9OgmFXCSz/jA=",
+          "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+        }
+      ],
+      "unpackedSize": 27280336
+    },
+    "tarball_sha256": "5a27cc0e559e731a497fee377d4dc05a67889f8acca567f2e1900f6974922d90",
+    "lock_sha256": "a0f1ee017c8e6d2f5256fa4b49c91468e147b3ca986000cb74390a37a1530fba",
+    "frozen_source_integrity_matches": true,
+    "unmodified_entry_sha256": "96ce6dc7ce5f9b5106d5f79b09065a615f42ae832f9e6200ec747cc7be713e2e",
+    "native_darwin_arm64_sha256": "b42bcb64200925bf5c4a32edacce68caf116c9062aa4107eb94eb66e6adef2e0",
+    "native_asset_bytes": 2927376
+  },
+  "observed_mechanism": {
+    "direct_native_requests": "Both saved Home providers find the real on-disk Mach-O .node file and genuinely refuse ERR_HOME_UNSUPPORTED_NATIVE_ADDON without caching exports or executing a source body.",
+    "bundle_fallback": "The upstream bundle catches native load failures and its bundled native-asset wrapper returns a filename string. It assigns that string to module.exports, then strict-mode module.exports.Scanner assignment throws the secondary TypeError.",
+    "actual_native_Bun": "Unmodified package initialization succeeds as object @tailwindcss/bun. In an owned isolated copy, physically moving only the matching native binary aside reproduces the identical TypeError under native Bun; the asset is restored byte-for-byte afterward. No fake binding or source rewrite is used in this counterfactual.",
+    "bounded_scope": "Direct and counterfactual executions are Darwin AArch64. Same frozen bundle/lock and exact secondary error explain the Linux CI failure by source-and-runtime inference; this is not a Linux native-addon execution or full plugin/CSS build claim.",
+    "not_module_bug": "Independent CommonJS __esModule assignment and mutable __require/createRequire probes actually pass on Node/Bun/both Home providers as recorded; do not file those disproved hypotheses as bugs."
+  },
+  "diagnostics": {
+    "provider": "Home system-JSC diagnostic build only, distinct from zig-js candidate and native Bun reference",
+    "operation": "Temporary one-line logging of the genuine emitted factory before evaluation, no resolver/binding/platform replacement or exception suppression",
+    "original_glue_sha256": "5fd9d7afa837989dc1dde11ca69b0f8212125424eda37d5b6392b25a9d9c397c",
+    "restored_glue_sha256": "5fd9d7afa837989dc1dde11ca69b0f8212125424eda37d5b6392b25a9d9c397c",
+    "restored_byte_for_byte": true,
+    "emitted_factory_sha256": "e6edb73777240969161a51e471b28be355a524761a9731810257ed28ca7718aa",
+    "actual_rejected_emitted_lines": {
+      "21676": "module.exports = nativeBinding;",
+      "21677": "module.exports.Scanner = nativeBinding.Scanner;"
+    },
+    "no_diagnostic_shipped": true
+  },
+  "local_checks": {
+    "direct-addon-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/direct-addon.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/tailwindcss-oxide.darwin-arm64.node"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.029,
+      "log": "direct-addon-jsc.log",
+      "log_sha256": "bca449d91381f68f5a4e3d8b62a51fc99841fce588cac862514c221f29a45e3f",
+      "actual_output": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/direct-addon.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/tailwindcss-oxide.darwin-arm64.node\"]\n{\"exists\":true,\"loaded\":false,\"code\":\"ERR_HOME_UNSUPPORTED_NATIVE_ADDON\",\"name\":\"Error\",\"message\":\"Cannot resolve /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/tailwindcss-oxide.darwin-arm64.node from : NativeAddonUnsupported: Home cannot execute .node native addons\",\"uncached\":true}\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "tailwind-trace-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/trace.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 5328,
+      "memory_limit_mb": 3072,
+      "seconds": 0.125,
+      "log": "tailwind-trace-jsc.log",
+      "log_sha256": "94c931745f88930fedbe6805e9d58d5598cbb779b3a81c5440bab7ab5c6f9d43",
+      "actual_output": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/trace.mjs\"]\n{\"name\":\"TypeError\",\"message\":\"Attempted to assign to readonly property.\",\"stack\":\"../../crates/node/index.js@file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/index.mjs:21677:17\\n__require2@file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/index.mjs:35:50\\n@file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/index.mjs:31409:40\\nevaluateSync@home:tool-module-install:277:21\\nevaluateAsync@home:tool-module-install:296:84\",\"line\":21677,\"column\":17,\"sourceURL\":\"file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/index.mjs\"}\n\nECOSYSTEM PEAK SAMPLED RSS: 5328 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "tailwind-bun-missing-native-asset": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/trace.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 2368,
+      "memory_limit_mb": 3072,
+      "seconds": 0.041,
+      "log": "tailwind-bun-missing-native-asset.log",
+      "log_sha256": "55d354257d50fbdf41029126960c7465bd87a5d929c64c22f08cc8966b7db7e3",
+      "actual_output": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/trace.mjs\"]\n{\"name\":\"TypeError\",\"message\":\"Attempted to assign to readonly property.\",\"stack\":\"TypeError: Attempted to assign to readonly property.\\n    at ../../crates/node/index.js (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/index.mjs:26219:12)\\n    at __require2 (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/index.mjs:21:46)\\n    at /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/index.mjs:40922:28\",\"line\":26219,\"column\":12,\"sourceURL\":\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/index.mjs\"}\n\nECOSYSTEM PEAK SAMPLED RSS: 2368 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "mutable-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/mutable.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 4512,
+      "memory_limit_mb": 3072,
+      "seconds": 0.019,
+      "log": "mutable-jsc.log",
+      "log_sha256": "184bba14dd209dfd366c8a1564fd79a04c12841555b5f6a54ee441906fb49564",
+      "actual_output": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/mutable.mjs\"]\nMUTATED function\n\nECOSYSTEM PEAK SAMPLED RSS: 4512 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "tailwind-before-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/probe.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 268544,
+      "memory_limit_mb": 3072,
+      "seconds": 0.273,
+      "log": "tailwind-before-zig-js.log",
+      "log_sha256": "c5b035f01f138581cf8a9902b80ba0e346b8aa2da2e373c26cc5be7a0ffcf94f",
+      "actual_output": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/probe.mjs\"]\nhome-tool (zig-js): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 268544 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "tailwind-emit": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/emit.cjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/index.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/tailwind-emitted.js"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 73568,
+      "memory_limit_mb": 3072,
+      "seconds": 0.284,
+      "log": "tailwind-emit.log",
+      "log_sha256": "3861a603357773fc1400b9a633c591fa53b9f9a8c1ac3c35d5230e1517ba39fc",
+      "actual_output": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/emit.cjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/index.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/tailwind-emitted.js\"]\nEMITTED 1415540\n\nECOSYSTEM PEAK SAMPLED RSS: 73568 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "tailwind-bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/probe.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 53152,
+      "memory_limit_mb": 3072,
+      "seconds": 0.312,
+      "log": "tailwind-bun.log",
+      "log_sha256": "af538c136326b615f643042730e30a78e7e45f96d5f003052db7c6cef767be84",
+      "actual_output": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/probe.mjs\"]\nACTUAL TAILWIND PLUGIN object @tailwindcss/bun\n\nECOSYSTEM PEAK SAMPLED RSS: 53152 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "mutable-node": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/mutable.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 240,
+      "memory_limit_mb": 3072,
+      "seconds": 0.065,
+      "log": "mutable-node.log",
+      "log_sha256": "8ce6b106311986ca37e1ce933e2c566e023c9aa062b72ed45ef0d59af6e17cee",
+      "actual_output": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/mutable.mjs\"]\nMUTATED function\n\nECOSYSTEM PEAK SAMPLED RSS: 240 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/probe.cjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 432,
+      "memory_limit_mb": 3072,
+      "seconds": 0.065,
+      "log": "bun.log",
+      "log_sha256": "a7a662d2de478e4f804f22b9e5e0704a9b767b1a0ad513415a453d8fffffd041",
+      "actual_output": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/probe.cjs\"]\n{\"marker\":true,\"answer\":42,\"descriptor\":{\"value\":true,\"writable\":true,\"enumerable\":true,\"configurable\":true}}\n\nECOSYSTEM PEAK SAMPLED RSS: 432 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "mutable-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/mutable.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 480,
+      "memory_limit_mb": 3072,
+      "seconds": 0.098,
+      "log": "mutable-zig-js.log",
+      "log_sha256": "0a6e7092558751cbbaa327e6a660a0e15d41b76b99b1aa802accaec0611c43c2",
+      "actual_output": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/mutable.mjs\"]\nMUTATED function\n\nECOSYSTEM PEAK SAMPLED RSS: 480 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "tailwind-diagnostic": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/diagnostic-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/trace.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32992,
+      "memory_limit_mb": 3072,
+      "seconds": 0.358,
+      "log": "tailwind-diagnostic.log",
+      "log_sha256": "a67691f897210371a988a1ad4a4c751e55f587f8c5d1f3f7af44ac25a03b5b78",
+      "actual_output": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/diagnostic-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/trace.mjs\"]\n{\"name\":\"TypeError\",\"message\":\"Attempted to assign to readonly property.\",\"stack\":\"../../crates/node/index.js@file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/index.mjs:21677:17\\n__require2@file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/index.mjs:35:50\\n@file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/index.mjs:31409:40\\nevaluateSync@home:tool-module-install:278:21\\nevaluateAsync@home:tool-module-install:297:84\",\"line\":21677,\"column\":17,\"sourceURL\":\"file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/index.mjs\"}\n\nECOSYSTEM PEAK SAMPLED RSS: 32992 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "diagnostic-build": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/diagnostic-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1325392,
+      "memory_limit_mb": 3072,
+      "seconds": 27.722,
+      "log": "diagnostic-build.log",
+      "log_sha256": "e25fbd29762b7b22dfc3a33880ca7086acf577c023b04dbf6e74db46daa3303d",
+      "actual_output": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig\", \"build\", \"home-tool\", \"-Denable_jsc=false\", \"-Dtool-js-engine=jsc\", \"-Doptimize=ReleaseSafe\", \"--prefix\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/diagnostic-jsc\", \"-j1\", \"--summary\", \"all\", \"-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root\", \"--cache-dir\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache\"]\nBuild Summary: 6/6 steps succeeded\nhome-tool success\n+- install home-tool success\n   +- compile exe home-tool safe native success 27s MaxRSS:1G\n      +- options cached\n      +- translate-c cached 38ms MaxRSS:29M\n      +- translate-c cached 30ms MaxRSS:29M\n\n\nECOSYSTEM PEAK SAMPLED RSS: 1325392 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "before-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/probe.cjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.125,
+      "log": "before-zig-js.log",
+      "log_sha256": "3aae72bbad8df58705bfc169713ef2e78d20e6fff3dcc87cfba026a344e805f3",
+      "actual_output": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/probe.cjs\"]\n{\"marker\":true,\"answer\":42,\"descriptor\":{\"value\":true,\"writable\":true,\"enumerable\":true,\"configurable\":true}}\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "direct-addon-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/direct-addon.mjs",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/tailwindcss-oxide.darwin-arm64.node"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.107,
+      "log": "direct-addon-zig-js.log",
+      "log_sha256": "2b85539477b6de4939b0fcb4e30306782a96bcf06e34cb96abb99b59af2c7d56",
+      "actual_output": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/direct-addon.mjs\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/tailwindcss-oxide.darwin-arm64.node\"]\n{\"exists\":true,\"loaded\":false,\"code\":\"ERR_HOME_UNSUPPORTED_NATIVE_ADDON\",\"name\":\"Error\",\"message\":\"Cannot resolve /Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/tailwindcss-oxide.darwin-arm64.node from : NativeAddonUnsupported: Home cannot execute .node native addons\",\"uncached\":true}\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "tailwind-before-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/probe.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 40816,
+      "memory_limit_mb": 3072,
+      "seconds": 0.143,
+      "log": "tailwind-before-jsc.log",
+      "log_sha256": "71a9aeb4808ac4f793342b4d1bf90787384f4c5d18f9e5510e3536beb7e1487c",
+      "actual_output": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/probe.mjs\"]\nhome-tool (jsc): TypeError: Attempted to assign to readonly property.\n\nECOSYSTEM PEAK SAMPLED RSS: 40816 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "before-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/probe.cjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.1,
+      "log": "before-jsc.log",
+      "log_sha256": "fbf5186bea99e87a15561d163f7386a11cf5c34db691998dd823dbd0eb414782",
+      "actual_output": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-jsc/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/probe.cjs\"]\n{\"marker\":true,\"answer\":42,\"descriptor\":{\"value\":true,\"writable\":true,\"enumerable\":true,\"configurable\":true}}\n\nECOSYSTEM PEAK SAMPLED RSS: 32 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "node": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/probe.cjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 40176,
+      "memory_limit_mb": 3072,
+      "seconds": 0.186,
+      "log": "node.log",
+      "log_sha256": "d0d65d8aa34d2db7deee375bb4c220e5ed535d6105f52cf0ad2db003eda20d4f",
+      "actual_output": "$ [\"/Users/chris/.local/share/pantry/global/bin/node\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/probe.cjs\"]\n{\"marker\":true,\"answer\":42,\"descriptor\":{\"value\":true,\"writable\":true,\"enumerable\":true,\"configurable\":true}}\n\nECOSYSTEM PEAK SAMPLED RSS: 40176 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "tailwind-trace-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/trace.mjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 251136,
+      "memory_limit_mb": 3072,
+      "seconds": 0.32,
+      "log": "tailwind-trace-zig-js.log",
+      "log_sha256": "44f5209c6f8aa4396deed4ae932638d49cee97c8b79165876f13c52337bb89e3",
+      "actual_output": "$ [\"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-zig-js/bin/home-tool\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/trace.mjs\"]\n{\"name\":\"TypeError\",\"message\":\"Attempted to assign to readonly property.\",\"stack\":\"TypeError: Attempted to assign to readonly property.\\n    at ../../crates/node/index.js (file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/index.mjs?home-emitted:21677:3)\\n    at __require2 (file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/index.mjs?home-emitted:35:3)\\n    at <anonymous> (file:///Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/node_modules/bun-plugin-tailwind/index.mjs?home-emitted:31409:1)\\n    at <anonymous> (home:tool-module-install:260:7)\\n    at evaluateSync (home:tool-module-install:277:7)\\n    at evaluateAsync (home:tool-module-install:296:49)\\n    at <global> (/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/trace.mjs:1:1)\"}\n\nECOSYSTEM PEAK SAMPLED RSS: 251136 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n"
+    },
+    "mutable-bun": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/mutable.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 2368,
+      "memory_limit_mb": 3072,
+      "seconds": 0.02,
+      "log": "mutable-bun.log",
+      "log_sha256": "0a055ac98e4c827ea50799a8840442e78e762caca1e0683a8882f57c5889ca88",
+      "actual_output": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/mutable.mjs\"]\nMUTATED function\n\nECOSYSTEM PEAK SAMPLED RSS: 2368 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    },
+    "tailwind-bun-restored": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/probe.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 384,
+      "memory_limit_mb": 3072,
+      "seconds": 0.107,
+      "log": "tailwind-bun-restored.log",
+      "log_sha256": "4d13a117deba0b7340027301e04a7333119f95408c4bc14c501762c1e19fca20",
+      "actual_output": "$ [\"/Users/chris/.local/share/pantry/global/bin/bun\", \"run\", \"/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime/consumer/probe.mjs\"]\nACTUAL TAILWIND PLUGIN object @tailwindcss/bun\n\nECOSYSTEM PEAK SAMPLED RSS: 384 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: passed, exit 0\n"
+    }
+  },
+  "scope": "No engine/Home/consumer behavior change and no API support or package/test pass credited. General Node-API/native addons remain unsupported; no dummy binding, extensible string workaround, skip or native Bun candidate fallback is introduced. Exact suite pin32c64b1, all selected sources, historical failures, old runs and3072MiB quotas remain intact. Only durable triage/evidence changes.",
+  "local_evidence_directory": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/cjs-marker-runtime",
+  "test262_flips": 0,
+  "local_engine": {
+    "commit": "a7b0fdfd2e9caa6a9e822d911dd8a390e21babf1",
+    "archive_sha256": "3b182ee48ac27e763c308b16276e5330e552906f82d82336907f7389ce1b03ed",
+    "scope": "Darwin AArch64 candidate archive, separately recorded from exact Linux CI engine0685a7ea"
+  },
+  "local_home": "eafa6bd0d0874b9afa49047bc82bb2386bce19df"
+}
