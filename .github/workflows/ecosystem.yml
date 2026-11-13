@@ -167,6 +167,9 @@ jobs:
           python3 packages/runtime/test/tool_os_release_fixture.py zig-out/bin/home-tool packages/runtime/test/tool_modules/os_release.cjs
           python3 packages/runtime/test/tool_os_user_info_fixture.py zig-out/bin/home-tool packages/runtime/test/tool_modules/os_user_info.cjs
           python3 packages/runtime/test/tool_spawn_sync_fixture.py zig-out/bin/home-tool packages/runtime/test/tool_modules/node_spawn_sync.cjs --home-profile
+          zig-out/bin/home-tool run packages/runtime/test/tool_modules/node_builtin_modules.mjs --home-profile
+          printf '%s\n' 'console.log("HOME REGISTERED NODE BUILTINS " + JSON.stringify(require("node:module").builtinModules));' > "$RUNNER_TEMP/home-builtin-inventory.cjs"
+          zig-out/bin/home-tool run "$RUNNER_TEMP/home-builtin-inventory.cjs"
           zig build test -Dfilter=ts_driver -Dts-driver-test-filter=runtime -Denable_jsc=false -Dcpu=baseline -Doptimize="${{ steps.config.outputs.runtime_optimize }}" -j1 --summary all
           zig build home-tool-source-nul -Dcpu=baseline -Doptimize="${{ steps.config.outputs.runtime_optimize }}" -Dtool-js-engine=zig-js -Dzig-js-root="$GITHUB_WORKSPACE/engine" --summary all
           zig-out/bin/home-tool run packages/runtime/test/tool_modules/vm_script.mjs
