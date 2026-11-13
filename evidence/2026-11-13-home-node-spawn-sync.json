@@ -1,0 +1,569 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-13T04:13:47.996764+00:00",
+  "home_commit": "eafa6bd0d0874b9afa49047bc82bb2386bce19df",
+  "before_home": "be5953615a6e81279e009bae93ff7d6f12362286",
+  "files": {
+    "build.zig": {
+      "git_blob": "6fb87cb379be7a3b88c14f89e056c9677f13dee5",
+      "sha256": "4284447c26849392fe839da0cb30ed0371e6f74aa1bbfa00e0f95336be94e1be"
+    },
+    "packages/runtime/src/jsc/tool_builtins.js": {
+      "git_blob": "2264d78cf5f4df367bc23d318bbb713dff192fa6",
+      "sha256": "e94d3afe4690cccf80112d78e55ac0ba1b485281e736ee834c744fe4b3dc881a"
+    },
+    "packages/runtime/src/jsc/tool_exec.js": {
+      "git_blob": "09c7ff3156a85cb71db45aa1d6156721de7997dd",
+      "sha256": "f79b0468b74a8b676625f540cb8b151f50660ce7ba3546a76d381f577d4c85e6"
+    },
+    "packages/runtime/src/jsc/tool_exec_capture.zig": {
+      "git_blob": "fdac80dc43962f3e47579b0dc2030fd4fdcb8e47",
+      "sha256": "870807019f7dc71b63e76d9c2f11a6694a52dcd8c202076bc3e4cf49e9c81368"
+    },
+    "packages/runtime/src/jsc/tool_spawn.zig": {
+      "git_blob": "e347313cd92a889533cee073430664d094b58f0e",
+      "sha256": "29ea5a04df840749c14ae36da2a8a64c4433fbfc414fb4eca1b4ada2ab9435f3"
+    },
+    "packages/runtime/test/SPAWN_SYNC_PROFILE.md": {
+      "git_blob": "ece350ada2c9aae0f346c9e6ca98e54a9e8fac18",
+      "sha256": "f09e0b387ced08089fc8e8ac0bb7c4976247aaa143055fa5bbba8145fd1acf82"
+    },
+    "packages/runtime/test/tool_modules/node_spawn_sync.cjs": {
+      "git_blob": "ceff78806f9324e505e7e40684ffb54e8cd42a34",
+      "sha256": "577cfbb34f34c5a15de09c4155c57f4b4f2f93da978add85797d122b630f8a6e"
+    },
+    "packages/runtime/test/tool_modules/node_spawn_sync_esm.mjs": {
+      "git_blob": "075a79360cc444e5d65e70274e7fb96bf6bc493a",
+      "sha256": "e858b7cb1005b6b4e08091d447cf2941c0f6c225d0d8761d59bee93dbcd20225"
+    },
+    "packages/runtime/test/tool_modules/node_spawn_sync_inherit.cjs": {
+      "git_blob": "29e8f4d1bd80f24c6e896e70aee8276f955442e2",
+      "sha256": "453972df86fe1f299c4b9b13a21eb17201fc9587dc1151588c895634e40234e8"
+    },
+    "packages/runtime/test/tool_modules/node_spawn_sync_limit.cjs": {
+      "git_blob": "4dab501c48ebf5739058784a572e63fc82639a51",
+      "sha256": "3acb5ad8fd184d52087055320446d4b56869241d16126720156c1c94592b648c"
+    },
+    "packages/runtime/test/tool_modules/node_spawn_sync_profile.cjs": {
+      "git_blob": "1dec04e5ed5adce74d85155d657b75106f394af7",
+      "sha256": "5816b9d4d1ea7925c22bc27261e4cf0d169b3d30ec83ca4d8bfbb1cc58234000"
+    },
+    "packages/runtime/test/tool_spawn_sync_child.py": {
+      "git_blob": "9658a2eb12a45fd5ae660a9931ed67043e3db36c",
+      "sha256": "64ee3e438cda7536c4c294692afd5f3108e97bafdb9825e5f52257d79f69eefd"
+    },
+    "packages/runtime/test/tool_spawn_sync_fixture.py": {
+      "git_blob": "0878239976774e9aa63eea569dd23746ffac141e",
+      "sha256": "b964deb3e05fda7134135f66dd1f30c2cd93c1e2646a7cd0914f382f16f9d9b2"
+    }
+  },
+  "scope": "Bounded genuine POSIX node:child_process.spawnSync over real owned native children; actual PID/status/signals/bytes, both call signatures, cwd/environment/PATH, real pipe/ignore/inherit descriptors, fresh Buffer ownership and Node result/error shapes. Ordinary nonzero exits remain results. New API uses existing bounded native duplex transport; no fake child or native Bun fallback.",
+  "local_engine": {
+    "commit": "a7b0fdfd2e9caa6a9e822d911dd8a390e21babf1",
+    "archive_sha256": "3b182ee48ac27e763c308b16276e5330e552906f82d82336907f7389ce1b03ed",
+    "platform": "Darwin AArch64; distinct from exact Linux qualifier"
+  },
+  "reference_versions": {
+    "node": "v26.10.0",
+    "bun": "1.4.4"
+  },
+  "physical_oracle": {
+    "cases": 30,
+    "Node_passed": 30,
+    "both_built_Home_passed": 30,
+    "both_saved_before_Home": "API absent; zero actual child cases execute and complete fixtures fail",
+    "Bun": "19/30 child cases; complete fixture fails before ESM/inherited/capture-limit controls",
+    "controls": [
+      "Independent Python child PID files and OS process disappearance/reaping",
+      "Complete physical captured bytes, including 512KiB input and simultaneous large stdout/stderr",
+      "Actual cwd/env/literal argv/PATH/default/relative/empty and permission fallback behavior",
+      "Node status/signal/error shapes and output aliases; no nonzero-exit exception fabricated",
+      "Legacy/CJS/ESM identity and real child execution",
+      "Inherited binary stdin/stdout/stderr and native null-device stdin",
+      "Actual capture-limit child killed and reaped with real partial output",
+      "11 pre-spawn refusal probes with physical absence of child side effect"
+    ],
+    "capture_policy": {
+      "existing_maximum_bytes": 33554432,
+      "observed_Home_limit_signal": "SIGKILL",
+      "observed_Home_limit_output_bytes": 8192,
+      "observed_Node_limit_signal": "SIGTERM",
+      "observed_Node_limit_output_bytes": 65536,
+      "scope": "Native existing SIGKILL/ENOBUFS policy is explicit; not an exact Node maxBuffer kill/truncation implementation. Real partial output and failure retained; no quota increase."
+    },
+    "unsupported": "Nonzero child timeout, shell, custom signal, IPC/transfer/numeric descriptors, identity, detached and other options are refused before any child starts. Windows/async Node spawn remain separate."
+  },
+  "native_tests": {
+    "actual_standalone_tests": 6,
+    "covers": [
+      "duplex capture and reaping",
+      "capture-limit kill/reap with failure",
+      "partial scheduling cancellation/lifetime",
+      "EPIPE with final output/status retained",
+      "environment PATH plus real ignored character-device stdin and reaping",
+      "real ignored outputs/nonzero exit/reaping"
+    ]
+  },
+  "local_checks": {
+    "zig-js-fixture": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_spawn_sync_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_spawn_sync.cjs",
+        "--home-profile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 261840,
+      "memory_limit_mb": 3072,
+      "seconds": 2.017,
+      "log": "zig-js-fixture.log",
+      "log_sha256": "037b52a303fbf4af3386cabfe9322744e63d96daebddb82817b086c106b48549",
+      "witnesses": [
+        "NODE SPAWN SYNC RESULTS {\"available\": true, \"cases\": 30, \"executed\": 30, \"passed\": 30, \"failures\": []}",
+        "NATIVE SPAWN SYNC CAPTURE LIMIT KILLED/REAPED WITH REAL PARTIAL OUTPUT {\"error\": \"ENOBUFS\", \"signal\": \"SIGKILL\", \"bytes\": 8192}",
+        "NATIVE SPAWN SYNC RAW BYTES, DUPLEX INPUT, PID/REAP, CWD/ENV/PATH AND INHERITED DESCRIPTORS VERIFIED",
+        "HOME SPAWN SYNC 11 PRE-SPAWN REFUSALS; TIMEOUT/SHELL/IPC/IDENTITY/DESCRIPTOR-TRANSFER UNAVAILABLE"
+      ]
+    },
+    "suite-python": {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 128256,
+      "memory_limit_mb": 3072,
+      "seconds": 3.378,
+      "log": "suite-python.log",
+      "log_sha256": "5cc43cc69bbe6b6f8bf2be883c27ce174171add95d9a9ae11b9d3e97424a7f33",
+      "witnesses": []
+    },
+    "zig-fmt": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "fmt",
+        "--check",
+        "build.zig",
+        "packages/runtime/src/jsc/tool_exec_capture.zig",
+        "packages/runtime/src/jsc/tool_spawn.zig"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 22288,
+      "memory_limit_mb": 3072,
+      "seconds": 0.188,
+      "log": "zig-fmt.log",
+      "log_sha256": "90067b10f469665a730752de215c03868637bce12d9a734132f4fc0190c9648e",
+      "witnesses": []
+    },
+    "bun-fixture": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_spawn_sync_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_spawn_sync.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 62432,
+      "memory_limit_mb": 3072,
+      "seconds": 0.737,
+      "log": "bun-fixture.log",
+      "log_sha256": "469221048a08c9816abc7e89ca1daff1df663f587c2c780403a7901b98b49ca8",
+      "witnesses": [
+        "NODE SPAWN SYNC RESULTS {\"available\": true, \"cases\": 30, \"executed\": 30, \"passed\": 19, \"failures\": [{\"case\": \"buffer\"}, {\"case\": \"utf8\"}, {\"case\": \"utf8-alias\"}, {\"case\": \"pipe\"}, {\"case\": \"null-stdio\"}, {\"case\": \"ignore-output\"}, {\"case\": \"ignore-error\"}, {\"case\": \"cwd\"}, {\"case\": \"environment\"}, {\"case\": \"literal-args\"}, {\"case\": \"empty-path\"}]}"
+      ]
+    },
+    "before-jsc-fixture": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_spawn_sync_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/user-info-runtime/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_spawn_sync.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 66048,
+      "memory_limit_mb": 3072,
+      "seconds": 0.188,
+      "log": "before-jsc-fixture.log",
+      "log_sha256": "00445bb30c4c8c483581f514b6abce288266491b1f79e3331f012945040bbc0b",
+      "witnesses": [
+        "NODE SPAWN SYNC RESULTS {\"available\": false, \"cases\": 30, \"executed\": 0, \"passed\": 0, \"failures\": [\"API absent\"]}"
+      ]
+    },
+    "node-fixture": {
+      "argv": [
+        "python3",
+        "packages/runtime/test/tool_spawn_sync_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "packages/runtime/test/tool_modules/node_spawn_sync.cjs",
+        "--node"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 98144,
+      "memory_limit_mb": 3072,
+      "seconds": 0.891,
+      "log": "node-fixture.log",
+      "log_sha256": "ed377027df1e1db889d608e1066691898e3b0e6e5922524470d95c537a06aef8",
+      "witnesses": [
+        "NODE SPAWN SYNC RESULTS {\"available\": true, \"cases\": 30, \"executed\": 30, \"passed\": 30, \"failures\": []}",
+        "NATIVE SPAWN SYNC CAPTURE LIMIT KILLED/REAPED WITH REAL PARTIAL OUTPUT {\"error\": \"ENOBUFS\", \"signal\": \"SIGTERM\", \"bytes\": 65536}",
+        "NATIVE SPAWN SYNC RAW BYTES, DUPLEX INPUT, PID/REAP, CWD/ENV/PATH AND INHERITED DESCRIPTORS VERIFIED"
+      ]
+    },
+    "suite-dependencies": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "tests/dependencies.test.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 43680,
+      "memory_limit_mb": 3072,
+      "seconds": 0.39,
+      "log": "suite-dependencies.log",
+      "log_sha256": "9384885c089160a202b61d805908ea38c51ae53a0b2f4651b3aefc6ca7f8349a",
+      "witnesses": []
+    },
+    "native-cross-aarch64-linux-gnu": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build-obj",
+        "-target",
+        "aarch64-linux-gnu",
+        "-OReleaseSafe",
+        "--dep",
+        "capture",
+        "-Mroot=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/native-probe.zig",
+        "-target",
+        "aarch64-linux-gnu",
+        "-OReleaseSafe",
+        "-Mcapture=/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/src/jsc/tool_exec_capture.zig",
+        "-lc",
+        "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/native-cross-aarch64-linux-gnu.o"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 379088,
+      "memory_limit_mb": 3072,
+      "seconds": 5.381,
+      "log": "native-cross-aarch64-linux-gnu.log",
+      "elf_machine": 183,
+      "object_sha256": "d0072ad7bf7be62733f7cde55bd768bbec66382b3b57379e6f1720bf22c9d735",
+      "scope": "Real Linux object compilation only, not execution",
+      "log_sha256": "c0926006459a5b7ee575962a6b746fdd8c2eae966b1475eb7ae6b009536c5eed",
+      "witnesses": []
+    },
+    "native-cross-x86_64-linux-gnu": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build-obj",
+        "-target",
+        "x86_64-linux-gnu",
+        "-OReleaseSafe",
+        "--dep",
+        "capture",
+        "-Mroot=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/native-probe.zig",
+        "-target",
+        "x86_64-linux-gnu",
+        "-OReleaseSafe",
+        "-Mcapture=/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/src/jsc/tool_exec_capture.zig",
+        "-lc",
+        "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/native-cross-x86_64-linux-gnu.o"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 378400,
+      "memory_limit_mb": 3072,
+      "seconds": 5.226,
+      "log": "native-cross-x86_64-linux-gnu.log",
+      "elf_machine": 62,
+      "object_sha256": "d9e329d3877398c80b230a374c5b19672c0011d9b9d0564afaf51ede1f91a5c5",
+      "scope": "Real Linux object compilation only, not execution",
+      "log_sha256": "325f02a8903321db6019cf1ab75335726a76f760acc283724bf6818dd0df5327",
+      "witnesses": []
+    },
+    "native-final": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "test",
+        "packages/runtime/src/jsc/tool_exec_capture.zig",
+        "-lc"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 261152,
+      "memory_limit_mb": 3072,
+      "seconds": 3.75,
+      "log": "native-final.log",
+      "log_sha256": "96d8887efbc94cdd0a7108c2b63ce5df79c99c9a0def84d280e586f01e70ff7c",
+      "witnesses": [
+        "All 6 tests passed."
+      ]
+    },
+    "full-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 100816,
+      "memory_limit_mb": 3072,
+      "seconds": 8.997,
+      "log": "full-jsc.log",
+      "log_sha256": "6355569eeebc6f67c296ce87880e7623c5ee893f114c69b794216fb74dad45da",
+      "witnesses": [
+        "NODE SPAWN SYNC RESULTS {\"available\": true, \"cases\": 30, \"executed\": 30, \"passed\": 30, \"failures\": []}",
+        "NATIVE SPAWN SYNC CAPTURE LIMIT KILLED/REAPED WITH REAL PARTIAL OUTPUT {\"error\": \"ENOBUFS\", \"signal\": \"SIGKILL\", \"bytes\": 8192}",
+        "NATIVE SPAWN SYNC RAW BYTES, DUPLEX INPUT, PID/REAP, CWD/ENV/PATH AND INHERITED DESCRIPTORS VERIFIED",
+        "HOME SPAWN SYNC 11 PRE-SPAWN REFUSALS; TIMEOUT/SHELL/IPC/IDENTITY/DESCRIPTOR-TRANSFER UNAVAILABLE",
+        "Build Summary: 258/283 steps succeeded (21 failed)"
+      ]
+    },
+    "before-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/user-info-runtime/home-zig-js/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/reproduce.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.102,
+      "log": "before-zig-js.log",
+      "log_sha256": "3cd606fc7c42a7a69795a8af402994b20944692679e5b0b991da7533aab941c9",
+      "witnesses": []
+    },
+    "before-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/user-info-runtime/home-jsc/bin/home-tool",
+        "run",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/reproduce.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.065,
+      "log": "before-jsc.log",
+      "log_sha256": "470b8f8b67e17a495cdfa510318f9768ffd1258e34fb33a4e460e4373a64b337",
+      "witnesses": []
+    },
+    "before-zig-js-fixture": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_spawn_sync_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/user-info-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_spawn_sync.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 185712,
+      "memory_limit_mb": 3072,
+      "seconds": 0.56,
+      "log": "before-zig-js-fixture.log",
+      "log_sha256": "c07a1e1646a7a4ae1936286a224348739ecca2c982b0784ce9dcf01e97db49d1",
+      "witnesses": [
+        "NODE SPAWN SYNC RESULTS {\"available\": false, \"cases\": 30, \"executed\": 0, \"passed\": 0, \"failures\": [\"API absent\"]}"
+      ]
+    },
+    "pickier": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bunx",
+        "--bun",
+        "pickier",
+        "packages/runtime/src/jsc/tool_exec.js",
+        "packages/runtime/src/jsc/tool_builtins.js",
+        "packages/runtime/test/tool_modules/node_spawn_sync_profile.cjs",
+        "packages/runtime/test/tool_modules/node_spawn_sync.cjs",
+        "packages/runtime/test/tool_modules/node_spawn_sync_inherit.cjs",
+        "packages/runtime/test/tool_modules/node_spawn_sync_esm.mjs",
+        "packages/runtime/test/tool_modules/node_spawn_sync_limit.cjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 56800,
+      "memory_limit_mb": 3072,
+      "seconds": 0.165,
+      "log": "pickier.log",
+      "log_sha256": "b4d1fa3f0f6cb52b13066ed0592fb168ad40a13059406d850a53b6e5680eef1a",
+      "witnesses": []
+    },
+    "node": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/reproduce.cjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 38784,
+      "memory_limit_mb": 3072,
+      "seconds": 0.188,
+      "log": "node.log",
+      "log_sha256": "ce7a1858a26959b6ca43e3694a32fa8daba04744f95c506140643590e0a7b400",
+      "witnesses": []
+    },
+    "actionlint": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.04,
+      "log": "actionlint.log",
+      "log_sha256": "2d83d05058d9a5a71a9f35ce1058cfbba75d86aafa904bc66054d98660f1e0d2",
+      "witnesses": []
+    },
+    "python-syntax": {
+      "argv": [
+        "python3",
+        "-m",
+        "compileall",
+        "-q",
+        "scripts",
+        "tests"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1008,
+      "memory_limit_mb": 3072,
+      "seconds": 0.04,
+      "log": "python-syntax.log",
+      "log_sha256": "8c57beebde675d35422a1d46c45959441b78c6f33fa310b3005db86341c4a3f2",
+      "witnesses": []
+    },
+    "jsc-fixture": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_spawn_sync_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/node_spawn_sync.cjs",
+        "--home-profile"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 97040,
+      "memory_limit_mb": 3072,
+      "seconds": 0.848,
+      "log": "jsc-fixture.log",
+      "log_sha256": "7b8aa1827661d610593b7e7ce6e184b29a81872d6aa3dde8af5c0115a58644c6",
+      "witnesses": [
+        "NODE SPAWN SYNC RESULTS {\"available\": true, \"cases\": 30, \"executed\": 30, \"passed\": 30, \"failures\": []}",
+        "NATIVE SPAWN SYNC CAPTURE LIMIT KILLED/REAPED WITH REAL PARTIAL OUTPUT {\"error\": \"ENOBUFS\", \"signal\": \"SIGKILL\", \"bytes\": 8192}",
+        "NATIVE SPAWN SYNC RAW BYTES, DUPLEX INPUT, PID/REAP, CWD/ENV/PATH AND INHERITED DESCRIPTORS VERIFIED",
+        "HOME SPAWN SYNC 11 PRE-SPAWN REFUSALS; TIMEOUT/SHELL/IPC/IDENTITY/DESCRIPTOR-TRANSFER UNAVAILABLE"
+      ]
+    },
+    "full-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 268240,
+      "memory_limit_mb": 3072,
+      "seconds": 9.488,
+      "log": "full-zig-js.log",
+      "log_sha256": "067a8215224081be7ba574c12f96746529283013ca403dbc784258955f3a672a",
+      "witnesses": [
+        "NODE SPAWN SYNC RESULTS {\"available\": true, \"cases\": 30, \"executed\": 30, \"passed\": 30, \"failures\": []}",
+        "NATIVE SPAWN SYNC CAPTURE LIMIT KILLED/REAPED WITH REAL PARTIAL OUTPUT {\"error\": \"ENOBUFS\", \"signal\": \"SIGKILL\", \"bytes\": 8192}",
+        "NATIVE SPAWN SYNC RAW BYTES, DUPLEX INPUT, PID/REAP, CWD/ENV/PATH AND INHERITED DESCRIPTORS VERIFIED",
+        "HOME SPAWN SYNC 11 PRE-SPAWN REFUSALS; TIMEOUT/SHELL/IPC/IDENTITY/DESCRIPTOR-TRANSFER UNAVAILABLE",
+        "Build Summary: 285/285 steps succeeded"
+      ]
+    }
+  },
+  "jsc_comparison": {
+    "baseline_log_sha256": "c72e835276a720c2fb7af308fb52340171b8fde0dfcc748d2f964f00c5126bf6",
+    "after_log_sha256": "6355569eeebc6f67c296ce87880e7623c5ee893f114c69b794216fb74dad45da",
+    "added_normalized_failed_commands": [],
+    "removed_normalized_failed_commands": [],
+    "scope": "Saved local host graph comparison only, not whole-conformance evidence; no cached native test count inferred"
+  },
+  "actual_ci_reproduction": {
+    "repository": "stacksjs/bun",
+    "source": "8aa496e1df533d12d292aab963e5fcadb25507df",
+    "run": 43337180119,
+    "aggregate_artifact": 14004145907,
+    "official_digest": "sha256:db04095c4f77c8e60e411110efe1a2775d5c903613a421261e8581f321766248",
+    "check": {
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 10212,
+      "memory_limit_mb": 3072,
+      "seconds": 0.105,
+      "log": "0060.log",
+      "label": ".: test",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "node scripts/runner.node.ts --exec-path ./build/debug/bun-debug"
+      ],
+      "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--bun/candidate",
+      "engine_invocations": 1
+    },
+    "actual_log": "$ [\"/bin/sh\", \"-c\", \"node scripts/runner.node.ts --exec-path ./build/debug/bun-debug\"]\nhome-tool (zig-js): TypeError: spawnSync is not a function. (In 'spawnSync(file, args, { ...options, encoding: \"utf8\", stdio: [\"ignore\", \"pipe\", \"pipe\"] })', 'spawnSync' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 10212 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+    "log_sha256": "4bb8f440811799aafc22a8f80873b1f45b00c4d2aa32b4261c7ab87a24f58c80"
+  },
+  "caller_retained": "0a28ece6fc0a86c8b1d721449483fb67391027be",
+  "qualification": "New immutable functional suite must execute30actual child/error cases plus independent PID/byte/PATH/descriptor/ESM/capture-limit controls and11refusals twice on Linux. Keep all maintained markers, exact source validation, official-digest-verified runtime/provenance and all five focused consumer preflights (Stacks, Home, stacksjs/bun, BunPress, Clapp). Cross objects are not execution. Evidence-only descendants are not caller targets; selected coverage, historical evidence and existing quotas remain intact.",
+  "upstream_test_scope": "Observed stacksjs/bun startup lacks spawnSync, reproduced on both before Home providers. This fix is a subprocess capability, not a test scheduler or produced native Bun binary. Current Home runner still honestly fails absent bun-debug and unexecuted tests receive no credit. Published query-builder0.4.2/14 recovered Stacks imports are separate observed rollout evidence.",
+  "local_evidence_directory": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/node-spawn-sync-runtime",
+  "test262_flips": 0
+}
