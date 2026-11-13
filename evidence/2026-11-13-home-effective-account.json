@@ -1,0 +1,499 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-13T03:12:12.266855+00:00",
+  "home_commit": "be5953615a6e81279e009bae93ff7d6f12362286",
+  "before_home": "74c899f1bc7ca9349d28fc421961684ce8c6f7b6",
+  "files": {
+    "build.zig": {
+      "git_blob": "2b35a9c78d706f37779fac44598a83cea9f61bfb",
+      "sha256": "cfd750fa0db8c8fde6d1c2410f4746f58b8b5a1f640bebb00f0aee8cee0a929a"
+    },
+    "packages/runtime/src/jsc/tool_builtins.js": {
+      "git_blob": "7f1d165c18904e941881a4bd584a4b64622e813d",
+      "sha256": "e3bb9eb1121f19d237864b5bb04c070a5a80f1a1e8607b9ce4630bf571a0ba0d"
+    },
+    "packages/runtime/src/jsc/tool_os.zig": {
+      "git_blob": "ea68e6003d019c0517add014d76b8da6840b15d6",
+      "sha256": "766bdc6c19bc88cc005c8fdc62b18ba8713492aa5f123767da9fd62da3e93968"
+    },
+    "packages/runtime/src/jsc/tool_user_info.zig": {
+      "git_blob": "3b272f2570bc3a519c723db7107bc989c6b01728",
+      "sha256": "03f96f5543b39bfe54c47cdcf9c07915df91be9f9bcb552d3b47b3803b54e29e"
+    },
+    "packages/runtime/test/OS_USER_INFO_PROFILE.md": {
+      "git_blob": "9cefc78e24e025b10b9973a148581d5ad982bdaa",
+      "sha256": "9e3df4d17428a397963cebc6836fd0605a1ba0d4691cda0c73bd6d0ec1b6e0db"
+    },
+    "packages/runtime/test/tool_modules/os_user_info.cjs": {
+      "git_blob": "8bad9215e72c3f1b939906e11bf3999b61bb3bc1",
+      "sha256": "5633043f37124149683e74f6f957c2a0e53b511da65efe5305399a8d84e2f3fd"
+    },
+    "packages/runtime/test/tool_modules/os_user_info_esm.mjs": {
+      "git_blob": "8173999aba0a7168c10bd9364b11ce4141eb149e",
+      "sha256": "88ac0916451c073533554ad3beb26ae2c2e23f1e9baa59da5182eae6fe03cc01"
+    },
+    "packages/runtime/test/tool_os_user_info_fixture.py": {
+      "git_blob": "ef3aba329a3dc296475dc48d1bcd209953cbe001",
+      "sha256": "86be95e7b15723c20653181d93e75f4e5363b13d37e233999e5b58939a2f3585"
+    }
+  },
+  "local_evidence_directory": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/user-info-runtime",
+  "local_engine": {
+    "commit": "a7b0fdfd2e9caa6a9e822d911dd8a390e21babf1",
+    "archive_sha256": "3b182ee48ac27e763c308b16276e5330e552906f82d82336907f7389ce1b03ed",
+    "platform": "Darwin AArch64; separate from exact Linux qualifier"
+  },
+  "reference_versions": {
+    "node": "v26.10.0",
+    "bun": "1.4.4"
+  },
+  "scope": "Actual macOS/Linux effective-user account from reentrant getpwuid_r(geteuid()), private bounded native buffers, raw-byte-preserving encodings and fresh real Buffer results. Never environment-derived user data. Other platforms and failed records throw; exact SystemError metadata, privilege changes and injected libc failure execution are unclaimed.",
+  "physical_oracle": {
+    "producer": "Independent Python pwd.getpwuid(os.geteuid()) before and after CJS/ESM, with os.fsencode bytes and independent codec/code-unit expectations. Account contents are not printed.",
+    "groups": 44,
+    "node_passed": 44,
+    "both_after_home_passed": 44,
+    "both_before_home": "API absent; zero groups executed; complete fixtures fail",
+    "bun": "30/44 groups; full fixture fails and ESM phase is unexecuted",
+    "controls": [
+      "native account uid/gid/string and encoded raw bytes",
+      "null prototype/key order/field descriptors",
+      "CJS/ESM/legacy aliases",
+      "name/arity/unbound/constructor calls",
+      "encoding aliases and invalid/default options",
+      "inherited encoding/getter once/exception identity",
+      "fresh independent objects and raw Buffer storage",
+      "repeated native reads/environment independence/private callback absent"
+    ]
+  },
+  "local_checks": {
+    "suite-python": {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 128336,
+      "memory_limit_mb": 3072,
+      "seconds": 5.257,
+      "log": "suite-python.log",
+      "log_sha256": "f40cb4d3af452c5caf59f5bc06625f669036ba5c80a76a56d5867df53c66bb7f",
+      "witnesses": []
+    },
+    "zig-fmt": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "fmt",
+        "--check",
+        "build.zig",
+        "packages/runtime/src/jsc/tool_os.zig",
+        "packages/runtime/src/jsc/tool_user_info.zig"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 9840,
+      "memory_limit_mb": 3072,
+      "seconds": 0.044,
+      "log": "zig-fmt.log",
+      "log_sha256": "5d887955eb9bb28bca38e18167214b02d03958abc9cd070628482b6c1a3b484d",
+      "witnesses": []
+    },
+    "suite-dependencies": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "tests/dependencies.test.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 26976,
+      "memory_limit_mb": 3072,
+      "seconds": 0.874,
+      "log": "suite-dependencies.log",
+      "log_sha256": "42659dac7f44e17839ae5abc0a46a5ca30a5306cd56a9ec6e78fdc95bdab94f7",
+      "witnesses": []
+    },
+    "bun": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_os_user_info_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/os_user_info.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 6800,
+      "memory_limit_mb": 3072,
+      "seconds": 0.218,
+      "log": "bun.log",
+      "log_sha256": "61d8339fc6ac6bb635445771838f0b3759f473343695ab49bb5da8637b188efe",
+      "witnesses": [
+        "OS USER INFO RESULTS {\"available\": true, \"executed\": 44, \"passed\": 30, \"failures\": [\"null prototype and key order\", \"encoding hex\", \"encoding base64\", \"encoding base64url\", \"encoding ucs2\", \"encoding ucs-2\", \"encoding utf16le\", \"encoding utf-16le\", \"encoding buffer\", \"encoding BUFFER\", \"default encoding symbol:29\", \"inherited encoding\", \"encoding getter once\", \"fresh owned objects and buffers\"]}"
+      ]
+    },
+    "native-cross-aarch64-linux-gnu": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build-obj",
+        "-target",
+        "aarch64-linux-gnu",
+        "-OReleaseSafe",
+        "--dep",
+        "account",
+        "-Mroot=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/user-info-runtime/native-probe.zig",
+        "-target",
+        "aarch64-linux-gnu",
+        "-OReleaseSafe",
+        "-Maccount=/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/src/jsc/tool_user_info.zig",
+        "-lc",
+        "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/user-info-runtime/native-cross-aarch64-linux-gnu.o"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 295520,
+      "memory_limit_mb": 3072,
+      "seconds": 7.594,
+      "log": "native-cross-aarch64-linux-gnu.log",
+      "object_sha256": "56cad178312525d9f59753cbc865e7e80f9b08c1ddd3e3eeb8080ed54f91a595",
+      "bytes": 4071472,
+      "elf_machine": 183,
+      "scope": "Real Linux object compilation, not execution",
+      "log_sha256": "1fb979550af5b6089cd619429d24862d61b3516455cf0481894835035bf7e919",
+      "witnesses": []
+    },
+    "zig-js": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_os_user_info_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/user-info-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/os_user_info.cjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 50752,
+      "memory_limit_mb": 3072,
+      "seconds": 0.876,
+      "log": "zig-js.log",
+      "log_sha256": "9d5ff739fe4f84643f33abaa8fd80c61536cd01ed89da7b8bd4ab783001cc62d",
+      "witnesses": [
+        "OS USER INFO RESULTS {\"available\": true, \"executed\": 44, \"passed\": 44, \"failures\": []}",
+        "NATIVE EFFECTIVE ACCOUNT AND CJS/ESM/RAW BUFFER IDENTITY VERIFIED"
+      ]
+    },
+    "native-cross-x86_64-linux-gnu": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build-obj",
+        "-target",
+        "x86_64-linux-gnu",
+        "-OReleaseSafe",
+        "--dep",
+        "account",
+        "-Mroot=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/user-info-runtime/native-probe.zig",
+        "-target",
+        "x86_64-linux-gnu",
+        "-OReleaseSafe",
+        "-Maccount=/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/src/jsc/tool_user_info.zig",
+        "-lc",
+        "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/user-info-runtime/native-cross-x86_64-linux-gnu.o"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 362096,
+      "memory_limit_mb": 3072,
+      "seconds": 6.572,
+      "log": "native-cross-x86_64-linux-gnu.log",
+      "object_sha256": "97f59ad130e07b4f1731107ac9d818c7aceb54a47c0ff2b1b160319d87e410c9",
+      "bytes": 4422472,
+      "elf_machine": 62,
+      "scope": "Real Linux object compilation, not execution",
+      "log_sha256": "74ad62d2d964701a0456336d5bd75b452ae411666a38b4059d63302ee1865996",
+      "witnesses": []
+    },
+    "full-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/user-info-runtime/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 799472,
+      "memory_limit_mb": 3072,
+      "seconds": 54.03,
+      "log": "full-jsc.log",
+      "log_sha256": "c72e835276a720c2fb7af308fb52340171b8fde0dfcc748d2f964f00c5126bf6",
+      "witnesses": [
+        "OS USER INFO RESULTS {\"available\": true, \"executed\": 44, \"passed\": 44, \"failures\": []}",
+        "NATIVE EFFECTIVE ACCOUNT AND CJS/ESM/RAW BUFFER IDENTITY VERIFIED",
+        "Build Summary: 257/282 steps succeeded (21 failed)"
+      ]
+    },
+    "before-zig-js": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_os_user_info_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/kernel-release-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/os_user_info.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 57504,
+      "memory_limit_mb": 3072,
+      "seconds": 0.168,
+      "log": "before-zig-js.log",
+      "log_sha256": "c34af0e70ca434b1b99852663e11ab4c3e3570d2a62396248363136061fa0bdf",
+      "witnesses": [
+        "OS USER INFO RESULTS {\"available\": false, \"executed\": 0, \"passed\": 0, \"failures\": []}"
+      ]
+    },
+    "before-jsc": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_os_user_info_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/kernel-release-runtime/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/os_user_info.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 8128,
+      "memory_limit_mb": 3072,
+      "seconds": 0.167,
+      "log": "before-jsc.log",
+      "log_sha256": "c7f8415f69ba7fe16f441301a3da6b873b14fa5a13310260b1ad809e09de371c",
+      "witnesses": [
+        "OS USER INFO RESULTS {\"available\": false, \"executed\": 0, \"passed\": 0, \"failures\": []}"
+      ]
+    },
+    "pickier": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bunx",
+        "--bun",
+        "pickier",
+        "packages/runtime/src/jsc/tool_builtins.js",
+        "packages/runtime/test/tool_modules/os_user_info.cjs",
+        "packages/runtime/test/tool_modules/os_user_info_esm.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32160,
+      "memory_limit_mb": 3072,
+      "seconds": 0.26,
+      "log": "pickier.log",
+      "log_sha256": "c35c7c7d73fe99991d677f9c96814ee480011294f9229d6af42589aaf9c779d3",
+      "witnesses": []
+    },
+    "node": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_os_user_info_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/os_user_info.cjs",
+        "--node"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 48496,
+      "memory_limit_mb": 3072,
+      "seconds": 0.275,
+      "log": "node.log",
+      "log_sha256": "0f3efbc145eb25ee76f841718ffbe0c14aa31972091d382084e77d7f49283d71",
+      "witnesses": [
+        "OS USER INFO RESULTS {\"available\": true, \"executed\": 44, \"passed\": 44, \"failures\": []}",
+        "NATIVE EFFECTIVE ACCOUNT AND CJS/ESM/RAW BUFFER IDENTITY VERIFIED"
+      ]
+    },
+    "home-python-syntax": {
+      "argv": [
+        "python3",
+        "-c",
+        "import ast,pathlib;ast.parse(pathlib.Path('packages/runtime/test/tool_os_user_info_fixture.py').read_text())"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5216,
+      "memory_limit_mb": 3072,
+      "seconds": 0.035,
+      "log": "home-python-syntax.log",
+      "log_sha256": "6a152bc152ca43e8c353a39a88cd8571afb9ce6664e9e4f9aff64f82ce05e6bd",
+      "witnesses": []
+    },
+    "jsc": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_os_user_info_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/user-info-runtime/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/os_user_info.cjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 5216,
+      "memory_limit_mb": 3072,
+      "seconds": 0.096,
+      "log": "jsc.log",
+      "log_sha256": "55964c49cb3fe6453a6ab0aaac41a3e390b1b6e2189849b1377a7e91a84cbc53",
+      "witnesses": [
+        "OS USER INFO RESULTS {\"available\": true, \"executed\": 44, \"passed\": 44, \"failures\": []}",
+        "NATIVE EFFECTIVE ACCOUNT AND CJS/ESM/RAW BUFFER IDENTITY VERIFIED"
+      ]
+    },
+    "actionlint": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.036,
+      "log": "actionlint.log",
+      "log_sha256": "2d83d05058d9a5a71a9f35ce1058cfbba75d86aafa904bc66054d98660f1e0d2",
+      "witnesses": []
+    },
+    "python-syntax": {
+      "argv": [
+        "python3",
+        "-m",
+        "compileall",
+        "-q",
+        "scripts",
+        "tests"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1056,
+      "memory_limit_mb": 3072,
+      "seconds": 0.068,
+      "log": "python-syntax.log",
+      "log_sha256": "3a6bef271728ecbfc2fafe14e42fb47dd6084d4dae42b52c8b1e217f90cbd33b",
+      "witnesses": []
+    },
+    "full-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/user-info-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1001488,
+      "memory_limit_mb": 3072,
+      "seconds": 62.754,
+      "log": "full-zig-js.log",
+      "log_sha256": "135572271974f6b7cb44bdf2f5e1a2cb2c1ad48f64ec5134bdaae71df958692b",
+      "witnesses": [
+        "OS USER INFO RESULTS {\"available\": true, \"executed\": 44, \"passed\": 44, \"failures\": []}",
+        "NATIVE EFFECTIVE ACCOUNT AND CJS/ESM/RAW BUFFER IDENTITY VERIFIED",
+        "Build Summary: 284/284 steps succeeded"
+      ]
+    }
+  },
+  "jsc_comparison": {
+    "baseline_log_sha256": "9bdddc3dcecede22ecc0680b59a984c291364097cb8c63ae33e80505dc0d52ef",
+    "after_log_sha256": "c72e835276a720c2fb7af308fb52340171b8fde0dfcc748d2f964f00c5126bf6",
+    "added_normalized_failed_commands": [],
+    "removed_normalized_failed_commands": [],
+    "unique_failed_commands": 56,
+    "scope": "Saved host graph comparison; native tests cached; no test262 regression claim"
+  },
+  "actual_ci_reproduction": [
+    {
+      "run": 43349578745,
+      "repository": "stacksjs/stacks",
+      "source": "da075d3826c6d2aeb649f8932d5d8a762257d733",
+      "artifact": 14004333973,
+      "official_digest": "sha256:ec75d8ddb7ba70ef874010eb212babd0e3e5e919e12d7130a2ac50fed4a435e3",
+      "candidate_counts": {
+        "unsupported": 356,
+        "failed": 196,
+        "passed": 80
+      }
+    },
+    {
+      "run": 43349578745,
+      "repository": "home-lang/home",
+      "source": "74c899f1bc7ca9349d28fc421961684ce8c6f7b6",
+      "artifact": 14004179492,
+      "official_digest": "sha256:aceb3db8994726b5193df552b4e6bed47b3ad3e71c4bc1abe8043f3466b0d6f8",
+      "candidate_counts": {
+        "failed": 41,
+        "unsupported": 37,
+        "passed": 9
+      },
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 10732,
+        "memory_limit_mb": 3072,
+        "seconds": 0.107,
+        "log": "0095.log",
+        "label": "packages/runtime/upstream: test",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "node scripts/runner.node.mjs --exec-path ./build/debug/bun-debug"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream",
+        "engine_invocations": 1
+      },
+      "actual_log": "$ [\"/bin/sh\", \"-c\", \"node scripts/runner.node.mjs --exec-path ./build/debug/bun-debug\"]\n::group::Machine\nOperating System: linux\nArchitecture: x64\nKernel: 7.0.0\nABI: undefined\nABI Version: undefined\nDistro: ubuntu\nDistro Version: 24.04\nHostname: GitHub Actions 1000152747\nTailscale IP: undefined\nPublic IP: undefined\n::endgroup::\n\nhome-tool (zig-js): TypeError: userInfo is not a function. (In 'userInfo()', 'userInfo' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 10732 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "log_sha256": "cdc86e5148636f0f91c4cbc2aec88bd51f19bb4fc45aa6a202d5c0939dbf5a83"
+    }
+  ],
+  "completed_qualifier": {
+    "run": 43349578745,
+    "reported": 4,
+    "selected": 4,
+    "failing": 4,
+    "missing": 0,
+    "report_job": 131651488766,
+    "actual_report_log_sha256": "ccac5c83e2986a9a21286e9524b1a19c535f311a07e0b6e5130002e898b7520c"
+  },
+  "upstream_test_scope": "Original runner actually prints machine/kernel details, then fails at userInfo with exit1. This targeted host API fix establishes no scheduling/test/build/package pass. Other known worker/Cargo/budget/refusal failures remain truthful.",
+  "caller_retained": "398066f1122f282ded01b7f2e07f82c5e67cdadb",
+  "qualification": "New immutable functional suite must execute 44 native account groups and CJS/ESM/raw-buffer controls twice on Linux, retained maintained markers, exact source validation, byte-verified runtime provenance and four actual consumer preflights. Cross-compiled ELF objects are not execution. Every selected repository, old runs, failures/refusals and existing quotas remain intact; no native Bun candidate fallback. Evidence-only descendants are not caller targets.",
+  "test262_flips": 0
+}
