@@ -1,0 +1,363 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-13T07:05:00.458342+00:00",
+  "run": 43368542045,
+  "report_job": 131739520692,
+  "engine_sha": "efdcad8656d828b5fd8abe6486e45b534677983e",
+  "functional_suite": "32c64b1f076c58bf70e394241f89b535c6fa6f4e",
+  "runtime_home": "eafa6bd0d0874b9afa49047bc82bb2386bce19df",
+  "artifact": {
+    "id": 14017075396,
+    "size_in_bytes": 17005833,
+    "digest": "sha256:a762588ebf08d07aa1319671cffdac823aa2c39c086b4b6075c510dd717f5c76"
+  },
+  "downloaded_zip_sha256": "a762588ebf08d07aa1319671cffdac823aa2c39c086b4b6075c510dd717f5c76",
+  "report_log_sha256": "d8eec9d43de74bf119c027915ac845a8165aa4a05a6ed905b82eda7b6b3b1f5f",
+  "report_json_sha256": "b920820a9c5a9dd2d7cca3aa4f92b48404885969ce9491474f88e2cbbc5cf16e",
+  "inventory_sha256": "b733800f463063a5bcf39cc78f1dbd3bd46f34f9de532e9009ad72c2c5f040bc",
+  "coverage": {
+    "selected": 229,
+    "reported": 229,
+    "failing": 204,
+    "missing": [],
+    "mismatched": [],
+    "all_frozen_sources_and_runtime_provenance_independently_matched": true,
+    "same_selected_names_and_failing_repository_set_as_previous_account_caller": true,
+    "all_candidate_status_maps_match_previous_account_caller_after_workspace_normalization": true,
+    "Stacks_Home_repositories": 167,
+    "without_candidate_lane": 39,
+    "candidate_check_counts": {
+      "failed": 3263,
+      "passed": 1371,
+      "unsupported": 4523,
+      "timed-out": 1
+    }
+  },
+  "actual_priorities": [
+    {
+      "repository": "home-lang/home",
+      "source": "eafa6bd0d0874b9afa49047bc82bb2386bce19df",
+      "candidate_counts": {
+        "timed-out": 1,
+        "unsupported": 37,
+        "passed": 9,
+        "failed": 40
+      },
+      "failed_timeout_logs_physically_read": 41,
+      "actual_priority_logs": [
+        {
+          "check": {
+            "status": "timed-out",
+            "exit_code": 124,
+            "peak_sampled_rss_kib": 2043864,
+            "memory_limit_mb": 3072,
+            "seconds": 300.076,
+            "log": "0052.log",
+            "reason": "command time budget exhausted",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bunx bunpress build"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate",
+            "engine_invocations": 1
+          },
+          "log_sha256": "31660d548b071de74332474afeea3aa4209056afb6c836963c9006242fac04fb",
+          "actual_tail": [
+            "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]",
+            "  Building documentation...",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 2043864 KiB; limit 3072 MiB",
+            "ECOSYSTEM LIMIT: command time budget exhausted",
+            "",
+            "ECOSYSTEM RESULT: timed-out, exit 124"
+          ]
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 273736,
+            "memory_limit_mb": 3072,
+            "seconds": 0.565,
+            "log": "0069.log",
+            "label": "packages/runtime/src/runtime/cli/init/react-shadcn: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "bun run build.ts"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/src/runtime/cli/init/react-shadcn",
+            "engine_invocations": 1
+          },
+          "log_sha256": "3b1c80b59556f715f1856d02762ae104daf81bb8cd990c686dc1c6f4579432f6",
+          "actual_tail": [
+            "$ [\"/bin/sh\", \"-c\", \"bun run build.ts\"]",
+            "home-tool (zig-js): TypeError: Attempted to assign to readonly property.",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 273736 KiB; limit 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: failed, exit 1"
+          ]
+        },
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 69024,
+            "memory_limit_mb": 3072,
+            "seconds": 0.535,
+            "log": "0095.log",
+            "label": "packages/runtime/upstream: test",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "node scripts/runner.node.mjs --exec-path ./build/debug/bun-debug"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate/packages/runtime/upstream",
+            "engine_invocations": 1
+          },
+          "log_sha256": "90c50226ed712cc93bc2da6b8ef86c9f4843229f74d1f75204cd9320e1b2664a",
+          "actual_tail": [
+            "",
+            "::group::CI",
+            "Build ID: 43368542045",
+            "Build Label: Ecosystem",
+            "Build URL: https://github.com/zig-utils/zig-js/actions/runs/43368542045",
+            "::endgroup::",
+            "",
+            "home-tool (zig-js): Error: Could not find executable: ./build/debug/bun-debug",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 69024 KiB; limit 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: failed, exit 1"
+          ]
+        }
+      ]
+    },
+    {
+      "repository": "stacksjs/stacks",
+      "source": "f23ecf0a2ed0c746b44cd590808a3e4bce8515f9",
+      "candidate_counts": {
+        "unsupported": 356,
+        "failed": 182,
+        "passed": 94
+      },
+      "failed_timeout_logs_physically_read": 182,
+      "actual_priority_logs": [
+        {
+          "check": {
+            "status": "failed",
+            "exit_code": 1,
+            "peak_sampled_rss_kib": 2566960,
+            "memory_limit_mb": 3072,
+            "seconds": 14.442,
+            "log": "0016.log",
+            "label": ".: build",
+            "lane": "candidate",
+            "command": [
+              "/bin/sh",
+              "-c",
+              "./buddy build"
+            ],
+            "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate",
+            "engine_invocations": 3
+          },
+          "log_sha256": "10b80544491934f016938f0b4921fb96436a35e6656af5c0301561e6b58cc4ea",
+          "actual_tail": [
+            "[stx-images] Skipping unreadable raster: images/atomic-ui-diagram.png",
+            "Uncaught unhandledRejection: RangeError: evaluation step budget exceeded",
+            "Failed to execute command: bunx --bun @stacksjs/stx build --pages resources/views --out dist in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate",
+            "",
+            "The frontend build failed: `bunx --bun @stacksjs/stx build --pages resources/views --out dist` exited non-zero.",
+            "The error it printed above is the cause - this step only relays its exit status.",
+            "",
+            "Failed to execute command: bun --conditions=development /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate/storage/framework/core/actions/src/build/views.ts --interaction --emoji --cache --views in /home/runner/work/zig-js/zig-js/.work/stacksjs--stacks/candidate",
+            "",
+            "ECOSYSTEM PEAK SAMPLED RSS: 2566960 KiB; limit 3072 MiB",
+            "",
+            "ECOSYSTEM RESULT: failed, exit 1"
+          ]
+        }
+      ],
+      "fourteen_recovered_imports": [
+        {
+          "label": "storage/framework/core/analytics: module initialization src/index.ts",
+          "status": "passed",
+          "engine_invocations": 1,
+          "log_sha256": "36f37b7711c75f96f97759beee9c1e8bec0f7ac1c40ad89eb8d39cf2248c422c"
+        },
+        {
+          "label": "storage/framework/core/chat: module initialization src/index.ts",
+          "status": "passed",
+          "engine_invocations": 1,
+          "log_sha256": "5e22a65537e21a61ee3ef9448a41acee554f63d342fcb54d71dc90965e7e9fb2"
+        },
+        {
+          "label": "storage/framework/core/commerce: module initialization src/index.ts",
+          "status": "passed",
+          "engine_invocations": 1,
+          "log_sha256": "875f6097433063b3defb4986f2053f322956ebf24c1b197f5af767a418b8ba71"
+        },
+        {
+          "label": "storage/framework/core/database: module initialization src/index.ts",
+          "status": "passed",
+          "engine_invocations": 1,
+          "log_sha256": "9f7bcaf9eaf7adaac57ca16768d781f2c11d48e7643f77edcb5e2522b44361f8"
+        },
+        {
+          "label": "storage/framework/core/newsletter: module initialization src/index.ts",
+          "status": "passed",
+          "engine_invocations": 1,
+          "log_sha256": "7b94a35aef707b5a02bf3de55c7fdb49e13f048a998379585842ed2f3eec6590"
+        },
+        {
+          "label": "storage/framework/core/orm: module initialization src/index.ts",
+          "status": "passed",
+          "engine_invocations": 1,
+          "log_sha256": "605ceab7dd041547536df0fa1d27a5b0ba837cdd2723575a4735ae911d384cca"
+        },
+        {
+          "label": "storage/framework/core/payments: module initialization src/index.ts",
+          "status": "passed",
+          "engine_invocations": 1,
+          "log_sha256": "1a689ae132c701570294d05ddcf3938177a5d64b9f1ae4436e9d4ec6efda1847"
+        },
+        {
+          "label": "storage/framework/core/query-builder: module initialization src/index.ts",
+          "status": "passed",
+          "engine_invocations": 1,
+          "log_sha256": "71d6383b237bcad3d4b24aed34d6e9c7b3acef693bd4fdcc0989bfc5c94a5b67"
+        },
+        {
+          "label": "storage/framework/core/queue: module initialization src/index.ts",
+          "status": "passed",
+          "engine_invocations": 1,
+          "log_sha256": "7f24f6e9ca433f558f5b0222e230b83768bfb7edd0eece1cec7273eb0e3f1485"
+        },
+        {
+          "label": "storage/framework/core/scheduler: module initialization src/index.ts",
+          "status": "passed",
+          "engine_invocations": 1,
+          "log_sha256": "474cee8b19aa21779491399e0d212d389ca1dcce9b15f29129ff5cdf1729b7ea"
+        },
+        {
+          "label": "storage/framework/core/search-engine: module initialization src/index.ts",
+          "status": "passed",
+          "engine_invocations": 1,
+          "log_sha256": "a4822c97e75625133d18376545eaf31de5494638ff9f29dddef3896b9f1b094a"
+        },
+        {
+          "label": "storage/framework/core/slug: module initialization src/index.ts",
+          "status": "passed",
+          "engine_invocations": 1,
+          "log_sha256": "dd5f253942e61bdd5d87151110508eee7131ab156127b612c5818be2f4efb915"
+        },
+        {
+          "label": "storage/framework/core/sms: module initialization src/index.ts",
+          "status": "passed",
+          "engine_invocations": 1,
+          "log_sha256": "364e034a33c1a0e31430640152a2fe5cc2666da4452e516d697e8ea6f51d4f23"
+        },
+        {
+          "label": "storage/framework/orm: module initialization src/index.ts",
+          "status": "passed",
+          "engine_invocations": 1,
+          "log_sha256": "d9a5a4e5a56fb98dca773b63ba61c7ce062548202bfc840b0537180c5ffcbbc2"
+        }
+      ]
+    }
+  ],
+  "webkit_coverage_restored": {
+    "source": "782504c968e2ae06a511c9e7a4d48318b2a23263",
+    "scopes": 139,
+    "fetch": {
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 250960,
+      "memory_limit_mb": 3072,
+      "seconds": 48.762,
+      "log": "0002.log",
+      "label": "fetch exact consumer SHA",
+      "lane": "setup",
+      "command": [
+        "git",
+        "-c",
+        "credential.helper=",
+        "fetch",
+        "--depth=1",
+        "https://github.com/stacksjs/WebKit.git",
+        "782504c968e2ae06a511c9e7a4d48318b2a23263"
+      ],
+      "cwd": "/home/runner/work/zig-js/zig-js/.work/stacksjs--WebKit/candidate",
+      "engine_invocations": 0
+    },
+    "fetch_log_sha256": "acde36556279dc32332ea37d27434882634aaad8514138664037a43ca267cab4",
+    "actual_fetch_log_tail": [
+      "$ [\"git\", \"-c\", \"credential.helper=\", \"fetch\", \"--depth=1\", \"https://github.com/stacksjs/WebKit.git\", \"782504c968e2ae06a511c9e7a4d48318b2a23263\"]",
+      "From https://github.com/stacksjs/WebKit",
+      " * branch                  782504c968e2ae06a511c9e7a4d48318b2a23263 -> FETCH_HEAD",
+      "",
+      "ECOSYSTEM PEAK SAMPLED RSS: 250960 KiB; limit 3072 MiB",
+      "",
+      "ECOSYSTEM RESULT: passed, exit 0"
+    ],
+    "candidate_counts": {
+      "failed": 164,
+      "passed": 15,
+      "unsupported": 47
+    },
+    "failed_candidate_logs_physically_read": 164,
+    "scope": "Actual unchanged-source checkout and226candidate checks execute again at existing quotas. The164failures/15passes/47unsupported match previous executed snapshot statuses; this restores execution coverage after e6a caller fetch timeout, not an engine/application repair. The previous checkout failure and all unexecuted coverage remain retained."
+  },
+  "actual_failure_log_audit": {
+    "candidate_failed_timeout_logs_read": 3264,
+    "manifest_file": "all-candidate-failure-log-manifest.json",
+    "manifest_sha256": "11f640a403ee50672b27e53b994adf565d9ab905ef6b8b7a5a29eeb6bbebe981",
+    "manifest_repository_entries": 229,
+    "scope": "Each candidate failed/timeout log in the actual aggregate was read, UTF-8 decoded with replacements for arbitrary output, and hashed with its repository/source/check label/status/byte length retained in the local manifest. This does not credit tests or claim every distinct cause was repaired."
+  },
+  "moving_source_comparison": {
+    "previous_run": 43359796153,
+    "source_changes": [
+      {
+        "repository": "home-lang/home",
+        "before": "be5953615a6e81279e009bae93ff7d6f12362286",
+        "after": "eafa6bd0d0874b9afa49047bc82bb2386bce19df"
+      },
+      {
+        "repository": "pantry-pm/pantry",
+        "before": "59b24fd8ee7def13982adc947350286ee66ff08e",
+        "after": "ccf99ee44f6fb686bfc9248796fefb5bd140cfbc"
+      },
+      {
+        "repository": "stacksjs/dtsx",
+        "before": "f4affea487bdcba7503f17cbe4e36ca7d43a77e1",
+        "after": "efa49645b0115bab9c2a05012e630832b26addc0"
+      },
+      {
+        "repository": "stacksjs/lastsoulultra",
+        "before": "8d1edc598ba58a45b563b378d36fd89f54acbc00",
+        "after": "056419436ebfc4efdc13e4027357a505650b51b0"
+      },
+      {
+        "repository": "stacksjs/stx",
+        "before": "785c0cde7a46343de6b191089214cb3b76651c57",
+        "after": "e338192994fa01e3259246c97a59f5c62416b583"
+      },
+      {
+        "repository": "stacksjs/tinkerbelle",
+        "before": "cf38a70c0c24319f7a1769f5d9a168828578bd2f",
+        "after": "738631ebf2934b96af79d3d65eb50a29b9ba05af"
+      }
+    ],
+    "scope": "Different immutable engine/runtime and several consumer revisions; identical candidate status maps are bounded evidence, not global no-regression or compatible-app claims."
+  },
+  "scope": "Latest full fleet completion. All selected229 sources retained, including explicit zero-candidate/not-applicable sources. Existing primary package failures persist; fourteen recovered imports remain genuine executed checks. WebKit source-fetch timeout in previous run remains historical and no quota is relaxed. No new actionable candidate failure, API/test/package pass, code change, fake binding, skip, fallback, credential or caller pin mutation. Evidence-only update; no repeated failure notification. Flips0test262cases.",
+  "local_evidence_directory": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/completed-efdc-caller",
+  "test262_flips": 0
+}
