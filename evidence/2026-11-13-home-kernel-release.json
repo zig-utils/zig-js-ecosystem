@@ -1,0 +1,426 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-13T02:01:52.560797+00:00",
+  "home_commit": "74c899f1bc7ca9349d28fc421961684ce8c6f7b6",
+  "before_home": "a654d780855a80b045a7b6876f815e8d73e55705",
+  "files": {
+    "build.zig": {
+      "git_blob": "ddc5a018a1a28f435a6a7e87d47e66df8cadaef8",
+      "sha256": "16ae9f0663539fddf4bafce5e5b5ff5142c8e8431cae49cc53799cc0e84a90cc"
+    },
+    "packages/runtime/src/jsc/tool_builtins.js": {
+      "git_blob": "8866470465bc6634882ce274a5827915e466a732",
+      "sha256": "40ea37045b882743d778749a294884f34f1688942fda2070ecf001bd85cc9fd6"
+    },
+    "packages/runtime/src/jsc/tool_kernel_release.zig": {
+      "git_blob": "5c0ac92a3acf47376be36ad149bc54050522d7ef",
+      "sha256": "65c19a4ea2166f42118e551aed765a50a968af4bc63467f1f69c722a5aeb9982"
+    },
+    "packages/runtime/src/jsc/tool_os.zig": {
+      "git_blob": "1ca530bff5bba63a2c82bad16c83f7fb2708b209",
+      "sha256": "3a0e735064526a075abe8bfe0bc0edd82b346bf89ff591946cb954e8465edc25"
+    },
+    "packages/runtime/test/OS_RELEASE_PROFILE.md": {
+      "git_blob": "a0a09f370fc5067b0bd765ccbdd581a8443d77c3",
+      "sha256": "23e480b5eadec8fdb81c52c615d5c6ee11b6c05dde417c0871861599ade5dca4"
+    },
+    "packages/runtime/test/tool_modules/os_release.cjs": {
+      "git_blob": "af6c934ec40c02e8eb49115f3c5a4bc0b40a9281",
+      "sha256": "f0011fbc4b9328bcf46a5f1bac6744a871fc4274d3ff8ff9c0380d91122974fc"
+    },
+    "packages/runtime/test/tool_modules/os_release_esm.mjs": {
+      "git_blob": "3cf7c56b12f49f279d2ba4c63c0191bf398e8021",
+      "sha256": "5bd968b0844bf041d5d9f15b913caacfe24c381b200dff701885ed705b05ec40"
+    },
+    "packages/runtime/test/tool_os_release_fixture.py": {
+      "git_blob": "f6ef1567301e9f4c95208f58235d8489c47f7d40",
+      "sha256": "b3c7e635850281e8af825cfc59a0c47de547a46080dea0765f06ff218dd1e434"
+    }
+  },
+  "local_evidence_directory": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/kernel-release-runtime",
+  "local_engine": {
+    "commit": "a7b0fdfd2e9caa6a9e822d911dd8a390e21babf1",
+    "archive_sha256": "3b182ee48ac27e763c308b16276e5330e552906f82d82336907f7389ce1b03ed",
+    "platform": "Darwin AArch64; separate from exact Linux qualifier"
+  },
+  "reference_versions_now": {
+    "node": "v26.10.0",
+    "bun": "1.4.4"
+  },
+  "scope": "Real kernel os.release query from libc uname using target std.c.utsname on macOS/Linux. Per-call owned native buffers; failed/unavailable queries throw. No environment or compiled-version placeholder. Other OS APIs/platforms and test scheduling remain separate.",
+  "physical_oracle": {
+    "producer": "Independent Python os.uname().release before and after each actual CJS/ESM probe",
+    "local_release": "27.0.0",
+    "sysname": "Darwin",
+    "groups": 16,
+    "node_passed": 16,
+    "both_after_home_passed": 16,
+    "both_before_home": "Function absent, zero groups executed and complete fixtures fail",
+    "bun": "13/16 groups; full fixture fails before its ESM phase",
+    "covers": [
+      "CJS/ESM/alias identity",
+      "native nonempty release string",
+      "Node name/arity/descriptors",
+      "nonconstructibility and unbound/ignored arguments",
+      "primitive conversion and hint handling",
+      "independence from replaceable JS metadata/conversion functions",
+      "repeated native calls and no leaked private callback"
+    ]
+  },
+  "local_checks": {
+    "suite-python": {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 124064,
+      "memory_limit_mb": 3072,
+      "seconds": 5.706,
+      "log": "suite-python.log",
+      "log_sha256": "99d471beee8eb8c4bf952d6a6c8238b0f49649edc9140ec1c706fffce7ddd76a",
+      "witnesses": []
+    },
+    "zig-fmt": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "fmt",
+        "--check",
+        "build.zig",
+        "packages/runtime/src/jsc/tool_os.zig",
+        "packages/runtime/src/jsc/tool_kernel_release.zig"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 21904,
+      "memory_limit_mb": 3072,
+      "seconds": 0.192,
+      "log": "zig-fmt.log",
+      "log_sha256": "76762fd3d8115bb7d4e4b334bca013d8c30ad311468494fc6017bbb051c28066",
+      "witnesses": []
+    },
+    "suite-dependencies": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "test",
+        "tests/dependencies.test.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 27008,
+      "memory_limit_mb": 3072,
+      "seconds": 0.567,
+      "log": "suite-dependencies.log",
+      "log_sha256": "07ef0d4297fcbcb97255093a9e651dfdd969d75e731d27c86c3f8ef08bef4c84",
+      "witnesses": []
+    },
+    "bun": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_os_release_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/bun",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/os_release.cjs",
+        "--node"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 2128,
+      "memory_limit_mb": 3072,
+      "seconds": 0.106,
+      "log": "bun.log",
+      "log_sha256": "cc74b4dfdbe94786320a22b7b743f0e0e4e381f342bcc5c2db38bd8c702a5d9e",
+      "witnesses": [
+        "OS RELEASE RESULTS {\"groups\": 16, \"executed\": 16, \"passed\": 13, \"available\": true, \"failures\": [\"name and arity\", \"primitive hook\", \"captured hook independent\"], \"release\": \"27.0.0\"}"
+      ]
+    },
+    "native-cross-aarch64-linux-gnu": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build-obj",
+        "-target",
+        "aarch64-linux-gnu",
+        "-OReleaseSafe",
+        "--dep",
+        "kernel",
+        "-Mroot=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/kernel-release-runtime/native-probe.zig",
+        "-target",
+        "aarch64-linux-gnu",
+        "-OReleaseSafe",
+        "-Mkernel=/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/src/jsc/tool_kernel_release.zig",
+        "-lc",
+        "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/kernel-release-runtime/native-cross-aarch64-linux-gnu.o"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 373440,
+      "memory_limit_mb": 3072,
+      "seconds": 5.918,
+      "log": "native-cross-aarch64-linux-gnu.log",
+      "log_sha256": "b858a9726d57aca330a130f5f3d1ada66b7e0784843e63d68aca16678bfb52bb",
+      "witnesses": []
+    },
+    "native-cross-x86_64-linux-gnu": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build-obj",
+        "-target",
+        "x86_64-linux-gnu",
+        "-OReleaseSafe",
+        "--dep",
+        "kernel",
+        "-Mroot=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/kernel-release-runtime/native-probe.zig",
+        "-target",
+        "x86_64-linux-gnu",
+        "-OReleaseSafe",
+        "-Mkernel=/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/src/jsc/tool_kernel_release.zig",
+        "-lc",
+        "-femit-bin=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/kernel-release-runtime/native-cross-x86_64-linux-gnu.o"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 294176,
+      "memory_limit_mb": 3072,
+      "seconds": 5.966,
+      "log": "native-cross-x86_64-linux-gnu.log",
+      "log_sha256": "91a617adac4d16192c97a1d11bd564feb0b890d38f5988371a0006abf5b5ec19",
+      "witnesses": []
+    },
+    "full-jsc": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=jsc",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/kernel-release-runtime/home-jsc",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1271712,
+      "memory_limit_mb": 3072,
+      "seconds": 40.977,
+      "log": "full-jsc.log",
+      "log_sha256": "9bdddc3dcecede22ecc0680b59a984c291364097cb8c63ae33e80505dc0d52ef",
+      "witnesses": [
+        "OS RELEASE RESULTS {\"groups\": 16, \"executed\": 16, \"passed\": 16, \"available\": true, \"failures\": [], \"release\": \"27.0.0\"}",
+        "NATIVE KERNEL RELEASE AND CJS/ESM/PRIMITIVE IDENTITY VERIFIED {\"release\": \"27.0.0\", \"uname_sysname\": \"Darwin\"}",
+        "Build Summary: 256/281 steps succeeded (21 failed)"
+      ]
+    },
+    "before-zig-js": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_os_release_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime/home-zig-js/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/os_release.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 1744,
+      "memory_limit_mb": 3072,
+      "seconds": 0.122,
+      "log": "before-zig-js.log",
+      "log_sha256": "c63b0597674f732751b7c5c95a894ace9319ddbb81803fc46b356a385e3d2fad",
+      "witnesses": [
+        "OS RELEASE RESULTS {\"groups\": 16, \"executed\": 0, \"passed\": 0, \"available\": false, \"failures\": [], \"release\": null}"
+      ]
+    },
+    "before-jsc": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_os_release_fixture.py",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/parse-args-runtime/home-jsc/bin/home-tool",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/os_release.cjs"
+      ],
+      "status": "failed",
+      "exit_code": 1,
+      "peak_sampled_rss_kib": 2032,
+      "memory_limit_mb": 3072,
+      "seconds": 0.098,
+      "log": "before-jsc.log",
+      "log_sha256": "cebefa41b4c41ff03e184cf635ed8641fedfa0a86abeaf9543cabf0c1d6b68f8",
+      "witnesses": [
+        "OS RELEASE RESULTS {\"groups\": 16, \"executed\": 0, \"passed\": 0, \"available\": false, \"failures\": [], \"release\": null}"
+      ]
+    },
+    "pickier": {
+      "argv": [
+        "/Users/chris/.local/share/pantry/global/bin/bunx",
+        "--bun",
+        "pickier",
+        "packages/runtime/test/tool_modules/os_release.cjs",
+        "packages/runtime/test/tool_modules/os_release_esm.mjs"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 31552,
+      "memory_limit_mb": 3072,
+      "seconds": 0.885,
+      "log": "pickier.log",
+      "log_sha256": "676c9460bf318bb0bf427910fa017a9b8d24d4cdaf2aa9ac58e0b41c7f0b0b94",
+      "witnesses": []
+    },
+    "node": {
+      "argv": [
+        "python3",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_os_release_fixture.py",
+        "/Users/chris/.local/share/pantry/global/bin/node",
+        "/Users/chris/Code/Home/zig-js-ecosystem-home/packages/runtime/test/tool_modules/os_release.cjs",
+        "--node"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 43840,
+      "memory_limit_mb": 3072,
+      "seconds": 0.255,
+      "log": "node.log",
+      "log_sha256": "aacd820c42dc85f10898236e519b3eb3e3a382134e8d46da840a1e70e2fdcd5d",
+      "witnesses": [
+        "OS RELEASE RESULTS {\"groups\": 16, \"executed\": 16, \"passed\": 16, \"available\": true, \"failures\": [], \"release\": \"27.0.0\"}",
+        "NATIVE KERNEL RELEASE AND CJS/ESM/PRIMITIVE IDENTITY VERIFIED {\"release\": \"27.0.0\", \"uname_sysname\": \"Darwin\"}"
+      ]
+    },
+    "actionlint": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/actionlint/actionlint"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 32,
+      "memory_limit_mb": 3072,
+      "seconds": 0.032,
+      "log": "actionlint.log",
+      "log_sha256": "2d83d05058d9a5a71a9f35ce1058cfbba75d86aafa904bc66054d98660f1e0d2",
+      "witnesses": []
+    },
+    "python-syntax": {
+      "argv": [
+        "python3",
+        "-m",
+        "compileall",
+        "-q",
+        "scripts",
+        "tests"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1088,
+      "memory_limit_mb": 3072,
+      "seconds": 0.064,
+      "log": "python-syntax.log",
+      "log_sha256": "cb1e4cb2500d9c8d9c25b8e441df199d568d3c06f15f1da97d860f18c60c7fa3",
+      "witnesses": []
+    },
+    "full-zig-js": {
+      "argv": [
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/toolchain/zig/zig",
+        "build",
+        "home-tool",
+        "home-tool-smoke",
+        "home-tool-vm-smoke",
+        "home-tool-deprecations-smoke",
+        "home-tool-rejections-smoke",
+        "home-tool-async-context-smoke",
+        "home-tool-file-url-smoke",
+        "home-tool-source-nul",
+        "-Denable_jsc=false",
+        "-Dtool-js-engine=zig-js",
+        "-Doptimize=ReleaseSafe",
+        "--prefix",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/kernel-release-runtime/home-zig-js",
+        "-j1",
+        "--summary",
+        "all",
+        "-Dzig-js-root=/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/engine-root",
+        "--cache-dir",
+        "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/browser-syntax/home-cache"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "peak_sampled_rss_kib": 1094448,
+      "memory_limit_mb": 3072,
+      "seconds": 51.613,
+      "log": "full-zig-js.log",
+      "log_sha256": "10189512d8cf3c5d9d79a8258bb9a276937898996c81a4dd50a2f65cb638282c",
+      "witnesses": [
+        "OS RELEASE RESULTS {\"groups\": 16, \"executed\": 16, \"passed\": 16, \"available\": true, \"failures\": [], \"release\": \"27.0.0\"}",
+        "NATIVE KERNEL RELEASE AND CJS/ESM/PRIMITIVE IDENTITY VERIFIED {\"release\": \"27.0.0\", \"uname_sysname\": \"Darwin\"}",
+        "Build Summary: 283/283 steps succeeded"
+      ]
+    }
+  },
+  "linux_cross_objects": {
+    "x86_64-linux-gnu": {
+      "sha256": "1b12f7cdebe7b9d76aa7fa02efc2a7dc1cf701306f2990ff0a99c53c49d3214e",
+      "bytes": 4411256,
+      "elf_machine": 62,
+      "scope": "Real object compilation only, not Linux execution."
+    },
+    "aarch64-linux-gnu": {
+      "sha256": "685bf6bd5c46cbe63de995cedf1ba8073bf2180d50972ce5336b32e02c61ca38",
+      "bytes": 4058864,
+      "elf_machine": 183,
+      "scope": "Real object compilation only, not Linux execution."
+    }
+  },
+  "jsc_comparison": {
+    "steps": "256/281 succeeded; 21 retained failures",
+    "baseline_log_sha256": "987489015cde79b22dd5670fbb147826c54afdf4d1de4b9b561b60a6d42c0af6",
+    "after_log_sha256": "9bdddc3dcecede22ecc0680b59a984c291364097cb8c63ae33e80505dc0d52ef",
+    "added_normalized_failed_commands": [],
+    "scope": "Bounded saved host comparison only; no whole-checker or test262 regression claim. Native artifacts cached; no fresh native count inferred."
+  },
+  "actual_ci_reproduction": [
+    {
+      "run": 43341106825,
+      "repository": "home-lang/home",
+      "source": "a654d780855a80b045a7b6876f815e8d73e55705",
+      "artifact": 14001851162,
+      "official_digest": "sha256:52ef1ccbaba12b3c65c032af9572dd8b8e8301351f5ba5f47e75f80495d45bc2",
+      "check": {
+        "status": "failed",
+        "exit_code": 1,
+        "peak_sampled_rss_kib": 59736,
+        "memory_limit_mb": 3072,
+        "seconds": 0.181,
+        "log": "0095.log",
+        "label": "packages/runtime/upstream: test",
+        "lane": "candidate",
+        "command": [
+          "/bin/sh",
+          "-c",
+          "node scripts/runner.node.mjs --exec-path ./build/debug/bun-debug"
+        ],
+        "cwd": "/home/runner/work/zig-js-ecosystem/zig-js-ecosystem/.work/home-lang--home/candidate/packages/runtime/upstream",
+        "engine_invocations": 1
+      },
+      "actual_log": "$ [\"/bin/sh\", \"-c\", \"node scripts/runner.node.mjs --exec-path ./build/debug/bun-debug\"]\n::group::Machine\nOperating System: linux\nArchitecture: x64\n::endgroup::\n\nhome-tool (zig-js): TypeError: release is not a function. (In 'release()', 'release' is undefined)\n\nECOSYSTEM PEAK SAMPLED RSS: 59736 KiB; limit 3072 MiB\n\nECOSYSTEM RESULT: failed, exit 1\n",
+      "log_sha256": "8b000332967e428c0d1d9258295f6b40ee5eeaa692409115fe2ab2f3f10d9d89"
+    }
+  ],
+  "upstream_test_scope": "The exact original runner genuinely fails at release() with exit1 after printing machine information. Targeted API repair does not establish full runner or test scheduling success. No upstream test, missing artifact, Cargo build or package receives passing credit from this fixture.",
+  "caller_retained": "23445c2c1fa0c84776a3c14c5703a28f5120f4c4",
+  "qualification": "New immutable functional suite must execute16native kernel groups/CJS/ESM controls twice on Linux against independent host uname, source validation, maintained markers, artifact/provenance and four real consumer preflights. Cross objects are not execution. Evidence-only descendants are not caller pins. All selected repositories, unsupported/failure evidence and quotas remain intact; no native Bun candidate fallback.",
+  "test262_flips": 0
+}

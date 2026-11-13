@@ -164,6 +164,7 @@ jobs:
           python3 packages/runtime/test/tool_console_assert_fixture.py zig-out/bin/home-tool packages/runtime/test/tool_modules/console_assert.cjs --home-profile
           python3 packages/runtime/test/tool_exec_diagnostics_fixture.py zig-out/bin/home-tool packages/runtime/test/tool_modules/exec_diagnostics.cjs
           python3 packages/runtime/test/tool_parse_args_fixture.py zig-out/bin/home-tool packages/runtime/test/tool_modules/util_parse_args.cjs
+          python3 packages/runtime/test/tool_os_release_fixture.py zig-out/bin/home-tool packages/runtime/test/tool_modules/os_release.cjs
           zig build test -Dfilter=ts_driver -Dts-driver-test-filter=runtime -Denable_jsc=false -Dcpu=baseline -Doptimize="${{ steps.config.outputs.runtime_optimize }}" -j1 --summary all
           zig build home-tool-source-nul -Dcpu=baseline -Doptimize="${{ steps.config.outputs.runtime_optimize }}" -Dtool-js-engine=zig-js -Dzig-js-root="$GITHUB_WORKSPACE/engine" --summary all
           zig-out/bin/home-tool run packages/runtime/test/tool_modules/vm_script.mjs
