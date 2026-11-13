@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-11-13T10:17:49.154716+00:00",
+  "run": 43386919976,
+  "report_job": 131818058699,
+  "engine_sha": "8ec6bfa8d935c2143ada04e948b57b59f741d9e5",
+  "functional_suite": "32c64b1f076c58bf70e394241f89b535c6fa6f4e",
+  "runtime_home": "eafa6bd0d0874b9afa49047bc82bb2386bce19df",
+  "artifact": {
+    "id": 14026743203,
+    "size_in_bytes": 16763036,
+    "digest": "sha256:f1b91cfac924e6b0586dec0584bf198f8533f42b292bd16fbc76f9c425ed487d"
+  },
+  "downloaded_zip_sha256": "f1b91cfac924e6b0586dec0584bf198f8533f42b292bd16fbc76f9c425ed487d",
+  "report_json_sha256": "a5aa10bce7ec4b1f743d89e3c66f1fcc81013c6e60f9eca43b82f92ae41307e1",
+  "inventory_sha256": "fe8844ba366277a57e26a7d07f2b8fe7b894ff43f8a61971b557e3d89a7ce270",
+  "actual_report_log_sha256": "6d76da79dcf93f9e21d37f8b4cd03512a143abc5d1c26205b4aa532425d30a96",
+  "coverage": {
+    "selected": 229,
+    "reported": 229,
+    "failing": 204,
+    "missing": [],
+    "mismatched": [],
+    "all_frozen_sources_and_pinned_runtime_provenance_independently_match": true,
+    "same_selected_and_failing_repository_sets_as_previous_complete_43385005588": true,
+    "without_candidate_lane": 39,
+    "Stacks_Home_repositories": 167,
+    "candidate_check_counts": {
+      "failed": 3263,
+      "passed": 1371,
+      "unsupported": 4523,
+      "timed-out": 1
+    }
+  },
+  "actual_failure_log_audit": {
+    "logs_physically_read": 3264,
+    "manifest_sha256": "9e5074091acbda3f5c178093ab4f425aed8e06064382c19a8d082d62dcf3d482",
+    "local_manifest": "all-candidate-failure-log-manifest.json"
+  },
+  "sole_normalized_candidate_status_change": [
+    {
+      "repository": "home-lang/home",
+      "before_source": "eafa6bd0d0874b9afa49047bc82bb2386bce19df",
+      "after_source": "eafa6bd0d0874b9afa49047bc82bb2386bce19df",
+      "changes": [
+        {
+          "key": [
+            "candidate",
+            ".: build",
+            [
+              "/bin/sh",
+              "-c",
+              "bunx bunpress build"
+            ]
+          ],
+          "before": "failed",
+          "after": "timed-out"
+        }
+      ]
+    }
+  ],
+  "actual_changed_resource_boundary": {
+    "check": {
+      "status": "timed-out",
+      "exit_code": 124,
+      "peak_sampled_rss_kib": 2043668,
+      "memory_limit_mb": 3072,
+      "seconds": 300.179,
+      "log": "0052.log",
+      "reason": "command time budget exhausted",
+      "label": ".: build",
+      "lane": "candidate",
+      "command": [
+        "/bin/sh",
+        "-c",
+        "bunx bunpress build"
+      ],
+      "cwd": "/home/runner/work/zig-js/zig-js/.work/home-lang--home/candidate",
+      "engine_invocations": 1
+    },
+    "log_sha256": "a370f0f5a28ab6bfb04ad24ab5af3db7aa73a2aa6f9ca158f027eea3c8a517da",
+    "actual_log": "$ [\"/bin/sh\", \"-c\", \"bunx bunpress build\"]\n  Building documentation...\n\nECOSYSTEM PEAK SAMPLED RSS: 2043668 KiB; limit 3072 MiB\nECOSYSTEM LIMIT: command time budget exhausted\n\nECOSYSTEM RESULT: timed-out, exit 124\n"
+  },
+  "scope": "Older repeated exact-engine caller only, still Homeeafa before builtin discovery255683c. The sole candidate status-map change is known docs memory-limit failure returning to300stimeout; neither outcome passes and no cap changes. All other normalized candidate maps match, with changing frozen consumer sources precluding a global no-regression claim.39withoutcandidate, including zero-executable/not-applicable Bun, are not passing apps. Current3517caller/validated76bSuite remains pending and its primary failures were already verified unchanged. No new actionable failure, behavior, skip-as-pass, native Bun candidate fallback, exclusion, cancellation, quota or pin change. No repeated user notification. Flips0test262cases.",
+  "local_evidence_directory": "/Users/chris/Code/Verification/zig-js-ecosystem-2026-11-08/completed-proc-stream-second-caller",
+  "test262_flips": 0
+}
